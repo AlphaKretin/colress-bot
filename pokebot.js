@@ -10,7 +10,7 @@ bot.on('ready', function(event) {
 });
 
 bot.on('message', function(user, userID, channelID, message, event) {
-    if (message.substring(0,8) === "!pokemon") {
+    if (message.toLowerCase().substring(0,8) === "!pokemon") {
         pokemon(user, userID, channelID, message, event);
     }
 });
@@ -53,7 +53,13 @@ var ivysaur = {
 	image: "http://cdn.bulbagarden.net/upload/thumb/7/73/002Ivysaur.png/240px-002Ivysaur.png"
 };
 
-//bot.sendMessage({
-    		//	to: channelID,
-    		//	message: mon
-			//});
+var venusaur = {
+	name: "Venusaur",
+	dex: 3,
+	type: "Grass/Poison",
+	ability: "Overgrow, N/A, Chlorophyll",
+	evolve: "Mega",
+	wiki: "http://bulbapedia.bulbagarden.net/wiki/Venusaur_(Pok%C3%A9mon)",
+	image: "//TODO"
+};
+
