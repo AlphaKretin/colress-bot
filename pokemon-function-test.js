@@ -9,15 +9,17 @@ var mons = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "cha
 function clicked(){
 	var message = document.getElementById("textBox").text;
 	if (message.substring(0,8) === "!pokemon") {
-        pokemon(user, userID, channelID, message, event);
-    }
+        	pokemon(user, userID, channelID, message, event);
+    	}
 }
 
 function pokemon(message){
 	var mon = message.substring(9);
 	mon = mon.toLowerCase();
 	if (mons.indexOf(mon) !== -1){
-		console.log(""Image: " + window[mon].image + "\nName: " + window[mon].name + "\nPokédex No.: " + window[mon].dex + "\nType: " + window[mon].type + "\nAbility: " + window[mon].ability + "\nEvolution: " + window[mon].evolve + "\nWiki Link: " + window[mon].wiki);
+		console.log("Image: " + window[mon].image + "\nName: " + window[mon].name + "\nPokédex No.: " + window[mon].dex + "\nType: " + window[mon].type + "\nAbility: " + window[mon].ability + "\nEvolution: " + window[mon].evolve + "\nWiki Link: " + window[mon].wiki);
+	} else {
+		console.log("I don't recognise that Pokemon!");
 	}
 }
 
