@@ -14121,3 +14121,3423 @@ var hyperspace_fury = {
     effect: "N/A",
     wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyperspace_Fury_(Move)"
 };
+
+var ability_capsule = {
+    name: "Ability Capsule",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ability_Capsule"
+};
+
+var ability_urge = {
+    name: "Ability Urge",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ability_Urge"
+};
+
+var abomasite = {
+    name: "Abomasite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Abomasite"
+};
+
+var absolite = {
+    name: "Absolite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Absolite"
+};
+
+var absorb_bulb = {
+    name: "Absorb Bulb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Absorb_Bulb"
+};
+
+var adamant_orb = {
+    name: "Adamant Orb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Adamant_Orb"
+};
+
+var adventure_rules = {
+    name: "Adventure Rules",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Adventure_Rules"
+};
+
+var aerodactylite = {
+    name: "Aerodactylite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aerodactylite"
+};
+
+var aggronite = {
+    name: "Aggronite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aggronite"
+};
+
+var aguav_berry = {
+    name: "Aguav Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aguav_Berry"
+};
+
+var air_balloon = {
+    name: "Air Balloon",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Air_Balloon"
+};
+
+var alakazite = {
+    name: "Alakazite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Alakazite"
+};
+
+var altarianite = {
+    name: "Altarianite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Altarianite"
+};
+
+var ampharosite = {
+    name: "Ampharosite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ampharosite"
+};
+
+var amulet_coin = {
+    name: "Amulet Coin",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Amulet_Coin"
+};
+
+var antidote = {
+    name: "Antidote",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Antidote"
+};
+
+var apicot_berry = {
+    name: "Apicot Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Apicot_Berry"
+};
+
+var armor_fossil = {
+    name: "Armor Fossil",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Armor_Fossil"
+};
+
+var aspear_berry = {
+    name: "Aspear Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aspear_Berry"
+};
+
+var audinite = {
+    name: "Audinite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Audinite"
+};
+
+var awakening = {
+    name: "Awakening",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Awakening"
+};
+
+var babiri_berry = {
+    name: "Babiri Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Babiri_Berry"
+};
+
+var balmmushroom = {
+    name: "Balmmushroom",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Balmmushroom"
+};
+
+var banettite = {
+    name: "Banettite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Banettite"
+};
+
+var beedrillite = {
+    name: "Beedrillite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Beedrillite"
+};
+
+var belue_berry = {
+    name: "Belue Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Belue_Berry"
+};
+
+var berry_juice = {
+    name: "Berry Juice",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Berry_Juice"
+};
+
+var big_mushroom = {
+    name: "Big Mushroom",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Mushroom"
+};
+
+var big_nugget = {
+    name: "Big Nugget",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Nugget"
+};
+
+var big_pearl = {
+    name: "Big Pearl",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Pearl"
+};
+
+var big_root = {
+    name: "Big Root",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Root"
+};
+
+var binding_band = {
+    name: "Binding Band",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Binding_Band"
+};
+
+var black_belt = {
+    name: "Black Belt",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Black_Belt"
+};
+
+var black_flute = {
+    name: "Black Flute",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Black_Flute"
+};
+
+var black_sludge = {
+    name: "Black Sludge",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Black_Sludge"
+};
+
+var blackglasses = {
+    name: "Blackglasses",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blackglasses"
+};
+
+var blastoisinite = {
+    name: "Blastoisinite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blastoisinite"
+};
+
+var blazikenite = {
+    name: "Blazikenite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blazikenite"
+};
+
+var blk_apricorn = {
+    name: "Blk Apricorn",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blk_Apricorn"
+};
+
+var blu_apricorn = {
+    name: "Blu Apricorn",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blu_Apricorn"
+};
+
+var blue_flute = {
+    name: "Blue Flute",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blue_Flute"
+};
+
+var blue_scarf = {
+    name: "Blue Scarf",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blue_Scarf"
+};
+
+var blue_shard = {
+    name: "Blue Shard",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blue_Shard"
+};
+
+var bluk_berry = {
+    name: "Bluk Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bluk_Berry"
+};
+
+var brightpowder = {
+    name: "Brightpowder",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Brightpowder"
+};
+
+var bug_gem = {
+    name: "Bug Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bug_Gem"
+};
+
+var burn_drive = {
+    name: "Burn Drive",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Burn_Drive"
+};
+
+var burn_heal = {
+    name: "Burn Heal",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Burn_Heal"
+};
+
+var calcium = {
+    name: "Calcium",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Calcium"
+};
+
+var cameruptite = {
+    name: "Cameruptite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cameruptite"
+};
+
+var carbos = {
+    name: "Carbos",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Carbos"
+};
+
+var casteliacone = {
+    name: "Casteliacone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Casteliacone"
+};
+
+var cell_battery = {
+    name: "Cell Battery",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cell_Battery"
+};
+
+var charcoal = {
+    name: "Charcoal",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charcoal"
+};
+
+var charizardite_x = {
+    name: "Charizardite X",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charizardite_X"
+};
+
+var charizardite_y = {
+    name: "Charizardite Y",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charizardite_Y"
+};
+
+var charti_berry = {
+    name: "Charti Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charti_Berry"
+};
+
+var cheri_berry = {
+    name: "Cheri Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cheri_Berry"
+};
+
+var cherish_ball = {
+    name: "Cherish Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cherish_Ball"
+};
+
+var chesto_berry = {
+    name: "Chesto Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chesto_Berry"
+};
+
+var chilan_berry = {
+    name: "Chilan Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chilan_Berry"
+};
+
+var chill_drive = {
+    name: "Chill Drive",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chill_Drive"
+};
+
+var choice_band = {
+    name: "Choice Band",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Choice_Band"
+};
+
+var choice_scarf = {
+    name: "Choice Scarf",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Choice_Scarf"
+};
+
+var choice_specs = {
+    name: "Choice Specs",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Choice_Specs"
+};
+
+var chople_berry = {
+    name: "Chople Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chople_Berry"
+};
+
+var claw_fossil = {
+    name: "Claw Fossil",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Claw_Fossil"
+};
+
+var cleanse_tag = {
+    name: "Cleanse Tag",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cleanse_Tag"
+};
+
+var clever_wing = {
+    name: "Clever Wing",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clever_Wing"
+};
+
+var coba_berry = {
+    name: "Coba Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Coba_Berry"
+};
+
+var colbur_berry = {
+    name: "Colbur Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Colbur_Berry"
+};
+
+var colress_machine = {
+    name: "Colress Machine",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Colress_Machine"
+};
+
+var comet_shard = {
+    name: "Comet Shard",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Comet_Shard"
+};
+
+var cornn_berry = {
+    name: "Cornn Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cornn_Berry"
+};
+
+var cover_fossil = {
+    name: "Cover Fossil",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cover_Fossil"
+};
+
+var custap_berry = {
+    name: "Custap Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Custap_Berry"
+};
+
+var damp_mulch = {
+    name: "Damp Mulch",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Damp_Mulch"
+};
+
+var damp_rock = {
+    name: "Damp Rock",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Damp_Rock"
+};
+
+var dark_gem = {
+    name: "Dark Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dark_Gem"
+};
+
+var dawn_stone = {
+    name: "Dawn Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dawn_Stone"
+};
+
+var deepseascale = {
+    name: "Deepseascale",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Deepseascale"
+};
+
+var deepseatooth = {
+    name: "Deepseatooth",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Deepseatooth"
+};
+
+var destiny_knot = {
+    name: "Destiny Knot",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Destiny_Knot"
+};
+
+var diancite = {
+    name: "Diancite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Diancite"
+};
+
+var dire_hit = {
+    name: "Dire Hit",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dire_Hit"
+};
+
+var dire_hit_2 = {
+    name: "Dire Hit 2",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dire_Hit_2"
+};
+
+var dire_hit_3 = {
+    name: "Dire Hit 3",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dire_Hit_3"
+};
+
+var dive_ball = {
+    name: "Dive Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dive_Ball"
+};
+
+var dna_splicers = {
+    name: "Dna Splicers",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dna_Splicers"
+};
+
+var dome_fossil = {
+    name: "Dome Fossil",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dome_Fossil"
+};
+
+var douse_drive = {
+    name: "Douse Drive",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Douse_Drive"
+};
+
+var draco_plate = {
+    name: "Draco Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Draco_Plate"
+};
+
+var dragon_fang = {
+    name: "Dragon Fang",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Fang"
+};
+
+var dragon_gem = {
+    name: "Dragon Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Gem"
+};
+
+var dragon_scale = {
+    name: "Dragon Scale",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Scale"
+};
+
+var dread_plate = {
+    name: "Dread Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dread_Plate"
+};
+
+var dream_ball = {
+    name: "Dream Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dream_Ball"
+};
+
+var dropped_item = {
+    name: "Dropped Item",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dropped_Item"
+};
+
+var dubious_disc = {
+    name: "Dubious Disc",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dubious_Disc"
+};
+
+var durin_berry = {
+    name: "Durin Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Durin_Berry"
+};
+
+var dusk_ball = {
+    name: "Dusk Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dusk_Ball"
+};
+
+var dusk_stone = {
+    name: "Dusk Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dusk_Stone"
+};
+
+var earth_plate = {
+    name: "Earth Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Earth_Plate"
+};
+
+var eject_button = {
+    name: "Eject Button",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eject_Button"
+};
+
+var electirizer = {
+    name: "Electirizer",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electirizer"
+};
+
+var electric_gem = {
+    name: "Electric Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electric_Gem"
+};
+
+var elevator_key = {
+    name: "Elevator Key",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Elevator_Key"
+};
+
+var elixir = {
+    name: "Elixir",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Elixir"
+};
+
+var energy_root = {
+    name: "Energy Root",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Energy_Root"
+};
+
+var energypowder = {
+    name: "Energypowder",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Energypowder"
+};
+
+var enigma_berry = {
+    name: "Enigma Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Enigma_Berry"
+};
+
+var escape_rope = {
+    name: "Escape Rope",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Escape_Rope"
+};
+
+var ether = {
+    name: "Ether",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ether"
+};
+
+var everstone = {
+    name: "Everstone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Everstone"
+};
+
+var eviolite = {
+    name: "Eviolite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eviolite"
+};
+
+var exp._share = {
+    name: "Exp. Share",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Exp._Share"
+};
+
+var expert_belt = {
+    name: "Expert Belt",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Expert_Belt"
+};
+
+var fairy_gem = {
+    name: "Fairy Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fairy_Gem"
+};
+
+var fast_ball = {
+    name: "Fast Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fast_Ball"
+};
+
+var fighting_gem = {
+    name: "Fighting Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fighting_Gem"
+};
+
+var figy_berry = {
+    name: "Figy Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Figy_Berry"
+};
+
+var fire_gem = {
+    name: "Fire Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Gem"
+};
+
+var fire_stone = {
+    name: "Fire Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Stone"
+};
+
+var fist_plate = {
+    name: "Fist Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fist_Plate"
+};
+
+var flame_orb = {
+    name: "Flame Orb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flame_Orb"
+};
+
+var flame_plate = {
+    name: "Flame Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flame_Plate"
+};
+
+var float_stone = {
+    name: "Float Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Float_Stone"
+};
+
+var fluffy_tail = {
+    name: "Fluffy Tail",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fluffy_Tail"
+};
+
+var flying_gem = {
+    name: "Flying Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flying_Gem"
+};
+
+var focus_band = {
+    name: "Focus Band",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Focus_Band"
+};
+
+var focus_sash = {
+    name: "Focus Sash",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Focus_Sash"
+};
+
+var fresh_water = {
+    name: "Fresh Water",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fresh_Water"
+};
+
+var friend_ball = {
+    name: "Friend Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Friend_Ball"
+};
+
+var full_heal = {
+    name: "Full Heal",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Full_Heal"
+};
+
+var full_incense = {
+    name: "Full Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Full_Incense"
+};
+
+var full_restore = {
+    name: "Full Restore",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Full_Restore"
+};
+
+var galladite = {
+    name: "Galladite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Galladite"
+};
+
+var ganlon_berry = {
+    name: "Ganlon Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ganlon_Berry"
+};
+
+var garchompite = {
+    name: "Garchompite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Garchompite"
+};
+
+var gardevoirite = {
+    name: "Gardevoirite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gardevoirite"
+};
+
+var gengarite = {
+    name: "Gengarite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gengarite"
+};
+
+var genius_wing = {
+    name: "Genius Wing",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Genius_Wing"
+};
+
+var ghost_gem = {
+    name: "Ghost Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ghost_Gem"
+};
+
+var glalitite = {
+    name: "Glalitite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Glalitite"
+};
+
+var gooey_mulch = {
+    name: "Gooey Mulch",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gooey_Mulch"
+};
+
+var grass_gem = {
+    name: "Grass Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grass_Gem"
+};
+
+var great_ball = {
+    name: "Great Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Great_Ball"
+};
+
+var green_scarf = {
+    name: "Green Scarf",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Green_Scarf"
+};
+
+var green_shard = {
+    name: "Green Shard",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Green_Shard"
+};
+
+var grepa_berry = {
+    name: "Grepa Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grepa_Berry"
+};
+
+var grip_claw = {
+    name: "Grip Claw",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grip_Claw"
+};
+
+var griseous_orb = {
+    name: "Griseous Orb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Griseous_Orb"
+};
+
+var grn_apricorn = {
+    name: "Grn Apricorn",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grn_Apricorn"
+};
+
+var ground_gem = {
+    name: "Ground Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ground_Gem"
+};
+
+var growth_mulch = {
+    name: "Growth Mulch",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Growth_Mulch"
+};
+
+var grubby_hanky = {
+    name: "Grubby Hanky",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grubby_Hanky"
+};
+
+var guard_spec. = {
+    name: "Guard Spec.",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Guard_Spec."
+};
+
+var gyaradosite = {
+    name: "Gyaradosite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gyaradosite"
+};
+
+var haban_berry = {
+    name: "Haban Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Haban_Berry"
+};
+
+var hard_stone = {
+    name: "Hard Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hard_Stone"
+};
+
+var heal_ball = {
+    name: "Heal Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heal_Ball"
+};
+
+var heal_powder = {
+    name: "Heal Powder",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heal_Powder"
+};
+
+var health_wing = {
+    name: "Health Wing",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Health_Wing"
+};
+
+var heart_scale = {
+    name: "Heart Scale",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heart_Scale"
+};
+
+var heat_rock = {
+    name: "Heat Rock",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heat_Rock"
+};
+
+var heavy_ball = {
+    name: "Heavy Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heavy_Ball"
+};
+
+var helix_fossil = {
+    name: "Helix Fossil",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Helix_Fossil"
+};
+
+var heracronite = {
+    name: "Heracronite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heracronite"
+};
+
+var hm01 = {
+    name: "Hm01",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm01"
+};
+
+var hm02 = {
+    name: "Hm02",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm02"
+};
+
+var hm03 = {
+    name: "Hm03",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm03"
+};
+
+var hm04 = {
+    name: "Hm04",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm04"
+};
+
+var hm05 = {
+    name: "Hm05",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm05"
+};
+
+var hm06 = {
+    name: "Hm06",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm06"
+};
+
+var hm07 = {
+    name: "Hm07",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm07"
+};
+
+var hm08 = {
+    name: "Hm08",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm08"
+};
+
+var holo_caster = {
+    name: "Holo Caster",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Holo_Caster"
+};
+
+var hondew_berry = {
+    name: "Hondew Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hondew_Berry"
+};
+
+var honey = {
+    name: "Honey",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Honey"
+};
+
+var honor_of_kalos = {
+    name: "Honor Of Kalos",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Honor_Of_Kalos"
+};
+
+var houndoominite = {
+    name: "Houndoominite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Houndoominite"
+};
+
+var hp_up = {
+    name: "Hp Up",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hp_Up"
+};
+
+var hyper_potion = {
+    name: "Hyper Potion",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyper_Potion"
+};
+
+var iapapa_berry = {
+    name: "Iapapa Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iapapa_Berry"
+};
+
+var ice_gem = {
+    name: "Ice Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Gem"
+};
+
+var ice_heal = {
+    name: "Ice Heal",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Heal"
+};
+
+var icicle_plate = {
+    name: "Icicle Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Icicle_Plate"
+};
+
+var icy_rock = {
+    name: "Icy Rock",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Icy_Rock"
+};
+
+var insect_plate = {
+    name: "Insect Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Insect_Plate"
+};
+
+var intriguing_stone = {
+    name: "Intriguing Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Intriguing_Stone"
+};
+
+var iron = {
+    name: "Iron",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron"
+};
+
+var iron_ball = {
+    name: "Iron Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Ball"
+};
+
+var iron_plate = {
+    name: "Iron Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Plate"
+};
+
+var item_drop = {
+    name: "Item Drop",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Item_Drop"
+};
+
+var item_urge = {
+    name: "Item Urge",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Item_Urge"
+};
+
+var jaboca_berry = {
+    name: "Jaboca Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jaboca_Berry"
+};
+
+var kangaskhanite = {
+    name: "Kangaskhanite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kangaskhanite"
+};
+
+var kasib_berry = {
+    name: "Kasib Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kasib_Berry"
+};
+
+var kebia_berry = {
+    name: "Kebia Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kebia_Berry"
+};
+
+var kelpsy_berry = {
+    name: "Kelpsy Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kelpsy_Berry"
+};
+
+var kings_rock = {
+    name: "Kings Rock",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kings_Rock"
+};
+
+var lagging_tail = {
+    name: "Lagging Tail",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lagging_Tail"
+};
+
+var lansat_berry = {
+    name: "Lansat Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lansat_Berry"
+};
+
+var latiasite = {
+    name: "Latiasite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Latiasite"
+};
+
+var latiosite = {
+    name: "Latiosite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Latiosite"
+};
+
+var lava_cookie = {
+    name: "Lava Cookie",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lava_Cookie"
+};
+
+var lax_incense = {
+    name: "Lax Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lax_Incense"
+};
+
+var leaf_stone = {
+    name: "Leaf Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leaf_Stone"
+};
+
+var leftovers = {
+    name: "Leftovers",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leftovers"
+};
+
+var lemonade = {
+    name: "Lemonade",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lemonade"
+};
+
+var lens_case = {
+    name: "Lens Case",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lens_Case"
+};
+
+var leppa_berry = {
+    name: "Leppa Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leppa_Berry"
+};
+
+var level_ball = {
+    name: "Level Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Level_Ball"
+};
+
+var liechi_berry = {
+    name: "Liechi Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Liechi_Berry"
+};
+
+var life_orb = {
+    name: "Life Orb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Life_Orb"
+};
+
+var light_ball = {
+    name: "Light Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Light_Ball"
+};
+
+var light_clay = {
+    name: "Light Clay",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Light_Clay"
+};
+
+var looker_ticket = {
+    name: "Looker Ticket",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Looker_Ticket"
+};
+
+var lopunnite = {
+    name: "Lopunnite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lopunnite"
+};
+
+var love_ball = {
+    name: "Love Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Love_Ball"
+};
+
+var lucarionite = {
+    name: "Lucarionite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lucarionite"
+};
+
+var luck_incense = {
+    name: "Luck Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Luck_Incense"
+};
+
+var lucky_egg = {
+    name: "Lucky Egg",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lucky_Egg"
+};
+
+var lucky_punch = {
+    name: "Lucky Punch",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lucky_Punch"
+};
+
+var lum_berry = {
+    name: "Lum Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lum_Berry"
+};
+
+var lure_ball = {
+    name: "Lure Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lure_Ball"
+};
+
+var lustrous_orb = {
+    name: "Lustrous Orb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lustrous_Orb"
+};
+
+var luxury_ball = {
+    name: "Luxury Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Luxury_Ball"
+};
+
+var macho_brace = {
+    name: "Macho Brace",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Macho_Brace"
+};
+
+var magmarizer = {
+    name: "Magmarizer",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magmarizer"
+};
+
+var magnet = {
+    name: "Magnet",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnet"
+};
+
+var mago_berry = {
+    name: "Mago Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mago_Berry"
+};
+
+var magost_berry = {
+    name: "Magost Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magost_Berry"
+};
+
+var manectite = {
+    name: "Manectite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Manectite"
+};
+
+var master_ball = {
+    name: "Master Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Master_Ball"
+};
+
+var mawilite = {
+    name: "Mawilite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mawilite"
+};
+
+var max_elixir = {
+    name: "Max Elixir",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Elixir"
+};
+
+var max_ether = {
+    name: "Max Ether",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Ether"
+};
+
+var max_potion = {
+    name: "Max Potion",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Potion"
+};
+
+var max_repel = {
+    name: "Max Repel",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Repel"
+};
+
+var max_revive = {
+    name: "Max Revive",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Revive"
+};
+
+var meadow_plate = {
+    name: "Meadow Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meadow_Plate"
+};
+
+var medal_box = {
+    name: "Medal Box",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Medal_Box"
+};
+
+var medichamite = {
+    name: "Medichamite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Medichamite"
+};
+
+var mental_herb = {
+    name: "Mental Herb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mental_Herb"
+};
+
+var metagrossite = {
+    name: "Metagrossite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metagrossite"
+};
+
+var metal_coat = {
+    name: "Metal Coat",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metal_Coat"
+};
+
+var metal_powder = {
+    name: "Metal Powder",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metal_Powder"
+};
+
+var metronome = {
+    name: "Metronome",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metronome"
+};
+
+var mewtwonite_x = {
+    name: "Mewtwonite X",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mewtwonite_X"
+};
+
+var mewtwonite_y = {
+    name: "Mewtwonite Y",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mewtwonite_Y"
+};
+
+var micle_berry = {
+    name: "Micle Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Micle_Berry"
+};
+
+var mind_plate = {
+    name: "Mind Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mind_Plate"
+};
+
+var miracle_seed = {
+    name: "Miracle Seed",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Miracle_Seed"
+};
+
+var moomoo_milk = {
+    name: "Moomoo Milk",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moomoo_Milk"
+};
+
+var moon_ball = {
+    name: "Moon Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moon_Ball"
+};
+
+var moon_stone = {
+    name: "Moon Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moon_Stone"
+};
+
+var muscle_band = {
+    name: "Muscle Band",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Muscle_Band"
+};
+
+var muscle_wing = {
+    name: "Muscle Wing",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Muscle_Wing"
+};
+
+var mystic_water = {
+    name: "Mystic Water",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mystic_Water"
+};
+
+var nanab_berry = {
+    name: "Nanab Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nanab_Berry"
+};
+
+var nest_ball = {
+    name: "Nest Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nest_Ball"
+};
+
+var net_ball = {
+    name: "Net Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Net_Ball"
+};
+
+var nevermeltice = {
+    name: "Nevermeltice",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nevermeltice"
+};
+
+var nomel_berry = {
+    name: "Nomel Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nomel_Berry"
+};
+
+var normal_gem = {
+    name: "Normal Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Normal_Gem"
+};
+
+var nugget = {
+    name: "Nugget",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nugget"
+};
+
+var occa_berry = {
+    name: "Occa Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Occa_Berry"
+};
+
+var odd_incense = {
+    name: "Odd Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Odd_Incense"
+};
+
+var odd_keystone = {
+    name: "Odd Keystone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Odd_Keystone"
+};
+
+var old_amber = {
+    name: "Old Amber",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Old_Amber"
+};
+
+var old_gateau = {
+    name: "Old Gateau",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Old_Gateau"
+};
+
+var oran_berry = {
+    name: "Oran Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oran_Berry"
+};
+
+var oval_charm = {
+    name: "Oval Charm",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oval_Charm"
+};
+
+var oval_stone = {
+    name: "Oval Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oval_Stone"
+};
+
+var pamtre_berry = {
+    name: "Pamtre Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pamtre_Berry"
+};
+
+var park_ball = {
+    name: "Park Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Park_Ball"
+};
+
+var parlyz_heal = {
+    name: "Parlyz Heal",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Parlyz_Heal"
+};
+
+var pass_orb = {
+    name: "Pass Orb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pass_Orb"
+};
+
+var passho_berry = {
+    name: "Passho Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Passho_Berry"
+};
+
+var payapa_berry = {
+    name: "Payapa Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Payapa_Berry"
+};
+
+var pearl = {
+    name: "Pearl",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pearl"
+};
+
+var pearl_string = {
+    name: "Pearl String",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pearl_String"
+};
+
+var pecha_berry = {
+    name: "Pecha Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pecha_Berry"
+};
+
+var permit = {
+    name: "Permit",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Permit"
+};
+
+var persim_berry = {
+    name: "Persim Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Persim_Berry"
+};
+
+var petaya_berry = {
+    name: "Petaya Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Petaya_Berry"
+};
+
+var pidgeotite = {
+    name: "Pidgeotite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pidgeotite"
+};
+
+var pinap_berry = {
+    name: "Pinap Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pinap_Berry"
+};
+
+var pink_scarf = {
+    name: "Pink Scarf",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pink_Scarf"
+};
+
+var pinsirite = {
+    name: "Pinsirite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pinsirite"
+};
+
+var pixie_plate = {
+    name: "Pixie Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pixie_Plate"
+};
+
+var plasma_card = {
+    name: "Plasma Card",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Plasma_Card"
+};
+
+var plume_fossil = {
+    name: "Plume Fossil",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Plume_Fossil"
+};
+
+var pnk_apricorn = {
+    name: "Pnk Apricorn",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pnk_Apricorn"
+};
+
+var poison_barb = {
+    name: "Poison Barb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Barb"
+};
+
+var poison_gem = {
+    name: "Poison Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Gem"
+};
+
+var poké_ball = {
+    name: "Poké Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poké_Ball"
+};
+
+var poké_doll = {
+    name: "Poké Doll",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poké_Doll"
+};
+
+var poké_toy = {
+    name: "Poké Toy",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poké_Toy"
+};
+
+var pomeg_berry = {
+    name: "Pomeg Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pomeg_Berry"
+};
+
+var potion = {
+    name: "Potion",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Potion"
+};
+
+var power_anklet = {
+    name: "Power Anklet",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Anklet"
+};
+
+var power_band = {
+    name: "Power Band",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Band"
+};
+
+var power_belt = {
+    name: "Power Belt",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Belt"
+};
+
+var power_bracer = {
+    name: "Power Bracer",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Bracer"
+};
+
+var power_herb = {
+    name: "Power Herb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Herb"
+};
+
+var power_lens = {
+    name: "Power Lens",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Lens"
+};
+
+var power_plant_pass = {
+    name: "Power Plant Pass",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Plant_Pass"
+};
+
+var power_weight = {
+    name: "Power Weight",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Weight"
+};
+
+var pp_max = {
+    name: "Pp Max",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pp_Max"
+};
+
+var pp_up = {
+    name: "Pp Up",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pp_Up"
+};
+
+var premier_ball = {
+    name: "Premier Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Premier_Ball"
+};
+
+var pretty_wing = {
+    name: "Pretty Wing",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pretty_Wing"
+};
+
+var prism_scale = {
+    name: "Prism Scale",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Prism_Scale"
+};
+
+var profs_letter = {
+    name: "Profs Letter",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Profs_Letter"
+};
+
+var protector = {
+    name: "Protector",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Protector"
+};
+
+var protein = {
+    name: "Protein",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Protein"
+};
+
+var psychic_gem = {
+    name: "Psychic Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psychic_Gem"
+};
+
+var pure_incense = {
+    name: "Pure Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pure_Incense"
+};
+
+var qualot_berry = {
+    name: "Qualot Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Qualot_Berry"
+};
+
+var quick_ball = {
+    name: "Quick Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Ball"
+};
+
+var quick_claw = {
+    name: "Quick Claw",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Claw"
+};
+
+var quick_powder = {
+    name: "Quick Powder",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Powder"
+};
+
+var rabuta_berry = {
+    name: "Rabuta Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rabuta_Berry"
+};
+
+var rare_bone = {
+    name: "Rare Bone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rare_Bone"
+};
+
+var rare_candy = {
+    name: "Rare Candy",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rare_Candy"
+};
+
+var rawst_berry = {
+    name: "Rawst Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rawst_Berry"
+};
+
+var razor_claw = {
+    name: "Razor Claw",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razor_Claw"
+};
+
+var razor_fang = {
+    name: "Razor Fang",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razor_Fang"
+};
+
+var razz_berry = {
+    name: "Razz Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razz_Berry"
+};
+
+var reaper_cloth = {
+    name: "Reaper Cloth",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reaper_Cloth"
+};
+
+var red_apricorn = {
+    name: "Red Apricorn",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Apricorn"
+};
+
+var red_card = {
+    name: "Red Card",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Card"
+};
+
+var red_flute = {
+    name: "Red Flute",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Flute"
+};
+
+var red_scarf = {
+    name: "Red Scarf",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Scarf"
+};
+
+var red_shard = {
+    name: "Red Shard",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Shard"
+};
+
+var relic_band = {
+    name: "Relic Band",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Band"
+};
+
+var relic_copper = {
+    name: "Relic Copper",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Copper"
+};
+
+var relic_crown = {
+    name: "Relic Crown",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Crown"
+};
+
+var relic_gold = {
+    name: "Relic Gold",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Gold"
+};
+
+var relic_silver = {
+    name: "Relic Silver",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Silver"
+};
+
+var relic_statue = {
+    name: "Relic Statue",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Statue"
+};
+
+var relic_vase = {
+    name: "Relic Vase",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Vase"
+};
+
+var repeat_ball = {
+    name: "Repeat Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Repeat_Ball"
+};
+
+var repel = {
+    name: "Repel",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Repel"
+};
+
+var reset_urge = {
+    name: "Reset Urge",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reset_Urge"
+};
+
+var resist_wing = {
+    name: "Resist Wing",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Resist_Wing"
+};
+
+var reveal_glass = {
+    name: "Reveal Glass",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reveal_Glass"
+};
+
+var revival_herb = {
+    name: "Revival Herb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Revival_Herb"
+};
+
+var revive = {
+    name: "Revive",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Revive"
+};
+
+var rindo_berry = {
+    name: "Rindo Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rindo_Berry"
+};
+
+var ring_target = {
+    name: "Ring Target",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ring_Target"
+};
+
+var rock_gem = {
+    name: "Rock Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Gem"
+};
+
+var rock_incense = {
+    name: "Rock Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Incense"
+};
+
+var rocky_helmet = {
+    name: "Rocky Helmet",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rocky_Helmet"
+};
+
+var roller_skates = {
+    name: "Roller Skates",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Roller_Skates"
+};
+
+var root_fossil = {
+    name: "Root Fossil",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Root_Fossil"
+};
+
+var rose_incense = {
+    name: "Rose Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rose_Incense"
+};
+
+var rowap_berry = {
+    name: "Rowap Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rowap_Berry"
+};
+
+var sablenite = {
+    name: "Sablenite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sablenite"
+};
+
+var sacred_ash = {
+    name: "Sacred Ash",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sacred_Ash"
+};
+
+var safari_ball = {
+    name: "Safari Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Safari_Ball"
+};
+
+var salac_berry = {
+    name: "Salac Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Salac_Berry"
+};
+
+var salamencite = {
+    name: "Salamencite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Salamencite"
+};
+
+var sceptilite = {
+    name: "Sceptilite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sceptilite"
+};
+
+var scizorite = {
+    name: "Scizorite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scizorite"
+};
+
+var scope_lens = {
+    name: "Scope Lens",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scope_Lens"
+};
+
+var sea_incense = {
+    name: "Sea Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sea_Incense"
+};
+
+var sharp_beak = {
+    name: "Sharp Beak",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sharp_Beak"
+};
+
+var sharpedonite = {
+    name: "Sharpedonite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sharpedonite"
+};
+
+var shed_shell = {
+    name: "Shed Shell",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shed_Shell"
+};
+
+var shell_bell = {
+    name: "Shell Bell",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shell_Bell"
+};
+
+var shiny_charm = {
+    name: "Shiny Charm",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shiny_Charm"
+};
+
+var shiny_stone = {
+    name: "Shiny Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shiny_Stone"
+};
+
+var shoal_salt = {
+    name: "Shoal Salt",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shoal_Salt"
+};
+
+var shoal_shell = {
+    name: "Shoal Shell",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shoal_Shell"
+};
+
+var shock_drive = {
+    name: "Shock Drive",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shock_Drive"
+};
+
+var shuca_berry = {
+    name: "Shuca Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shuca_Berry"
+};
+
+var silk_scarf = {
+    name: "Silk Scarf",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Silk_Scarf"
+};
+
+var silverpowder = {
+    name: "Silverpowder",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Silverpowder"
+};
+
+var sitrus_berry = {
+    name: "Sitrus Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sitrus_Berry"
+};
+
+var skull_fossil = {
+    name: "Skull Fossil",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skull_Fossil"
+};
+
+var sky_plate = {
+    name: "Sky Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sky_Plate"
+};
+
+var slowbronite = {
+    name: "Slowbronite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slowbronite"
+};
+
+var smoke_ball = {
+    name: "Smoke Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smoke_Ball"
+};
+
+var smooth_rock = {
+    name: "Smooth Rock",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smooth_Rock"
+};
+
+var soda_pop = {
+    name: "Soda Pop",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soda_Pop"
+};
+
+var soft_sand = {
+    name: "Soft Sand",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soft_Sand"
+};
+
+var soothe_bell = {
+    name: "Soothe Bell",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soothe_Bell"
+};
+
+var soul_dew = {
+    name: "Soul Dew",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soul_Dew"
+};
+
+var spell_tag = {
+    name: "Spell Tag",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spell_Tag"
+};
+
+var spelon_berry = {
+    name: "Spelon Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spelon_Berry"
+};
+
+var splash_plate = {
+    name: "Splash Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Splash_Plate"
+};
+
+var spooky_plate = {
+    name: "Spooky Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spooky_Plate"
+};
+
+var sport_ball = {
+    name: "Sport Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sport_Ball"
+};
+
+var sprinklotad = {
+    name: "Sprinklotad",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sprinklotad"
+};
+
+var stable_mulch = {
+    name: "Stable Mulch",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stable_Mulch"
+};
+
+var star_piece = {
+    name: "Star Piece",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Star_Piece"
+};
+
+var stardust = {
+    name: "Stardust",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stardust"
+};
+
+var starf_berry = {
+    name: "Starf Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Starf_Berry"
+};
+
+var steel_gem = {
+    name: "Steel Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steel_Gem"
+};
+
+var steelixite = {
+    name: "Steelixite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steelixite"
+};
+
+var stick = {
+    name: "Stick",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stick"
+};
+
+var sticky_barb = {
+    name: "Sticky Barb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sticky_Barb"
+};
+
+var stone_plate = {
+    name: "Stone Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stone_Plate"
+};
+
+var sun_stone = {
+    name: "Sun Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sun_Stone"
+};
+
+var super_potion = {
+    name: "Super Potion",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Super_Potion"
+};
+
+var super_repel = {
+    name: "Super Repel",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Super_Repel"
+};
+
+var swampertite = {
+    name: "Swampertite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swampertite"
+};
+
+var sweet_heart = {
+    name: "Sweet Heart",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sweet_Heart"
+};
+
+var swift_wing = {
+    name: "Swift Wing",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swift_Wing"
+};
+
+var tamato_berry = {
+    name: "Tamato Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tamato_Berry"
+};
+
+var tanga_berry = {
+    name: "Tanga Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tanga_Berry"
+};
+
+var thick_club = {
+    name: "Thick Club",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thick_Club"
+};
+
+var thunderstone = {
+    name: "Thunderstone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thunderstone"
+};
+
+var timer_ball = {
+    name: "Timer Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Timer_Ball"
+};
+
+var tinymushroom = {
+    name: "Tinymushroom",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tinymushroom"
+};
+
+var tm01 = {
+    name: "Tm01",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm01"
+};
+
+var tm02 = {
+    name: "Tm02",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm02"
+};
+
+var tm03 = {
+    name: "Tm03",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm03"
+};
+
+var tm04 = {
+    name: "Tm04",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm04"
+};
+
+var tm05 = {
+    name: "Tm05",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm05"
+};
+
+var tm06 = {
+    name: "Tm06",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm06"
+};
+
+var tm07 = {
+    name: "Tm07",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm07"
+};
+
+var tm08 = {
+    name: "Tm08",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm08"
+};
+
+var tm09 = {
+    name: "Tm09",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm09"
+};
+
+var tm10 = {
+    name: "Tm10",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm10"
+};
+
+var tm100 = {
+    name: "Tm100",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm100"
+};
+
+var tm11 = {
+    name: "Tm11",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm11"
+};
+
+var tm12 = {
+    name: "Tm12",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm12"
+};
+
+var tm13 = {
+    name: "Tm13",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm13"
+};
+
+var tm14 = {
+    name: "Tm14",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm14"
+};
+
+var tm15 = {
+    name: "Tm15",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm15"
+};
+
+var tm16 = {
+    name: "Tm16",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm16"
+};
+
+var tm17 = {
+    name: "Tm17",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm17"
+};
+
+var tm18 = {
+    name: "Tm18",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm18"
+};
+
+var tm19 = {
+    name: "Tm19",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm19"
+};
+
+var tm20 = {
+    name: "Tm20",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm20"
+};
+
+var tm21 = {
+    name: "Tm21",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm21"
+};
+
+var tm22 = {
+    name: "Tm22",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm22"
+};
+
+var tm23 = {
+    name: "Tm23",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm23"
+};
+
+var tm24 = {
+    name: "Tm24",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm24"
+};
+
+var tm25 = {
+    name: "Tm25",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm25"
+};
+
+var tm26 = {
+    name: "Tm26",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm26"
+};
+
+var tm27 = {
+    name: "Tm27",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm27"
+};
+
+var tm28 = {
+    name: "Tm28",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm28"
+};
+
+var tm29 = {
+    name: "Tm29",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm29"
+};
+
+var tm30 = {
+    name: "Tm30",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm30"
+};
+
+var tm31 = {
+    name: "Tm31",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm31"
+};
+
+var tm32 = {
+    name: "Tm32",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm32"
+};
+
+var tm33 = {
+    name: "Tm33",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm33"
+};
+
+var tm34 = {
+    name: "Tm34",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm34"
+};
+
+var tm35 = {
+    name: "Tm35",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm35"
+};
+
+var tm36 = {
+    name: "Tm36",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm36"
+};
+
+var tm37 = {
+    name: "Tm37",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm37"
+};
+
+var tm38 = {
+    name: "Tm38",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm38"
+};
+
+var tm39 = {
+    name: "Tm39",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm39"
+};
+
+var tm40 = {
+    name: "Tm40",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm40"
+};
+
+var tm41 = {
+    name: "Tm41",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm41"
+};
+
+var tm42 = {
+    name: "Tm42",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm42"
+};
+
+var tm43 = {
+    name: "Tm43",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm43"
+};
+
+var tm44 = {
+    name: "Tm44",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm44"
+};
+
+var tm45 = {
+    name: "Tm45",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm45"
+};
+
+var tm46 = {
+    name: "Tm46",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm46"
+};
+
+var tm47 = {
+    name: "Tm47",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm47"
+};
+
+var tm48 = {
+    name: "Tm48",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm48"
+};
+
+var tm49 = {
+    name: "Tm49",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm49"
+};
+
+var tm50 = {
+    name: "Tm50",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm50"
+};
+
+var tm51 = {
+    name: "Tm51",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm51"
+};
+
+var tm52 = {
+    name: "Tm52",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm52"
+};
+
+var tm53 = {
+    name: "Tm53",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm53"
+};
+
+var tm54 = {
+    name: "Tm54",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm54"
+};
+
+var tm55 = {
+    name: "Tm55",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm55"
+};
+
+var tm56 = {
+    name: "Tm56",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm56"
+};
+
+var tm57 = {
+    name: "Tm57",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm57"
+};
+
+var tm58 = {
+    name: "Tm58",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm58"
+};
+
+var tm59 = {
+    name: "Tm59",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm59"
+};
+
+var tm60 = {
+    name: "Tm60",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm60"
+};
+
+var tm61 = {
+    name: "Tm61",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm61"
+};
+
+var tm62 = {
+    name: "Tm62",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm62"
+};
+
+var tm63 = {
+    name: "Tm63",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm63"
+};
+
+var tm64 = {
+    name: "Tm64",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm64"
+};
+
+var tm65 = {
+    name: "Tm65",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm65"
+};
+
+var tm66 = {
+    name: "Tm66",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm66"
+};
+
+var tm67 = {
+    name: "Tm67",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm67"
+};
+
+var tm68 = {
+    name: "Tm68",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm68"
+};
+
+var tm69 = {
+    name: "Tm69",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm69"
+};
+
+var tm70 = {
+    name: "Tm70",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm70"
+};
+
+var tm71 = {
+    name: "Tm71",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm71"
+};
+
+var tm72 = {
+    name: "Tm72",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm72"
+};
+
+var tm73 = {
+    name: "Tm73",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm73"
+};
+
+var tm74 = {
+    name: "Tm74",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm74"
+};
+
+var tm75 = {
+    name: "Tm75",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm75"
+};
+
+var tm76 = {
+    name: "Tm76",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm76"
+};
+
+var tm77 = {
+    name: "Tm77",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm77"
+};
+
+var tm78 = {
+    name: "Tm78",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm78"
+};
+
+var tm79 = {
+    name: "Tm79",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm79"
+};
+
+var tm80 = {
+    name: "Tm80",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm80"
+};
+
+var tm81 = {
+    name: "Tm81",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm81"
+};
+
+var tm82 = {
+    name: "Tm82",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm82"
+};
+
+var tm83 = {
+    name: "Tm83",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm83"
+};
+
+var tm84 = {
+    name: "Tm84",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm84"
+};
+
+var tm85 = {
+    name: "Tm85",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm85"
+};
+
+var tm86 = {
+    name: "Tm86",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm86"
+};
+
+var tm87 = {
+    name: "Tm87",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm87"
+};
+
+var tm88 = {
+    name: "Tm88",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm88"
+};
+
+var tm89 = {
+    name: "Tm89",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm89"
+};
+
+var tm90 = {
+    name: "Tm90",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm90"
+};
+
+var tm91 = {
+    name: "Tm91",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm91"
+};
+
+var tm92 = {
+    name: "Tm92",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm92"
+};
+
+var tm93 = {
+    name: "Tm93",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm93"
+};
+
+var tm94 = {
+    name: "Tm94",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm94"
+};
+
+var tm95 = {
+    name: "Tm95",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm95"
+};
+
+var tm96 = {
+    name: "Tm96",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm96"
+};
+
+var tm97 = {
+    name: "Tm97",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm97"
+};
+
+var tm98 = {
+    name: "Tm98",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm98"
+};
+
+var tm99 = {
+    name: "Tm99",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm99"
+};
+
+var tmv_pass = {
+    name: "Tmv Pass",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tmv_Pass"
+};
+
+var toxic_orb = {
+    name: "Toxic Orb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Toxic_Orb"
+};
+
+var toxic_plate = {
+    name: "Toxic Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Toxic_Plate"
+};
+
+var twistedspoon = {
+    name: "Twistedspoon",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Twistedspoon"
+};
+
+var tyranitarite = {
+    name: "Tyranitarite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tyranitarite"
+};
+
+var ultra_ball = {
+    name: "Ultra Ball",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ultra_Ball"
+};
+
+var up_grade = {
+    name: "Up_grade",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Up_grade"
+};
+
+var venusaurite = {
+    name: "Venusaurite",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Venusaurite"
+};
+
+var wacan_berry = {
+    name: "Wacan Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wacan_Berry"
+};
+
+var water_gem = {
+    name: "Water Gem",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Gem"
+};
+
+var water_stone = {
+    name: "Water Stone",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Stone"
+};
+
+var watmel_berry = {
+    name: "Watmel Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Watmel_Berry"
+};
+
+var wave_incense = {
+    name: "Wave Incense",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wave_Incense"
+};
+
+var wepear_berry = {
+    name: "Wepear Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wepear_Berry"
+};
+
+var white_flute = {
+    name: "White Flute",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/White_Flute"
+};
+
+var white_herb = {
+    name: "White Herb",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/White_Herb"
+};
+
+var wht_apricorn = {
+    name: "Wht Apricorn",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wht_Apricorn"
+};
+
+var wide_lens = {
+    name: "Wide Lens",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wide_Lens"
+};
+
+var wiki_berry = {
+    name: "Wiki Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wiki_Berry"
+};
+
+var wise_glasses = {
+    name: "Wise Glasses",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wise_Glasses"
+};
+
+var x_accuracy = {
+    name: "X Accuracy",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Accuracy"
+};
+
+var x_accuracy_2 = {
+    name: "X Accuracy 2",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Accuracy_2"
+};
+
+var x_accuracy_3 = {
+    name: "X Accuracy 3",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Accuracy_3"
+};
+
+var x_accuracy_6 = {
+    name: "X Accuracy 6",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Accuracy_6"
+};
+
+var x_attack = {
+    name: "X Attack",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Attack"
+};
+
+var x_attack_2 = {
+    name: "X Attack 2",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Attack_2"
+};
+
+var x_attack_3 = {
+    name: "X Attack 3",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Attack_3"
+};
+
+var x_attack_6 = {
+    name: "X Attack 6",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Attack_6"
+};
+
+var x_defend = {
+    name: "X Defend",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Defend"
+};
+
+var x_defend_2 = {
+    name: "X Defend 2",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Defend_2"
+};
+
+var x_defend_3 = {
+    name: "X Defend 3",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Defend_3"
+};
+
+var x_defend_6 = {
+    name: "X Defend 6",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Defend_6"
+};
+
+var x_sp._def = {
+    name: "X Sp. Def",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Sp._Def"
+};
+
+var x_sp._def_2 = {
+    name: "X Sp. Def 2",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Sp._Def_2"
+};
+
+var x_sp._def_3 = {
+    name: "X Sp. Def 3",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Sp._Def_3"
+};
+
+var x_sp._def_6 = {
+    name: "X Sp. Def 6",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Sp._Def_6"
+};
+
+var x_special = {
+    name: "X Special",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Special"
+};
+
+var x_special_2 = {
+    name: "X Special 2",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Special_2"
+};
+
+var x_special_3 = {
+    name: "X Special 3",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Special_3"
+};
+
+var x_special_6 = {
+    name: "X Special 6",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Special_6"
+};
+
+var x_speed = {
+    name: "X Speed",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Speed"
+};
+
+var x_speed_2 = {
+    name: "X Speed 2",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Speed_2"
+};
+
+var x_speed_3 = {
+    name: "X Speed 3",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Speed_3"
+};
+
+var x_speed_6 = {
+    name: "X Speed 6",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Speed_6"
+};
+
+var yache_berry = {
+    name: "Yache Berry",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yache_Berry"
+};
+
+var yellow_flute = {
+    name: "Yellow Flute",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yellow_Flute"
+};
+
+var yellow_scarf = {
+    name: "Yellow Scarf",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yellow_Scarf"
+};
+
+var yellow_shard = {
+    name: "Yellow Shard",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yellow_Shard"
+};
+
+var ylw_apricorn = {
+    name: "Ylw Apricorn",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ylw_Apricorn"
+};
+
+var zap_plate = {
+    name: "Zap Plate",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zap_Plate"
+};
+
+var zinc = {
+    name: "Zinc",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zinc"
+};
+
+var zoom_lens = {
+    name: "Zoom Lens",
+    desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
+    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zoom_Lens"
+};
