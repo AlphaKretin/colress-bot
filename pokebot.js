@@ -27,7 +27,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
         item(user, userID, channelID, message, event);
     }
     if (message.toLowerCase().substring(0, 8) === "!ability") {
-        pokemon(user, userID, channelID, message, event);
+        ability(user, userID, channelID, message, event);
     }
 });
 
@@ -51,7 +51,7 @@ function pokemon(user, userID, channelID, message, event) {
             mon = mon.replace(/ /g, "_");
             bot.sendMessage({
                 to: channelID,
-                message: "Image: " + window[mon].image + "\nName: " + window[mon].name + "\nPokédex No.: " + window[mon].dex + "\nType: " + window[mon].type + "\nAbility: " + window[mon].ability + "\nEvolution: " + window[mon].evolve + "\nWiki Link: " + window[mon].wiki
+                message: "Image: " + eval(mon).image + "\nName: " + eval(mon).name + "\nPokédex No.: " + eval(mon).dex + "\nType: " + eval(mon).type + "\nAbility: " + eval(mon).ability + "\nEvolution: " + eval(mon).evolve + "\nWiki Link: " + eval(mon).wiki
             });
         } else {
             bot.sendMessage({
@@ -75,7 +75,7 @@ function move(user, userID, channelID, message, event) {
             mov = mov.replace(/ /g, "_");
             bot.sendMessage({
                 to: channelID,
-                message: "Name: " + window[mov].name + "\nType: " + window[mov].type + "\nCategory: " + window[mov].cat + "\nPower: " + window[mov].power + "\nPP: " + window[mov].pp + "\nAccuracy: " + window[mov].acc + "\nEffect: " + window[mov].effect + "\nWiki Link: " + window[mov].wiki
+                message: "Name: " + eval(mov).name + "\nType: " + eval(mov).type + "\nCategory: " + eval(mov).cat + "\nPower: " + eval(mov).power + "\nPP: " + eval(mov).pp + "\nAccuracy: " + eval(mov).acc + "\nEffect: " + eval(mov).effect + "\nWiki Link: " + eval(mov).wiki
             });
         } else {
             bot.sendMessage({
@@ -99,7 +99,7 @@ function item(user, userID, channelID, message, event) {
             it = it.replace(/ /g, "_");
             bot.sendMessage({
                 to: channelID,
-                message: "Name: " + window[it].name + "\nDescription: " + window[it].desc + "\nWiki Link: " + window[it].wiki
+                message: "Name: " + eval(it).name + "\nDescription: " + eval(it).desc + "\nWiki Link: " + eval(it).wiki
             });
         } else {
             bot.sendMessage({
@@ -111,7 +111,7 @@ function item(user, userID, channelID, message, event) {
 }
 
 function ability(user, userID, channelID, message, event) {
-    var ab = message.substring(6);
+    var ab = message.substring(9);
     ab = ab.toLowerCase();
     if (ab === "help") {
         bot.sendMessage({
@@ -119,11 +119,11 @@ function ability(user, userID, channelID, message, event) {
             message: "This command serves information about abilities! Use the ability's name as the argument, with spaces where appropriate, and using '_' instead of '-' in ability names that include it."
         });
     } else {
-        if (abilites.indexOf(ab) !== -1) {
+        if (abilities.indexOf(ab) !== -1) {
             ab = ab.replace(/ /g, "_");
             bot.sendMessage({
                 to: channelID,
-                message: "Name: " + window[ab].name + "\nDescription: " + window[ab].desc + "\nWiki Link: " + window[ab].wiki
+                message: "Name: " + eval(ab).name + "\nDescription: " + eval(ab).desc + "\nWiki Link: " + eval(ab).wiki
             });
         } else {
             bot.sendMessage({
