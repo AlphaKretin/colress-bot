@@ -1,7 +1,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
     autorun: true,
-    token: "nah bro"
+    token: "get out"
 });
 
 var mons = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoranf", "nidorina", "nidoqueen", "nidoranm", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew", "chikorita", "bayleef", "meganium", "cyndaquil", "quilava", "typhlosion", "totodile", "croconaw", "feraligatr", "sentret", "furret", "hoothoot", "noctowl", "ledyba", "ledian", "spinarak", "ariados", "crobat", "chinchou", "lanturn", "pichu", "cleffa", "igglybuff", "togepi", "togetic", "natu", "xatu", "mareep", "flaaffy", "ampharos", "bellossom", "marill", "azumarill", "sudowoodo", "politoed", "hoppip", "skiploom", "jumpluff", "aipom", "sunkern", "sunflora", "yanma", "wooper", "quagsire", "espeon", "umbreon", "murkrow", "slowking", "misdreavus", "unown", "wobbuffet", "girafarig", "pineco", "forretress", "dunsparce", "gligar", "steelix", "snubbull", "granbull", "qwilfish", "scizor", "shuckle", "heracross", "sneasel", "teddiursa", "ursaring", "slugma", "magcargo", "swinub", "piloswine", "corsola", "remoraid", "octillery", "delibird", "mantine", "skarmory", "houndour", "houndoom", "kingdra", "phanpy", "donphan", "porygon2", "stantler", "smeargle", "tyrogue", "hitmontop", "smoochum", "elekid", "magby", "miltank", "blissey", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "lugia", "ho_oh", "celebi", "treecko", "grovyle", "sceptile", "torchic", "combusken", "blaziken", "mudkip", "marshtomp", "swampert", "poochyena", "mightyena", "zigzagoon", "linoone", "wurmple", "silcoon", "beautifly", "cascoon", "dustox", "lotad", "lombre", "ludicolo", "seedot", "nuzleaf", "shiftry", "taillow", "swellow", "wingull", "pelipper", "ralts", "kirlia", "gardevoir", "surskit", "masquerain", "shroomish", "breloom", "slakoth", "vigoroth", "slaking", "nincada", "ninjask", "shedinja", "whismur", "loudred", "exploud", "makuhita", "hariyama", "azurill", "nosepass", "skitty", "delcatty", "sableye", "mawile", "aron", "lairon", "aggron", "meditite", "medicham", "electrike", "manectric", "plusle", "minun", "volbeat", "illumise", "roselia", "gulpin", "swalot", "carvanha", "sharpedo", "wailmer", "wailord", "numel", "camerupt", "torkoal", "spoink", "grumpig", "spinda", "trapinch", "vibrava", "flygon", "cacnea", "cacturne", "swablu", "altaria", "zangoose", "seviper", "lunatone", "solrock", "barboach", "whiscash", "corphish", "crawdaunt", "baltoy", "claydol", "lileep", "cradily", "anorith", "armaldo", "feebas", "milotic", "castform", "kecleon", "shuppet", "banette", "duskull", "dusclops", "tropius", "chimecho", "absol", "wynaut", "snorunt", "glalie", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "bagon", "shelgon", "salamence", "beldum", "metang", "metagross", "regirock", "regice", "registeel", "latias", "latios", "kyogre", "groudon", "rayquaza", "jirachi", "deoxys", "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon", "starly", "staravia", "staraptor", "bidoof", "bibarel", "kricketot", "kricketune", "shinx", "luxio", "luxray", "budew", "roserade", "cranidos", "rampardos", "shieldon", "bastiodon", "burmy", "wormadam", "mothim", "combee", "vespiquen", "pachirisu", "buizel", "floatzel", "cherubi", "cherrim", "shellos", "gastrodon", "ambipom", "drifloon", "drifblim", "buneary", "lopunny", "mismagius", "honchkrow", "glameow", "purugly", "chingling", "stunky", "skuntank", "bronzor", "bronzong", "bonsly", "mime jr", "happiny", "chatot", "spiritomb", "gible", "gabite", "garchomp", "munchlax", "riolu", "lucario", "hippopotas", "hippowdon", "skorupi", "drapion", "croagunk", "toxicroak", "carnivine", "finneon", "lumineon", "mantyke", "snover", "abomasnow", "weavile", "magnezone", "lickilicky", "rhyperior", "tangrowth", "electivire", "magmortar", "togekiss", "yanmega", "leafeon", "glaceon", "gliscor", "mamoswine", "porygon_z", "gallade", "probopass", "dusknoir", "froslass", "rotom", "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran", "regigigas", "giratina", "cresselia", "phione", "manaphy", "darkrai", "shaymin", "arceus", "victini", "snivy", "servine", "serperior", "tepig", "pignite", "emboar", "oshawott", "dewott", "samurott", "patrat", "watchog", "lillipup", "herdier", "stoutland", "purrloin", "liepard", "pansage", "simisage", "pansear", "simisear", "panpour", "simipour", "munna", "musharna", "pidove", "tranquill", "unfezant", "blitzle", "zebstrika", "roggenrola", "boldore", "gigalith", "woobat", "swoobat", "drilbur", "excadrill", "audino", "timburr", "gurdurr", "conkeldurr", "tympole", "palpitoad", "seismitoad", "throh", "sawk", "sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "cottonee", "whimsicott", "petilil", "lilligant", "basculin", "sandile", "krokorok", "krookodile", "darumaka", "darmanitan", "maractus", "dwebble", "crustle", "scraggy", "scrafty", "sigilyph", "yamask", "cofagrigus", "tirtouga", "carracosta", "archen", "archeops", "trubbish", "garbodor", "zorua", "zoroark", "minccino", "cinccino", "gothita", "gothorita", "gothitelle", "solosis", "duosion", "reuniclus", "ducklett", "swanna", "vanillite", "vanillish", "vanilluxe", "deerling", "sawsbuck", "emolga", "karrablast", "escavalier", "foongus", "amoonguss", "frillish", "jellicent", "alomomola", "joltik", "galvantula", "ferroseed", "ferrothorn", "klink", "klang", "klinklang", "tynamo", "eelektrik", "eelektross", "elgyem", "beheeyem", "litwick", "lampent", "chandelure", "axew", "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo", "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary", "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona", "cobalion", "terrakion", "virizion", "tornadus", "thundurus", "reshiram", "zekrom", "landorus", "kyurem", "keldeo", "meloetta", "genesect", "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja", "bunnelby", "diggersby", "fletchling", "fletchinder", "talonflame", "scatterbug", "spewpa", "vivillon", "litleo", "pyroar", "flabebe", "floette", "florges", "skiddo", "gogoat", "pancham", "pangoro", "furfrou", "espurr", "meowstic", "honedge", "doublade", "aegislash", "spritzee", "aromatisse", "swirlix", "slurpuff", "inkay", "malamar", "binacle", "barbaracle", "skrelp", "dragalge", "clauncher", "clawitzer", "helioptile", "heliolisk", "tyrunt", "tyrantrum", "amaura", "aurorus", "sylveon", "hawlucha", "dedenne", "carbink", "goomy", "sliggoo", "goodra", "klefki", "phantump", "trevenant", "pumpkaboo", "gourgeist", "bergmite", "avalugg", "noibat", "noivern", "xerneas", "yveltal", "zygarde", "diancie"];
@@ -34,7 +34,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 function help(user, userID, channelID, message, event) {
     bot.sendMessage({
         to: channelID,
-        message: "Hi, I'm Pokébot! My job is to serve information about data in the Pokémon games. I recognise the following commands: \n!help: Displays this help message.\n!pokemon: Serves information about individual Pokémon.\n!move: Serves information about Pokémon moves.\n!item: Serves information about items.\n!ability: Serves information about pokemon abilites.\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'.\n~~Please use your Master Ball on Fearow or Tentacruel.~~"
+        message: "Hi, I'm Pokébot! My job is to serve information about data in the Pokémon games. I recognise the following commands: \n!help: Displays this help message.\n!pokemon: Serves information about individual Pokémon.\n!move: Serves information about Pokémon moves.\n!item: Serves information about items.\n!ability: Serves information about pokemon abilites.\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'.\n~~Please use your Master Ball on Fearow or Tentacruel.~~\nI was created by AlphaKretin, using discord.io in node.js."
     });
 }
 
@@ -155,15 +155,14 @@ function list(user, userID, channelID, message, event, arr){
 	});
 }
 
-
 var bulbasaur = {
     name: "Bulbasaur",
     dex: 1,
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
-    evolve: "Level 16, Ivysaur",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bulbasaur_(Pok%C3%A9mon)",
-    image: "http://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/240px-001Bulbasaur.png"
+    evolve: "Mega",
+    wiki: "http://www.serebii.net/pokedex-xy/1.shtml",
+    image: "http://www.serebii.net/xy/pokemon/1.png"
 };
 
 var ivysaur = {
@@ -171,9 +170,9 @@ var ivysaur = {
     dex: 2,
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
-    evolve: "Level 32, Venusaur",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ivysaur_(Pok%C3%A9mon)",
-    image: "http://cdn.bulbagarden.net/upload/thumb/7/73/002Ivysaur.png/240px-002Ivysaur.png"
+    evolve: "Mega",
+    wiki: "http://www.serebii.net/pokedex-xy/2.shtml",
+    image: "http://www.serebii.net/xy/pokemon/2.png"
 };
 
 var venusaur = {
@@ -182,38 +181,38 @@ var venusaur = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Venusaur_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/3.shtml",
+    image: "http://www.serebii.net/xy/pokemon/3.png"
 };
 
 var charmander = {
     name: "Charmander",
     dex: 4,
-    type: "Fire",
+    type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charmander_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/4.shtml",
+    image: "http://www.serebii.net/xy/pokemon/4.png"
 };
 
 var charmeleon = {
     name: "Charmeleon",
     dex: 5,
-    type: "Fire",
+    type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charmeleon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/5.shtml",
+    image: "http://www.serebii.net/xy/pokemon/5.png"
 };
 
 var charizard = {
     name: "Charizard",
     dex: 6,
-    type: "Fire/Flying",
+    type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/6.shtml",
+    image: "http://www.serebii.net/xy/pokemon/6.png"
 };
 
 var squirtle = {
@@ -222,8 +221,8 @@ var squirtle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Squirtle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/7.shtml",
+    image: "http://www.serebii.net/xy/pokemon/7.png"
 };
 
 var wartortle = {
@@ -232,8 +231,8 @@ var wartortle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wartortle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/8.shtml",
+    image: "http://www.serebii.net/xy/pokemon/8.png"
 };
 
 var blastoise = {
@@ -242,8 +241,8 @@ var blastoise = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blastoise_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/9.shtml",
+    image: "http://www.serebii.net/xy/pokemon/9.png"
 };
 
 var caterpie = {
@@ -252,8 +251,8 @@ var caterpie = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Caterpie_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/10.shtml",
+    image: "http://www.serebii.net/xy/pokemon/10.png"
 };
 
 var metapod = {
@@ -262,8 +261,8 @@ var metapod = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metapod_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/11.shtml",
+    image: "http://www.serebii.net/xy/pokemon/11.png"
 };
 
 var butterfree = {
@@ -272,8 +271,8 @@ var butterfree = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Butterfree_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/12.shtml",
+    image: "http://www.serebii.net/xy/pokemon/12.png"
 };
 
 var weedle = {
@@ -282,8 +281,8 @@ var weedle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Weedle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/13.shtml",
+    image: "http://www.serebii.net/xy/pokemon/13.png"
 };
 
 var kakuna = {
@@ -292,8 +291,8 @@ var kakuna = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kakuna_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/14.shtml",
+    image: "http://www.serebii.net/xy/pokemon/14.png"
 };
 
 var beedrill = {
@@ -302,8 +301,8 @@ var beedrill = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Beedrill_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/15.shtml",
+    image: "http://www.serebii.net/xy/pokemon/15.png"
 };
 
 var pidgey = {
@@ -312,8 +311,8 @@ var pidgey = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pidgey_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/16.shtml",
+    image: "http://www.serebii.net/xy/pokemon/16.png"
 };
 
 var pidgeotto = {
@@ -322,8 +321,8 @@ var pidgeotto = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pidgeotto_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/17.shtml",
+    image: "http://www.serebii.net/xy/pokemon/17.png"
 };
 
 var pidgeot = {
@@ -332,8 +331,8 @@ var pidgeot = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pidgeot_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/18.shtml",
+    image: "http://www.serebii.net/xy/pokemon/18.png"
 };
 
 var rattata = {
@@ -342,8 +341,8 @@ var rattata = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rattata_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/19.shtml",
+    image: "http://www.serebii.net/xy/pokemon/19.png"
 };
 
 var raticate = {
@@ -352,8 +351,8 @@ var raticate = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Raticate_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/20.shtml",
+    image: "http://www.serebii.net/xy/pokemon/20.png"
 };
 
 var spearow = {
@@ -362,8 +361,8 @@ var spearow = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spearow_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/21.shtml",
+    image: "http://www.serebii.net/xy/pokemon/21.png"
 };
 
 var fearow = {
@@ -372,8 +371,8 @@ var fearow = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fearow_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/22.shtml",
+    image: "http://www.serebii.net/xy/pokemon/22.png"
 };
 
 var ekans = {
@@ -382,8 +381,8 @@ var ekans = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ekans_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/23.shtml",
+    image: "http://www.serebii.net/xy/pokemon/23.png"
 };
 
 var arbok = {
@@ -392,8 +391,8 @@ var arbok = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Arbok_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/24.shtml",
+    image: "http://www.serebii.net/xy/pokemon/24.png"
 };
 
 var pikachu = {
@@ -402,8 +401,8 @@ var pikachu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/25.shtml",
+    image: "http://www.serebii.net/xy/pokemon/25.png"
 };
 
 var raichu = {
@@ -412,8 +411,8 @@ var raichu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Raichu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/26.shtml",
+    image: "http://www.serebii.net/xy/pokemon/26.png"
 };
 
 var sandshrew = {
@@ -422,8 +421,8 @@ var sandshrew = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sandshrew_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/27.shtml",
+    image: "http://www.serebii.net/xy/pokemon/27.png"
 };
 
 var sandslash = {
@@ -432,8 +431,8 @@ var sandslash = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sandslash_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/28.shtml",
+    image: "http://www.serebii.net/xy/pokemon/28.png"
 };
 
 var nidoranf = {
@@ -442,8 +441,8 @@ var nidoranf = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nidoran♀_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/29.shtml",
+    image: "http://www.serebii.net/xy/pokemon/29.png"
 };
 
 var nidorina = {
@@ -452,8 +451,8 @@ var nidorina = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nidorina_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/30.shtml",
+    image: "http://www.serebii.net/xy/pokemon/30.png"
 };
 
 var nidoqueen = {
@@ -462,8 +461,8 @@ var nidoqueen = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nidoqueen_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/31.shtml",
+    image: "http://www.serebii.net/xy/pokemon/31.png"
 };
 
 var nidoranm = {
@@ -472,8 +471,8 @@ var nidoranm = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nidoran♂_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/32.shtml",
+    image: "http://www.serebii.net/xy/pokemon/32.png"
 };
 
 var nidorino = {
@@ -482,8 +481,8 @@ var nidorino = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nidorino_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/33.shtml",
+    image: "http://www.serebii.net/xy/pokemon/33.png"
 };
 
 var nidoking = {
@@ -492,8 +491,8 @@ var nidoking = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nidoking_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/34.shtml",
+    image: "http://www.serebii.net/xy/pokemon/34.png"
 };
 
 var clefairy = {
@@ -502,8 +501,8 @@ var clefairy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clefairy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/35.shtml",
+    image: "http://www.serebii.net/xy/pokemon/35.png"
 };
 
 var clefable = {
@@ -512,8 +511,8 @@ var clefable = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clefable_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/36.shtml",
+    image: "http://www.serebii.net/xy/pokemon/36.png"
 };
 
 var vulpix = {
@@ -522,8 +521,8 @@ var vulpix = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vulpix_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/37.shtml",
+    image: "http://www.serebii.net/xy/pokemon/37.png"
 };
 
 var ninetales = {
@@ -532,8 +531,8 @@ var ninetales = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ninetales_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/38.shtml",
+    image: "http://www.serebii.net/xy/pokemon/38.png"
 };
 
 var jigglypuff = {
@@ -542,8 +541,8 @@ var jigglypuff = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jigglypuff_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/39.shtml",
+    image: "http://www.serebii.net/xy/pokemon/39.png"
 };
 
 var wigglytuff = {
@@ -552,8 +551,8 @@ var wigglytuff = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wigglytuff_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/40.shtml",
+    image: "http://www.serebii.net/xy/pokemon/40.png"
 };
 
 var zubat = {
@@ -562,8 +561,8 @@ var zubat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zubat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/41.shtml",
+    image: "http://www.serebii.net/xy/pokemon/41.png"
 };
 
 var golbat = {
@@ -572,8 +571,8 @@ var golbat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Golbat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/42.shtml",
+    image: "http://www.serebii.net/xy/pokemon/42.png"
 };
 
 var oddish = {
@@ -582,8 +581,8 @@ var oddish = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oddish_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/43.shtml",
+    image: "http://www.serebii.net/xy/pokemon/43.png"
 };
 
 var gloom = {
@@ -592,8 +591,8 @@ var gloom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gloom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/44.shtml",
+    image: "http://www.serebii.net/xy/pokemon/44.png"
 };
 
 var vileplume = {
@@ -602,8 +601,8 @@ var vileplume = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vileplume_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/45.shtml",
+    image: "http://www.serebii.net/xy/pokemon/45.png"
 };
 
 var paras = {
@@ -612,8 +611,8 @@ var paras = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Paras_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/46.shtml",
+    image: "http://www.serebii.net/xy/pokemon/46.png"
 };
 
 var parasect = {
@@ -622,8 +621,8 @@ var parasect = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Parasect_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/47.shtml",
+    image: "http://www.serebii.net/xy/pokemon/47.png"
 };
 
 var venonat = {
@@ -632,8 +631,8 @@ var venonat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Venonat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/48.shtml",
+    image: "http://www.serebii.net/xy/pokemon/48.png"
 };
 
 var venomoth = {
@@ -642,8 +641,8 @@ var venomoth = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Venomoth_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/49.shtml",
+    image: "http://www.serebii.net/xy/pokemon/49.png"
 };
 
 var diglett = {
@@ -652,8 +651,8 @@ var diglett = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Diglett_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/50.shtml",
+    image: "http://www.serebii.net/xy/pokemon/50.png"
 };
 
 var dugtrio = {
@@ -662,8 +661,8 @@ var dugtrio = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dugtrio_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/51.shtml",
+    image: "http://www.serebii.net/xy/pokemon/51.png"
 };
 
 var meowth = {
@@ -672,8 +671,8 @@ var meowth = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meowth_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/52.shtml",
+    image: "http://www.serebii.net/xy/pokemon/52.png"
 };
 
 var persian = {
@@ -682,8 +681,8 @@ var persian = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Persian_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/53.shtml",
+    image: "http://www.serebii.net/xy/pokemon/53.png"
 };
 
 var psyduck = {
@@ -692,8 +691,8 @@ var psyduck = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psyduck_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/54.shtml",
+    image: "http://www.serebii.net/xy/pokemon/54.png"
 };
 
 var golduck = {
@@ -702,8 +701,8 @@ var golduck = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Golduck_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/55.shtml",
+    image: "http://www.serebii.net/xy/pokemon/55.png"
 };
 
 var mankey = {
@@ -712,8 +711,8 @@ var mankey = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mankey_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/56.shtml",
+    image: "http://www.serebii.net/xy/pokemon/56.png"
 };
 
 var primeape = {
@@ -722,8 +721,8 @@ var primeape = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Primeape_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/57.shtml",
+    image: "http://www.serebii.net/xy/pokemon/57.png"
 };
 
 var growlithe = {
@@ -732,8 +731,8 @@ var growlithe = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Growlithe_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/58.shtml",
+    image: "http://www.serebii.net/xy/pokemon/58.png"
 };
 
 var arcanine = {
@@ -742,8 +741,8 @@ var arcanine = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Arcanine_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/59.shtml",
+    image: "http://www.serebii.net/xy/pokemon/59.png"
 };
 
 var poliwag = {
@@ -752,8 +751,8 @@ var poliwag = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poliwag_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/60.shtml",
+    image: "http://www.serebii.net/xy/pokemon/60.png"
 };
 
 var poliwhirl = {
@@ -762,8 +761,8 @@ var poliwhirl = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poliwhirl_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/61.shtml",
+    image: "http://www.serebii.net/xy/pokemon/61.png"
 };
 
 var poliwrath = {
@@ -772,8 +771,8 @@ var poliwrath = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poliwrath_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/62.shtml",
+    image: "http://www.serebii.net/xy/pokemon/62.png"
 };
 
 var abra = {
@@ -782,8 +781,8 @@ var abra = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Abra_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/63.shtml",
+    image: "http://www.serebii.net/xy/pokemon/63.png"
 };
 
 var kadabra = {
@@ -792,8 +791,8 @@ var kadabra = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kadabra_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/64.shtml",
+    image: "http://www.serebii.net/xy/pokemon/64.png"
 };
 
 var alakazam = {
@@ -802,8 +801,8 @@ var alakazam = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Alakazam_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/65.shtml",
+    image: "http://www.serebii.net/xy/pokemon/65.png"
 };
 
 var machop = {
@@ -812,8 +811,8 @@ var machop = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Machop_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/66.shtml",
+    image: "http://www.serebii.net/xy/pokemon/66.png"
 };
 
 var machoke = {
@@ -822,8 +821,8 @@ var machoke = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Machoke_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/67.shtml",
+    image: "http://www.serebii.net/xy/pokemon/67.png"
 };
 
 var machamp = {
@@ -832,8 +831,8 @@ var machamp = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Machamp_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/68.shtml",
+    image: "http://www.serebii.net/xy/pokemon/68.png"
 };
 
 var bellsprout = {
@@ -842,8 +841,8 @@ var bellsprout = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bellsprout_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/69.shtml",
+    image: "http://www.serebii.net/xy/pokemon/69.png"
 };
 
 var weepinbell = {
@@ -852,8 +851,8 @@ var weepinbell = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Weepinbell_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/70.shtml",
+    image: "http://www.serebii.net/xy/pokemon/70.png"
 };
 
 var victreebel = {
@@ -862,8 +861,8 @@ var victreebel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Victreebel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/71.shtml",
+    image: "http://www.serebii.net/xy/pokemon/71.png"
 };
 
 var tentacool = {
@@ -872,8 +871,8 @@ var tentacool = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tentacool_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/72.shtml",
+    image: "http://www.serebii.net/xy/pokemon/72.png"
 };
 
 var tentacruel = {
@@ -882,8 +881,8 @@ var tentacruel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tentacruel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/73.shtml",
+    image: "http://www.serebii.net/xy/pokemon/73.png"
 };
 
 var geodude = {
@@ -892,8 +891,8 @@ var geodude = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Geodude_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/74.shtml",
+    image: "http://www.serebii.net/xy/pokemon/74.png"
 };
 
 var graveler = {
@@ -902,8 +901,8 @@ var graveler = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Graveler_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/75.shtml",
+    image: "http://www.serebii.net/xy/pokemon/75.png"
 };
 
 var golem = {
@@ -912,8 +911,8 @@ var golem = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Golem_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/76.shtml",
+    image: "http://www.serebii.net/xy/pokemon/76.png"
 };
 
 var ponyta = {
@@ -922,8 +921,8 @@ var ponyta = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ponyta_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/77.shtml",
+    image: "http://www.serebii.net/xy/pokemon/77.png"
 };
 
 var rapidash = {
@@ -932,8 +931,8 @@ var rapidash = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rapidash_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/78.shtml",
+    image: "http://www.serebii.net/xy/pokemon/78.png"
 };
 
 var slowpoke = {
@@ -942,8 +941,8 @@ var slowpoke = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slowpoke_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/79.shtml",
+    image: "http://www.serebii.net/xy/pokemon/79.png"
 };
 
 var slowbro = {
@@ -952,8 +951,8 @@ var slowbro = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slowbro_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/80.shtml",
+    image: "http://www.serebii.net/xy/pokemon/80.png"
 };
 
 var magnemite = {
@@ -962,8 +961,8 @@ var magnemite = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnemite_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/81.shtml",
+    image: "http://www.serebii.net/xy/pokemon/81.png"
 };
 
 var magneton = {
@@ -972,8 +971,8 @@ var magneton = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magneton_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/82.shtml",
+    image: "http://www.serebii.net/xy/pokemon/82.png"
 };
 
 var farfetchd = {
@@ -982,8 +981,8 @@ var farfetchd = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Farfetch'd_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/83.shtml",
+    image: "http://www.serebii.net/xy/pokemon/83.png"
 };
 
 var doduo = {
@@ -992,8 +991,8 @@ var doduo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Doduo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/84.shtml",
+    image: "http://www.serebii.net/xy/pokemon/84.png"
 };
 
 var dodrio = {
@@ -1002,8 +1001,8 @@ var dodrio = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dodrio_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/85.shtml",
+    image: "http://www.serebii.net/xy/pokemon/85.png"
 };
 
 var seel = {
@@ -1012,8 +1011,8 @@ var seel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/86.shtml",
+    image: "http://www.serebii.net/xy/pokemon/86.png"
 };
 
 var dewgong = {
@@ -1022,8 +1021,8 @@ var dewgong = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dewgong_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/87.shtml",
+    image: "http://www.serebii.net/xy/pokemon/87.png"
 };
 
 var grimer = {
@@ -1032,8 +1031,8 @@ var grimer = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grimer_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/88.shtml",
+    image: "http://www.serebii.net/xy/pokemon/88.png"
 };
 
 var muk = {
@@ -1042,8 +1041,8 @@ var muk = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Muk_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/89.shtml",
+    image: "http://www.serebii.net/xy/pokemon/89.png"
 };
 
 var shellder = {
@@ -1052,8 +1051,8 @@ var shellder = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shellder_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/90.shtml",
+    image: "http://www.serebii.net/xy/pokemon/90.png"
 };
 
 var cloyster = {
@@ -1062,8 +1061,8 @@ var cloyster = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cloyster_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/91.shtml",
+    image: "http://www.serebii.net/xy/pokemon/91.png"
 };
 
 var gastly = {
@@ -1072,8 +1071,8 @@ var gastly = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gastly_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/92.shtml",
+    image: "http://www.serebii.net/xy/pokemon/92.png"
 };
 
 var haunter = {
@@ -1082,8 +1081,8 @@ var haunter = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Haunter_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/93.shtml",
+    image: "http://www.serebii.net/xy/pokemon/93.png"
 };
 
 var gengar = {
@@ -1092,8 +1091,8 @@ var gengar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gengar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/94.shtml",
+    image: "http://www.serebii.net/xy/pokemon/94.png"
 };
 
 var onix = {
@@ -1102,8 +1101,8 @@ var onix = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Onix_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/95.shtml",
+    image: "http://www.serebii.net/xy/pokemon/95.png"
 };
 
 var drowzee = {
@@ -1112,8 +1111,8 @@ var drowzee = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drowzee_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/96.shtml",
+    image: "http://www.serebii.net/xy/pokemon/96.png"
 };
 
 var hypno = {
@@ -1122,8 +1121,8 @@ var hypno = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hypno_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/97.shtml",
+    image: "http://www.serebii.net/xy/pokemon/97.png"
 };
 
 var krabby = {
@@ -1132,8 +1131,8 @@ var krabby = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Krabby_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/98.shtml",
+    image: "http://www.serebii.net/xy/pokemon/98.png"
 };
 
 var kingler = {
@@ -1142,8 +1141,8 @@ var kingler = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kingler_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/99.shtml",
+    image: "http://www.serebii.net/xy/pokemon/99.png"
 };
 
 var voltorb = {
@@ -1152,8 +1151,8 @@ var voltorb = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Voltorb_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/100.shtml",
+    image: "http://www.serebii.net/xy/pokemon/100.png"
 };
 
 var electrode = {
@@ -1162,8 +1161,8 @@ var electrode = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electrode_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/101.shtml",
+    image: "http://www.serebii.net/xy/pokemon/101.png"
 };
 
 var exeggcute = {
@@ -1172,8 +1171,8 @@ var exeggcute = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Exeggcute_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/102.shtml",
+    image: "http://www.serebii.net/xy/pokemon/102.png"
 };
 
 var exeggutor = {
@@ -1182,8 +1181,8 @@ var exeggutor = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Exeggutor_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/103.shtml",
+    image: "http://www.serebii.net/xy/pokemon/103.png"
 };
 
 var cubone = {
@@ -1192,8 +1191,8 @@ var cubone = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cubone_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/104.shtml",
+    image: "http://www.serebii.net/xy/pokemon/104.png"
 };
 
 var marowak = {
@@ -1202,8 +1201,8 @@ var marowak = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Marowak_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/105.shtml",
+    image: "http://www.serebii.net/xy/pokemon/105.png"
 };
 
 var hitmonlee = {
@@ -1212,8 +1211,8 @@ var hitmonlee = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hitmonlee_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/106.shtml",
+    image: "http://www.serebii.net/xy/pokemon/106.png"
 };
 
 var hitmonchan = {
@@ -1222,8 +1221,8 @@ var hitmonchan = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hitmonchan_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/107.shtml",
+    image: "http://www.serebii.net/xy/pokemon/107.png"
 };
 
 var lickitung = {
@@ -1232,8 +1231,8 @@ var lickitung = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lickitung_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/108.shtml",
+    image: "http://www.serebii.net/xy/pokemon/108.png"
 };
 
 var koffing = {
@@ -1242,8 +1241,8 @@ var koffing = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Koffing_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/109.shtml",
+    image: "http://www.serebii.net/xy/pokemon/109.png"
 };
 
 var weezing = {
@@ -1252,8 +1251,8 @@ var weezing = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Weezing_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/110.shtml",
+    image: "http://www.serebii.net/xy/pokemon/110.png"
 };
 
 var rhyhorn = {
@@ -1262,8 +1261,8 @@ var rhyhorn = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rhyhorn_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/111.shtml",
+    image: "http://www.serebii.net/xy/pokemon/111.png"
 };
 
 var rhydon = {
@@ -1272,8 +1271,8 @@ var rhydon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rhydon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/112.shtml",
+    image: "http://www.serebii.net/xy/pokemon/112.png"
 };
 
 var chansey = {
@@ -1282,8 +1281,8 @@ var chansey = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chansey_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/113.shtml",
+    image: "http://www.serebii.net/xy/pokemon/113.png"
 };
 
 var tangela = {
@@ -1292,8 +1291,8 @@ var tangela = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tangela_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/114.shtml",
+    image: "http://www.serebii.net/xy/pokemon/114.png"
 };
 
 var kangaskhan = {
@@ -1302,8 +1301,8 @@ var kangaskhan = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kangaskhan_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/115.shtml",
+    image: "http://www.serebii.net/xy/pokemon/115.png"
 };
 
 var horsea = {
@@ -1312,8 +1311,8 @@ var horsea = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Horsea_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/116.shtml",
+    image: "http://www.serebii.net/xy/pokemon/116.png"
 };
 
 var seadra = {
@@ -1322,8 +1321,8 @@ var seadra = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seadra_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/117.shtml",
+    image: "http://www.serebii.net/xy/pokemon/117.png"
 };
 
 var goldeen = {
@@ -1332,8 +1331,8 @@ var goldeen = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Goldeen_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/118.shtml",
+    image: "http://www.serebii.net/xy/pokemon/118.png"
 };
 
 var seaking = {
@@ -1342,8 +1341,8 @@ var seaking = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seaking_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/119.shtml",
+    image: "http://www.serebii.net/xy/pokemon/119.png"
 };
 
 var staryu = {
@@ -1352,8 +1351,8 @@ var staryu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Staryu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/120.shtml",
+    image: "http://www.serebii.net/xy/pokemon/120.png"
 };
 
 var starmie = {
@@ -1362,8 +1361,8 @@ var starmie = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Starmie_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/121.shtml",
+    image: "http://www.serebii.net/xy/pokemon/121.png"
 };
 
 var mr_mime = {
@@ -1372,8 +1371,8 @@ var mr_mime = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mr. mime_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/122.shtml",
+    image: "http://www.serebii.net/xy/pokemon/122.png"
 };
 
 var scyther = {
@@ -1382,8 +1381,8 @@ var scyther = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scyther_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/123.shtml",
+    image: "http://www.serebii.net/xy/pokemon/123.png"
 };
 
 var jynx = {
@@ -1392,8 +1391,8 @@ var jynx = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jynx_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/124.shtml",
+    image: "http://www.serebii.net/xy/pokemon/124.png"
 };
 
 var electabuzz = {
@@ -1402,8 +1401,8 @@ var electabuzz = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electabuzz_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/125.shtml",
+    image: "http://www.serebii.net/xy/pokemon/125.png"
 };
 
 var magmar = {
@@ -1412,8 +1411,8 @@ var magmar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magmar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/126.shtml",
+    image: "http://www.serebii.net/xy/pokemon/126.png"
 };
 
 var pinsir = {
@@ -1422,8 +1421,8 @@ var pinsir = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pinsir_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/127.shtml",
+    image: "http://www.serebii.net/xy/pokemon/127.png"
 };
 
 var tauros = {
@@ -1432,8 +1431,8 @@ var tauros = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tauros_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/128.shtml",
+    image: "http://www.serebii.net/xy/pokemon/128.png"
 };
 
 var magikarp = {
@@ -1442,8 +1441,8 @@ var magikarp = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magikarp_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/129.shtml",
+    image: "http://www.serebii.net/xy/pokemon/129.png"
 };
 
 var gyarados = {
@@ -1452,8 +1451,8 @@ var gyarados = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gyarados_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/130.shtml",
+    image: "http://www.serebii.net/xy/pokemon/130.png"
 };
 
 var lapras = {
@@ -1462,8 +1461,8 @@ var lapras = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lapras_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/131.shtml",
+    image: "http://www.serebii.net/xy/pokemon/131.png"
 };
 
 var ditto = {
@@ -1472,8 +1471,8 @@ var ditto = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ditto_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/132.shtml",
+    image: "http://www.serebii.net/xy/pokemon/132.png"
 };
 
 var eevee = {
@@ -1482,8 +1481,8 @@ var eevee = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eevee_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/133.shtml",
+    image: "http://www.serebii.net/xy/pokemon/133.png"
 };
 
 var vaporeon = {
@@ -1492,8 +1491,8 @@ var vaporeon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vaporeon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/134.shtml",
+    image: "http://www.serebii.net/xy/pokemon/134.png"
 };
 
 var jolteon = {
@@ -1502,8 +1501,8 @@ var jolteon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jolteon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/135.shtml",
+    image: "http://www.serebii.net/xy/pokemon/135.png"
 };
 
 var flareon = {
@@ -1512,8 +1511,8 @@ var flareon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flareon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/136.shtml",
+    image: "http://www.serebii.net/xy/pokemon/136.png"
 };
 
 var porygon = {
@@ -1522,8 +1521,8 @@ var porygon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Porygon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/137.shtml",
+    image: "http://www.serebii.net/xy/pokemon/137.png"
 };
 
 var omanyte = {
@@ -1532,8 +1531,8 @@ var omanyte = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Omanyte_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/138.shtml",
+    image: "http://www.serebii.net/xy/pokemon/138.png"
 };
 
 var omastar = {
@@ -1542,8 +1541,8 @@ var omastar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Omastar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/139.shtml",
+    image: "http://www.serebii.net/xy/pokemon/139.png"
 };
 
 var kabuto = {
@@ -1552,8 +1551,8 @@ var kabuto = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kabuto_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/140.shtml",
+    image: "http://www.serebii.net/xy/pokemon/140.png"
 };
 
 var kabutops = {
@@ -1562,8 +1561,8 @@ var kabutops = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kabutops_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/141.shtml",
+    image: "http://www.serebii.net/xy/pokemon/141.png"
 };
 
 var aerodactyl = {
@@ -1572,8 +1571,8 @@ var aerodactyl = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aerodactyl_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/142.shtml",
+    image: "http://www.serebii.net/xy/pokemon/142.png"
 };
 
 var snorlax = {
@@ -1582,8 +1581,8 @@ var snorlax = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snorlax_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/143.shtml",
+    image: "http://www.serebii.net/xy/pokemon/143.png"
 };
 
 var articuno = {
@@ -1592,8 +1591,8 @@ var articuno = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Articuno_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/144.shtml",
+    image: "http://www.serebii.net/xy/pokemon/144.png"
 };
 
 var zapdos = {
@@ -1602,8 +1601,8 @@ var zapdos = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zapdos_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/145.shtml",
+    image: "http://www.serebii.net/xy/pokemon/145.png"
 };
 
 var moltres = {
@@ -1612,8 +1611,8 @@ var moltres = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moltres_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/146.shtml",
+    image: "http://www.serebii.net/xy/pokemon/146.png"
 };
 
 var dratini = {
@@ -1622,8 +1621,8 @@ var dratini = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dratini_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/147.shtml",
+    image: "http://www.serebii.net/xy/pokemon/147.png"
 };
 
 var dragonair = {
@@ -1632,8 +1631,8 @@ var dragonair = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragonair_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/148.shtml",
+    image: "http://www.serebii.net/xy/pokemon/148.png"
 };
 
 var dragonite = {
@@ -1642,8 +1641,8 @@ var dragonite = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragonite_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/149.shtml",
+    image: "http://www.serebii.net/xy/pokemon/149.png"
 };
 
 var mewtwo = {
@@ -1652,8 +1651,8 @@ var mewtwo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mewtwo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/150.shtml",
+    image: "http://www.serebii.net/xy/pokemon/150.png"
 };
 
 var mew = {
@@ -1662,8 +1661,8 @@ var mew = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mew_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/151.shtml",
+    image: "http://www.serebii.net/xy/pokemon/151.png"
 };
 
 var chikorita = {
@@ -1672,8 +1671,8 @@ var chikorita = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chikorita_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/152.shtml",
+    image: "http://www.serebii.net/xy/pokemon/152.png"
 };
 
 var bayleef = {
@@ -1682,8 +1681,8 @@ var bayleef = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bayleef_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/153.shtml",
+    image: "http://www.serebii.net/xy/pokemon/153.png"
 };
 
 var meganium = {
@@ -1692,8 +1691,8 @@ var meganium = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meganium_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/154.shtml",
+    image: "http://www.serebii.net/xy/pokemon/154.png"
 };
 
 var cyndaquil = {
@@ -1702,8 +1701,8 @@ var cyndaquil = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cyndaquil_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/155.shtml",
+    image: "http://www.serebii.net/xy/pokemon/155.png"
 };
 
 var quilava = {
@@ -1712,8 +1711,8 @@ var quilava = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quilava_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/156.shtml",
+    image: "http://www.serebii.net/xy/pokemon/156.png"
 };
 
 var typhlosion = {
@@ -1722,8 +1721,8 @@ var typhlosion = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Typhlosion_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/157.shtml",
+    image: "http://www.serebii.net/xy/pokemon/157.png"
 };
 
 var totodile = {
@@ -1732,8 +1731,8 @@ var totodile = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Totodile_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/158.shtml",
+    image: "http://www.serebii.net/xy/pokemon/158.png"
 };
 
 var croconaw = {
@@ -1742,8 +1741,8 @@ var croconaw = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Croconaw_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/159.shtml",
+    image: "http://www.serebii.net/xy/pokemon/159.png"
 };
 
 var feraligatr = {
@@ -1752,8 +1751,8 @@ var feraligatr = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Feraligatr_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/160.shtml",
+    image: "http://www.serebii.net/xy/pokemon/160.png"
 };
 
 var sentret = {
@@ -1762,8 +1761,8 @@ var sentret = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sentret_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/161.shtml",
+    image: "http://www.serebii.net/xy/pokemon/161.png"
 };
 
 var furret = {
@@ -1772,8 +1771,8 @@ var furret = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Furret_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/162.shtml",
+    image: "http://www.serebii.net/xy/pokemon/162.png"
 };
 
 var hoothoot = {
@@ -1782,8 +1781,8 @@ var hoothoot = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hoothoot_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/163.shtml",
+    image: "http://www.serebii.net/xy/pokemon/163.png"
 };
 
 var noctowl = {
@@ -1792,8 +1791,8 @@ var noctowl = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Noctowl_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/164.shtml",
+    image: "http://www.serebii.net/xy/pokemon/164.png"
 };
 
 var ledyba = {
@@ -1802,8 +1801,8 @@ var ledyba = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ledyba_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/165.shtml",
+    image: "http://www.serebii.net/xy/pokemon/165.png"
 };
 
 var ledian = {
@@ -1812,8 +1811,8 @@ var ledian = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ledian_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/166.shtml",
+    image: "http://www.serebii.net/xy/pokemon/166.png"
 };
 
 var spinarak = {
@@ -1822,8 +1821,8 @@ var spinarak = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spinarak_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/167.shtml",
+    image: "http://www.serebii.net/xy/pokemon/167.png"
 };
 
 var ariados = {
@@ -1832,8 +1831,8 @@ var ariados = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ariados_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/168.shtml",
+    image: "http://www.serebii.net/xy/pokemon/168.png"
 };
 
 var crobat = {
@@ -1842,8 +1841,8 @@ var crobat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Crobat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/169.shtml",
+    image: "http://www.serebii.net/xy/pokemon/169.png"
 };
 
 var chinchou = {
@@ -1852,8 +1851,8 @@ var chinchou = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chinchou_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/170.shtml",
+    image: "http://www.serebii.net/xy/pokemon/170.png"
 };
 
 var lanturn = {
@@ -1862,8 +1861,8 @@ var lanturn = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lanturn_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/171.shtml",
+    image: "http://www.serebii.net/xy/pokemon/171.png"
 };
 
 var pichu = {
@@ -1872,8 +1871,8 @@ var pichu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pichu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/172.shtml",
+    image: "http://www.serebii.net/xy/pokemon/172.png"
 };
 
 var cleffa = {
@@ -1882,8 +1881,8 @@ var cleffa = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cleffa_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/173.shtml",
+    image: "http://www.serebii.net/xy/pokemon/173.png"
 };
 
 var igglybuff = {
@@ -1892,8 +1891,8 @@ var igglybuff = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Igglybuff_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/174.shtml",
+    image: "http://www.serebii.net/xy/pokemon/174.png"
 };
 
 var togepi = {
@@ -1902,8 +1901,8 @@ var togepi = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Togepi_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/175.shtml",
+    image: "http://www.serebii.net/xy/pokemon/175.png"
 };
 
 var togetic = {
@@ -1912,8 +1911,8 @@ var togetic = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Togetic_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/176.shtml",
+    image: "http://www.serebii.net/xy/pokemon/176.png"
 };
 
 var natu = {
@@ -1922,8 +1921,8 @@ var natu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Natu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/177.shtml",
+    image: "http://www.serebii.net/xy/pokemon/177.png"
 };
 
 var xatu = {
@@ -1932,8 +1931,8 @@ var xatu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Xatu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/178.shtml",
+    image: "http://www.serebii.net/xy/pokemon/178.png"
 };
 
 var mareep = {
@@ -1942,8 +1941,8 @@ var mareep = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mareep_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/179.shtml",
+    image: "http://www.serebii.net/xy/pokemon/179.png"
 };
 
 var flaaffy = {
@@ -1952,8 +1951,8 @@ var flaaffy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flaaffy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/180.shtml",
+    image: "http://www.serebii.net/xy/pokemon/180.png"
 };
 
 var ampharos = {
@@ -1962,8 +1961,8 @@ var ampharos = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ampharos_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/181.shtml",
+    image: "http://www.serebii.net/xy/pokemon/181.png"
 };
 
 var bellossom = {
@@ -1972,8 +1971,8 @@ var bellossom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bellossom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/182.shtml",
+    image: "http://www.serebii.net/xy/pokemon/182.png"
 };
 
 var marill = {
@@ -1982,8 +1981,8 @@ var marill = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Marill_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/183.shtml",
+    image: "http://www.serebii.net/xy/pokemon/183.png"
 };
 
 var azumarill = {
@@ -1992,8 +1991,8 @@ var azumarill = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Azumarill_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/184.shtml",
+    image: "http://www.serebii.net/xy/pokemon/184.png"
 };
 
 var sudowoodo = {
@@ -2002,8 +2001,8 @@ var sudowoodo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sudowoodo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/185.shtml",
+    image: "http://www.serebii.net/xy/pokemon/185.png"
 };
 
 var politoed = {
@@ -2012,8 +2011,8 @@ var politoed = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Politoed_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/186.shtml",
+    image: "http://www.serebii.net/xy/pokemon/186.png"
 };
 
 var hoppip = {
@@ -2022,8 +2021,8 @@ var hoppip = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hoppip_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/187.shtml",
+    image: "http://www.serebii.net/xy/pokemon/187.png"
 };
 
 var skiploom = {
@@ -2032,8 +2031,8 @@ var skiploom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skiploom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/188.shtml",
+    image: "http://www.serebii.net/xy/pokemon/188.png"
 };
 
 var jumpluff = {
@@ -2042,8 +2041,8 @@ var jumpluff = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jumpluff_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/189.shtml",
+    image: "http://www.serebii.net/xy/pokemon/189.png"
 };
 
 var aipom = {
@@ -2052,8 +2051,8 @@ var aipom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aipom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/190.shtml",
+    image: "http://www.serebii.net/xy/pokemon/190.png"
 };
 
 var sunkern = {
@@ -2062,8 +2061,8 @@ var sunkern = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sunkern_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/191.shtml",
+    image: "http://www.serebii.net/xy/pokemon/191.png"
 };
 
 var sunflora = {
@@ -2072,8 +2071,8 @@ var sunflora = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sunflora_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/192.shtml",
+    image: "http://www.serebii.net/xy/pokemon/192.png"
 };
 
 var yanma = {
@@ -2082,8 +2081,8 @@ var yanma = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yanma_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/193.shtml",
+    image: "http://www.serebii.net/xy/pokemon/193.png"
 };
 
 var wooper = {
@@ -2092,8 +2091,8 @@ var wooper = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wooper_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/194.shtml",
+    image: "http://www.serebii.net/xy/pokemon/194.png"
 };
 
 var quagsire = {
@@ -2102,8 +2101,8 @@ var quagsire = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quagsire_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/195.shtml",
+    image: "http://www.serebii.net/xy/pokemon/195.png"
 };
 
 var espeon = {
@@ -2112,8 +2111,8 @@ var espeon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Espeon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/196.shtml",
+    image: "http://www.serebii.net/xy/pokemon/196.png"
 };
 
 var umbreon = {
@@ -2122,8 +2121,8 @@ var umbreon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Umbreon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/197.shtml",
+    image: "http://www.serebii.net/xy/pokemon/197.png"
 };
 
 var murkrow = {
@@ -2132,8 +2131,8 @@ var murkrow = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Murkrow_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/198.shtml",
+    image: "http://www.serebii.net/xy/pokemon/198.png"
 };
 
 var slowking = {
@@ -2142,8 +2141,8 @@ var slowking = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slowking_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/199.shtml",
+    image: "http://www.serebii.net/xy/pokemon/199.png"
 };
 
 var misdreavus = {
@@ -2152,8 +2151,8 @@ var misdreavus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Misdreavus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/200.shtml",
+    image: "http://www.serebii.net/xy/pokemon/200.png"
 };
 
 var unown = {
@@ -2162,8 +2161,8 @@ var unown = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Unown_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/201.shtml",
+    image: "http://www.serebii.net/xy/pokemon/201.png"
 };
 
 var wobbuffet = {
@@ -2172,8 +2171,8 @@ var wobbuffet = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wobbuffet_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/202.shtml",
+    image: "http://www.serebii.net/xy/pokemon/202.png"
 };
 
 var girafarig = {
@@ -2182,8 +2181,8 @@ var girafarig = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Girafarig_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/203.shtml",
+    image: "http://www.serebii.net/xy/pokemon/203.png"
 };
 
 var pineco = {
@@ -2192,8 +2191,8 @@ var pineco = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pineco_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/204.shtml",
+    image: "http://www.serebii.net/xy/pokemon/204.png"
 };
 
 var forretress = {
@@ -2202,8 +2201,8 @@ var forretress = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Forretress_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/205.shtml",
+    image: "http://www.serebii.net/xy/pokemon/205.png"
 };
 
 var dunsparce = {
@@ -2212,8 +2211,8 @@ var dunsparce = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dunsparce_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/206.shtml",
+    image: "http://www.serebii.net/xy/pokemon/206.png"
 };
 
 var gligar = {
@@ -2222,8 +2221,8 @@ var gligar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gligar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/207.shtml",
+    image: "http://www.serebii.net/xy/pokemon/207.png"
 };
 
 var steelix = {
@@ -2232,8 +2231,8 @@ var steelix = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steelix_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/208.shtml",
+    image: "http://www.serebii.net/xy/pokemon/208.png"
 };
 
 var snubbull = {
@@ -2242,8 +2241,8 @@ var snubbull = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snubbull_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/209.shtml",
+    image: "http://www.serebii.net/xy/pokemon/209.png"
 };
 
 var granbull = {
@@ -2252,8 +2251,8 @@ var granbull = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Granbull_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/210.shtml",
+    image: "http://www.serebii.net/xy/pokemon/210.png"
 };
 
 var qwilfish = {
@@ -2262,8 +2261,8 @@ var qwilfish = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Qwilfish_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/211.shtml",
+    image: "http://www.serebii.net/xy/pokemon/211.png"
 };
 
 var scizor = {
@@ -2272,8 +2271,8 @@ var scizor = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scizor_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/212.shtml",
+    image: "http://www.serebii.net/xy/pokemon/212.png"
 };
 
 var shuckle = {
@@ -2282,8 +2281,8 @@ var shuckle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shuckle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/213.shtml",
+    image: "http://www.serebii.net/xy/pokemon/213.png"
 };
 
 var heracross = {
@@ -2292,8 +2291,8 @@ var heracross = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heracross_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/214.shtml",
+    image: "http://www.serebii.net/xy/pokemon/214.png"
 };
 
 var sneasel = {
@@ -2302,8 +2301,8 @@ var sneasel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sneasel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/215.shtml",
+    image: "http://www.serebii.net/xy/pokemon/215.png"
 };
 
 var teddiursa = {
@@ -2312,8 +2311,8 @@ var teddiursa = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Teddiursa_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/216.shtml",
+    image: "http://www.serebii.net/xy/pokemon/216.png"
 };
 
 var ursaring = {
@@ -2322,8 +2321,8 @@ var ursaring = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ursaring_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/217.shtml",
+    image: "http://www.serebii.net/xy/pokemon/217.png"
 };
 
 var slugma = {
@@ -2332,8 +2331,8 @@ var slugma = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slugma_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/218.shtml",
+    image: "http://www.serebii.net/xy/pokemon/218.png"
 };
 
 var magcargo = {
@@ -2342,8 +2341,8 @@ var magcargo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magcargo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/219.shtml",
+    image: "http://www.serebii.net/xy/pokemon/219.png"
 };
 
 var swinub = {
@@ -2352,8 +2351,8 @@ var swinub = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swinub_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/220.shtml",
+    image: "http://www.serebii.net/xy/pokemon/220.png"
 };
 
 var piloswine = {
@@ -2362,8 +2361,8 @@ var piloswine = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Piloswine_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/221.shtml",
+    image: "http://www.serebii.net/xy/pokemon/221.png"
 };
 
 var corsola = {
@@ -2372,8 +2371,8 @@ var corsola = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Corsola_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/222.shtml",
+    image: "http://www.serebii.net/xy/pokemon/222.png"
 };
 
 var remoraid = {
@@ -2382,8 +2381,8 @@ var remoraid = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Remoraid_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/223.shtml",
+    image: "http://www.serebii.net/xy/pokemon/223.png"
 };
 
 var octillery = {
@@ -2392,8 +2391,8 @@ var octillery = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Octillery_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/224.shtml",
+    image: "http://www.serebii.net/xy/pokemon/224.png"
 };
 
 var delibird = {
@@ -2402,8 +2401,8 @@ var delibird = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Delibird_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/225.shtml",
+    image: "http://www.serebii.net/xy/pokemon/225.png"
 };
 
 var mantine = {
@@ -2412,8 +2411,8 @@ var mantine = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mantine_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/226.shtml",
+    image: "http://www.serebii.net/xy/pokemon/226.png"
 };
 
 var skarmory = {
@@ -2422,8 +2421,8 @@ var skarmory = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skarmory_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/227.shtml",
+    image: "http://www.serebii.net/xy/pokemon/227.png"
 };
 
 var houndour = {
@@ -2432,8 +2431,8 @@ var houndour = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Houndour_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/228.shtml",
+    image: "http://www.serebii.net/xy/pokemon/228.png"
 };
 
 var houndoom = {
@@ -2442,8 +2441,8 @@ var houndoom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Houndoom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/229.shtml",
+    image: "http://www.serebii.net/xy/pokemon/229.png"
 };
 
 var kingdra = {
@@ -2452,8 +2451,8 @@ var kingdra = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kingdra_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/230.shtml",
+    image: "http://www.serebii.net/xy/pokemon/230.png"
 };
 
 var phanpy = {
@@ -2462,8 +2461,8 @@ var phanpy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Phanpy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/231.shtml",
+    image: "http://www.serebii.net/xy/pokemon/231.png"
 };
 
 var donphan = {
@@ -2472,8 +2471,8 @@ var donphan = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Donphan_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/232.shtml",
+    image: "http://www.serebii.net/xy/pokemon/232.png"
 };
 
 var porygon2 = {
@@ -2482,8 +2481,8 @@ var porygon2 = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Porygon2_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/233.shtml",
+    image: "http://www.serebii.net/xy/pokemon/233.png"
 };
 
 var stantler = {
@@ -2492,8 +2491,8 @@ var stantler = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stantler_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/234.shtml",
+    image: "http://www.serebii.net/xy/pokemon/234.png"
 };
 
 var smeargle = {
@@ -2502,8 +2501,8 @@ var smeargle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smeargle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/235.shtml",
+    image: "http://www.serebii.net/xy/pokemon/235.png"
 };
 
 var tyrogue = {
@@ -2512,8 +2511,8 @@ var tyrogue = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tyrogue_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/236.shtml",
+    image: "http://www.serebii.net/xy/pokemon/236.png"
 };
 
 var hitmontop = {
@@ -2522,8 +2521,8 @@ var hitmontop = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hitmontop_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/237.shtml",
+    image: "http://www.serebii.net/xy/pokemon/237.png"
 };
 
 var smoochum = {
@@ -2532,8 +2531,8 @@ var smoochum = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smoochum_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/238.shtml",
+    image: "http://www.serebii.net/xy/pokemon/238.png"
 };
 
 var elekid = {
@@ -2542,8 +2541,8 @@ var elekid = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Elekid_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/239.shtml",
+    image: "http://www.serebii.net/xy/pokemon/239.png"
 };
 
 var magby = {
@@ -2552,8 +2551,8 @@ var magby = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magby_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/240.shtml",
+    image: "http://www.serebii.net/xy/pokemon/240.png"
 };
 
 var miltank = {
@@ -2562,8 +2561,8 @@ var miltank = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Miltank_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/241.shtml",
+    image: "http://www.serebii.net/xy/pokemon/241.png"
 };
 
 var blissey = {
@@ -2572,8 +2571,8 @@ var blissey = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blissey_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/242.shtml",
+    image: "http://www.serebii.net/xy/pokemon/242.png"
 };
 
 var raikou = {
@@ -2582,8 +2581,8 @@ var raikou = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Raikou_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/243.shtml",
+    image: "http://www.serebii.net/xy/pokemon/243.png"
 };
 
 var entei = {
@@ -2592,8 +2591,8 @@ var entei = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Entei_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/244.shtml",
+    image: "http://www.serebii.net/xy/pokemon/244.png"
 };
 
 var suicune = {
@@ -2602,8 +2601,8 @@ var suicune = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Suicune_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/245.shtml",
+    image: "http://www.serebii.net/xy/pokemon/245.png"
 };
 
 var larvitar = {
@@ -2612,8 +2611,8 @@ var larvitar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Larvitar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/246.shtml",
+    image: "http://www.serebii.net/xy/pokemon/246.png"
 };
 
 var pupitar = {
@@ -2622,8 +2621,8 @@ var pupitar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pupitar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/247.shtml",
+    image: "http://www.serebii.net/xy/pokemon/247.png"
 };
 
 var tyranitar = {
@@ -2632,8 +2631,8 @@ var tyranitar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tyranitar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/248.shtml",
+    image: "http://www.serebii.net/xy/pokemon/248.png"
 };
 
 var lugia = {
@@ -2642,8 +2641,8 @@ var lugia = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lugia_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/249.shtml",
+    image: "http://www.serebii.net/xy/pokemon/249.png"
 };
 
 var ho_oh = {
@@ -2652,8 +2651,8 @@ var ho_oh = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ho-oh_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/250.shtml",
+    image: "http://www.serebii.net/xy/pokemon/250.png"
 };
 
 var celebi = {
@@ -2662,8 +2661,8 @@ var celebi = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Celebi_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/251.shtml",
+    image: "http://www.serebii.net/xy/pokemon/251.png"
 };
 
 var treecko = {
@@ -2672,8 +2671,8 @@ var treecko = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Treecko_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/252.shtml",
+    image: "http://www.serebii.net/xy/pokemon/252.png"
 };
 
 var grovyle = {
@@ -2682,8 +2681,8 @@ var grovyle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grovyle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/253.shtml",
+    image: "http://www.serebii.net/xy/pokemon/253.png"
 };
 
 var sceptile = {
@@ -2692,8 +2691,8 @@ var sceptile = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sceptile_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/254.shtml",
+    image: "http://www.serebii.net/xy/pokemon/254.png"
 };
 
 var torchic = {
@@ -2702,8 +2701,8 @@ var torchic = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Torchic_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/255.shtml",
+    image: "http://www.serebii.net/xy/pokemon/255.png"
 };
 
 var combusken = {
@@ -2712,8 +2711,8 @@ var combusken = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Combusken_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/256.shtml",
+    image: "http://www.serebii.net/xy/pokemon/256.png"
 };
 
 var blaziken = {
@@ -2722,8 +2721,8 @@ var blaziken = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blaziken_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/257.shtml",
+    image: "http://www.serebii.net/xy/pokemon/257.png"
 };
 
 var mudkip = {
@@ -2732,8 +2731,8 @@ var mudkip = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mudkip_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/258.shtml",
+    image: "http://www.serebii.net/xy/pokemon/258.png"
 };
 
 var marshtomp = {
@@ -2742,8 +2741,8 @@ var marshtomp = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Marshtomp_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/259.shtml",
+    image: "http://www.serebii.net/xy/pokemon/259.png"
 };
 
 var swampert = {
@@ -2752,8 +2751,8 @@ var swampert = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swampert_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/260.shtml",
+    image: "http://www.serebii.net/xy/pokemon/260.png"
 };
 
 var poochyena = {
@@ -2762,8 +2761,8 @@ var poochyena = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poochyena_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/261.shtml",
+    image: "http://www.serebii.net/xy/pokemon/261.png"
 };
 
 var mightyena = {
@@ -2772,8 +2771,8 @@ var mightyena = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mightyena_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/262.shtml",
+    image: "http://www.serebii.net/xy/pokemon/262.png"
 };
 
 var zigzagoon = {
@@ -2782,8 +2781,8 @@ var zigzagoon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zigzagoon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/263.shtml",
+    image: "http://www.serebii.net/xy/pokemon/263.png"
 };
 
 var linoone = {
@@ -2792,8 +2791,8 @@ var linoone = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Linoone_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/264.shtml",
+    image: "http://www.serebii.net/xy/pokemon/264.png"
 };
 
 var wurmple = {
@@ -2802,8 +2801,8 @@ var wurmple = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wurmple_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/265.shtml",
+    image: "http://www.serebii.net/xy/pokemon/265.png"
 };
 
 var silcoon = {
@@ -2812,8 +2811,8 @@ var silcoon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Silcoon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/266.shtml",
+    image: "http://www.serebii.net/xy/pokemon/266.png"
 };
 
 var beautifly = {
@@ -2822,8 +2821,8 @@ var beautifly = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Beautifly_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/267.shtml",
+    image: "http://www.serebii.net/xy/pokemon/267.png"
 };
 
 var cascoon = {
@@ -2832,8 +2831,8 @@ var cascoon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cascoon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/268.shtml",
+    image: "http://www.serebii.net/xy/pokemon/268.png"
 };
 
 var dustox = {
@@ -2842,8 +2841,8 @@ var dustox = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dustox_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/269.shtml",
+    image: "http://www.serebii.net/xy/pokemon/269.png"
 };
 
 var lotad = {
@@ -2852,8 +2851,8 @@ var lotad = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lotad_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/270.shtml",
+    image: "http://www.serebii.net/xy/pokemon/270.png"
 };
 
 var lombre = {
@@ -2862,8 +2861,8 @@ var lombre = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lombre_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/271.shtml",
+    image: "http://www.serebii.net/xy/pokemon/271.png"
 };
 
 var ludicolo = {
@@ -2872,8 +2871,8 @@ var ludicolo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ludicolo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/272.shtml",
+    image: "http://www.serebii.net/xy/pokemon/272.png"
 };
 
 var seedot = {
@@ -2882,8 +2881,8 @@ var seedot = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seedot_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/273.shtml",
+    image: "http://www.serebii.net/xy/pokemon/273.png"
 };
 
 var nuzleaf = {
@@ -2892,8 +2891,8 @@ var nuzleaf = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nuzleaf_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/274.shtml",
+    image: "http://www.serebii.net/xy/pokemon/274.png"
 };
 
 var shiftry = {
@@ -2902,8 +2901,8 @@ var shiftry = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shiftry_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/275.shtml",
+    image: "http://www.serebii.net/xy/pokemon/275.png"
 };
 
 var taillow = {
@@ -2912,8 +2911,8 @@ var taillow = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Taillow_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/276.shtml",
+    image: "http://www.serebii.net/xy/pokemon/276.png"
 };
 
 var swellow = {
@@ -2922,8 +2921,8 @@ var swellow = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swellow_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/277.shtml",
+    image: "http://www.serebii.net/xy/pokemon/277.png"
 };
 
 var wingull = {
@@ -2932,8 +2931,8 @@ var wingull = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wingull_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/278.shtml",
+    image: "http://www.serebii.net/xy/pokemon/278.png"
 };
 
 var pelipper = {
@@ -2942,8 +2941,8 @@ var pelipper = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pelipper_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/279.shtml",
+    image: "http://www.serebii.net/xy/pokemon/279.png"
 };
 
 var ralts = {
@@ -2952,8 +2951,8 @@ var ralts = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ralts_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/280.shtml",
+    image: "http://www.serebii.net/xy/pokemon/280.png"
 };
 
 var kirlia = {
@@ -2962,8 +2961,8 @@ var kirlia = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kirlia_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/281.shtml",
+    image: "http://www.serebii.net/xy/pokemon/281.png"
 };
 
 var gardevoir = {
@@ -2972,8 +2971,8 @@ var gardevoir = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gardevoir_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/282.shtml",
+    image: "http://www.serebii.net/xy/pokemon/282.png"
 };
 
 var surskit = {
@@ -2982,8 +2981,8 @@ var surskit = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Surskit_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/283.shtml",
+    image: "http://www.serebii.net/xy/pokemon/283.png"
 };
 
 var masquerain = {
@@ -2992,8 +2991,8 @@ var masquerain = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Masquerain_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/284.shtml",
+    image: "http://www.serebii.net/xy/pokemon/284.png"
 };
 
 var shroomish = {
@@ -3002,8 +3001,8 @@ var shroomish = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shroomish_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/285.shtml",
+    image: "http://www.serebii.net/xy/pokemon/285.png"
 };
 
 var breloom = {
@@ -3012,8 +3011,8 @@ var breloom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Breloom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/286.shtml",
+    image: "http://www.serebii.net/xy/pokemon/286.png"
 };
 
 var slakoth = {
@@ -3022,8 +3021,8 @@ var slakoth = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slakoth_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/287.shtml",
+    image: "http://www.serebii.net/xy/pokemon/287.png"
 };
 
 var vigoroth = {
@@ -3032,8 +3031,8 @@ var vigoroth = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vigoroth_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/288.shtml",
+    image: "http://www.serebii.net/xy/pokemon/288.png"
 };
 
 var slaking = {
@@ -3042,8 +3041,8 @@ var slaking = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slaking_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/289.shtml",
+    image: "http://www.serebii.net/xy/pokemon/289.png"
 };
 
 var nincada = {
@@ -3052,8 +3051,8 @@ var nincada = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nincada_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/290.shtml",
+    image: "http://www.serebii.net/xy/pokemon/290.png"
 };
 
 var ninjask = {
@@ -3062,8 +3061,8 @@ var ninjask = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ninjask_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/291.shtml",
+    image: "http://www.serebii.net/xy/pokemon/291.png"
 };
 
 var shedinja = {
@@ -3072,8 +3071,8 @@ var shedinja = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/292.shtml",
+    image: "http://www.serebii.net/xy/pokemon/292.png"
 };
 
 var whismur = {
@@ -3082,8 +3081,8 @@ var whismur = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Whismur_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/293.shtml",
+    image: "http://www.serebii.net/xy/pokemon/293.png"
 };
 
 var loudred = {
@@ -3092,8 +3091,8 @@ var loudred = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Loudred_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/294.shtml",
+    image: "http://www.serebii.net/xy/pokemon/294.png"
 };
 
 var exploud = {
@@ -3102,8 +3101,8 @@ var exploud = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Exploud_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/295.shtml",
+    image: "http://www.serebii.net/xy/pokemon/295.png"
 };
 
 var makuhita = {
@@ -3112,8 +3111,8 @@ var makuhita = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Makuhita_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/296.shtml",
+    image: "http://www.serebii.net/xy/pokemon/296.png"
 };
 
 var hariyama = {
@@ -3122,8 +3121,8 @@ var hariyama = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hariyama_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/297.shtml",
+    image: "http://www.serebii.net/xy/pokemon/297.png"
 };
 
 var azurill = {
@@ -3132,8 +3131,8 @@ var azurill = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Azurill_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/298.shtml",
+    image: "http://www.serebii.net/xy/pokemon/298.png"
 };
 
 var nosepass = {
@@ -3142,8 +3141,8 @@ var nosepass = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nosepass_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/299.shtml",
+    image: "http://www.serebii.net/xy/pokemon/299.png"
 };
 
 var skitty = {
@@ -3152,8 +3151,8 @@ var skitty = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skitty_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/300.shtml",
+    image: "http://www.serebii.net/xy/pokemon/300.png"
 };
 
 var delcatty = {
@@ -3162,8 +3161,8 @@ var delcatty = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Delcatty_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/301.shtml",
+    image: "http://www.serebii.net/xy/pokemon/301.png"
 };
 
 var sableye = {
@@ -3172,8 +3171,8 @@ var sableye = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sableye_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/302.shtml",
+    image: "http://www.serebii.net/xy/pokemon/302.png"
 };
 
 var mawile = {
@@ -3182,8 +3181,8 @@ var mawile = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mawile_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/303.shtml",
+    image: "http://www.serebii.net/xy/pokemon/303.png"
 };
 
 var aron = {
@@ -3192,8 +3191,8 @@ var aron = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aron_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/304.shtml",
+    image: "http://www.serebii.net/xy/pokemon/304.png"
 };
 
 var lairon = {
@@ -3202,8 +3201,8 @@ var lairon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lairon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/305.shtml",
+    image: "http://www.serebii.net/xy/pokemon/305.png"
 };
 
 var aggron = {
@@ -3212,8 +3211,8 @@ var aggron = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aggron_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/306.shtml",
+    image: "http://www.serebii.net/xy/pokemon/306.png"
 };
 
 var meditite = {
@@ -3222,8 +3221,8 @@ var meditite = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meditite_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/307.shtml",
+    image: "http://www.serebii.net/xy/pokemon/307.png"
 };
 
 var medicham = {
@@ -3232,8 +3231,8 @@ var medicham = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Medicham_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/308.shtml",
+    image: "http://www.serebii.net/xy/pokemon/308.png"
 };
 
 var electrike = {
@@ -3242,8 +3241,8 @@ var electrike = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electrike_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/309.shtml",
+    image: "http://www.serebii.net/xy/pokemon/309.png"
 };
 
 var manectric = {
@@ -3252,8 +3251,8 @@ var manectric = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Manectric_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/310.shtml",
+    image: "http://www.serebii.net/xy/pokemon/310.png"
 };
 
 var plusle = {
@@ -3262,8 +3261,8 @@ var plusle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Plusle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/311.shtml",
+    image: "http://www.serebii.net/xy/pokemon/311.png"
 };
 
 var minun = {
@@ -3272,8 +3271,8 @@ var minun = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Minun_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/312.shtml",
+    image: "http://www.serebii.net/xy/pokemon/312.png"
 };
 
 var volbeat = {
@@ -3282,8 +3281,8 @@ var volbeat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Volbeat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/313.shtml",
+    image: "http://www.serebii.net/xy/pokemon/313.png"
 };
 
 var illumise = {
@@ -3292,8 +3291,8 @@ var illumise = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Illumise_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/314.shtml",
+    image: "http://www.serebii.net/xy/pokemon/314.png"
 };
 
 var roselia = {
@@ -3302,8 +3301,8 @@ var roselia = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Roselia_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/315.shtml",
+    image: "http://www.serebii.net/xy/pokemon/315.png"
 };
 
 var gulpin = {
@@ -3312,8 +3311,8 @@ var gulpin = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gulpin_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/316.shtml",
+    image: "http://www.serebii.net/xy/pokemon/316.png"
 };
 
 var swalot = {
@@ -3322,8 +3321,8 @@ var swalot = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swalot_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/317.shtml",
+    image: "http://www.serebii.net/xy/pokemon/317.png"
 };
 
 var carvanha = {
@@ -3332,8 +3331,8 @@ var carvanha = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Carvanha_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/318.shtml",
+    image: "http://www.serebii.net/xy/pokemon/318.png"
 };
 
 var sharpedo = {
@@ -3342,8 +3341,8 @@ var sharpedo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sharpedo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/319.shtml",
+    image: "http://www.serebii.net/xy/pokemon/319.png"
 };
 
 var wailmer = {
@@ -3352,8 +3351,8 @@ var wailmer = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wailmer_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/320.shtml",
+    image: "http://www.serebii.net/xy/pokemon/320.png"
 };
 
 var wailord = {
@@ -3362,8 +3361,8 @@ var wailord = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wailord_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/321.shtml",
+    image: "http://www.serebii.net/xy/pokemon/321.png"
 };
 
 var numel = {
@@ -3372,8 +3371,8 @@ var numel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Numel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/322.shtml",
+    image: "http://www.serebii.net/xy/pokemon/322.png"
 };
 
 var camerupt = {
@@ -3382,8 +3381,8 @@ var camerupt = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Camerupt_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/323.shtml",
+    image: "http://www.serebii.net/xy/pokemon/323.png"
 };
 
 var torkoal = {
@@ -3392,8 +3391,8 @@ var torkoal = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Torkoal_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/324.shtml",
+    image: "http://www.serebii.net/xy/pokemon/324.png"
 };
 
 var spoink = {
@@ -3402,8 +3401,8 @@ var spoink = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spoink_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/325.shtml",
+    image: "http://www.serebii.net/xy/pokemon/325.png"
 };
 
 var grumpig = {
@@ -3412,8 +3411,8 @@ var grumpig = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grumpig_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/326.shtml",
+    image: "http://www.serebii.net/xy/pokemon/326.png"
 };
 
 var spinda = {
@@ -3422,8 +3421,8 @@ var spinda = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spinda_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/327.shtml",
+    image: "http://www.serebii.net/xy/pokemon/327.png"
 };
 
 var trapinch = {
@@ -3432,8 +3431,8 @@ var trapinch = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Trapinch_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/328.shtml",
+    image: "http://www.serebii.net/xy/pokemon/328.png"
 };
 
 var vibrava = {
@@ -3442,8 +3441,8 @@ var vibrava = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vibrava_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/329.shtml",
+    image: "http://www.serebii.net/xy/pokemon/329.png"
 };
 
 var flygon = {
@@ -3452,8 +3451,8 @@ var flygon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flygon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/330.shtml",
+    image: "http://www.serebii.net/xy/pokemon/330.png"
 };
 
 var cacnea = {
@@ -3462,8 +3461,8 @@ var cacnea = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cacnea_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/331.shtml",
+    image: "http://www.serebii.net/xy/pokemon/331.png"
 };
 
 var cacturne = {
@@ -3472,8 +3471,8 @@ var cacturne = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cacturne_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/332.shtml",
+    image: "http://www.serebii.net/xy/pokemon/332.png"
 };
 
 var swablu = {
@@ -3482,8 +3481,8 @@ var swablu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swablu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/333.shtml",
+    image: "http://www.serebii.net/xy/pokemon/333.png"
 };
 
 var altaria = {
@@ -3492,8 +3491,8 @@ var altaria = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Altaria_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/334.shtml",
+    image: "http://www.serebii.net/xy/pokemon/334.png"
 };
 
 var zangoose = {
@@ -3502,8 +3501,8 @@ var zangoose = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zangoose_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/335.shtml",
+    image: "http://www.serebii.net/xy/pokemon/335.png"
 };
 
 var seviper = {
@@ -3512,8 +3511,8 @@ var seviper = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seviper_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/336.shtml",
+    image: "http://www.serebii.net/xy/pokemon/336.png"
 };
 
 var lunatone = {
@@ -3522,8 +3521,8 @@ var lunatone = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lunatone_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/337.shtml",
+    image: "http://www.serebii.net/xy/pokemon/337.png"
 };
 
 var solrock = {
@@ -3532,8 +3531,8 @@ var solrock = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Solrock_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/338.shtml",
+    image: "http://www.serebii.net/xy/pokemon/338.png"
 };
 
 var barboach = {
@@ -3542,8 +3541,8 @@ var barboach = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Barboach_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/339.shtml",
+    image: "http://www.serebii.net/xy/pokemon/339.png"
 };
 
 var whiscash = {
@@ -3552,8 +3551,8 @@ var whiscash = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Whiscash_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/340.shtml",
+    image: "http://www.serebii.net/xy/pokemon/340.png"
 };
 
 var corphish = {
@@ -3562,8 +3561,8 @@ var corphish = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Corphish_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/341.shtml",
+    image: "http://www.serebii.net/xy/pokemon/341.png"
 };
 
 var crawdaunt = {
@@ -3572,8 +3571,8 @@ var crawdaunt = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Crawdaunt_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/342.shtml",
+    image: "http://www.serebii.net/xy/pokemon/342.png"
 };
 
 var baltoy = {
@@ -3582,8 +3581,8 @@ var baltoy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Baltoy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/343.shtml",
+    image: "http://www.serebii.net/xy/pokemon/343.png"
 };
 
 var claydol = {
@@ -3592,8 +3591,8 @@ var claydol = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Claydol_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/344.shtml",
+    image: "http://www.serebii.net/xy/pokemon/344.png"
 };
 
 var lileep = {
@@ -3602,8 +3601,8 @@ var lileep = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lileep_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/345.shtml",
+    image: "http://www.serebii.net/xy/pokemon/345.png"
 };
 
 var cradily = {
@@ -3612,8 +3611,8 @@ var cradily = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cradily_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/346.shtml",
+    image: "http://www.serebii.net/xy/pokemon/346.png"
 };
 
 var anorith = {
@@ -3622,8 +3621,8 @@ var anorith = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Anorith_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/347.shtml",
+    image: "http://www.serebii.net/xy/pokemon/347.png"
 };
 
 var armaldo = {
@@ -3632,8 +3631,8 @@ var armaldo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Armaldo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/348.shtml",
+    image: "http://www.serebii.net/xy/pokemon/348.png"
 };
 
 var feebas = {
@@ -3642,8 +3641,8 @@ var feebas = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Feebas_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/349.shtml",
+    image: "http://www.serebii.net/xy/pokemon/349.png"
 };
 
 var milotic = {
@@ -3652,8 +3651,8 @@ var milotic = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Milotic_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/350.shtml",
+    image: "http://www.serebii.net/xy/pokemon/350.png"
 };
 
 var castform = {
@@ -3662,8 +3661,8 @@ var castform = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Castform_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/351.shtml",
+    image: "http://www.serebii.net/xy/pokemon/351.png"
 };
 
 var kecleon = {
@@ -3672,8 +3671,8 @@ var kecleon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kecleon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/352.shtml",
+    image: "http://www.serebii.net/xy/pokemon/352.png"
 };
 
 var shuppet = {
@@ -3682,8 +3681,8 @@ var shuppet = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shuppet_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/353.shtml",
+    image: "http://www.serebii.net/xy/pokemon/353.png"
 };
 
 var banette = {
@@ -3692,8 +3691,8 @@ var banette = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Banette_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/354.shtml",
+    image: "http://www.serebii.net/xy/pokemon/354.png"
 };
 
 var duskull = {
@@ -3702,8 +3701,8 @@ var duskull = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Duskull_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/355.shtml",
+    image: "http://www.serebii.net/xy/pokemon/355.png"
 };
 
 var dusclops = {
@@ -3712,8 +3711,8 @@ var dusclops = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dusclops_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/356.shtml",
+    image: "http://www.serebii.net/xy/pokemon/356.png"
 };
 
 var tropius = {
@@ -3722,8 +3721,8 @@ var tropius = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tropius_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/357.shtml",
+    image: "http://www.serebii.net/xy/pokemon/357.png"
 };
 
 var chimecho = {
@@ -3732,8 +3731,8 @@ var chimecho = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chimecho_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/358.shtml",
+    image: "http://www.serebii.net/xy/pokemon/358.png"
 };
 
 var absol = {
@@ -3742,8 +3741,8 @@ var absol = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Absol_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/359.shtml",
+    image: "http://www.serebii.net/xy/pokemon/359.png"
 };
 
 var wynaut = {
@@ -3752,8 +3751,8 @@ var wynaut = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wynaut_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/360.shtml",
+    image: "http://www.serebii.net/xy/pokemon/360.png"
 };
 
 var snorunt = {
@@ -3762,8 +3761,8 @@ var snorunt = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snorunt_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/361.shtml",
+    image: "http://www.serebii.net/xy/pokemon/361.png"
 };
 
 var glalie = {
@@ -3772,8 +3771,8 @@ var glalie = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Glalie_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/362.shtml",
+    image: "http://www.serebii.net/xy/pokemon/362.png"
 };
 
 var spheal = {
@@ -3782,8 +3781,8 @@ var spheal = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spheal_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/363.shtml",
+    image: "http://www.serebii.net/xy/pokemon/363.png"
 };
 
 var sealeo = {
@@ -3792,8 +3791,8 @@ var sealeo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sealeo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/364.shtml",
+    image: "http://www.serebii.net/xy/pokemon/364.png"
 };
 
 var walrein = {
@@ -3802,8 +3801,8 @@ var walrein = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Walrein_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/365.shtml",
+    image: "http://www.serebii.net/xy/pokemon/365.png"
 };
 
 var clamperl = {
@@ -3812,8 +3811,8 @@ var clamperl = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clamperl_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/366.shtml",
+    image: "http://www.serebii.net/xy/pokemon/366.png"
 };
 
 var huntail = {
@@ -3822,8 +3821,8 @@ var huntail = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Huntail_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/367.shtml",
+    image: "http://www.serebii.net/xy/pokemon/367.png"
 };
 
 var gorebyss = {
@@ -3832,8 +3831,8 @@ var gorebyss = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gorebyss_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/368.shtml",
+    image: "http://www.serebii.net/xy/pokemon/368.png"
 };
 
 var relicanth = {
@@ -3842,8 +3841,8 @@ var relicanth = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relicanth_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/369.shtml",
+    image: "http://www.serebii.net/xy/pokemon/369.png"
 };
 
 var luvdisc = {
@@ -3852,8 +3851,8 @@ var luvdisc = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Luvdisc_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/370.shtml",
+    image: "http://www.serebii.net/xy/pokemon/370.png"
 };
 
 var bagon = {
@@ -3862,8 +3861,8 @@ var bagon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bagon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/371.shtml",
+    image: "http://www.serebii.net/xy/pokemon/371.png"
 };
 
 var shelgon = {
@@ -3872,8 +3871,8 @@ var shelgon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shelgon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/372.shtml",
+    image: "http://www.serebii.net/xy/pokemon/372.png"
 };
 
 var salamence = {
@@ -3882,8 +3881,8 @@ var salamence = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Salamence_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/373.shtml",
+    image: "http://www.serebii.net/xy/pokemon/373.png"
 };
 
 var beldum = {
@@ -3892,8 +3891,8 @@ var beldum = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Beldum_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/374.shtml",
+    image: "http://www.serebii.net/xy/pokemon/374.png"
 };
 
 var metang = {
@@ -3902,8 +3901,8 @@ var metang = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metang_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/375.shtml",
+    image: "http://www.serebii.net/xy/pokemon/375.png"
 };
 
 var metagross = {
@@ -3912,8 +3911,8 @@ var metagross = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metagross_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/376.shtml",
+    image: "http://www.serebii.net/xy/pokemon/376.png"
 };
 
 var regirock = {
@@ -3922,8 +3921,8 @@ var regirock = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Regirock_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/377.shtml",
+    image: "http://www.serebii.net/xy/pokemon/377.png"
 };
 
 var regice = {
@@ -3932,8 +3931,8 @@ var regice = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Regice_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/378.shtml",
+    image: "http://www.serebii.net/xy/pokemon/378.png"
 };
 
 var registeel = {
@@ -3942,8 +3941,8 @@ var registeel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Registeel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/379.shtml",
+    image: "http://www.serebii.net/xy/pokemon/379.png"
 };
 
 var latias = {
@@ -3952,8 +3951,8 @@ var latias = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Latias_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/380.shtml",
+    image: "http://www.serebii.net/xy/pokemon/380.png"
 };
 
 var latios = {
@@ -3962,8 +3961,8 @@ var latios = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Latios_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/381.shtml",
+    image: "http://www.serebii.net/xy/pokemon/381.png"
 };
 
 var kyogre = {
@@ -3972,8 +3971,8 @@ var kyogre = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kyogre_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/382.shtml",
+    image: "http://www.serebii.net/xy/pokemon/382.png"
 };
 
 var groudon = {
@@ -3982,8 +3981,8 @@ var groudon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Groudon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/383.shtml",
+    image: "http://www.serebii.net/xy/pokemon/383.png"
 };
 
 var rayquaza = {
@@ -3992,8 +3991,8 @@ var rayquaza = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rayquaza_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/384.shtml",
+    image: "http://www.serebii.net/xy/pokemon/384.png"
 };
 
 var jirachi = {
@@ -4002,8 +4001,8 @@ var jirachi = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jirachi_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/385.shtml",
+    image: "http://www.serebii.net/xy/pokemon/385.png"
 };
 
 var deoxys = {
@@ -4012,8 +4011,8 @@ var deoxys = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Deoxys_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/386.shtml",
+    image: "http://www.serebii.net/xy/pokemon/386.png"
 };
 
 var turtwig = {
@@ -4022,8 +4021,8 @@ var turtwig = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Turtwig_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/387.shtml",
+    image: "http://www.serebii.net/xy/pokemon/387.png"
 };
 
 var grotle = {
@@ -4032,8 +4031,8 @@ var grotle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grotle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/388.shtml",
+    image: "http://www.serebii.net/xy/pokemon/388.png"
 };
 
 var torterra = {
@@ -4042,8 +4041,8 @@ var torterra = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Torterra_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/389.shtml",
+    image: "http://www.serebii.net/xy/pokemon/389.png"
 };
 
 var chimchar = {
@@ -4052,8 +4051,8 @@ var chimchar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chimchar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/390.shtml",
+    image: "http://www.serebii.net/xy/pokemon/390.png"
 };
 
 var monferno = {
@@ -4062,8 +4061,8 @@ var monferno = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Monferno_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/391.shtml",
+    image: "http://www.serebii.net/xy/pokemon/391.png"
 };
 
 var infernape = {
@@ -4072,8 +4071,8 @@ var infernape = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Infernape_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/392.shtml",
+    image: "http://www.serebii.net/xy/pokemon/392.png"
 };
 
 var piplup = {
@@ -4082,8 +4081,8 @@ var piplup = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Piplup_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/393.shtml",
+    image: "http://www.serebii.net/xy/pokemon/393.png"
 };
 
 var prinplup = {
@@ -4092,8 +4091,8 @@ var prinplup = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Prinplup_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/394.shtml",
+    image: "http://www.serebii.net/xy/pokemon/394.png"
 };
 
 var empoleon = {
@@ -4102,8 +4101,8 @@ var empoleon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Empoleon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/395.shtml",
+    image: "http://www.serebii.net/xy/pokemon/395.png"
 };
 
 var starly = {
@@ -4112,8 +4111,8 @@ var starly = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Starly_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/396.shtml",
+    image: "http://www.serebii.net/xy/pokemon/396.png"
 };
 
 var staravia = {
@@ -4122,8 +4121,8 @@ var staravia = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Staravia_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/397.shtml",
+    image: "http://www.serebii.net/xy/pokemon/397.png"
 };
 
 var staraptor = {
@@ -4132,8 +4131,8 @@ var staraptor = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Staraptor_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/398.shtml",
+    image: "http://www.serebii.net/xy/pokemon/398.png"
 };
 
 var bidoof = {
@@ -4142,8 +4141,8 @@ var bidoof = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bidoof_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/399.shtml",
+    image: "http://www.serebii.net/xy/pokemon/399.png"
 };
 
 var bibarel = {
@@ -4152,8 +4151,8 @@ var bibarel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bibarel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/400.shtml",
+    image: "http://www.serebii.net/xy/pokemon/400.png"
 };
 
 var kricketot = {
@@ -4162,8 +4161,8 @@ var kricketot = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kricketot_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/401.shtml",
+    image: "http://www.serebii.net/xy/pokemon/401.png"
 };
 
 var kricketune = {
@@ -4172,8 +4171,8 @@ var kricketune = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kricketune_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/402.shtml",
+    image: "http://www.serebii.net/xy/pokemon/402.png"
 };
 
 var shinx = {
@@ -4182,8 +4181,8 @@ var shinx = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shinx_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/403.shtml",
+    image: "http://www.serebii.net/xy/pokemon/403.png"
 };
 
 var luxio = {
@@ -4192,8 +4191,8 @@ var luxio = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Luxio_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/404.shtml",
+    image: "http://www.serebii.net/xy/pokemon/404.png"
 };
 
 var luxray = {
@@ -4202,8 +4201,8 @@ var luxray = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Luxray_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/405.shtml",
+    image: "http://www.serebii.net/xy/pokemon/405.png"
 };
 
 var budew = {
@@ -4212,8 +4211,8 @@ var budew = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Budew_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/406.shtml",
+    image: "http://www.serebii.net/xy/pokemon/406.png"
 };
 
 var roserade = {
@@ -4222,8 +4221,8 @@ var roserade = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Roserade_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/407.shtml",
+    image: "http://www.serebii.net/xy/pokemon/407.png"
 };
 
 var cranidos = {
@@ -4232,8 +4231,8 @@ var cranidos = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cranidos_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/408.shtml",
+    image: "http://www.serebii.net/xy/pokemon/408.png"
 };
 
 var rampardos = {
@@ -4242,8 +4241,8 @@ var rampardos = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rampardos_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/409.shtml",
+    image: "http://www.serebii.net/xy/pokemon/409.png"
 };
 
 var shieldon = {
@@ -4252,8 +4251,8 @@ var shieldon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shieldon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/410.shtml",
+    image: "http://www.serebii.net/xy/pokemon/410.png"
 };
 
 var bastiodon = {
@@ -4262,8 +4261,8 @@ var bastiodon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bastiodon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/411.shtml",
+    image: "http://www.serebii.net/xy/pokemon/411.png"
 };
 
 var burmy = {
@@ -4272,8 +4271,8 @@ var burmy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Burmy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/412.shtml",
+    image: "http://www.serebii.net/xy/pokemon/412.png"
 };
 
 var wormadam = {
@@ -4282,8 +4281,8 @@ var wormadam = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wormadam_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/413.shtml",
+    image: "http://www.serebii.net/xy/pokemon/413.png"
 };
 
 var mothim = {
@@ -4292,8 +4291,8 @@ var mothim = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mothim_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/414.shtml",
+    image: "http://www.serebii.net/xy/pokemon/414.png"
 };
 
 var combee = {
@@ -4302,8 +4301,8 @@ var combee = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Combee_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/415.shtml",
+    image: "http://www.serebii.net/xy/pokemon/415.png"
 };
 
 var vespiquen = {
@@ -4312,8 +4311,8 @@ var vespiquen = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vespiquen_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/416.shtml",
+    image: "http://www.serebii.net/xy/pokemon/416.png"
 };
 
 var pachirisu = {
@@ -4322,8 +4321,8 @@ var pachirisu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pachirisu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/417.shtml",
+    image: "http://www.serebii.net/xy/pokemon/417.png"
 };
 
 var buizel = {
@@ -4332,8 +4331,8 @@ var buizel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Buizel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/418.shtml",
+    image: "http://www.serebii.net/xy/pokemon/418.png"
 };
 
 var floatzel = {
@@ -4342,8 +4341,8 @@ var floatzel = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Floatzel_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/419.shtml",
+    image: "http://www.serebii.net/xy/pokemon/419.png"
 };
 
 var cherubi = {
@@ -4352,8 +4351,8 @@ var cherubi = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cherubi_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/420.shtml",
+    image: "http://www.serebii.net/xy/pokemon/420.png"
 };
 
 var cherrim = {
@@ -4362,8 +4361,8 @@ var cherrim = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cherrim_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/421.shtml",
+    image: "http://www.serebii.net/xy/pokemon/421.png"
 };
 
 var shellos = {
@@ -4372,8 +4371,8 @@ var shellos = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shellos_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/422.shtml",
+    image: "http://www.serebii.net/xy/pokemon/422.png"
 };
 
 var gastrodon = {
@@ -4382,8 +4381,8 @@ var gastrodon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gastrodon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/423.shtml",
+    image: "http://www.serebii.net/xy/pokemon/423.png"
 };
 
 var ambipom = {
@@ -4392,8 +4391,8 @@ var ambipom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ambipom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/424.shtml",
+    image: "http://www.serebii.net/xy/pokemon/424.png"
 };
 
 var drifloon = {
@@ -4402,8 +4401,8 @@ var drifloon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drifloon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/425.shtml",
+    image: "http://www.serebii.net/xy/pokemon/425.png"
 };
 
 var drifblim = {
@@ -4412,8 +4411,8 @@ var drifblim = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drifblim_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/426.shtml",
+    image: "http://www.serebii.net/xy/pokemon/426.png"
 };
 
 var buneary = {
@@ -4422,8 +4421,8 @@ var buneary = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Buneary_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/427.shtml",
+    image: "http://www.serebii.net/xy/pokemon/427.png"
 };
 
 var lopunny = {
@@ -4432,8 +4431,8 @@ var lopunny = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lopunny_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/428.shtml",
+    image: "http://www.serebii.net/xy/pokemon/428.png"
 };
 
 var mismagius = {
@@ -4442,8 +4441,8 @@ var mismagius = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mismagius_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/429.shtml",
+    image: "http://www.serebii.net/xy/pokemon/429.png"
 };
 
 var honchkrow = {
@@ -4452,8 +4451,8 @@ var honchkrow = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Honchkrow_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/430.shtml",
+    image: "http://www.serebii.net/xy/pokemon/430.png"
 };
 
 var glameow = {
@@ -4462,8 +4461,8 @@ var glameow = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Glameow_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/431.shtml",
+    image: "http://www.serebii.net/xy/pokemon/431.png"
 };
 
 var purugly = {
@@ -4472,8 +4471,8 @@ var purugly = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Purugly_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/432.shtml",
+    image: "http://www.serebii.net/xy/pokemon/432.png"
 };
 
 var chingling = {
@@ -4482,8 +4481,8 @@ var chingling = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chingling_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/433.shtml",
+    image: "http://www.serebii.net/xy/pokemon/433.png"
 };
 
 var stunky = {
@@ -4492,8 +4491,8 @@ var stunky = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stunky_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/434.shtml",
+    image: "http://www.serebii.net/xy/pokemon/434.png"
 };
 
 var skuntank = {
@@ -4502,8 +4501,8 @@ var skuntank = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skuntank_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/435.shtml",
+    image: "http://www.serebii.net/xy/pokemon/435.png"
 };
 
 var bronzor = {
@@ -4512,8 +4511,8 @@ var bronzor = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bronzor_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/436.shtml",
+    image: "http://www.serebii.net/xy/pokemon/436.png"
 };
 
 var bronzong = {
@@ -4522,8 +4521,8 @@ var bronzong = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bronzong_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/437.shtml",
+    image: "http://www.serebii.net/xy/pokemon/437.png"
 };
 
 var bonsly = {
@@ -4532,18 +4531,18 @@ var bonsly = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bonsly_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/438.shtml",
+    image: "http://www.serebii.net/xy/pokemon/438.png"
 };
 
 var mime_jr = {
-    name: "Mime jJ.",
+    name: "Mime Jr.",
     dex: 439,
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mime jr._(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/439.shtml",
+    image: "http://www.serebii.net/xy/pokemon/439.png"
 };
 
 var happiny = {
@@ -4552,8 +4551,8 @@ var happiny = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Happiny_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/440.shtml",
+    image: "http://www.serebii.net/xy/pokemon/440.png"
 };
 
 var chatot = {
@@ -4562,8 +4561,8 @@ var chatot = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chatot_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/441.shtml",
+    image: "http://www.serebii.net/xy/pokemon/441.png"
 };
 
 var spiritomb = {
@@ -4572,8 +4571,8 @@ var spiritomb = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spiritomb_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/442.shtml",
+    image: "http://www.serebii.net/xy/pokemon/442.png"
 };
 
 var gible = {
@@ -4582,8 +4581,8 @@ var gible = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gible_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/443.shtml",
+    image: "http://www.serebii.net/xy/pokemon/443.png"
 };
 
 var gabite = {
@@ -4592,8 +4591,8 @@ var gabite = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gabite_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/444.shtml",
+    image: "http://www.serebii.net/xy/pokemon/444.png"
 };
 
 var garchomp = {
@@ -4602,8 +4601,8 @@ var garchomp = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Garchomp_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/445.shtml",
+    image: "http://www.serebii.net/xy/pokemon/445.png"
 };
 
 var munchlax = {
@@ -4612,8 +4611,8 @@ var munchlax = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Munchlax_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/446.shtml",
+    image: "http://www.serebii.net/xy/pokemon/446.png"
 };
 
 var riolu = {
@@ -4622,8 +4621,8 @@ var riolu = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Riolu_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/447.shtml",
+    image: "http://www.serebii.net/xy/pokemon/447.png"
 };
 
 var lucario = {
@@ -4632,8 +4631,8 @@ var lucario = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lucario_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/448.shtml",
+    image: "http://www.serebii.net/xy/pokemon/448.png"
 };
 
 var hippopotas = {
@@ -4642,8 +4641,8 @@ var hippopotas = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hippopotas_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/449.shtml",
+    image: "http://www.serebii.net/xy/pokemon/449.png"
 };
 
 var hippowdon = {
@@ -4652,8 +4651,8 @@ var hippowdon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hippowdon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/450.shtml",
+    image: "http://www.serebii.net/xy/pokemon/450.png"
 };
 
 var skorupi = {
@@ -4662,8 +4661,8 @@ var skorupi = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skorupi_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/451.shtml",
+    image: "http://www.serebii.net/xy/pokemon/451.png"
 };
 
 var drapion = {
@@ -4672,8 +4671,8 @@ var drapion = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drapion_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/452.shtml",
+    image: "http://www.serebii.net/xy/pokemon/452.png"
 };
 
 var croagunk = {
@@ -4682,8 +4681,8 @@ var croagunk = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Croagunk_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/453.shtml",
+    image: "http://www.serebii.net/xy/pokemon/453.png"
 };
 
 var toxicroak = {
@@ -4692,8 +4691,8 @@ var toxicroak = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Toxicroak_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/454.shtml",
+    image: "http://www.serebii.net/xy/pokemon/454.png"
 };
 
 var carnivine = {
@@ -4702,8 +4701,8 @@ var carnivine = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Carnivine_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/455.shtml",
+    image: "http://www.serebii.net/xy/pokemon/455.png"
 };
 
 var finneon = {
@@ -4712,8 +4711,8 @@ var finneon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Finneon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/456.shtml",
+    image: "http://www.serebii.net/xy/pokemon/456.png"
 };
 
 var lumineon = {
@@ -4722,8 +4721,8 @@ var lumineon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lumineon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/457.shtml",
+    image: "http://www.serebii.net/xy/pokemon/457.png"
 };
 
 var mantyke = {
@@ -4732,8 +4731,8 @@ var mantyke = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mantyke_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/458.shtml",
+    image: "http://www.serebii.net/xy/pokemon/458.png"
 };
 
 var snover = {
@@ -4742,8 +4741,8 @@ var snover = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snover_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/459.shtml",
+    image: "http://www.serebii.net/xy/pokemon/459.png"
 };
 
 var abomasnow = {
@@ -4752,8 +4751,8 @@ var abomasnow = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Abomasnow_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/460.shtml",
+    image: "http://www.serebii.net/xy/pokemon/460.png"
 };
 
 var weavile = {
@@ -4762,8 +4761,8 @@ var weavile = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Weavile_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/461.shtml",
+    image: "http://www.serebii.net/xy/pokemon/461.png"
 };
 
 var magnezone = {
@@ -4772,8 +4771,8 @@ var magnezone = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnezone_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/462.shtml",
+    image: "http://www.serebii.net/xy/pokemon/462.png"
 };
 
 var lickilicky = {
@@ -4782,8 +4781,8 @@ var lickilicky = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lickilicky_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/463.shtml",
+    image: "http://www.serebii.net/xy/pokemon/463.png"
 };
 
 var rhyperior = {
@@ -4792,8 +4791,8 @@ var rhyperior = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rhyperior_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/464.shtml",
+    image: "http://www.serebii.net/xy/pokemon/464.png"
 };
 
 var tangrowth = {
@@ -4802,8 +4801,8 @@ var tangrowth = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tangrowth_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/465.shtml",
+    image: "http://www.serebii.net/xy/pokemon/465.png"
 };
 
 var electivire = {
@@ -4812,8 +4811,8 @@ var electivire = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electivire_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/466.shtml",
+    image: "http://www.serebii.net/xy/pokemon/466.png"
 };
 
 var magmortar = {
@@ -4822,8 +4821,8 @@ var magmortar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magmortar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/467.shtml",
+    image: "http://www.serebii.net/xy/pokemon/467.png"
 };
 
 var togekiss = {
@@ -4832,8 +4831,8 @@ var togekiss = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Togekiss_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/468.shtml",
+    image: "http://www.serebii.net/xy/pokemon/468.png"
 };
 
 var yanmega = {
@@ -4842,8 +4841,8 @@ var yanmega = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yanmega_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/469.shtml",
+    image: "http://www.serebii.net/xy/pokemon/469.png"
 };
 
 var leafeon = {
@@ -4852,8 +4851,8 @@ var leafeon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leafeon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/470.shtml",
+    image: "http://www.serebii.net/xy/pokemon/470.png"
 };
 
 var glaceon = {
@@ -4862,8 +4861,8 @@ var glaceon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Glaceon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/471.shtml",
+    image: "http://www.serebii.net/xy/pokemon/471.png"
 };
 
 var gliscor = {
@@ -4872,8 +4871,8 @@ var gliscor = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gliscor_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/472.shtml",
+    image: "http://www.serebii.net/xy/pokemon/472.png"
 };
 
 var mamoswine = {
@@ -4882,8 +4881,8 @@ var mamoswine = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mamoswine_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/473.shtml",
+    image: "http://www.serebii.net/xy/pokemon/473.png"
 };
 
 var porygon_z = {
@@ -4892,8 +4891,8 @@ var porygon_z = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Porygon-Z_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/474.shtml",
+    image: "http://www.serebii.net/xy/pokemon/474.png"
 };
 
 var gallade = {
@@ -4902,8 +4901,8 @@ var gallade = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gallade_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/475.shtml",
+    image: "http://www.serebii.net/xy/pokemon/475.png"
 };
 
 var probopass = {
@@ -4912,8 +4911,8 @@ var probopass = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Probopass_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/476.shtml",
+    image: "http://www.serebii.net/xy/pokemon/476.png"
 };
 
 var dusknoir = {
@@ -4922,8 +4921,8 @@ var dusknoir = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dusknoir_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/477.shtml",
+    image: "http://www.serebii.net/xy/pokemon/477.png"
 };
 
 var froslass = {
@@ -4932,8 +4931,8 @@ var froslass = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Froslass_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/478.shtml",
+    image: "http://www.serebii.net/xy/pokemon/478.png"
 };
 
 var rotom = {
@@ -4942,8 +4941,8 @@ var rotom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rotom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/479.shtml",
+    image: "http://www.serebii.net/xy/pokemon/479.png"
 };
 
 var uxie = {
@@ -4952,8 +4951,8 @@ var uxie = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Uxie_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/480.shtml",
+    image: "http://www.serebii.net/xy/pokemon/480.png"
 };
 
 var mesprit = {
@@ -4962,8 +4961,8 @@ var mesprit = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mesprit_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/481.shtml",
+    image: "http://www.serebii.net/xy/pokemon/481.png"
 };
 
 var azelf = {
@@ -4972,8 +4971,8 @@ var azelf = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Azelf_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/482.shtml",
+    image: "http://www.serebii.net/xy/pokemon/482.png"
 };
 
 var dialga = {
@@ -4982,8 +4981,8 @@ var dialga = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dialga_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/483.shtml",
+    image: "http://www.serebii.net/xy/pokemon/483.png"
 };
 
 var palkia = {
@@ -4992,8 +4991,8 @@ var palkia = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Palkia_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/484.shtml",
+    image: "http://www.serebii.net/xy/pokemon/484.png"
 };
 
 var heatran = {
@@ -5002,8 +5001,8 @@ var heatran = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heatran_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/485.shtml",
+    image: "http://www.serebii.net/xy/pokemon/485.png"
 };
 
 var regigigas = {
@@ -5012,8 +5011,8 @@ var regigigas = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Regigigas_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/486.shtml",
+    image: "http://www.serebii.net/xy/pokemon/486.png"
 };
 
 var giratina = {
@@ -5022,8 +5021,8 @@ var giratina = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Giratina_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/487.shtml",
+    image: "http://www.serebii.net/xy/pokemon/487.png"
 };
 
 var cresselia = {
@@ -5032,8 +5031,8 @@ var cresselia = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cresselia_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/488.shtml",
+    image: "http://www.serebii.net/xy/pokemon/488.png"
 };
 
 var phione = {
@@ -5042,8 +5041,8 @@ var phione = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Phione_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/489.shtml",
+    image: "http://www.serebii.net/xy/pokemon/489.png"
 };
 
 var manaphy = {
@@ -5052,8 +5051,8 @@ var manaphy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Manaphy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/490.shtml",
+    image: "http://www.serebii.net/xy/pokemon/490.png"
 };
 
 var darkrai = {
@@ -5062,8 +5061,8 @@ var darkrai = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Darkrai_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/491.shtml",
+    image: "http://www.serebii.net/xy/pokemon/491.png"
 };
 
 var shaymin = {
@@ -5072,8 +5071,8 @@ var shaymin = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shaymin_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/492.shtml",
+    image: "http://www.serebii.net/xy/pokemon/492.png"
 };
 
 var arceus = {
@@ -5082,8 +5081,8 @@ var arceus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Arceus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/493.shtml",
+    image: "http://www.serebii.net/xy/pokemon/493.png"
 };
 
 var victini = {
@@ -5092,8 +5091,8 @@ var victini = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Victini_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/494.shtml",
+    image: "http://www.serebii.net/xy/pokemon/494.png"
 };
 
 var snivy = {
@@ -5102,8 +5101,8 @@ var snivy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snivy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/495.shtml",
+    image: "http://www.serebii.net/xy/pokemon/495.png"
 };
 
 var servine = {
@@ -5112,8 +5111,8 @@ var servine = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Servine_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/496.shtml",
+    image: "http://www.serebii.net/xy/pokemon/496.png"
 };
 
 var serperior = {
@@ -5122,8 +5121,8 @@ var serperior = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Serperior_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/497.shtml",
+    image: "http://www.serebii.net/xy/pokemon/497.png"
 };
 
 var tepig = {
@@ -5132,8 +5131,8 @@ var tepig = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tepig_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/498.shtml",
+    image: "http://www.serebii.net/xy/pokemon/498.png"
 };
 
 var pignite = {
@@ -5142,8 +5141,8 @@ var pignite = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pignite_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/499.shtml",
+    image: "http://www.serebii.net/xy/pokemon/499.png"
 };
 
 var emboar = {
@@ -5152,8 +5151,8 @@ var emboar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Emboar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/500.shtml",
+    image: "http://www.serebii.net/xy/pokemon/500.png"
 };
 
 var oshawott = {
@@ -5162,8 +5161,8 @@ var oshawott = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oshawott_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/501.shtml",
+    image: "http://www.serebii.net/xy/pokemon/501.png"
 };
 
 var dewott = {
@@ -5172,8 +5171,8 @@ var dewott = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dewott_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/502.shtml",
+    image: "http://www.serebii.net/xy/pokemon/502.png"
 };
 
 var samurott = {
@@ -5182,8 +5181,8 @@ var samurott = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Samurott_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/503.shtml",
+    image: "http://www.serebii.net/xy/pokemon/503.png"
 };
 
 var patrat = {
@@ -5192,8 +5191,8 @@ var patrat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Patrat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/504.shtml",
+    image: "http://www.serebii.net/xy/pokemon/504.png"
 };
 
 var watchog = {
@@ -5202,8 +5201,8 @@ var watchog = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Watchog_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/505.shtml",
+    image: "http://www.serebii.net/xy/pokemon/505.png"
 };
 
 var lillipup = {
@@ -5212,8 +5211,8 @@ var lillipup = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lillipup_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/506.shtml",
+    image: "http://www.serebii.net/xy/pokemon/506.png"
 };
 
 var herdier = {
@@ -5222,8 +5221,8 @@ var herdier = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Herdier_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/507.shtml",
+    image: "http://www.serebii.net/xy/pokemon/507.png"
 };
 
 var stoutland = {
@@ -5232,8 +5231,8 @@ var stoutland = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stoutland_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/508.shtml",
+    image: "http://www.serebii.net/xy/pokemon/508.png"
 };
 
 var purrloin = {
@@ -5242,8 +5241,8 @@ var purrloin = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Purrloin_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/509.shtml",
+    image: "http://www.serebii.net/xy/pokemon/509.png"
 };
 
 var liepard = {
@@ -5252,8 +5251,8 @@ var liepard = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Liepard_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/510.shtml",
+    image: "http://www.serebii.net/xy/pokemon/510.png"
 };
 
 var pansage = {
@@ -5262,8 +5261,8 @@ var pansage = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pansage_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/511.shtml",
+    image: "http://www.serebii.net/xy/pokemon/511.png"
 };
 
 var simisage = {
@@ -5272,8 +5271,8 @@ var simisage = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Simisage_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/512.shtml",
+    image: "http://www.serebii.net/xy/pokemon/512.png"
 };
 
 var pansear = {
@@ -5282,8 +5281,8 @@ var pansear = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pansear_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/513.shtml",
+    image: "http://www.serebii.net/xy/pokemon/513.png"
 };
 
 var simisear = {
@@ -5292,8 +5291,8 @@ var simisear = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Simisear_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/514.shtml",
+    image: "http://www.serebii.net/xy/pokemon/514.png"
 };
 
 var panpour = {
@@ -5302,8 +5301,8 @@ var panpour = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Panpour_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/515.shtml",
+    image: "http://www.serebii.net/xy/pokemon/515.png"
 };
 
 var simipour = {
@@ -5312,8 +5311,8 @@ var simipour = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Simipour_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/516.shtml",
+    image: "http://www.serebii.net/xy/pokemon/516.png"
 };
 
 var munna = {
@@ -5322,8 +5321,8 @@ var munna = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Munna_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/517.shtml",
+    image: "http://www.serebii.net/xy/pokemon/517.png"
 };
 
 var musharna = {
@@ -5332,8 +5331,8 @@ var musharna = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Musharna_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/518.shtml",
+    image: "http://www.serebii.net/xy/pokemon/518.png"
 };
 
 var pidove = {
@@ -5342,8 +5341,8 @@ var pidove = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pidove_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/519.shtml",
+    image: "http://www.serebii.net/xy/pokemon/519.png"
 };
 
 var tranquill = {
@@ -5352,8 +5351,8 @@ var tranquill = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tranquill_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/520.shtml",
+    image: "http://www.serebii.net/xy/pokemon/520.png"
 };
 
 var unfezant = {
@@ -5362,8 +5361,8 @@ var unfezant = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Unfezant_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/521.shtml",
+    image: "http://www.serebii.net/xy/pokemon/521.png"
 };
 
 var blitzle = {
@@ -5372,8 +5371,8 @@ var blitzle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blitzle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/522.shtml",
+    image: "http://www.serebii.net/xy/pokemon/522.png"
 };
 
 var zebstrika = {
@@ -5382,8 +5381,8 @@ var zebstrika = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zebstrika_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/523.shtml",
+    image: "http://www.serebii.net/xy/pokemon/523.png"
 };
 
 var roggenrola = {
@@ -5392,8 +5391,8 @@ var roggenrola = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Roggenrola_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/524.shtml",
+    image: "http://www.serebii.net/xy/pokemon/524.png"
 };
 
 var boldore = {
@@ -5402,8 +5401,8 @@ var boldore = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Boldore_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/525.shtml",
+    image: "http://www.serebii.net/xy/pokemon/525.png"
 };
 
 var gigalith = {
@@ -5412,8 +5411,8 @@ var gigalith = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gigalith_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/526.shtml",
+    image: "http://www.serebii.net/xy/pokemon/526.png"
 };
 
 var woobat = {
@@ -5422,8 +5421,8 @@ var woobat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Woobat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/527.shtml",
+    image: "http://www.serebii.net/xy/pokemon/527.png"
 };
 
 var swoobat = {
@@ -5432,8 +5431,8 @@ var swoobat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swoobat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/528.shtml",
+    image: "http://www.serebii.net/xy/pokemon/528.png"
 };
 
 var drilbur = {
@@ -5442,8 +5441,8 @@ var drilbur = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drilbur_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/529.shtml",
+    image: "http://www.serebii.net/xy/pokemon/529.png"
 };
 
 var excadrill = {
@@ -5452,8 +5451,8 @@ var excadrill = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Excadrill_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/530.shtml",
+    image: "http://www.serebii.net/xy/pokemon/530.png"
 };
 
 var audino = {
@@ -5462,8 +5461,8 @@ var audino = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Audino_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/531.shtml",
+    image: "http://www.serebii.net/xy/pokemon/531.png"
 };
 
 var timburr = {
@@ -5472,8 +5471,8 @@ var timburr = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Timburr_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/532.shtml",
+    image: "http://www.serebii.net/xy/pokemon/532.png"
 };
 
 var gurdurr = {
@@ -5482,8 +5481,8 @@ var gurdurr = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gurdurr_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/533.shtml",
+    image: "http://www.serebii.net/xy/pokemon/533.png"
 };
 
 var conkeldurr = {
@@ -5492,8 +5491,8 @@ var conkeldurr = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Conkeldurr_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/534.shtml",
+    image: "http://www.serebii.net/xy/pokemon/534.png"
 };
 
 var tympole = {
@@ -5502,8 +5501,8 @@ var tympole = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tympole_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/535.shtml",
+    image: "http://www.serebii.net/xy/pokemon/535.png"
 };
 
 var palpitoad = {
@@ -5512,8 +5511,8 @@ var palpitoad = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Palpitoad_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/536.shtml",
+    image: "http://www.serebii.net/xy/pokemon/536.png"
 };
 
 var seismitoad = {
@@ -5522,8 +5521,8 @@ var seismitoad = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seismitoad_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/537.shtml",
+    image: "http://www.serebii.net/xy/pokemon/537.png"
 };
 
 var throh = {
@@ -5532,8 +5531,8 @@ var throh = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Throh_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/538.shtml",
+    image: "http://www.serebii.net/xy/pokemon/538.png"
 };
 
 var sawk = {
@@ -5542,8 +5541,8 @@ var sawk = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sawk_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/539.shtml",
+    image: "http://www.serebii.net/xy/pokemon/539.png"
 };
 
 var sewaddle = {
@@ -5552,8 +5551,8 @@ var sewaddle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sewaddle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/540.shtml",
+    image: "http://www.serebii.net/xy/pokemon/540.png"
 };
 
 var swadloon = {
@@ -5562,8 +5561,8 @@ var swadloon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swadloon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/541.shtml",
+    image: "http://www.serebii.net/xy/pokemon/541.png"
 };
 
 var leavanny = {
@@ -5572,8 +5571,8 @@ var leavanny = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leavanny_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/542.shtml",
+    image: "http://www.serebii.net/xy/pokemon/542.png"
 };
 
 var venipede = {
@@ -5582,8 +5581,8 @@ var venipede = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Venipede_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/543.shtml",
+    image: "http://www.serebii.net/xy/pokemon/543.png"
 };
 
 var whirlipede = {
@@ -5592,8 +5591,8 @@ var whirlipede = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Whirlipede_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/544.shtml",
+    image: "http://www.serebii.net/xy/pokemon/544.png"
 };
 
 var scolipede = {
@@ -5602,8 +5601,8 @@ var scolipede = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scolipede_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/545.shtml",
+    image: "http://www.serebii.net/xy/pokemon/545.png"
 };
 
 var cottonee = {
@@ -5612,8 +5611,8 @@ var cottonee = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cottonee_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/546.shtml",
+    image: "http://www.serebii.net/xy/pokemon/546.png"
 };
 
 var whimsicott = {
@@ -5622,8 +5621,8 @@ var whimsicott = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Whimsicott_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/547.shtml",
+    image: "http://www.serebii.net/xy/pokemon/547.png"
 };
 
 var petilil = {
@@ -5632,8 +5631,8 @@ var petilil = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Petilil_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/548.shtml",
+    image: "http://www.serebii.net/xy/pokemon/548.png"
 };
 
 var lilligant = {
@@ -5642,8 +5641,8 @@ var lilligant = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lilligant_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/549.shtml",
+    image: "http://www.serebii.net/xy/pokemon/549.png"
 };
 
 var basculin = {
@@ -5652,8 +5651,8 @@ var basculin = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Basculin_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/550.shtml",
+    image: "http://www.serebii.net/xy/pokemon/550.png"
 };
 
 var sandile = {
@@ -5662,8 +5661,8 @@ var sandile = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sandile_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/551.shtml",
+    image: "http://www.serebii.net/xy/pokemon/551.png"
 };
 
 var krokorok = {
@@ -5672,8 +5671,8 @@ var krokorok = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Krokorok_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/552.shtml",
+    image: "http://www.serebii.net/xy/pokemon/552.png"
 };
 
 var krookodile = {
@@ -5682,8 +5681,8 @@ var krookodile = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Krookodile_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/553.shtml",
+    image: "http://www.serebii.net/xy/pokemon/553.png"
 };
 
 var darumaka = {
@@ -5692,8 +5691,8 @@ var darumaka = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Darumaka_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/554.shtml",
+    image: "http://www.serebii.net/xy/pokemon/554.png"
 };
 
 var darmanitan = {
@@ -5702,8 +5701,8 @@ var darmanitan = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Darmanitan_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/555.shtml",
+    image: "http://www.serebii.net/xy/pokemon/555.png"
 };
 
 var maractus = {
@@ -5712,8 +5711,8 @@ var maractus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Maractus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/556.shtml",
+    image: "http://www.serebii.net/xy/pokemon/556.png"
 };
 
 var dwebble = {
@@ -5722,8 +5721,8 @@ var dwebble = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dwebble_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/557.shtml",
+    image: "http://www.serebii.net/xy/pokemon/557.png"
 };
 
 var crustle = {
@@ -5732,8 +5731,8 @@ var crustle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Crustle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/558.shtml",
+    image: "http://www.serebii.net/xy/pokemon/558.png"
 };
 
 var scraggy = {
@@ -5742,8 +5741,8 @@ var scraggy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scraggy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/559.shtml",
+    image: "http://www.serebii.net/xy/pokemon/559.png"
 };
 
 var scrafty = {
@@ -5752,8 +5751,8 @@ var scrafty = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scrafty_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/560.shtml",
+    image: "http://www.serebii.net/xy/pokemon/560.png"
 };
 
 var sigilyph = {
@@ -5762,8 +5761,8 @@ var sigilyph = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sigilyph_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/561.shtml",
+    image: "http://www.serebii.net/xy/pokemon/561.png"
 };
 
 var yamask = {
@@ -5772,8 +5771,8 @@ var yamask = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yamask_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/562.shtml",
+    image: "http://www.serebii.net/xy/pokemon/562.png"
 };
 
 var cofagrigus = {
@@ -5782,8 +5781,8 @@ var cofagrigus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cofagrigus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/563.shtml",
+    image: "http://www.serebii.net/xy/pokemon/563.png"
 };
 
 var tirtouga = {
@@ -5792,8 +5791,8 @@ var tirtouga = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tirtouga_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/564.shtml",
+    image: "http://www.serebii.net/xy/pokemon/564.png"
 };
 
 var carracosta = {
@@ -5802,8 +5801,8 @@ var carracosta = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Carracosta_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/565.shtml",
+    image: "http://www.serebii.net/xy/pokemon/565.png"
 };
 
 var archen = {
@@ -5812,8 +5811,8 @@ var archen = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Archen_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/566.shtml",
+    image: "http://www.serebii.net/xy/pokemon/566.png"
 };
 
 var archeops = {
@@ -5822,8 +5821,8 @@ var archeops = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Archeops_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/567.shtml",
+    image: "http://www.serebii.net/xy/pokemon/567.png"
 };
 
 var trubbish = {
@@ -5832,8 +5831,8 @@ var trubbish = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Trubbish_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/568.shtml",
+    image: "http://www.serebii.net/xy/pokemon/568.png"
 };
 
 var garbodor = {
@@ -5842,8 +5841,8 @@ var garbodor = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Garbodor_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/569.shtml",
+    image: "http://www.serebii.net/xy/pokemon/569.png"
 };
 
 var zorua = {
@@ -5852,8 +5851,8 @@ var zorua = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zorua_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/570.shtml",
+    image: "http://www.serebii.net/xy/pokemon/570.png"
 };
 
 var zoroark = {
@@ -5862,8 +5861,8 @@ var zoroark = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zoroark_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/571.shtml",
+    image: "http://www.serebii.net/xy/pokemon/571.png"
 };
 
 var minccino = {
@@ -5872,8 +5871,8 @@ var minccino = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Minccino_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/572.shtml",
+    image: "http://www.serebii.net/xy/pokemon/572.png"
 };
 
 var cinccino = {
@@ -5882,8 +5881,8 @@ var cinccino = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cinccino_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/573.shtml",
+    image: "http://www.serebii.net/xy/pokemon/573.png"
 };
 
 var gothita = {
@@ -5892,8 +5891,8 @@ var gothita = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gothita_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/574.shtml",
+    image: "http://www.serebii.net/xy/pokemon/574.png"
 };
 
 var gothorita = {
@@ -5902,8 +5901,8 @@ var gothorita = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gothorita_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/575.shtml",
+    image: "http://www.serebii.net/xy/pokemon/575.png"
 };
 
 var gothitelle = {
@@ -5912,8 +5911,8 @@ var gothitelle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gothitelle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/576.shtml",
+    image: "http://www.serebii.net/xy/pokemon/576.png"
 };
 
 var solosis = {
@@ -5922,8 +5921,8 @@ var solosis = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Solosis_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/577.shtml",
+    image: "http://www.serebii.net/xy/pokemon/577.png"
 };
 
 var duosion = {
@@ -5932,8 +5931,8 @@ var duosion = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Duosion_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/578.shtml",
+    image: "http://www.serebii.net/xy/pokemon/578.png"
 };
 
 var reuniclus = {
@@ -5942,8 +5941,8 @@ var reuniclus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reuniclus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/579.shtml",
+    image: "http://www.serebii.net/xy/pokemon/579.png"
 };
 
 var ducklett = {
@@ -5952,8 +5951,8 @@ var ducklett = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ducklett_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/580.shtml",
+    image: "http://www.serebii.net/xy/pokemon/580.png"
 };
 
 var swanna = {
@@ -5962,8 +5961,8 @@ var swanna = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swanna_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/581.shtml",
+    image: "http://www.serebii.net/xy/pokemon/581.png"
 };
 
 var vanillite = {
@@ -5972,8 +5971,8 @@ var vanillite = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vanillite_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/582.shtml",
+    image: "http://www.serebii.net/xy/pokemon/582.png"
 };
 
 var vanillish = {
@@ -5982,8 +5981,8 @@ var vanillish = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vanillish_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/583.shtml",
+    image: "http://www.serebii.net/xy/pokemon/583.png"
 };
 
 var vanilluxe = {
@@ -5992,8 +5991,8 @@ var vanilluxe = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vanilluxe_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/584.shtml",
+    image: "http://www.serebii.net/xy/pokemon/584.png"
 };
 
 var deerling = {
@@ -6002,8 +6001,8 @@ var deerling = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Deerling_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/585.shtml",
+    image: "http://www.serebii.net/xy/pokemon/585.png"
 };
 
 var sawsbuck = {
@@ -6012,8 +6011,8 @@ var sawsbuck = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sawsbuck_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/586.shtml",
+    image: "http://www.serebii.net/xy/pokemon/586.png"
 };
 
 var emolga = {
@@ -6022,8 +6021,8 @@ var emolga = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Emolga_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/587.shtml",
+    image: "http://www.serebii.net/xy/pokemon/587.png"
 };
 
 var karrablast = {
@@ -6032,8 +6031,8 @@ var karrablast = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Karrablast_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/588.shtml",
+    image: "http://www.serebii.net/xy/pokemon/588.png"
 };
 
 var escavalier = {
@@ -6042,8 +6041,8 @@ var escavalier = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Escavalier_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/589.shtml",
+    image: "http://www.serebii.net/xy/pokemon/589.png"
 };
 
 var foongus = {
@@ -6052,8 +6051,8 @@ var foongus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Foongus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/590.shtml",
+    image: "http://www.serebii.net/xy/pokemon/590.png"
 };
 
 var amoonguss = {
@@ -6062,8 +6061,8 @@ var amoonguss = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Amoonguss_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/591.shtml",
+    image: "http://www.serebii.net/xy/pokemon/591.png"
 };
 
 var frillish = {
@@ -6072,8 +6071,8 @@ var frillish = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Frillish_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/592.shtml",
+    image: "http://www.serebii.net/xy/pokemon/592.png"
 };
 
 var jellicent = {
@@ -6082,8 +6081,8 @@ var jellicent = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jellicent_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/593.shtml",
+    image: "http://www.serebii.net/xy/pokemon/593.png"
 };
 
 var alomomola = {
@@ -6092,8 +6091,8 @@ var alomomola = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Alomomola_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/594.shtml",
+    image: "http://www.serebii.net/xy/pokemon/594.png"
 };
 
 var joltik = {
@@ -6102,8 +6101,8 @@ var joltik = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Joltik_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/595.shtml",
+    image: "http://www.serebii.net/xy/pokemon/595.png"
 };
 
 var galvantula = {
@@ -6112,8 +6111,8 @@ var galvantula = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Galvantula_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/596.shtml",
+    image: "http://www.serebii.net/xy/pokemon/596.png"
 };
 
 var ferroseed = {
@@ -6122,8 +6121,8 @@ var ferroseed = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ferroseed_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/597.shtml",
+    image: "http://www.serebii.net/xy/pokemon/597.png"
 };
 
 var ferrothorn = {
@@ -6132,8 +6131,8 @@ var ferrothorn = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ferrothorn_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/598.shtml",
+    image: "http://www.serebii.net/xy/pokemon/598.png"
 };
 
 var klink = {
@@ -6142,8 +6141,8 @@ var klink = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Klink_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/599.shtml",
+    image: "http://www.serebii.net/xy/pokemon/599.png"
 };
 
 var klang = {
@@ -6152,8 +6151,8 @@ var klang = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Klang_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/600.shtml",
+    image: "http://www.serebii.net/xy/pokemon/600.png"
 };
 
 var klinklang = {
@@ -6162,8 +6161,8 @@ var klinklang = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Klinklang_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/601.shtml",
+    image: "http://www.serebii.net/xy/pokemon/601.png"
 };
 
 var tynamo = {
@@ -6172,8 +6171,8 @@ var tynamo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tynamo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/602.shtml",
+    image: "http://www.serebii.net/xy/pokemon/602.png"
 };
 
 var eelektrik = {
@@ -6182,8 +6181,8 @@ var eelektrik = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eelektrik_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/603.shtml",
+    image: "http://www.serebii.net/xy/pokemon/603.png"
 };
 
 var eelektross = {
@@ -6192,8 +6191,8 @@ var eelektross = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eelektross_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/604.shtml",
+    image: "http://www.serebii.net/xy/pokemon/604.png"
 };
 
 var elgyem = {
@@ -6202,8 +6201,8 @@ var elgyem = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Elgyem_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/605.shtml",
+    image: "http://www.serebii.net/xy/pokemon/605.png"
 };
 
 var beheeyem = {
@@ -6212,8 +6211,8 @@ var beheeyem = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Beheeyem_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/606.shtml",
+    image: "http://www.serebii.net/xy/pokemon/606.png"
 };
 
 var litwick = {
@@ -6222,8 +6221,8 @@ var litwick = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Litwick_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/607.shtml",
+    image: "http://www.serebii.net/xy/pokemon/607.png"
 };
 
 var lampent = {
@@ -6232,8 +6231,8 @@ var lampent = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lampent_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/608.shtml",
+    image: "http://www.serebii.net/xy/pokemon/608.png"
 };
 
 var chandelure = {
@@ -6242,8 +6241,8 @@ var chandelure = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chandelure_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/609.shtml",
+    image: "http://www.serebii.net/xy/pokemon/609.png"
 };
 
 var axew = {
@@ -6252,8 +6251,8 @@ var axew = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Axew_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/610.shtml",
+    image: "http://www.serebii.net/xy/pokemon/610.png"
 };
 
 var fraxure = {
@@ -6262,8 +6261,8 @@ var fraxure = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fraxure_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/611.shtml",
+    image: "http://www.serebii.net/xy/pokemon/611.png"
 };
 
 var haxorus = {
@@ -6272,8 +6271,8 @@ var haxorus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Haxorus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/612.shtml",
+    image: "http://www.serebii.net/xy/pokemon/612.png"
 };
 
 var cubchoo = {
@@ -6282,8 +6281,8 @@ var cubchoo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cubchoo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/613.shtml",
+    image: "http://www.serebii.net/xy/pokemon/613.png"
 };
 
 var beartic = {
@@ -6292,8 +6291,8 @@ var beartic = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Beartic_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/614.shtml",
+    image: "http://www.serebii.net/xy/pokemon/614.png"
 };
 
 var cryogonal = {
@@ -6302,8 +6301,8 @@ var cryogonal = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cryogonal_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/615.shtml",
+    image: "http://www.serebii.net/xy/pokemon/615.png"
 };
 
 var shelmet = {
@@ -6312,8 +6311,8 @@ var shelmet = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shelmet_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/616.shtml",
+    image: "http://www.serebii.net/xy/pokemon/616.png"
 };
 
 var accelgor = {
@@ -6322,8 +6321,8 @@ var accelgor = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Accelgor_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/617.shtml",
+    image: "http://www.serebii.net/xy/pokemon/617.png"
 };
 
 var stunfisk = {
@@ -6332,8 +6331,8 @@ var stunfisk = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stunfisk_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/618.shtml",
+    image: "http://www.serebii.net/xy/pokemon/618.png"
 };
 
 var mienfoo = {
@@ -6342,8 +6341,8 @@ var mienfoo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mienfoo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/619.shtml",
+    image: "http://www.serebii.net/xy/pokemon/619.png"
 };
 
 var mienshao = {
@@ -6352,8 +6351,8 @@ var mienshao = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mienshao_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/620.shtml",
+    image: "http://www.serebii.net/xy/pokemon/620.png"
 };
 
 var druddigon = {
@@ -6362,8 +6361,8 @@ var druddigon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Druddigon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/621.shtml",
+    image: "http://www.serebii.net/xy/pokemon/621.png"
 };
 
 var golett = {
@@ -6372,8 +6371,8 @@ var golett = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Golett_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/622.shtml",
+    image: "http://www.serebii.net/xy/pokemon/622.png"
 };
 
 var golurk = {
@@ -6382,8 +6381,8 @@ var golurk = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Golurk_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/623.shtml",
+    image: "http://www.serebii.net/xy/pokemon/623.png"
 };
 
 var pawniard = {
@@ -6392,8 +6391,8 @@ var pawniard = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pawniard_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/624.shtml",
+    image: "http://www.serebii.net/xy/pokemon/624.png"
 };
 
 var bisharp = {
@@ -6402,8 +6401,8 @@ var bisharp = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bisharp_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/625.shtml",
+    image: "http://www.serebii.net/xy/pokemon/625.png"
 };
 
 var bouffalant = {
@@ -6412,8 +6411,8 @@ var bouffalant = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bouffalant_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/626.shtml",
+    image: "http://www.serebii.net/xy/pokemon/626.png"
 };
 
 var rufflet = {
@@ -6422,8 +6421,8 @@ var rufflet = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rufflet_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/627.shtml",
+    image: "http://www.serebii.net/xy/pokemon/627.png"
 };
 
 var braviary = {
@@ -6432,8 +6431,8 @@ var braviary = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Braviary_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/628.shtml",
+    image: "http://www.serebii.net/xy/pokemon/628.png"
 };
 
 var vullaby = {
@@ -6442,8 +6441,8 @@ var vullaby = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vullaby_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/629.shtml",
+    image: "http://www.serebii.net/xy/pokemon/629.png"
 };
 
 var mandibuzz = {
@@ -6452,8 +6451,8 @@ var mandibuzz = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mandibuzz_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/630.shtml",
+    image: "http://www.serebii.net/xy/pokemon/630.png"
 };
 
 var heatmor = {
@@ -6462,8 +6461,8 @@ var heatmor = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heatmor_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/631.shtml",
+    image: "http://www.serebii.net/xy/pokemon/631.png"
 };
 
 var durant = {
@@ -6472,8 +6471,8 @@ var durant = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Durant_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/632.shtml",
+    image: "http://www.serebii.net/xy/pokemon/632.png"
 };
 
 var deino = {
@@ -6482,8 +6481,8 @@ var deino = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Deino_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/633.shtml",
+    image: "http://www.serebii.net/xy/pokemon/633.png"
 };
 
 var zweilous = {
@@ -6492,8 +6491,8 @@ var zweilous = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zweilous_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/634.shtml",
+    image: "http://www.serebii.net/xy/pokemon/634.png"
 };
 
 var hydreigon = {
@@ -6502,8 +6501,8 @@ var hydreigon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hydreigon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/635.shtml",
+    image: "http://www.serebii.net/xy/pokemon/635.png"
 };
 
 var larvesta = {
@@ -6512,8 +6511,8 @@ var larvesta = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Larvesta_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/636.shtml",
+    image: "http://www.serebii.net/xy/pokemon/636.png"
 };
 
 var volcarona = {
@@ -6522,8 +6521,8 @@ var volcarona = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Volcarona_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/637.shtml",
+    image: "http://www.serebii.net/xy/pokemon/637.png"
 };
 
 var cobalion = {
@@ -6532,8 +6531,8 @@ var cobalion = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cobalion_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/638.shtml",
+    image: "http://www.serebii.net/xy/pokemon/638.png"
 };
 
 var terrakion = {
@@ -6542,8 +6541,8 @@ var terrakion = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Terrakion_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/639.shtml",
+    image: "http://www.serebii.net/xy/pokemon/639.png"
 };
 
 var virizion = {
@@ -6552,8 +6551,8 @@ var virizion = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Virizion_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/640.shtml",
+    image: "http://www.serebii.net/xy/pokemon/640.png"
 };
 
 var tornadus = {
@@ -6562,8 +6561,8 @@ var tornadus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tornadus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/641.shtml",
+    image: "http://www.serebii.net/xy/pokemon/641.png"
 };
 
 var thundurus = {
@@ -6572,8 +6571,8 @@ var thundurus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thundurus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/642.shtml",
+    image: "http://www.serebii.net/xy/pokemon/642.png"
 };
 
 var reshiram = {
@@ -6582,8 +6581,8 @@ var reshiram = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reshiram_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/643.shtml",
+    image: "http://www.serebii.net/xy/pokemon/643.png"
 };
 
 var zekrom = {
@@ -6592,8 +6591,8 @@ var zekrom = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zekrom_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/644.shtml",
+    image: "http://www.serebii.net/xy/pokemon/644.png"
 };
 
 var landorus = {
@@ -6602,8 +6601,8 @@ var landorus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Landorus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/645.shtml",
+    image: "http://www.serebii.net/xy/pokemon/645.png"
 };
 
 var kyurem = {
@@ -6612,8 +6611,8 @@ var kyurem = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kyurem_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/646.shtml",
+    image: "http://www.serebii.net/xy/pokemon/646.png"
 };
 
 var keldeo = {
@@ -6622,8 +6621,8 @@ var keldeo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Keldeo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/647.shtml",
+    image: "http://www.serebii.net/xy/pokemon/647.png"
 };
 
 var meloetta = {
@@ -6632,8 +6631,8 @@ var meloetta = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meloetta_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/648.shtml",
+    image: "http://www.serebii.net/xy/pokemon/648.png"
 };
 
 var genesect = {
@@ -6642,8 +6641,8 @@ var genesect = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Genesect_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/649.shtml",
+    image: "http://www.serebii.net/xy/pokemon/649.png"
 };
 
 var chespin = {
@@ -6652,8 +6651,8 @@ var chespin = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chespin_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/650.shtml",
+    image: "http://www.serebii.net/xy/pokemon/650.png"
 };
 
 var quilladin = {
@@ -6662,8 +6661,8 @@ var quilladin = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quilladin_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/651.shtml",
+    image: "http://www.serebii.net/xy/pokemon/651.png"
 };
 
 var chesnaught = {
@@ -6672,8 +6671,8 @@ var chesnaught = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chesnaught_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/652.shtml",
+    image: "http://www.serebii.net/xy/pokemon/652.png"
 };
 
 var fennekin = {
@@ -6682,8 +6681,8 @@ var fennekin = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fennekin_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/653.shtml",
+    image: "http://www.serebii.net/xy/pokemon/653.png"
 };
 
 var braixen = {
@@ -6692,8 +6691,8 @@ var braixen = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Braixen_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/654.shtml",
+    image: "http://www.serebii.net/xy/pokemon/654.png"
 };
 
 var delphox = {
@@ -6702,8 +6701,8 @@ var delphox = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Delphox_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/655.shtml",
+    image: "http://www.serebii.net/xy/pokemon/655.png"
 };
 
 var froakie = {
@@ -6712,8 +6711,8 @@ var froakie = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Froakie_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/656.shtml",
+    image: "http://www.serebii.net/xy/pokemon/656.png"
 };
 
 var frogadier = {
@@ -6722,8 +6721,8 @@ var frogadier = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Frogadier_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/657.shtml",
+    image: "http://www.serebii.net/xy/pokemon/657.png"
 };
 
 var greninja = {
@@ -6732,8 +6731,8 @@ var greninja = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Greninja_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/658.shtml",
+    image: "http://www.serebii.net/xy/pokemon/658.png"
 };
 
 var bunnelby = {
@@ -6742,8 +6741,8 @@ var bunnelby = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bunnelby_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/659.shtml",
+    image: "http://www.serebii.net/xy/pokemon/659.png"
 };
 
 var diggersby = {
@@ -6752,8 +6751,8 @@ var diggersby = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Diggersby_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/660.shtml",
+    image: "http://www.serebii.net/xy/pokemon/660.png"
 };
 
 var fletchling = {
@@ -6762,8 +6761,8 @@ var fletchling = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fletchling_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/661.shtml",
+    image: "http://www.serebii.net/xy/pokemon/661.png"
 };
 
 var fletchinder = {
@@ -6772,8 +6771,8 @@ var fletchinder = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fletchinder_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/662.shtml",
+    image: "http://www.serebii.net/xy/pokemon/662.png"
 };
 
 var talonflame = {
@@ -6782,8 +6781,8 @@ var talonflame = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Talonflame_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/663.shtml",
+    image: "http://www.serebii.net/xy/pokemon/663.png"
 };
 
 var scatterbug = {
@@ -6792,8 +6791,8 @@ var scatterbug = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scatterbug_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/664.shtml",
+    image: "http://www.serebii.net/xy/pokemon/664.png"
 };
 
 var spewpa = {
@@ -6802,8 +6801,8 @@ var spewpa = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spewpa_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/665.shtml",
+    image: "http://www.serebii.net/xy/pokemon/665.png"
 };
 
 var vivillon = {
@@ -6812,8 +6811,8 @@ var vivillon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vivillon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/666.shtml",
+    image: "http://www.serebii.net/xy/pokemon/666.png"
 };
 
 var litleo = {
@@ -6822,8 +6821,8 @@ var litleo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Litleo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/667.shtml",
+    image: "http://www.serebii.net/xy/pokemon/667.png"
 };
 
 var pyroar = {
@@ -6832,8 +6831,8 @@ var pyroar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pyroar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/668.shtml",
+    image: "http://www.serebii.net/xy/pokemon/668.png"
 };
 
 var flabebe = {
@@ -6842,8 +6841,8 @@ var flabebe = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flabébé_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/669.shtml",
+    image: "http://www.serebii.net/xy/pokemon/669.png"
 };
 
 var floette = {
@@ -6852,8 +6851,8 @@ var floette = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Floette_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/670.shtml",
+    image: "http://www.serebii.net/xy/pokemon/670.png"
 };
 
 var florges = {
@@ -6862,8 +6861,8 @@ var florges = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Florges_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/671.shtml",
+    image: "http://www.serebii.net/xy/pokemon/671.png"
 };
 
 var skiddo = {
@@ -6872,8 +6871,8 @@ var skiddo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skiddo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/672.shtml",
+    image: "http://www.serebii.net/xy/pokemon/672.png"
 };
 
 var gogoat = {
@@ -6882,8 +6881,8 @@ var gogoat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gogoat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/673.shtml",
+    image: "http://www.serebii.net/xy/pokemon/673.png"
 };
 
 var pancham = {
@@ -6892,8 +6891,8 @@ var pancham = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pancham_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/674.shtml",
+    image: "http://www.serebii.net/xy/pokemon/674.png"
 };
 
 var pangoro = {
@@ -6902,8 +6901,8 @@ var pangoro = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pangoro_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/675.shtml",
+    image: "http://www.serebii.net/xy/pokemon/675.png"
 };
 
 var furfrou = {
@@ -6912,8 +6911,8 @@ var furfrou = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Furfrou_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/676.shtml",
+    image: "http://www.serebii.net/xy/pokemon/676.png"
 };
 
 var espurr = {
@@ -6922,8 +6921,8 @@ var espurr = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Espurr_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/677.shtml",
+    image: "http://www.serebii.net/xy/pokemon/677.png"
 };
 
 var meowstic = {
@@ -6932,8 +6931,8 @@ var meowstic = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meowstic_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/678.shtml",
+    image: "http://www.serebii.net/xy/pokemon/678.png"
 };
 
 var honedge = {
@@ -6942,8 +6941,8 @@ var honedge = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Honedge_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/679.shtml",
+    image: "http://www.serebii.net/xy/pokemon/679.png"
 };
 
 var doublade = {
@@ -6952,8 +6951,8 @@ var doublade = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Doublade_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/680.shtml",
+    image: "http://www.serebii.net/xy/pokemon/680.png"
 };
 
 var aegislash = {
@@ -6962,8 +6961,8 @@ var aegislash = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aegislash_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/681.shtml",
+    image: "http://www.serebii.net/xy/pokemon/681.png"
 };
 
 var spritzee = {
@@ -6972,8 +6971,8 @@ var spritzee = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spritzee_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/682.shtml",
+    image: "http://www.serebii.net/xy/pokemon/682.png"
 };
 
 var aromatisse = {
@@ -6982,8 +6981,8 @@ var aromatisse = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aromatisse_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/683.shtml",
+    image: "http://www.serebii.net/xy/pokemon/683.png"
 };
 
 var swirlix = {
@@ -6992,8 +6991,8 @@ var swirlix = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swirlix_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/684.shtml",
+    image: "http://www.serebii.net/xy/pokemon/684.png"
 };
 
 var slurpuff = {
@@ -7002,8 +7001,8 @@ var slurpuff = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slurpuff_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/685.shtml",
+    image: "http://www.serebii.net/xy/pokemon/685.png"
 };
 
 var inkay = {
@@ -7012,8 +7011,8 @@ var inkay = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Inkay_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/686.shtml",
+    image: "http://www.serebii.net/xy/pokemon/686.png"
 };
 
 var malamar = {
@@ -7022,8 +7021,8 @@ var malamar = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Malamar_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/687.shtml",
+    image: "http://www.serebii.net/xy/pokemon/687.png"
 };
 
 var binacle = {
@@ -7032,8 +7031,8 @@ var binacle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Binacle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/688.shtml",
+    image: "http://www.serebii.net/xy/pokemon/688.png"
 };
 
 var barbaracle = {
@@ -7042,8 +7041,8 @@ var barbaracle = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Barbaracle_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/689.shtml",
+    image: "http://www.serebii.net/xy/pokemon/689.png"
 };
 
 var skrelp = {
@@ -7052,8 +7051,8 @@ var skrelp = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skrelp_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/690.shtml",
+    image: "http://www.serebii.net/xy/pokemon/690.png"
 };
 
 var dragalge = {
@@ -7062,8 +7061,8 @@ var dragalge = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragalge_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/691.shtml",
+    image: "http://www.serebii.net/xy/pokemon/691.png"
 };
 
 var clauncher = {
@@ -7072,8 +7071,8 @@ var clauncher = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clauncher_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/692.shtml",
+    image: "http://www.serebii.net/xy/pokemon/692.png"
 };
 
 var clawitzer = {
@@ -7082,8 +7081,8 @@ var clawitzer = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clawitzer_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/693.shtml",
+    image: "http://www.serebii.net/xy/pokemon/693.png"
 };
 
 var helioptile = {
@@ -7092,8 +7091,8 @@ var helioptile = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Helioptile_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/694.shtml",
+    image: "http://www.serebii.net/xy/pokemon/694.png"
 };
 
 var heliolisk = {
@@ -7102,8 +7101,8 @@ var heliolisk = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heliolisk_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/695.shtml",
+    image: "http://www.serebii.net/xy/pokemon/695.png"
 };
 
 var tyrunt = {
@@ -7112,8 +7111,8 @@ var tyrunt = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tyrunt_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/696.shtml",
+    image: "http://www.serebii.net/xy/pokemon/696.png"
 };
 
 var tyrantrum = {
@@ -7122,8 +7121,8 @@ var tyrantrum = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tyrantrum_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/697.shtml",
+    image: "http://www.serebii.net/xy/pokemon/697.png"
 };
 
 var amaura = {
@@ -7132,8 +7131,8 @@ var amaura = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Amaura_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/698.shtml",
+    image: "http://www.serebii.net/xy/pokemon/698.png"
 };
 
 var aurorus = {
@@ -7142,8 +7141,8 @@ var aurorus = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aurorus_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/699.shtml",
+    image: "http://www.serebii.net/xy/pokemon/699.png"
 };
 
 var sylveon = {
@@ -7152,8 +7151,8 @@ var sylveon = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sylveon_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/700.shtml",
+    image: "http://www.serebii.net/xy/pokemon/700.png"
 };
 
 var hawlucha = {
@@ -7162,8 +7161,8 @@ var hawlucha = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hawlucha_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/701.shtml",
+    image: "http://www.serebii.net/xy/pokemon/701.png"
 };
 
 var dedenne = {
@@ -7172,8 +7171,8 @@ var dedenne = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dedenne_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/702.shtml",
+    image: "http://www.serebii.net/xy/pokemon/702.png"
 };
 
 var carbink = {
@@ -7182,8 +7181,8 @@ var carbink = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Carbink_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/703.shtml",
+    image: "http://www.serebii.net/xy/pokemon/703.png"
 };
 
 var goomy = {
@@ -7192,8 +7191,8 @@ var goomy = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Goomy_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/704.shtml",
+    image: "http://www.serebii.net/xy/pokemon/704.png"
 };
 
 var sliggoo = {
@@ -7202,8 +7201,8 @@ var sliggoo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sliggoo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/705.shtml",
+    image: "http://www.serebii.net/xy/pokemon/705.png"
 };
 
 var goodra = {
@@ -7212,8 +7211,8 @@ var goodra = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Goodra_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/706.shtml",
+    image: "http://www.serebii.net/xy/pokemon/706.png"
 };
 
 var klefki = {
@@ -7222,8 +7221,8 @@ var klefki = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Klefki_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/707.shtml",
+    image: "http://www.serebii.net/xy/pokemon/707.png"
 };
 
 var phantump = {
@@ -7232,8 +7231,8 @@ var phantump = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Phantump_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/708.shtml",
+    image: "http://www.serebii.net/xy/pokemon/708.png"
 };
 
 var trevenant = {
@@ -7242,8 +7241,8 @@ var trevenant = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Trevenant_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/709.shtml",
+    image: "http://www.serebii.net/xy/pokemon/709.png"
 };
 
 var pumpkaboo = {
@@ -7252,8 +7251,8 @@ var pumpkaboo = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pumpkaboo_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/710.shtml",
+    image: "http://www.serebii.net/xy/pokemon/710.png"
 };
 
 var gourgeist = {
@@ -7262,8 +7261,8 @@ var gourgeist = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gourgeist_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/711.shtml",
+    image: "http://www.serebii.net/xy/pokemon/711.png"
 };
 
 var bergmite = {
@@ -7272,8 +7271,8 @@ var bergmite = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bergmite_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/712.shtml",
+    image: "http://www.serebii.net/xy/pokemon/712.png"
 };
 
 var avalugg = {
@@ -7282,8 +7281,8 @@ var avalugg = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Avalugg_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/713.shtml",
+    image: "http://www.serebii.net/xy/pokemon/713.png"
 };
 
 var noibat = {
@@ -7292,8 +7291,8 @@ var noibat = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Noibat_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/714.shtml",
+    image: "http://www.serebii.net/xy/pokemon/714.png"
 };
 
 var noivern = {
@@ -7302,8 +7301,8 @@ var noivern = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Noivern_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/715.shtml",
+    image: "http://www.serebii.net/xy/pokemon/715.png"
 };
 
 var xerneas = {
@@ -7312,8 +7311,8 @@ var xerneas = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Xerneas_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/716.shtml",
+    image: "http://www.serebii.net/xy/pokemon/716.png"
 };
 
 var yveltal = {
@@ -7322,8 +7321,8 @@ var yveltal = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yveltal_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/717.shtml",
+    image: "http://www.serebii.net/xy/pokemon/717.png"
 };
 
 var zygarde = {
@@ -7332,8 +7331,8 @@ var zygarde = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zygarde_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/718.shtml",
+    image: "http://www.serebii.net/xy/pokemon/718.png"
 };
 
 var diancie = {
@@ -7342,8 +7341,8 @@ var diancie = {
     type: "Grass/Poison",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Diancie_(Pok%C3%A9mon)",
-    image: "//TODO"
+    wiki: "http://www.serebii.net/pokedex-xy/719.shtml",
+    image: "http://www.serebii.net/xy/pokemon/719.png"
 };
 
 var pound = {
@@ -17600,1307 +17599,1307 @@ var zoom_lens = {
 var adaptability = {
     name: "Adaptability",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Adaptability_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/adaptability.shtml"
 };
 
 var aerilate = {
     name: "Aerilate",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aerilate_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/aerilate.shtml"
 };
 
 var aftermath = {
     name: "Aftermath",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aftermath_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/aftermath.shtml"
 };
 
 var air_lock = {
     name: "Air Lock",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Air_Lock_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/airlock.shtml"
 };
 
 var analytic = {
     name: "Analytic",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Analytic_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/analytic.shtml"
 };
 
 var anger_point = {
     name: "Anger Point",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Anger_Point_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/angerpoint.shtml"
 };
 
 var anticipation = {
     name: "Anticipation",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Anticipation_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/anticipation.shtml"
 };
 
 var arena_trap = {
     name: "Arena Trap",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Arena_Trap_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/arenatrap.shtml"
 };
 
 var aroma_veil = {
     name: "Aroma Veil",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aroma_Veil_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/aromaveil.shtml"
 };
 
 var aura_break = {
     name: "Aura Break",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aura_Break_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/aurabreak.shtml"
 };
 
 var bad_dreams = {
     name: "Bad Dreams",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bad_Dreams_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/baddreams.shtml"
 };
 
 var battery = {
     name: "Battery",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Battery_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/battery.shtml"
 };
 
 var battle_armor = {
     name: "Battle Armor",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Battle_Armor_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/battlearmor.shtml"
 };
 
 var battle_bond = {
     name: "Battle Bond",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Battle_Bond_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/battlebond.shtml"
 };
 
 var berserk = {
     name: "Berserk",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Berserk_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/berserk.shtml"
 };
 
 var big_pecks = {
     name: "Big Pecks",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Pecks_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/bigpecks.shtml"
 };
 
 var blaze = {
     name: "Blaze",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blaze_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/blaze.shtml"
 };
 
 var bulletproof = {
     name: "Bulletproof",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bulletproof_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/bulletproof.shtml"
 };
 
 var cacophony = {
     name: "Cacophony",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cacophony_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/cacophony.shtml"
 };
 
 var cheek_pouch = {
     name: "Cheek Pouch",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cheek_Pouch_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/cheekpouch.shtml"
 };
 
 var chlorophyll = {
     name: "Chlorophyll",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chlorophyll_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/chlorophyll.shtml"
 };
 
 var clear_body = {
     name: "Clear Body",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clear_Body_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/clearbody.shtml"
 };
 
 var cloud_nine = {
     name: "Cloud Nine",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cloud_Nine_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/cloudnine.shtml"
 };
 
 var color_change = {
     name: "Color Change",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Color_Change_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/colorchange.shtml"
 };
 
 var comatose = {
     name: "Comatose",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Comatose_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/comatose.shtml"
 };
 
 var competitive = {
     name: "Competitive",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Competitive_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/competitive.shtml"
 };
 
 var compound_eyes = {
     name: "Compound Eyes",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Compound_Eyes_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/compoundeyes.shtml"
 };
 
 var contrary = {
     name: "Contrary",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Contrary_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/contrary.shtml"
 };
 
 var corrosion = {
     name: "Corrosion",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Corrosion_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/corrosion.shtml"
 };
 
 var cursed_body = {
     name: "Cursed Body",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cursed_Body_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/cursedbody.shtml"
 };
 
 var cute_charm = {
     name: "Cute Charm",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cute_Charm_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/cutecharm.shtml"
 };
 
 var damp = {
     name: "Damp",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Damp_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/damp.shtml"
 };
 
 var dancer = {
     name: "Dancer",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dancer_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/dancer.shtml"
 };
 
 var dark_aura = {
     name: "Dark Aura",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dark_Aura_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/darkaura.shtml"
 };
 
 var dazzling = {
     name: "Dazzling",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dazzling_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/dazzling.shtml"
 };
 
 var defeatist = {
     name: "Defeatist",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Defeatist_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/defeatist.shtml"
 };
 
 var defiant = {
     name: "Defiant",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Defiant_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/defiant.shtml"
 };
 
 var delta_stream = {
     name: "Delta Stream",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Delta_Stream_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/deltastream.shtml"
 };
 
 var desolate_land = {
     name: "Desolate Land",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Desolate_Land_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/desolateland.shtml"
 };
 
 var disguise = {
     name: "Disguise",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Disguise_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/disguise.shtml"
 };
 
 var download = {
     name: "Download",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Download_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/download.shtml"
 };
 
 var drizzle = {
     name: "Drizzle",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drizzle_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/drizzle.shtml"
 };
 
 var drought = {
     name: "Drought",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drought_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/drought.shtml"
 };
 
 var dry_skin = {
     name: "Dry Skin",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dry_Skin_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/dryskin.shtml"
 };
 
 var early_bird = {
     name: "Early Bird",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Early_Bird_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/earlybird.shtml"
 };
 
 var effect_spore = {
     name: "Effect Spore",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Effect_Spore_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/effectspore.shtml"
 };
 
 var electric_surge = {
     name: "Electric Surge",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electric_Surge_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/electricsurge.shtml"
 };
 
 var fairy_aura = {
     name: "Fairy Aura",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fairy_Aura_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/fairyaura.shtml"
 };
 
 var filter = {
     name: "Filter",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Filter_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/filter.shtml"
 };
 
 var flame_body = {
     name: "Flame Body",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flame_Body_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/flamebody.shtml"
 };
 
 var flare_boost = {
     name: "Flare Boost",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flare_Boost_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/flareboost.shtml"
 };
 
 var flash_fire = {
     name: "Flash Fire",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flash_Fire_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/flashfire.shtml"
 };
 
 var flower_gift = {
     name: "Flower Gift",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flower_Gift_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/flowergift.shtml"
 };
 
 var flower_veil = {
     name: "Flower Veil",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flower_Veil_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/flowerveil.shtml"
 };
 
 var fluffy = {
     name: "Fluffy",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fluffy_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/fluffy.shtml"
 };
 
 var forecast = {
     name: "Forecast",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Forecast_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/forecast.shtml"
 };
 
 var forewarn = {
     name: "Forewarn",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Forewarn_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/forewarn.shtml"
 };
 
 var friend_guard = {
     name: "Friend Guard",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Friend_Guard_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/friendguard.shtml"
 };
 
 var frisk = {
     name: "Frisk",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Frisk_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/frisk.shtml"
 };
 
 var full_metal_body = {
     name: "Full Metal Body",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Full_Metal_Body_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/fullmetalbody.shtml"
 };
 
 var fur_coat = {
     name: "Fur Coat",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fur_Coat_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/furcoat.shtml"
 };
 
 var gale_wings = {
     name: "Gale Wings",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gale_Wings_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/galewings.shtml"
 };
 
 var gluttony = {
     name: "Gluttony",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gluttony_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/gluttony.shtml"
 };
 
 var gooey = {
     name: "Gooey",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gooey_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/gooey.shtml"
 };
 
 var grass_pelt = {
     name: "Grass Pelt",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grass_Pelt_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/grasspelt.shtml"
 };
 
 var guts = {
     name: "Guts",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Guts_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/guts.shtml"
 };
 
 var harvest = {
     name: "Harvest",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Harvest_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/harvest.shtml"
 };
 
 var healer = {
     name: "Healer",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Healer_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/healer.shtml"
 };
 
 var heatproof = {
     name: "Heatproof",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heatproof_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/heatproof.shtml"
 };
 
 var heavy_metal = {
     name: "Heavy Metal",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heavy_Metal_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/heavymetal.shtml"
 };
 
 var honey_gather = {
     name: "Honey Gather",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Honey_Gather_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/honeygather.shtml"
 };
 
 var huge_power = {
     name: "Huge Power",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Huge_Power_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/hugepower.shtml"
 };
 
 var hustle = {
     name: "Hustle",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hustle_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/hustle.shtml"
 };
 
 var hydration = {
     name: "Hydration",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hydration_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/hydration.shtml"
 };
 
 var hyper_cutter = {
     name: "Hyper Cutter",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyper_Cutter_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/hypercutter.shtml"
 };
 
 var ice_body = {
     name: "Ice Body",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Body_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/icebody.shtml"
 };
 
 var illuminate = {
     name: "Illuminate",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Illuminate_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/illuminate.shtml"
 };
 
 var illusion = {
     name: "Illusion",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Illusion_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/illusion.shtml"
 };
 
 var immunity = {
     name: "Immunity",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Immunity_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/immunity.shtml"
 };
 
 var imposter = {
     name: "Imposter",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Imposter_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/imposter.shtml"
 };
 
 var innards_out = {
     name: "Innards Out",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Innards_Out_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/innardsout.shtml"
 };
 
 var infiltrator = {
     name: "Infiltrator",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Infiltrator_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/infiltrator.shtml"
 };
 
 var inner_focus = {
     name: "Inner Focus",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Inner_Focus_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/innerfocus.shtml"
 };
 
 var insomnia = {
     name: "Insomnia",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Insomnia_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/insomnia.shtml"
 };
 
 var intimidate = {
     name: "Intimidate",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Intimidate_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/intimidate.shtml"
 };
 
 var iron_barbs = {
     name: "Iron Barbs",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Barbs_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/ironbarbs.shtml"
 };
 
 var iron_fist = {
     name: "Iron Fist",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Fist_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/ironfist.shtml"
 };
 
 var justified = {
     name: "Justified",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Justified_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/justified.shtml"
 };
 
 var keen_eye = {
     name: "Keen Eye",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Keen_Eye_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/keeneye.shtml"
 };
 
 var klutz = {
     name: "Klutz",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Klutz_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/klutz.shtml"
 };
 
 var leaf_guard = {
     name: "Leaf Guard",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leaf_Guard_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/leafguard.shtml"
 };
 
 var levitate = {
     name: "Levitate",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Levitate_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/levitate.shtml"
 };
 
 var light_metal = {
     name: "Light Metal",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Light_Metal_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/lightmetal.shtml"
 };
 
 var lightning_rod = {
     name: "Lightning Rod",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/lightningrod.shtml"
 };
 
 var limber = {
     name: "Limber",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Limber_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/limber.shtml"
 };
 
 var liquid_ooze = {
     name: "Liquid Ooze",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Liquid_Ooze_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/liquidooze.shtml"
 };
 
 var magic_bounce = {
     name: "Magic Bounce",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magic_Bounce_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/magicbounce.shtml"
 };
 
 var magic_guard = {
     name: "Magic Guard",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magic_Guard_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/magicguard.shtml"
 };
 
 var magician = {
     name: "Magician",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magician_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/magician.shtml"
 };
 
 var magma_armor = {
     name: "Magma Armor",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magma_Armor_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/magmaarmor.shtml"
 };
 
 var magnet_pull = {
     name: "Magnet Pull",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnet_Pull_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/magnetpull.shtml"
 };
 
 var marvel_scale = {
     name: "Marvel Scale",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Marvel_Scale_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/marvelscale.shtml"
 };
 
 var mega_launcher = {
     name: "Mega Launcher",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mega_Launcher_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/megalauncher.shtml"
 };
 
 var minus = {
     name: "Minus",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Minus_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/minus.shtml"
 };
 
 var mold_breaker = {
     name: "Mold Breaker",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mold_Breaker_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/moldbreaker.shtml"
 };
 
 var moody = {
     name: "Moody",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moody_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/moody.shtml"
 };
 
 var motor_drive = {
     name: "Motor Drive",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Motor_Drive_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/motordrive.shtml"
 };
 
 var moxie = {
     name: "Moxie",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moxie_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/moxie.shtml"
 };
 
 var multiscale = {
     name: "Multiscale",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Multiscale_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/multiscale.shtml"
 };
 
 var multitype = {
     name: "Multitype",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Multitype_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/multitype.shtml"
 };
 
 var mummy = {
     name: "Mummy",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mummy_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/mummy.shtml"
 };
 
 var natural_cure = {
     name: "Natural Cure",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Natural_Cure_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/naturalcure.shtml"
 };
 
 var no_guard = {
     name: "No Guard",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/No_Guard_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/noguard.shtml"
 };
 
 var normalize = {
     name: "Normalize",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Normalize_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/normalize.shtml"
 };
 
 var oblivious = {
     name: "Oblivious",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oblivious_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/oblivious.shtml"
 };
 
 var overcoat = {
     name: "Overcoat",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Overcoat_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/overcoat.shtml"
 };
 
 var overgrow = {
     name: "Overgrow",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Overgrow_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/overgrow.shtml"
 };
 
 var own_tempo = {
     name: "Own Tempo",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Own_Tempo_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/owntempo.shtml"
 };
 
 var parental_bond = {
     name: "Parental Bond",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Parental_Bond_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/parentalbond.shtml"
 };
 
 var pickpocket = {
     name: "Pickpocket",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pickpocket_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/pickpocket.shtml"
 };
 
 var pickup = {
     name: "Pickup",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pickup_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/pickup.shtml"
 };
 
 var pixilate = {
     name: "Pixilate",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pixilate_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/pixilate.shtml"
 };
 
 var plus = {
     name: "Plus",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Plus_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/plus.shtml"
 };
 
 var poison_heal = {
     name: "Poison Heal",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Heal_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/poisonheal.shtml"
 };
 
 var poison_point = {
     name: "Poison Point",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Point_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/poisonpoint.shtml"
 };
 
 var poison_touch = {
     name: "Poison Touch",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Touch_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/poisontouch.shtml"
 };
 
 var power_construct = {
     name: "Power Construct",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Construct_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/powerconstruct.shtml"
 };
 
 var prankster = {
     name: "Prankster",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Prankster_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/prankster.shtml"
 };
 
 var pressure = {
     name: "Pressure",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pressure_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/pressure.shtml"
 };
 
 var primordial_sea = {
     name: "Primordial Sea",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Primordial_Sea_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/primordialsea.shtml"
 };
 
 var protean = {
     name: "Protean",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Protean_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/protean.shtml"
 };
 
 var pure_power = {
     name: "Pure Power",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pure_Power_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/purepower.shtml"
 };
 
 var queenly_majesty = {
     name: "Queenly Majesty",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Queenly_Majesty_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/queenlymajesty.shtml"
 };
 
 var quick_feet = {
     name: "Quick Feet",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Feet_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/quickfeet.shtml"
 };
 
 var rain_dish = {
     name: "Rain Dish",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rain_Dish_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/raindish.shtml"
 };
 
 var rattled = {
     name: "Rattled",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rattled_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/rattled.shtml"
 };
 
 var receiver = {
     name: "Receiver",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Receiver_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/receiver.shtml"
 };
 
 var reckless = {
     name: "Reckless",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reckless_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/reckless.shtml"
 };
 
 var refrigerate = {
     name: "Refrigerate",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Refrigerate_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/refrigerate.shtml"
 };
 
 var regenerator = {
     name: "Regenerator",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Regenerator_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/regenerator.shtml"
 };
 
 var rivalry = {
     name: "Rivalry",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rivalry_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/rivalry.shtml"
 };
 
 var rks_system = {
     name: "Rks System",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rks_System_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/rkssystem.shtml"
 };
 
 var rock_head = {
     name: "Rock Head",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Head_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/rockhead.shtml"
 };
 
 var rough_skin = {
     name: "Rough Skin",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rough_Skin_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/roughskin.shtml"
 };
 
 var run_away = {
     name: "Run Away",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Run_Away_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/runaway.shtml"
 };
 
 var sand_force = {
     name: "Sand Force",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sand_Force_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sandforce.shtml"
 };
 
 var sand_rush = {
     name: "Sand Rush",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sand_Rush_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sandrush.shtml"
 };
 
 var sand_stream = {
     name: "Sand Stream",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sand_Stream_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sandstream.shtml"
 };
 
 var sand_veil = {
     name: "Sand Veil",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sand_Veil_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sandveil.shtml"
 };
 
 var sap_sipper = {
     name: "Sap Sipper",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sap_Sipper_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sapsipper.shtml"
 };
 
 var schooling = {
     name: "Schooling",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Schooling_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/schooling.shtml"
 };
 
 var scrappy = {
     name: "Scrappy",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scrappy_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/scrappy.shtml"
 };
 
 var serene_grace = {
     name: "Serene Grace",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Serene_Grace_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/serenegrace.shtml"
 };
 
 var shadow_shield = {
     name: "Shadow Shield",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shadow_Shield_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/shadowshield.shtml"
 };
 
 var shadow_tag = {
     name: "Shadow Tag",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shadow_Tag_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/shadowtag.shtml"
 };
 
 var shed_skin = {
     name: "Shed Skin",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shed_Skin_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/shedskin.shtml"
 };
 
 var sheer_force = {
     name: "Sheer Force",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sheer_Force_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sheerforce.shtml"
 };
 
 var shell_armor = {
     name: "Shell Armor",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shell_Armor_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/shellarmor.shtml"
 };
 
 var shield_dust = {
     name: "Shield Dust",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shield_Dust_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/shielddust.shtml"
 };
 
 var shields_down = {
     name: "Shields Down",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shields_Down_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/shieldsdown.shtml"
 };
 
 var simple = {
     name: "Simple",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Simple_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/simple.shtml"
 };
 
 var skill_link = {
     name: "Skill Link",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skill_Link_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/skilllink.shtml"
 };
 
 var slow_start = {
     name: "Slow Start",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slow_Start_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/slowstart.shtml"
 };
 
 var sniper = {
     name: "Sniper",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sniper_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sniper.shtml"
 };
 
 var snow_cloak = {
     name: "Snow Cloak",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snow_Cloak_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/snowcloak.shtml"
 };
 
 var snow_warning = {
     name: "Snow Warning",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snow_Warning_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/snowwarning.shtml"
 };
 
 var solar_power = {
     name: "Solar Power",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Solar_Power_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/solarpower.shtml"
 };
 
 var solid_rock = {
     name: "Solid Rock",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Solid_Rock_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/solidrock.shtml"
 };
 
 var soul_heart = {
     name: "Soul_heart",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soul_heart_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/soul_heart.shtml"
 };
 
 var soundproof = {
     name: "Soundproof",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soundproof_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/soundproof.shtml"
 };
 
 var speed_boost = {
     name: "Speed Boost",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Speed_Boost_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/speedboost.shtml"
 };
 
 var stakeout = {
     name: "Stakeout",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stakeout_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/stakeout.shtml"
 };
 
 var stall = {
     name: "Stall",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stall_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/stall.shtml"
 };
 
 var stamina = {
     name: "Stamina",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stamina_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/stamina.shtml"
 };
 
 var stance_change = {
     name: "Stance Change",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stance_Change_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/stancechange.shtml"
 };
 
 var static = {
     name: "Static",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Static_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/static.shtml"
 };
 
 var steadfast = {
     name: "Steadfast",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steadfast_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/steadfast.shtml"
 };
 
 var stench = {
     name: "Stench",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stench_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/stench.shtml"
 };
 
 var sticky_hold = {
     name: "Sticky Hold",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sticky_Hold_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/stickyhold.shtml"
 };
 
 var storm_drain = {
     name: "Storm Drain",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Storm_Drain_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/stormdrain.shtml"
 };
 
 var strong_jaw = {
     name: "Strong Jaw",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Strong_Jaw_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/strongjaw.shtml"
 };
 
 var sturdy = {
     name: "Sturdy",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sturdy_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sturdy.shtml"
 };
 
 var suction_cups = {
     name: "Suction Cups",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Suction_Cups_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/suctioncups.shtml"
 };
 
 var super_luck = {
     name: "Super Luck",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Super_Luck_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/superluck.shtml"
 };
 
 var surge_surfer = {
     name: "Surge Surfer",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Surge_Surfer_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/surgesurfer.shtml"
 };
 
 var swarm = {
     name: "Swarm",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swarm_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/swarm.shtml"
 };
 
 var sweet_veil = {
     name: "Sweet Veil",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sweet_Veil_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/sweetveil.shtml"
 };
 
 var swift_swim = {
     name: "Swift Swim",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swift_Swim_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/swiftswim.shtml"
 };
 
 var symbiosis = {
     name: "Symbiosis",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Symbiosis_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/symbiosis.shtml"
 };
 
 var synchronize = {
     name: "Synchronize",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Synchronize_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/synchronize.shtml"
 };
 
 var tangled_feet = {
     name: "Tangled Feet",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tangled_Feet_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/tangledfeet.shtml"
 };
 
 var technician = {
     name: "Technician",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Technician_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/technician.shtml"
 };
 
 var telepathy = {
     name: "Telepathy",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Telepathy_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/telepathy.shtml"
 };
 
 var teravolt = {
     name: "Teravolt",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Teravolt_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/teravolt.shtml"
 };
 
 var thick_fat = {
     name: "Thick Fat",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thick_Fat_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/thickfat.shtml"
 };
 
 var tinted_lens = {
     name: "Tinted Lens",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tinted_Lens_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/tintedlens.shtml"
 };
 
 var torrent = {
     name: "Torrent",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Torrent_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/torrent.shtml"
 };
 
 var tough_claws = {
     name: "Tough Claws",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tough_Claws_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/toughclaws.shtml"
 };
 
 var toxic_boost = {
     name: "Toxic Boost",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Toxic_Boost_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/toxicboost.shtml"
 };
 
 var trace = {
     name: "Trace",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Trace_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/trace.shtml"
 };
 
 var triage = {
     name: "Triage",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Triage_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/triage.shtml"
 };
 
 var truant = {
     name: "Truant",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Truant_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/truant.shtml"
 };
 
 var turboblaze = {
     name: "Turboblaze",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Turboblaze_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/turboblaze.shtml"
 };
 
 var unaware = {
     name: "Unaware",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Unaware_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/unaware.shtml"
 };
 
 var unburden = {
     name: "Unburden",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Unburden_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/unburden.shtml"
 };
 
 var unnerve = {
     name: "Unnerve",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Unnerve_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/unnerve.shtml"
 };
 
 var victory_star = {
     name: "Victory Star",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Victory_Star_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/victorystar.shtml"
 };
 
 var vital_spirit = {
     name: "Vital Spirit",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vital_Spirit_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/vitalspirit.shtml"
 };
 
 var volt_absorb = {
     name: "Volt Absorb",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Volt_Absorb_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/voltabsorb.shtml"
 };
 
 var water_absorb = {
     name: "Water Absorb",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Absorb_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/waterabsorb.shtml"
 };
 
 var water_compaction = {
     name: "Water Compaction",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Compaction_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/watercompaction.shtml"
 };
 
 var water_veil = {
     name: "Water Veil",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Veil_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/waterveil.shtml"
 };
 
 var weak_armor = {
     name: "Weak Armor",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Weak_Armor_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/weakarmor.shtml"
 };
 
 var white_smoke = {
     name: "White Smoke",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/White_Smoke_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/whitesmoke.shtml"
 };
 
 var wimp_out = {
     name: "Wimp Out",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wimp_Out_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/wimpout.shtml"
 };
 
 var wonder_guard = {
     name: "Wonder Guard",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wonder_Guard_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/wonderguard.shtml"
 };
 
 var wonder_skin = {
     name: "Wonder Skin",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wonder_Skin_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/wonderskin.shtml"
 };
 
 var zen_mode = {
     name: "Zen Mode",
     desc: "Powers up moves of the same type.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zen_Mode_(Ability)"
+    wiki: "http://www.serebii.net/abilitydex/zenmode.shtml"
 };
