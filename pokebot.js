@@ -1,7 +1,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
     autorun: true,
-    token: "get out"
+    token: "butts"
 });
 
 var mons = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoranf", "nidorina", "nidoqueen", "nidoranm", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew", "chikorita", "bayleef", "meganium", "cyndaquil", "quilava", "typhlosion", "totodile", "croconaw", "feraligatr", "sentret", "furret", "hoothoot", "noctowl", "ledyba", "ledian", "spinarak", "ariados", "crobat", "chinchou", "lanturn", "pichu", "cleffa", "igglybuff", "togepi", "togetic", "natu", "xatu", "mareep", "flaaffy", "ampharos", "bellossom", "marill", "azumarill", "sudowoodo", "politoed", "hoppip", "skiploom", "jumpluff", "aipom", "sunkern", "sunflora", "yanma", "wooper", "quagsire", "espeon", "umbreon", "murkrow", "slowking", "misdreavus", "unown", "wobbuffet", "girafarig", "pineco", "forretress", "dunsparce", "gligar", "steelix", "snubbull", "granbull", "qwilfish", "scizor", "shuckle", "heracross", "sneasel", "teddiursa", "ursaring", "slugma", "magcargo", "swinub", "piloswine", "corsola", "remoraid", "octillery", "delibird", "mantine", "skarmory", "houndour", "houndoom", "kingdra", "phanpy", "donphan", "porygon2", "stantler", "smeargle", "tyrogue", "hitmontop", "smoochum", "elekid", "magby", "miltank", "blissey", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "lugia", "ho_oh", "celebi", "treecko", "grovyle", "sceptile", "torchic", "combusken", "blaziken", "mudkip", "marshtomp", "swampert", "poochyena", "mightyena", "zigzagoon", "linoone", "wurmple", "silcoon", "beautifly", "cascoon", "dustox", "lotad", "lombre", "ludicolo", "seedot", "nuzleaf", "shiftry", "taillow", "swellow", "wingull", "pelipper", "ralts", "kirlia", "gardevoir", "surskit", "masquerain", "shroomish", "breloom", "slakoth", "vigoroth", "slaking", "nincada", "ninjask", "shedinja", "whismur", "loudred", "exploud", "makuhita", "hariyama", "azurill", "nosepass", "skitty", "delcatty", "sableye", "mawile", "aron", "lairon", "aggron", "meditite", "medicham", "electrike", "manectric", "plusle", "minun", "volbeat", "illumise", "roselia", "gulpin", "swalot", "carvanha", "sharpedo", "wailmer", "wailord", "numel", "camerupt", "torkoal", "spoink", "grumpig", "spinda", "trapinch", "vibrava", "flygon", "cacnea", "cacturne", "swablu", "altaria", "zangoose", "seviper", "lunatone", "solrock", "barboach", "whiscash", "corphish", "crawdaunt", "baltoy", "claydol", "lileep", "cradily", "anorith", "armaldo", "feebas", "milotic", "castform", "kecleon", "shuppet", "banette", "duskull", "dusclops", "tropius", "chimecho", "absol", "wynaut", "snorunt", "glalie", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "bagon", "shelgon", "salamence", "beldum", "metang", "metagross", "regirock", "regice", "registeel", "latias", "latios", "kyogre", "groudon", "rayquaza", "jirachi", "deoxys", "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon", "starly", "staravia", "staraptor", "bidoof", "bibarel", "kricketot", "kricketune", "shinx", "luxio", "luxray", "budew", "roserade", "cranidos", "rampardos", "shieldon", "bastiodon", "burmy", "wormadam", "mothim", "combee", "vespiquen", "pachirisu", "buizel", "floatzel", "cherubi", "cherrim", "shellos", "gastrodon", "ambipom", "drifloon", "drifblim", "buneary", "lopunny", "mismagius", "honchkrow", "glameow", "purugly", "chingling", "stunky", "skuntank", "bronzor", "bronzong", "bonsly", "mime jr", "happiny", "chatot", "spiritomb", "gible", "gabite", "garchomp", "munchlax", "riolu", "lucario", "hippopotas", "hippowdon", "skorupi", "drapion", "croagunk", "toxicroak", "carnivine", "finneon", "lumineon", "mantyke", "snover", "abomasnow", "weavile", "magnezone", "lickilicky", "rhyperior", "tangrowth", "electivire", "magmortar", "togekiss", "yanmega", "leafeon", "glaceon", "gliscor", "mamoswine", "porygon_z", "gallade", "probopass", "dusknoir", "froslass", "rotom", "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran", "regigigas", "giratina", "cresselia", "phione", "manaphy", "darkrai", "shaymin", "arceus", "victini", "snivy", "servine", "serperior", "tepig", "pignite", "emboar", "oshawott", "dewott", "samurott", "patrat", "watchog", "lillipup", "herdier", "stoutland", "purrloin", "liepard", "pansage", "simisage", "pansear", "simisear", "panpour", "simipour", "munna", "musharna", "pidove", "tranquill", "unfezant", "blitzle", "zebstrika", "roggenrola", "boldore", "gigalith", "woobat", "swoobat", "drilbur", "excadrill", "audino", "timburr", "gurdurr", "conkeldurr", "tympole", "palpitoad", "seismitoad", "throh", "sawk", "sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "cottonee", "whimsicott", "petilil", "lilligant", "basculin", "sandile", "krokorok", "krookodile", "darumaka", "darmanitan", "maractus", "dwebble", "crustle", "scraggy", "scrafty", "sigilyph", "yamask", "cofagrigus", "tirtouga", "carracosta", "archen", "archeops", "trubbish", "garbodor", "zorua", "zoroark", "minccino", "cinccino", "gothita", "gothorita", "gothitelle", "solosis", "duosion", "reuniclus", "ducklett", "swanna", "vanillite", "vanillish", "vanilluxe", "deerling", "sawsbuck", "emolga", "karrablast", "escavalier", "foongus", "amoonguss", "frillish", "jellicent", "alomomola", "joltik", "galvantula", "ferroseed", "ferrothorn", "klink", "klang", "klinklang", "tynamo", "eelektrik", "eelektross", "elgyem", "beheeyem", "litwick", "lampent", "chandelure", "axew", "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo", "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary", "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona", "cobalion", "terrakion", "virizion", "tornadus", "thundurus", "reshiram", "zekrom", "landorus", "kyurem", "keldeo", "meloetta", "genesect", "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja", "bunnelby", "diggersby", "fletchling", "fletchinder", "talonflame", "scatterbug", "spewpa", "vivillon", "litleo", "pyroar", "flabebe", "floette", "florges", "skiddo", "gogoat", "pancham", "pangoro", "furfrou", "espurr", "meowstic", "honedge", "doublade", "aegislash", "spritzee", "aromatisse", "swirlix", "slurpuff", "inkay", "malamar", "binacle", "barbaracle", "skrelp", "dragalge", "clauncher", "clawitzer", "helioptile", "heliolisk", "tyrunt", "tyrantrum", "amaura", "aurorus", "sylveon", "hawlucha", "dedenne", "carbink", "goomy", "sliggoo", "goodra", "klefki", "phantump", "trevenant", "pumpkaboo", "gourgeist", "bergmite", "avalugg", "noibat", "noivern", "xerneas", "yveltal", "zygarde", "diancie"];
@@ -7353,7 +7353,7 @@ var pound = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pound_(move)"
+    wiki: "http://www.serebii.net/attackdex-xy/pound.shtml"
 };
 
 var karate_chop = {
@@ -7364,7 +7364,7 @@ var karate_chop = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Karate_Chop_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/karatechop.shtml"
 };
 
 var double_slap = {
@@ -7375,7 +7375,7 @@ var double_slap = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Double_Slap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/doubleslap.shtml"
 };
 
 var comet_punch = {
@@ -7386,7 +7386,7 @@ var comet_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Comet_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/cometpunch.shtml"
 };
 
 var mega_punch = {
@@ -7397,7 +7397,7 @@ var mega_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mega_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/megapunch.shtml"
 };
 
 var pay_day = {
@@ -7408,7 +7408,7 @@ var pay_day = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pay_Day_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/payday.shtml"
 };
 
 var fire_punch = {
@@ -7419,7 +7419,7 @@ var fire_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/firepunch.shtml"
 };
 
 var ice_punch = {
@@ -7430,7 +7430,7 @@ var ice_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/icepunch.shtml"
 };
 
 var thunder_punch = {
@@ -7441,7 +7441,7 @@ var thunder_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thunder_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thunderpunch.shtml"
 };
 
 var scratch = {
@@ -7452,7 +7452,7 @@ var scratch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scratch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/scratch.shtml"
 };
 
 var vice_grip = {
@@ -7463,7 +7463,7 @@ var vice_grip = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vice_Grip_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/vicegrip.shtml"
 };
 
 var guillotine = {
@@ -7474,7 +7474,7 @@ var guillotine = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Guillotine_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/guillotine.shtml"
 };
 
 var razor_wind = {
@@ -7485,7 +7485,7 @@ var razor_wind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razor_Wind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/razorwind.shtml"
 };
 
 var swords_dance = {
@@ -7496,7 +7496,7 @@ var swords_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swords_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/swordsdance.shtml"
 };
 
 var cut = {
@@ -7507,7 +7507,7 @@ var cut = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cut_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/cut.shtml"
 };
 
 var gust = {
@@ -7518,7 +7518,7 @@ var gust = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gust_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/gust.shtml"
 };
 
 var wing_attack = {
@@ -7529,7 +7529,7 @@ var wing_attack = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wing_Attack_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/wingattack.shtml"
 };
 
 var whirlwind = {
@@ -7540,7 +7540,7 @@ var whirlwind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Whirlwind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/whirlwind.shtml"
 };
 
 var fly = {
@@ -7551,7 +7551,7 @@ var fly = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fly_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fly.shtml"
 };
 
 var bind = {
@@ -7562,7 +7562,7 @@ var bind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bind.shtml"
 };
 
 var slam = {
@@ -7573,7 +7573,7 @@ var slam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/slam.shtml"
 };
 
 var vine_whip = {
@@ -7584,7 +7584,7 @@ var vine_whip = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vine_Whip_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/vinewhip.shtml"
 };
 
 var stomp = {
@@ -7595,7 +7595,7 @@ var stomp = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stomp_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/stomp.shtml"
 };
 
 var double_kick = {
@@ -7606,7 +7606,7 @@ var double_kick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Double_Kick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/doublekick.shtml"
 };
 
 var mega_kick = {
@@ -7617,7 +7617,7 @@ var mega_kick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mega_Kick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/megakick.shtml"
 };
 
 var jump_kick = {
@@ -7628,7 +7628,7 @@ var jump_kick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jump_Kick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/jumpkick.shtml"
 };
 
 var rolling_kick = {
@@ -7639,7 +7639,7 @@ var rolling_kick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rolling_Kick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rollingkick.shtml"
 };
 
 var sand_attack = {
@@ -7650,7 +7650,7 @@ var sand_attack = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sand_Attack_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sandattack.shtml"
 };
 
 var headbutt = {
@@ -7661,7 +7661,7 @@ var headbutt = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Headbutt_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/headbutt.shtml"
 };
 
 var horn_attack = {
@@ -7672,7 +7672,7 @@ var horn_attack = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Horn_Attack_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hornattack.shtml"
 };
 
 var fury_attack = {
@@ -7683,7 +7683,7 @@ var fury_attack = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fury_Attack_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/furyattack.shtml"
 };
 
 var horn_drill = {
@@ -7694,7 +7694,7 @@ var horn_drill = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Horn_Drill_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/horndrill.shtml"
 };
 
 var tackle = {
@@ -7705,7 +7705,7 @@ var tackle = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tackle_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/tackle.shtml"
 };
 
 var body_slam = {
@@ -7716,7 +7716,7 @@ var body_slam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Body_Slam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bodyslam.shtml"
 };
 
 var wrap = {
@@ -7727,7 +7727,7 @@ var wrap = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wrap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/wrap.shtml"
 };
 
 var take_down = {
@@ -7738,7 +7738,7 @@ var take_down = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Take_Down_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/takedown.shtml"
 };
 
 var thrash = {
@@ -7749,18 +7749,18 @@ var thrash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thrash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thrash.shtml"
 };
 
 var double_edge = {
-    name: "Double-edge",
+    name: "Double_edge",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Double-edge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/double_edge.shtml"
 };
 
 var tail_whip = {
@@ -7771,7 +7771,7 @@ var tail_whip = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tail_Whip_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/tailwhip.shtml"
 };
 
 var poison_sting = {
@@ -7782,7 +7782,7 @@ var poison_sting = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Sting_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/poisonsting.shtml"
 };
 
 var twineedle = {
@@ -7793,7 +7793,7 @@ var twineedle = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Twineedle_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/twineedle.shtml"
 };
 
 var pin_missile = {
@@ -7804,7 +7804,7 @@ var pin_missile = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pin_Missile_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/pinmissile.shtml"
 };
 
 var leer = {
@@ -7815,7 +7815,7 @@ var leer = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leer_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/leer.shtml"
 };
 
 var bite = {
@@ -7826,7 +7826,7 @@ var bite = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bite_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bite.shtml"
 };
 
 var growl = {
@@ -7837,7 +7837,7 @@ var growl = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Growl_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/growl.shtml"
 };
 
 var roar = {
@@ -7848,7 +7848,7 @@ var roar = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Roar_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/roar.shtml"
 };
 
 var sing = {
@@ -7859,7 +7859,7 @@ var sing = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sing_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sing.shtml"
 };
 
 var supersonic = {
@@ -7870,7 +7870,7 @@ var supersonic = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Supersonic_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/supersonic.shtml"
 };
 
 var sonic_boom = {
@@ -7881,7 +7881,7 @@ var sonic_boom = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sonic_Boom_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sonicboom.shtml"
 };
 
 var disable = {
@@ -7892,7 +7892,7 @@ var disable = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Disable_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/disable.shtml"
 };
 
 var acid = {
@@ -7903,7 +7903,7 @@ var acid = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Acid_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/acid.shtml"
 };
 
 var ember = {
@@ -7914,7 +7914,7 @@ var ember = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ember_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/ember.shtml"
 };
 
 var flamethrower = {
@@ -7925,7 +7925,7 @@ var flamethrower = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flamethrower_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flamethrower.shtml"
 };
 
 var mist = {
@@ -7936,7 +7936,7 @@ var mist = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mist_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mist.shtml"
 };
 
 var water_gun = {
@@ -7947,7 +7947,7 @@ var water_gun = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Gun_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/watergun.shtml"
 };
 
 var hydro_pump = {
@@ -7958,7 +7958,7 @@ var hydro_pump = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hydro_Pump_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hydropump.shtml"
 };
 
 var surf = {
@@ -7969,7 +7969,7 @@ var surf = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Surf_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/surf.shtml"
 };
 
 var ice_beam = {
@@ -7980,7 +7980,7 @@ var ice_beam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Beam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/icebeam.shtml"
 };
 
 var blizzard = {
@@ -7991,7 +7991,7 @@ var blizzard = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blizzard_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/blizzard.shtml"
 };
 
 var psybeam = {
@@ -8002,7 +8002,7 @@ var psybeam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psybeam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psybeam.shtml"
 };
 
 var bubble_beam = {
@@ -8013,7 +8013,7 @@ var bubble_beam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bubble_Beam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bubblebeam.shtml"
 };
 
 var aurora_beam = {
@@ -8024,7 +8024,7 @@ var aurora_beam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aurora_Beam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aurorabeam.shtml"
 };
 
 var hyper_beam = {
@@ -8035,7 +8035,7 @@ var hyper_beam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyper_Beam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hyperbeam.shtml"
 };
 
 var peck = {
@@ -8046,7 +8046,7 @@ var peck = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Peck_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/peck.shtml"
 };
 
 var drill_peck = {
@@ -8057,7 +8057,7 @@ var drill_peck = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drill_Peck_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/drillpeck.shtml"
 };
 
 var submission = {
@@ -8068,7 +8068,7 @@ var submission = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Submission_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/submission.shtml"
 };
 
 var low_kick = {
@@ -8079,7 +8079,7 @@ var low_kick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Low_Kick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lowkick.shtml"
 };
 
 var counter = {
@@ -8090,7 +8090,7 @@ var counter = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Counter_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/counter.shtml"
 };
 
 var seismic_toss = {
@@ -8101,7 +8101,7 @@ var seismic_toss = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seismic_Toss_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/seismictoss.shtml"
 };
 
 var strength = {
@@ -8112,7 +8112,7 @@ var strength = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Strength_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/strength.shtml"
 };
 
 var absorb = {
@@ -8123,7 +8123,7 @@ var absorb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Absorb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/absorb.shtml"
 };
 
 var mega_drain = {
@@ -8134,7 +8134,7 @@ var mega_drain = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mega_Drain_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/megadrain.shtml"
 };
 
 var leech_seed = {
@@ -8145,7 +8145,7 @@ var leech_seed = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leech_Seed_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/leechseed.shtml"
 };
 
 var growth = {
@@ -8156,7 +8156,7 @@ var growth = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Growth_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/growth.shtml"
 };
 
 var razor_leaf = {
@@ -8167,7 +8167,7 @@ var razor_leaf = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razor_Leaf_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/razorleaf.shtml"
 };
 
 var solar_beam = {
@@ -8178,7 +8178,7 @@ var solar_beam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Solar_Beam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/solarbeam.shtml"
 };
 
 var poison_powder = {
@@ -8189,7 +8189,7 @@ var poison_powder = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Powder_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/poisonpowder.shtml"
 };
 
 var stun_spore = {
@@ -8200,7 +8200,7 @@ var stun_spore = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stun_Spore_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/stunspore.shtml"
 };
 
 var sleep_powder = {
@@ -8211,7 +8211,7 @@ var sleep_powder = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sleep_Powder_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sleeppowder.shtml"
 };
 
 var petal_dance = {
@@ -8222,7 +8222,7 @@ var petal_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Petal_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/petaldance.shtml"
 };
 
 var string_shot = {
@@ -8233,7 +8233,7 @@ var string_shot = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/String_Shot_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/stringshot.shtml"
 };
 
 var dragon_rage = {
@@ -8244,7 +8244,7 @@ var dragon_rage = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Rage_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dragonrage.shtml"
 };
 
 var fire_spin = {
@@ -8255,7 +8255,7 @@ var fire_spin = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Spin_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/firespin.shtml"
 };
 
 var thunder_shock = {
@@ -8266,7 +8266,7 @@ var thunder_shock = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thunder_Shock_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thundershock.shtml"
 };
 
 var thunderbolt = {
@@ -8277,7 +8277,7 @@ var thunderbolt = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thunderbolt_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thunderbolt.shtml"
 };
 
 var thunder_wave = {
@@ -8288,7 +8288,7 @@ var thunder_wave = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thunder_Wave_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thunderwave.shtml"
 };
 
 var thunder = {
@@ -8299,7 +8299,7 @@ var thunder = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thunder_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thunder.shtml"
 };
 
 var rock_throw = {
@@ -8310,7 +8310,7 @@ var rock_throw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Throw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rockthrow.shtml"
 };
 
 var earthquake = {
@@ -8321,7 +8321,7 @@ var earthquake = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Earthquake_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/earthquake.shtml"
 };
 
 var fissure = {
@@ -8332,7 +8332,7 @@ var fissure = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fissure_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fissure.shtml"
 };
 
 var dig = {
@@ -8343,7 +8343,7 @@ var dig = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dig_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dig.shtml"
 };
 
 var toxic = {
@@ -8354,7 +8354,7 @@ var toxic = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Toxic_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/toxic.shtml"
 };
 
 var confusion = {
@@ -8365,7 +8365,7 @@ var confusion = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Confusion_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/confusion.shtml"
 };
 
 var psychic = {
@@ -8376,7 +8376,7 @@ var psychic = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psychic_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psychic.shtml"
 };
 
 var hypnosis = {
@@ -8387,7 +8387,7 @@ var hypnosis = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hypnosis_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hypnosis.shtml"
 };
 
 var meditate = {
@@ -8398,7 +8398,7 @@ var meditate = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meditate_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/meditate.shtml"
 };
 
 var agility = {
@@ -8409,7 +8409,7 @@ var agility = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Agility_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/agility.shtml"
 };
 
 var quick_attack = {
@@ -8420,7 +8420,7 @@ var quick_attack = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Attack_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/quickattack.shtml"
 };
 
 var rage = {
@@ -8431,7 +8431,7 @@ var rage = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rage_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rage.shtml"
 };
 
 var teleport = {
@@ -8442,7 +8442,7 @@ var teleport = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Teleport_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/teleport.shtml"
 };
 
 var night_shade = {
@@ -8453,7 +8453,7 @@ var night_shade = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Night_Shade_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/nightshade.shtml"
 };
 
 var mimic = {
@@ -8464,7 +8464,7 @@ var mimic = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mimic_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mimic.shtml"
 };
 
 var screech = {
@@ -8475,7 +8475,7 @@ var screech = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Screech_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/screech.shtml"
 };
 
 var double_team = {
@@ -8486,7 +8486,7 @@ var double_team = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Double_Team_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/doubleteam.shtml"
 };
 
 var recover = {
@@ -8497,7 +8497,7 @@ var recover = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Recover_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/recover.shtml"
 };
 
 var harden = {
@@ -8508,7 +8508,7 @@ var harden = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Harden_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/harden.shtml"
 };
 
 var minimize = {
@@ -8519,7 +8519,7 @@ var minimize = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Minimize_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/minimize.shtml"
 };
 
 var smokescreen = {
@@ -8530,7 +8530,7 @@ var smokescreen = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smokescreen_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/smokescreen.shtml"
 };
 
 var confuse_ray = {
@@ -8541,7 +8541,7 @@ var confuse_ray = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Confuse_Ray_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/confuseray.shtml"
 };
 
 var withdraw = {
@@ -8552,7 +8552,7 @@ var withdraw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Withdraw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/withdraw.shtml"
 };
 
 var defense_curl = {
@@ -8563,7 +8563,7 @@ var defense_curl = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Defense_Curl_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/defensecurl.shtml"
 };
 
 var barrier = {
@@ -8574,7 +8574,7 @@ var barrier = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Barrier_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/barrier.shtml"
 };
 
 var light_screen = {
@@ -8585,7 +8585,7 @@ var light_screen = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Light_Screen_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lightscreen.shtml"
 };
 
 var haze = {
@@ -8596,7 +8596,7 @@ var haze = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Haze_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/haze.shtml"
 };
 
 var reflect = {
@@ -8607,7 +8607,7 @@ var reflect = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reflect_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/reflect.shtml"
 };
 
 var focus_energy = {
@@ -8618,7 +8618,7 @@ var focus_energy = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Focus_Energy_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/focusenergy.shtml"
 };
 
 var bide = {
@@ -8629,7 +8629,7 @@ var bide = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bide_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bide.shtml"
 };
 
 var metronome = {
@@ -8640,7 +8640,7 @@ var metronome = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metronome_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/metronome.shtml"
 };
 
 var mirror_move = {
@@ -8651,18 +8651,18 @@ var mirror_move = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mirror_Move_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mirrormove.shtml"
 };
 
 var self_destruct = {
-    name: "Self-destruct",
+    name: "Self_destruct",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Self-destruct_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/self_destruct.shtml"
 };
 
 var egg_bomb = {
@@ -8673,7 +8673,7 @@ var egg_bomb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Egg_Bomb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/eggbomb.shtml"
 };
 
 var lick = {
@@ -8684,7 +8684,7 @@ var lick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lick.shtml"
 };
 
 var smog = {
@@ -8695,7 +8695,7 @@ var smog = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smog_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/smog.shtml"
 };
 
 var sludge = {
@@ -8706,7 +8706,7 @@ var sludge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sludge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sludge.shtml"
 };
 
 var bone_club = {
@@ -8717,7 +8717,7 @@ var bone_club = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bone_Club_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/boneclub.shtml"
 };
 
 var fire_blast = {
@@ -8728,7 +8728,7 @@ var fire_blast = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Blast_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fireblast.shtml"
 };
 
 var waterfall = {
@@ -8739,7 +8739,7 @@ var waterfall = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Waterfall_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/waterfall.shtml"
 };
 
 var clamp = {
@@ -8750,7 +8750,7 @@ var clamp = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clamp_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/clamp.shtml"
 };
 
 var swift = {
@@ -8761,7 +8761,7 @@ var swift = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swift_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/swift.shtml"
 };
 
 var skull_bash = {
@@ -8772,7 +8772,7 @@ var skull_bash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skull_Bash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/skullbash.shtml"
 };
 
 var spike_cannon = {
@@ -8783,7 +8783,7 @@ var spike_cannon = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spike_Cannon_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spikecannon.shtml"
 };
 
 var constrict = {
@@ -8794,7 +8794,7 @@ var constrict = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Constrict_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/constrict.shtml"
 };
 
 var amnesia = {
@@ -8805,7 +8805,7 @@ var amnesia = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Amnesia_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/amnesia.shtml"
 };
 
 var kinesis = {
@@ -8816,18 +8816,18 @@ var kinesis = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kinesis_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/kinesis.shtml"
 };
 
 var soft_boiled = {
-    name: "Soft-boiled",
+    name: "Soft_boiled",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soft-boiled_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/soft_boiled.shtml"
 };
 
 var high_jump_kick = {
@@ -8838,7 +8838,7 @@ var high_jump_kick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/High_Jump_Kick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/highjumpkick.shtml"
 };
 
 var glare = {
@@ -8849,7 +8849,7 @@ var glare = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Glare_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/glare.shtml"
 };
 
 var dream_eater = {
@@ -8860,7 +8860,7 @@ var dream_eater = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dream_Eater_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dreameater.shtml"
 };
 
 var poison_gas = {
@@ -8871,7 +8871,7 @@ var poison_gas = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Gas_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/poisongas.shtml"
 };
 
 var barrage = {
@@ -8882,7 +8882,7 @@ var barrage = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Barrage_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/barrage.shtml"
 };
 
 var leech_life = {
@@ -8893,7 +8893,7 @@ var leech_life = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leech_Life_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/leechlife.shtml"
 };
 
 var lovely_kiss = {
@@ -8904,7 +8904,7 @@ var lovely_kiss = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lovely_Kiss_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lovelykiss.shtml"
 };
 
 var sky_attack = {
@@ -8915,7 +8915,7 @@ var sky_attack = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sky_Attack_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/skyattack.shtml"
 };
 
 var transform = {
@@ -8926,7 +8926,7 @@ var transform = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Transform_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/transform.shtml"
 };
 
 var bubble = {
@@ -8937,7 +8937,7 @@ var bubble = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bubble_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bubble.shtml"
 };
 
 var dizzy_punch = {
@@ -8948,7 +8948,7 @@ var dizzy_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dizzy_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dizzypunch.shtml"
 };
 
 var spore = {
@@ -8959,7 +8959,7 @@ var spore = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spore_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spore.shtml"
 };
 
 var flash = {
@@ -8970,7 +8970,7 @@ var flash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flash.shtml"
 };
 
 var psywave = {
@@ -8981,7 +8981,7 @@ var psywave = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psywave_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psywave.shtml"
 };
 
 var splash = {
@@ -8992,7 +8992,7 @@ var splash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Splash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/splash.shtml"
 };
 
 var acid_armor = {
@@ -9003,7 +9003,7 @@ var acid_armor = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Acid_Armor_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/acidarmor.shtml"
 };
 
 var crabhammer = {
@@ -9014,7 +9014,7 @@ var crabhammer = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Crabhammer_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/crabhammer.shtml"
 };
 
 var explosion = {
@@ -9025,7 +9025,7 @@ var explosion = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Explosion_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/explosion.shtml"
 };
 
 var fury_swipes = {
@@ -9036,7 +9036,7 @@ var fury_swipes = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fury_Swipes_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/furyswipes.shtml"
 };
 
 var bonemerang = {
@@ -9047,7 +9047,7 @@ var bonemerang = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bonemerang_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bonemerang.shtml"
 };
 
 var rest = {
@@ -9058,7 +9058,7 @@ var rest = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rest_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rest.shtml"
 };
 
 var rock_slide = {
@@ -9069,7 +9069,7 @@ var rock_slide = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Slide_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rockslide.shtml"
 };
 
 var hyper_fang = {
@@ -9080,7 +9080,7 @@ var hyper_fang = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyper_Fang_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hyperfang.shtml"
 };
 
 var sharpen = {
@@ -9091,7 +9091,7 @@ var sharpen = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sharpen_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sharpen.shtml"
 };
 
 var conversion = {
@@ -9102,7 +9102,7 @@ var conversion = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Conversion_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/conversion.shtml"
 };
 
 var tri_attack = {
@@ -9113,7 +9113,7 @@ var tri_attack = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tri_Attack_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/triattack.shtml"
 };
 
 var super_fang = {
@@ -9124,7 +9124,7 @@ var super_fang = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Super_Fang_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/superfang.shtml"
 };
 
 var slash = {
@@ -9135,7 +9135,7 @@ var slash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/slash.shtml"
 };
 
 var substitute = {
@@ -9146,7 +9146,7 @@ var substitute = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Substitute_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/substitute.shtml"
 };
 
 var struggle = {
@@ -9157,7 +9157,7 @@ var struggle = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Struggle_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/struggle.shtml"
 };
 
 var sketch = {
@@ -9168,7 +9168,7 @@ var sketch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sketch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sketch.shtml"
 };
 
 var triple_kick = {
@@ -9179,7 +9179,7 @@ var triple_kick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Triple_Kick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/triplekick.shtml"
 };
 
 var thief = {
@@ -9190,7 +9190,7 @@ var thief = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thief_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thief.shtml"
 };
 
 var spider_web = {
@@ -9201,7 +9201,7 @@ var spider_web = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spider_Web_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spiderweb.shtml"
 };
 
 var mind_reader = {
@@ -9212,7 +9212,7 @@ var mind_reader = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mind_Reader_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mindreader.shtml"
 };
 
 var nightmare = {
@@ -9223,7 +9223,7 @@ var nightmare = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nightmare_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/nightmare.shtml"
 };
 
 var flame_wheel = {
@@ -9234,7 +9234,7 @@ var flame_wheel = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flame_Wheel_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flamewheel.shtml"
 };
 
 var snore = {
@@ -9245,7 +9245,7 @@ var snore = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snore_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/snore.shtml"
 };
 
 var curse = {
@@ -9256,7 +9256,7 @@ var curse = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Curse_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/curse.shtml"
 };
 
 var flail = {
@@ -9267,7 +9267,7 @@ var flail = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flail_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flail.shtml"
 };
 
 var conversion_2 = {
@@ -9278,7 +9278,7 @@ var conversion_2 = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Conversion_2_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/conversion2.shtml"
 };
 
 var aeroblast = {
@@ -9289,7 +9289,7 @@ var aeroblast = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aeroblast_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aeroblast.shtml"
 };
 
 var cotton_spore = {
@@ -9300,7 +9300,7 @@ var cotton_spore = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cotton_Spore_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/cottonspore.shtml"
 };
 
 var reversal = {
@@ -9311,7 +9311,7 @@ var reversal = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reversal_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/reversal.shtml"
 };
 
 var spite = {
@@ -9322,7 +9322,7 @@ var spite = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spite_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spite.shtml"
 };
 
 var powder_snow = {
@@ -9333,7 +9333,7 @@ var powder_snow = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Powder_Snow_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/powdersnow.shtml"
 };
 
 var protect = {
@@ -9344,7 +9344,7 @@ var protect = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Protect_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/protect.shtml"
 };
 
 var mach_punch = {
@@ -9355,7 +9355,7 @@ var mach_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mach_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/machpunch.shtml"
 };
 
 var scary_face = {
@@ -9366,7 +9366,7 @@ var scary_face = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scary_Face_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/scaryface.shtml"
 };
 
 var feint_attack = {
@@ -9377,7 +9377,7 @@ var feint_attack = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Feint_Attack_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/feintattack.shtml"
 };
 
 var sweet_kiss = {
@@ -9388,7 +9388,7 @@ var sweet_kiss = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sweet_Kiss_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sweetkiss.shtml"
 };
 
 var belly_drum = {
@@ -9399,7 +9399,7 @@ var belly_drum = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Belly_Drum_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bellydrum.shtml"
 };
 
 var sludge_bomb = {
@@ -9410,18 +9410,18 @@ var sludge_bomb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sludge_Bomb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sludgebomb.shtml"
 };
 
 var mud_slap = {
-    name: "Mud-slap",
+    name: "Mud_slap",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mud-slap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mud_slap.shtml"
 };
 
 var octazooka = {
@@ -9432,7 +9432,7 @@ var octazooka = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Octazooka_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/octazooka.shtml"
 };
 
 var spikes = {
@@ -9443,7 +9443,7 @@ var spikes = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spikes_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spikes.shtml"
 };
 
 var zap_cannon = {
@@ -9454,7 +9454,7 @@ var zap_cannon = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zap_Cannon_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/zapcannon.shtml"
 };
 
 var foresight = {
@@ -9465,7 +9465,7 @@ var foresight = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Foresight_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/foresight.shtml"
 };
 
 var destiny_bond = {
@@ -9476,7 +9476,7 @@ var destiny_bond = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Destiny_Bond_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/destinybond.shtml"
 };
 
 var perish_song = {
@@ -9487,7 +9487,7 @@ var perish_song = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Perish_Song_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/perishsong.shtml"
 };
 
 var icy_wind = {
@@ -9498,7 +9498,7 @@ var icy_wind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Icy_Wind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/icywind.shtml"
 };
 
 var detect = {
@@ -9509,7 +9509,7 @@ var detect = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Detect_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/detect.shtml"
 };
 
 var bone_rush = {
@@ -9520,18 +9520,18 @@ var bone_rush = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bone_Rush_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bonerush.shtml"
 };
 
 var lock_on = {
-    name: "Lock-on",
+    name: "Lock_on",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lock-on_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lock_on.shtml"
 };
 
 var outrage = {
@@ -9542,7 +9542,7 @@ var outrage = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Outrage_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/outrage.shtml"
 };
 
 var sandstorm = {
@@ -9553,7 +9553,7 @@ var sandstorm = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sandstorm_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sandstorm.shtml"
 };
 
 var giga_drain = {
@@ -9564,7 +9564,7 @@ var giga_drain = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Giga_Drain_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/gigadrain.shtml"
 };
 
 var endure = {
@@ -9575,7 +9575,7 @@ var endure = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Endure_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/endure.shtml"
 };
 
 var charm = {
@@ -9586,7 +9586,7 @@ var charm = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charm_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/charm.shtml"
 };
 
 var rollout = {
@@ -9597,7 +9597,7 @@ var rollout = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rollout_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rollout.shtml"
 };
 
 var false_swipe = {
@@ -9608,7 +9608,7 @@ var false_swipe = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/False_Swipe_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/falseswipe.shtml"
 };
 
 var swagger = {
@@ -9619,7 +9619,7 @@ var swagger = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swagger_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/swagger.shtml"
 };
 
 var milk_drink = {
@@ -9630,7 +9630,7 @@ var milk_drink = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Milk_Drink_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/milkdrink.shtml"
 };
 
 var spark = {
@@ -9641,7 +9641,7 @@ var spark = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spark_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spark.shtml"
 };
 
 var fury_cutter = {
@@ -9652,7 +9652,7 @@ var fury_cutter = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fury_Cutter_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/furycutter.shtml"
 };
 
 var steel_wing = {
@@ -9663,7 +9663,7 @@ var steel_wing = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steel_Wing_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/steelwing.shtml"
 };
 
 var mean_look = {
@@ -9674,7 +9674,7 @@ var mean_look = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mean_Look_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/meanlook.shtml"
 };
 
 var attract = {
@@ -9685,7 +9685,7 @@ var attract = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Attract_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/attract.shtml"
 };
 
 var sleep_talk = {
@@ -9696,7 +9696,7 @@ var sleep_talk = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sleep_Talk_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sleeptalk.shtml"
 };
 
 var heal_bell = {
@@ -9707,10 +9707,10 @@ var heal_bell = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heal_Bell_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/healbell.shtml"
 };
 
-var return_ = {
+var return = {
     name: "Return",
     type: "Normal",
     cat: "Physical",
@@ -9718,7 +9718,7 @@ var return_ = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Return_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/return.shtml"
 };
 
 var present = {
@@ -9729,7 +9729,7 @@ var present = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Present_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/present.shtml"
 };
 
 var frustration = {
@@ -9740,7 +9740,7 @@ var frustration = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Frustration_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/frustration.shtml"
 };
 
 var safeguard = {
@@ -9751,7 +9751,7 @@ var safeguard = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Safeguard_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/safeguard.shtml"
 };
 
 var pain_split = {
@@ -9762,7 +9762,7 @@ var pain_split = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pain_Split_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/painsplit.shtml"
 };
 
 var sacred_fire = {
@@ -9773,7 +9773,7 @@ var sacred_fire = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sacred_Fire_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sacredfire.shtml"
 };
 
 var magnitude = {
@@ -9784,7 +9784,7 @@ var magnitude = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnitude_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/magnitude.shtml"
 };
 
 var dynamic_punch = {
@@ -9795,7 +9795,7 @@ var dynamic_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dynamic_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dynamicpunch.shtml"
 };
 
 var megahorn = {
@@ -9806,7 +9806,7 @@ var megahorn = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Megahorn_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/megahorn.shtml"
 };
 
 var dragon_breath = {
@@ -9817,7 +9817,7 @@ var dragon_breath = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Breath_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dragonbreath.shtml"
 };
 
 var baton_pass = {
@@ -9828,7 +9828,7 @@ var baton_pass = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Baton_Pass_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/batonpass.shtml"
 };
 
 var encore = {
@@ -9839,7 +9839,7 @@ var encore = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Encore_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/encore.shtml"
 };
 
 var pursuit = {
@@ -9850,7 +9850,7 @@ var pursuit = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pursuit_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/pursuit.shtml"
 };
 
 var rapid_spin = {
@@ -9861,7 +9861,7 @@ var rapid_spin = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rapid_Spin_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rapidspin.shtml"
 };
 
 var sweet_scent = {
@@ -9872,7 +9872,7 @@ var sweet_scent = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sweet_Scent_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sweetscent.shtml"
 };
 
 var iron_tail = {
@@ -9883,7 +9883,7 @@ var iron_tail = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Tail_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/irontail.shtml"
 };
 
 var metal_claw = {
@@ -9894,7 +9894,7 @@ var metal_claw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metal_Claw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/metalclaw.shtml"
 };
 
 var vital_throw = {
@@ -9905,7 +9905,7 @@ var vital_throw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vital_Throw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/vitalthrow.shtml"
 };
 
 var morning_sun = {
@@ -9916,7 +9916,7 @@ var morning_sun = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Morning_Sun_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/morningsun.shtml"
 };
 
 var synthesis = {
@@ -9927,7 +9927,7 @@ var synthesis = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Synthesis_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/synthesis.shtml"
 };
 
 var moonlight = {
@@ -9938,7 +9938,7 @@ var moonlight = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moonlight_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/moonlight.shtml"
 };
 
 var hidden_power = {
@@ -9949,7 +9949,7 @@ var hidden_power = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hidden_Power_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hiddenpower.shtml"
 };
 
 var cross_chop = {
@@ -9960,7 +9960,7 @@ var cross_chop = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cross_Chop_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/crosschop.shtml"
 };
 
 var twister = {
@@ -9971,7 +9971,7 @@ var twister = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Twister_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/twister.shtml"
 };
 
 var rain_dance = {
@@ -9982,7 +9982,7 @@ var rain_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rain_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/raindance.shtml"
 };
 
 var sunny_day = {
@@ -9993,7 +9993,7 @@ var sunny_day = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sunny_Day_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sunnyday.shtml"
 };
 
 var crunch = {
@@ -10004,7 +10004,7 @@ var crunch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Crunch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/crunch.shtml"
 };
 
 var mirror_coat = {
@@ -10015,7 +10015,7 @@ var mirror_coat = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mirror_Coat_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mirrorcoat.shtml"
 };
 
 var psych_up = {
@@ -10026,7 +10026,7 @@ var psych_up = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psych_Up_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psychup.shtml"
 };
 
 var extreme_speed = {
@@ -10037,7 +10037,7 @@ var extreme_speed = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Extreme_Speed_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/extremespeed.shtml"
 };
 
 var ancient_power = {
@@ -10048,7 +10048,7 @@ var ancient_power = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ancient_Power_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/ancientpower.shtml"
 };
 
 var shadow_ball = {
@@ -10059,7 +10059,7 @@ var shadow_ball = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shadow_Ball_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/shadowball.shtml"
 };
 
 var future_sight = {
@@ -10070,7 +10070,7 @@ var future_sight = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Future_Sight_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/futuresight.shtml"
 };
 
 var rock_smash = {
@@ -10081,7 +10081,7 @@ var rock_smash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Smash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rocksmash.shtml"
 };
 
 var whirlpool = {
@@ -10092,7 +10092,7 @@ var whirlpool = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Whirlpool_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/whirlpool.shtml"
 };
 
 var beat_up = {
@@ -10103,7 +10103,7 @@ var beat_up = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Beat_Up_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/beatup.shtml"
 };
 
 var fake_out = {
@@ -10114,7 +10114,7 @@ var fake_out = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fake_Out_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fakeout.shtml"
 };
 
 var uproar = {
@@ -10125,7 +10125,7 @@ var uproar = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Uproar_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/uproar.shtml"
 };
 
 var stockpile = {
@@ -10136,7 +10136,7 @@ var stockpile = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stockpile_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/stockpile.shtml"
 };
 
 var spit_up = {
@@ -10147,7 +10147,7 @@ var spit_up = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spit_Up_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spitup.shtml"
 };
 
 var swallow = {
@@ -10158,7 +10158,7 @@ var swallow = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swallow_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/swallow.shtml"
 };
 
 var heat_wave = {
@@ -10169,7 +10169,7 @@ var heat_wave = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heat_Wave_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/heatwave.shtml"
 };
 
 var hail = {
@@ -10180,7 +10180,7 @@ var hail = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hail_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hail.shtml"
 };
 
 var torment = {
@@ -10191,7 +10191,7 @@ var torment = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Torment_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/torment.shtml"
 };
 
 var flatter = {
@@ -10202,18 +10202,18 @@ var flatter = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flatter_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flatter.shtml"
 };
 
 var will_o_wisp = {
-    name: "Will-o-wisp",
+    name: "Will_o_wisp",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Will-o-wisp_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/will_o_wisp.shtml"
 };
 
 var memento = {
@@ -10224,7 +10224,7 @@ var memento = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Memento_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/memento.shtml"
 };
 
 var facade = {
@@ -10235,7 +10235,7 @@ var facade = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Facade_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/facade.shtml"
 };
 
 var focus_punch = {
@@ -10246,7 +10246,7 @@ var focus_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Focus_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/focuspunch.shtml"
 };
 
 var smelling_salts = {
@@ -10257,7 +10257,7 @@ var smelling_salts = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smelling_Salts_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/smellingsalts.shtml"
 };
 
 var follow_me = {
@@ -10268,7 +10268,7 @@ var follow_me = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Follow_Me_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/followme.shtml"
 };
 
 var nature_power = {
@@ -10279,7 +10279,7 @@ var nature_power = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nature_Power_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/naturepower.shtml"
 };
 
 var charge = {
@@ -10290,7 +10290,7 @@ var charge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/charge.shtml"
 };
 
 var taunt = {
@@ -10301,7 +10301,7 @@ var taunt = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Taunt_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/taunt.shtml"
 };
 
 var helping_hand = {
@@ -10312,7 +10312,7 @@ var helping_hand = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Helping_Hand_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/helpinghand.shtml"
 };
 
 var trick = {
@@ -10323,7 +10323,7 @@ var trick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Trick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/trick.shtml"
 };
 
 var role_play = {
@@ -10334,7 +10334,7 @@ var role_play = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Role_Play_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/roleplay.shtml"
 };
 
 var wish = {
@@ -10345,7 +10345,7 @@ var wish = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wish_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/wish.shtml"
 };
 
 var assist = {
@@ -10356,7 +10356,7 @@ var assist = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Assist_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/assist.shtml"
 };
 
 var ingrain = {
@@ -10367,7 +10367,7 @@ var ingrain = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ingrain_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/ingrain.shtml"
 };
 
 var superpower = {
@@ -10378,7 +10378,7 @@ var superpower = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Superpower_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/superpower.shtml"
 };
 
 var magic_coat = {
@@ -10389,7 +10389,7 @@ var magic_coat = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magic_Coat_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/magiccoat.shtml"
 };
 
 var recycle = {
@@ -10400,7 +10400,7 @@ var recycle = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Recycle_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/recycle.shtml"
 };
 
 var revenge = {
@@ -10411,7 +10411,7 @@ var revenge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Revenge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/revenge.shtml"
 };
 
 var brick_break = {
@@ -10422,7 +10422,7 @@ var brick_break = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Brick_Break_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/brickbreak.shtml"
 };
 
 var yawn = {
@@ -10433,7 +10433,7 @@ var yawn = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yawn_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/yawn.shtml"
 };
 
 var knock_off = {
@@ -10444,7 +10444,7 @@ var knock_off = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Knock_Off_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/knockoff.shtml"
 };
 
 var endeavor = {
@@ -10455,7 +10455,7 @@ var endeavor = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Endeavor_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/endeavor.shtml"
 };
 
 var eruption = {
@@ -10466,7 +10466,7 @@ var eruption = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eruption_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/eruption.shtml"
 };
 
 var skill_swap = {
@@ -10477,7 +10477,7 @@ var skill_swap = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skill_Swap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/skillswap.shtml"
 };
 
 var imprison = {
@@ -10488,7 +10488,7 @@ var imprison = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Imprison_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/imprison.shtml"
 };
 
 var refresh = {
@@ -10499,7 +10499,7 @@ var refresh = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Refresh_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/refresh.shtml"
 };
 
 var grudge = {
@@ -10510,7 +10510,7 @@ var grudge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grudge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/grudge.shtml"
 };
 
 var snatch = {
@@ -10521,7 +10521,7 @@ var snatch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snatch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/snatch.shtml"
 };
 
 var secret_power = {
@@ -10532,7 +10532,7 @@ var secret_power = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Secret_Power_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/secretpower.shtml"
 };
 
 var dive = {
@@ -10543,7 +10543,7 @@ var dive = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dive_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dive.shtml"
 };
 
 var arm_thrust = {
@@ -10554,7 +10554,7 @@ var arm_thrust = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Arm_Thrust_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/armthrust.shtml"
 };
 
 var camouflage = {
@@ -10565,7 +10565,7 @@ var camouflage = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Camouflage_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/camouflage.shtml"
 };
 
 var tail_glow = {
@@ -10576,7 +10576,7 @@ var tail_glow = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tail_Glow_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/tailglow.shtml"
 };
 
 var luster_purge = {
@@ -10587,7 +10587,7 @@ var luster_purge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Luster_Purge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lusterpurge.shtml"
 };
 
 var mist_ball = {
@@ -10598,7 +10598,7 @@ var mist_ball = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mist_Ball_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mistball.shtml"
 };
 
 var feather_dance = {
@@ -10609,7 +10609,7 @@ var feather_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Feather_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/featherdance.shtml"
 };
 
 var teeter_dance = {
@@ -10620,7 +10620,7 @@ var teeter_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Teeter_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/teeterdance.shtml"
 };
 
 var blaze_kick = {
@@ -10631,7 +10631,7 @@ var blaze_kick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blaze_Kick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/blazekick.shtml"
 };
 
 var mud_sport = {
@@ -10642,7 +10642,7 @@ var mud_sport = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mud_Sport_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mudsport.shtml"
 };
 
 var ice_ball = {
@@ -10653,7 +10653,7 @@ var ice_ball = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Ball_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/iceball.shtml"
 };
 
 var needle_arm = {
@@ -10664,7 +10664,7 @@ var needle_arm = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Needle_Arm_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/needlearm.shtml"
 };
 
 var slack_off = {
@@ -10675,7 +10675,7 @@ var slack_off = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slack_Off_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/slackoff.shtml"
 };
 
 var hyper_voice = {
@@ -10686,7 +10686,7 @@ var hyper_voice = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyper_Voice_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hypervoice.shtml"
 };
 
 var poison_fang = {
@@ -10697,7 +10697,7 @@ var poison_fang = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Fang_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/poisonfang.shtml"
 };
 
 var crush_claw = {
@@ -10708,7 +10708,7 @@ var crush_claw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Crush_Claw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/crushclaw.shtml"
 };
 
 var blast_burn = {
@@ -10719,7 +10719,7 @@ var blast_burn = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blast_Burn_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/blastburn.shtml"
 };
 
 var hydro_cannon = {
@@ -10730,7 +10730,7 @@ var hydro_cannon = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hydro_Cannon_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hydrocannon.shtml"
 };
 
 var meteor_mash = {
@@ -10741,7 +10741,7 @@ var meteor_mash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meteor_Mash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/meteormash.shtml"
 };
 
 var astonish = {
@@ -10752,7 +10752,7 @@ var astonish = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Astonish_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/astonish.shtml"
 };
 
 var weather_ball = {
@@ -10763,7 +10763,7 @@ var weather_ball = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Weather_Ball_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/weatherball.shtml"
 };
 
 var aromatherapy = {
@@ -10774,7 +10774,7 @@ var aromatherapy = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aromatherapy_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aromatherapy.shtml"
 };
 
 var fake_tears = {
@@ -10785,7 +10785,7 @@ var fake_tears = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fake_Tears_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/faketears.shtml"
 };
 
 var air_cutter = {
@@ -10796,7 +10796,7 @@ var air_cutter = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Air_Cutter_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aircutter.shtml"
 };
 
 var overheat = {
@@ -10807,7 +10807,7 @@ var overheat = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Overheat_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/overheat.shtml"
 };
 
 var odor_sleuth = {
@@ -10818,7 +10818,7 @@ var odor_sleuth = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Odor_Sleuth_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/odorsleuth.shtml"
 };
 
 var rock_tomb = {
@@ -10829,7 +10829,7 @@ var rock_tomb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Tomb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rocktomb.shtml"
 };
 
 var silver_wind = {
@@ -10840,7 +10840,7 @@ var silver_wind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Silver_Wind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/silverwind.shtml"
 };
 
 var metal_sound = {
@@ -10851,7 +10851,7 @@ var metal_sound = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metal_Sound_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/metalsound.shtml"
 };
 
 var grass_whistle = {
@@ -10862,7 +10862,7 @@ var grass_whistle = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grass_Whistle_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/grasswhistle.shtml"
 };
 
 var tickle = {
@@ -10873,7 +10873,7 @@ var tickle = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tickle_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/tickle.shtml"
 };
 
 var cosmic_power = {
@@ -10884,7 +10884,7 @@ var cosmic_power = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cosmic_Power_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/cosmicpower.shtml"
 };
 
 var water_spout = {
@@ -10895,7 +10895,7 @@ var water_spout = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Spout_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/waterspout.shtml"
 };
 
 var signal_beam = {
@@ -10906,7 +10906,7 @@ var signal_beam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Signal_Beam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/signalbeam.shtml"
 };
 
 var shadow_punch = {
@@ -10917,7 +10917,7 @@ var shadow_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shadow_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/shadowpunch.shtml"
 };
 
 var extrasensory = {
@@ -10928,7 +10928,7 @@ var extrasensory = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Extrasensory_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/extrasensory.shtml"
 };
 
 var sky_uppercut = {
@@ -10939,7 +10939,7 @@ var sky_uppercut = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sky_Uppercut_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/skyuppercut.shtml"
 };
 
 var sand_tomb = {
@@ -10950,7 +10950,7 @@ var sand_tomb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sand_Tomb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sandtomb.shtml"
 };
 
 var sheer_cold = {
@@ -10961,7 +10961,7 @@ var sheer_cold = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sheer_Cold_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sheercold.shtml"
 };
 
 var muddy_water = {
@@ -10972,7 +10972,7 @@ var muddy_water = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Muddy_Water_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/muddywater.shtml"
 };
 
 var bullet_seed = {
@@ -10983,7 +10983,7 @@ var bullet_seed = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bullet_Seed_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bulletseed.shtml"
 };
 
 var aerial_ace = {
@@ -10994,7 +10994,7 @@ var aerial_ace = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aerial_Ace_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aerialace.shtml"
 };
 
 var icicle_spear = {
@@ -11005,7 +11005,7 @@ var icicle_spear = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Icicle_Spear_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/iciclespear.shtml"
 };
 
 var iron_defense = {
@@ -11016,7 +11016,7 @@ var iron_defense = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Defense_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/irondefense.shtml"
 };
 
 var block = {
@@ -11027,7 +11027,7 @@ var block = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Block_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/block.shtml"
 };
 
 var howl = {
@@ -11038,7 +11038,7 @@ var howl = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Howl_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/howl.shtml"
 };
 
 var dragon_claw = {
@@ -11049,7 +11049,7 @@ var dragon_claw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Claw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dragonclaw.shtml"
 };
 
 var frenzy_plant = {
@@ -11060,7 +11060,7 @@ var frenzy_plant = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Frenzy_Plant_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/frenzyplant.shtml"
 };
 
 var bulk_up = {
@@ -11071,7 +11071,7 @@ var bulk_up = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bulk_Up_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bulkup.shtml"
 };
 
 var bounce = {
@@ -11082,7 +11082,7 @@ var bounce = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bounce_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bounce.shtml"
 };
 
 var mud_shot = {
@@ -11093,7 +11093,7 @@ var mud_shot = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mud_Shot_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mudshot.shtml"
 };
 
 var poison_tail = {
@@ -11104,7 +11104,7 @@ var poison_tail = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Tail_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/poisontail.shtml"
 };
 
 var covet = {
@@ -11115,7 +11115,7 @@ var covet = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Covet_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/covet.shtml"
 };
 
 var volt_tackle = {
@@ -11126,7 +11126,7 @@ var volt_tackle = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Volt_Tackle_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/volttackle.shtml"
 };
 
 var magical_leaf = {
@@ -11137,7 +11137,7 @@ var magical_leaf = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magical_Leaf_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/magicalleaf.shtml"
 };
 
 var water_sport = {
@@ -11148,7 +11148,7 @@ var water_sport = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Sport_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/watersport.shtml"
 };
 
 var calm_mind = {
@@ -11159,7 +11159,7 @@ var calm_mind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Calm_Mind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/calmmind.shtml"
 };
 
 var leaf_blade = {
@@ -11170,7 +11170,7 @@ var leaf_blade = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leaf_Blade_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/leafblade.shtml"
 };
 
 var dragon_dance = {
@@ -11181,7 +11181,7 @@ var dragon_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dragondance.shtml"
 };
 
 var rock_blast = {
@@ -11192,7 +11192,7 @@ var rock_blast = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Blast_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rockblast.shtml"
 };
 
 var shock_wave = {
@@ -11203,7 +11203,7 @@ var shock_wave = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shock_Wave_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/shockwave.shtml"
 };
 
 var water_pulse = {
@@ -11214,7 +11214,7 @@ var water_pulse = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Pulse_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/waterpulse.shtml"
 };
 
 var doom_desire = {
@@ -11225,7 +11225,7 @@ var doom_desire = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Doom_Desire_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/doomdesire.shtml"
 };
 
 var psycho_boost = {
@@ -11236,7 +11236,7 @@ var psycho_boost = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psycho_Boost_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psychoboost.shtml"
 };
 
 var roost = {
@@ -11247,7 +11247,7 @@ var roost = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Roost_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/roost.shtml"
 };
 
 var gravity = {
@@ -11258,7 +11258,7 @@ var gravity = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gravity_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/gravity.shtml"
 };
 
 var miracle_eye = {
@@ -11269,18 +11269,18 @@ var miracle_eye = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Miracle_Eye_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/miracleeye.shtml"
 };
 
 var wake_up_slap = {
-    name: "Wake-up Slap",
+    name: "Wake_up Slap",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wake-up_Slap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/wake_upslap.shtml"
 };
 
 var hammer_arm = {
@@ -11291,7 +11291,7 @@ var hammer_arm = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hammer_Arm_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hammerarm.shtml"
 };
 
 var gyro_ball = {
@@ -11302,7 +11302,7 @@ var gyro_ball = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gyro_Ball_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/gyroball.shtml"
 };
 
 var healing_wish = {
@@ -11313,7 +11313,7 @@ var healing_wish = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Healing_Wish_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/healingwish.shtml"
 };
 
 var brine = {
@@ -11324,7 +11324,7 @@ var brine = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Brine_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/brine.shtml"
 };
 
 var natural_gift = {
@@ -11335,7 +11335,7 @@ var natural_gift = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Natural_Gift_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/naturalgift.shtml"
 };
 
 var feint = {
@@ -11346,7 +11346,7 @@ var feint = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Feint_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/feint.shtml"
 };
 
 var pluck = {
@@ -11357,7 +11357,7 @@ var pluck = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pluck_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/pluck.shtml"
 };
 
 var tailwind = {
@@ -11368,7 +11368,7 @@ var tailwind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tailwind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/tailwind.shtml"
 };
 
 var acupressure = {
@@ -11379,7 +11379,7 @@ var acupressure = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Acupressure_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/acupressure.shtml"
 };
 
 var metal_burst = {
@@ -11390,18 +11390,18 @@ var metal_burst = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metal_Burst_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/metalburst.shtml"
 };
 
 var u_turn = {
-    name: "U-turn",
+    name: "U_turn",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/U-turn_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/u_turn.shtml"
 };
 
 var close_combat = {
@@ -11412,7 +11412,7 @@ var close_combat = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Close_Combat_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/closecombat.shtml"
 };
 
 var payback = {
@@ -11423,7 +11423,7 @@ var payback = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Payback_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/payback.shtml"
 };
 
 var assurance = {
@@ -11434,7 +11434,7 @@ var assurance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Assurance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/assurance.shtml"
 };
 
 var embargo = {
@@ -11445,7 +11445,7 @@ var embargo = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Embargo_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/embargo.shtml"
 };
 
 var fling = {
@@ -11456,7 +11456,7 @@ var fling = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fling_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fling.shtml"
 };
 
 var psycho_shift = {
@@ -11467,7 +11467,7 @@ var psycho_shift = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psycho_Shift_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psychoshift.shtml"
 };
 
 var trump_card = {
@@ -11478,7 +11478,7 @@ var trump_card = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Trump_Card_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/trumpcard.shtml"
 };
 
 var heal_block = {
@@ -11489,7 +11489,7 @@ var heal_block = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heal_Block_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/healblock.shtml"
 };
 
 var wring_out = {
@@ -11500,7 +11500,7 @@ var wring_out = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wring_Out_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/wringout.shtml"
 };
 
 var power_trick = {
@@ -11511,7 +11511,7 @@ var power_trick = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Trick_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/powertrick.shtml"
 };
 
 var gastro_acid = {
@@ -11522,7 +11522,7 @@ var gastro_acid = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gastro_Acid_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/gastroacid.shtml"
 };
 
 var lucky_chant = {
@@ -11533,7 +11533,7 @@ var lucky_chant = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lucky_Chant_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/luckychant.shtml"
 };
 
 var me_first = {
@@ -11544,7 +11544,7 @@ var me_first = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Me_First_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mefirst.shtml"
 };
 
 var copycat = {
@@ -11555,7 +11555,7 @@ var copycat = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Copycat_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/copycat.shtml"
 };
 
 var power_swap = {
@@ -11566,7 +11566,7 @@ var power_swap = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Swap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/powerswap.shtml"
 };
 
 var guard_swap = {
@@ -11577,7 +11577,7 @@ var guard_swap = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Guard_Swap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/guardswap.shtml"
 };
 
 var punishment = {
@@ -11588,7 +11588,7 @@ var punishment = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Punishment_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/punishment.shtml"
 };
 
 var last_resort = {
@@ -11599,7 +11599,7 @@ var last_resort = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Last_Resort_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lastresort.shtml"
 };
 
 var worry_seed = {
@@ -11610,7 +11610,7 @@ var worry_seed = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Worry_Seed_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/worryseed.shtml"
 };
 
 var sucker_punch = {
@@ -11621,7 +11621,7 @@ var sucker_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sucker_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/suckerpunch.shtml"
 };
 
 var toxic_spikes = {
@@ -11632,7 +11632,7 @@ var toxic_spikes = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Toxic_Spikes_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/toxicspikes.shtml"
 };
 
 var heart_swap = {
@@ -11643,7 +11643,7 @@ var heart_swap = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heart_Swap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/heartswap.shtml"
 };
 
 var aqua_ring = {
@@ -11654,7 +11654,7 @@ var aqua_ring = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aqua_Ring_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aquaring.shtml"
 };
 
 var magnet_rise = {
@@ -11665,7 +11665,7 @@ var magnet_rise = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnet_Rise_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/magnetrise.shtml"
 };
 
 var flare_blitz = {
@@ -11676,7 +11676,7 @@ var flare_blitz = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flare_Blitz_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flareblitz.shtml"
 };
 
 var force_palm = {
@@ -11687,7 +11687,7 @@ var force_palm = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Force_Palm_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/forcepalm.shtml"
 };
 
 var aura_sphere = {
@@ -11698,7 +11698,7 @@ var aura_sphere = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aura_Sphere_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aurasphere.shtml"
 };
 
 var rock_polish = {
@@ -11709,7 +11709,7 @@ var rock_polish = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Polish_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rockpolish.shtml"
 };
 
 var poison_jab = {
@@ -11720,7 +11720,7 @@ var poison_jab = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Jab_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/poisonjab.shtml"
 };
 
 var dark_pulse = {
@@ -11731,7 +11731,7 @@ var dark_pulse = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dark_Pulse_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/darkpulse.shtml"
 };
 
 var night_slash = {
@@ -11742,7 +11742,7 @@ var night_slash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Night_Slash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/nightslash.shtml"
 };
 
 var aqua_tail = {
@@ -11753,7 +11753,7 @@ var aqua_tail = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aqua_Tail_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aquatail.shtml"
 };
 
 var seed_bomb = {
@@ -11764,7 +11764,7 @@ var seed_bomb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seed_Bomb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/seedbomb.shtml"
 };
 
 var air_slash = {
@@ -11775,18 +11775,18 @@ var air_slash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Air_Slash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/airslash.shtml"
 };
 
 var x_scissor = {
-    name: "X-scissor",
+    name: "X_scissor",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X-scissor_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/x_scissor.shtml"
 };
 
 var bug_buzz = {
@@ -11797,7 +11797,7 @@ var bug_buzz = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bug_Buzz_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bugbuzz.shtml"
 };
 
 var dragon_pulse = {
@@ -11808,7 +11808,7 @@ var dragon_pulse = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Pulse_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dragonpulse.shtml"
 };
 
 var dragon_rush = {
@@ -11819,7 +11819,7 @@ var dragon_rush = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Rush_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dragonrush.shtml"
 };
 
 var power_gem = {
@@ -11830,7 +11830,7 @@ var power_gem = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Gem_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/powergem.shtml"
 };
 
 var drain_punch = {
@@ -11841,7 +11841,7 @@ var drain_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drain_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/drainpunch.shtml"
 };
 
 var vacuum_wave = {
@@ -11852,7 +11852,7 @@ var vacuum_wave = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Vacuum_Wave_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/vacuumwave.shtml"
 };
 
 var focus_blast = {
@@ -11863,7 +11863,7 @@ var focus_blast = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Focus_Blast_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/focusblast.shtml"
 };
 
 var energy_ball = {
@@ -11874,7 +11874,7 @@ var energy_ball = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Energy_Ball_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/energyball.shtml"
 };
 
 var brave_bird = {
@@ -11885,7 +11885,7 @@ var brave_bird = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Brave_Bird_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bravebird.shtml"
 };
 
 var earth_power = {
@@ -11896,7 +11896,7 @@ var earth_power = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Earth_Power_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/earthpower.shtml"
 };
 
 var switcheroo = {
@@ -11907,7 +11907,7 @@ var switcheroo = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Switcheroo_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/switcheroo.shtml"
 };
 
 var giga_impact = {
@@ -11918,7 +11918,7 @@ var giga_impact = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Giga_Impact_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/gigaimpact.shtml"
 };
 
 var nasty_plot = {
@@ -11929,7 +11929,7 @@ var nasty_plot = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nasty_Plot_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/nastyplot.shtml"
 };
 
 var bullet_punch = {
@@ -11940,7 +11940,7 @@ var bullet_punch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bullet_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bulletpunch.shtml"
 };
 
 var avalanche = {
@@ -11951,7 +11951,7 @@ var avalanche = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Avalanche_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/avalanche.shtml"
 };
 
 var ice_shard = {
@@ -11962,7 +11962,7 @@ var ice_shard = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Shard_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/iceshard.shtml"
 };
 
 var shadow_claw = {
@@ -11973,7 +11973,7 @@ var shadow_claw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shadow_Claw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/shadowclaw.shtml"
 };
 
 var thunder_fang = {
@@ -11984,7 +11984,7 @@ var thunder_fang = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thunder_Fang_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thunderfang.shtml"
 };
 
 var ice_fang = {
@@ -11995,7 +11995,7 @@ var ice_fang = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Fang_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/icefang.shtml"
 };
 
 var fire_fang = {
@@ -12006,7 +12006,7 @@ var fire_fang = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Fang_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/firefang.shtml"
 };
 
 var shadow_sneak = {
@@ -12017,7 +12017,7 @@ var shadow_sneak = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shadow_Sneak_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/shadowsneak.shtml"
 };
 
 var mud_bomb = {
@@ -12028,7 +12028,7 @@ var mud_bomb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mud_Bomb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mudbomb.shtml"
 };
 
 var psycho_cut = {
@@ -12039,7 +12039,7 @@ var psycho_cut = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psycho_Cut_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psychocut.shtml"
 };
 
 var zen_headbutt = {
@@ -12050,7 +12050,7 @@ var zen_headbutt = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zen_Headbutt_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/zenheadbutt.shtml"
 };
 
 var mirror_shot = {
@@ -12061,7 +12061,7 @@ var mirror_shot = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mirror_Shot_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mirrorshot.shtml"
 };
 
 var flash_cannon = {
@@ -12072,7 +12072,7 @@ var flash_cannon = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flash_Cannon_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flashcannon.shtml"
 };
 
 var rock_climb = {
@@ -12083,7 +12083,7 @@ var rock_climb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Climb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rockclimb.shtml"
 };
 
 var defog = {
@@ -12094,7 +12094,7 @@ var defog = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Defog_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/defog.shtml"
 };
 
 var trick_room = {
@@ -12105,7 +12105,7 @@ var trick_room = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Trick_Room_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/trickroom.shtml"
 };
 
 var draco_meteor = {
@@ -12116,7 +12116,7 @@ var draco_meteor = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Draco_Meteor_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dracometeor.shtml"
 };
 
 var discharge = {
@@ -12127,7 +12127,7 @@ var discharge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Discharge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/discharge.shtml"
 };
 
 var lava_plume = {
@@ -12138,7 +12138,7 @@ var lava_plume = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lava_Plume_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lavaplume.shtml"
 };
 
 var leaf_storm = {
@@ -12149,7 +12149,7 @@ var leaf_storm = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leaf_Storm_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/leafstorm.shtml"
 };
 
 var power_whip = {
@@ -12160,7 +12160,7 @@ var power_whip = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Whip_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/powerwhip.shtml"
 };
 
 var rock_wrecker = {
@@ -12171,7 +12171,7 @@ var rock_wrecker = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Wrecker_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rockwrecker.shtml"
 };
 
 var cross_poison = {
@@ -12182,7 +12182,7 @@ var cross_poison = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cross_Poison_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/crosspoison.shtml"
 };
 
 var gunk_shot = {
@@ -12193,7 +12193,7 @@ var gunk_shot = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gunk_Shot_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/gunkshot.shtml"
 };
 
 var iron_head = {
@@ -12204,7 +12204,7 @@ var iron_head = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Head_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/ironhead.shtml"
 };
 
 var magnet_bomb = {
@@ -12215,7 +12215,7 @@ var magnet_bomb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnet_Bomb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/magnetbomb.shtml"
 };
 
 var stone_edge = {
@@ -12226,7 +12226,7 @@ var stone_edge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stone_Edge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/stoneedge.shtml"
 };
 
 var captivate = {
@@ -12237,7 +12237,7 @@ var captivate = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Captivate_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/captivate.shtml"
 };
 
 var stealth_rock = {
@@ -12248,7 +12248,7 @@ var stealth_rock = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stealth_Rock_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/stealthrock.shtml"
 };
 
 var grass_knot = {
@@ -12259,7 +12259,7 @@ var grass_knot = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grass_Knot_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/grassknot.shtml"
 };
 
 var chatter = {
@@ -12270,7 +12270,7 @@ var chatter = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chatter_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/chatter.shtml"
 };
 
 var judgment = {
@@ -12281,7 +12281,7 @@ var judgment = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Judgment_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/judgment.shtml"
 };
 
 var bug_bite = {
@@ -12292,7 +12292,7 @@ var bug_bite = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bug_Bite_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bugbite.shtml"
 };
 
 var charge_beam = {
@@ -12303,7 +12303,7 @@ var charge_beam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charge_Beam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/chargebeam.shtml"
 };
 
 var wood_hammer = {
@@ -12314,7 +12314,7 @@ var wood_hammer = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wood_Hammer_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/woodhammer.shtml"
 };
 
 var aqua_jet = {
@@ -12325,7 +12325,7 @@ var aqua_jet = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aqua_Jet_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aquajet.shtml"
 };
 
 var attack_order = {
@@ -12336,7 +12336,7 @@ var attack_order = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Attack_Order_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/attackorder.shtml"
 };
 
 var defend_order = {
@@ -12347,7 +12347,7 @@ var defend_order = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Defend_Order_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/defendorder.shtml"
 };
 
 var heal_order = {
@@ -12358,7 +12358,7 @@ var heal_order = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heal_Order_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/healorder.shtml"
 };
 
 var head_smash = {
@@ -12369,7 +12369,7 @@ var head_smash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Head_Smash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/headsmash.shtml"
 };
 
 var double_hit = {
@@ -12380,7 +12380,7 @@ var double_hit = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Double_Hit_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/doublehit.shtml"
 };
 
 var roar_of_time = {
@@ -12391,7 +12391,7 @@ var roar_of_time = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Roar_Of_Time_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/roaroftime.shtml"
 };
 
 var spacial_rend = {
@@ -12402,7 +12402,7 @@ var spacial_rend = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spacial_Rend_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spacialrend.shtml"
 };
 
 var lunar_dance = {
@@ -12413,7 +12413,7 @@ var lunar_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lunar_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lunardance.shtml"
 };
 
 var crush_grip = {
@@ -12424,7 +12424,7 @@ var crush_grip = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Crush_Grip_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/crushgrip.shtml"
 };
 
 var magma_storm = {
@@ -12435,7 +12435,7 @@ var magma_storm = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magma_Storm_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/magmastorm.shtml"
 };
 
 var dark_void = {
@@ -12446,7 +12446,7 @@ var dark_void = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dark_Void_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/darkvoid.shtml"
 };
 
 var seed_flare = {
@@ -12457,7 +12457,7 @@ var seed_flare = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Seed_Flare_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/seedflare.shtml"
 };
 
 var ominous_wind = {
@@ -12468,7 +12468,7 @@ var ominous_wind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ominous_Wind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/ominouswind.shtml"
 };
 
 var shadow_force = {
@@ -12479,7 +12479,7 @@ var shadow_force = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shadow_Force_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/shadowforce.shtml"
 };
 
 var hone_claws = {
@@ -12490,7 +12490,7 @@ var hone_claws = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hone_Claws_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/honeclaws.shtml"
 };
 
 var wide_guard = {
@@ -12501,7 +12501,7 @@ var wide_guard = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wide_Guard_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/wideguard.shtml"
 };
 
 var guard_split = {
@@ -12512,7 +12512,7 @@ var guard_split = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Guard_Split_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/guardsplit.shtml"
 };
 
 var power_split = {
@@ -12523,7 +12523,7 @@ var power_split = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Split_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/powersplit.shtml"
 };
 
 var wonder_room = {
@@ -12534,7 +12534,7 @@ var wonder_room = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wonder_Room_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/wonderroom.shtml"
 };
 
 var psyshock = {
@@ -12545,7 +12545,7 @@ var psyshock = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psyshock_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psyshock.shtml"
 };
 
 var venoshock = {
@@ -12556,7 +12556,7 @@ var venoshock = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Venoshock_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/venoshock.shtml"
 };
 
 var autotomize = {
@@ -12567,7 +12567,7 @@ var autotomize = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Autotomize_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/autotomize.shtml"
 };
 
 var rage_powder = {
@@ -12578,7 +12578,7 @@ var rage_powder = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rage_Powder_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/ragepowder.shtml"
 };
 
 var telekinesis = {
@@ -12589,7 +12589,7 @@ var telekinesis = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Telekinesis_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/telekinesis.shtml"
 };
 
 var magic_room = {
@@ -12600,7 +12600,7 @@ var magic_room = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magic_Room_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/magicroom.shtml"
 };
 
 var smack_down = {
@@ -12611,7 +12611,7 @@ var smack_down = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smack_Down_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/smackdown.shtml"
 };
 
 var storm_throw = {
@@ -12622,7 +12622,7 @@ var storm_throw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Storm_Throw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/stormthrow.shtml"
 };
 
 var flame_burst = {
@@ -12633,7 +12633,7 @@ var flame_burst = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flame_Burst_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flameburst.shtml"
 };
 
 var sludge_wave = {
@@ -12644,7 +12644,7 @@ var sludge_wave = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sludge_Wave_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sludgewave.shtml"
 };
 
 var quiver_dance = {
@@ -12655,7 +12655,7 @@ var quiver_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quiver_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/quiverdance.shtml"
 };
 
 var heavy_slam = {
@@ -12666,7 +12666,7 @@ var heavy_slam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heavy_Slam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/heavyslam.shtml"
 };
 
 var synchronoise = {
@@ -12677,7 +12677,7 @@ var synchronoise = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Synchronoise_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/synchronoise.shtml"
 };
 
 var electro_ball = {
@@ -12688,7 +12688,7 @@ var electro_ball = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electro_Ball_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/electroball.shtml"
 };
 
 var soak = {
@@ -12699,7 +12699,7 @@ var soak = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soak_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/soak.shtml"
 };
 
 var flame_charge = {
@@ -12710,7 +12710,7 @@ var flame_charge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flame_Charge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flamecharge.shtml"
 };
 
 var coil = {
@@ -12721,7 +12721,7 @@ var coil = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Coil_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/coil.shtml"
 };
 
 var low_sweep = {
@@ -12732,7 +12732,7 @@ var low_sweep = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Low_Sweep_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lowsweep.shtml"
 };
 
 var acid_spray = {
@@ -12743,7 +12743,7 @@ var acid_spray = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Acid_Spray_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/acidspray.shtml"
 };
 
 var foul_play = {
@@ -12754,7 +12754,7 @@ var foul_play = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Foul_Play_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/foulplay.shtml"
 };
 
 var simple_beam = {
@@ -12765,7 +12765,7 @@ var simple_beam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Simple_Beam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/simplebeam.shtml"
 };
 
 var entrainment = {
@@ -12776,7 +12776,7 @@ var entrainment = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Entrainment_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/entrainment.shtml"
 };
 
 var after_you = {
@@ -12787,7 +12787,7 @@ var after_you = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/After_You_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/afteryou.shtml"
 };
 
 var round = {
@@ -12798,7 +12798,7 @@ var round = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Round_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/round.shtml"
 };
 
 var echoed_voice = {
@@ -12809,7 +12809,7 @@ var echoed_voice = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Echoed_Voice_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/echoedvoice.shtml"
 };
 
 var chip_away = {
@@ -12820,7 +12820,7 @@ var chip_away = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chip_Away_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/chipaway.shtml"
 };
 
 var clear_smog = {
@@ -12831,7 +12831,7 @@ var clear_smog = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clear_Smog_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/clearsmog.shtml"
 };
 
 var stored_power = {
@@ -12842,7 +12842,7 @@ var stored_power = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stored_Power_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/storedpower.shtml"
 };
 
 var quick_guard = {
@@ -12853,7 +12853,7 @@ var quick_guard = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Guard_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/quickguard.shtml"
 };
 
 var ally_switch = {
@@ -12864,7 +12864,7 @@ var ally_switch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ally_Switch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/allyswitch.shtml"
 };
 
 var scald = {
@@ -12875,7 +12875,7 @@ var scald = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scald_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/scald.shtml"
 };
 
 var shell_smash = {
@@ -12886,7 +12886,7 @@ var shell_smash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shell_Smash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/shellsmash.shtml"
 };
 
 var heal_pulse = {
@@ -12897,7 +12897,7 @@ var heal_pulse = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heal_Pulse_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/healpulse.shtml"
 };
 
 var hex = {
@@ -12908,7 +12908,7 @@ var hex = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hex_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hex.shtml"
 };
 
 var sky_drop = {
@@ -12919,7 +12919,7 @@ var sky_drop = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sky_Drop_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/skydrop.shtml"
 };
 
 var shift_gear = {
@@ -12930,7 +12930,7 @@ var shift_gear = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shift_Gear_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/shiftgear.shtml"
 };
 
 var circle_throw = {
@@ -12941,7 +12941,7 @@ var circle_throw = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Circle_Throw_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/circlethrow.shtml"
 };
 
 var incinerate = {
@@ -12952,7 +12952,7 @@ var incinerate = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Incinerate_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/incinerate.shtml"
 };
 
 var quash = {
@@ -12963,7 +12963,7 @@ var quash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/quash.shtml"
 };
 
 var acrobatics = {
@@ -12974,7 +12974,7 @@ var acrobatics = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Acrobatics_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/acrobatics.shtml"
 };
 
 var reflect_type = {
@@ -12985,7 +12985,7 @@ var reflect_type = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reflect_Type_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/reflecttype.shtml"
 };
 
 var retaliate = {
@@ -12996,7 +12996,7 @@ var retaliate = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Retaliate_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/retaliate.shtml"
 };
 
 var final_gambit = {
@@ -13007,7 +13007,7 @@ var final_gambit = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Final_Gambit_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/finalgambit.shtml"
 };
 
 var bestow = {
@@ -13018,7 +13018,7 @@ var bestow = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bestow_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bestow.shtml"
 };
 
 var inferno = {
@@ -13029,7 +13029,7 @@ var inferno = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Inferno_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/inferno.shtml"
 };
 
 var water_pledge = {
@@ -13040,7 +13040,7 @@ var water_pledge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Pledge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/waterpledge.shtml"
 };
 
 var fire_pledge = {
@@ -13051,7 +13051,7 @@ var fire_pledge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Pledge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/firepledge.shtml"
 };
 
 var grass_pledge = {
@@ -13062,7 +13062,7 @@ var grass_pledge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grass_Pledge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/grasspledge.shtml"
 };
 
 var volt_switch = {
@@ -13073,7 +13073,7 @@ var volt_switch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Volt_Switch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/voltswitch.shtml"
 };
 
 var struggle_bug = {
@@ -13084,7 +13084,7 @@ var struggle_bug = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Struggle_Bug_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/strugglebug.shtml"
 };
 
 var bulldoze = {
@@ -13095,7 +13095,7 @@ var bulldoze = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bulldoze_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/bulldoze.shtml"
 };
 
 var frost_breath = {
@@ -13106,7 +13106,7 @@ var frost_breath = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Frost_Breath_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/frostbreath.shtml"
 };
 
 var dragon_tail = {
@@ -13117,7 +13117,7 @@ var dragon_tail = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Tail_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dragontail.shtml"
 };
 
 var work_up = {
@@ -13128,7 +13128,7 @@ var work_up = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Work_Up_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/workup.shtml"
 };
 
 var electroweb = {
@@ -13139,7 +13139,7 @@ var electroweb = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electroweb_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/electroweb.shtml"
 };
 
 var wild_charge = {
@@ -13150,7 +13150,7 @@ var wild_charge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wild_Charge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/wildcharge.shtml"
 };
 
 var drill_run = {
@@ -13161,7 +13161,7 @@ var drill_run = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Drill_Run_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/drillrun.shtml"
 };
 
 var dual_chop = {
@@ -13172,7 +13172,7 @@ var dual_chop = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dual_Chop_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dualchop.shtml"
 };
 
 var heart_stamp = {
@@ -13183,7 +13183,7 @@ var heart_stamp = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heart_Stamp_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/heartstamp.shtml"
 };
 
 var horn_leech = {
@@ -13194,7 +13194,7 @@ var horn_leech = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Horn_Leech_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hornleech.shtml"
 };
 
 var sacred_sword = {
@@ -13205,7 +13205,7 @@ var sacred_sword = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sacred_Sword_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/sacredsword.shtml"
 };
 
 var razor_shell = {
@@ -13216,7 +13216,7 @@ var razor_shell = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razor_Shell_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/razorshell.shtml"
 };
 
 var heat_crash = {
@@ -13227,7 +13227,7 @@ var heat_crash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heat_Crash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/heatcrash.shtml"
 };
 
 var leaf_tornado = {
@@ -13238,7 +13238,7 @@ var leaf_tornado = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leaf_Tornado_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/leaftornado.shtml"
 };
 
 var steamroller = {
@@ -13249,7 +13249,7 @@ var steamroller = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steamroller_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/steamroller.shtml"
 };
 
 var cotton_guard = {
@@ -13260,7 +13260,7 @@ var cotton_guard = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cotton_Guard_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/cottonguard.shtml"
 };
 
 var night_daze = {
@@ -13271,7 +13271,7 @@ var night_daze = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Night_Daze_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/nightdaze.shtml"
 };
 
 var psystrike = {
@@ -13282,7 +13282,7 @@ var psystrike = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psystrike_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/psystrike.shtml"
 };
 
 var tail_slap = {
@@ -13293,7 +13293,7 @@ var tail_slap = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tail_Slap_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/tailslap.shtml"
 };
 
 var hurricane = {
@@ -13304,7 +13304,7 @@ var hurricane = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hurricane_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hurricane.shtml"
 };
 
 var head_charge = {
@@ -13315,7 +13315,7 @@ var head_charge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Head_Charge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/headcharge.shtml"
 };
 
 var gear_grind = {
@@ -13326,7 +13326,7 @@ var gear_grind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gear_Grind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/geargrind.shtml"
 };
 
 var searing_shot = {
@@ -13337,7 +13337,7 @@ var searing_shot = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Searing_Shot_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/searingshot.shtml"
 };
 
 var techno_blast = {
@@ -13348,7 +13348,7 @@ var techno_blast = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Techno_Blast_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/technoblast.shtml"
 };
 
 var relic_song = {
@@ -13359,7 +13359,7 @@ var relic_song = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Song_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/relicsong.shtml"
 };
 
 var secret_sword = {
@@ -13370,7 +13370,7 @@ var secret_sword = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Secret_Sword_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/secretsword.shtml"
 };
 
 var glaciate = {
@@ -13381,7 +13381,7 @@ var glaciate = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Glaciate_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/glaciate.shtml"
 };
 
 var bolt_strike = {
@@ -13392,7 +13392,7 @@ var bolt_strike = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bolt_Strike_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/boltstrike.shtml"
 };
 
 var blue_flare = {
@@ -13403,7 +13403,7 @@ var blue_flare = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blue_Flare_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/blueflare.shtml"
 };
 
 var fiery_dance = {
@@ -13414,7 +13414,7 @@ var fiery_dance = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fiery_Dance_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fierydance.shtml"
 };
 
 var freeze_shock = {
@@ -13425,7 +13425,7 @@ var freeze_shock = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Freeze_Shock_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/freezeshock.shtml"
 };
 
 var ice_burn = {
@@ -13436,7 +13436,7 @@ var ice_burn = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Burn_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/iceburn.shtml"
 };
 
 var snarl = {
@@ -13447,7 +13447,7 @@ var snarl = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Snarl_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/snarl.shtml"
 };
 
 var icicle_crash = {
@@ -13458,18 +13458,18 @@ var icicle_crash = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Icicle_Crash_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/iciclecrash.shtml"
 };
 
 var v_create = {
-    name: "V-create",
+    name: "V_create",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/V-create_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/v_create.shtml"
 };
 
 var fusion_flare = {
@@ -13480,7 +13480,7 @@ var fusion_flare = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fusion_Flare_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fusionflare.shtml"
 };
 
 var fusion_bolt = {
@@ -13491,7 +13491,7 @@ var fusion_bolt = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fusion_Bolt_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fusionbolt.shtml"
 };
 
 var flying_press = {
@@ -13502,7 +13502,7 @@ var flying_press = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flying_Press_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flyingpress.shtml"
 };
 
 var mat_block = {
@@ -13513,7 +13513,7 @@ var mat_block = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mat_Block_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/matblock.shtml"
 };
 
 var belch = {
@@ -13524,7 +13524,7 @@ var belch = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Belch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/belch.shtml"
 };
 
 var rototiller = {
@@ -13535,7 +13535,7 @@ var rototiller = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rototiller_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/rototiller.shtml"
 };
 
 var sticky_web = {
@@ -13546,7 +13546,7 @@ var sticky_web = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sticky_Web_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/stickyweb.shtml"
 };
 
 var fell_stinger = {
@@ -13557,7 +13557,7 @@ var fell_stinger = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fell_Stinger_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fellstinger.shtml"
 };
 
 var phantom_force = {
@@ -13568,18 +13568,18 @@ var phantom_force = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Phantom_Force_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/phantomforce.shtml"
 };
 
 var trick_or_treat = {
-    name: "Trick-or-treat",
+    name: "Trick_or_treat",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Trick-or-treat_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/trick_or_treat.shtml"
 };
 
 var noble_roar = {
@@ -13590,7 +13590,7 @@ var noble_roar = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Noble_Roar_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/nobleroar.shtml"
 };
 
 var ion_deluge = {
@@ -13601,7 +13601,7 @@ var ion_deluge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ion_Deluge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/iondeluge.shtml"
 };
 
 var parabolic_charge = {
@@ -13612,18 +13612,18 @@ var parabolic_charge = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Parabolic_Charge_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/paraboliccharge.shtml"
 };
 
 var forests_curse = {
-    name: "Forest's Curse",
+    name: "Forests Curse",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Forest's_Curse_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/forestscurse.shtml"
 };
 
 var petal_blizzard = {
@@ -13634,18 +13634,18 @@ var petal_blizzard = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Petal_Blizzard_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/petalblizzard.shtml"
 };
 
 var freeze_dry = {
-    name: "Freeze-dry",
+    name: "Freeze_dry",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Freeze-dry_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/freeze_dry.shtml"
 };
 
 var disarming_voice = {
@@ -13656,7 +13656,7 @@ var disarming_voice = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Disarming_Voice_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/disarmingvoice.shtml"
 };
 
 var parting_shot = {
@@ -13667,18 +13667,18 @@ var parting_shot = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Parting_Shot_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/partingshot.shtml"
 };
 
 var topsy_turvy = {
-    name: "Topsy-turvy",
+    name: "Topsy_turvy",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Topsy-turvy_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/topsy_turvy.shtml"
 };
 
 var draining_kiss = {
@@ -13689,7 +13689,7 @@ var draining_kiss = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Draining_Kiss_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/drainingkiss.shtml"
 };
 
 var crafty_shield = {
@@ -13700,7 +13700,7 @@ var crafty_shield = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Crafty_Shield_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/craftyshield.shtml"
 };
 
 var flower_shield = {
@@ -13711,7 +13711,7 @@ var flower_shield = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flower_Shield_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/flowershield.shtml"
 };
 
 var grassy_terrain = {
@@ -13722,7 +13722,7 @@ var grassy_terrain = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grassy_Terrain_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/grassyterrain.shtml"
 };
 
 var misty_terrain = {
@@ -13733,7 +13733,7 @@ var misty_terrain = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Misty_Terrain_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mistyterrain.shtml"
 };
 
 var electrify = {
@@ -13744,7 +13744,7 @@ var electrify = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electrify_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/electrify.shtml"
 };
 
 var play_rough = {
@@ -13755,7 +13755,7 @@ var play_rough = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Play_Rough_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/playrough.shtml"
 };
 
 var fairy_wind = {
@@ -13766,7 +13766,7 @@ var fairy_wind = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fairy_Wind_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fairywind.shtml"
 };
 
 var moonblast = {
@@ -13777,7 +13777,7 @@ var moonblast = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moonblast_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/moonblast.shtml"
 };
 
 var boomburst = {
@@ -13788,7 +13788,7 @@ var boomburst = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Boomburst_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/boomburst.shtml"
 };
 
 var fairy_lock = {
@@ -13799,7 +13799,7 @@ var fairy_lock = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fairy_Lock_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/fairylock.shtml"
 };
 
 var kings_shield = {
@@ -13810,7 +13810,7 @@ var kings_shield = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/King's_Shield_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/kingsshield.shtml"
 };
 
 var play_nice = {
@@ -13821,7 +13821,7 @@ var play_nice = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Play_Nice_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/playnice.shtml"
 };
 
 var confide = {
@@ -13832,7 +13832,7 @@ var confide = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Confide_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/confide.shtml"
 };
 
 var diamond_storm = {
@@ -13843,7 +13843,7 @@ var diamond_storm = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Diamond_Storm_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/diamondstorm.shtml"
 };
 
 var steam_eruption = {
@@ -13854,7 +13854,7 @@ var steam_eruption = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steam_Eruption_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/steameruption.shtml"
 };
 
 var hyperspace_hole = {
@@ -13865,7 +13865,7 @@ var hyperspace_hole = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyperspace_Hole_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hyperspacehole.shtml"
 };
 
 var water_shuriken = {
@@ -13876,7 +13876,7 @@ var water_shuriken = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Shuriken_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/watershuriken.shtml"
 };
 
 var mystical_fire = {
@@ -13887,7 +13887,7 @@ var mystical_fire = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mystical_Fire_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/mysticalfire.shtml"
 };
 
 var spiky_shield = {
@@ -13898,7 +13898,7 @@ var spiky_shield = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spiky_Shield_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/spikyshield.shtml"
 };
 
 var aromatic_mist = {
@@ -13909,7 +13909,7 @@ var aromatic_mist = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aromatic_Mist_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/aromaticmist.shtml"
 };
 
 var eerie_impulse = {
@@ -13920,7 +13920,7 @@ var eerie_impulse = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eerie_Impulse_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/eerieimpulse.shtml"
 };
 
 var venom_drench = {
@@ -13931,7 +13931,7 @@ var venom_drench = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Venom_Drench_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/venomdrench.shtml"
 };
 
 var powder = {
@@ -13942,7 +13942,7 @@ var powder = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Powder_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/powder.shtml"
 };
 
 var geomancy = {
@@ -13953,7 +13953,7 @@ var geomancy = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Geomancy_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/geomancy.shtml"
 };
 
 var magnetic_flux = {
@@ -13964,7 +13964,7 @@ var magnetic_flux = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnetic_Flux_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/magneticflux.shtml"
 };
 
 var happy_hour = {
@@ -13975,7 +13975,7 @@ var happy_hour = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Happy_Hour_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/happyhour.shtml"
 };
 
 var electric_terrain = {
@@ -13986,7 +13986,7 @@ var electric_terrain = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electric_Terrain_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/electricterrain.shtml"
 };
 
 var dazzling_gleam = {
@@ -13997,7 +13997,7 @@ var dazzling_gleam = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dazzling_Gleam_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dazzlinggleam.shtml"
 };
 
 var celebrate = {
@@ -14008,7 +14008,7 @@ var celebrate = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Celebrate_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/celebrate.shtml"
 };
 
 var hold_hands = {
@@ -14019,18 +14019,18 @@ var hold_hands = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hold_Hands_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/holdhands.shtml"
 };
 
 var baby_doll_eyes = {
-    name: "Baby-doll Eyes",
+    name: "Baby_doll Eyes",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Baby-doll_Eyes_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/baby_dolleyes.shtml"
 };
 
 var nuzzle = {
@@ -14041,7 +14041,7 @@ var nuzzle = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nuzzle_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/nuzzle.shtml"
 };
 
 var hold_back = {
@@ -14052,7 +14052,7 @@ var hold_back = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hold_Back_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/holdback.shtml"
 };
 
 var infestation = {
@@ -14063,18 +14063,18 @@ var infestation = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Infestation_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/infestation.shtml"
 };
 
 var power_up_punch = {
-    name: "Power-up Punch",
+    name: "Power_up Punch",
     type: "Normal",
     cat: "Physical",
     power: 40,
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power-up_Punch_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/power_uppunch.shtml"
 };
 
 var oblivion_wing = {
@@ -14085,7 +14085,7 @@ var oblivion_wing = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oblivion_Wing_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/oblivionwing.shtml"
 };
 
 var thousand_arrows = {
@@ -14096,7 +14096,7 @@ var thousand_arrows = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thousand_Arrows_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thousandarrows.shtml"
 };
 
 var thousand_waves = {
@@ -14107,7 +14107,7 @@ var thousand_waves = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thousand_Waves_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/thousandwaves.shtml"
 };
 
 var lands_wrath = {
@@ -14118,7 +14118,7 @@ var lands_wrath = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Land's_Wrath_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/landswrath.shtml"
 };
 
 var light_of_ruin = {
@@ -14129,7 +14129,7 @@ var light_of_ruin = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Light_Of_Ruin_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/lightofruin.shtml"
 };
 
 var origin_pulse = {
@@ -14140,7 +14140,7 @@ var origin_pulse = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Origin_Pulse_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/originpulse.shtml"
 };
 
 var precipice_blades = {
@@ -14151,7 +14151,7 @@ var precipice_blades = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Precipice_Blades_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/precipiceblades.shtml"
 };
 
 var dragon_ascent = {
@@ -14162,7 +14162,7 @@ var dragon_ascent = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Ascent_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/dragonascent.shtml"
 };
 
 var hyperspace_fury = {
@@ -14173,3427 +14173,3427 @@ var hyperspace_fury = {
     pp: 35,
     acc: 100,
     effect: "N/A",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyperspace_Fury_(Move)"
+    wiki: "http://www.serebii.net/attackdex-xy/hyperspacefury.shtml"
 };
 
 var ability_capsule = {
     name: "Ability Capsule",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ability_Capsule"
+    wiki: "http://www.serebii.net/itemdex/abilitycapsule.shtml"
 };
 
 var ability_urge = {
     name: "Ability Urge",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ability_Urge"
+    wiki: "http://www.serebii.net/itemdex/abilityurge.shtml"
 };
 
 var abomasite = {
     name: "Abomasite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Abomasite"
+    wiki: "http://www.serebii.net/itemdex/abomasite.shtml"
 };
 
 var absolite = {
     name: "Absolite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Absolite"
+    wiki: "http://www.serebii.net/itemdex/absolite.shtml"
 };
 
 var absorb_bulb = {
     name: "Absorb Bulb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Absorb_Bulb"
+    wiki: "http://www.serebii.net/itemdex/absorbbulb.shtml"
 };
 
 var adamant_orb = {
     name: "Adamant Orb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Adamant_Orb"
+    wiki: "http://www.serebii.net/itemdex/adamantorb.shtml"
 };
 
 var adventure_rules = {
     name: "Adventure Rules",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Adventure_Rules"
+    wiki: "http://www.serebii.net/itemdex/adventurerules.shtml"
 };
 
 var aerodactylite = {
     name: "Aerodactylite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aerodactylite"
+    wiki: "http://www.serebii.net/itemdex/aerodactylite.shtml"
 };
 
 var aggronite = {
     name: "Aggronite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aggronite"
+    wiki: "http://www.serebii.net/itemdex/aggronite.shtml"
 };
 
 var aguav_berry = {
     name: "Aguav Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aguav_Berry"
+    wiki: "http://www.serebii.net/itemdex/aguavberry.shtml"
 };
 
 var air_balloon = {
     name: "Air Balloon",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Air_Balloon"
+    wiki: "http://www.serebii.net/itemdex/airballoon.shtml"
 };
 
 var alakazite = {
     name: "Alakazite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Alakazite"
+    wiki: "http://www.serebii.net/itemdex/alakazite.shtml"
 };
 
 var altarianite = {
     name: "Altarianite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Altarianite"
+    wiki: "http://www.serebii.net/itemdex/altarianite.shtml"
 };
 
 var ampharosite = {
     name: "Ampharosite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ampharosite"
+    wiki: "http://www.serebii.net/itemdex/ampharosite.shtml"
 };
 
 var amulet_coin = {
     name: "Amulet Coin",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Amulet_Coin"
+    wiki: "http://www.serebii.net/itemdex/amuletcoin.shtml"
 };
 
 var antidote = {
     name: "Antidote",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Antidote"
+    wiki: "http://www.serebii.net/itemdex/antidote.shtml"
 };
 
 var apicot_berry = {
     name: "Apicot Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Apicot_Berry"
+    wiki: "http://www.serebii.net/itemdex/apicotberry.shtml"
 };
 
 var armor_fossil = {
     name: "Armor Fossil",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Armor_Fossil"
+    wiki: "http://www.serebii.net/itemdex/armorfossil.shtml"
 };
 
 var aspear_berry = {
     name: "Aspear Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Aspear_Berry"
+    wiki: "http://www.serebii.net/itemdex/aspearberry.shtml"
 };
 
 var audinite = {
     name: "Audinite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Audinite"
+    wiki: "http://www.serebii.net/itemdex/audinite.shtml"
 };
 
 var awakening = {
     name: "Awakening",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Awakening"
+    wiki: "http://www.serebii.net/itemdex/awakening.shtml"
 };
 
 var babiri_berry = {
     name: "Babiri Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Babiri_Berry"
+    wiki: "http://www.serebii.net/itemdex/babiriberry.shtml"
 };
 
 var balmmushroom = {
     name: "Balmmushroom",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Balmmushroom"
+    wiki: "http://www.serebii.net/itemdex/balmmushroom.shtml"
 };
 
 var banettite = {
     name: "Banettite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Banettite"
+    wiki: "http://www.serebii.net/itemdex/banettite.shtml"
 };
 
 var beedrillite = {
     name: "Beedrillite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Beedrillite"
+    wiki: "http://www.serebii.net/itemdex/beedrillite.shtml"
 };
 
 var belue_berry = {
     name: "Belue Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Belue_Berry"
+    wiki: "http://www.serebii.net/itemdex/belueberry.shtml"
 };
 
 var berry_juice = {
     name: "Berry Juice",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Berry_Juice"
+    wiki: "http://www.serebii.net/itemdex/berryjuice.shtml"
 };
 
 var big_mushroom = {
     name: "Big Mushroom",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Mushroom"
+    wiki: "http://www.serebii.net/itemdex/bigmushroom.shtml"
 };
 
 var big_nugget = {
     name: "Big Nugget",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Nugget"
+    wiki: "http://www.serebii.net/itemdex/bignugget.shtml"
 };
 
 var big_pearl = {
     name: "Big Pearl",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Pearl"
+    wiki: "http://www.serebii.net/itemdex/bigpearl.shtml"
 };
 
 var big_root = {
     name: "Big Root",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Big_Root"
+    wiki: "http://www.serebii.net/itemdex/bigroot.shtml"
 };
 
 var binding_band = {
     name: "Binding Band",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Binding_Band"
+    wiki: "http://www.serebii.net/itemdex/bindingband.shtml"
 };
 
 var black_belt = {
     name: "Black Belt",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Black_Belt"
+    wiki: "http://www.serebii.net/itemdex/blackbelt.shtml"
 };
 
 var black_flute = {
     name: "Black Flute",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Black_Flute"
+    wiki: "http://www.serebii.net/itemdex/blackflute.shtml"
 };
 
 var black_sludge = {
     name: "Black Sludge",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Black_Sludge"
+    wiki: "http://www.serebii.net/itemdex/blacksludge.shtml"
 };
 
 var blackglasses = {
     name: "Blackglasses",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blackglasses"
+    wiki: "http://www.serebii.net/itemdex/blackglasses.shtml"
 };
 
 var blastoisinite = {
     name: "Blastoisinite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blastoisinite"
+    wiki: "http://www.serebii.net/itemdex/blastoisinite.shtml"
 };
 
 var blazikenite = {
     name: "Blazikenite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blazikenite"
+    wiki: "http://www.serebii.net/itemdex/blazikenite.shtml"
 };
 
 var blk_apricorn = {
     name: "Blk Apricorn",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blk_Apricorn"
+    wiki: "http://www.serebii.net/itemdex/blkapricorn.shtml"
 };
 
 var blu_apricorn = {
     name: "Blu Apricorn",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blu_Apricorn"
+    wiki: "http://www.serebii.net/itemdex/bluapricorn.shtml"
 };
 
 var blue_flute = {
     name: "Blue Flute",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blue_Flute"
+    wiki: "http://www.serebii.net/itemdex/blueflute.shtml"
 };
 
 var blue_scarf = {
     name: "Blue Scarf",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blue_Scarf"
+    wiki: "http://www.serebii.net/itemdex/bluescarf.shtml"
 };
 
 var blue_shard = {
     name: "Blue Shard",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Blue_Shard"
+    wiki: "http://www.serebii.net/itemdex/blueshard.shtml"
 };
 
 var bluk_berry = {
     name: "Bluk Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bluk_Berry"
+    wiki: "http://www.serebii.net/itemdex/blukberry.shtml"
 };
 
 var brightpowder = {
     name: "Brightpowder",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Brightpowder"
+    wiki: "http://www.serebii.net/itemdex/brightpowder.shtml"
 };
 
 var bug_gem = {
     name: "Bug Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Bug_Gem"
+    wiki: "http://www.serebii.net/itemdex/buggem.shtml"
 };
 
 var burn_drive = {
     name: "Burn Drive",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Burn_Drive"
+    wiki: "http://www.serebii.net/itemdex/burndrive.shtml"
 };
 
 var burn_heal = {
     name: "Burn Heal",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Burn_Heal"
+    wiki: "http://www.serebii.net/itemdex/burnheal.shtml"
 };
 
 var calcium = {
     name: "Calcium",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Calcium"
+    wiki: "http://www.serebii.net/itemdex/calcium.shtml"
 };
 
 var cameruptite = {
     name: "Cameruptite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cameruptite"
+    wiki: "http://www.serebii.net/itemdex/cameruptite.shtml"
 };
 
 var carbos = {
     name: "Carbos",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Carbos"
+    wiki: "http://www.serebii.net/itemdex/carbos.shtml"
 };
 
 var casteliacone = {
     name: "Casteliacone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Casteliacone"
+    wiki: "http://www.serebii.net/itemdex/casteliacone.shtml"
 };
 
 var cell_battery = {
     name: "Cell Battery",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cell_Battery"
+    wiki: "http://www.serebii.net/itemdex/cellbattery.shtml"
 };
 
 var charcoal = {
     name: "Charcoal",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charcoal"
+    wiki: "http://www.serebii.net/itemdex/charcoal.shtml"
 };
 
 var charizardite_x = {
     name: "Charizardite X",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charizardite_X"
+    wiki: "http://www.serebii.net/itemdex/charizarditex.shtml"
 };
 
 var charizardite_y = {
     name: "Charizardite Y",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charizardite_Y"
+    wiki: "http://www.serebii.net/itemdex/charizarditey.shtml"
 };
 
 var charti_berry = {
     name: "Charti Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Charti_Berry"
+    wiki: "http://www.serebii.net/itemdex/chartiberry.shtml"
 };
 
 var cheri_berry = {
     name: "Cheri Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cheri_Berry"
+    wiki: "http://www.serebii.net/itemdex/cheriberry.shtml"
 };
 
 var cherish_ball = {
     name: "Cherish Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cherish_Ball"
+    wiki: "http://www.serebii.net/itemdex/cherishball.shtml"
 };
 
 var chesto_berry = {
     name: "Chesto Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chesto_Berry"
+    wiki: "http://www.serebii.net/itemdex/chestoberry.shtml"
 };
 
 var chilan_berry = {
     name: "Chilan Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chilan_Berry"
+    wiki: "http://www.serebii.net/itemdex/chilanberry.shtml"
 };
 
 var chill_drive = {
     name: "Chill Drive",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chill_Drive"
+    wiki: "http://www.serebii.net/itemdex/chilldrive.shtml"
 };
 
 var choice_band = {
     name: "Choice Band",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Choice_Band"
+    wiki: "http://www.serebii.net/itemdex/choiceband.shtml"
 };
 
 var choice_scarf = {
     name: "Choice Scarf",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Choice_Scarf"
+    wiki: "http://www.serebii.net/itemdex/choicescarf.shtml"
 };
 
 var choice_specs = {
     name: "Choice Specs",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Choice_Specs"
+    wiki: "http://www.serebii.net/itemdex/choicespecs.shtml"
 };
 
 var chople_berry = {
     name: "Chople Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Chople_Berry"
+    wiki: "http://www.serebii.net/itemdex/chopleberry.shtml"
 };
 
 var claw_fossil = {
     name: "Claw Fossil",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Claw_Fossil"
+    wiki: "http://www.serebii.net/itemdex/clawfossil.shtml"
 };
 
 var cleanse_tag = {
     name: "Cleanse Tag",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cleanse_Tag"
+    wiki: "http://www.serebii.net/itemdex/cleansetag.shtml"
 };
 
 var clever_wing = {
     name: "Clever Wing",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Clever_Wing"
+    wiki: "http://www.serebii.net/itemdex/cleverwing.shtml"
 };
 
 var coba_berry = {
     name: "Coba Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Coba_Berry"
+    wiki: "http://www.serebii.net/itemdex/cobaberry.shtml"
 };
 
 var colbur_berry = {
     name: "Colbur Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Colbur_Berry"
+    wiki: "http://www.serebii.net/itemdex/colburberry.shtml"
 };
 
 var colress_machine = {
     name: "Colress Machine",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Colress_Machine"
+    wiki: "http://www.serebii.net/itemdex/colressmachine.shtml"
 };
 
 var comet_shard = {
     name: "Comet Shard",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Comet_Shard"
+    wiki: "http://www.serebii.net/itemdex/cometshard.shtml"
 };
 
 var cornn_berry = {
     name: "Cornn Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cornn_Berry"
+    wiki: "http://www.serebii.net/itemdex/cornnberry.shtml"
 };
 
 var cover_fossil = {
     name: "Cover Fossil",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Cover_Fossil"
+    wiki: "http://www.serebii.net/itemdex/coverfossil.shtml"
 };
 
 var custap_berry = {
     name: "Custap Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Custap_Berry"
+    wiki: "http://www.serebii.net/itemdex/custapberry.shtml"
 };
 
 var damp_mulch = {
     name: "Damp Mulch",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Damp_Mulch"
+    wiki: "http://www.serebii.net/itemdex/dampmulch.shtml"
 };
 
 var damp_rock = {
     name: "Damp Rock",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Damp_Rock"
+    wiki: "http://www.serebii.net/itemdex/damprock.shtml"
 };
 
 var dark_gem = {
     name: "Dark Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dark_Gem"
+    wiki: "http://www.serebii.net/itemdex/darkgem.shtml"
 };
 
 var dawn_stone = {
     name: "Dawn Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dawn_Stone"
+    wiki: "http://www.serebii.net/itemdex/dawnstone.shtml"
 };
 
 var deepseascale = {
     name: "Deepseascale",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Deepseascale"
+    wiki: "http://www.serebii.net/itemdex/deepseascale.shtml"
 };
 
 var deepseatooth = {
     name: "Deepseatooth",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Deepseatooth"
+    wiki: "http://www.serebii.net/itemdex/deepseatooth.shtml"
 };
 
 var destiny_knot = {
     name: "Destiny Knot",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Destiny_Knot"
+    wiki: "http://www.serebii.net/itemdex/destinyknot.shtml"
 };
 
 var diancite = {
     name: "Diancite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Diancite"
+    wiki: "http://www.serebii.net/itemdex/diancite.shtml"
 };
 
 var dire_hit = {
     name: "Dire Hit",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dire_Hit"
+    wiki: "http://www.serebii.net/itemdex/direhit.shtml"
 };
 
 var dire_hit_2 = {
     name: "Dire Hit 2",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dire_Hit_2"
+    wiki: "http://www.serebii.net/itemdex/direhit2.shtml"
 };
 
 var dire_hit_3 = {
     name: "Dire Hit 3",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dire_Hit_3"
+    wiki: "http://www.serebii.net/itemdex/direhit3.shtml"
 };
 
 var dive_ball = {
     name: "Dive Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dive_Ball"
+    wiki: "http://www.serebii.net/itemdex/diveball.shtml"
 };
 
 var dna_splicers = {
-    name: "DNA Splicers",
+    name: "Dna Splicers",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/DNA_Splicers"
+    wiki: "http://www.serebii.net/itemdex/dnasplicers.shtml"
 };
 
 var dome_fossil = {
     name: "Dome Fossil",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dome_Fossil"
+    wiki: "http://www.serebii.net/itemdex/domefossil.shtml"
 };
 
 var douse_drive = {
     name: "Douse Drive",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Douse_Drive"
+    wiki: "http://www.serebii.net/itemdex/dousedrive.shtml"
 };
 
 var draco_plate = {
     name: "Draco Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Draco_Plate"
+    wiki: "http://www.serebii.net/itemdex/dracoplate.shtml"
 };
 
 var dragon_fang = {
     name: "Dragon Fang",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Fang"
+    wiki: "http://www.serebii.net/itemdex/dragonfang.shtml"
 };
 
 var dragon_gem = {
     name: "Dragon Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Gem"
+    wiki: "http://www.serebii.net/itemdex/dragongem.shtml"
 };
 
 var dragon_scale = {
     name: "Dragon Scale",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dragon_Scale"
+    wiki: "http://www.serebii.net/itemdex/dragonscale.shtml"
 };
 
 var dread_plate = {
     name: "Dread Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dread_Plate"
+    wiki: "http://www.serebii.net/itemdex/dreadplate.shtml"
 };
 
 var dream_ball = {
     name: "Dream Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dream_Ball"
+    wiki: "http://www.serebii.net/itemdex/dreamball.shtml"
 };
 
 var dropped_item = {
     name: "Dropped Item",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dropped_Item"
+    wiki: "http://www.serebii.net/itemdex/droppeditem.shtml"
 };
 
 var dubious_disc = {
     name: "Dubious Disc",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dubious_Disc"
+    wiki: "http://www.serebii.net/itemdex/dubiousdisc.shtml"
 };
 
 var durin_berry = {
     name: "Durin Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Durin_Berry"
+    wiki: "http://www.serebii.net/itemdex/durinberry.shtml"
 };
 
 var dusk_ball = {
     name: "Dusk Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dusk_Ball"
+    wiki: "http://www.serebii.net/itemdex/duskball.shtml"
 };
 
 var dusk_stone = {
     name: "Dusk Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Dusk_Stone"
+    wiki: "http://www.serebii.net/itemdex/duskstone.shtml"
 };
 
 var earth_plate = {
     name: "Earth Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Earth_Plate"
+    wiki: "http://www.serebii.net/itemdex/earthplate.shtml"
 };
 
 var eject_button = {
     name: "Eject Button",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eject_Button"
+    wiki: "http://www.serebii.net/itemdex/ejectbutton.shtml"
 };
 
 var electirizer = {
     name: "Electirizer",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electirizer"
+    wiki: "http://www.serebii.net/itemdex/electirizer.shtml"
 };
 
 var electric_gem = {
     name: "Electric Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Electric_Gem"
+    wiki: "http://www.serebii.net/itemdex/electricgem.shtml"
 };
 
 var elevator_key = {
     name: "Elevator Key",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Elevator_Key"
+    wiki: "http://www.serebii.net/itemdex/elevatorkey.shtml"
 };
 
 var elixir = {
     name: "Elixir",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Elixir"
+    wiki: "http://www.serebii.net/itemdex/elixir.shtml"
 };
 
 var energy_root = {
     name: "Energy Root",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Energy_Root"
+    wiki: "http://www.serebii.net/itemdex/energyroot.shtml"
 };
 
 var energypowder = {
     name: "Energypowder",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Energypowder"
+    wiki: "http://www.serebii.net/itemdex/energypowder.shtml"
 };
 
 var enigma_berry = {
     name: "Enigma Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Enigma_Berry"
+    wiki: "http://www.serebii.net/itemdex/enigmaberry.shtml"
 };
 
 var escape_rope = {
     name: "Escape Rope",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Escape_Rope"
+    wiki: "http://www.serebii.net/itemdex/escaperope.shtml"
 };
 
 var ether = {
     name: "Ether",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ether"
+    wiki: "http://www.serebii.net/itemdex/ether.shtml"
 };
 
 var everstone = {
     name: "Everstone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Everstone"
+    wiki: "http://www.serebii.net/itemdex/everstone.shtml"
 };
 
 var eviolite = {
     name: "Eviolite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Eviolite"
+    wiki: "http://www.serebii.net/itemdex/eviolite.shtml"
 };
 
 var exp_share = {
-    name: "Exp. Share",
+    name: "Exp Share",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Exp._Share"
+    wiki: "http://www.serebii.net/itemdex/expshare.shtml"
 };
 
 var expert_belt = {
     name: "Expert Belt",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Expert_Belt"
+    wiki: "http://www.serebii.net/itemdex/expertbelt.shtml"
 };
 
 var fairy_gem = {
     name: "Fairy Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fairy_Gem"
+    wiki: "http://www.serebii.net/itemdex/fairygem.shtml"
 };
 
 var fast_ball = {
     name: "Fast Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fast_Ball"
+    wiki: "http://www.serebii.net/itemdex/fastball.shtml"
 };
 
 var fighting_gem = {
     name: "Fighting Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fighting_Gem"
+    wiki: "http://www.serebii.net/itemdex/fightinggem.shtml"
 };
 
 var figy_berry = {
     name: "Figy Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Figy_Berry"
+    wiki: "http://www.serebii.net/itemdex/figyberry.shtml"
 };
 
 var fire_gem = {
     name: "Fire Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Gem"
+    wiki: "http://www.serebii.net/itemdex/firegem.shtml"
 };
 
 var fire_stone = {
     name: "Fire Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fire_Stone"
+    wiki: "http://www.serebii.net/itemdex/firestone.shtml"
 };
 
 var fist_plate = {
     name: "Fist Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fist_Plate"
+    wiki: "http://www.serebii.net/itemdex/fistplate.shtml"
 };
 
 var flame_orb = {
     name: "Flame Orb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flame_Orb"
+    wiki: "http://www.serebii.net/itemdex/flameorb.shtml"
 };
 
 var flame_plate = {
     name: "Flame Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flame_Plate"
+    wiki: "http://www.serebii.net/itemdex/flameplate.shtml"
 };
 
 var float_stone = {
     name: "Float Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Float_Stone"
+    wiki: "http://www.serebii.net/itemdex/floatstone.shtml"
 };
 
 var fluffy_tail = {
     name: "Fluffy Tail",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fluffy_Tail"
+    wiki: "http://www.serebii.net/itemdex/fluffytail.shtml"
 };
 
 var flying_gem = {
     name: "Flying Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Flying_Gem"
+    wiki: "http://www.serebii.net/itemdex/flyinggem.shtml"
 };
 
 var focus_band = {
     name: "Focus Band",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Focus_Band"
+    wiki: "http://www.serebii.net/itemdex/focusband.shtml"
 };
 
 var focus_sash = {
     name: "Focus Sash",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Focus_Sash"
+    wiki: "http://www.serebii.net/itemdex/focussash.shtml"
 };
 
 var fresh_water = {
     name: "Fresh Water",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Fresh_Water"
+    wiki: "http://www.serebii.net/itemdex/freshwater.shtml"
 };
 
 var friend_ball = {
     name: "Friend Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Friend_Ball"
+    wiki: "http://www.serebii.net/itemdex/friendball.shtml"
 };
 
 var full_heal = {
     name: "Full Heal",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Full_Heal"
+    wiki: "http://www.serebii.net/itemdex/fullheal.shtml"
 };
 
 var full_incense = {
     name: "Full Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Full_Incense"
+    wiki: "http://www.serebii.net/itemdex/fullincense.shtml"
 };
 
 var full_restore = {
     name: "Full Restore",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Full_Restore"
+    wiki: "http://www.serebii.net/itemdex/fullrestore.shtml"
 };
 
 var galladite = {
     name: "Galladite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Galladite"
+    wiki: "http://www.serebii.net/itemdex/galladite.shtml"
 };
 
 var ganlon_berry = {
     name: "Ganlon Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ganlon_Berry"
+    wiki: "http://www.serebii.net/itemdex/ganlonberry.shtml"
 };
 
 var garchompite = {
     name: "Garchompite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Garchompite"
+    wiki: "http://www.serebii.net/itemdex/garchompite.shtml"
 };
 
 var gardevoirite = {
     name: "Gardevoirite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gardevoirite"
+    wiki: "http://www.serebii.net/itemdex/gardevoirite.shtml"
 };
 
 var gengarite = {
     name: "Gengarite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gengarite"
+    wiki: "http://www.serebii.net/itemdex/gengarite.shtml"
 };
 
 var genius_wing = {
     name: "Genius Wing",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Genius_Wing"
+    wiki: "http://www.serebii.net/itemdex/geniuswing.shtml"
 };
 
 var ghost_gem = {
     name: "Ghost Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ghost_Gem"
+    wiki: "http://www.serebii.net/itemdex/ghostgem.shtml"
 };
 
 var glalitite = {
     name: "Glalitite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Glalitite"
+    wiki: "http://www.serebii.net/itemdex/glalitite.shtml"
 };
 
 var gooey_mulch = {
     name: "Gooey Mulch",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gooey_Mulch"
+    wiki: "http://www.serebii.net/itemdex/gooeymulch.shtml"
 };
 
 var grass_gem = {
     name: "Grass Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grass_Gem"
+    wiki: "http://www.serebii.net/itemdex/grassgem.shtml"
 };
 
 var great_ball = {
     name: "Great Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Great_Ball"
+    wiki: "http://www.serebii.net/itemdex/greatball.shtml"
 };
 
 var green_scarf = {
     name: "Green Scarf",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Green_Scarf"
+    wiki: "http://www.serebii.net/itemdex/greenscarf.shtml"
 };
 
 var green_shard = {
     name: "Green Shard",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Green_Shard"
+    wiki: "http://www.serebii.net/itemdex/greenshard.shtml"
 };
 
 var grepa_berry = {
     name: "Grepa Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grepa_Berry"
+    wiki: "http://www.serebii.net/itemdex/grepaberry.shtml"
 };
 
 var grip_claw = {
     name: "Grip Claw",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grip_Claw"
+    wiki: "http://www.serebii.net/itemdex/gripclaw.shtml"
 };
 
 var griseous_orb = {
     name: "Griseous Orb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Griseous_Orb"
+    wiki: "http://www.serebii.net/itemdex/griseousorb.shtml"
 };
 
 var grn_apricorn = {
     name: "Grn Apricorn",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grn_Apricorn"
+    wiki: "http://www.serebii.net/itemdex/grnapricorn.shtml"
 };
 
 var ground_gem = {
     name: "Ground Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ground_Gem"
+    wiki: "http://www.serebii.net/itemdex/groundgem.shtml"
 };
 
 var growth_mulch = {
     name: "Growth Mulch",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Growth_Mulch"
+    wiki: "http://www.serebii.net/itemdex/growthmulch.shtml"
 };
 
 var grubby_hanky = {
     name: "Grubby Hanky",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Grubby_Hanky"
+    wiki: "http://www.serebii.net/itemdex/grubbyhanky.shtml"
 };
 
-var guard_spec = {
+var guard_spec. = {
     name: "Guard Spec.",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Guard_Spec."
+    wiki: "http://www.serebii.net/itemdex/guardspec..shtml"
 };
 
 var gyaradosite = {
     name: "Gyaradosite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Gyaradosite"
+    wiki: "http://www.serebii.net/itemdex/gyaradosite.shtml"
 };
 
 var haban_berry = {
     name: "Haban Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Haban_Berry"
+    wiki: "http://www.serebii.net/itemdex/habanberry.shtml"
 };
 
 var hard_stone = {
     name: "Hard Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hard_Stone"
+    wiki: "http://www.serebii.net/itemdex/hardstone.shtml"
 };
 
 var heal_ball = {
     name: "Heal Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heal_Ball"
+    wiki: "http://www.serebii.net/itemdex/healball.shtml"
 };
 
 var heal_powder = {
     name: "Heal Powder",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heal_Powder"
+    wiki: "http://www.serebii.net/itemdex/healpowder.shtml"
 };
 
 var health_wing = {
     name: "Health Wing",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Health_Wing"
+    wiki: "http://www.serebii.net/itemdex/healthwing.shtml"
 };
 
 var heart_scale = {
     name: "Heart Scale",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heart_Scale"
+    wiki: "http://www.serebii.net/itemdex/heartscale.shtml"
 };
 
 var heat_rock = {
     name: "Heat Rock",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heat_Rock"
+    wiki: "http://www.serebii.net/itemdex/heatrock.shtml"
 };
 
 var heavy_ball = {
     name: "Heavy Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heavy_Ball"
+    wiki: "http://www.serebii.net/itemdex/heavyball.shtml"
 };
 
 var helix_fossil = {
     name: "Helix Fossil",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Helix_Fossil"
+    wiki: "http://www.serebii.net/itemdex/helixfossil.shtml"
 };
 
 var heracronite = {
     name: "Heracronite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Heracronite"
+    wiki: "http://www.serebii.net/itemdex/heracronite.shtml"
 };
 
 var hm01 = {
-    name: "Hm01",
+    name: "HM01",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm01"
+    wiki: "http://www.serebii.net/itemdex/hm01.shtml"
 };
 
 var hm02 = {
-    name: "Hm02",
+    name: "HM02",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm02"
+    wiki: "http://www.serebii.net/itemdex/hm02.shtml"
 };
 
 var hm03 = {
-    name: "Hm03",
+    name: "HM03",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm03"
+    wiki: "http://www.serebii.net/itemdex/hm03.shtml"
 };
 
 var hm04 = {
-    name: "Hm04",
+    name: "HM04",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm04"
+    wiki: "http://www.serebii.net/itemdex/hm04.shtml"
 };
 
 var hm05 = {
-    name: "Hm05",
+    name: "HM05",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm05"
+    wiki: "http://www.serebii.net/itemdex/hm05.shtml"
 };
 
 var hm06 = {
-    name: "Hm06",
+    name: "HM06",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm06"
+    wiki: "http://www.serebii.net/itemdex/hm06.shtml"
 };
 
 var hm07 = {
-    name: "Hm07",
+    name: "HM07",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm07"
+    wiki: "http://www.serebii.net/itemdex/hm07.shtml"
 };
 
 var hm08 = {
-    name: "Hm08",
+    name: "HM08",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hm08"
+    wiki: "http://www.serebii.net/itemdex/hm08.shtml"
 };
 
 var holo_caster = {
     name: "Holo Caster",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Holo_Caster"
+    wiki: "http://www.serebii.net/itemdex/holocaster.shtml"
 };
 
 var hondew_berry = {
     name: "Hondew Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hondew_Berry"
+    wiki: "http://www.serebii.net/itemdex/hondewberry.shtml"
 };
 
 var honey = {
     name: "Honey",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Honey"
+    wiki: "http://www.serebii.net/itemdex/honey.shtml"
 };
 
 var honor_of_kalos = {
     name: "Honor Of Kalos",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Honor_Of_Kalos"
+    wiki: "http://www.serebii.net/itemdex/honorofkalos.shtml"
 };
 
 var houndoominite = {
     name: "Houndoominite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Houndoominite"
+    wiki: "http://www.serebii.net/itemdex/houndoominite.shtml"
 };
 
 var hp_up = {
     name: "Hp Up",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hp_Up"
+    wiki: "http://www.serebii.net/itemdex/hpup.shtml"
 };
 
 var hyper_potion = {
     name: "Hyper Potion",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Hyper_Potion"
+    wiki: "http://www.serebii.net/itemdex/hyperpotion.shtml"
 };
 
 var iapapa_berry = {
     name: "Iapapa Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iapapa_Berry"
+    wiki: "http://www.serebii.net/itemdex/iapapaberry.shtml"
 };
 
 var ice_gem = {
     name: "Ice Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Gem"
+    wiki: "http://www.serebii.net/itemdex/icegem.shtml"
 };
 
 var ice_heal = {
     name: "Ice Heal",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ice_Heal"
+    wiki: "http://www.serebii.net/itemdex/iceheal.shtml"
 };
 
 var icicle_plate = {
     name: "Icicle Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Icicle_Plate"
+    wiki: "http://www.serebii.net/itemdex/icicleplate.shtml"
 };
 
 var icy_rock = {
     name: "Icy Rock",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Icy_Rock"
+    wiki: "http://www.serebii.net/itemdex/icyrock.shtml"
 };
 
 var insect_plate = {
     name: "Insect Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Insect_Plate"
+    wiki: "http://www.serebii.net/itemdex/insectplate.shtml"
 };
 
 var intriguing_stone = {
     name: "Intriguing Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Intriguing_Stone"
+    wiki: "http://www.serebii.net/itemdex/intriguingstone.shtml"
 };
 
 var iron = {
     name: "Iron",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron"
+    wiki: "http://www.serebii.net/itemdex/iron.shtml"
 };
 
 var iron_ball = {
     name: "Iron Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Ball"
+    wiki: "http://www.serebii.net/itemdex/ironball.shtml"
 };
 
 var iron_plate = {
     name: "Iron Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Iron_Plate"
+    wiki: "http://www.serebii.net/itemdex/ironplate.shtml"
 };
 
 var item_drop = {
     name: "Item Drop",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Item_Drop"
+    wiki: "http://www.serebii.net/itemdex/itemdrop.shtml"
 };
 
 var item_urge = {
     name: "Item Urge",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Item_Urge"
+    wiki: "http://www.serebii.net/itemdex/itemurge.shtml"
 };
 
 var jaboca_berry = {
     name: "Jaboca Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Jaboca_Berry"
+    wiki: "http://www.serebii.net/itemdex/jabocaberry.shtml"
 };
 
 var kangaskhanite = {
     name: "Kangaskhanite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kangaskhanite"
+    wiki: "http://www.serebii.net/itemdex/kangaskhanite.shtml"
 };
 
 var kasib_berry = {
     name: "Kasib Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kasib_Berry"
+    wiki: "http://www.serebii.net/itemdex/kasibberry.shtml"
 };
 
 var kebia_berry = {
     name: "Kebia Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kebia_Berry"
+    wiki: "http://www.serebii.net/itemdex/kebiaberry.shtml"
 };
 
 var kelpsy_berry = {
     name: "Kelpsy Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kelpsy_Berry"
+    wiki: "http://www.serebii.net/itemdex/kelpsyberry.shtml"
 };
 
 var kings_rock = {
     name: "Kings Rock",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Kings_Rock"
+    wiki: "http://www.serebii.net/itemdex/kingsrock.shtml"
 };
 
 var lagging_tail = {
     name: "Lagging Tail",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lagging_Tail"
+    wiki: "http://www.serebii.net/itemdex/laggingtail.shtml"
 };
 
 var lansat_berry = {
     name: "Lansat Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lansat_Berry"
+    wiki: "http://www.serebii.net/itemdex/lansatberry.shtml"
 };
 
 var latiasite = {
     name: "Latiasite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Latiasite"
+    wiki: "http://www.serebii.net/itemdex/latiasite.shtml"
 };
 
 var latiosite = {
     name: "Latiosite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Latiosite"
+    wiki: "http://www.serebii.net/itemdex/latiosite.shtml"
 };
 
 var lava_cookie = {
     name: "Lava Cookie",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lava_Cookie"
+    wiki: "http://www.serebii.net/itemdex/lavacookie.shtml"
 };
 
 var lax_incense = {
     name: "Lax Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lax_Incense"
+    wiki: "http://www.serebii.net/itemdex/laxincense.shtml"
 };
 
 var leaf_stone = {
     name: "Leaf Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leaf_Stone"
+    wiki: "http://www.serebii.net/itemdex/leafstone.shtml"
 };
 
 var leftovers = {
     name: "Leftovers",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leftovers"
+    wiki: "http://www.serebii.net/itemdex/leftovers.shtml"
 };
 
 var lemonade = {
     name: "Lemonade",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lemonade"
+    wiki: "http://www.serebii.net/itemdex/lemonade.shtml"
 };
 
 var lens_case = {
     name: "Lens Case",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lens_Case"
+    wiki: "http://www.serebii.net/itemdex/lenscase.shtml"
 };
 
 var leppa_berry = {
     name: "Leppa Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Leppa_Berry"
+    wiki: "http://www.serebii.net/itemdex/leppaberry.shtml"
 };
 
 var level_ball = {
     name: "Level Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Level_Ball"
+    wiki: "http://www.serebii.net/itemdex/levelball.shtml"
 };
 
 var liechi_berry = {
     name: "Liechi Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Liechi_Berry"
+    wiki: "http://www.serebii.net/itemdex/liechiberry.shtml"
 };
 
 var life_orb = {
     name: "Life Orb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Life_Orb"
+    wiki: "http://www.serebii.net/itemdex/lifeorb.shtml"
 };
 
 var light_ball = {
     name: "Light Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Light_Ball"
+    wiki: "http://www.serebii.net/itemdex/lightball.shtml"
 };
 
 var light_clay = {
     name: "Light Clay",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Light_Clay"
+    wiki: "http://www.serebii.net/itemdex/lightclay.shtml"
 };
 
 var looker_ticket = {
     name: "Looker Ticket",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Looker_Ticket"
+    wiki: "http://www.serebii.net/itemdex/lookerticket.shtml"
 };
 
 var lopunnite = {
     name: "Lopunnite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lopunnite"
+    wiki: "http://www.serebii.net/itemdex/lopunnite.shtml"
 };
 
 var love_ball = {
     name: "Love Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Love_Ball"
+    wiki: "http://www.serebii.net/itemdex/loveball.shtml"
 };
 
 var lucarionite = {
     name: "Lucarionite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lucarionite"
+    wiki: "http://www.serebii.net/itemdex/lucarionite.shtml"
 };
 
 var luck_incense = {
     name: "Luck Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Luck_Incense"
+    wiki: "http://www.serebii.net/itemdex/luckincense.shtml"
 };
 
 var lucky_egg = {
     name: "Lucky Egg",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lucky_Egg"
+    wiki: "http://www.serebii.net/itemdex/luckyegg.shtml"
 };
 
 var lucky_punch = {
     name: "Lucky Punch",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lucky_Punch"
+    wiki: "http://www.serebii.net/itemdex/luckypunch.shtml"
 };
 
 var lum_berry = {
     name: "Lum Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lum_Berry"
+    wiki: "http://www.serebii.net/itemdex/lumberry.shtml"
 };
 
 var lure_ball = {
     name: "Lure Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lure_Ball"
+    wiki: "http://www.serebii.net/itemdex/lureball.shtml"
 };
 
 var lustrous_orb = {
     name: "Lustrous Orb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Lustrous_Orb"
+    wiki: "http://www.serebii.net/itemdex/lustrousorb.shtml"
 };
 
 var luxury_ball = {
     name: "Luxury Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Luxury_Ball"
+    wiki: "http://www.serebii.net/itemdex/luxuryball.shtml"
 };
 
 var macho_brace = {
     name: "Macho Brace",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Macho_Brace"
+    wiki: "http://www.serebii.net/itemdex/machobrace.shtml"
 };
 
 var magmarizer = {
     name: "Magmarizer",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magmarizer"
+    wiki: "http://www.serebii.net/itemdex/magmarizer.shtml"
 };
 
 var magnet = {
     name: "Magnet",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magnet"
+    wiki: "http://www.serebii.net/itemdex/magnet.shtml"
 };
 
 var mago_berry = {
     name: "Mago Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mago_Berry"
+    wiki: "http://www.serebii.net/itemdex/magoberry.shtml"
 };
 
 var magost_berry = {
     name: "Magost Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Magost_Berry"
+    wiki: "http://www.serebii.net/itemdex/magostberry.shtml"
 };
 
 var manectite = {
     name: "Manectite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Manectite"
+    wiki: "http://www.serebii.net/itemdex/manectite.shtml"
 };
 
 var master_ball = {
     name: "Master Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Master_Ball"
+    wiki: "http://www.serebii.net/itemdex/masterball.shtml"
 };
 
 var mawilite = {
     name: "Mawilite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mawilite"
+    wiki: "http://www.serebii.net/itemdex/mawilite.shtml"
 };
 
 var max_elixir = {
     name: "Max Elixir",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Elixir"
+    wiki: "http://www.serebii.net/itemdex/maxelixir.shtml"
 };
 
 var max_ether = {
     name: "Max Ether",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Ether"
+    wiki: "http://www.serebii.net/itemdex/maxether.shtml"
 };
 
 var max_potion = {
     name: "Max Potion",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Potion"
+    wiki: "http://www.serebii.net/itemdex/maxpotion.shtml"
 };
 
 var max_repel = {
     name: "Max Repel",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Repel"
+    wiki: "http://www.serebii.net/itemdex/maxrepel.shtml"
 };
 
 var max_revive = {
     name: "Max Revive",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Max_Revive"
+    wiki: "http://www.serebii.net/itemdex/maxrevive.shtml"
 };
 
 var meadow_plate = {
     name: "Meadow Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Meadow_Plate"
+    wiki: "http://www.serebii.net/itemdex/meadowplate.shtml"
 };
 
 var medal_box = {
     name: "Medal Box",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Medal_Box"
+    wiki: "http://www.serebii.net/itemdex/medalbox.shtml"
 };
 
 var medichamite = {
     name: "Medichamite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Medichamite"
+    wiki: "http://www.serebii.net/itemdex/medichamite.shtml"
 };
 
 var mental_herb = {
     name: "Mental Herb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mental_Herb"
+    wiki: "http://www.serebii.net/itemdex/mentalherb.shtml"
 };
 
 var metagrossite = {
     name: "Metagrossite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metagrossite"
+    wiki: "http://www.serebii.net/itemdex/metagrossite.shtml"
 };
 
 var metal_coat = {
     name: "Metal Coat",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metal_Coat"
+    wiki: "http://www.serebii.net/itemdex/metalcoat.shtml"
 };
 
 var metal_powder = {
     name: "Metal Powder",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metal_Powder"
+    wiki: "http://www.serebii.net/itemdex/metalpowder.shtml"
 };
 
 var metronome = {
     name: "Metronome",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Metronome"
+    wiki: "http://www.serebii.net/itemdex/metronome.shtml"
 };
 
 var mewtwonite_x = {
     name: "Mewtwonite X",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mewtwonite_X"
+    wiki: "http://www.serebii.net/itemdex/mewtwonitex.shtml"
 };
 
 var mewtwonite_y = {
     name: "Mewtwonite Y",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mewtwonite_Y"
+    wiki: "http://www.serebii.net/itemdex/mewtwonitey.shtml"
 };
 
 var micle_berry = {
     name: "Micle Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Micle_Berry"
+    wiki: "http://www.serebii.net/itemdex/micleberry.shtml"
 };
 
 var mind_plate = {
     name: "Mind Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mind_Plate"
+    wiki: "http://www.serebii.net/itemdex/mindplate.shtml"
 };
 
 var miracle_seed = {
     name: "Miracle Seed",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Miracle_Seed"
+    wiki: "http://www.serebii.net/itemdex/miracleseed.shtml"
 };
 
 var moomoo_milk = {
     name: "Moomoo Milk",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moomoo_Milk"
+    wiki: "http://www.serebii.net/itemdex/moomoomilk.shtml"
 };
 
 var moon_ball = {
     name: "Moon Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moon_Ball"
+    wiki: "http://www.serebii.net/itemdex/moonball.shtml"
 };
 
 var moon_stone = {
     name: "Moon Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Moon_Stone"
+    wiki: "http://www.serebii.net/itemdex/moonstone.shtml"
 };
 
 var muscle_band = {
     name: "Muscle Band",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Muscle_Band"
+    wiki: "http://www.serebii.net/itemdex/muscleband.shtml"
 };
 
 var muscle_wing = {
     name: "Muscle Wing",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Muscle_Wing"
+    wiki: "http://www.serebii.net/itemdex/musclewing.shtml"
 };
 
 var mystic_water = {
     name: "Mystic Water",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Mystic_Water"
+    wiki: "http://www.serebii.net/itemdex/mysticwater.shtml"
 };
 
 var nanab_berry = {
     name: "Nanab Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nanab_Berry"
+    wiki: "http://www.serebii.net/itemdex/nanabberry.shtml"
 };
 
 var nest_ball = {
     name: "Nest Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nest_Ball"
+    wiki: "http://www.serebii.net/itemdex/nestball.shtml"
 };
 
 var net_ball = {
     name: "Net Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Net_Ball"
+    wiki: "http://www.serebii.net/itemdex/netball.shtml"
 };
 
 var nevermeltice = {
     name: "Nevermeltice",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nevermeltice"
+    wiki: "http://www.serebii.net/itemdex/nevermeltice.shtml"
 };
 
 var nomel_berry = {
     name: "Nomel Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nomel_Berry"
+    wiki: "http://www.serebii.net/itemdex/nomelberry.shtml"
 };
 
 var normal_gem = {
     name: "Normal Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Normal_Gem"
+    wiki: "http://www.serebii.net/itemdex/normalgem.shtml"
 };
 
 var nugget = {
     name: "Nugget",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Nugget"
+    wiki: "http://www.serebii.net/itemdex/nugget.shtml"
 };
 
 var occa_berry = {
     name: "Occa Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Occa_Berry"
+    wiki: "http://www.serebii.net/itemdex/occaberry.shtml"
 };
 
 var odd_incense = {
     name: "Odd Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Odd_Incense"
+    wiki: "http://www.serebii.net/itemdex/oddincense.shtml"
 };
 
 var odd_keystone = {
     name: "Odd Keystone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Odd_Keystone"
+    wiki: "http://www.serebii.net/itemdex/oddkeystone.shtml"
 };
 
 var old_amber = {
     name: "Old Amber",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Old_Amber"
+    wiki: "http://www.serebii.net/itemdex/oldamber.shtml"
 };
 
 var old_gateau = {
     name: "Old Gateau",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Old_Gateau"
+    wiki: "http://www.serebii.net/itemdex/oldgateau.shtml"
 };
 
 var oran_berry = {
     name: "Oran Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oran_Berry"
+    wiki: "http://www.serebii.net/itemdex/oranberry.shtml"
 };
 
 var oval_charm = {
     name: "Oval Charm",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oval_Charm"
+    wiki: "http://www.serebii.net/itemdex/ovalcharm.shtml"
 };
 
 var oval_stone = {
     name: "Oval Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Oval_Stone"
+    wiki: "http://www.serebii.net/itemdex/ovalstone.shtml"
 };
 
 var pamtre_berry = {
     name: "Pamtre Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pamtre_Berry"
+    wiki: "http://www.serebii.net/itemdex/pamtreberry.shtml"
 };
 
 var park_ball = {
     name: "Park Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Park_Ball"
+    wiki: "http://www.serebii.net/itemdex/parkball.shtml"
 };
 
 var parlyz_heal = {
     name: "Parlyz Heal",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Parlyz_Heal"
+    wiki: "http://www.serebii.net/itemdex/parlyzheal.shtml"
 };
 
 var pass_orb = {
     name: "Pass Orb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pass_Orb"
+    wiki: "http://www.serebii.net/itemdex/passorb.shtml"
 };
 
 var passho_berry = {
     name: "Passho Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Passho_Berry"
+    wiki: "http://www.serebii.net/itemdex/passhoberry.shtml"
 };
 
 var payapa_berry = {
     name: "Payapa Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Payapa_Berry"
+    wiki: "http://www.serebii.net/itemdex/payapaberry.shtml"
 };
 
 var pearl = {
     name: "Pearl",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pearl"
+    wiki: "http://www.serebii.net/itemdex/pearl.shtml"
 };
 
 var pearl_string = {
     name: "Pearl String",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pearl_String"
+    wiki: "http://www.serebii.net/itemdex/pearlstring.shtml"
 };
 
 var pecha_berry = {
     name: "Pecha Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pecha_Berry"
+    wiki: "http://www.serebii.net/itemdex/pechaberry.shtml"
 };
 
 var permit = {
     name: "Permit",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Permit"
+    wiki: "http://www.serebii.net/itemdex/permit.shtml"
 };
 
 var persim_berry = {
     name: "Persim Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Persim_Berry"
+    wiki: "http://www.serebii.net/itemdex/persimberry.shtml"
 };
 
 var petaya_berry = {
     name: "Petaya Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Petaya_Berry"
+    wiki: "http://www.serebii.net/itemdex/petayaberry.shtml"
 };
 
 var pidgeotite = {
     name: "Pidgeotite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pidgeotite"
+    wiki: "http://www.serebii.net/itemdex/pidgeotite.shtml"
 };
 
 var pinap_berry = {
     name: "Pinap Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pinap_Berry"
+    wiki: "http://www.serebii.net/itemdex/pinapberry.shtml"
 };
 
 var pink_scarf = {
     name: "Pink Scarf",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pink_Scarf"
+    wiki: "http://www.serebii.net/itemdex/pinkscarf.shtml"
 };
 
 var pinsirite = {
     name: "Pinsirite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pinsirite"
+    wiki: "http://www.serebii.net/itemdex/pinsirite.shtml"
 };
 
 var pixie_plate = {
     name: "Pixie Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pixie_Plate"
+    wiki: "http://www.serebii.net/itemdex/pixieplate.shtml"
 };
 
 var plasma_card = {
     name: "Plasma Card",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Plasma_Card"
+    wiki: "http://www.serebii.net/itemdex/plasmacard.shtml"
 };
 
 var plume_fossil = {
     name: "Plume Fossil",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Plume_Fossil"
+    wiki: "http://www.serebii.net/itemdex/plumefossil.shtml"
 };
 
 var pnk_apricorn = {
     name: "Pnk Apricorn",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pnk_Apricorn"
+    wiki: "http://www.serebii.net/itemdex/pnkapricorn.shtml"
 };
 
 var poison_barb = {
     name: "Poison Barb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Barb"
+    wiki: "http://www.serebii.net/itemdex/poisonbarb.shtml"
 };
 
 var poison_gem = {
     name: "Poison Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poison_Gem"
+    wiki: "http://www.serebii.net/itemdex/poisongem.shtml"
 };
 
 var poké_ball = {
     name: "Poké Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poké_Ball"
+    wiki: "http://www.serebii.net/itemdex/pokéball.shtml"
 };
 
 var poké_doll = {
     name: "Poké Doll",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poké_Doll"
+    wiki: "http://www.serebii.net/itemdex/pokédoll.shtml"
 };
 
 var poké_toy = {
     name: "Poké Toy",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Poké_Toy"
+    wiki: "http://www.serebii.net/itemdex/pokétoy.shtml"
 };
 
 var pomeg_berry = {
     name: "Pomeg Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pomeg_Berry"
+    wiki: "http://www.serebii.net/itemdex/pomegberry.shtml"
 };
 
 var potion = {
     name: "Potion",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Potion"
+    wiki: "http://www.serebii.net/itemdex/potion.shtml"
 };
 
 var power_anklet = {
     name: "Power Anklet",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Anklet"
+    wiki: "http://www.serebii.net/itemdex/poweranklet.shtml"
 };
 
 var power_band = {
     name: "Power Band",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Band"
+    wiki: "http://www.serebii.net/itemdex/powerband.shtml"
 };
 
 var power_belt = {
     name: "Power Belt",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Belt"
+    wiki: "http://www.serebii.net/itemdex/powerbelt.shtml"
 };
 
 var power_bracer = {
     name: "Power Bracer",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Bracer"
+    wiki: "http://www.serebii.net/itemdex/powerbracer.shtml"
 };
 
 var power_herb = {
     name: "Power Herb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Herb"
+    wiki: "http://www.serebii.net/itemdex/powerherb.shtml"
 };
 
 var power_lens = {
     name: "Power Lens",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Lens"
+    wiki: "http://www.serebii.net/itemdex/powerlens.shtml"
 };
 
 var power_plant_pass = {
     name: "Power Plant Pass",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Plant_Pass"
+    wiki: "http://www.serebii.net/itemdex/powerplantpass.shtml"
 };
 
 var power_weight = {
     name: "Power Weight",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Power_Weight"
+    wiki: "http://www.serebii.net/itemdex/powerweight.shtml"
 };
 
 var pp_max = {
     name: "Pp Max",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pp_Max"
+    wiki: "http://www.serebii.net/itemdex/ppmax.shtml"
 };
 
 var pp_up = {
     name: "Pp Up",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pp_Up"
+    wiki: "http://www.serebii.net/itemdex/ppup.shtml"
 };
 
 var premier_ball = {
     name: "Premier Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Premier_Ball"
+    wiki: "http://www.serebii.net/itemdex/premierball.shtml"
 };
 
 var pretty_wing = {
     name: "Pretty Wing",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pretty_Wing"
+    wiki: "http://www.serebii.net/itemdex/prettywing.shtml"
 };
 
 var prism_scale = {
     name: "Prism Scale",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Prism_Scale"
+    wiki: "http://www.serebii.net/itemdex/prismscale.shtml"
 };
 
 var profs_letter = {
     name: "Profs Letter",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Profs_Letter"
+    wiki: "http://www.serebii.net/itemdex/profsletter.shtml"
 };
 
 var protector = {
     name: "Protector",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Protector"
+    wiki: "http://www.serebii.net/itemdex/protector.shtml"
 };
 
 var protein = {
     name: "Protein",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Protein"
+    wiki: "http://www.serebii.net/itemdex/protein.shtml"
 };
 
 var psychic_gem = {
     name: "Psychic Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Psychic_Gem"
+    wiki: "http://www.serebii.net/itemdex/psychicgem.shtml"
 };
 
 var pure_incense = {
     name: "Pure Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Pure_Incense"
+    wiki: "http://www.serebii.net/itemdex/pureincense.shtml"
 };
 
 var qualot_berry = {
     name: "Qualot Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Qualot_Berry"
+    wiki: "http://www.serebii.net/itemdex/qualotberry.shtml"
 };
 
 var quick_ball = {
     name: "Quick Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Ball"
+    wiki: "http://www.serebii.net/itemdex/quickball.shtml"
 };
 
 var quick_claw = {
     name: "Quick Claw",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Claw"
+    wiki: "http://www.serebii.net/itemdex/quickclaw.shtml"
 };
 
 var quick_powder = {
     name: "Quick Powder",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Quick_Powder"
+    wiki: "http://www.serebii.net/itemdex/quickpowder.shtml"
 };
 
 var rabuta_berry = {
     name: "Rabuta Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rabuta_Berry"
+    wiki: "http://www.serebii.net/itemdex/rabutaberry.shtml"
 };
 
 var rare_bone = {
     name: "Rare Bone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rare_Bone"
+    wiki: "http://www.serebii.net/itemdex/rarebone.shtml"
 };
 
 var rare_candy = {
     name: "Rare Candy",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rare_Candy"
+    wiki: "http://www.serebii.net/itemdex/rarecandy.shtml"
 };
 
 var rawst_berry = {
     name: "Rawst Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rawst_Berry"
+    wiki: "http://www.serebii.net/itemdex/rawstberry.shtml"
 };
 
 var razor_claw = {
     name: "Razor Claw",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razor_Claw"
+    wiki: "http://www.serebii.net/itemdex/razorclaw.shtml"
 };
 
 var razor_fang = {
     name: "Razor Fang",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razor_Fang"
+    wiki: "http://www.serebii.net/itemdex/razorfang.shtml"
 };
 
 var razz_berry = {
     name: "Razz Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Razz_Berry"
+    wiki: "http://www.serebii.net/itemdex/razzberry.shtml"
 };
 
 var reaper_cloth = {
     name: "Reaper Cloth",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reaper_Cloth"
+    wiki: "http://www.serebii.net/itemdex/reapercloth.shtml"
 };
 
 var red_apricorn = {
     name: "Red Apricorn",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Apricorn"
+    wiki: "http://www.serebii.net/itemdex/redapricorn.shtml"
 };
 
 var red_card = {
     name: "Red Card",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Card"
+    wiki: "http://www.serebii.net/itemdex/redcard.shtml"
 };
 
 var red_flute = {
     name: "Red Flute",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Flute"
+    wiki: "http://www.serebii.net/itemdex/redflute.shtml"
 };
 
 var red_scarf = {
     name: "Red Scarf",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Scarf"
+    wiki: "http://www.serebii.net/itemdex/redscarf.shtml"
 };
 
 var red_shard = {
     name: "Red Shard",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Red_Shard"
+    wiki: "http://www.serebii.net/itemdex/redshard.shtml"
 };
 
 var relic_band = {
     name: "Relic Band",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Band"
+    wiki: "http://www.serebii.net/itemdex/relicband.shtml"
 };
 
 var relic_copper = {
     name: "Relic Copper",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Copper"
+    wiki: "http://www.serebii.net/itemdex/reliccopper.shtml"
 };
 
 var relic_crown = {
     name: "Relic Crown",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Crown"
+    wiki: "http://www.serebii.net/itemdex/reliccrown.shtml"
 };
 
 var relic_gold = {
     name: "Relic Gold",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Gold"
+    wiki: "http://www.serebii.net/itemdex/relicgold.shtml"
 };
 
 var relic_silver = {
     name: "Relic Silver",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Silver"
+    wiki: "http://www.serebii.net/itemdex/relicsilver.shtml"
 };
 
 var relic_statue = {
     name: "Relic Statue",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Statue"
+    wiki: "http://www.serebii.net/itemdex/relicstatue.shtml"
 };
 
 var relic_vase = {
     name: "Relic Vase",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Relic_Vase"
+    wiki: "http://www.serebii.net/itemdex/relicvase.shtml"
 };
 
 var repeat_ball = {
     name: "Repeat Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Repeat_Ball"
+    wiki: "http://www.serebii.net/itemdex/repeatball.shtml"
 };
 
 var repel = {
     name: "Repel",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Repel"
+    wiki: "http://www.serebii.net/itemdex/repel.shtml"
 };
 
 var reset_urge = {
     name: "Reset Urge",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reset_Urge"
+    wiki: "http://www.serebii.net/itemdex/reseturge.shtml"
 };
 
 var resist_wing = {
     name: "Resist Wing",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Resist_Wing"
+    wiki: "http://www.serebii.net/itemdex/resistwing.shtml"
 };
 
 var reveal_glass = {
     name: "Reveal Glass",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Reveal_Glass"
+    wiki: "http://www.serebii.net/itemdex/revealglass.shtml"
 };
 
 var revival_herb = {
     name: "Revival Herb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Revival_Herb"
+    wiki: "http://www.serebii.net/itemdex/revivalherb.shtml"
 };
 
 var revive = {
     name: "Revive",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Revive"
+    wiki: "http://www.serebii.net/itemdex/revive.shtml"
 };
 
 var rindo_berry = {
     name: "Rindo Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rindo_Berry"
+    wiki: "http://www.serebii.net/itemdex/rindoberry.shtml"
 };
 
 var ring_target = {
     name: "Ring Target",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ring_Target"
+    wiki: "http://www.serebii.net/itemdex/ringtarget.shtml"
 };
 
 var rock_gem = {
     name: "Rock Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Gem"
+    wiki: "http://www.serebii.net/itemdex/rockgem.shtml"
 };
 
 var rock_incense = {
     name: "Rock Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rock_Incense"
+    wiki: "http://www.serebii.net/itemdex/rockincense.shtml"
 };
 
 var rocky_helmet = {
     name: "Rocky Helmet",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rocky_Helmet"
+    wiki: "http://www.serebii.net/itemdex/rockyhelmet.shtml"
 };
 
 var roller_skates = {
     name: "Roller Skates",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Roller_Skates"
+    wiki: "http://www.serebii.net/itemdex/rollerskates.shtml"
 };
 
 var root_fossil = {
     name: "Root Fossil",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Root_Fossil"
+    wiki: "http://www.serebii.net/itemdex/rootfossil.shtml"
 };
 
 var rose_incense = {
     name: "Rose Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rose_Incense"
+    wiki: "http://www.serebii.net/itemdex/roseincense.shtml"
 };
 
 var rowap_berry = {
     name: "Rowap Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Rowap_Berry"
+    wiki: "http://www.serebii.net/itemdex/rowapberry.shtml"
 };
 
 var sablenite = {
     name: "Sablenite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sablenite"
+    wiki: "http://www.serebii.net/itemdex/sablenite.shtml"
 };
 
 var sacred_ash = {
     name: "Sacred Ash",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sacred_Ash"
+    wiki: "http://www.serebii.net/itemdex/sacredash.shtml"
 };
 
 var safari_ball = {
     name: "Safari Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Safari_Ball"
+    wiki: "http://www.serebii.net/itemdex/safariball.shtml"
 };
 
 var salac_berry = {
     name: "Salac Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Salac_Berry"
+    wiki: "http://www.serebii.net/itemdex/salacberry.shtml"
 };
 
 var salamencite = {
     name: "Salamencite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Salamencite"
+    wiki: "http://www.serebii.net/itemdex/salamencite.shtml"
 };
 
 var sceptilite = {
     name: "Sceptilite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sceptilite"
+    wiki: "http://www.serebii.net/itemdex/sceptilite.shtml"
 };
 
 var scizorite = {
     name: "Scizorite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scizorite"
+    wiki: "http://www.serebii.net/itemdex/scizorite.shtml"
 };
 
 var scope_lens = {
     name: "Scope Lens",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Scope_Lens"
+    wiki: "http://www.serebii.net/itemdex/scopelens.shtml"
 };
 
 var sea_incense = {
     name: "Sea Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sea_Incense"
+    wiki: "http://www.serebii.net/itemdex/seaincense.shtml"
 };
 
 var sharp_beak = {
     name: "Sharp Beak",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sharp_Beak"
+    wiki: "http://www.serebii.net/itemdex/sharpbeak.shtml"
 };
 
 var sharpedonite = {
     name: "Sharpedonite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sharpedonite"
+    wiki: "http://www.serebii.net/itemdex/sharpedonite.shtml"
 };
 
 var shed_shell = {
     name: "Shed Shell",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shed_Shell"
+    wiki: "http://www.serebii.net/itemdex/shedshell.shtml"
 };
 
 var shell_bell = {
     name: "Shell Bell",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shell_Bell"
+    wiki: "http://www.serebii.net/itemdex/shellbell.shtml"
 };
 
 var shiny_charm = {
     name: "Shiny Charm",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shiny_Charm"
+    wiki: "http://www.serebii.net/itemdex/shinycharm.shtml"
 };
 
 var shiny_stone = {
     name: "Shiny Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shiny_Stone"
+    wiki: "http://www.serebii.net/itemdex/shinystone.shtml"
 };
 
 var shoal_salt = {
     name: "Shoal Salt",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shoal_Salt"
+    wiki: "http://www.serebii.net/itemdex/shoalsalt.shtml"
 };
 
 var shoal_shell = {
     name: "Shoal Shell",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shoal_Shell"
+    wiki: "http://www.serebii.net/itemdex/shoalshell.shtml"
 };
 
 var shock_drive = {
     name: "Shock Drive",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shock_Drive"
+    wiki: "http://www.serebii.net/itemdex/shockdrive.shtml"
 };
 
 var shuca_berry = {
     name: "Shuca Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Shuca_Berry"
+    wiki: "http://www.serebii.net/itemdex/shucaberry.shtml"
 };
 
 var silk_scarf = {
     name: "Silk Scarf",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Silk_Scarf"
+    wiki: "http://www.serebii.net/itemdex/silkscarf.shtml"
 };
 
 var silverpowder = {
     name: "Silverpowder",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Silverpowder"
+    wiki: "http://www.serebii.net/itemdex/silverpowder.shtml"
 };
 
 var sitrus_berry = {
     name: "Sitrus Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sitrus_Berry"
+    wiki: "http://www.serebii.net/itemdex/sitrusberry.shtml"
 };
 
 var skull_fossil = {
     name: "Skull Fossil",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Skull_Fossil"
+    wiki: "http://www.serebii.net/itemdex/skullfossil.shtml"
 };
 
 var sky_plate = {
     name: "Sky Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sky_Plate"
+    wiki: "http://www.serebii.net/itemdex/skyplate.shtml"
 };
 
 var slowbronite = {
     name: "Slowbronite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Slowbronite"
+    wiki: "http://www.serebii.net/itemdex/slowbronite.shtml"
 };
 
 var smoke_ball = {
     name: "Smoke Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smoke_Ball"
+    wiki: "http://www.serebii.net/itemdex/smokeball.shtml"
 };
 
 var smooth_rock = {
     name: "Smooth Rock",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Smooth_Rock"
+    wiki: "http://www.serebii.net/itemdex/smoothrock.shtml"
 };
 
 var soda_pop = {
     name: "Soda Pop",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soda_Pop"
+    wiki: "http://www.serebii.net/itemdex/sodapop.shtml"
 };
 
 var soft_sand = {
     name: "Soft Sand",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soft_Sand"
+    wiki: "http://www.serebii.net/itemdex/softsand.shtml"
 };
 
 var soothe_bell = {
     name: "Soothe Bell",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soothe_Bell"
+    wiki: "http://www.serebii.net/itemdex/soothebell.shtml"
 };
 
 var soul_dew = {
     name: "Soul Dew",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Soul_Dew"
+    wiki: "http://www.serebii.net/itemdex/souldew.shtml"
 };
 
 var spell_tag = {
     name: "Spell Tag",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spell_Tag"
+    wiki: "http://www.serebii.net/itemdex/spelltag.shtml"
 };
 
 var spelon_berry = {
     name: "Spelon Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spelon_Berry"
+    wiki: "http://www.serebii.net/itemdex/spelonberry.shtml"
 };
 
 var splash_plate = {
     name: "Splash Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Splash_Plate"
+    wiki: "http://www.serebii.net/itemdex/splashplate.shtml"
 };
 
 var spooky_plate = {
     name: "Spooky Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Spooky_Plate"
+    wiki: "http://www.serebii.net/itemdex/spookyplate.shtml"
 };
 
 var sport_ball = {
     name: "Sport Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sport_Ball"
+    wiki: "http://www.serebii.net/itemdex/sportball.shtml"
 };
 
 var sprinklotad = {
     name: "Sprinklotad",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sprinklotad"
+    wiki: "http://www.serebii.net/itemdex/sprinklotad.shtml"
 };
 
 var stable_mulch = {
     name: "Stable Mulch",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stable_Mulch"
+    wiki: "http://www.serebii.net/itemdex/stablemulch.shtml"
 };
 
 var star_piece = {
     name: "Star Piece",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Star_Piece"
+    wiki: "http://www.serebii.net/itemdex/starpiece.shtml"
 };
 
 var stardust = {
     name: "Stardust",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stardust"
+    wiki: "http://www.serebii.net/itemdex/stardust.shtml"
 };
 
 var starf_berry = {
     name: "Starf Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Starf_Berry"
+    wiki: "http://www.serebii.net/itemdex/starfberry.shtml"
 };
 
 var steel_gem = {
     name: "Steel Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steel_Gem"
+    wiki: "http://www.serebii.net/itemdex/steelgem.shtml"
 };
 
 var steelixite = {
     name: "Steelixite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Steelixite"
+    wiki: "http://www.serebii.net/itemdex/steelixite.shtml"
 };
 
 var stick = {
     name: "Stick",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stick"
+    wiki: "http://www.serebii.net/itemdex/stick.shtml"
 };
 
 var sticky_barb = {
     name: "Sticky Barb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sticky_Barb"
+    wiki: "http://www.serebii.net/itemdex/stickybarb.shtml"
 };
 
 var stone_plate = {
     name: "Stone Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Stone_Plate"
+    wiki: "http://www.serebii.net/itemdex/stoneplate.shtml"
 };
 
 var sun_stone = {
     name: "Sun Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sun_Stone"
+    wiki: "http://www.serebii.net/itemdex/sunstone.shtml"
 };
 
 var super_potion = {
     name: "Super Potion",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Super_Potion"
+    wiki: "http://www.serebii.net/itemdex/superpotion.shtml"
 };
 
 var super_repel = {
     name: "Super Repel",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Super_Repel"
+    wiki: "http://www.serebii.net/itemdex/superrepel.shtml"
 };
 
 var swampertite = {
     name: "Swampertite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swampertite"
+    wiki: "http://www.serebii.net/itemdex/swampertite.shtml"
 };
 
 var sweet_heart = {
     name: "Sweet Heart",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Sweet_Heart"
+    wiki: "http://www.serebii.net/itemdex/sweetheart.shtml"
 };
 
 var swift_wing = {
     name: "Swift Wing",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Swift_Wing"
+    wiki: "http://www.serebii.net/itemdex/swiftwing.shtml"
 };
 
 var tamato_berry = {
     name: "Tamato Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tamato_Berry"
+    wiki: "http://www.serebii.net/itemdex/tamatoberry.shtml"
 };
 
 var tanga_berry = {
     name: "Tanga Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tanga_Berry"
+    wiki: "http://www.serebii.net/itemdex/tangaberry.shtml"
 };
 
 var thick_club = {
     name: "Thick Club",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thick_Club"
+    wiki: "http://www.serebii.net/itemdex/thickclub.shtml"
 };
 
 var thunderstone = {
     name: "Thunderstone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Thunderstone"
+    wiki: "http://www.serebii.net/itemdex/thunderstone.shtml"
 };
 
 var timer_ball = {
     name: "Timer Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Timer_Ball"
+    wiki: "http://www.serebii.net/itemdex/timerball.shtml"
 };
 
 var tinymushroom = {
     name: "Tinymushroom",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tinymushroom"
+    wiki: "http://www.serebii.net/itemdex/tinymushroom.shtml"
 };
 
 var tm01 = {
-    name: "Tm01",
+    name: "TM01",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm01"
+    wiki: "http://www.serebii.net/itemdex/tm01.shtml"
 };
 
 var tm02 = {
-    name: "Tm02",
+    name: "TM02",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm02"
+    wiki: "http://www.serebii.net/itemdex/tm02.shtml"
 };
 
 var tm03 = {
-    name: "Tm03",
+    name: "TM03",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm03"
+    wiki: "http://www.serebii.net/itemdex/tm03.shtml"
 };
 
 var tm04 = {
-    name: "Tm04",
+    name: "TM04",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm04"
+    wiki: "http://www.serebii.net/itemdex/tm04.shtml"
 };
 
 var tm05 = {
-    name: "Tm05",
+    name: "TM05",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm05"
+    wiki: "http://www.serebii.net/itemdex/tm05.shtml"
 };
 
 var tm06 = {
-    name: "Tm06",
+    name: "TM06",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm06"
+    wiki: "http://www.serebii.net/itemdex/tm06.shtml"
 };
 
 var tm07 = {
-    name: "Tm07",
+    name: "TM07",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm07"
+    wiki: "http://www.serebii.net/itemdex/tm07.shtml"
 };
 
 var tm08 = {
-    name: "Tm08",
+    name: "TM08",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm08"
+    wiki: "http://www.serebii.net/itemdex/tm08.shtml"
 };
 
 var tm09 = {
-    name: "Tm09",
+    name: "TM09",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm09"
+    wiki: "http://www.serebii.net/itemdex/tm09.shtml"
 };
 
 var tm10 = {
-    name: "Tm10",
+    name: "TM10",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm10"
+    wiki: "http://www.serebii.net/itemdex/tm10.shtml"
 };
 
 var tm100 = {
-    name: "Tm100",
+    name: "TM100",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm100"
+    wiki: "http://www.serebii.net/itemdex/tm100.shtml"
 };
 
 var tm11 = {
-    name: "Tm11",
+    name: "TM11",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm11"
+    wiki: "http://www.serebii.net/itemdex/tm11.shtml"
 };
 
 var tm12 = {
-    name: "Tm12",
+    name: "TM12",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm12"
+    wiki: "http://www.serebii.net/itemdex/tm12.shtml"
 };
 
 var tm13 = {
-    name: "Tm13",
+    name: "TM13",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm13"
+    wiki: "http://www.serebii.net/itemdex/tm13.shtml"
 };
 
 var tm14 = {
-    name: "Tm14",
+    name: "TM14",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm14"
+    wiki: "http://www.serebii.net/itemdex/tm14.shtml"
 };
 
 var tm15 = {
-    name: "Tm15",
+    name: "TM15",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm15"
+    wiki: "http://www.serebii.net/itemdex/tm15.shtml"
 };
 
 var tm16 = {
-    name: "Tm16",
+    name: "TM16",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm16"
+    wiki: "http://www.serebii.net/itemdex/tm16.shtml"
 };
 
 var tm17 = {
-    name: "Tm17",
+    name: "TM17",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm17"
+    wiki: "http://www.serebii.net/itemdex/tm17.shtml"
 };
 
 var tm18 = {
-    name: "Tm18",
+    name: "TM18",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm18"
+    wiki: "http://www.serebii.net/itemdex/tm18.shtml"
 };
 
 var tm19 = {
-    name: "Tm19",
+    name: "TM19",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm19"
+    wiki: "http://www.serebii.net/itemdex/tm19.shtml"
 };
 
 var tm20 = {
-    name: "Tm20",
+    name: "TM20",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm20"
+    wiki: "http://www.serebii.net/itemdex/tm20.shtml"
 };
 
 var tm21 = {
-    name: "Tm21",
+    name: "TM21",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm21"
+    wiki: "http://www.serebii.net/itemdex/tm21.shtml"
 };
 
 var tm22 = {
-    name: "Tm22",
+    name: "TM22",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm22"
+    wiki: "http://www.serebii.net/itemdex/tm22.shtml"
 };
 
 var tm23 = {
-    name: "Tm23",
+    name: "TM23",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm23"
+    wiki: "http://www.serebii.net/itemdex/tm23.shtml"
 };
 
 var tm24 = {
-    name: "Tm24",
+    name: "TM24",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm24"
+    wiki: "http://www.serebii.net/itemdex/tm24.shtml"
 };
 
 var tm25 = {
-    name: "Tm25",
+    name: "TM25",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm25"
+    wiki: "http://www.serebii.net/itemdex/tm25.shtml"
 };
 
 var tm26 = {
-    name: "Tm26",
+    name: "TM26",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm26"
+    wiki: "http://www.serebii.net/itemdex/tm26.shtml"
 };
 
 var tm27 = {
-    name: "Tm27",
+    name: "TM27",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm27"
+    wiki: "http://www.serebii.net/itemdex/tm27.shtml"
 };
 
 var tm28 = {
-    name: "Tm28",
+    name: "TM28",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm28"
+    wiki: "http://www.serebii.net/itemdex/tm28.shtml"
 };
 
 var tm29 = {
-    name: "Tm29",
+    name: "TM29",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm29"
+    wiki: "http://www.serebii.net/itemdex/tm29.shtml"
 };
 
 var tm30 = {
-    name: "Tm30",
+    name: "TM30",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm30"
+    wiki: "http://www.serebii.net/itemdex/tm30.shtml"
 };
 
 var tm31 = {
-    name: "Tm31",
+    name: "TM31",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm31"
+    wiki: "http://www.serebii.net/itemdex/tm31.shtml"
 };
 
 var tm32 = {
-    name: "Tm32",
+    name: "TM32",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm32"
+    wiki: "http://www.serebii.net/itemdex/tm32.shtml"
 };
 
 var tm33 = {
-    name: "Tm33",
+    name: "TM33",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm33"
+    wiki: "http://www.serebii.net/itemdex/tm33.shtml"
 };
 
 var tm34 = {
-    name: "Tm34",
+    name: "TM34",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm34"
+    wiki: "http://www.serebii.net/itemdex/tm34.shtml"
 };
 
 var tm35 = {
-    name: "Tm35",
+    name: "TM35",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm35"
+    wiki: "http://www.serebii.net/itemdex/tm35.shtml"
 };
 
 var tm36 = {
-    name: "Tm36",
+    name: "TM36",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm36"
+    wiki: "http://www.serebii.net/itemdex/tm36.shtml"
 };
 
 var tm37 = {
-    name: "Tm37",
+    name: "TM37",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm37"
+    wiki: "http://www.serebii.net/itemdex/tm37.shtml"
 };
 
 var tm38 = {
-    name: "Tm38",
+    name: "TM38",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm38"
+    wiki: "http://www.serebii.net/itemdex/tm38.shtml"
 };
 
 var tm39 = {
-    name: "Tm39",
+    name: "TM39",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm39"
+    wiki: "http://www.serebii.net/itemdex/tm39.shtml"
 };
 
 var tm40 = {
-    name: "Tm40",
+    name: "TM40",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm40"
+    wiki: "http://www.serebii.net/itemdex/tm40.shtml"
 };
 
 var tm41 = {
-    name: "Tm41",
+    name: "TM41",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm41"
+    wiki: "http://www.serebii.net/itemdex/tm41.shtml"
 };
 
 var tm42 = {
-    name: "Tm42",
+    name: "TM42",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm42"
+    wiki: "http://www.serebii.net/itemdex/tm42.shtml"
 };
 
 var tm43 = {
-    name: "Tm43",
+    name: "TM43",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm43"
+    wiki: "http://www.serebii.net/itemdex/tm43.shtml"
 };
 
 var tm44 = {
-    name: "Tm44",
+    name: "TM44",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm44"
+    wiki: "http://www.serebii.net/itemdex/tm44.shtml"
 };
 
 var tm45 = {
-    name: "Tm45",
+    name: "TM45",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm45"
+    wiki: "http://www.serebii.net/itemdex/tm45.shtml"
 };
 
 var tm46 = {
-    name: "Tm46",
+    name: "TM46",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm46"
+    wiki: "http://www.serebii.net/itemdex/tm46.shtml"
 };
 
 var tm47 = {
-    name: "Tm47",
+    name: "TM47",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm47"
+    wiki: "http://www.serebii.net/itemdex/tm47.shtml"
 };
 
 var tm48 = {
-    name: "Tm48",
+    name: "TM48",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm48"
+    wiki: "http://www.serebii.net/itemdex/tm48.shtml"
 };
 
 var tm49 = {
-    name: "Tm49",
+    name: "TM49",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm49"
+    wiki: "http://www.serebii.net/itemdex/tm49.shtml"
 };
 
 var tm50 = {
-    name: "Tm50",
+    name: "TM50",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm50"
+    wiki: "http://www.serebii.net/itemdex/tm50.shtml"
 };
 
 var tm51 = {
-    name: "Tm51",
+    name: "TM51",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm51"
+    wiki: "http://www.serebii.net/itemdex/tm51.shtml"
 };
 
 var tm52 = {
-    name: "Tm52",
+    name: "TM52",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm52"
+    wiki: "http://www.serebii.net/itemdex/tm52.shtml"
 };
 
 var tm53 = {
-    name: "Tm53",
+    name: "TM53",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm53"
+    wiki: "http://www.serebii.net/itemdex/tm53.shtml"
 };
 
 var tm54 = {
-    name: "Tm54",
+    name: "TM54",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm54"
+    wiki: "http://www.serebii.net/itemdex/tm54.shtml"
 };
 
 var tm55 = {
-    name: "Tm55",
+    name: "TM55",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm55"
+    wiki: "http://www.serebii.net/itemdex/tm55.shtml"
 };
 
 var tm56 = {
-    name: "Tm56",
+    name: "TM56",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm56"
+    wiki: "http://www.serebii.net/itemdex/tm56.shtml"
 };
 
 var tm57 = {
-    name: "Tm57",
+    name: "TM57",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm57"
+    wiki: "http://www.serebii.net/itemdex/tm57.shtml"
 };
 
 var tm58 = {
-    name: "Tm58",
+    name: "TM58",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm58"
+    wiki: "http://www.serebii.net/itemdex/tm58.shtml"
 };
 
 var tm59 = {
-    name: "Tm59",
+    name: "TM59",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm59"
+    wiki: "http://www.serebii.net/itemdex/tm59.shtml"
 };
 
 var tm60 = {
-    name: "Tm60",
+    name: "TM60",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm60"
+    wiki: "http://www.serebii.net/itemdex/tm60.shtml"
 };
 
 var tm61 = {
-    name: "Tm61",
+    name: "TM61",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm61"
+    wiki: "http://www.serebii.net/itemdex/tm61.shtml"
 };
 
 var tm62 = {
-    name: "Tm62",
+    name: "TM62",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm62"
+    wiki: "http://www.serebii.net/itemdex/tm62.shtml"
 };
 
 var tm63 = {
-    name: "Tm63",
+    name: "TM63",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm63"
+    wiki: "http://www.serebii.net/itemdex/tm63.shtml"
 };
 
 var tm64 = {
-    name: "Tm64",
+    name: "TM64",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm64"
+    wiki: "http://www.serebii.net/itemdex/tm64.shtml"
 };
 
 var tm65 = {
-    name: "Tm65",
+    name: "TM65",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm65"
+    wiki: "http://www.serebii.net/itemdex/tm65.shtml"
 };
 
 var tm66 = {
-    name: "Tm66",
+    name: "TM66",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm66"
+    wiki: "http://www.serebii.net/itemdex/tm66.shtml"
 };
 
 var tm67 = {
-    name: "Tm67",
+    name: "TM67",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm67"
+    wiki: "http://www.serebii.net/itemdex/tm67.shtml"
 };
 
 var tm68 = {
-    name: "Tm68",
+    name: "TM68",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm68"
+    wiki: "http://www.serebii.net/itemdex/tm68.shtml"
 };
 
 var tm69 = {
-    name: "Tm69",
+    name: "TM69",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm69"
+    wiki: "http://www.serebii.net/itemdex/tm69.shtml"
 };
 
 var tm70 = {
-    name: "Tm70",
+    name: "TM70",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm70"
+    wiki: "http://www.serebii.net/itemdex/tm70.shtml"
 };
 
 var tm71 = {
-    name: "Tm71",
+    name: "TM71",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm71"
+    wiki: "http://www.serebii.net/itemdex/tm71.shtml"
 };
 
 var tm72 = {
-    name: "Tm72",
+    name: "TM72",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm72"
+    wiki: "http://www.serebii.net/itemdex/tm72.shtml"
 };
 
 var tm73 = {
-    name: "Tm73",
+    name: "TM73",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm73"
+    wiki: "http://www.serebii.net/itemdex/tm73.shtml"
 };
 
 var tm74 = {
-    name: "Tm74",
+    name: "TM74",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm74"
+    wiki: "http://www.serebii.net/itemdex/tm74.shtml"
 };
 
 var tm75 = {
-    name: "Tm75",
+    name: "TM75",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm75"
+    wiki: "http://www.serebii.net/itemdex/tm75.shtml"
 };
 
 var tm76 = {
-    name: "Tm76",
+    name: "TM76",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm76"
+    wiki: "http://www.serebii.net/itemdex/tm76.shtml"
 };
 
 var tm77 = {
-    name: "Tm77",
+    name: "TM77",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm77"
+    wiki: "http://www.serebii.net/itemdex/tm77.shtml"
 };
 
 var tm78 = {
-    name: "Tm78",
+    name: "TM78",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm78"
+    wiki: "http://www.serebii.net/itemdex/tm78.shtml"
 };
 
 var tm79 = {
-    name: "Tm79",
+    name: "TM79",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm79"
+    wiki: "http://www.serebii.net/itemdex/tm79.shtml"
 };
 
 var tm80 = {
-    name: "Tm80",
+    name: "TM80",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm80"
+    wiki: "http://www.serebii.net/itemdex/tm80.shtml"
 };
 
 var tm81 = {
-    name: "Tm81",
+    name: "TM81",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm81"
+    wiki: "http://www.serebii.net/itemdex/tm81.shtml"
 };
 
 var tm82 = {
-    name: "Tm82",
+    name: "TM82",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm82"
+    wiki: "http://www.serebii.net/itemdex/tm82.shtml"
 };
 
 var tm83 = {
-    name: "Tm83",
+    name: "TM83",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm83"
+    wiki: "http://www.serebii.net/itemdex/tm83.shtml"
 };
 
 var tm84 = {
-    name: "Tm84",
+    name: "TM84",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm84"
+    wiki: "http://www.serebii.net/itemdex/tm84.shtml"
 };
 
 var tm85 = {
-    name: "Tm85",
+    name: "TM85",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm85"
+    wiki: "http://www.serebii.net/itemdex/tm85.shtml"
 };
 
 var tm86 = {
-    name: "Tm86",
+    name: "TM86",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm86"
+    wiki: "http://www.serebii.net/itemdex/tm86.shtml"
 };
 
 var tm87 = {
-    name: "Tm87",
+    name: "TM87",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm87"
+    wiki: "http://www.serebii.net/itemdex/tm87.shtml"
 };
 
 var tm88 = {
-    name: "Tm88",
+    name: "TM88",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm88"
+    wiki: "http://www.serebii.net/itemdex/tm88.shtml"
 };
 
 var tm89 = {
-    name: "Tm89",
+    name: "TM89",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm89"
+    wiki: "http://www.serebii.net/itemdex/tm89.shtml"
 };
 
 var tm90 = {
-    name: "Tm90",
+    name: "TM90",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm90"
+    wiki: "http://www.serebii.net/itemdex/tm90.shtml"
 };
 
 var tm91 = {
-    name: "Tm91",
+    name: "TM91",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm91"
+    wiki: "http://www.serebii.net/itemdex/tm91.shtml"
 };
 
 var tm92 = {
-    name: "Tm92",
+    name: "TM92",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm92"
+    wiki: "http://www.serebii.net/itemdex/tm92.shtml"
 };
 
 var tm93 = {
-    name: "Tm93",
+    name: "TM93",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm93"
+    wiki: "http://www.serebii.net/itemdex/tm93.shtml"
 };
 
 var tm94 = {
-    name: "Tm94",
+    name: "TM94",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm94"
+    wiki: "http://www.serebii.net/itemdex/tm94.shtml"
 };
 
 var tm95 = {
-    name: "Tm95",
+    name: "TM95",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm95"
+    wiki: "http://www.serebii.net/itemdex/tm95.shtml"
 };
 
 var tm96 = {
-    name: "Tm96",
+    name: "TM96",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm96"
+    wiki: "http://www.serebii.net/itemdex/tm96.shtml"
 };
 
 var tm97 = {
-    name: "Tm97",
+    name: "TM97",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm97"
+    wiki: "http://www.serebii.net/itemdex/tm97.shtml"
 };
 
 var tm98 = {
-    name: "Tm98",
+    name: "TM98",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm98"
+    wiki: "http://www.serebii.net/itemdex/tm98.shtml"
 };
 
 var tm99 = {
-    name: "Tm99",
+    name: "TM99",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tm99"
+    wiki: "http://www.serebii.net/itemdex/tm99.shtml"
 };
 
 var tmv_pass = {
-    name: "Tmv Pass",
+    name: "TMv Pass",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tmv_Pass"
+    wiki: "http://www.serebii.net/itemdex/tmvpass.shtml"
 };
 
 var toxic_orb = {
     name: "Toxic Orb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Toxic_Orb"
+    wiki: "http://www.serebii.net/itemdex/toxicorb.shtml"
 };
 
 var toxic_plate = {
     name: "Toxic Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Toxic_Plate"
+    wiki: "http://www.serebii.net/itemdex/toxicplate.shtml"
 };
 
 var twistedspoon = {
     name: "Twistedspoon",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Twistedspoon"
+    wiki: "http://www.serebii.net/itemdex/twistedspoon.shtml"
 };
 
 var tyranitarite = {
     name: "Tyranitarite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Tyranitarite"
+    wiki: "http://www.serebii.net/itemdex/tyranitarite.shtml"
 };
 
 var ultra_ball = {
     name: "Ultra Ball",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ultra_Ball"
+    wiki: "http://www.serebii.net/itemdex/ultraball.shtml"
 };
 
 var up_grade = {
     name: "Up_grade",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Up_grade"
+    wiki: "http://www.serebii.net/itemdex/up_grade.shtml"
 };
 
 var venusaurite = {
     name: "Venusaurite",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Venusaurite"
+    wiki: "http://www.serebii.net/itemdex/venusaurite.shtml"
 };
 
 var wacan_berry = {
     name: "Wacan Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wacan_Berry"
+    wiki: "http://www.serebii.net/itemdex/wacanberry.shtml"
 };
 
 var water_gem = {
     name: "Water Gem",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Gem"
+    wiki: "http://www.serebii.net/itemdex/watergem.shtml"
 };
 
 var water_stone = {
     name: "Water Stone",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Water_Stone"
+    wiki: "http://www.serebii.net/itemdex/waterstone.shtml"
 };
 
 var watmel_berry = {
     name: "Watmel Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Watmel_Berry"
+    wiki: "http://www.serebii.net/itemdex/watmelberry.shtml"
 };
 
 var wave_incense = {
     name: "Wave Incense",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wave_Incense"
+    wiki: "http://www.serebii.net/itemdex/waveincense.shtml"
 };
 
 var wepear_berry = {
     name: "Wepear Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wepear_Berry"
+    wiki: "http://www.serebii.net/itemdex/wepearberry.shtml"
 };
 
 var white_flute = {
     name: "White Flute",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/White_Flute"
+    wiki: "http://www.serebii.net/itemdex/whiteflute.shtml"
 };
 
 var white_herb = {
     name: "White Herb",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/White_Herb"
+    wiki: "http://www.serebii.net/itemdex/whiteherb.shtml"
 };
 
 var wht_apricorn = {
     name: "Wht Apricorn",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wht_Apricorn"
+    wiki: "http://www.serebii.net/itemdex/whtapricorn.shtml"
 };
 
 var wide_lens = {
     name: "Wide Lens",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wide_Lens"
+    wiki: "http://www.serebii.net/itemdex/widelens.shtml"
 };
 
 var wiki_berry = {
     name: "Wiki Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wiki_Berry"
+    wiki: "http://www.serebii.net/itemdex/wikiberry.shtml"
 };
 
 var wise_glasses = {
     name: "Wise Glasses",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Wise_Glasses"
+    wiki: "http://www.serebii.net/itemdex/wiseglasses.shtml"
 };
 
 var x_accuracy = {
     name: "X Accuracy",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Accuracy"
+    wiki: "http://www.serebii.net/itemdex/xaccuracy.shtml"
 };
 
 var x_accuracy_2 = {
     name: "X Accuracy 2",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Accuracy_2"
+    wiki: "http://www.serebii.net/itemdex/xaccuracy2.shtml"
 };
 
 var x_accuracy_3 = {
     name: "X Accuracy 3",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Accuracy_3"
+    wiki: "http://www.serebii.net/itemdex/xaccuracy3.shtml"
 };
 
 var x_accuracy_6 = {
     name: "X Accuracy 6",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Accuracy_6"
+    wiki: "http://www.serebii.net/itemdex/xaccuracy6.shtml"
 };
 
 var x_attack = {
     name: "X Attack",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Attack"
+    wiki: "http://www.serebii.net/itemdex/xattack.shtml"
 };
 
 var x_attack_2 = {
     name: "X Attack 2",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Attack_2"
+    wiki: "http://www.serebii.net/itemdex/xattack2.shtml"
 };
 
 var x_attack_3 = {
     name: "X Attack 3",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Attack_3"
+    wiki: "http://www.serebii.net/itemdex/xattack3.shtml"
 };
 
 var x_attack_6 = {
     name: "X Attack 6",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Attack_6"
+    wiki: "http://www.serebii.net/itemdex/xattack6.shtml"
 };
 
 var x_defend = {
     name: "X Defend",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Defend"
+    wiki: "http://www.serebii.net/itemdex/xdefend.shtml"
 };
 
 var x_defend_2 = {
     name: "X Defend 2",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Defend_2"
+    wiki: "http://www.serebii.net/itemdex/xdefend2.shtml"
 };
 
 var x_defend_3 = {
     name: "X Defend 3",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Defend_3"
+    wiki: "http://www.serebii.net/itemdex/xdefend3.shtml"
 };
 
 var x_defend_6 = {
     name: "X Defend 6",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Defend_6"
+    wiki: "http://www.serebii.net/itemdex/xdefend6.shtml"
 };
 
 var x_sp_def = {
-    name: "X Sp. Def",
+    name: "X Sp Def",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Sp._Def"
+    wiki: "http://www.serebii.net/itemdex/xspdef.shtml"
 };
 
 var x_sp_def_2 = {
-    name: "X Sp. Def 2",
+    name: "X Sp Def 2",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Sp._Def_2"
+    wiki: "http://www.serebii.net/itemdex/xspdef2.shtml"
 };
 
 var x_sp_def_3 = {
-    name: "X Sp. Def 3",
+    name: "X Sp Def 3",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Sp._Def_3"
+    wiki: "http://www.serebii.net/itemdex/xspdef3.shtml"
 };
 
 var x_sp_def_6 = {
-    name: "X Sp. Def 6",
+    name: "X Sp Def 6",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Sp._Def_6"
+    wiki: "http://www.serebii.net/itemdex/xspdef6.shtml"
 };
 
 var x_special = {
     name: "X Special",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Special"
+    wiki: "http://www.serebii.net/itemdex/xspecial.shtml"
 };
 
 var x_special_2 = {
     name: "X Special 2",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Special_2"
+    wiki: "http://www.serebii.net/itemdex/xspecial2.shtml"
 };
 
 var x_special_3 = {
     name: "X Special 3",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Special_3"
+    wiki: "http://www.serebii.net/itemdex/xspecial3.shtml"
 };
 
 var x_special_6 = {
     name: "X Special 6",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Special_6"
+    wiki: "http://www.serebii.net/itemdex/xspecial6.shtml"
 };
 
 var x_speed = {
     name: "X Speed",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Speed"
+    wiki: "http://www.serebii.net/itemdex/xspeed.shtml"
 };
 
 var x_speed_2 = {
     name: "X Speed 2",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Speed_2"
+    wiki: "http://www.serebii.net/itemdex/xspeed2.shtml"
 };
 
 var x_speed_3 = {
     name: "X Speed 3",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Speed_3"
+    wiki: "http://www.serebii.net/itemdex/xspeed3.shtml"
 };
 
 var x_speed_6 = {
     name: "X Speed 6",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/X_Speed_6"
+    wiki: "http://www.serebii.net/itemdex/xspeed6.shtml"
 };
 
 var yache_berry = {
     name: "Yache Berry",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yache_Berry"
+    wiki: "http://www.serebii.net/itemdex/yacheberry.shtml"
 };
 
 var yellow_flute = {
     name: "Yellow Flute",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yellow_Flute"
+    wiki: "http://www.serebii.net/itemdex/yellowflute.shtml"
 };
 
 var yellow_scarf = {
     name: "Yellow Scarf",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yellow_Scarf"
+    wiki: "http://www.serebii.net/itemdex/yellowscarf.shtml"
 };
 
 var yellow_shard = {
     name: "Yellow Shard",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Yellow_Shard"
+    wiki: "http://www.serebii.net/itemdex/yellowshard.shtml"
 };
 
 var ylw_apricorn = {
     name: "Ylw Apricorn",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Ylw_Apricorn"
+    wiki: "http://www.serebii.net/itemdex/ylwapricorn.shtml"
 };
 
 var zap_plate = {
     name: "Zap Plate",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zap_Plate"
+    wiki: "http://www.serebii.net/itemdex/zapplate.shtml"
 };
 
 var zinc = {
     name: "Zinc",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zinc"
+    wiki: "http://www.serebii.net/itemdex/zinc.shtml"
 };
 
 var zoom_lens = {
     name: "Zoom Lens",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
-    wiki: "http://bulbapedia.bulbagarden.net/wiki/Zoom_Lens"
+    wiki: "http://www.serebii.net/itemdex/zoomlens.shtml"
 };
 
 var adaptability = {
