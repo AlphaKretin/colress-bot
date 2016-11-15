@@ -47,7 +47,7 @@ function move(user, userID, channelID, message, event){
 	if (moves.indexOf(mov) !== -1){
 		bot.sendMessage({
 			to: channelID,
-			message: "Name: " + window[mov].name + "\nType: " + window[mov].type + "\nCategory: " + window[mov].cat + "\nPower: " + window[mov].power + "\nPP: " + window[mov].pp + "\nAccuracy: " + window[mov].acc + "\nEffect: " + window[mov].effect
+			message: "Name: " + window[mov].name + "\nType: " + window[mov].type + "\nCategory: " + window[mov].cat + "\nPower: " + window[mov].power + "\nPP: " + window[mov].pp + "\nAccuracy: " + window[mov].acc + "\nEffect: " + window[mov].effect + "\nWiki Link: " + window[mov].wiki
 		});
 	} else {
 		bot.sendMessage({
@@ -7254,5 +7254,6 @@ var pound = {
 	power: 40,
 	pp: 35,
 	acc: 100,
-	effect: "N/A"
+	effect: "N/A",
+	wiki: "http://bulbapedia.bulbagarden.net/wiki/Pound_(move)"
 }
