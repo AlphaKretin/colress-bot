@@ -66,7 +66,7 @@ var venusaur = {
 var charmander = {
     name: "Charmander",
     dex: 4,
-    type: "Grass/Poison",
+    type: "Fire",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
     wiki: "http://bulbapedia.bulbagarden.net/wiki/Charmander_(Pok%C3%A9mon)",
@@ -76,7 +76,7 @@ var charmander = {
 var charmeleon = {
     name: "Charmeleon",
     dex: 5,
-    type: "Grass/Poison",
+    type: "Fire",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
     wiki: "http://bulbapedia.bulbagarden.net/wiki/Charmeleon_(Pok%C3%A9mon)",
@@ -86,7 +86,7 @@ var charmeleon = {
 var charizard = {
     name: "Charizard",
     dex: 6,
-    type: "Grass/Poison",
+    type: "Fire/Flying",
     ability: "Overgrow, N/A, Chlorophyll",
     evolve: "Mega",
     wiki: "http://bulbapedia.bulbagarden.net/wiki/Charizard_(Pok%C3%A9mon)",
