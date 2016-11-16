@@ -1,12 +1,12 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
     autorun: true,
-    token: "this gourd"
+    token: "totally just hawai'i"
 });
 
 var mons = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoranf", "nidorina", "nidoqueen", "nidoranm", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew", "chikorita", "bayleef", "meganium", "cyndaquil", "quilava", "typhlosion", "totodile", "croconaw", "feraligatr", "sentret", "furret", "hoothoot", "noctowl", "ledyba", "ledian", "spinarak", "ariados", "crobat", "chinchou", "lanturn", "pichu", "cleffa", "igglybuff", "togepi", "togetic", "natu", "xatu", "mareep", "flaaffy", "ampharos", "bellossom", "marill", "azumarill", "sudowoodo", "politoed", "hoppip", "skiploom", "jumpluff", "aipom", "sunkern", "sunflora", "yanma", "wooper", "quagsire", "espeon", "umbreon", "murkrow", "slowking", "misdreavus", "unown", "wobbuffet", "girafarig", "pineco", "forretress", "dunsparce", "gligar", "steelix", "snubbull", "granbull", "qwilfish", "scizor", "shuckle", "heracross", "sneasel", "teddiursa", "ursaring", "slugma", "magcargo", "swinub", "piloswine", "corsola", "remoraid", "octillery", "delibird", "mantine", "skarmory", "houndour", "houndoom", "kingdra", "phanpy", "donphan", "porygon2", "stantler", "smeargle", "tyrogue", "hitmontop", "smoochum", "elekid", "magby", "miltank", "blissey", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "lugia", "ho_oh", "celebi", "treecko", "grovyle", "sceptile", "torchic", "combusken", "blaziken", "mudkip", "marshtomp", "swampert", "poochyena", "mightyena", "zigzagoon", "linoone", "wurmple", "silcoon", "beautifly", "cascoon", "dustox", "lotad", "lombre", "ludicolo", "seedot", "nuzleaf", "shiftry", "taillow", "swellow", "wingull", "pelipper", "ralts", "kirlia", "gardevoir", "surskit", "masquerain", "shroomish", "breloom", "slakoth", "vigoroth", "slaking", "nincada", "ninjask", "shedinja", "whismur", "loudred", "exploud", "makuhita", "hariyama", "azurill", "nosepass", "skitty", "delcatty", "sableye", "mawile", "aron", "lairon", "aggron", "meditite", "medicham", "electrike", "manectric", "plusle", "minun", "volbeat", "illumise", "roselia", "gulpin", "swalot", "carvanha", "sharpedo", "wailmer", "wailord", "numel", "camerupt", "torkoal", "spoink", "grumpig", "spinda", "trapinch", "vibrava", "flygon", "cacnea", "cacturne", "swablu", "altaria", "zangoose", "seviper", "lunatone", "solrock", "barboach", "whiscash", "corphish", "crawdaunt", "baltoy", "claydol", "lileep", "cradily", "anorith", "armaldo", "feebas", "milotic", "castform", "castform sunny", "castform rainy", "castform snowy", "kecleon", "shuppet", "banette", "duskull", "dusclops", "tropius", "chimecho", "absol", "wynaut", "snorunt", "glalie", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "bagon", "shelgon", "salamence", "beldum", "metang", "metagross", "regirock", "regice", "registeel", "latias", "latios", "kyogre", "groudon", "rayquaza", "jirachi", "deoxys", "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon", "starly", "staravia", "staraptor", "bidoof", "bibarel", "kricketot", "kricketune", "shinx", "luxio", "luxray", "budew", "roserade", "cranidos", "rampardos", "shieldon", "bastiodon", "burmy", "wormadam", "wormadam sandy", "wormadam trash", "mothim", "combee", "vespiquen", "pachirisu", "buizel", "floatzel", "cherubi", "cherrim", "shellos", "gastrodon", "ambipom", "drifloon", "drifblim", "buneary", "lopunny", "mismagius", "honchkrow", "glameow", "purugly", "chingling", "stunky", "skuntank", "bronzor", "bronzong", "bonsly", "mime jr", "happiny", "chatot", "spiritomb", "gible", "gabite", "garchomp", "munchlax", "riolu", "lucario", "hippopotas", "hippowdon", "skorupi", "drapion", "croagunk", "toxicroak", "carnivine", "finneon", "lumineon", "mantyke", "snover", "abomasnow", "weavile", "magnezone", "lickilicky", "rhyperior", "tangrowth", "electivire", "magmortar", "togekiss", "yanmega", "leafeon", "glaceon", "gliscor", "mamoswine", "porygon_z", "gallade", "probopass", "dusknoir", "froslass", "rotom", "rotom heat", "rotom wash", "rotom mow", "rotom fan", "rotom frost", "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran", "regigigas", "giratina", "giratina origin", "cresselia", "phione", "manaphy", "darkrai", "shaymin", "shaymin sky", "arceus", "victini", "snivy", "servine", "serperior", "tepig", "pignite", "emboar", "oshawott", "dewott", "samurott", "patrat", "watchog", "lillipup", "herdier", "stoutland", "purrloin", "liepard", "pansage", "simisage", "pansear", "simisear", "panpour", "simipour", "munna", "musharna", "pidove", "tranquill", "unfezant", "blitzle", "zebstrika", "roggenrola", "boldore", "gigalith", "woobat", "swoobat", "drilbur", "excadrill", "audino", "timburr", "gurdurr", "conkeldurr", "tympole", "palpitoad", "seismitoad", "throh", "sawk", "sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "cottonee", "whimsicott", "petilil", "lilligant", "basculin", "basculin blue", "sandile", "krokorok", "krookodile", "darumaka", "darmanitan", "darmanitan zen", "maractus", "dwebble", "crustle", "scraggy", "scrafty", "sigilyph", "yamask", "cofagrigus", "tirtouga", "carracosta", "archen", "archeops", "trubbish", "garbodor", "zorua", "zoroark", "minccino", "cinccino", "gothita", "gothorita", "gothitelle", "solosis", "duosion", "reuniclus", "ducklett", "swanna", "vanillite", "vanillish", "vanilluxe", "deerling", "sawsbuck", "emolga", "karrablast", "escavalier", "foongus", "amoonguss", "frillish", "jellicent", "alomomola", "joltik", "galvantula", "ferroseed", "ferrothorn", "klink", "klang", "klinklang", "tynamo", "eelektrik", "eelektross", "elgyem", "beheeyem", "litwick", "lampent", "chandelure", "axew", "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo", "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary", "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona", "cobalion", "terrakion", "virizion", "tornadus", "tornadus therian", "thundurus", "thundurus therian", "reshiram", "zekrom", "landorus", "landorus therian", "kyurem", "white kyurem", "black kyurem", "keldeo", "meloetta", "meloetta pirouette", "genesect", "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja", "bunnelby", "diggersby", "fletchling", "fletchinder", "talonflame", "scatterbug", "spewpa", "vivillon", "litleo", "pyroar", "flabebe", "floette", "florges", "skiddo", "gogoat", "pancham", "pangoro", "furfrou", "espurr", "meowstic", "honedge", "doublade", "aegislash", "spritzee", "aromatisse", "swirlix", "slurpuff", "inkay", "malamar", "binacle", "barbaracle", "skrelp", "dragalge", "clauncher", "clawitzer", "helioptile", "heliolisk", "tyrunt", "tyrantrum", "amaura", "aurorus", "sylveon", "hawlucha", "dedenne", "carbink", "goomy", "sliggoo", "goodra", "klefki", "phantump", "trevenant", "pumpkaboo", "gourgeist", "bergmite", "avalugg", "noibat", "noivern", "xerneas", "yveltal", "zygarde", "diancie", "hoopa", "hoopa unbound", "volcanion", "mega venusaur", "mega charizard x", "mega charizard y", "mega blastoise", "mega alakazam", "mega gengar", "mega kangaskhan", "mega pinsir", "mega gyarados", "mega aerodactyl", "mega mewtwo x", "mega mewtwo y", "mega ampharos", "mega scizor", "mega heracross", "mega houndoom", "mega tyranitar", "mega blaziken", "mega gardevoir", "mega mawile", "mega aggron", "mega medicham", "mega manectric", "mega banette", "mega absol", "mega garchomp", "mega lucario", "mega abomasnow", "mega beedrill", "mega pidgeot", "mega slowbro", "mega steelix", "mega sceptile", "mega swampert", "mega sableye", "mega sharpedo", "mega camerupt", "mega altaria", "mega glalie", "mega salamence", "mega metagross", "mega latias", "mega latios", "mega rayquaza", "mega lopunny", "mega gallade", "mega audino", "mega diancie"];
-var moves = ["pound", "karate chop", "double slap", "comet punch", "mega punch", "pay day", "fire punch", "ice punch", "thunder punch", "scratch", "vice grip", "guillotine", "razor wind", "swords dance", "cut", "gust", "wing attack", "whirlwind", "fly", "bind", "slam", "vine whip", "stomp", "double kick", "mega kick", "jump kick", "rolling kick", "sand attack", "headbutt", "horn attack", "fury attack", "horn drill", "tackle", "body slam", "wrap", "take down", "thrash", "double_edge", "tail whip", "poison sting", "twineedle", "pin missile", "leer", "bite", "growl", "roar", "sing", "supersonic", "sonic boom", "disable", "acid", "ember", "flamethrower", "mist", "water gun", "hydro pump", "surf", "ice beam", "blizzard", "psybeam", "bubble beam", "aurora beam", "hyper beam", "peck", "drill peck", "submission", "low kick", "counter", "seismic toss", "strength", "absorb", "mega drain", "leech seed", "growth", "razor leaf", "solar beam", "poison powder", "stun spore", "sleep powder", "petal dance", "string shot", "dragon rage", "fire spin", "thunder shock", "thunderbolt", "thunder wave", "thunder", "rock throw", "earthquake", "fissure", "dig", "toxic", "confusion", "psychic", "hypnosis", "meditate", "agility", "quick attack", "rage", "teleport", "night shade", "mimic", "screech", "double team", "recover", "harden", "minimize", "smokescreen", "confuse ray", "withdraw", "defense curl", "barrier", "light screen", "haze", "reflect", "focus energy", "bide", "metronome", "mirror move", "self_destruct", "egg bomb", "lick", "smog", "sludge", "bone club", "fire blast", "waterfall", "clamp", "swift", "skull bash", "spike cannon", "constrict", "amnesia", "kinesis", "soft_boiled", "high jump kick", "glare", "dream eater", "poison gas", "barrage", "leech life", "lovely kiss", "sky attack", "transform", "bubble", "dizzy punch", "spore", "flash", "psywave", "splash", "acid armor", "crabhammer", "explosion", "fury swipes", "bonemerang", "rest", "rock slide", "hyper fang", "sharpen", "conversion", "tri attack", "super fang", "slash", "substitute", "struggle", "sketch", "triple kick", "thief", "spider web", "mind reader", "nightmare", "flame wheel", "snore", "curse", "flail", "conversion 2", "aeroblast", "cotton spore", "reversal", "spite", "powder snow", "protect", "mach punch", "scary face", "feint attack", "sweet kiss", "belly drum", "sludge bomb", "mud_slap", "octazooka", "spikes", "zap cannon", "foresight", "destiny bond", "perish song", "icy wind", "detect", "bone rush", "lock_on", "outrage", "sandstorm", "giga drain", "endure", "charm", "rollout", "false swipe", "swagger", "milk drink", "spark", "fury cutter", "steel wing", "mean look", "attract", "sleep talk", "heal bell", "_return", "present", "frustration", "safeguard", "pain split", "sacred fire", "magnitude", "dynamic punch", "megahorn", "dragon breath", "baton pass", "encore", "pursuit", "rapid spin", "sweet scent", "iron tail", "metal claw", "vital throw", "morning sun", "synthesis", "moonlight", "hidden power", "cross chop", "twister", "rain dance", "sunny day", "crunch", "mirror coat", "psych up", "extreme speed", "ancient power", "shadow ball", "future sight", "rock smash", "whirlpool", "beat up", "fake out", "uproar", "stockpile", "spit up", "swallow", "heat wave", "hail", "torment", "flatter", "will_o_wisp", "memento", "facade", "focus punch", "smelling salts", "follow me", "nature power", "charge", "taunt", "helping hand", "trick", "role play", "wish", "assist", "ingrain", "superpower", "magic coat", "recycle", "revenge", "brick break", "yawn", "knock off", "endeavor", "eruption", "skill swap", "imprison", "refresh", "grudge", "snatch", "secret power", "dive", "arm thrust", "camouflage", "tail glow", "luster purge", "mist ball", "feather dance", "teeter dance", "blaze kick", "mud sport", "ice ball", "needle arm", "slack off", "hyper voice", "poison fang", "crush claw", "blast burn", "hydro cannon", "meteor mash", "astonish", "weather ball", "aromatherapy", "fake tears", "air cutter", "overheat", "odor sleuth", "rock tomb", "silver wind", "metal sound", "grass whistle", "tickle", "cosmic power", "water spout", "signal beam", "shadow punch", "extrasensory", "sky uppercut", "sand tomb", "sheer cold", "muddy water", "bullet seed", "aerial ace", "icicle spear", "iron defense", "block", "howl", "dragon claw", "frenzy plant", "bulk up", "bounce", "mud shot", "poison tail", "covet", "volt tackle", "magical leaf", "water sport", "calm mind", "leaf blade", "dragon dance", "rock blast", "shock wave", "water pulse", "doom desire", "psycho boost", "roost", "gravity", "miracle eye", "wake_up slap", "hammer arm", "gyro ball", "healing wish", "brine", "natural gift", "feint", "pluck", "tailwind", "acupressure", "metal burst", "u_turn", "close combat", "payback", "assurance", "embargo", "fling", "psycho shift", "trump card", "heal block", "wring out", "power trick", "gastro acid", "lucky chant", "me first", "copycat", "power swap", "guard swap", "punishment", "last resort", "worry seed", "sucker punch", "toxic spikes", "heart swap", "aqua ring", "magnet rise", "flare blitz", "force palm", "aura sphere", "rock polish", "poison jab", "dark pulse", "night slash", "aqua tail", "seed bomb", "air slash", "x_scissor", "bug buzz", "dragon pulse", "dragon rush", "power gem", "drain punch", "vacuum wave", "focus blast", "energy ball", "brave bird", "earth power", "switcheroo", "giga impact", "nasty plot", "bullet punch", "avalanche", "ice shard", "shadow claw", "thunder fang", "ice fang", "fire fang", "shadow sneak", "mud bomb", "psycho cut", "zen headbutt", "mirror shot", "flash cannon", "rock climb", "defog", "trick room", "draco meteor", "discharge", "lava plume", "leaf storm", "power whip", "rock wrecker", "cross poison", "gunk shot", "iron head", "magnet bomb", "stone edge", "captivate", "stealth rock", "grass knot", "chatter", "judgment", "bug bite", "charge beam", "wood hammer", "aqua jet", "attack order", "defend order", "heal order", "head smash", "double hit", "roar of time", "spacial rend", "lunar dance", "crush grip", "magma storm", "dark void", "seed flare", "ominous wind", "shadow force", "hone claws", "wide guard", "guard split", "power split", "wonder room", "psyshock", "venoshock", "autotomize", "rage powder", "telekinesis", "magic room", "smack down", "storm throw", "flame burst", "sludge wave", "quiver dance", "heavy slam", "synchronoise", "electro ball", "soak", "flame charge", "coil", "low sweep", "acid spray", "foul play", "simple beam", "entrainment", "after you", "round", "echoed voice", "chip away", "clear smog", "stored power", "quick guard", "ally switch", "scald", "shell smash", "heal pulse", "hex", "sky drop", "shift gear", "circle throw", "incinerate", "quash", "acrobatics", "reflect type", "retaliate", "final gambit", "bestow", "inferno", "water pledge", "fire pledge", "grass pledge", "volt switch", "struggle bug", "bulldoze", "frost breath", "dragon tail", "work up", "electroweb", "wild charge", "drill run", "dual chop", "heart stamp", "horn leech", "sacred sword", "razor shell", "heat crash", "leaf tornado", "steamroller", "cotton guard", "night daze", "psystrike", "tail slap", "hurricane", "head charge", "gear grind", "searing shot", "techno blast", "relic song", "secret sword", "glaciate", "bolt strike", "blue flare", "fiery dance", "freeze shock", "ice burn", "snarl", "icicle crash", "v_create", "fusion flare", "fusion bolt", "flying press", "mat block", "belch", "rototiller", "sticky web", "fell stinger", "phantom force", "trick_or_treat", "noble roar", "ion deluge", "parabolic charge", "forests curse", "petal blizzard", "freeze_dry", "disarming voice", "parting shot", "topsy_turvy", "draining kiss", "crafty shield", "flower shield", "grassy terrain", "misty terrain", "electrify", "play rough", "fairy wind", "moonblast", "boomburst", "fairy lock", "kings shield", "play nice", "confide", "diamond storm", "steam eruption", "hyperspace hole", "water shuriken", "mystical fire", "spiky shield", "aromatic mist", "eerie impulse", "venom drench", "powder", "geomancy", "magnetic flux", "happy hour", "electric terrain", "dazzling gleam", "celebrate", "hold hands", "baby_doll eyes", "nuzzle", "hold back", "infestation", "power_up punch", "oblivion wing", "thousand arrows", "thousand waves", "lands wrath", "light of ruin", "origin pulse", "precipice blades", "dragon ascent", "hyperspace fury"];
-var items = ["ability capsule", "ability urge", "abomasite", "absolite", "absorb bulb", "adamant orb", "adventure rules", "aerodactylite", "aggronite", "aguav berry", "air balloon", "alakazite", "altarianite", "ampharosite", "amulet coin", "antidote", "apicot berry", "armor fossil", "aspear berry", "audinite", "awakening", "babiri berry", "balmmushroom", "banettite", "beedrillite", "belue berry", "berry juice", "big mushroom", "big nugget", "big pearl", "big root", "binding band", "black belt", "black flute", "black sludge", "blackglasses", "blastoisinite", "blazikenite", "blk apricorn", "blu apricorn", "blue flute", "blue scarf", "blue shard", "bluk berry", "brightpowder", "bug gem", "burn drive", "burn heal", "calcium", "cameruptite", "carbos", "casteliacone", "cell battery", "charcoal", "charizardite x", "charizardite y", "charti berry", "cheri berry", "cherish ball", "chesto berry", "chilan berry", "chill drive", "choice band", "choice scarf", "choice specs", "chople berry", "claw fossil", "cleanse tag", "clever wing", "coba berry", "colbur berry", "colress machine", "comet shard", "cornn berry", "cover fossil", "custap berry", "damp mulch", "damp rock", "dark gem", "dawn stone", "deepseascale", "deepseatooth", "destiny knot", "diancite", "dire hit", "dire hit 2", "dire hit 3", "dive ball", "dna splicers", "dome fossil", "douse drive", "draco plate", "dragon fang", "dragon gem", "dragon scale", "dread plate", "dream ball", "dropped item", "dubious disc", "durin berry", "dusk ball", "dusk stone", "earth plate", "eject button", "electirizer", "electric gem", "elevator key", "elixir", "energy root", "energypowder", "enigma berry", "escape rope", "ether", "everstone", "eviolite", "exp share", "expert belt", "fairy gem", "fast ball", "fighting gem", "figy berry", "fire gem", "fire stone", "fist plate", "flame orb", "flame plate", "float stone", "fluffy tail", "flying gem", "focus band", "focus sash", "fresh water", "friend ball", "full heal", "full incense", "full restore", "galladite", "ganlon berry", "garchompite", "gardevoirite", "gengarite", "genius wing", "ghost gem", "glalitite", "gooey mulch", "grass gem", "great ball", "green scarf", "green shard", "grepa berry", "grip claw", "griseous orb", "grn apricorn", "ground gem", "growth mulch", "grubby hanky", "guard spec", "gyaradosite", "haban berry", "hard stone", "heal ball", "heal powder", "health wing", "heart scale", "heat rock", "heavy ball", "helix fossil", "heracronite", "hm01", "hm02", "hm03", "hm04", "hm05", "hm06", "hm07", "hm08", "holo caster", "hondew berry", "honey", "honor of kalos", "houndoominite", "hp up", "hyper potion", "iapapa berry", "ice gem", "ice heal", "icicle plate", "icy rock", "insect plate", "intriguing stone", "iron", "iron ball", "iron plate", "item drop", "item urge", "jaboca berry", "kangaskhanite", "kasib berry", "kebia berry", "kelpsy berry", "kings rock", "lagging tail", "lansat berry", "latiasite", "latiosite", "lava cookie", "lax incense", "leaf stone", "leftovers", "lemonade", "lens case", "leppa berry", "level ball", "liechi berry", "life orb", "light ball", "light clay", "looker ticket", "lopunnite", "love ball", "lucarionite", "luck incense", "lucky egg", "lucky punch", "lum berry", "lure ball", "lustrous orb", "luxury ball", "macho brace", "magmarizer", "magnet", "mago berry", "magost berry", "manectite", "master ball", "mawilite", "max elixir", "max ether", "max potion", "max repel", "max revive", "meadow plate", "medal box", "medichamite", "mental herb", "metagrossite", "metal coat", "metal powder", "metronome", "mewtwonite x", "mewtwonite y", "micle berry", "mind plate", "miracle seed", "moomoo milk", "moon ball", "moon stone", "muscle band", "muscle wing", "mystic water", "nanab berry", "nest ball", "net ball", "nevermeltice", "nomel berry", "normal gem", "nugget", "occa berry", "odd incense", "odd keystone", "old amber", "old gateau", "oran berry", "oval charm", "oval stone", "pamtre berry", "park ball", "parlyz heal", "pass orb", "passho berry", "payapa berry", "pearl", "pearl string", "pecha berry", "permit", "persim berry", "petaya berry", "pidgeotite", "pinap berry", "pink scarf", "pinsirite", "pixie plate", "plasma card", "plume fossil", "pnk apricorn", "poison barb", "poison gem", "poké ball", "poké doll", "poké toy", "pomeg berry", "potion", "power anklet", "power band", "power belt", "power bracer", "power herb", "power lens", "power plant pass", "power weight", "pp max", "pp up", "premier ball", "pretty wing", "prism scale", "profs letter", "protector", "protein", "psychic gem", "pure incense", "qualot berry", "quick ball", "quick claw", "quick powder", "rabuta berry", "rare bone", "rare candy", "rawst berry", "razor claw", "razor fang", "razz berry", "reaper cloth", "red apricorn", "red card", "red flute", "red scarf", "red shard", "relic band", "relic copper", "relic crown", "relic gold", "relic silver", "relic statue", "relic vase", "repeat ball", "repel", "reset urge", "resist wing", "reveal glass", "revival herb", "revive", "rindo berry", "ring target", "rock gem", "rock incense", "rocky helmet", "roller skates", "root fossil", "rose incense", "rowap berry", "sablenite", "sacred ash", "safari ball", "salac berry", "salamencite", "sceptilite", "scizorite", "scope lens", "sea incense", "sharp beak", "sharpedonite", "shed shell", "shell bell", "shiny charm", "shiny stone", "shoal salt", "shoal shell", "shock drive", "shuca berry", "silk scarf", "silverpowder", "sitrus berry", "skull fossil", "sky plate", "slowbronite", "smoke ball", "smooth rock", "soda pop", "soft sand", "soothe bell", "soul dew", "spell tag", "spelon berry", "splash plate", "spooky plate", "sport ball", "sprinklotad", "stable mulch", "star piece", "stardust", "starf berry", "steel gem", "steelixite", "stick", "sticky barb", "stone plate", "sun stone", "super potion", "super repel", "swampertite", "sweet heart", "swift wing", "tamato berry", "tanga berry", "thick club", "thunderstone", "timer ball", "tinymushroom", "tm01", "tm02", "tm03", "tm04", "tm05", "tm06", "tm07", "tm08", "tm09", "tm10", "tm100", "tm11", "tm12", "tm13", "tm14", "tm15", "tm16", "tm17", "tm18", "tm19", "tm20", "tm21", "tm22", "tm23", "tm24", "tm25", "tm26", "tm27", "tm28", "tm29", "tm30", "tm31", "tm32", "tm33", "tm34", "tm35", "tm36", "tm37", "tm38", "tm39", "tm40", "tm41", "tm42", "tm43", "tm44", "tm45", "tm46", "tm47", "tm48", "tm49", "tm50", "tm51", "tm52", "tm53", "tm54", "tm55", "tm56", "tm57", "tm58", "tm59", "tm60", "tm61", "tm62", "tm63", "tm64", "tm65", "tm66", "tm67", "tm68", "tm69", "tm70", "tm71", "tm72", "tm73", "tm74", "tm75", "tm76", "tm77", "tm78", "tm79", "tm80", "tm81", "tm82", "tm83", "tm84", "tm85", "tm86", "tm87", "tm88", "tm89", "tm90", "tm91", "tm92", "tm93", "tm94", "tm95", "tm96", "tm97", "tm98", "tm99", "tmv pass", "toxic orb", "toxic plate", "twistedspoon", "tyranitarite", "ultra ball", "up_grade", "venusaurite", "wacan berry", "water gem", "water stone", "watmel berry", "wave incense", "wepear berry", "white flute", "white herb", "wht apricorn", "wide lens", "wiki berry", "wise glasses", "x accuracy", "x accuracy 2", "x accuracy 3", "x accuracy 6", "x attack", "x attack 2", "x attack 3", "x attack 6", "x defend", "x defend 2", "x defend 3", "x defend 6", "x sp def", "x sp def 2", "x sp def 3", "x sp def 6", "x special", "x special 2", "x special 3", "x special 6", "x speed", "x speed 2", "x speed 3", "x speed 6", "yache berry", "yellow flute", "yellow scarf", "yellow shard", "ylw apricorn", "zap plate", "zinc", "zoom lens"];
+var moves = ["pound", "karate chop", "double slap", "comet punch", "mega punch", "pay day", "fire punch", "ice punch", "thunder punch", "scratch", "vice grip", "guillotine", "razor wind", "swords dance", "cut", "gust", "wing attack", "whirlwind", "fly", "bind", "slam", "vine whip", "stomp", "double kick", "mega kick", "jump kick", "rolling kick", "sand attack", "headbutt", "horn attack", "fury attack", "horn drill", "tackle", "body slam", "wrap", "take down", "thrash", "double_edge", "tail whip", "poison sting", "twineedle", "pin missile", "leer", "bite", "growl", "roar", "sing", "supersonic", "sonic boom", "disable", "acid", "ember", "flamethrower", "mist", "water gun", "hydro pump", "surf", "ice beam", "blizzard", "psybeam", "bubble beam", "aurora beam", "hyper beam", "peck", "drill peck", "submission", "low kick", "counter", "seismic toss", "strength", "absorb", "mega drain", "leech seed", "growth", "razor leaf", "solar beam", "poison powder", "stun spore", "sleep powder", "petal dance", "string shot", "dragon rage", "fire spin", "thunder shock", "thunderbolt", "thunder wave", "thunder", "rock throw", "earthquake", "fissure", "dig", "toxic", "confusion", "psychic", "hypnosis", "meditate", "agility", "quick attack", "rage", "teleport", "night shade", "mimic", "screech", "double team", "recover", "harden", "minimize", "smokescreen", "confuse ray", "withdraw", "defense curl", "barrier", "light screen", "haze", "reflect", "focus energy", "bide", "metronome", "mirror move", "self_destruct", "egg bomb", "lick", "smog", "sludge", "bone club", "fire blast", "waterfall", "clamp", "swift", "skull bash", "spike cannon", "constrict", "amnesia", "kinesis", "soft_boiled", "high jump kick", "glare", "dream eater", "poison gas", "barrage", "leech life", "lovely kiss", "sky attack", "transform", "bubble", "dizzy punch", "spore", "flash", "psywave", "splash", "acid armor", "crabhammer", "explosion", "fury swipes", "bonemerang", "rest", "rock slide", "hyper fang", "sharpen", "conversion", "tri attack", "super fang", "slash", "substitute", "struggle", "sketch", "triple kick", "thief", "spider web", "mind reader", "nightmare", "flame wheel", "snore", "curse", "flail", "conversion 2", "aeroblast", "cotton spore", "reversal", "spite", "powder snow", "protect", "mach punch", "scary face", "feint attack", "sweet kiss", "belly drum", "sludge bomb", "mud_slap", "octazooka", "spikes", "zap cannon", "foresight", "destiny bond", "perish song", "icy wind", "detect", "bone rush", "lock_on", "outrage", "sandstorm", "giga drain", "endure", "charm", "rollout", "false swipe", "swagger", "milk drink", "spark", "fury cutter", "steel wing", "mean look", "attract", "sleep talk", "heal bell", "_return", "present", "frustration", "safeguard", "pain split", "sacred fire", "magnitude", "dynamic punch", "megahorn", "dragon breath", "baton pass", "encore", "pursuit", "rapid spin", "sweet scent", "iron tail", "metal claw", "vital throw", "morning sun", "synthesis", "moonlight", "hidden power", "cross chop", "twister", "rain dance", "sunny day", "crunch", "mirror coat", "psych up", "extreme speed", "ancient power", "shadow ball", "future sight", "rock smash", "whirlpool", "beat up", "fake out", "uproar", "stockpile", "spit up", "swallow", "heat wave", "hail", "torment", "flatter", "will_o_wisp", "memento", "facade", "focus punch", "smelling salts", "follow me", "nature power", "charge", "taunt", "helping hand", "trick", "role play", "wish", "assist", "ingrain", "superpower", "magic coat", "recycle", "revenge", "brick break", "yawn", "knock off", "endeavor", "eruption", "skill swap", "imprison", "refresh", "grudge", "snatch", "secret power", "dive", "arm thrust", "camouflage", "tail glow", "luster purge", "mist ball", "feather dance", "teeter dance", "blaze kick", "mud sport", "ice ball", "needle arm", "slack off", "hyper voice", "poison fang", "crush claw", "blast burn", "hydro cannon", "meteor mash", "astonish", "weather ball", "aromatherapy", "fake tears", "air cutter", "overheat", "odor sleuth", "rock tomb", "silver wind", "metal sound", "grass whistle", "tickle", "cosmic power", "water spout", "signal beam", "shadow punch", "extrasensory", "sky uppercut", "sand tomb", "sheer cold", "muddy water", "bullet seed", "aerial ace", "icicle spear", "iron defense", "block", "howl", "dragon claw", "frenzy plant", "bulk up", "bounce", "mud shot", "poison tail", "covet", "volt tackle", "magical leaf", "water sport", "calm mind", "leaf blade", "dragon dance", "rock blast", "shock wave", "water pulse", "doom desire", "psycho boost", "roost", "gravity", "miracle eye", "wake_up slap", "hammer arm", "gyro ball", "healing wish", "brine", "natural gift", "feint", "pluck", "tailwind", "acupressure", "metal burst", "u_turn", "close combat", "payback", "assurance", "embargo", "fling", "psycho shift", "trump card", "heal block", "wring out", "power trick", "gastro acid", "lucky chant", "me first", "copycat", "power swap", "guard swap", "punishment", "last resort", "worry seed", "sucker punch", "toxic spikes", "heart swap", "aqua ring", "magnet rise", "flare blitz", "force palm", "aura sphere", "rock polish", "poison jab", "dark pulse", "night slash", "aqua tail", "seed bomb", "air slash", "x_scissor", "bug buzz", "dragon pulse", "dragon rush", "power gem", "drain punch", "vacuum wave", "focus blast", "energy ball", "brave bird", "earth power", "switcheroo", "giga impact", "nasty plot", "bullet punch", "avalanche", "ice shard", "shadow claw", "thunder fang", "ice fang", "fire fang", "shadow sneak", "mud bomb", "psycho cut", "zen headbutt", "mirror shot", "flash cannon", "rock climb", "defog", "trick room", "draco meteor", "discharge", "lava plume", "leaf storm", "power whip", "rock wrecker", "cross poison", "gunk shot", "iron head", "magnet bomb", "stone edge", "captivate", "stealth rock", "grass knot", "chatter", "judgment", "bug bite", "charge beam", "wood hammer", "aqua jet", "attack order", "defend order", "heal order", "head smash", "double hit", "roar of time", "spacial rend", "lunar dance", "crush grip", "magma storm", "dark void", "seed flare", "ominous wind", "shadow force", "hone claws", "wide guard", "guard split", "power split", "wonder room", "psyshock", "venoshock", "autotomize", "rage powder", "telekinesis", "magic room", "smack down", "storm throw", "flame burst", "sludge wave", "quiver dance", "heavy slam", "synchronoise", "electro ball", "soak", "flame charge", "coil", "low sweep", "acid spray", "foul play", "simple beam", "entrainment", "after you", "round", "echoed voice", "chip away", "clear smog", "stored power", "quick guard", "ally switch", "scald", "shell smash", "heal pulse", "hex", "sky drop", "shift gear", "circle throw", "incinerate", "quash", "acrobatics", "reflect type", "retaliate", "final gambit", "bestow", "inferno", "water pledge", "fire pledge", "grass pledge", "volt switch", "struggle bug", "bulldoze", "frost breath", "dragon tail", "work up", "electroweb", "wild charge", "drill run", "dual chop", "heart stamp", "horn leech", "sacred sword", "razor shell", "heat crash", "leaf tornado", "steamroller", "cotton guard", "night daze", "psystrike", "tail slap", "hurricane", "head charge", "gear grind", "searing shot", "techno blast", "relic song", "secret sword", "glaciate", "bolt strike", "blue flare", "fiery dance", "freeze shock", "ice burn", "snarl", "icicle crash", "v_create", "fusion flare", "fusion bolt", "flying press", "mat block", "belch", "rototiller", "sticky web", "fell stinger", "phantom force", "trick_or_treat", "noble roar", "ion deluge", "parabolic charge", "forests curse", "petal blizzard", "freeze_dry", "disarming voice", "parting shot", "topsy_turvy", "draining kiss", "crafty shield", "flower shield", "grassy terrain", "misty terrain", "electrify", "play rough", "fairy wind", "moonblast", "boomburst", "fairy lock", "kings shield", "play nice", "confide", "diamond storm", "steam eruption", "hyperspace hole", "water shuriken", "mystical fire", "spiky shield", "aromatic mist", "eerie impulse", "venom drench", "powder", "geomancy", "magnetic flux", "happy hour", "electric terrain", "dazzling gleam", "celebrate", "hold hands", "baby_doll eyes", "nuzzle", "hold back", "infestation", "power_up punch", "oblivion wing", "thousand arrows", "thousand waves", "lands wrath", "light of ruin", "origin pulse", "precipice blades", "dragon ascent", "hyperspace fury", "10000000 volt thunderbolt", "accelerock", "acid downpour", "all_out pummeling", "anchor shot", "aurora veil", "baneful bunker", "beak blast", "black hole eclipse", "bloom doom", "breakneck blitz", "brutal swing", "burn up", "catastropika", "clanging scales", "continental crush", "core enforcer", "corkscrew crash", "darkest lariat", "devastating drake", "dragon hammer", "extreme evoboost", "fire lash", "first impression", "fleur cannon", "floral healing", "gear up", "genesis supernova", "gigavolt havoc", "guardian of alola", "high horsepower", "hydro vortex", "ice hammer", "inferno overdrive", "instruct", "laser focus", "leafage", "liquidation", "lunge", "malicious moonsault", "moongeist beam", "multi_attack", "nature's madness", "never_ending nightmare", "oceanic operetta", "pollen puff", "power trip", "prismatic laser", "psychic fangs", "psychic terrain", "pulverizing pancake", "purify", "revelation dance", "savage spin_out", "shadow bone", "shattered psyche", "shell trap", "shore up", "sinister arrow raid", "smart strike", "solar blade", "soul_stealing 7_star strike", "sparkling aria", "spectral thief", "speed swap", "spirit shackle", "spotlight", "stoked sparksurfer", "stomping tantrum", "strength sap", "subzero slammer", "sunsteel strike", "supersonic skystrike", "tearful look", "tectonic rage", "throat chop", "toxic thread", "trop kick", "twinkle tackle", "zing zap"];
+var items = ["ability capsule", "ability urge", "abomasite", "absolite", "absorb bulb", "adamant orb", "adventure rules", "aerodactylite", "aggronite", "aguav berry", "air balloon", "alakazite", "altarianite", "ampharosite", "amulet coin", "antidote", "apicot berry", "armor fossil", "aspear berry", "audinite", "awakening", "babiri berry", "balmmushroom", "banettite", "beedrillite", "belue berry", "berry juice", "big mushroom", "big nugget", "big pearl", "big root", "binding band", "black belt", "black flute", "black sludge", "blackglasses", "blastoisinite", "blazikenite", "blk apricorn", "blu apricorn", "blue flute", "blue scarf", "blue shard", "bluk berry", "brightpowder", "bug gem", "burn drive", "burn heal", "calcium", "cameruptite", "carbos", "casteliacone", "cell battery", "charcoal", "charizardite x", "charizardite y", "charti berry", "cheri berry", "cherish ball", "chesto berry", "chilan berry", "chill drive", "choice band", "choice scarf", "choice specs", "chople berry", "claw fossil", "cleanse tag", "clever wing", "coba berry", "colbur berry", "colress machine", "comet shard", "cornn berry", "cover fossil", "custap berry", "damp mulch", "damp rock", "dark gem", "dawn stone", "deepseascale", "deepseatooth", "destiny knot", "diancite", "dire hit", "dire hit 2", "dire hit 3", "dive ball", "dna splicers", "dome fossil", "douse drive", "draco plate", "dragon fang", "dragon gem", "dragon scale", "dread plate", "dream ball", "dropped item", "dubious disc", "durin berry", "dusk ball", "dusk stone", "earth plate", "eject button", "electirizer", "electric gem", "elevator key", "elixir", "energy root", "energypowder", "enigma berry", "escape rope", "ether", "everstone", "eviolite", "exp share", "expert belt", "fairy gem", "fast ball", "fighting gem", "figy berry", "fire gem", "fire stone", "fist plate", "flame orb", "flame plate", "float stone", "fluffy tail", "flying gem", "focus band", "focus sash", "fresh water", "friend ball", "full heal", "full incense", "full restore", "galladite", "ganlon berry", "garchompite", "gardevoirite", "gengarite", "genius wing", "ghost gem", "glalitite", "gooey mulch", "grass gem", "great ball", "green scarf", "green shard", "grepa berry", "grip claw", "griseous orb", "grn apricorn", "ground gem", "growth mulch", "grubby hanky", "guard spec", "gyaradosite", "haban berry", "hard stone", "heal ball", "heal powder", "health wing", "heart scale", "heat rock", "heavy ball", "helix fossil", "heracronite", "hm01", "hm02", "hm03", "hm04", "hm05", "hm06", "hm07", "hm08", "holo caster", "hondew berry", "honey", "honor of kalos", "houndoominite", "hp up", "hyper potion", "iapapa berry", "ice gem", "ice heal", "icicle plate", "icy rock", "insect plate", "intriguing stone", "iron", "iron ball", "iron plate", "item drop", "item urge", "jaboca berry", "kangaskhanite", "kasib berry", "kebia berry", "kelpsy berry", "kings rock", "lagging tail", "lansat berry", "latiasite", "latiosite", "lava cookie", "lax incense", "leaf stone", "leftovers", "lemonade", "lens case", "leppa berry", "level ball", "liechi berry", "life orb", "light ball", "light clay", "looker ticket", "lopunnite", "love ball", "lucarionite", "luck incense", "lucky egg", "lucky punch", "lum berry", "lure ball", "lustrous orb", "luxury ball", "macho brace", "magmarizer", "magnet", "mago berry", "magost berry", "manectite", "master ball", "mawilite", "max elixir", "max ether", "max potion", "max repel", "max revive", "meadow plate", "medal box", "medichamite", "mental herb", "metagrossite", "metal coat", "metal powder", "metronome", "mewtwonite x", "mewtwonite y", "micle berry", "mind plate", "miracle seed", "moomoo milk", "moon ball", "moon stone", "muscle band", "muscle wing", "mystic water", "nanab berry", "nest ball", "net ball", "nevermeltice", "nomel berry", "normal gem", "nugget", "occa berry", "odd incense", "odd keystone", "old amber", "old gateau", "oran berry", "oval charm", "oval stone", "pamtre berry", "park ball", "parlyz heal", "pass orb", "passho berry", "payapa berry", "pearl", "pearl string", "pecha berry", "permit", "persim berry", "petaya berry", "pidgeotite", "pinap berry", "pink scarf", "pinsirite", "pixie plate", "plasma card", "plume fossil", "pnk apricorn", "poison barb", "poison gem", "poké ball", "poké doll", "poké toy", "pomeg berry", "potion", "power anklet", "power band", "power belt", "power bracer", "power herb", "power lens", "power plant pass", "power weight", "pp max", "pp up", "premier ball", "pretty wing", "prism scale", "profs letter", "protector", "protein", "psychic gem", "pure incense", "qualot berry", "quick ball", "quick claw", "quick powder", "rabuta berry", "rare bone", "rare candy", "rawst berry", "razor claw", "razor fang", "razz berry", "reaper cloth", "red apricorn", "red card", "red flute", "red scarf", "red shard", "relic band", "relic copper", "relic crown", "relic gold", "relic silver", "relic statue", "relic vase", "repeat ball", "repel", "reset urge", "resist wing", "reveal glass", "revival herb", "revive", "rindo berry", "ring target", "rock gem", "rock incense", "rocky helmet", "roller skates", "root fossil", "rose incense", "rowap berry", "sablenite", "sacred ash", "safari ball", "salac berry", "salamencite", "sceptilite", "scizorite", "scope lens", "sea incense", "sharp beak", "sharpedonite", "shed shell", "shell bell", "shiny charm", "shiny stone", "shoal salt", "shoal shell", "shock drive", "shuca berry", "silk scarf", "silverpowder", "sitrus berry", "skull fossil", "sky plate", "slowbronite", "smoke ball", "smooth rock", "soda pop", "soft sand", "soothe bell", "soul dew", "spell tag", "spelon berry", "splash plate", "spooky plate", "sport ball", "sprinklotad", "stable mulch", "star piece", "stardust", "starf berry", "steel gem", "steelixite", "stick", "sticky barb", "stone plate", "sun stone", "super potion", "super repel", "swampertite", "sweet heart", "swift wing", "tamato berry", "tanga berry", "thick club", "thunderstone", "timer ball", "tinymushroom", "tm01", "tm02", "tm03", "tm04", "tm05", "tm06", "tm07", "tm08", "tm09", "tm10", "tm100", "tm11", "tm12", "tm13", "tm14", "tm15", "tm16", "tm17", "tm18", "tm19", "tm20", "tm21", "tm22", "tm23", "tm24", "tm25", "tm26", "tm27", "tm28", "tm29", "tm30", "tm31", "tm32", "tm33", "tm34", "tm35", "tm36", "tm37", "tm38", "tm39", "tm40", "tm41", "tm42", "tm43", "tm44", "tm45", "tm46", "tm47", "tm48", "tm49", "tm50", "tm51", "tm52", "tm53", "tm54", "tm55", "tm56", "tm57", "tm58", "tm59", "tm60", "tm61", "tm62", "tm63", "tm64", "tm65", "tm66", "tm67", "tm68", "tm69", "tm70", "tm71", "tm72", "tm73", "tm74", "tm75", "tm76", "tm77", "tm78", "tm79", "tm80", "tm81", "tm82", "tm83", "tm84", "tm85", "tm86", "tm87", "tm88", "tm89", "tm90", "tm91", "tm92", "tm93", "tm94", "tm95", "tm96", "tm97", "tm98", "tm99", "tmv pass", "toxic orb", "toxic plate", "twistedspoon", "tyranitarite", "ultra ball", "up_grade", "venusaurite", "wacan berry", "water gem", "water stone", "watmel berry", "wave incense", "wepear berry", "white flute", "white herb", "wht apricorn", "wide lens", "wiki berry", "wise glasses", "x accuracy", "x accuracy 2", "x accuracy 3", "x accuracy 6", "x attack", "x attack 2", "x attack 3", "x attack 6", "x defend", "x defend 2", "x defend 3", "x defend 6", "x sp def", "x sp def 2", "x sp def 3", "x sp def 6", "x special", "x special 2", "x special 3", "x special 6", "x speed", "x speed 2", "x speed 3", "x speed 6", "yache berry", "yellow flute", "yellow scarf", "yellow shard", "ylw apricorn", "zap plate", "zinc", "zoom lens", "normalium z", "firium z", "waterium z", "electrium z", "grassium z", "icium z", "fightinium z", "poisonium z", "groundium z", "flyinium z", "psychium z", "buginium z", "rockium z", "ghostium z", "dragonium z", "darkinium z", "steelium z", "fairium z", "pikanium z", "bottle cap", "gold bottle cap", "z-ring", "decidium z", "incinium z", "primarium z", "tapunium z", "marshadium z", "aloraichium z", "snorlium z", "eevium z", "mewnium z", "normalium z", "firium z", "waterium z", "electrium z", "grassium z", "icium z", "fightinium z", "poisonium z", "groundium z", "flyinium z", "psychium z", "buginium z", "rockium z", "ghostium z", "dragonium z", "darkinium z", "steelium z", "fairium z", "pikanium z", "decidium z", "incinium z", "primarium z", "tapunium z", "marshadium z", "aloraichium z", "snorlium z", "eevium z", "mewnium z", "pikashunium z", "forage bag", "fishing rod", "professor’s mask", "festival ticket", "sparkling stone", "adrenaline orb", "zygarde cube", "ice stone", "ride pager", "beast ball", "big malasada", "red nectar", "yellow nectar", "pink nectar", "purple nectar", "sun flute", "moon flute", "enigmatic card", "terrain extender", "protective pads", "electric seed", "psychic seed", "misty seed", "grassy seed", "fighting memory", "flying memory", "poison memory", "ground memory", "rock memory", "bug memory", "ghost memory", "steel memory", "fire memory", "water memory", "grass memory", "electric memory", "psychic memory", "ice memory", "dragon memory", "dark memory", "fairy memory"];
 var abilities = ["adaptability", "aerilate", "aftermath", "air lock", "analytic", "anger point", "anticipation", "arena trap", "aroma veil", "aura break", "bad dreams", "battery", "battle armor", "battle bond", "berserk", "big pecks", "blaze", "bulletproof", "cacophony", "cheek pouch", "chlorophyll", "clear body", "cloud nine", "color change", "comatose", "competitive", "compound eyes", "contrary", "corrosion", "cursed body", "cute charm", "damp", "dancer", "dark aura", "dazzling", "defeatist", "defiant", "delta stream", "desolate land", "disguise", "download", "drizzle", "drought", "dry skin", "early bird", "effect spore", "electric surge", "fairy aura", "filter", "flame body", "flare boost", "flash fire", "flower gift", "flower veil", "fluffy", "forecast", "forewarn", "friend guard", "frisk", "full metal body", "fur coat", "gale wings", "gluttony", "gooey", "grass pelt", "guts", "harvest", "healer", "heatproof", "heavy metal", "honey gather", "huge power", "hustle", "hydration", "hyper cutter", "ice body", "illuminate", "illusion", "immunity", "imposter", "innards out", "infiltrator", "inner focus", "insomnia", "intimidate", "iron barbs", "iron fist", "justified", "keen eye", "klutz", "leaf guard", "levitate", "light metal", "lightning rod", "limber", "liquid ooze", "magic bounce", "magic guard", "magician", "magma armor", "magnet pull", "marvel scale", "mega launcher", "minus", "mold breaker", "moody", "motor drive", "moxie", "multiscale", "multitype", "mummy", "natural cure", "no guard", "normalize", "oblivious", "overcoat", "overgrow", "own tempo", "parental bond", "pickpocket", "pickup", "pixilate", "plus", "poison heal", "poison point", "poison touch", "power construct", "prankster", "pressure", "primordial sea", "protean", "pure power", "queenly majesty", "quick feet", "rain dish", "rattled", "receiver", "reckless", "refrigerate", "regenerator", "rivalry", "rks system", "rock head", "rough skin", "run away", "sand force", "sand rush", "sand stream", "sand veil", "sap sipper", "schooling", "scrappy", "serene grace", "shadow shield", "shadow tag", "shed skin", "sheer force", "shell armor", "shield dust", "shields down", "simple", "skill link", "slow start", "sniper", "snow cloak", "snow warning", "solar power", "solid rock", "soul_heart", "soundproof", "speed boost", "stakeout", "stall", "stamina", "stance change", "static", "steadfast", "stench", "sticky hold", "storm drain", "strong jaw", "sturdy", "suction cups", "super luck", "surge surfer", "swarm", "sweet veil", "swift swim", "symbiosis", "synchronize", "tangled feet", "technician", "telepathy", "teravolt", "thick fat", "tinted lens", "torrent", "tough claws", "toxic boost", "trace", "triage", "truant", "turboblaze", "unaware", "unburden", "unnerve", "victory star", "vital spirit", "volt absorb", "water absorb", "water compaction", "water veil", "weak armor", "white smoke", "wimp out", "wonder guard", "wonder skin", "zen mode"];
 
 bot.on('ready', function(event) {
@@ -38,6 +38,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
     if (message.toLowerCase().substring(0, 10) === "!evolution"){
     	evolution(user, userID, channelID, message, event);
     }
+    if (message.toLowerCase().substring(0,3) === "!qr"){
+    	qr(user, userID, channelID, message, event);
+    }
 });
 
 function help(user, userID, channelID, message, event) {
@@ -53,7 +56,7 @@ function pokemon(user, userID, channelID, message, event) {
     if (mon === "help") {
         bot.sendMessage({
             to: channelID,
-            message: "This command serves information about Pokémon! Use the Pokémon's name as the argument. If it doesn't work, try ignoring or substituting special characters - for example, 'nidoranm', 'farfetchd', 'mr mime', 'ho_oh', 'flabebe'."
+            message: "This command serves information about Pokémon! Use the Pokémon's name as the argument. If it doesn't work, try ignoring or substituting special characters - for example, 'nidoranm', 'farfetchd', 'mr mime', 'ho_oh', 'flabebe'. For alterante formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'basculin blue'."
         });
     } else if (mon === "list") {
     	list(user, userID, channelID, message, event, mons);
@@ -397,6 +400,13 @@ function evolution(user, userID, channelID, message, event){
 	bot.sendMessage({
 		to: channelID,
 		message: "https://a.pomf.cat/lmesct.png"
+	});
+}
+
+function qr(user, userID, channelID, message, event){
+	bot.sendMessage({
+		to: channelID,
+		message: "http://imgur.com/a/EFOqs"
 	});
 }
 
@@ -14345,6 +14355,887 @@ var hyperspace_fury = {
     wiki: "http://www.serebii.net/attackdex-xy/hyperspacefury.shtml"
 };
 
+var 10000000_volt_thunderbolt = {
+    name: "10,000,000 Volt Thunderbolt",
+    type: "Electric",
+    cat: "Special",
+    power: 195,
+    pp: 1,
+    acc: -1,
+    effect: "Pikachu-exclusive Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/10000000voltthunderbolt.shtml"
+};
+
+var accelerock = {
+    name: "Accelerock",
+    type: "Rock",
+    cat: "Physical",
+    power: 40,
+    pp: 20,
+    acc: 100,
+    effect: "User attacks first.",
+    wiki: "http://www.serebii.net/attackdex-xy/accelerock.shtml"
+};
+
+var acid_downpour = {
+    name: "Acid Downpour",
+    type: "Poison",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Poison type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/aciddownpour.shtml"
+};
+
+var all_out_pummeling = {
+    name: "All-out Pummeling",
+    type: "Fighting",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Fighting type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/all-outpummeling.shtml"
+};
+
+var anchor_shot = {
+    name: "Anchor Shot",
+    type: "Steel",
+    cat: "Physical",
+    power: 80,
+    pp: 20,
+    acc: 100,
+    effect: "The user entangles the target with its anchor chain while attacking. The target becomes unable to flee.",
+    wiki: "http://www.serebii.net/attackdex-xy/anchorshot.shtml"
+};
+
+var aurora_veil = {
+    name: "Aurora Veil",
+    type: "Ice",
+    cat: "Status",
+    power: -1,
+    pp: 20,
+    acc: -1,
+    effect: "Halves damage from Physical and Special attacks for five turns.",
+    wiki: "http://www.serebii.net/attackdex-xy/auroraveil.shtml"
+};
+
+var baneful_bunker = {
+    name: "Baneful Bunker",
+    type: "Poison",
+    cat: "Status",
+    power: -1,
+    pp: 10,
+    acc: -1,
+    effect: "In addition to protecting the user from attacks, this move also poisons any attacker that makes direct contact.",
+    wiki: "http://www.serebii.net/attackdex-xy/banefulbunker.shtml"
+};
+
+var beak_blast = {
+    name: "Beak Blast",
+    type: "Flying",
+    cat: "Physical",
+    power: 100,
+    pp: 15,
+    acc: 100,
+    effect: "The user first heats up its beak, and then it attacks the target. Making direct contact with the Pokémon while it’s heating up its beak results in a burn.",
+    wiki: "http://www.serebii.net/attackdex-xy/beakblast.shtml"
+};
+
+var black_hole_eclipse = {
+    name: "Black Hole Eclipse",
+    type: "Dark",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Dark type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/blackholeeclipse.shtml"
+};
+
+var bloom_doom = {
+    name: "Bloom Doom",
+    type: "Grass",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Grass type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/bloomdoom.shtml"
+};
+
+var breakneck_blitz = {
+    name: "Breakneck Blitz",
+    type: "Normal",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Normal type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/breakneckblitz.shtml"
+};
+
+var brutal_swing = {
+    name: "Brutal Swing",
+    type: "Dark",
+    cat: "Physical",
+    power: 60,
+    pp: 20,
+    acc: 100,
+    effect: "The user swings its body around violently to inflict damage on everything in its vicinity.",
+    wiki: "http://www.serebii.net/attackdex-xy/brutalswing.shtml"
+};
+
+var burn_up = {
+    name: "Burn Up",
+    type: "Fire",
+    cat: "Special",
+    power: 130,
+    pp: 5,
+    acc: 100,
+    effect: "To inflict massive damage, the user burns itself out. After using this move, the user will no longer be Fire type.",
+    wiki: "http://www.serebii.net/attackdex-xy/burnup.shtml"
+};
+
+var catastropika = {
+    name: "Catastropika",
+    type: "Electric",
+    cat: "Physical",
+    power: 210,
+    pp: 1,
+    acc: -1,
+    effect: "Pikachu-exclusive Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/catastropika.shtml"
+};
+
+var clanging_scales = {
+    name: "Clanging Scales",
+    type: "Dragon",
+    cat: "Special",
+    power: 110,
+    pp: 5,
+    acc: 100,
+    effect: "Lowers user's Defense.",
+    wiki: "http://www.serebii.net/attackdex-xy/clangingscales.shtml"
+};
+
+var continental_crush = {
+    name: "Continental Crush",
+    type: "Rock",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Rock type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/continentalcrush.shtml"
+};
+
+var core_enforcer = {
+    name: "Core Enforcer",
+    type: "Dragon",
+    cat: "Special",
+    power: 100,
+    pp: 10,
+    acc: 100,
+    effect: "Scorches a 'Z' pattern on the ground.",
+    wiki: "http://www.serebii.net/attackdex-xy/coreenforcer.shtml"
+};
+
+var corkscrew_crash = {
+    name: "Corkscrew Crash",
+    type: "Steel",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Steel type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/corkscrewcrash.shtml"
+};
+
+var darkest_lariat = {
+    name: "Darkest Lariat",
+    type: "Dark",
+    cat: "Physical",
+    power: 85,
+    pp: 10,
+    acc: 100,
+    effect: "Ignores opponent's stat changes.",
+    wiki: "http://www.serebii.net/attackdex-xy/darkestlariat.shtml"
+};
+
+var devastating_drake = {
+    name: "Devastating Drake",
+    type: "Dragon",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Dragon type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/devastatingdrake.shtml"
+};
+
+var dragon_hammer = {
+    name: "Dragon Hammer",
+    type: "Dragon",
+    cat: "Physical",
+    power: 90,
+    pp: 15,
+    acc: 100,
+    effect: "The user uses its body like a hammer to attack the target and inflict damage.",
+    wiki: "http://www.serebii.net/attackdex-xy/dragonhammer.shtml"
+};
+
+var extreme_evoboost = {
+    name: "Extreme Evoboost",
+    type: "Normal",
+    cat: "Status",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Eevee-exclusive Z-Move. Sharply raises all stats.",
+    wiki: "http://www.serebii.net/attackdex-xy/extremeevoboost.shtml"
+};
+
+var fire_lash = {
+    name: "Fire Lash",
+    type: "Fire",
+    cat: "Physical",
+    power: 80,
+    pp: 15,
+    acc: 100,
+    effect: "The user strikes the target with a burning lash. This also lowers the target’s Defense stat.",
+    wiki: "http://www.serebii.net/attackdex-xy/firelash.shtml"
+};
+
+var first_impression = {
+    name: "First Impression",
+    type: "Bug",
+    cat: "Physical",
+    power: 90,
+    pp: 10,
+    acc: 100,
+    effect: "Although this move has great power, it only works the first turn the user is in battle.",
+    wiki: "http://www.serebii.net/attackdex-xy/firstimpression.shtml"
+};
+
+var fleur_cannon = {
+    name: "Fleur Cannon",
+    type: "Fairy",
+    cat: "Special",
+    power: 130,
+    pp: 5,
+    acc: 90,
+    effect: "Sharply lowers user's Special Attack.",
+    wiki: "http://www.serebii.net/attackdex-xy/fleurcannon.shtml"
+};
+
+var floral_healing = {
+    name: "Floral Healing",
+    type: "Fairy",
+    cat: "Status",
+    power: -1,
+    pp: 10,
+    acc: -1,
+    effect: "The user restores the target’s HP by up to half of its max HP. It restores more HP when the terrain is grass.",
+    wiki: "http://www.serebii.net/attackdex-xy/floralhealing.shtml"
+};
+
+var gear_up = {
+    name: "Gear Up",
+    type: "Steel",
+    cat: "Status",
+    power: -1,
+    pp: 20,
+    acc: -1,
+    effect: "The user engages its gears to raise the Attack and Sp. Atk stats of ally Pokémon with the Plus or Minus Ability.",
+    wiki: "http://www.serebii.net/attackdex-xy/gearup.shtml"
+};
+
+var genesis_supernova = {
+    name: "Genesis Supernova",
+    type: "Psychic",
+    cat: "Special",
+    power: 185,
+    pp: 1,
+    acc: -1,
+    effect: "Mew-exclusive Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/genesissupernova.shtml"
+};
+
+var gigavolt_havoc = {
+    name: "Gigavolt Havoc",
+    type: "Electric",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Electric type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/gigavolthavoc.shtml"
+};
+
+var guardian_of_alola = {
+    name: "Guardian Of Alola",
+    type: "Fairy",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Tapu-exclusive Z-move. Cuts opponent's HP by 75%.",
+    wiki: "http://www.serebii.net/attackdex-xy/guardianofalola.shtml"
+};
+
+var high_horsepower = {
+    name: "High Horsepower",
+    type: "Ground",
+    cat: "Physical",
+    power: 95,
+    pp: 10,
+    acc: 95,
+    effect: "The user fiercely attacks the target using its entire body.",
+    wiki: "http://www.serebii.net/attackdex-xy/highhorsepower.shtml"
+};
+
+var hydro_vortex = {
+    name: "Hydro Vortex",
+    type: "Water",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Water type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/hydrovortex.shtml"
+};
+
+var ice_hammer = {
+    name: "Ice Hammer",
+    type: "Ice",
+    cat: "Physical",
+    power: 100,
+    pp: 10,
+    acc: 90,
+    effect: "The user swings and hits with its strong, heavy fist. It lowers the user’s Speed, however.",
+    wiki: "http://www.serebii.net/attackdex-xy/icehammer.shtml"
+};
+
+var inferno_overdrive = {
+    name: "Inferno Overdrive",
+    type: "Fire",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Fire type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/infernooverdrive.shtml"
+};
+
+var instruct = {
+    name: "Instruct",
+    type: "Psychic",
+    cat: "Status",
+    power: -1,
+    pp: 15,
+    acc: -1,
+    effect: "Allows an ally to use a move instead.",
+    wiki: "http://www.serebii.net/attackdex-xy/instruct.shtml"
+};
+
+var laser_focus = {
+    name: "Laser Focus",
+    type: "Normal",
+    cat: "Status",
+    power: -1,
+    pp: 30,
+    acc: -1,
+    effect: "User's next attack is guaranteed to result in a critical hit.",
+    wiki: "http://www.serebii.net/attackdex-xy/laserfocus.shtml"
+};
+
+var leafage = {
+    name: "Leafage",
+    type: "Grass",
+    cat: "Physical",
+    power: 40,
+    pp: 40,
+    acc: 100,
+    effect: "Strikes opponent with leaves.",
+    wiki: "http://www.serebii.net/attackdex-xy/leafage.shtml"
+};
+
+var liquidation = {
+    name: "Liquidation",
+    type: "Water",
+    cat: "Physical",
+    power: 85,
+    pp: 10,
+    acc: 100,
+    effect: "The user slams into the target using a full-force blast of water. This may also lower the target’s Defense stat.",
+    wiki: "http://www.serebii.net/attackdex-xy/liquidation.shtml"
+};
+
+var lunge = {
+    name: "Lunge",
+    type: "Bug",
+    cat: "Physical",
+    power: 80,
+    pp: 15,
+    acc: 100,
+    effect: "The user makes a lunge at the target, attacking with full force. This also lowers the target’s Attack stat.",
+    wiki: "http://www.serebii.net/attackdex-xy/lunge.shtml"
+};
+
+var malicious_moonsault = {
+    name: "Malicious Moonsault",
+    type: "Dark",
+    cat: "Physical",
+    power: 180,
+    pp: 1,
+    acc: -1,
+    effect: "Incineroar-exclusive Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/maliciousmoonsault.shtml"
+};
+
+var moongeist_beam = {
+    name: "Moongeist Beam",
+    type: "Ghost",
+    cat: "Special",
+    power: 100,
+    pp: 5,
+    acc: 100,
+    effect: "Ignores the target's ability.",
+    wiki: "http://www.serebii.net/attackdex-xy/moongeistbeam.shtml"
+};
+
+var multi_attack = {
+    name: "Multi-Attack",
+    type: "Normal",
+    cat: "Physical",
+    power: 90,
+    pp: 10,
+    acc: 100,
+    effect: "Type matches user's current type.",
+    wiki: "http://www.serebii.net/attackdex-xy/multi-attack.shtml"
+};
+
+var nature's_madness = {
+    name: "Nature's Madness",
+    type: "Fairy",
+    cat: "Special",
+    power: -1,
+    pp: 10,
+    acc: 90,
+    effect: "Halves the foe's HP.",
+    wiki: "http://www.serebii.net/attackdex-xy/nature'smadness.shtml"
+};
+
+var never_ending_nightmare = {
+    name: "Never-ending Nightmare",
+    type: "Ghost",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Ghost type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/never-endingnightmare.shtml"
+};
+
+var oceanic_operetta = {
+    name: "Oceanic Operetta",
+    type: "Water",
+    cat: "Special",
+    power: 195,
+    pp: 1,
+    acc: -1,
+    effect: "Primarina-exclusive Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/oceanicoperetta.shtml"
+};
+
+var pollen_puff = {
+    name: "Pollen Puff",
+    type: "Bug",
+    cat: "Special",
+    power: 90,
+    pp: 15,
+    acc: 100,
+    effect: "The user attacks the enemy with a pollen puff that explodes. If the target is an ally, it gives the ally a pollen puff that restores its HP instead.",
+    wiki: "http://www.serebii.net/attackdex-xy/pollenpuff.shtml"
+};
+
+var power_trip = {
+    name: "Power Trip",
+    type: "Dark",
+    cat: "Physical",
+    power: 20,
+    pp: 10,
+    acc: 100,
+    effect: "The user boasts its strength and attacks the target. The more the user’s stats are raised, the greater the move’s power.",
+    wiki: "http://www.serebii.net/attackdex-xy/powertrip.shtml"
+};
+
+var prismatic_laser = {
+    name: "Prismatic Laser",
+    type: "Psychic",
+    cat: "Special",
+    power: 160,
+    pp: 10,
+    acc: 100,
+    effect: "The user shoots powerful lasers using the power of a prism. The user can’t move on the next turn.",
+    wiki: "http://www.serebii.net/attackdex-xy/prismaticlaser.shtml"
+};
+
+var psychic_fangs = {
+    name: "Psychic Fangs",
+    type: "Psychic",
+    cat: "Physical",
+    power: 85,
+    pp: 10,
+    acc: 100,
+    effect: "The user bites the target with its psychic capabilities. This can also destroy Light Screen and Reflect.",
+    wiki: "http://www.serebii.net/attackdex-xy/psychicfangs.shtml"
+};
+
+var psychic_terrain = {
+    name: "Psychic Terrain",
+    type: "Psychic",
+    cat: "Status",
+    power: -1,
+    pp: 10,
+    acc: -1,
+    effect: "Prevents priority moves from being used for 5 turns.",
+    wiki: "http://www.serebii.net/attackdex-xy/psychicterrain.shtml"
+};
+
+var pulverizing_pancake = {
+    name: "Pulverizing Pancake",
+    type: "Normal",
+    cat: "Physical",
+    power: 210,
+    pp: 1,
+    acc: -1,
+    effect: "Snorlax-exclusive Normal type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/pulverizingpancake.shtml"
+};
+
+var purify = {
+    name: "Purify",
+    type: "Poison",
+    cat: "Status",
+    power: -1,
+    pp: 20,
+    acc: -1,
+    effect: "The user heals the target’s status condition. If the move succeeds, it also restores the user’s own HP.",
+    wiki: "http://www.serebii.net/attackdex-xy/purify.shtml"
+};
+
+var revelation_dance = {
+    name: "Revelation Dance",
+    type: "Normal",
+    cat: "Special",
+    power: 90,
+    pp: 15,
+    acc: 100,
+    effect: "Type changes based on Oricorio's form.",
+    wiki: "http://www.serebii.net/attackdex-xy/revelationdance.shtml"
+};
+
+var savage_spin_out = {
+    name: "Savage Spin-out",
+    type: "Bug",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Bug type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/savagespin-out.shtml"
+};
+
+var shadow_bone = {
+    name: "Shadow Bone",
+    type: "Ghost",
+    cat: "Physical",
+    power: 85,
+    pp: 10,
+    acc: 100,
+    effect: "The user attacks by beating the target with a bone that contains a spirit. This may also lower the target’s Defense stat.",
+    wiki: "http://www.serebii.net/attackdex-xy/shadowbone.shtml"
+};
+
+var shattered_psyche = {
+    name: "Shattered Psyche",
+    type: "Psychic",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Psychic type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/shatteredpsyche.shtml"
+};
+
+var shell_trap = {
+    name: "Shell Trap",
+    type: "Fire",
+    cat: "Special",
+    power: 150,
+    pp: 5,
+    acc: 100,
+    effect: "Deals more damage to opponent if hit by a Physical move.",
+    wiki: "http://www.serebii.net/attackdex-xy/shelltrap.shtml"
+};
+
+var shore_up = {
+    name: "Shore Up",
+    type: "Ground",
+    cat: "Status",
+    power: -1,
+    pp: 10,
+    acc: -1,
+    effect: "The user regains up to half of its max HP. It restores more HP in a sandstorm.",
+    wiki: "http://www.serebii.net/attackdex-xy/shoreup.shtml"
+};
+
+var sinister_arrow_raid = {
+    name: "Sinister Arrow Raid",
+    type: "Ghost",
+    cat: "Physical",
+    power: 180,
+    pp: 1,
+    acc: -1,
+    effect: "Decidueye-exclusive Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/sinisterarrowraid.shtml"
+};
+
+var smart_strike = {
+    name: "Smart Strike",
+    type: "Steel",
+    cat: "Physical",
+    power: 70,
+    pp: 10,
+    acc: -1,
+    effect: "The user stabs the target with a sharp horn. This attack never misses.",
+    wiki: "http://www.serebii.net/attackdex-xy/smartstrike.shtml"
+};
+
+var solar_blade = {
+    name: "Solar Blade",
+    type: "Grass",
+    cat: "Physical",
+    power: 125,
+    pp: 10,
+    acc: 100,
+    effect: "Charges on first turn, attacks on second.",
+    wiki: "http://www.serebii.net/attackdex-xy/solarblade.shtml"
+};
+
+var soul-stealing_7_star_strike = {
+    name: "Soul-Stealing 7-Star Strike",
+    type: "Ghost",
+    cat: "Physical",
+    power: 195,
+    pp: 1,
+    acc: -1,
+    effect: "Marshadow-exclusive Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/soul-stealing7-starstrike.shtml"
+};
+
+var sparkling_aria = {
+    name: "Sparkling Aria",
+    type: "Water",
+    cat: "Special",
+    power: 90,
+    pp: 10,
+    acc: 100,
+    effect: "Heals the burns of its target.",
+    wiki: "http://www.serebii.net/attackdex-xy/sparklingaria.shtml"
+};
+
+var spectral_thief = {
+    name: "Spectral Thief",
+    type: "Ghost",
+    cat: "Physical",
+    power: 90,
+    pp: 10,
+    acc: 100,
+    effect: "The user hides in the target’s shadow, steals the target’s stat boosts, and then attacks.",
+    wiki: "http://www.serebii.net/attackdex-xy/spectralthief.shtml"
+};
+
+var speed_swap = {
+    name: "Speed Swap",
+    type: "Psychic",
+    cat: "Status",
+    power: -1,
+    pp: 10,
+    acc: -1,
+    effect: "The user exchanges Speed stats with the target.",
+    wiki: "http://www.serebii.net/attackdex-xy/speedswap.shtml"
+};
+
+var spirit_shackle = {
+    name: "Spirit Shackle",
+    type: "Ghost",
+    cat: "Physical",
+    power: 80,
+    pp: 10,
+    acc: 100,
+    effect: "Prevents the opponent switching out.",
+    wiki: "http://www.serebii.net/attackdex-xy/spiritshackle.shtml"
+};
+
+var spotlight = {
+    name: "Spotlight",
+    type: "Normal",
+    cat: "Status",
+    power: -1,
+    pp: 15,
+    acc: -1,
+    effect: "The user shines a spotlight on the target so that only the target will be attacked during the turn.",
+    wiki: "http://www.serebii.net/attackdex-xy/spotlight.shtml"
+};
+
+var stoked_sparksurfer = {
+    name: "Stoked Sparksurfer",
+    type: "Electric",
+    cat: "Special",
+    power: 175,
+    pp: 1,
+    acc: -1,
+    effect: "Raichu-exclusive Electric type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/stokedsparksurfer.shtml"
+};
+
+var stomping_tantrum = {
+    name: "Stomping Tantrum",
+    type: "Ground",
+    cat: "Physical",
+    power: 75,
+    pp: 10,
+    acc: 100,
+    effect: "Driven by frustration, the user attacks the target. If the user’s previous move has failed, the power of this move doubles.",
+    wiki: "http://www.serebii.net/attackdex-xy/stompingtantrum.shtml"
+};
+
+var strength_sap = {
+    name: "Strength Sap",
+    type: "Grass",
+    cat: "Status",
+    power: -1,
+    pp: 10,
+    acc: 100,
+    effect: "The user restores its HP by the same amount as the target’s Attack stat. It also lowers the target’s Attack stat.",
+    wiki: "http://www.serebii.net/attackdex-xy/strengthsap.shtml"
+};
+
+var subzero_slammer = {
+    name: "Subzero Slammer",
+    type: "Ice",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Ice type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/subzeroslammer.shtml"
+};
+
+var sunsteel_strike = {
+    name: "Sunsteel Strike",
+    type: "Steel",
+    cat: "Physical",
+    power: 100,
+    pp: 5,
+    acc: 100,
+    effect: "Ignores the target's ability.",
+    wiki: "http://www.serebii.net/attackdex-xy/sunsteelstrike.shtml"
+};
+
+var supersonic_skystrike = {
+    name: "Supersonic Skystrike",
+    type: "Flying",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Flying type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/supersonicskystrike.shtml"
+};
+
+var tearful_look = {
+    name: "Tearful Look",
+    type: "Normal",
+    cat: "Status",
+    power: -1,
+    pp: 20,
+    acc: -1,
+    effect: "The user gets teary eyed to make the target lose its combative spirit. This lowers the target’s Attack and Sp. Atk stats.",
+    wiki: "http://www.serebii.net/attackdex-xy/tearfullook.shtml"
+};
+
+var tectonic_rage = {
+    name: "Tectonic Rage",
+    type: "Ground",
+    cat: "N/A",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Ground type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/tectonicrage.shtml"
+};
+
+var throat_chop = {
+    name: "Throat Chop",
+    type: "Dark",
+    cat: "Physical",
+    power: 80,
+    pp: 15,
+    acc: 100,
+    effect: "Prevents use of sound moves for two turns.",
+    wiki: "http://www.serebii.net/attackdex-xy/throatchop.shtml"
+};
+
+var toxic_thread = {
+    name: "Toxic Thread",
+    type: "Poison",
+    cat: "N/A",
+    power: -1,
+    pp: 20,
+    acc: 100,
+    effect: "The user shoots poisonous threads to poison the target and lower the target’s Speed stat.",
+    wiki: "http://www.serebii.net/attackdex-xy/toxicthread.shtml"
+};
+
+var trop_kick = {
+    name: "Trop Kick",
+    type: "Grass",
+    cat: "Physical",
+    power: 70,
+    pp: 15,
+    acc: 100,
+    effect: "Lowers opponent's Attack.",
+    wiki: "http://www.serebii.net/attackdex-xy/tropkick.shtml"
+};
+
+var twinkle_tackle = {
+    name: "Twinkle Tackle",
+    type: "Fairy",
+    cat: "Status",
+    power: -1,
+    pp: 1,
+    acc: -1,
+    effect: "Fairy type Z-Move.",
+    wiki: "http://www.serebii.net/attackdex-xy/twinkletackle.shtml"
+};
+
+var zing_zap = {
+    name: "Zing Zap",
+    type: "Electric",
+    cat: "Physical",
+    power: 80,
+    pp: 10,
+    acc: 100,
+    effect: "A strong electric blast crashes down on the target, giving it an electric shock. This may also make the target flinch.",
+    wiki: "http://www.serebii.net/attackdex-xy/zingzap.shtml"
+};
+
+
 var ability_capsule = {
     name: "Ability Capsule",
     desc: "A capsule that allows a Pokémon with two Abilities to switch between these Abilities when it is used.",
@@ -17765,7 +18656,612 @@ var zoom_lens = {
     wiki: "http://www.serebii.net/itemdex/zoomlens.shtml"
 };
 
+Check
+var normalium_z = {
+    name: "Normalium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Normal-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/normaliumz.shtml"
+};
 
+var firium_z = {
+    name: "Firium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Fire-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/firiumz.shtml"
+};
+
+var waterium_z = {
+    name: "Waterium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Water-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/wateriumz.shtml"
+};
+
+var electrium_z = {
+    name: "Electrium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Electric-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/electriumz.shtml"
+};
+
+var grassium_z = {
+    name: "Grassium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Grass-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/grassiumz.shtml"
+};
+
+var icium_z = {
+    name: "Icium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Ice-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/iciumz.shtml"
+};
+
+var fightinium_z = {
+    name: "Fightinium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Fighting-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/fightiniumz.shtml"
+};
+
+var poisonium_z = {
+    name: "Poisonium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Poison-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/poisoniumz.shtml"
+};
+
+var groundium_z = {
+    name: "Groundium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Ground-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/groundiumz.shtml"
+};
+
+var flyinium_z = {
+    name: "Flyinium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Flying-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/flyiniumz.shtml"
+};
+
+var psychium_z = {
+    name: "Psychium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Psychic-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/psychiumz.shtml"
+};
+
+var buginium_z = {
+    name: "Buginium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Bug-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/buginiumz.shtml"
+};
+
+var rockium_z = {
+    name: "Rockium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Rock-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/rockiumz.shtml"
+};
+
+var ghostium_z = {
+    name: "Ghostium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Ghost-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/ghostiumz.shtml"
+};
+
+var dragonium_z = {
+    name: "Dragonium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Dragon-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/dragoniumz.shtml"
+};
+
+var darkinium_z = {
+    name: "Darkinium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Dark-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/darkiniumz.shtml"
+};
+
+var steelium_z = {
+    name: "Steelium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Steel-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/steeliumz.shtml"
+};
+
+var fairium_z = {
+    name: "Fairium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Fairy-type moves to Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/fairiumz.shtml"
+};
+
+var pikanium_z = {
+    name: "Pikanium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Pikachu’s Volt Tackle to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/pikaniumz.shtml"
+};
+
+var bottle_cap = {
+    name: "Bottle Cap",
+    desc: "A beautiful bottle cap that gives off a silver gleam. Some people are happy to receive one.",
+    wiki: "http://www.serebii.net/itemdex/bottlecap.shtml"
+};
+
+var gold_bottle_cap = {
+    name: "Gold Bottle Cap",
+    desc: "A beautiful bottle cap that gives off a golden gleam. Some people are happy to receive one.",
+    wiki: "http://www.serebii.net/itemdex/goldbottlecap.shtml"
+};
+
+var z-ring = {
+    name: "Z-ring",
+    desc: "A mysterious ring that enables Pokémon to use Z-Power. It requires both the willpower and the physical power of the Trainer wearing it.",
+    wiki: "http://www.serebii.net/itemdex/z-ring.shtml"
+};
+
+var decidium_z = {
+    name: "Decidium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Decidueye’s Spirit Shackle to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/decidiumz.shtml"
+};
+
+var incinium_z = {
+    name: "Incinium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Incineroar’s Darkest Lariat to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/inciniumz.shtml"
+};
+
+var primarium_z = {
+    name: "Primarium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Primarina’s Sparkling Aria to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/primariumz.shtml"
+};
+
+var tapunium_z = {
+    name: "Tapunium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades the tapu’s Nature’s Madness to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/tapuniumz.shtml"
+};
+
+var marshadium_z = {
+    name: "Marshadium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Marshadow’s Spectral Thief to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/marshadiumz.shtml"
+};
+
+var aloraichium_z = {
+    name: "Aloraichium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Alolan Raichu’s Thunderbolt to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/aloraichiumz.shtml"
+};
+
+var snorlium_z = {
+    name: "Snorlium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Snorlax’s Giga Impact to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/snorliumz.shtml"
+};
+
+var eevium_z = {
+    name: "Eevium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Eevee’s Last Resort to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/eeviumz.shtml"
+};
+
+var mewnium_z = {
+    name: "Mewnium Z",
+    desc: "This is a crystallized form of Z-Power. It upgrades Mew’s Psychic to a Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/mewniumz.shtml"
+};
+
+var normalium_z = {
+    name: "Normalium Z",
+    desc: "It converts Z-Power into crystals that upgrade Normal-type moves to Normal-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/normaliumz.shtml"
+};
+
+var firium_z = {
+    name: "Firium Z",
+    desc: "It converts Z-Power into crystals that upgrade Fire-type moves to Fire-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/firiumz.shtml"
+};
+
+var waterium_z = {
+    name: "Waterium Z",
+    desc: "It converts Z-Power into crystals that upgrade Water-type moves to Water-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/wateriumz.shtml"
+};
+
+var electrium_z = {
+    name: "Electrium Z",
+    desc: "It converts Z-Power into crystals that upgrade Electric-type moves to Electric-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/electriumz.shtml"
+};
+
+var grassium_z = {
+    name: "Grassium Z",
+    desc: "It converts Z-Power into crystals that upgrade Grass-type moves to Grass-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/grassiumz.shtml"
+};
+
+var icium_z = {
+    name: "Icium Z",
+    desc: "It converts Z-Power into crystals that upgrade Ice-type moves to Ice-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/iciumz.shtml"
+};
+
+var fightinium_z = {
+    name: "Fightinium Z",
+    desc: "It converts Z-Power into crystals that upgrade Fighting-type moves to Fighting-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/fightiniumz.shtml"
+};
+
+var poisonium_z = {
+    name: "Poisonium Z",
+    desc: "It converts Z-Power into crystals that upgrade Poison-type moves to Poison-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/poisoniumz.shtml"
+};
+
+var groundium_z = {
+    name: "Groundium Z",
+    desc: "It converts Z-Power into crystals that upgrade Ground-type moves to Ground-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/groundiumz.shtml"
+};
+
+var flyinium_z = {
+    name: "Flyinium Z",
+    desc: "It converts Z-Power into crystals that upgrade Flying-type moves to Flying-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/flyiniumz.shtml"
+};
+
+var psychium_z = {
+    name: "Psychium Z",
+    desc: "It converts Z-Power into crystals that upgrade Psychic-type moves to Psychic-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/psychiumz.shtml"
+};
+
+var buginium_z = {
+    name: "Buginium Z",
+    desc: "It converts Z-Power into crystals that upgrade Bug-type moves to Bug-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/buginiumz.shtml"
+};
+
+var rockium_z = {
+    name: "Rockium Z",
+    desc: "It converts Z-Power into crystals that upgrade Rock-type moves to Rock-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/rockiumz.shtml"
+};
+
+var ghostium_z = {
+    name: "Ghostium Z",
+    desc: "It converts Z-Power into crystals that upgrade Ghost-type moves to Ghost-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/ghostiumz.shtml"
+};
+
+var dragonium_z = {
+    name: "Dragonium Z",
+    desc: "It converts Z-Power into crystals that upgrade Dragon-type moves to Dragon-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/dragoniumz.shtml"
+};
+
+var darkinium_z = {
+    name: "Darkinium Z",
+    desc: "It converts Z-Power into crystals that upgrade Dark-type moves to Dark-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/darkiniumz.shtml"
+};
+
+var steelium_z = {
+    name: "Steelium Z",
+    desc: "It converts Z-Power into crystals that upgrade Steel-type moves to Steel-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/steeliumz.shtml"
+};
+
+var fairium_z = {
+    name: "Fairium Z",
+    desc: "It converts Z-Power into crystals that upgrade Fairy-type moves to Fairy-type Z-Moves.",
+    wiki: "http://www.serebii.net/itemdex/fairiumz.shtml"
+};
+
+var pikanium_z = {
+    name: "Pikanium Z",
+    desc: "It converts Z-Power into crystals that upgrade Pikachu’s Volt Tackle to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/pikaniumz.shtml"
+};
+
+var decidium_z = {
+    name: "Decidium Z",
+    desc: "It converts Z-Power into crystals that upgrade Decidueye’s Spirit Shackle to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/decidiumz.shtml"
+};
+
+var incinium_z = {
+    name: "Incinium Z",
+    desc: "It converts Z-Power into crystals that upgrade Incineroar’s Darkest Lariat to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/inciniumz.shtml"
+};
+
+var primarium_z = {
+    name: "Primarium Z",
+    desc: "It converts Z-Power into crystals that upgrade Primarina’s Sparkling Aria to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/primariumz.shtml"
+};
+
+var tapunium_z = {
+    name: "Tapunium Z",
+    desc: "It converts Z-Power into crystals that upgrade the tapu’s Nature’s Madness to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/tapuniumz.shtml"
+};
+
+var marshadium_z = {
+    name: "Marshadium Z",
+    desc: "It converts Z-Power into crystals that upgrade Marshadow’s Spectral Thief to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/marshadiumz.shtml"
+};
+
+var aloraichium_z = {
+    name: "Aloraichium Z",
+    desc: "It converts Z-Power into crystals that upgrade Alolan Raichu’s Thunderbolt to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/aloraichiumz.shtml"
+};
+
+var snorlium_z = {
+    name: "Snorlium Z",
+    desc: "It converts Z-Power into crystals that upgrade Snorlax’s Giga Impact to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/snorliumz.shtml"
+};
+
+var eevium_z = {
+    name: "Eevium Z",
+    desc: "It converts Z-Power into crystals that upgrade Eevee’s Last Resort to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/eeviumz.shtml"
+};
+
+var mewnium_z = {
+    name: "Mewnium Z",
+    desc: "It converts Z-Power into crystals that upgrade Mew’s Psychic to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/mewniumz.shtml"
+};
+
+var pikashunium_z = {
+    name: "Pikashunium Z",
+    desc: "It converts Z-Power into crystals that upgrade a Thunderbolt by Pikachu in a cap to an exclusive Z-Move.",
+    wiki: "http://www.serebii.net/itemdex/pikashuniumz.shtml"
+};
+
+var forage_bag = {
+    name: "Forage Bag",
+    desc: "A bag to carry ingredients gathered during Mallow’s trial in the jungle.",
+    wiki: "http://www.serebii.net/itemdex/foragebag.shtml"
+};
+
+var fishing_rod = {
+    name: "Fishing Rod",
+    desc: "A Fishing Rod made by Captain Lana. Cast a line over piles of underwater rocks to fish for wild aquatic Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/fishingrod.shtml"
+};
+
+var professor’s_mask = {
+    name: "Professor’s Mask",
+    desc: "The mask that belongs to The Masked Royal. This pro wrestler apparently sews his mask on a machine himself.",
+    wiki: "http://www.serebii.net/itemdex/professor’smask.shtml"
+};
+
+var festival_ticket = {
+    name: "Festival Ticket",
+    desc: "A ticket that allows you to host a mission in Festival Plaza.",
+    wiki: "http://www.serebii.net/itemdex/festivalticket.shtml"
+};
+
+var sparkling_stone = {
+    name: "Sparkling Stone",
+    desc: "A stone entrusted by a Pokémon that has been venerated as a guardian deity in the Alola region. There is said to be some secret in how it sparkles.",
+    wiki: "http://www.serebii.net/itemdex/sparklingstone.shtml"
+};
+
+var adrenaline_orb = {
+    name: "Adrenaline Orb",
+    desc: "Using it makes wild Pokémon more likely to call for help. If held by a Pokémon, it boosts Speed when intimidated. It can be used only once.",
+    wiki: "http://www.serebii.net/itemdex/adrenalineorb.shtml"
+};
+
+var zygarde_cube = {
+    name: "Zygarde Cube",
+    desc: "An item to store Zygarde Cores and Cells. You can also use it to teach Zygarde moves.",
+    wiki: "http://www.serebii.net/itemdex/zygardecube.shtml"
+};
+
+var ice_stone = {
+    name: "Ice Stone",
+    desc: "A peculiar stone that can make certain species of Pokémon evolve. It has an unmistakable snowflake pattern.",
+    wiki: "http://www.serebii.net/itemdex/icestone.shtml"
+};
+
+var ride_pager = {
+    name: "Ride Pager",
+    desc: "By entering certain numbers on this pager, you can summon Ride Pokémon in an instant.",
+    wiki: "http://www.serebii.net/itemdex/ridepager.shtml"
+};
+
+var beast_ball = {
+    name: "Beast Ball",
+    desc: "A special Poké Ball designed to catch Ultra Beasts. It has a low success rate for catching others.",
+    wiki: "http://www.serebii.net/itemdex/beastball.shtml"
+};
+
+var big_malasada = {
+    name: "Big Malasada",
+    desc: "The Alola region’s local specialty—fried bread. It can be used once to heal all the status conditions of a Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/bigmalasada.shtml"
+};
+
+var red_nectar = {
+    name: "Red Nectar",
+    desc: "A flower nectar obtained at Ula’ula Meadow. It changes the form of certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/rednectar.shtml"
+};
+
+var yellow_nectar = {
+    name: "Yellow Nectar",
+    desc: "A flower nectar obtained at Melemele Meadow. It changes the form of certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/yellownectar.shtml"
+};
+
+var pink_nectar = {
+    name: "Pink Nectar",
+    desc: "The flower nectar obtained at the flowering shrubs on Royal Avenue. It changes the form of certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/pinknectar.shtml"
+};
+
+var purple_nectar = {
+    name: "Purple Nectar",
+    desc: "A flower nectar obtained at Poni Meadow. It changes the form of certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/purplenectar.shtml"
+};
+
+var sun_flute = {
+    name: "Sun Flute",
+    desc: "It is said that the tones it produces were offered up as an expression of gratitude to the Legendary Pokémon of the sun.",
+    wiki: "http://www.serebii.net/itemdex/sunflute.shtml"
+};
+
+var moon_flute = {
+    name: "Moon Flute",
+    desc: "It is said that the tones it produces were offered up as an expression of gratitude to the Legendary Pokémon of the moon.",
+    wiki: "http://www.serebii.net/itemdex/moonflute.shtml"
+};
+
+var enigmatic_card = {
+    name: "Enigmatic Card",
+    desc: "A mysterious card. Written on it is a request for you to go to a guest room in an Akala motel on Route 8.",
+    wiki: "http://www.serebii.net/itemdex/enigmaticcard.shtml"
+};
+
+var terrain_extender = {
+    name: "Terrain Extender",
+    desc: "An item to be held by a Pokémon. It extends the duration of the terrain caused by the holder’s move or Ability.",
+    wiki: "http://www.serebii.net/itemdex/terrainextender.shtml"
+};
+
+var protective_pads = {
+    name: "Protective Pads",
+    desc: "An item to be held by a Pokémon. These pads protect the holder from effects caused by making direct contact with the target.",
+    wiki: "http://www.serebii.net/itemdex/protectivepads.shtml"
+};
+
+var electric_seed = {
+    name: "Electric Seed",
+    desc: "An item to be held by a Pokémon. It boosts Defense on Electric Terrain. It can only be used once.",
+    wiki: "http://www.serebii.net/itemdex/electricseed.shtml"
+};
+
+var psychic_seed = {
+    name: "Psychic Seed",
+    desc: "An item to be held by a Pokémon. It boosts Sp. Def on Psychic Terrain. It can only be used once.",
+    wiki: "http://www.serebii.net/itemdex/psychicseed.shtml"
+};
+
+var misty_seed = {
+    name: "Misty Seed",
+    desc: "An item to be held by a Pokémon. It boosts Sp. Def on Misty Terrain. It can only be used once.",
+    wiki: "http://www.serebii.net/itemdex/mistyseed.shtml"
+};
+
+var grassy_seed = {
+    name: "Grassy Seed",
+    desc: "An item to be held by a Pokémon. It boosts Defense on Grassy Terrain. It can only be used once.",
+    wiki: "http://www.serebii.net/itemdex/grassyseed.shtml"
+};
+
+var fighting_memory = {
+    name: "Fighting Memory",
+    desc: "A memory disc that contains Fighting-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/fightingmemory.shtml"
+};
+
+var flying_memory = {
+    name: "Flying Memory",
+    desc: "A memory disc that contains Flying-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/flyingmemory.shtml"
+};
+
+var poison_memory = {
+    name: "Poison Memory",
+    desc: "A memory disc that contains Poison-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/poisonmemory.shtml"
+};
+
+var ground_memory = {
+    name: "Ground Memory",
+    desc: "A memory disc that contains Ground-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/groundmemory.shtml"
+};
+
+var rock_memory = {
+    name: "Rock Memory",
+    desc: "A memory disc that contains Rock-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/rockmemory.shtml"
+};
+
+var bug_memory = {
+    name: "Bug Memory",
+    desc: "A memory disc that contains Bug-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/bugmemory.shtml"
+};
+
+var ghost_memory = {
+    name: "Ghost Memory",
+    desc: "A memory disc that contains Ghost-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/ghostmemory.shtml"
+};
+
+var steel_memory = {
+    name: "Steel Memory",
+    desc: "A memory disc that contains Steel-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/steelmemory.shtml"
+};
+
+var fire_memory = {
+    name: "Fire Memory",
+    desc: "A memory disc that contains Fire-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/firememory.shtml"
+};
+
+var water_memory = {
+    name: "Water Memory",
+    desc: "A memory disc that contains Water-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/watermemory.shtml"
+};
+
+var grass_memory = {
+    name: "Grass Memory",
+    desc: "A memory disc that contains Grass-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/grassmemory.shtml"
+};
+
+var electric_memory = {
+    name: "Electric Memory",
+    desc: "A memory disc that contains Electric-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/electricmemory.shtml"
+};
+
+var psychic_memory = {
+    name: "Psychic Memory",
+    desc: "A memory disc that contains Psychic-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/psychicmemory.shtml"
+};
+
+var ice_memory = {
+    name: "Ice Memory",
+    desc: "A memory disc that contains Ice-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/icememory.shtml"
+};
+
+var dragon_memory = {
+    name: "Dragon Memory",
+    desc: "A memory disc that contains Dragon-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/dragonmemory.shtml"
+};
+
+var dark_memory = {
+    name: "Dark Memory",
+    desc: "A memory disc that contains Dark-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/darkmemory.shtml"
+};
+
+var fairy_memory = {
+    name: "Fairy Memory",
+    desc: "A memory disc that contains Fairy-type data. It changes the type of the holder if held by a certain species of Pokémon.",
+    wiki: "http://www.serebii.net/itemdex/fairymemory.shtml"
+};
 
 var adaptability = {
     name: "Adaptability",
