@@ -407,7 +407,7 @@ var sandslash = {
     image: "http://www.serebii.net/xy/pokemon/028.png"
 };
 
-var nidoran♀ = {
+var nidoranf = {
     name: "Nidoran♀",
     dex: 29,
     type: "Poison",
@@ -434,7 +434,7 @@ var nidoqueen = {
     image: "http://www.serebii.net/xy/pokemon/031.png"
 };
 
-var nidoran♂ = {
+var nidoranm = {
     name: "Nidoran♂",
     dex: 32,
     type: "Poison",
@@ -893,7 +893,7 @@ var magneton = {
     image: "http://www.serebii.net/xy/pokemon/082.png"
 };
 
-var farfetch'd = {
+var farfetchd = {
     name: "Farfetch'd",
     dex: 83,
     type: "Normal/Flying",
@@ -1244,8 +1244,8 @@ var starmie = {
     image: "http://www.serebii.net/xy/pokemon/121.png"
 };
 
-var mr. mime = {
-    name: "Mr. mime",
+var mr_mime = {
+    name: "Mr. Mime",
     dex: 122,
     type: "Psychic/Fairy",
     ability: "Soundproof/Filter/Technician",
@@ -2396,7 +2396,7 @@ var lugia = {
     image: "http://www.serebii.net/xy/pokemon/249.png"
 };
 
-var ho-oh = {
+var ho_oh = {
     name: "Ho-oh",
     dex: 250,
     type: "Fire/Flying",
@@ -4097,8 +4097,8 @@ var bonsly = {
     image: "http://www.serebii.net/xy/pokemon/438.png"
 };
 
-var mime jr. = {
-    name: "Mime jr.",
+var mime_jr = {
+    name: "Mime Jr.",
     dex: 439,
     type: "Psychic/Fairy",
     ability: "Soundproof/Filter/Technician",
@@ -4412,8 +4412,8 @@ var mamoswine = {
     image: "http://www.serebii.net/xy/pokemon/473.png"
 };
 
-var porygon-z = {
-    name: "Porygon-z",
+var porygon_z = {
+    name: "Porygon-Z",
     dex: 474,
     type: "Normal",
     ability: "Adaptability/Download/Analytic",
@@ -16935,7 +16935,7 @@ var aroma_veil = {
 
 var aura_break = {
     name: "Aura Break",
-    desc: "The effects of "Aura" Abilities are reversed.",
+    desc: "The effects of \"Aura\" Abilities are reversed.",
     wiki: "http://www.serebii.net/abilitydex/aurabreak.shtml"
 };
 
