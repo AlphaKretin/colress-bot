@@ -1,13 +1,13 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
     autorun: true,
-    token: "node dot jay ess"
+    token: "alola"
 });
 
-var mons = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoranf", "nidorina", "nidoqueen", "nidoranm", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "meowth", "persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "cubone", "marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew", "chikorita", "bayleef", "meganium", "cyndaquil", "quilava", "typhlosion", "totodile", "croconaw", "feraligatr", "sentret", "furret", "hoothoot", "noctowl", "ledyba", "ledian", "spinarak", "ariados", "crobat", "chinchou", "lanturn", "pichu", "cleffa", "igglybuff", "togepi", "togetic", "natu", "xatu", "mareep", "flaaffy", "ampharos", "bellossom", "marill", "azumarill", "sudowoodo", "politoed", "hoppip", "skiploom", "jumpluff", "aipom", "sunkern", "sunflora", "yanma", "wooper", "quagsire", "espeon", "umbreon", "murkrow", "slowking", "misdreavus", "unown", "wobbuffet", "girafarig", "pineco", "forretress", "dunsparce", "gligar", "steelix", "snubbull", "granbull", "qwilfish", "scizor", "shuckle", "heracross", "sneasel", "teddiursa", "ursaring", "slugma", "magcargo", "swinub", "piloswine", "corsola", "remoraid", "octillery", "delibird", "mantine", "skarmory", "houndour", "houndoom", "kingdra", "phanpy", "donphan", "porygon2", "stantler", "smeargle", "tyrogue", "hitmontop", "smoochum", "elekid", "magby", "miltank", "blissey", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "lugia", "ho_oh", "celebi", "treecko", "grovyle", "sceptile", "torchic", "combusken", "blaziken", "mudkip", "marshtomp", "swampert", "poochyena", "mightyena", "zigzagoon", "linoone", "wurmple", "silcoon", "beautifly", "cascoon", "dustox", "lotad", "lombre", "ludicolo", "seedot", "nuzleaf", "shiftry", "taillow", "swellow", "wingull", "pelipper", "ralts", "kirlia", "gardevoir", "surskit", "masquerain", "shroomish", "breloom", "slakoth", "vigoroth", "slaking", "nincada", "ninjask", "shedinja", "whismur", "loudred", "exploud", "makuhita", "hariyama", "azurill", "nosepass", "skitty", "delcatty", "sableye", "mawile", "aron", "lairon", "aggron", "meditite", "medicham", "electrike", "manectric", "plusle", "minun", "volbeat", "illumise", "roselia", "gulpin", "swalot", "carvanha", "sharpedo", "wailmer", "wailord", "numel", "camerupt", "torkoal", "spoink", "grumpig", "spinda", "trapinch", "vibrava", "flygon", "cacnea", "cacturne", "swablu", "altaria", "zangoose", "seviper", "lunatone", "solrock", "barboach", "whiscash", "corphish", "crawdaunt", "baltoy", "claydol", "lileep", "cradily", "anorith", "armaldo", "feebas", "milotic", "castform", "castform sunny", "castform rainy", "castform snowy", "kecleon", "shuppet", "banette", "duskull", "dusclops", "tropius", "chimecho", "absol", "wynaut", "snorunt", "glalie", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "bagon", "shelgon", "salamence", "beldum", "metang", "metagross", "regirock", "regice", "registeel", "latias", "latios", "kyogre", "groudon", "rayquaza", "jirachi", "deoxys", "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon", "starly", "staravia", "staraptor", "bidoof", "bibarel", "kricketot", "kricketune", "shinx", "luxio", "luxray", "budew", "roserade", "cranidos", "rampardos", "shieldon", "bastiodon", "burmy", "wormadam", "wormadam sandy", "wormadam trash", "mothim", "combee", "vespiquen", "pachirisu", "buizel", "floatzel", "cherubi", "cherrim", "shellos", "gastrodon", "ambipom", "drifloon", "drifblim", "buneary", "lopunny", "mismagius", "honchkrow", "glameow", "purugly", "chingling", "stunky", "skuntank", "bronzor", "bronzong", "bonsly", "mime jr", "happiny", "chatot", "spiritomb", "gible", "gabite", "garchomp", "munchlax", "riolu", "lucario", "hippopotas", "hippowdon", "skorupi", "drapion", "croagunk", "toxicroak", "carnivine", "finneon", "lumineon", "mantyke", "snover", "abomasnow", "weavile", "magnezone", "lickilicky", "rhyperior", "tangrowth", "electivire", "magmortar", "togekiss", "yanmega", "leafeon", "glaceon", "gliscor", "mamoswine", "porygon_z", "gallade", "probopass", "dusknoir", "froslass", "rotom", "rotom heat", "rotom wash", "rotom mow", "rotom fan", "rotom frost", "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran", "regigigas", "giratina", "giratina origin", "cresselia", "phione", "manaphy", "darkrai", "shaymin", "shaymin sky", "arceus", "victini", "snivy", "servine", "serperior", "tepig", "pignite", "emboar", "oshawott", "dewott", "samurott", "patrat", "watchog", "lillipup", "herdier", "stoutland", "purrloin", "liepard", "pansage", "simisage", "pansear", "simisear", "panpour", "simipour", "munna", "musharna", "pidove", "tranquill", "unfezant", "blitzle", "zebstrika", "roggenrola", "boldore", "gigalith", "woobat", "swoobat", "drilbur", "excadrill", "audino", "timburr", "gurdurr", "conkeldurr", "tympole", "palpitoad", "seismitoad", "throh", "sawk", "sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "cottonee", "whimsicott", "petilil", "lilligant", "basculin", "basculin blue", "sandile", "krokorok", "krookodile", "darumaka", "darmanitan", "darmanitan zen", "maractus", "dwebble", "crustle", "scraggy", "scrafty", "sigilyph", "yamask", "cofagrigus", "tirtouga", "carracosta", "archen", "archeops", "trubbish", "garbodor", "zorua", "zoroark", "minccino", "cinccino", "gothita", "gothorita", "gothitelle", "solosis", "duosion", "reuniclus", "ducklett", "swanna", "vanillite", "vanillish", "vanilluxe", "deerling", "sawsbuck", "emolga", "karrablast", "escavalier", "foongus", "amoonguss", "frillish", "jellicent", "alomomola", "joltik", "galvantula", "ferroseed", "ferrothorn", "klink", "klang", "klinklang", "tynamo", "eelektrik", "eelektross", "elgyem", "beheeyem", "litwick", "lampent", "chandelure", "axew", "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo", "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary", "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona", "cobalion", "terrakion", "virizion", "tornadus", "tornadus therian", "thundurus", "thundurus therian", "reshiram", "zekrom", "landorus", "landorus therian", "kyurem", "white kyurem", "black kyurem", "keldeo", "meloetta", "meloetta pirouette", "genesect", "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja", "bunnelby", "diggersby", "fletchling", "fletchinder", "talonflame", "scatterbug", "spewpa", "vivillon", "litleo", "pyroar", "flabebe", "floette", "florges", "skiddo", "gogoat", "pancham", "pangoro", "furfrou", "espurr", "meowstic", "honedge", "doublade", "aegislash", "spritzee", "aromatisse", "swirlix", "slurpuff", "inkay", "malamar", "binacle", "barbaracle", "skrelp", "dragalge", "clauncher", "clawitzer", "helioptile", "heliolisk", "tyrunt", "tyrantrum", "amaura", "aurorus", "sylveon", "hawlucha", "dedenne", "carbink", "goomy", "sliggoo", "goodra", "klefki", "phantump", "trevenant", "pumpkaboo", "gourgeist", "bergmite", "avalugg", "noibat", "noivern", "xerneas", "yveltal", "zygarde", "diancie", "hoopa", "hoopa unbound", "volcanion", "mega venusaur", "mega charizard x", "mega charizard y", "mega blastoise", "mega alakazam", "mega gengar", "mega kangaskhan", "mega pinsir", "mega gyarados", "mega aerodactyl", "mega mewtwo x", "mega mewtwo y", "mega ampharos", "mega scizor", "mega heracross", "mega houndoom", "mega tyranitar", "mega blaziken", "mega gardevoir", "mega mawile", "mega aggron", "mega medicham", "mega manectric", "mega banette", "mega absol", "mega garchomp", "mega lucario", "mega abomasnow", "mega beedrill", "mega pidgeot", "mega slowbro", "mega steelix", "mega sceptile", "mega swampert", "mega sableye", "mega sharpedo", "mega camerupt", "mega altaria", "mega glalie", "mega salamence", "mega metagross", "mega latias", "mega latios", "mega rayquaza", "mega lopunny", "mega gallade", "mega audino", "mega diancie"];
+var mons = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "alolan rattata", "alolan raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "alolan raichu", "sandshrew", "sandslash", "alolan sandshrew", "alolan sandslash", "nidoranf", "nidorina", "nidoqueen", "nidoranm", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "alolan vulpix", "alolan ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "alolan diglett", "alolan dugtrio", "meowth", "persian", "alolan meowth", "alolan persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "alolan geodude", "alolan graveler", "alolan golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "alolan grimer", "alolan muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "alolan exeggutor", "cubone", "marowak", "alolan marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew", "chikorita", "bayleef", "meganium", "cyndaquil", "quilava", "typhlosion", "totodile", "croconaw", "feraligatr", "sentret", "furret", "hoothoot", "noctowl", "ledyba", "ledian", "spinarak", "ariados", "crobat", "chinchou", "lanturn", "pichu", "cleffa", "igglybuff", "togepi", "togetic", "natu", "xatu", "mareep", "flaaffy", "ampharos", "bellossom", "marill", "azumarill", "sudowoodo", "politoed", "hoppip", "skiploom", "jumpluff", "aipom", "sunkern", "sunflora", "yanma", "wooper", "quagsire", "espeon", "umbreon", "murkrow", "slowking", "misdreavus", "unown", "wobbuffet", "girafarig", "pineco", "forretress", "dunsparce", "gligar", "steelix", "snubbull", "granbull", "qwilfish", "scizor", "shuckle", "heracross", "sneasel", "teddiursa", "ursaring", "slugma", "magcargo", "swinub", "piloswine", "corsola", "remoraid", "octillery", "delibird", "mantine", "skarmory", "houndour", "houndoom", "kingdra", "phanpy", "donphan", "porygon2", "stantler", "smeargle", "tyrogue", "hitmontop", "smoochum", "elekid", "magby", "miltank", "blissey", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "lugia", "ho_oh", "celebi", "treecko", "grovyle", "sceptile", "torchic", "combusken", "blaziken", "mudkip", "marshtomp", "swampert", "poochyena", "mightyena", "zigzagoon", "linoone", "wurmple", "silcoon", "beautifly", "cascoon", "dustox", "lotad", "lombre", "ludicolo", "seedot", "nuzleaf", "shiftry", "taillow", "swellow", "wingull", "pelipper", "ralts", "kirlia", "gardevoir", "surskit", "masquerain", "shroomish", "breloom", "slakoth", "vigoroth", "slaking", "nincada", "ninjask", "shedinja", "whismur", "loudred", "exploud", "makuhita", "hariyama", "azurill", "nosepass", "skitty", "delcatty", "sableye", "mawile", "aron", "lairon", "aggron", "meditite", "medicham", "electrike", "manectric", "plusle", "minun", "volbeat", "illumise", "roselia", "gulpin", "swalot", "carvanha", "sharpedo", "wailmer", "wailord", "numel", "camerupt", "torkoal", "spoink", "grumpig", "spinda", "trapinch", "vibrava", "flygon", "cacnea", "cacturne", "swablu", "altaria", "zangoose", "seviper", "lunatone", "solrock", "barboach", "whiscash", "corphish", "crawdaunt", "baltoy", "claydol", "lileep", "cradily", "anorith", "armaldo", "feebas", "milotic", "castform", "castform sunny", "castform rainy", "castform snowy", "kecleon", "shuppet", "banette", "duskull", "dusclops", "tropius", "chimecho", "absol", "wynaut", "snorunt", "glalie", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "bagon", "shelgon", "salamence", "beldum", "metang", "metagross", "regirock", "regice", "registeel", "latias", "latios", "kyogre", "groudon", "rayquaza", "jirachi", "deoxys", "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon", "starly", "staravia", "staraptor", "bidoof", "bibarel", "kricketot", "kricketune", "shinx", "luxio", "luxray", "budew", "roserade", "cranidos", "rampardos", "shieldon", "bastiodon", "burmy", "wormadam", "wormadam sandy", "wormadam trash", "mothim", "combee", "vespiquen", "pachirisu", "buizel", "floatzel", "cherubi", "cherrim", "shellos", "gastrodon", "ambipom", "drifloon", "drifblim", "buneary", "lopunny", "mismagius", "honchkrow", "glameow", "purugly", "chingling", "stunky", "skuntank", "bronzor", "bronzong", "bonsly", "mime jr", "happiny", "chatot", "spiritomb", "gible", "gabite", "garchomp", "munchlax", "riolu", "lucario", "hippopotas", "hippowdon", "skorupi", "drapion", "croagunk", "toxicroak", "carnivine", "finneon", "lumineon", "mantyke", "snover", "abomasnow", "weavile", "magnezone", "lickilicky", "rhyperior", "tangrowth", "electivire", "magmortar", "togekiss", "yanmega", "leafeon", "glaceon", "gliscor", "mamoswine", "porygon_z", "gallade", "probopass", "dusknoir", "froslass", "rotom", "rotom heat", "rotom wash", "rotom mow", "rotom fan", "rotom frost", "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran", "regigigas", "giratina", "giratina origin", "cresselia", "phione", "manaphy", "darkrai", "shaymin", "shaymin sky", "arceus", "victini", "snivy", "servine", "serperior", "tepig", "pignite", "emboar", "oshawott", "dewott", "samurott", "patrat", "watchog", "lillipup", "herdier", "stoutland", "purrloin", "liepard", "pansage", "simisage", "pansear", "simisear", "panpour", "simipour", "munna", "musharna", "pidove", "tranquill", "unfezant", "blitzle", "zebstrika", "roggenrola", "boldore", "gigalith", "woobat", "swoobat", "drilbur", "excadrill", "audino", "timburr", "gurdurr", "conkeldurr", "tympole", "palpitoad", "seismitoad", "throh", "sawk", "sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "cottonee", "whimsicott", "petilil", "lilligant", "basculin", "basculin blue", "sandile", "krokorok", "krookodile", "darumaka", "darmanitan", "darmanitan zen", "maractus", "dwebble", "crustle", "scraggy", "scrafty", "sigilyph", "yamask", "cofagrigus", "tirtouga", "carracosta", "archen", "archeops", "trubbish", "garbodor", "zorua", "zoroark", "minccino", "cinccino", "gothita", "gothorita", "gothitelle", "solosis", "duosion", "reuniclus", "ducklett", "swanna", "vanillite", "vanillish", "vanilluxe", "deerling", "sawsbuck", "emolga", "karrablast", "escavalier", "foongus", "amoonguss", "frillish", "jellicent", "alomomola", "joltik", "galvantula", "ferroseed", "ferrothorn", "klink", "klang", "klinklang", "tynamo", "eelektrik", "eelektross", "elgyem", "beheeyem", "litwick", "lampent", "chandelure", "axew", "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo", "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary", "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona", "cobalion", "terrakion", "virizion", "tornadus", "tornadus therian", "thundurus", "thundurus therian", "reshiram", "zekrom", "landorus", "landorus therian", "kyurem", "white kyurem", "black kyurem", "keldeo", "meloetta", "meloetta pirouette", "genesect", "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja", "bunnelby", "diggersby", "fletchling", "fletchinder", "talonflame", "scatterbug", "spewpa", "vivillon", "litleo", "pyroar", "flabebe", "floette", "florges", "skiddo", "gogoat", "pancham", "pangoro", "furfrou", "espurr", "meowstic", "honedge", "doublade", "aegislash", "spritzee", "aromatisse", "swirlix", "slurpuff", "inkay", "malamar", "binacle", "barbaracle", "skrelp", "dragalge", "clauncher", "clawitzer", "helioptile", "heliolisk", "tyrunt", "tyrantrum", "amaura", "aurorus", "sylveon", "hawlucha", "dedenne", "carbink", "goomy", "sliggoo", "goodra", "klefki", "phantump", "trevenant", "pumpkaboo", "gourgeist", "bergmite", "avalugg", "noibat", "noivern", "xerneas", "yveltal", "zygarde", "diancie", "hoopa", "hoopa unbound", "volcanion", "mega venusaur", "mega charizard x", "mega charizard y", "mega blastoise", "mega alakazam", "mega gengar", "mega kangaskhan", "mega pinsir", "mega gyarados", "mega aerodactyl", "mega mewtwo x", "mega mewtwo y", "mega ampharos", "mega scizor", "mega heracross", "mega houndoom", "mega tyranitar", "mega blaziken", "mega gardevoir", "mega mawile", "mega aggron", "mega medicham", "mega manectric", "mega banette", "mega absol", "mega garchomp", "mega lucario", "mega abomasnow", "mega beedrill", "mega pidgeot", "mega slowbro", "mega steelix", "mega sceptile", "mega swampert", "mega sableye", "mega sharpedo", "mega camerupt", "mega altaria", "mega glalie", "mega salamence", "mega metagross", "mega latias", "mega latios", "mega rayquaza", "mega lopunny", "mega gallade", "mega audino", "mega diancie", "rowlet", "dartrix", "decidueye", "litten", "torracat", "incineroar", "popplio", "brionne", "primarina", "pikipek", "trumbeak", "toucannon", "yungoos", "gumshoos", "grubbin", "charjabug", "vikavolt", "crabrawler", "crabominable", "oricorio", "cutiefly", "ribombee", "rockruff", "lycanroc", "lycanroc midnight", "wishiwashi", "mareanie", "toxapex", "mudbray", "mudsdale", "dewpider", "araquanid", "fomantis", "lurantis", "morelull", "shiinotic", "salandit", "salazzle", "stufful", "bewear", "bounsweet", "steenee", "tsareena", "comfey", "oranguru", "passimian", "wimpod", "golisopod", "sandygast", "palossand", "pyukumuku", "type null", "silvally", "minior", "komala", "turtonator", "togedemaru", "mimikyu", "bruxish", "drampa", "dhelmise", "jangmo_o", "hakamo_o", "kommo_o", "tapu koko", "tapu lele", "tapu bulu", "tapu fini", "cosmog", "cosmoem", "solgaleo", "lunala", "nihilego", "buzzwole", "pheromosa", "xurkitree", "celesteela", "kartana", "guzzlord", "necrozma", "magearna", "marshadow"];
 var moves = ["pound", "karate chop", "double slap", "comet punch", "mega punch", "pay day", "fire punch", "ice punch", "thunder punch", "scratch", "vice grip", "guillotine", "razor wind", "swords dance", "cut", "gust", "wing attack", "whirlwind", "fly", "bind", "slam", "vine whip", "stomp", "double kick", "mega kick", "jump kick", "rolling kick", "sand attack", "headbutt", "horn attack", "fury attack", "horn drill", "tackle", "body slam", "wrap", "take down", "thrash", "double_edge", "tail whip", "poison sting", "twineedle", "pin missile", "leer", "bite", "growl", "roar", "sing", "supersonic", "sonic boom", "disable", "acid", "ember", "flamethrower", "mist", "water gun", "hydro pump", "surf", "ice beam", "blizzard", "psybeam", "bubble beam", "aurora beam", "hyper beam", "peck", "drill peck", "submission", "low kick", "counter", "seismic toss", "strength", "absorb", "mega drain", "leech seed", "growth", "razor leaf", "solar beam", "poison powder", "stun spore", "sleep powder", "petal dance", "string shot", "dragon rage", "fire spin", "thunder shock", "thunderbolt", "thunder wave", "thunder", "rock throw", "earthquake", "fissure", "dig", "toxic", "confusion", "psychic", "hypnosis", "meditate", "agility", "quick attack", "rage", "teleport", "night shade", "mimic", "screech", "double team", "recover", "harden", "minimize", "smokescreen", "confuse ray", "withdraw", "defense curl", "barrier", "light screen", "haze", "reflect", "focus energy", "bide", "metronome", "mirror move", "self_destruct", "egg bomb", "lick", "smog", "sludge", "bone club", "fire blast", "waterfall", "clamp", "swift", "skull bash", "spike cannon", "constrict", "amnesia", "kinesis", "soft_boiled", "high jump kick", "glare", "dream eater", "poison gas", "barrage", "leech life", "lovely kiss", "sky attack", "transform", "bubble", "dizzy punch", "spore", "flash", "psywave", "splash", "acid armor", "crabhammer", "explosion", "fury swipes", "bonemerang", "rest", "rock slide", "hyper fang", "sharpen", "conversion", "tri attack", "super fang", "slash", "substitute", "struggle", "sketch", "triple kick", "thief", "spider web", "mind reader", "nightmare", "flame wheel", "snore", "curse", "flail", "conversion 2", "aeroblast", "cotton spore", "reversal", "spite", "powder snow", "protect", "mach punch", "scary face", "feint attack", "sweet kiss", "belly drum", "sludge bomb", "mud_slap", "octazooka", "spikes", "zap cannon", "foresight", "destiny bond", "perish song", "icy wind", "detect", "bone rush", "lock_on", "outrage", "sandstorm", "giga drain", "endure", "charm", "rollout", "false swipe", "swagger", "milk drink", "spark", "fury cutter", "steel wing", "mean look", "attract", "sleep talk", "heal bell", "_return", "present", "frustration", "safeguard", "pain split", "sacred fire", "magnitude", "dynamic punch", "megahorn", "dragon breath", "baton pass", "encore", "pursuit", "rapid spin", "sweet scent", "iron tail", "metal claw", "vital throw", "morning sun", "synthesis", "moonlight", "hidden power", "cross chop", "twister", "rain dance", "sunny day", "crunch", "mirror coat", "psych up", "extreme speed", "ancient power", "shadow ball", "future sight", "rock smash", "whirlpool", "beat up", "fake out", "uproar", "stockpile", "spit up", "swallow", "heat wave", "hail", "torment", "flatter", "will_o_wisp", "memento", "facade", "focus punch", "smelling salts", "follow me", "nature power", "charge", "taunt", "helping hand", "trick", "role play", "wish", "assist", "ingrain", "superpower", "magic coat", "recycle", "revenge", "brick break", "yawn", "knock off", "endeavor", "eruption", "skill swap", "imprison", "refresh", "grudge", "snatch", "secret power", "dive", "arm thrust", "camouflage", "tail glow", "luster purge", "mist ball", "feather dance", "teeter dance", "blaze kick", "mud sport", "ice ball", "needle arm", "slack off", "hyper voice", "poison fang", "crush claw", "blast burn", "hydro cannon", "meteor mash", "astonish", "weather ball", "aromatherapy", "fake tears", "air cutter", "overheat", "odor sleuth", "rock tomb", "silver wind", "metal sound", "grass whistle", "tickle", "cosmic power", "water spout", "signal beam", "shadow punch", "extrasensory", "sky uppercut", "sand tomb", "sheer cold", "muddy water", "bullet seed", "aerial ace", "icicle spear", "iron defense", "block", "howl", "dragon claw", "frenzy plant", "bulk up", "bounce", "mud shot", "poison tail", "covet", "volt tackle", "magical leaf", "water sport", "calm mind", "leaf blade", "dragon dance", "rock blast", "shock wave", "water pulse", "doom desire", "psycho boost", "roost", "gravity", "miracle eye", "wake_up slap", "hammer arm", "gyro ball", "healing wish", "brine", "natural gift", "feint", "pluck", "tailwind", "acupressure", "metal burst", "u_turn", "close combat", "payback", "assurance", "embargo", "fling", "psycho shift", "trump card", "heal block", "wring out", "power trick", "gastro acid", "lucky chant", "me first", "copycat", "power swap", "guard swap", "punishment", "last resort", "worry seed", "sucker punch", "toxic spikes", "heart swap", "aqua ring", "magnet rise", "flare blitz", "force palm", "aura sphere", "rock polish", "poison jab", "dark pulse", "night slash", "aqua tail", "seed bomb", "air slash", "x_scissor", "bug buzz", "dragon pulse", "dragon rush", "power gem", "drain punch", "vacuum wave", "focus blast", "energy ball", "brave bird", "earth power", "switcheroo", "giga impact", "nasty plot", "bullet punch", "avalanche", "ice shard", "shadow claw", "thunder fang", "ice fang", "fire fang", "shadow sneak", "mud bomb", "psycho cut", "zen headbutt", "mirror shot", "flash cannon", "rock climb", "defog", "trick room", "draco meteor", "discharge", "lava plume", "leaf storm", "power whip", "rock wrecker", "cross poison", "gunk shot", "iron head", "magnet bomb", "stone edge", "captivate", "stealth rock", "grass knot", "chatter", "judgment", "bug bite", "charge beam", "wood hammer", "aqua jet", "attack order", "defend order", "heal order", "head smash", "double hit", "roar of time", "spacial rend", "lunar dance", "crush grip", "magma storm", "dark void", "seed flare", "ominous wind", "shadow force", "hone claws", "wide guard", "guard split", "power split", "wonder room", "psyshock", "venoshock", "autotomize", "rage powder", "telekinesis", "magic room", "smack down", "storm throw", "flame burst", "sludge wave", "quiver dance", "heavy slam", "synchronoise", "electro ball", "soak", "flame charge", "coil", "low sweep", "acid spray", "foul play", "simple beam", "entrainment", "after you", "round", "echoed voice", "chip away", "clear smog", "stored power", "quick guard", "ally switch", "scald", "shell smash", "heal pulse", "hex", "sky drop", "shift gear", "circle throw", "incinerate", "quash", "acrobatics", "reflect type", "retaliate", "final gambit", "bestow", "inferno", "water pledge", "fire pledge", "grass pledge", "volt switch", "struggle bug", "bulldoze", "frost breath", "dragon tail", "work up", "electroweb", "wild charge", "drill run", "dual chop", "heart stamp", "horn leech", "sacred sword", "razor shell", "heat crash", "leaf tornado", "steamroller", "cotton guard", "night daze", "psystrike", "tail slap", "hurricane", "head charge", "gear grind", "searing shot", "techno blast", "relic song", "secret sword", "glaciate", "bolt strike", "blue flare", "fiery dance", "freeze shock", "ice burn", "snarl", "icicle crash", "v_create", "fusion flare", "fusion bolt", "flying press", "mat block", "belch", "rototiller", "sticky web", "fell stinger", "phantom force", "trick_or_treat", "noble roar", "ion deluge", "parabolic charge", "forests curse", "petal blizzard", "freeze_dry", "disarming voice", "parting shot", "topsy_turvy", "draining kiss", "crafty shield", "flower shield", "grassy terrain", "misty terrain", "electrify", "play rough", "fairy wind", "moonblast", "boomburst", "fairy lock", "kings shield", "play nice", "confide", "diamond storm", "steam eruption", "hyperspace hole", "water shuriken", "mystical fire", "spiky shield", "aromatic mist", "eerie impulse", "venom drench", "powder", "geomancy", "magnetic flux", "happy hour", "electric terrain", "dazzling gleam", "celebrate", "hold hands", "baby_doll eyes", "nuzzle", "hold back", "infestation", "power_up punch", "oblivion wing", "thousand arrows", "thousand waves", "lands wrath", "light of ruin", "origin pulse", "precipice blades", "dragon ascent", "hyperspace fury", "ten million volt thunderbolt", "accelerock", "acid downpour", "all_out pummeling", "anchor shot", "aurora veil", "baneful bunker", "beak blast", "black hole eclipse", "bloom doom", "breakneck blitz", "brutal swing", "burn up", "catastropika", "clanging scales", "continental crush", "core enforcer", "corkscrew crash", "darkest lariat", "devastating drake", "dragon hammer", "extreme evoboost", "fire lash", "first impression", "fleur cannon", "floral healing", "gear up", "genesis supernova", "gigavolt havoc", "guardian of alola", "high horsepower", "hydro vortex", "ice hammer", "inferno overdrive", "instruct", "laser focus", "leafage", "liquidation", "lunge", "malicious moonsault", "moongeist beam", "multi_attack", "natures madness", "never_ending nightmare", "oceanic operetta", "pollen puff", "power trip", "prismatic laser", "psychic fangs", "psychic terrain", "pulverizing pancake", "purify", "revelation dance", "savage spin_out", "shadow bone", "shattered psyche", "shell trap", "shore up", "sinister arrow raid", "smart strike", "solar blade", "soul_stealing 7_star strike", "sparkling aria", "spectral thief", "speed swap", "spirit shackle", "spotlight", "stoked sparksurfer", "stomping tantrum", "strength sap", "subzero slammer", "sunsteel strike", "supersonic skystrike", "tearful look", "tectonic rage", "throat chop", "toxic thread", "trop kick", "twinkle tackle", "zing zap"];
 var items = ["ability capsule", "ability urge", "abomasite", "absolite", "absorb bulb", "adamant orb", "adventure rules", "aerodactylite", "aggronite", "aguav berry", "air balloon", "alakazite", "altarianite", "ampharosite", "amulet coin", "antidote", "apicot berry", "armor fossil", "aspear berry", "audinite", "awakening", "babiri berry", "balmmushroom", "banettite", "beedrillite", "belue berry", "berry juice", "big mushroom", "big nugget", "big pearl", "big root", "binding band", "black belt", "black flute", "black sludge", "blackglasses", "blastoisinite", "blazikenite", "blk apricorn", "blu apricorn", "blue flute", "blue scarf", "blue shard", "bluk berry", "brightpowder", "bug gem", "burn drive", "burn heal", "calcium", "cameruptite", "carbos", "casteliacone", "cell battery", "charcoal", "charizardite x", "charizardite y", "charti berry", "cheri berry", "cherish ball", "chesto berry", "chilan berry", "chill drive", "choice band", "choice scarf", "choice specs", "chople berry", "claw fossil", "cleanse tag", "clever wing", "coba berry", "colbur berry", "colress machine", "comet shard", "cornn berry", "cover fossil", "custap berry", "damp mulch", "damp rock", "dark gem", "dawn stone", "deepseascale", "deepseatooth", "destiny knot", "diancite", "dire hit", "dire hit 2", "dire hit 3", "dive ball", "dna splicers", "dome fossil", "douse drive", "draco plate", "dragon fang", "dragon gem", "dragon scale", "dread plate", "dream ball", "dropped item", "dubious disc", "durin berry", "dusk ball", "dusk stone", "earth plate", "eject button", "electirizer", "electric gem", "elevator key", "elixir", "energy root", "energypowder", "enigma berry", "escape rope", "ether", "everstone", "eviolite", "exp share", "expert belt", "fairy gem", "fast ball", "fighting gem", "figy berry", "fire gem", "fire stone", "fist plate", "flame orb", "flame plate", "float stone", "fluffy tail", "flying gem", "focus band", "focus sash", "fresh water", "friend ball", "full heal", "full incense", "full restore", "galladite", "ganlon berry", "garchompite", "gardevoirite", "gengarite", "genius wing", "ghost gem", "glalitite", "gooey mulch", "grass gem", "great ball", "green scarf", "green shard", "grepa berry", "grip claw", "griseous orb", "grn apricorn", "ground gem", "growth mulch", "grubby hanky", "guard spec", "gyaradosite", "haban berry", "hard stone", "heal ball", "heal powder", "health wing", "heart scale", "heat rock", "heavy ball", "helix fossil", "heracronite", "hm01", "hm02", "hm03", "hm04", "hm05", "hm06", "hm07", "hm08", "holo caster", "hondew berry", "honey", "honor of kalos", "houndoominite", "hp up", "hyper potion", "iapapa berry", "ice gem", "ice heal", "icicle plate", "icy rock", "insect plate", "intriguing stone", "iron", "iron ball", "iron plate", "item drop", "item urge", "jaboca berry", "kangaskhanite", "kasib berry", "kebia berry", "kelpsy berry", "kings rock", "lagging tail", "lansat berry", "latiasite", "latiosite", "lava cookie", "lax incense", "leaf stone", "leftovers", "lemonade", "lens case", "leppa berry", "level ball", "liechi berry", "life orb", "light ball", "light clay", "looker ticket", "lopunnite", "love ball", "lucarionite", "luck incense", "lucky egg", "lucky punch", "lum berry", "lure ball", "lustrous orb", "luxury ball", "macho brace", "magmarizer", "magnet", "mago berry", "magost berry", "manectite", "master ball", "mawilite", "max elixir", "max ether", "max potion", "max repel", "max revive", "meadow plate", "medal box", "medichamite", "mental herb", "metagrossite", "metal coat", "metal powder", "metronome", "mewtwonite x", "mewtwonite y", "micle berry", "mind plate", "miracle seed", "moomoo milk", "moon ball", "moon stone", "muscle band", "muscle wing", "mystic water", "nanab berry", "nest ball", "net ball", "nevermeltice", "nomel berry", "normal gem", "nugget", "occa berry", "odd incense", "odd keystone", "old amber", "old gateau", "oran berry", "oval charm", "oval stone", "pamtre berry", "park ball", "parlyz heal", "pass orb", "passho berry", "payapa berry", "pearl", "pearl string", "pecha berry", "permit", "persim berry", "petaya berry", "pidgeotite", "pinap berry", "pink scarf", "pinsirite", "pixie plate", "plasma card", "plume fossil", "pnk apricorn", "poison barb", "poison gem", "poké ball", "poké doll", "poké toy", "pomeg berry", "potion", "power anklet", "power band", "power belt", "power bracer", "power herb", "power lens", "power plant pass", "power weight", "pp max", "pp up", "premier ball", "pretty wing", "prism scale", "profs letter", "protector", "protein", "psychic gem", "pure incense", "qualot berry", "quick ball", "quick claw", "quick powder", "rabuta berry", "rare bone", "rare candy", "rawst berry", "razor claw", "razor fang", "razz berry", "reaper cloth", "red apricorn", "red card", "red flute", "red scarf", "red shard", "relic band", "relic copper", "relic crown", "relic gold", "relic silver", "relic statue", "relic vase", "repeat ball", "repel", "reset urge", "resist wing", "reveal glass", "revival herb", "revive", "rindo berry", "ring target", "rock gem", "rock incense", "rocky helmet", "roller skates", "root fossil", "rose incense", "rowap berry", "sablenite", "sacred ash", "safari ball", "salac berry", "salamencite", "sceptilite", "scizorite", "scope lens", "sea incense", "sharp beak", "sharpedonite", "shed shell", "shell bell", "shiny charm", "shiny stone", "shoal salt", "shoal shell", "shock drive", "shuca berry", "silk scarf", "silverpowder", "sitrus berry", "skull fossil", "sky plate", "slowbronite", "smoke ball", "smooth rock", "soda pop", "soft sand", "soothe bell", "soul dew", "spell tag", "spelon berry", "splash plate", "spooky plate", "sport ball", "sprinklotad", "stable mulch", "star piece", "stardust", "starf berry", "steel gem", "steelixite", "stick", "sticky barb", "stone plate", "sun stone", "super potion", "super repel", "swampertite", "sweet heart", "swift wing", "tamato berry", "tanga berry", "thick club", "thunderstone", "timer ball", "tinymushroom", "tm01", "tm02", "tm03", "tm04", "tm05", "tm06", "tm07", "tm08", "tm09", "tm10", "tm100", "tm11", "tm12", "tm13", "tm14", "tm15", "tm16", "tm17", "tm18", "tm19", "tm20", "tm21", "tm22", "tm23", "tm24", "tm25", "tm26", "tm27", "tm28", "tm29", "tm30", "tm31", "tm32", "tm33", "tm34", "tm35", "tm36", "tm37", "tm38", "tm39", "tm40", "tm41", "tm42", "tm43", "tm44", "tm45", "tm46", "tm47", "tm48", "tm49", "tm50", "tm51", "tm52", "tm53", "tm54", "tm55", "tm56", "tm57", "tm58", "tm59", "tm60", "tm61", "tm62", "tm63", "tm64", "tm65", "tm66", "tm67", "tm68", "tm69", "tm70", "tm71", "tm72", "tm73", "tm74", "tm75", "tm76", "tm77", "tm78", "tm79", "tm80", "tm81", "tm82", "tm83", "tm84", "tm85", "tm86", "tm87", "tm88", "tm89", "tm90", "tm91", "tm92", "tm93", "tm94", "tm95", "tm96", "tm97", "tm98", "tm99", "tmv pass", "toxic orb", "toxic plate", "twistedspoon", "tyranitarite", "ultra ball", "up_grade", "venusaurite", "wacan berry", "water gem", "water stone", "watmel berry", "wave incense", "wepear berry", "white flute", "white herb", "wht apricorn", "wide lens", "wiki berry", "wise glasses", "x accuracy", "x accuracy 2", "x accuracy 3", "x accuracy 6", "x attack", "x attack 2", "x attack 3", "x attack 6", "x defend", "x defend 2", "x defend 3", "x defend 6", "x sp def", "x sp def 2", "x sp def 3", "x sp def 6", "x special", "x special 2", "x special 3", "x special 6", "x speed", "x speed 2", "x speed 3", "x speed 6", "yache berry", "yellow flute", "yellow scarf", "yellow shard", "ylw apricorn", "zap plate", "zinc", "zoom lens", "normalium z", "firium z", "waterium z", "electrium z", "grassium z", "icium z", "fightinium z", "poisonium z", "groundium z", "flyinium z", "psychium z", "buginium z", "rockium z", "ghostium z", "dragonium z", "darkinium z", "steelium z", "fairium z", "pikanium z", "bottle cap", "gold bottle cap", "z_ring", "decidium z", "incinium z", "primarium z", "tapunium z", "marshadium z", "aloraichium z", "snorlium z", "eevium z", "mewnium z", "normalium z", "firium z", "waterium z", "electrium z", "grassium z", "icium z", "fightinium z", "poisonium z", "groundium z", "flyinium z", "psychium z", "buginium z", "rockium z", "ghostium z", "dragonium z", "darkinium z", "steelium z", "fairium z", "pikanium z", "decidium z", "incinium z", "primarium z", "tapunium z", "marshadium z", "aloraichium z", "snorlium z", "eevium z", "mewnium z", "pikashunium z", "forage bag", "fishing rod", "professors mask", "festival ticket", "sparkling stone", "adrenaline orb", "zygarde cube", "ice stone", "ride pager", "beast ball", "big malasada", "red nectar", "yellow nectar", "pink nectar", "purple nectar", "sun flute", "moon flute", "enigmatic card", "terrain extender", "protective pads", "electric seed", "psychic seed", "misty seed", "grassy seed", "fighting memory", "flying memory", "poison memory", "ground memory", "rock memory", "bug memory", "ghost memory", "steel memory", "fire memory", "water memory", "grass memory", "electric memory", "psychic memory", "ice memory", "dragon memory", "dark memory", "fairy memory"];
-var abilities = ["adaptability", "aerilate", "aftermath", "air lock", "analytic", "anger point", "anticipation", "arena trap", "aroma veil", "aura break", "bad dreams", "battery", "battle armor", "battle bond", "berserk", "big pecks", "blaze", "bulletproof", "cacophony", "cheek pouch", "chlorophyll", "clear body", "cloud nine", "color change", "comatose", "competitive", "compound eyes", "contrary", "corrosion", "cursed body", "cute charm", "damp", "dancer", "dark aura", "dazzling", "defeatist", "defiant", "delta stream", "desolate land", "disguise", "download", "drizzle", "drought", "dry skin", "early bird", "effect spore", "electric surge", "fairy aura", "filter", "flame body", "flare boost", "flash fire", "flower gift", "flower veil", "fluffy", "forecast", "forewarn", "friend guard", "frisk", "full metal body", "fur coat", "gale wings", "gluttony", "gooey", "grass pelt", "guts", "harvest", "healer", "heatproof", "heavy metal", "honey gather", "huge power", "hustle", "hydration", "hyper cutter", "ice body", "illuminate", "illusion", "immunity", "imposter", "innards out", "infiltrator", "inner focus", "insomnia", "intimidate", "iron barbs", "iron fist", "justified", "keen eye", "klutz", "leaf guard", "levitate", "light metal", "lightning rod", "limber", "liquid ooze", "magic bounce", "magic guard", "magician", "magma armor", "magnet pull", "marvel scale", "mega launcher", "minus", "mold breaker", "moody", "motor drive", "moxie", "multiscale", "multitype", "mummy", "natural cure", "no guard", "normalize", "oblivious", "overcoat", "overgrow", "own tempo", "parental bond", "pickpocket", "pickup", "pixilate", "plus", "poison heal", "poison point", "poison touch", "power construct", "prankster", "pressure", "primordial sea", "protean", "pure power", "queenly majesty", "quick feet", "rain dish", "rattled", "receiver", "reckless", "refrigerate", "regenerator", "rivalry", "rks system", "rock head", "rough skin", "run away", "sand force", "sand rush", "sand stream", "sand veil", "sap sipper", "schooling", "scrappy", "serene grace", "shadow shield", "shadow tag", "shed skin", "sheer force", "shell armor", "shield dust", "shields down", "simple", "skill link", "slow start", "sniper", "snow cloak", "snow warning", "solar power", "solid rock", "soul_heart", "soundproof", "speed boost", "stakeout", "stall", "stamina", "stance change", "static", "steadfast", "stench", "sticky hold", "storm drain", "strong jaw", "sturdy", "suction cups", "super luck", "surge surfer", "swarm", "sweet veil", "swift swim", "symbiosis", "synchronize", "tangled feet", "technician", "telepathy", "teravolt", "thick fat", "tinted lens", "torrent", "tough claws", "toxic boost", "trace", "triage", "truant", "turboblaze", "unaware", "unburden", "unnerve", "victory star", "vital spirit", "volt absorb", "water absorb", "water compaction", "water veil", "weak armor", "white smoke", "wimp out", "wonder guard", "wonder skin", "zen mode"];
+var abilities = ["adaptability", "aerilate", "aftermath", "air lock", "analytic", "anger point", "anticipation", "arena trap", "aroma veil", "aura break", "bad dreams", "battery", "battle armor", "battle bond", "berserk", "big pecks", "blaze", "bulletproof", "cacophony", "cheek pouch", "chlorophyll", "clear body", "cloud nine", "color change", "comatose", "competitive", "compound eyes", "contrary", "corrosion", "cursed body", "cute charm", "damp", "dancer", "dark aura", "dazzling", "defeatist", "defiant", "delta stream", "desolate land", "disguise", "download", "drizzle", "drought", "dry skin", "early bird", "effect spore", "electric surge", "fairy aura", "filter", "flame body", "flare boost", "flash fire", "flower gift", "flower veil", "fluffy", "forecast", "forewarn", "friend guard", "frisk", "full metal body", "fur coat", "gale wings", "gluttony", "gooey", "grass pelt", "guts", "harvest", "healer", "heatproof", "heavy metal", "honey gather", "huge power", "hustle", "hydration", "hyper cutter", "ice body", "illuminate", "illusion", "immunity", "imposter", "innards out", "infiltrator", "inner focus", "insomnia", "intimidate", "iron barbs", "iron fist", "justified", "keen eye", "klutz", "leaf guard", "levitate", "light metal", "lightning rod", "limber", "liquid ooze", "magic bounce", "magic guard", "magician", "magma armor", "magnet pull", "marvel scale", "mega launcher", "minus", "mold breaker", "moody", "motor drive", "moxie", "multiscale", "multitype", "mummy", "natural cure", "no guard", "normalize", "oblivious", "overcoat", "overgrow", "own tempo", "parental bond", "pickpocket", "pickup", "pixilate", "plus", "poison heal", "poison point", "poison touch", "power construct", "prankster", "pressure", "primordial sea", "protean", "pure power", "queenly majesty", "quick feet", "rain dish", "rattled", "receiver", "reckless", "refrigerate", "regenerator", "rivalry", "rks system", "rock head", "rough skin", "run away", "sand force", "sand rush", "sand stream", "sand veil", "sap sipper", "schooling", "scrappy", "serene grace", "shadow shield", "shadow tag", "shed skin", "sheer force", "shell armor", "shield dust", "shields down", "simple", "skill link", "slow start", "sniper", "snow cloak", "snow warning", "solar power", "solid rock", "soul_heart", "soundproof", "speed boost", "stakeout", "stall", "stamina", "stance change", "static", "steadfast", "stench", "sticky hold", "storm drain", "strong jaw", "sturdy", "suction cups", "super luck", "surge surfer", "swarm", "sweet veil", "swift swim", "symbiosis", "synchronize", "tangled feet", "technician", "telepathy", "teravolt", "thick fat", "tinted lens", "torrent", "tough claws", "toxic boost", "trace", "triage", "truant", "turboblaze", "unaware", "unburden", "unnerve", "victory star", "vital spirit", "volt absorb", "water absorb", "water compaction", "water veil", "weak armor", "white smoke", "wimp out", "wonder guard", "wonder skin", "zen mode", "emergency exit", "merciless", "water bubble", "steelworker", "slush rush", "long reach", "liquid voice", "galvanize", "tangling hair", "power of alchemy", "beast boost", "psychic surge", "misty surge", "grassy surge", "full metal body", "prism armor"];
 
 bot.on('ready', function(event) {
     console.log('Logged in as %s - %s\n', bot.username, bot.id);
@@ -32,21 +32,38 @@ bot.on('message', function(user, userID, channelID, message, event) {
     if (message.toLowerCase().substring(0, 5) === "!weak") {
         weak(user, userID, channelID, message, event);
     }
-    if (message.toLowerCase().substring(0, 10) === "!typechart"){
-    	typechart(user, userID, channelID, message, event);
+    if (message.toLowerCase().substring(0, 10) === "!typechart") {
+        typechart(user, userID, channelID, message, event);
     }
-    if (message.toLowerCase().substring(0, 10) === "!evolution"){
-    	evolution(user, userID, channelID, message, event);
+    if (message.toLowerCase().substring(0, 10) === "!evolution") {
+        evolution(user, userID, channelID, message, event);
     }
-    if (message.toLowerCase().substring(0,3) === "!qr"){
-    	qr(user, userID, channelID, message, event);
+    if (message.toLowerCase().substring(0, 3) === "!qr") {
+        qr(user, userID, channelID, message, event);
+    }
+    if (message.toLowerCase().substring(0, 7) === "!nature") {
+        nature(user, userID, channelID, message, event);
     }
 });
 
 function help(user, userID, channelID, message, event) {
     bot.sendMessage({
         to: channelID,
-        message: "Hi, I'm PokéBot! My job is to serve information about data in the Pokémon games. I recognise the following commands: \n!help: Displays this help message.\n!pokemon: Serves information about individual Pokémon.\n!move: Serves information about Pokémon moves.\n!item: Serves information about items.\n!ability: Serves information about pokemon abilites.\n!weak: Calculates a Pokémon's type relationships.\n!typechart: Displays a chart of type strengths and weaknesses.\n!evolution: Displays an image guide for evolving new Alolan Pokémon\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'.\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!\n~~Please use your Master Ball on Fearow or Tentacruel.~~\nI was created by AlphaKretin, using discord.io in node.js."
+        message: "Hi, I'm PokéBot! My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
+        "\n!help: Displays this help message." + 
+        "\n!pokemon: Serves information about individual Pokémon." + 
+        "\n!move: Serves information about Pokémon moves." + 
+        "\n!item: Serves information about items." + 
+        "\n!ability: Serves information about pokemon abilites." + 
+        "\n!weak: Calculates the type relationships of a Pokémon, move, or type combination." + 
+        "\n!typechart: Displays a chart of type strengths and weaknesses." + 
+        "\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" + 
+        "\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" + 
+        "\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
+        "\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." + 
+        "\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" + 
+        "\n~~Please use your Master Ball on Fearow or Tentacruel.~~" + 
+        "\nI was created by AlphaKretin, using discord.io in node.js."
     });
 }
 
@@ -56,10 +73,12 @@ function pokemon(user, userID, channelID, message, event) {
     if (mon === "help") {
         bot.sendMessage({
             to: channelID,
-            message: "This command serves information about Pokémon! Use the Pokémon's name as the argument. If it doesn't work, try ignoring or substituting special characters - for example, 'nidoranm', 'farfetchd', 'mr mime', 'ho_oh', 'flabebe'. For alterante formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'basculin blue'."
+            message: "This command serves information about Pokémon! Use the Pokémon's name as the argument. If it doesn't work, try ignoring or substituting special characters - for example, 'nidoranm', 'farfetchd', 'mr mime', 'ho_oh', 'flabebe'. For alternate formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'mega charizard y'."
         });
     } else if (mon === "list") {
-    	list(user, userID, channelID, message, event, mons);
+        list(user, userID, channelID, message, event, mons);
+    } else if (mon === "rap") {
+        rap(user, userID, channelID, message, event);
     } else {
         if (mons.indexOf(mon) !== -1) {
             mon = mon.replace(/ /g, "_");
@@ -85,7 +104,7 @@ function move(user, userID, channelID, message, event) {
             message: "This command serves information about Pokémon's moves! Use the move's name as the argument, with spaces where appropriate, ignoring apostrophes, and using '_' instead of '-' in move names that include it. Return is a special case, please ask for that as '!move _return' 10,000,000 Volt Thunderbolt is another, as for that in words as \"!move ten million volt thunderbolt\"."
         });
     } else if (mov === "list") {
-    	list(user, userID, channelID, message, event, moves);
+        list(user, userID, channelID, message, event, moves);
     } else {
         if (moves.indexOf(mov) !== -1) {
             mov = mov.replace(/ /g, "_");
@@ -111,7 +130,7 @@ function item(user, userID, channelID, message, event) {
             message: "This command serves information about items! Use the item's name as the argument, with spaces where appropriate, ignoring apostrophes and full stops, and using '_' instead of '-' in item names that include it."
         });
     } else if (it === "list") {
-    	list(user, userID, channelID, message, event, items);
+        list(user, userID, channelID, message, event, items);
     } else {
         if (items.indexOf(it) !== -1) {
             it = it.replace(/ /g, "_");
@@ -137,7 +156,7 @@ function ability(user, userID, channelID, message, event) {
             message: "This command serves information about abilities! Use the ability's name as the argument, with spaces where appropriate, and using '_' instead of '-' in ability names that include it."
         });
     } else if (ab === "list") {
-    	list(user, userID, channelID, message, event, abilities);
+        list(user, userID, channelID, message, event, abilities);
     } else {
         if (abilities.indexOf(ab) !== -1) {
             ab = ab.replace(/ /g, "_");
@@ -156,6 +175,10 @@ function ability(user, userID, channelID, message, event) {
 
 function weak(user, userID, channelID, message, event) {
     var types = ["normal", "fire", "fighting", "water", "flying", "grass", "poison", "electric", "ground", "psychic", "rock", "ice", "bug", "dragon", "ghost", "dark", "steel", "fairy"];
+    var monsTemp = new Array(mons.length);
+    for (var i = 0; i < mons.length; i++) {
+        monsTemp[i] = mons[i].replace(/ /g, "_");
+    }
     var mon = message.substring(6);
     var normal = 0;
     var fire = 0;
@@ -178,20 +201,40 @@ function weak(user, userID, channelID, message, event) {
     var weaks = "";
     var res = "";
     var imms = "";
+    var cont = 0;
+    var type = "";
+    var out = "";
     mon = mon.toLowerCase();
+    mon = mon.replace(/ /g, "_");
+    console.log(mon);
     if (mon === "help") {
         bot.sendMessage({
             to: channelID,
-            message: "This command calculates a Pokémon's type relationships! Bold means it's doubly weak or resistant. Use the Pokémon's name as the argument. If it doesn't work, try ignoring or substituting special characters - for example, 'nidoranm', 'farfetchd', 'mr mime', 'ho_oh', 'flabebe'."
+            message: "This command calculates a the type relationships of a Pokémon, move, or type combination! Bold means it's doubly weak or resistant. Use the Pokémon's name, or any number of types, as the argument. If it doesn't work, try ignoring or substituting special characters - for example, 'nidoranm', 'farfetchd', 'mr mime', 'ho_oh', 'flabebe'."
         });
     } else {
-        if (mons.indexOf(mon) !== -1) {
-            var type = eval(mon).type
-            if (type.indexOf("Normal") !== -1) {
+        if (monsTemp.indexOf(mon) !== -1) {
+            type = eval(mon).type.toLowerCase();
+            cont = 1;
+        }
+        for (i = 0; i < types.length; i++) {
+            if (mon.toLowerCase().indexOf(types[i]) !== -1) {
+                type = mon;
+                cont = 2;
+            }
+        }
+        for (i = 0; i < moves.length; i++){
+        	if (moves[i].replace(/ /g, "_") === mon){
+        		weakmoves(user, userID, channelID, message, event, mon);
+        		return;
+        	}
+        }
+        if (cont > 0) {
+            if (type.indexOf("normal") !== -1) {
                 ghost -= 10;
                 fighting++;
             }
-            if (type.indexOf("Fire") !== -1) {
+            if (type.indexOf("fire") !== -1) {
                 bug--;
                 fairy--;
                 fire--;
@@ -202,7 +245,7 @@ function weak(user, userID, channelID, message, event) {
                 rock++;
                 water++;
             }
-            if (type.indexOf("Fighting") !== -1) {
+            if (type.indexOf("fighting") !== -1) {
                 bug--;
                 dark--;
                 rock--;
@@ -210,7 +253,7 @@ function weak(user, userID, channelID, message, event) {
                 flying++;
                 psychic++;
             }
-            if (type.indexOf("Water") !== -1) {
+            if (type.indexOf("water") !== -1) {
                 fire--;
                 ice--;
                 steel--;
@@ -218,7 +261,7 @@ function weak(user, userID, channelID, message, event) {
                 electric++;
                 grass++;
             }
-            if (type.indexOf("Flying") !== -1) {
+            if (type.indexOf("flying") !== -1) {
                 bug--;
                 fighting--;
                 grass--;
@@ -227,7 +270,7 @@ function weak(user, userID, channelID, message, event) {
                 ice++;
                 rock++;
             }
-            if (type.indexOf("Grass") !== -1) {
+            if (type.indexOf("grass") !== -1) {
                 electric--;
                 grass--;
                 ground--;
@@ -238,7 +281,7 @@ function weak(user, userID, channelID, message, event) {
                 ice++;
                 poison++;
             }
-            if (type.indexOf("Poison") !== -1) {
+            if (type.indexOf("poison") !== -1) {
                 bug--;
                 fairy--;
                 fighting--;
@@ -247,13 +290,13 @@ function weak(user, userID, channelID, message, event) {
                 ground++;
                 psychic++;
             }
-            if (type.indexOf("Electric") !== -1) {
+            if (type.indexOf("electric") !== -1) {
                 electric--;
                 flying--;
                 steel--;
                 ground++;
             }
-            if (type.indexOf("Ground") !== -1) {
+            if (type.indexOf("ground") !== -1) {
                 poison--;
                 rock--;
                 electric -= 10;
@@ -261,14 +304,14 @@ function weak(user, userID, channelID, message, event) {
                 ice++;
                 water++;
             }
-            if (type.indexOf("Psychic") !== -1) {
+            if (type.indexOf("psychic") !== -1) {
                 fighting--;
                 psychic--;
                 bug++;
                 dark++;
                 ghost++;
             }
-            if (type.indexOf("Rock") !== -1) {
+            if (type.indexOf("rock") !== -1) {
                 fire--;
                 flying--;
                 normal--;
@@ -279,14 +322,14 @@ function weak(user, userID, channelID, message, event) {
                 steel++;
                 water++;
             }
-            if (type.indexOf("Ice") !== -1) {
+            if (type.indexOf("ice") !== -1) {
                 ice--;
                 fighting++;
                 fire++;
                 rock++;
                 steel++;
             }
-            if (type.indexOf("Bug") !== -1) {
+            if (type.indexOf("bug") !== -1) {
                 fighting--;
                 grass--;
                 ground--;
@@ -294,16 +337,16 @@ function weak(user, userID, channelID, message, event) {
                 flying++;
                 rock++;
             }
-            if (type.indexOf("Dragon") !== -1) {
+            if (type.indexOf("dragon") !== -1) {
                 electric--;
                 fire--;
                 grass--;
-                water--
+                water--;
                 dragon++;
                 ice++;
                 fairy++;
             }
-            if (type.indexOf("Ghost") !== -1) {
+            if (type.indexOf("ghost") !== -1) {
                 bug--;
                 poison--;
                 normal -= 10;
@@ -311,7 +354,7 @@ function weak(user, userID, channelID, message, event) {
                 ghost++;
                 dark++;
             }
-            if (type.indexOf("Dark") !== -1) {
+            if (type.indexOf("dark") !== -1) {
                 dark--;
                 ghost--;
                 psychic -= 10;
@@ -319,7 +362,7 @@ function weak(user, userID, channelID, message, event) {
                 fighting++;
                 fairy++;
             }
-            if (type.indexOf("Steel") !== -1) {
+            if (type.indexOf("steel") !== -1) {
                 bug--;
                 dragon--;
                 fairy--;
@@ -335,7 +378,7 @@ function weak(user, userID, channelID, message, event) {
                 fire++;
                 ground++;
             }
-            if (type.indexOf("Fairy") !== -1) {
+            if (type.indexOf("fairy") !== -1) {
                 bug--;
                 dark--;
                 fighting--;
@@ -343,7 +386,7 @@ function weak(user, userID, channelID, message, event) {
                 poison++;
                 steel++;
             }
-            for (var i = 0; i < types.length; i++) {
+            for (i = 0; i < types.length; i++) {
                 if (eval(types[i]) === 2) {
                     weaks += "**" + c(types[i]) + "**, ";
                 }
@@ -360,54 +403,335 @@ function weak(user, userID, channelID, message, event) {
                     imms += c(types[i]) + ", ";
                 }
             }
-            imms = imms.slice(0, imms.length - 2)
-            res = res.slice(0, res.length - 2)
-            weaks = weaks.slice(0, weaks.length - 2)
+            imms = imms.slice(0, imms.length - 2);
+            res = res.slice(0, res.length - 2);
+            weaks = weaks.slice(0, weaks.length - 2);
+            moveArr = mon.split("_");
+    		mon = "";
+    		for (i = 0; i < moveArr.length; i++){
+    			mon += c(moveArr[i]) + " ";
+    		}
+            if (cont === 1) {
+                out = "Pokémon: " + c(mon) + "\nWeaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms;
+            } else if (cont === 2) {
+                out = "Weaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms;
+            }
             bot.sendMessage({
                 to: channelID,
-                message: "Pokémon: " + c(mon) + "\nWeaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms
+                message: out
             });
         } else {
             bot.sendMessage({
                 to: channelID,
-                message: "I don't recognise that Pokémon, " + user + "!"
+                message: "I don't recognise that Pokémon, move, or type, " + user + "!"
             });
         }
     }
 }
 
-function list(user, userID, channelID, message, event, arr){
-	var out = "";
-	for (var i = 0; i < arr.length; i++){
-		if (out.length + arr[i].length < 2000){
-			out += arr[i] + ", ";
-		}
-	}
-	bot.sendMessage({
-		to: channelID,
-		message: "" + out
-	});
+function weakmoves(user, userID, channelID, message, event, move) {
+	console.log("weakmoves, " + move);
+    var types = ["normal", "fire", "fighting", "water", "flying", "grass", "poison", "electric", "ground", "psychic", "rock", "ice", "bug", "dragon", "ghost", "dark", "steel", "fairy"];
+    var type = eval(move).type.toLowerCase();
+    var out = "";
+    var normal = 0;
+    var fire = 0;
+    var fighting = 0;
+    var water = 0;
+    var flying = 0;
+    var grass = 0;
+    var poison = 0;
+    var electric = 0;
+    var ground = 0;
+    var psychic = 0;
+    var rock = 0;
+    var ice = 0;
+    var bug = 0;
+    var dragon = 0;
+    var ghost = 0;
+    var dark = 0;
+    var steel = 0;
+    var fairy = 0;
+    var weaks = "";
+    var res = "";
+    var imms = "";
+    switch (type) {
+        case "normal":
+            rock--;
+            steel--;
+            ghost -= 10;
+            break;
+        case "fire":
+            bug++;
+            grass++;
+            ice++;
+            steel++;
+            dragon--;
+            fire--;
+            rock--;
+            water--;
+            break;
+        case "fighting":
+            dark++;
+            ice++;
+            normal++;
+            rock++;
+            steel++;
+            bug--;
+            fairy--;
+            flying--;
+            poison--;
+            psychic--;
+            ghost -= 10;
+            break;
+        case "water":
+            fire++;
+            ground++;
+            rock++;
+            dragon--;
+            grass--;
+            water--;
+            break;
+        case "flying":
+            bug++;
+            fighting++;
+            grass++;
+            electric--;
+            rock--;
+            steel--;
+            break;
+        case "grass":
+            ground++;
+            rock++;
+            water++;
+            bug--;
+            dragon--;
+            fire--;
+            flying--;
+            grass--;
+            poison--;
+            steel--;
+            break;
+        case "poison":
+            grass++;
+            fairy++;
+            ghost--;
+            ground--;
+            poison--;
+            rock--;
+            steel -= 10;
+            break;
+        case "electric":
+            flying++;
+            water++;
+            dragon--;
+            electric--;
+            grass--;
+            ground -= 10;
+            break;
+        case "ground":
+            electric++;
+            fire++;
+            poison++;
+            rock++;
+            steel++;
+            bug--;
+            grass--;
+            flying -= 10;
+            break;
+        case "psychic":
+            fighting++;
+            poison++;
+            psychic--;
+            steel--;
+            dark -= 10;
+            break;
+        case "rock":
+            bug++;
+            fire++;
+            flying++;
+            ice++;
+            fighting--;
+            ground--;
+            steel--;
+            break;
+        case "ice":
+            dragon++;
+            flying++;
+            grass++;
+            ground++;
+            fire--;
+            ice--;
+            steel--;
+            water--;
+            break;
+        case "bug":
+            psychic++;
+            grass++;
+            dark++;
+            fighting--;
+            fire--;
+            flying--;
+            ghost--;
+            poison--;
+            steel--;
+            fairy--;
+            break;
+        case "dragon":
+            dragon++;
+            steel--;
+            fairy -= 10;
+            break;
+        case "ghost":
+            ghost++;
+            psychic++;
+            dark--;
+            normal -= 10;
+            break;
+        case "dark":
+            ghost++;
+            psychic++;
+            dark--;
+            fighting--;
+            fairy--;
+            break;
+        case "steel":
+            fairy++;
+            ice++;
+            rock++;
+            electric--;
+            fire--;
+            steel--;
+            water--;
+            break;
+        case "fairy":
+            dark++;
+            dragon++;
+            fighting++;
+            fire--;
+            poison--;
+            steel--;
+            break;
+    }
+    for (var i = 0; i < types.length; i++) {
+        if (eval(types[i]) === 1) {
+            weaks += c(types[i]) + ", ";
+        }
+        if (eval(types[i]) === -1) {
+            res += c(types[i]) + ", ";
+        }
+        if (eval(types[i]) < -2) {
+            imms += c(types[i]) + ", ";
+        }
+    }
+    moveArr = move.split("_");
+    move = "";
+    for (i = 0; i < moveArr.length; i++){
+    	move += c(moveArr[i]) + " ";
+    }
+    imms = imms.slice(0, imms.length - 2);
+    res = res.slice(0, res.length - 2);
+    weaks = weaks.slice(0, weaks.length - 2);
+    out = "Move: " + c(move) + "\nSuper effective against: " + weaks + "\nResisted by: " + res + "\nFails to affect: " + imms;
+    bot.sendMessage({
+        to: channelID,
+        message: out
+    });
 }
 
-function typechart(user, userID, channelID, message, event){
-	bot.sendMessage({
-		to: channelID,
-		message: "http://i.imgur.com/fylyCdC.png"
-	});
+function list(user, userID, channelID, message, event, arr) {
+    var out = "";
+    for (var i = 0; i < arr.length; i++) {
+        if (out.length + arr[i].length < 2000) {
+            out += arr[i] + ", ";
+        }
+    }
+    bot.sendMessage({
+        to: channelID,
+        message: "" + out
+    });
 }
 
-function evolution(user, userID, channelID, message, event){
-	bot.sendMessage({
-		to: channelID,
-		message: "https://a.pomf.cat/lmesct.png"
-	});
+function rap(user, userID, channelID, message, event) {
+    var out = "Electrode, Diglett, Nidoran, Mankey\n" +
+        "Venusaur, Rattata, Fearow, Pidgey\n" +
+        "Seaking, Jolteon, Dragonite, Gastly\n" +
+        "Ponyta, Vaporeon, Poliwrath, Butterfree\n" +
+        "Venomoth, Poliwag, Nidorino, Golduck\n" +
+        "Ivysaur, Grimer, Victreebel, Moltres\n" +
+        "Nidoking, Farfetch'd, Abra, Jigglypuff\n" +
+        "Kingler, Rhyhorn, Clefable, Wigglytuff\n" +
+        "Zubat, Primeape, Meowth, Onix\n" +
+        "Geodude, Rapidash, Magneton, Snorlax\n" +
+        "Gengar, Tangela, Goldeen, Spearow\n" +
+        "Weezing, Seel, Gyarados, Slowbro\n" +
+        "Kabuto, Persian, Paras, Horsea\n" +
+        "Raticate, Magnemite, Kadabra, Weepinbell\n" +
+        "Ditto, Cloyster, Caterpie, Sandshrew\n" +
+        "Bulbasaur, Charmander, Golem, Pikachu\n" +
+        "Alakazam, Doduo, Venonat, Machoke\n" +
+        "Kangaskhan, Hypno, Electabuzz, Flareon\n" +
+        "Blastoise, Poliwhirl, Oddish, Drowzee\n" +
+        "Raichu, Nidoqueen, Bellsprout, Starmie\n" +
+        "Metapod, Marowak, Kakuna, Clefairy\n" +
+        "Dodrio, Seadra, Vileplume, Krabby\n" +
+        "Lickitung, Tauros, Weedle, Nidoran\n" +
+        "Machop, Shellder, Porygon, Hitmonchan\n" +
+        "Articuno, Jynx, Nidorina, Beedrill\n" +
+        "Haunter, Squirtle, Chansey (Pokémon!)\n" +
+        "Parasect, Exeggcute, Muk, Dewgong\n" +
+        "Pidgeotto, Lapras, Vulpix, Rhydon\n" +
+        "Charizard, Machamp, Pinsir, Koffing\n" +
+        "Dugtrio, Golbat, Staryu, Magikarp\n" +
+        "Ninetales, Ekans, Omastar\n" +
+        "Scyther, Tentacool, Dragonair, Magmar\n" +
+        "Sandslash, Hitmonlee, Psyduck, Arcanine\n" +
+        "Eevee, Exeggutor, Kabutops, Zapdos\n" +
+        "Dratini, Growlithe, Mr. Mime, Cubone\n" +
+        "Graveler, Voltorb, Gloom - We're almost home!\n" +
+        "Charmeleon, Wartortle\n" +
+        "Mewtwo, Tentacruel, Aerodactyl\n" +
+        "Omanyte, Slowpoke\n" +
+        "Pidgeot, Arbok - That's all, folks!";
+    bot.sendMessage({
+        to: channelID,
+        message: "" + out
+    });
 }
 
-function qr(user, userID, channelID, message, event){
-	bot.sendMessage({
-		to: channelID,
-		message: "http://imgur.com/a/EFOqs"
-	});
+function typechart(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "http://i.imgur.com/fylyCdC.png"
+    });
+}
+
+function evolution(user, userID, channelID, message, event) {
+    if (message !== "!evolution confirm spoiler") {
+        bot.sendMessage({
+            to: channelID,
+            message: "Spoiler alert! This command displays an image that spoils aspects of the new Sun and Moon! If you're sure you, and everyone else in the channel, are fine with seeing it, type '!evolution confirm spoiler'."
+        });
+    } else {
+        bot.sendMessage({
+            to: channelID,
+            message: "https://a.pomf.cat/lmesct.png"
+        });
+    }
+}
+
+function qr(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "http://imgur.com/a/EFOqs"
+    });
+}
+
+function nature(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "http://faqs.neoseeker.com/Games/DS/pokemon_bw_2_nature.png"
+    });
 }
 
 function c(string) {
@@ -419,8 +743,8 @@ var bulbasaur = {
     dex: 1,
     type: "Grass/Poison",
     ability: "Overgrow/None/Chlorophyll",
-    wiki: "http://www.serebii.net/pokedex-xy/001.shtml",
-    image: "http://www.serebii.net/xy/pokemon/001.png"
+    wiki: "http://www.serebii.net/pokedex-sm/001.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/001.png"
 };
 
 var ivysaur = {
@@ -428,8 +752,8 @@ var ivysaur = {
     dex: 2,
     type: "Grass/Poison",
     ability: "Overgrow/None/Chlorophyll",
-    wiki: "http://www.serebii.net/pokedex-xy/002.shtml",
-    image: "http://www.serebii.net/xy/pokemon/002.png"
+    wiki: "http://www.serebii.net/pokedex-sm/002.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/002.png"
 };
 
 var venusaur = {
@@ -437,8 +761,8 @@ var venusaur = {
     dex: 3,
     type: "Grass/Poison",
     ability: "Overgrow/None/Chlorophyll",
-    wiki: "http://www.serebii.net/pokedex-xy/003.shtml",
-    image: "http://www.serebii.net/xy/pokemon/003.png"
+    wiki: "http://www.serebii.net/pokedex-sm/003.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/003.png"
 };
 
 var charmander = {
@@ -446,8 +770,8 @@ var charmander = {
     dex: 4,
     type: "Fire",
     ability: "Blaze/None/Solar Power",
-    wiki: "http://www.serebii.net/pokedex-xy/004.shtml",
-    image: "http://www.serebii.net/xy/pokemon/004.png"
+    wiki: "http://www.serebii.net/pokedex-sm/004.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/004.png"
 };
 
 var charmeleon = {
@@ -455,8 +779,8 @@ var charmeleon = {
     dex: 5,
     type: "Fire",
     ability: "Blaze/None/Solar Power",
-    wiki: "http://www.serebii.net/pokedex-xy/005.shtml",
-    image: "http://www.serebii.net/xy/pokemon/005.png"
+    wiki: "http://www.serebii.net/pokedex-sm/005.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/005.png"
 };
 
 var charizard = {
@@ -464,8 +788,8 @@ var charizard = {
     dex: 6,
     type: "Fire/Flying",
     ability: "Blaze/None/Solar Power",
-    wiki: "http://www.serebii.net/pokedex-xy/006.shtml",
-    image: "http://www.serebii.net/xy/pokemon/006.png"
+    wiki: "http://www.serebii.net/pokedex-sm/006.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/006.png"
 };
 
 var squirtle = {
@@ -473,8 +797,8 @@ var squirtle = {
     dex: 7,
     type: "Water",
     ability: "Torrent/None/Rain Dish",
-    wiki: "http://www.serebii.net/pokedex-xy/007.shtml",
-    image: "http://www.serebii.net/xy/pokemon/007.png"
+    wiki: "http://www.serebii.net/pokedex-sm/007.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/007.png"
 };
 
 var wartortle = {
@@ -482,8 +806,8 @@ var wartortle = {
     dex: 8,
     type: "Water",
     ability: "Torrent/None/Rain Dish",
-    wiki: "http://www.serebii.net/pokedex-xy/008.shtml",
-    image: "http://www.serebii.net/xy/pokemon/008.png"
+    wiki: "http://www.serebii.net/pokedex-sm/008.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/008.png"
 };
 
 var blastoise = {
@@ -491,8 +815,8 @@ var blastoise = {
     dex: 9,
     type: "Water",
     ability: "Torrent/None/Rain Dish",
-    wiki: "http://www.serebii.net/pokedex-xy/009.shtml",
-    image: "http://www.serebii.net/xy/pokemon/009.png"
+    wiki: "http://www.serebii.net/pokedex-sm/009.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/009.png"
 };
 
 var caterpie = {
@@ -500,8 +824,8 @@ var caterpie = {
     dex: 10,
     type: "Bug",
     ability: "Shield Dust/None/Run Away",
-    wiki: "http://www.serebii.net/pokedex-xy/010.shtml",
-    image: "http://www.serebii.net/xy/pokemon/010.png"
+    wiki: "http://www.serebii.net/pokedex-sm/010.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/010.png"
 };
 
 var metapod = {
@@ -509,8 +833,8 @@ var metapod = {
     dex: 11,
     type: "Bug",
     ability: "Shed Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/011.shtml",
-    image: "http://www.serebii.net/xy/pokemon/011.png"
+    wiki: "http://www.serebii.net/pokedex-sm/011.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/011.png"
 };
 
 var butterfree = {
@@ -518,8 +842,8 @@ var butterfree = {
     dex: 12,
     type: "Bug/Flying",
     ability: "Compound Eyes/None/Tinted Lens",
-    wiki: "http://www.serebii.net/pokedex-xy/012.shtml",
-    image: "http://www.serebii.net/xy/pokemon/012.png"
+    wiki: "http://www.serebii.net/pokedex-sm/012.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/012.png"
 };
 
 var weedle = {
@@ -527,8 +851,8 @@ var weedle = {
     dex: 13,
     type: "Bug/Poison",
     ability: "Shield Dust/None/Run Away",
-    wiki: "http://www.serebii.net/pokedex-xy/013.shtml",
-    image: "http://www.serebii.net/xy/pokemon/013.png"
+    wiki: "http://www.serebii.net/pokedex-sm/013.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/013.png"
 };
 
 var kakuna = {
@@ -536,8 +860,8 @@ var kakuna = {
     dex: 14,
     type: "Bug/Poison",
     ability: "Shed Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/014.shtml",
-    image: "http://www.serebii.net/xy/pokemon/014.png"
+    wiki: "http://www.serebii.net/pokedex-sm/014.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/014.png"
 };
 
 var beedrill = {
@@ -545,8 +869,8 @@ var beedrill = {
     dex: 15,
     type: "Bug/Poison",
     ability: "Swarm/None/Sniper",
-    wiki: "http://www.serebii.net/pokedex-xy/015.shtml",
-    image: "http://www.serebii.net/xy/pokemon/015.png"
+    wiki: "http://www.serebii.net/pokedex-sm/015.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/015.png"
 };
 
 var pidgey = {
@@ -554,8 +878,8 @@ var pidgey = {
     dex: 16,
     type: "Normal/Flying",
     ability: "Keen Eye/Tangled Feet/Big Pecks",
-    wiki: "http://www.serebii.net/pokedex-xy/016.shtml",
-    image: "http://www.serebii.net/xy/pokemon/016.png"
+    wiki: "http://www.serebii.net/pokedex-sm/016.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/016.png"
 };
 
 var pidgeotto = {
@@ -563,8 +887,8 @@ var pidgeotto = {
     dex: 17,
     type: "Normal/Flying",
     ability: "Keen Eye/Tangled Feet/Big Pecks",
-    wiki: "http://www.serebii.net/pokedex-xy/017.shtml",
-    image: "http://www.serebii.net/xy/pokemon/017.png"
+    wiki: "http://www.serebii.net/pokedex-sm/017.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/017.png"
 };
 
 var pidgeot = {
@@ -572,8 +896,8 @@ var pidgeot = {
     dex: 18,
     type: "Normal/Flying",
     ability: "Keen Eye/Tangled Feet/Big Pecks",
-    wiki: "http://www.serebii.net/pokedex-xy/018.shtml",
-    image: "http://www.serebii.net/xy/pokemon/018.png"
+    wiki: "http://www.serebii.net/pokedex-sm/018.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/018.png"
 };
 
 var rattata = {
@@ -581,8 +905,8 @@ var rattata = {
     dex: 19,
     type: "Normal",
     ability: "Run Away/Guts/Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/019.shtml",
-    image: "http://www.serebii.net/xy/pokemon/019.png"
+    wiki: "http://www.serebii.net/pokedex-sm/019.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/019.png"
 };
 
 var raticate = {
@@ -590,8 +914,26 @@ var raticate = {
     dex: 20,
     type: "Normal",
     ability: "Run Away/Guts/Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/020.shtml",
-    image: "http://www.serebii.net/xy/pokemon/020.png"
+    wiki: "http://www.serebii.net/pokedex-sm/020.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/020.png"
+};
+
+var alolan_rattata = {
+    name: "Rattata",
+    dex: 19,
+    type: "Dark/Normal",
+    ability: "Gluttony/Hustle/Thick Fat",
+    wiki: "http://www.serebii.net/pokedex-sm/019.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/019-a.png"
+};
+
+var alolan_raticate = {
+    name: "Alolan Raticate",
+    dex: 20,
+    type: "Dark Normal",
+    ability: "Gluttony/Hustle/Thick Fat",
+    wiki: "http://www.serebii.net/pokedex-sm/020.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/020-a.png"
 };
 
 var spearow = {
@@ -599,8 +941,8 @@ var spearow = {
     dex: 21,
     type: "Normal/Flying",
     ability: "Keen Eye/None/Sniper",
-    wiki: "http://www.serebii.net/pokedex-xy/021.shtml",
-    image: "http://www.serebii.net/xy/pokemon/021.png"
+    wiki: "http://www.serebii.net/pokedex-sm/021.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/021.png"
 };
 
 var fearow = {
@@ -608,8 +950,8 @@ var fearow = {
     dex: 22,
     type: "Normal/Flying",
     ability: "Keen Eye/None/Sniper",
-    wiki: "http://www.serebii.net/pokedex-xy/022.shtml",
-    image: "http://www.serebii.net/xy/pokemon/022.png"
+    wiki: "http://www.serebii.net/pokedex-sm/022.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/022.png"
 };
 
 var ekans = {
@@ -617,8 +959,8 @@ var ekans = {
     dex: 23,
     type: "Poison",
     ability: "Intimidate/Shed Skin/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/023.shtml",
-    image: "http://www.serebii.net/xy/pokemon/023.png"
+    wiki: "http://www.serebii.net/pokedex-sm/023.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/023.png"
 };
 
 var arbok = {
@@ -626,8 +968,8 @@ var arbok = {
     dex: 24,
     type: "Poison",
     ability: "Intimidate/Shed Skin/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/024.shtml",
-    image: "http://www.serebii.net/xy/pokemon/024.png"
+    wiki: "http://www.serebii.net/pokedex-sm/024.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/024.png"
 };
 
 var pikachu = {
@@ -635,8 +977,8 @@ var pikachu = {
     dex: 25,
     type: "Electric",
     ability: "Static/None/Lightning Rod",
-    wiki: "http://www.serebii.net/pokedex-xy/025.shtml",
-    image: "http://www.serebii.net/xy/pokemon/025.png"
+    wiki: "http://www.serebii.net/pokedex-sm/025.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/025.png"
 };
 
 var raichu = {
@@ -644,8 +986,17 @@ var raichu = {
     dex: 26,
     type: "Electric",
     ability: "Static/None/Lightning Rod",
-    wiki: "http://www.serebii.net/pokedex-xy/026.shtml",
-    image: "http://www.serebii.net/xy/pokemon/026.png"
+    wiki: "http://www.serebii.net/pokedex-sm/026.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/026.png"
+};
+
+var raichu = {
+    name: "Raichu",
+    dex: 26,
+    type: "Electric/Psychic",
+    ability: "Surge Surfer",
+    wiki: "http://www.serebii.net/pokedex-sm/026.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/026-a.png"
 };
 
 var sandshrew = {
@@ -653,8 +1004,8 @@ var sandshrew = {
     dex: 27,
     type: "Ground",
     ability: "Sand Veil/None/Sand Rush",
-    wiki: "http://www.serebii.net/pokedex-xy/027.shtml",
-    image: "http://www.serebii.net/xy/pokemon/027.png"
+    wiki: "http://www.serebii.net/pokedex-sm/027.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/027.png"
 };
 
 var sandslash = {
@@ -662,8 +1013,26 @@ var sandslash = {
     dex: 28,
     type: "Ground",
     ability: "Sand Veil/None/Sand Rush",
-    wiki: "http://www.serebii.net/pokedex-xy/028.shtml",
-    image: "http://www.serebii.net/xy/pokemon/028.png"
+    wiki: "http://www.serebii.net/pokedex-sm/028.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/028.png"
+};
+
+var alolan_sandshrew = {
+    name: "Alolan Sandshrew",
+    dex: 27,
+    type: "Ice/Steel",
+    ability: "Snow Cloak/None/Slush Rush",
+    wiki: "http://www.serebii.net/pokedex-sm/027.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/027-a.png"
+};
+
+var alolan_sandslash = {
+    name: "Alolan Sandslash",
+    dex: 28,
+    type: "Ice/Steel",
+    ability: "Snow Cloak/None/Slush Rush",
+    wiki: "http://www.serebii.net/pokedex-sm/028.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/028-a.png"
 };
 
 var nidoranf = {
@@ -671,8 +1040,8 @@ var nidoranf = {
     dex: 29,
     type: "Poison",
     ability: "Poison Point/Rivalry/Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/029.shtml",
-    image: "http://www.serebii.net/xy/pokemon/029.png"
+    wiki: "http://www.serebii.net/pokedex-sm/029.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/029.png"
 };
 
 var nidorina = {
@@ -680,8 +1049,8 @@ var nidorina = {
     dex: 30,
     type: "Poison",
     ability: "Poison Point/Rivalry/Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/030.shtml",
-    image: "http://www.serebii.net/xy/pokemon/030.png"
+    wiki: "http://www.serebii.net/pokedex-sm/030.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/030.png"
 };
 
 var nidoqueen = {
@@ -689,8 +1058,8 @@ var nidoqueen = {
     dex: 31,
     type: "Poison/Ground",
     ability: "Poison Point/Rivalry/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/031.shtml",
-    image: "http://www.serebii.net/xy/pokemon/031.png"
+    wiki: "http://www.serebii.net/pokedex-sm/031.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/031.png"
 };
 
 var nidoranm = {
@@ -698,8 +1067,8 @@ var nidoranm = {
     dex: 32,
     type: "Poison",
     ability: "Poison Point/Rivalry/Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/032.shtml",
-    image: "http://www.serebii.net/xy/pokemon/032.png"
+    wiki: "http://www.serebii.net/pokedex-sm/032.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/032.png"
 };
 
 var nidorino = {
@@ -707,8 +1076,8 @@ var nidorino = {
     dex: 33,
     type: "Poison",
     ability: "Poison Point/Rivalry/Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/033.shtml",
-    image: "http://www.serebii.net/xy/pokemon/033.png"
+    wiki: "http://www.serebii.net/pokedex-sm/033.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/033.png"
 };
 
 var nidoking = {
@@ -716,8 +1085,8 @@ var nidoking = {
     dex: 34,
     type: "Poison/Ground",
     ability: "Poison Point/Rivalry/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/034.shtml",
-    image: "http://www.serebii.net/xy/pokemon/034.png"
+    wiki: "http://www.serebii.net/pokedex-sm/034.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/034.png"
 };
 
 var clefairy = {
@@ -725,8 +1094,8 @@ var clefairy = {
     dex: 35,
     type: "Fairy",
     ability: "Cute Charm/Magic Guard/Friend Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/035.shtml",
-    image: "http://www.serebii.net/xy/pokemon/035.png"
+    wiki: "http://www.serebii.net/pokedex-sm/035.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/035.png"
 };
 
 var clefable = {
@@ -734,8 +1103,8 @@ var clefable = {
     dex: 36,
     type: "Fairy",
     ability: "Cute Charm/Magic Guard/Unaware",
-    wiki: "http://www.serebii.net/pokedex-xy/036.shtml",
-    image: "http://www.serebii.net/xy/pokemon/036.png"
+    wiki: "http://www.serebii.net/pokedex-sm/036.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/036.png"
 };
 
 var vulpix = {
@@ -743,8 +1112,8 @@ var vulpix = {
     dex: 37,
     type: "Fire",
     ability: "Flash Fire/None/Drought",
-    wiki: "http://www.serebii.net/pokedex-xy/037.shtml",
-    image: "http://www.serebii.net/xy/pokemon/037.png"
+    wiki: "http://www.serebii.net/pokedex-sm/037.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/037.png"
 };
 
 var ninetales = {
@@ -752,8 +1121,26 @@ var ninetales = {
     dex: 38,
     type: "Fire",
     ability: "Flash Fire/None/Drought",
-    wiki: "http://www.serebii.net/pokedex-xy/038.shtml",
-    image: "http://www.serebii.net/xy/pokemon/038.png"
+    wiki: "http://www.serebii.net/pokedex-sm/038.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/038.png"
+};
+
+var alolan_vulpix = {
+    name: "Alolan Vulpix",
+    dex: 37,
+    type: "Ice",
+    ability: "Snow Cloak/None/Snow Warning",
+    wiki: "http://www.serebii.net/pokedex-sm/037.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/037-a.png"
+};
+
+var alolan_ninetales = {
+    name: "Alolan Ninetales",
+    dex: 38,
+    type: "Ice/Fairy",
+    ability: "Snow Cloak/None/Snow Warning",
+    wiki: "http://www.serebii.net/pokedex-sm/038.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/038-a.png"
 };
 
 var jigglypuff = {
@@ -761,8 +1148,8 @@ var jigglypuff = {
     dex: 39,
     type: "Normal/Fairy",
     ability: "Cute Charm/Competitive/Friend Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/039.shtml",
-    image: "http://www.serebii.net/xy/pokemon/039.png"
+    wiki: "http://www.serebii.net/pokedex-sm/039.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/039.png"
 };
 
 var wigglytuff = {
@@ -770,8 +1157,8 @@ var wigglytuff = {
     dex: 40,
     type: "Normal/Fairy",
     ability: "Cute Charm/Competitive/Frisk",
-    wiki: "http://www.serebii.net/pokedex-xy/040.shtml",
-    image: "http://www.serebii.net/xy/pokemon/040.png"
+    wiki: "http://www.serebii.net/pokedex-sm/040.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/040.png"
 };
 
 var zubat = {
@@ -779,8 +1166,8 @@ var zubat = {
     dex: 41,
     type: "Poison/Flying",
     ability: "Inner Focus/None/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/041.shtml",
-    image: "http://www.serebii.net/xy/pokemon/041.png"
+    wiki: "http://www.serebii.net/pokedex-sm/041.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/041.png"
 };
 
 var golbat = {
@@ -788,8 +1175,8 @@ var golbat = {
     dex: 42,
     type: "Poison/Flying",
     ability: "Inner Focus/None/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/042.shtml",
-    image: "http://www.serebii.net/xy/pokemon/042.png"
+    wiki: "http://www.serebii.net/pokedex-sm/042.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/042.png"
 };
 
 var oddish = {
@@ -797,8 +1184,8 @@ var oddish = {
     dex: 43,
     type: "Grass/Poison",
     ability: "Chlorophyll/None/Run Away",
-    wiki: "http://www.serebii.net/pokedex-xy/043.shtml",
-    image: "http://www.serebii.net/xy/pokemon/043.png"
+    wiki: "http://www.serebii.net/pokedex-sm/043.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/043.png"
 };
 
 var gloom = {
@@ -806,8 +1193,8 @@ var gloom = {
     dex: 44,
     type: "Grass/Poison",
     ability: "Chlorophyll/None/Stench",
-    wiki: "http://www.serebii.net/pokedex-xy/044.shtml",
-    image: "http://www.serebii.net/xy/pokemon/044.png"
+    wiki: "http://www.serebii.net/pokedex-sm/044.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/044.png"
 };
 
 var vileplume = {
@@ -815,8 +1202,8 @@ var vileplume = {
     dex: 45,
     type: "Grass/Poison",
     ability: "Chlorophyll/None/Effect Spore",
-    wiki: "http://www.serebii.net/pokedex-xy/045.shtml",
-    image: "http://www.serebii.net/xy/pokemon/045.png"
+    wiki: "http://www.serebii.net/pokedex-sm/045.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/045.png"
 };
 
 var paras = {
@@ -824,8 +1211,8 @@ var paras = {
     dex: 46,
     type: "Bug/Grass",
     ability: "Effect Spore/Dry Skin/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/046.shtml",
-    image: "http://www.serebii.net/xy/pokemon/046.png"
+    wiki: "http://www.serebii.net/pokedex-sm/046.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/046.png"
 };
 
 var parasect = {
@@ -833,8 +1220,8 @@ var parasect = {
     dex: 47,
     type: "Bug/Grass",
     ability: "Effect Spore/Dry Skin/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/047.shtml",
-    image: "http://www.serebii.net/xy/pokemon/047.png"
+    wiki: "http://www.serebii.net/pokedex-sm/047.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/047.png"
 };
 
 var venonat = {
@@ -842,8 +1229,8 @@ var venonat = {
     dex: 48,
     type: "Bug/Poison",
     ability: "Compound Eyes/Tinted Lens/Run Away",
-    wiki: "http://www.serebii.net/pokedex-xy/048.shtml",
-    image: "http://www.serebii.net/xy/pokemon/048.png"
+    wiki: "http://www.serebii.net/pokedex-sm/048.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/048.png"
 };
 
 var venomoth = {
@@ -851,8 +1238,8 @@ var venomoth = {
     dex: 49,
     type: "Bug/Poison",
     ability: "Shield Dust/Tinted Lens/Wonder Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/049.shtml",
-    image: "http://www.serebii.net/xy/pokemon/049.png"
+    wiki: "http://www.serebii.net/pokedex-sm/049.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/049.png"
 };
 
 var diglett = {
@@ -860,8 +1247,8 @@ var diglett = {
     dex: 50,
     type: "Ground",
     ability: "Sand Veil/Arena Trap/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/050.shtml",
-    image: "http://www.serebii.net/xy/pokemon/050.png"
+    wiki: "http://www.serebii.net/pokedex-sm/050.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/050.png"
 };
 
 var dugtrio = {
@@ -869,8 +1256,8 @@ var dugtrio = {
     dex: 51,
     type: "Ground",
     ability: "Sand Veil/Arena Trap/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/051.shtml",
-    image: "http://www.serebii.net/xy/pokemon/051.png"
+    wiki: "http://www.serebii.net/pokedex-sm/051.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/051.png"
 };
 
 var meowth = {
@@ -878,8 +1265,8 @@ var meowth = {
     dex: 52,
     type: "Normal",
     ability: "Pickup/Technician/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/052.shtml",
-    image: "http://www.serebii.net/xy/pokemon/052.png"
+    wiki: "http://www.serebii.net/pokedex-sm/052.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/052.png"
 };
 
 var persian = {
@@ -887,8 +1274,44 @@ var persian = {
     dex: 53,
     type: "Normal",
     ability: "Limber/Technician/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/053.shtml",
-    image: "http://www.serebii.net/xy/pokemon/053.png"
+    wiki: "http://www.serebii.net/pokedex-sm/053.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/053.png"
+};
+
+var alolan_diglett = {
+    name: "Alolan Diglett",
+    dex: 50,
+    type: "Ground/Steel",
+    ability: "Sand Veil/Tangling Hair/Sand Force",
+    wiki: "http://www.serebii.net/pokedex-sm/050.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/050-a.png"
+};
+
+var alolan_dugtrio = {
+    name: "Alolan Dugtrio",
+    dex: 51,
+    type: "Ground/Steel",
+    ability: "Sand Veil/Tangling Hair/Sand Force",
+    wiki: "http://www.serebii.net/pokedex-sm/051.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/051-a.png"
+};
+
+var alolan_meowth = {
+    name: "Alolan Meowth",
+    dex: 52,
+    type: "Dark",
+    ability: "Pickup/Technician/Rattled",
+    wiki: "http://www.serebii.net/pokedex-sm/052.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/052-a.png"
+};
+
+var alolan_persian = {
+    name: "Alolan Persian",
+    dex: 53,
+    type: "Dark",
+    ability: "Limber/Technician/Rattled",
+    wiki: "http://www.serebii.net/pokedex-sm/053.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/053-a.png"
 };
 
 var psyduck = {
@@ -896,8 +1319,8 @@ var psyduck = {
     dex: 54,
     type: "Water",
     ability: "Damp/Cloud Nine/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/054.shtml",
-    image: "http://www.serebii.net/xy/pokemon/054.png"
+    wiki: "http://www.serebii.net/pokedex-sm/054.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/054.png"
 };
 
 var golduck = {
@@ -905,8 +1328,8 @@ var golduck = {
     dex: 55,
     type: "Water",
     ability: "Damp/Cloud Nine/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/055.shtml",
-    image: "http://www.serebii.net/xy/pokemon/055.png"
+    wiki: "http://www.serebii.net/pokedex-sm/055.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/055.png"
 };
 
 var mankey = {
@@ -914,8 +1337,8 @@ var mankey = {
     dex: 56,
     type: "Fighting",
     ability: "Vital Spirit/Anger Point/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/056.shtml",
-    image: "http://www.serebii.net/xy/pokemon/056.png"
+    wiki: "http://www.serebii.net/pokedex-sm/056.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/056.png"
 };
 
 var primeape = {
@@ -923,8 +1346,8 @@ var primeape = {
     dex: 57,
     type: "Fighting",
     ability: "Vital Spirit/Anger Point/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/057.shtml",
-    image: "http://www.serebii.net/xy/pokemon/057.png"
+    wiki: "http://www.serebii.net/pokedex-sm/057.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/057.png"
 };
 
 var growlithe = {
@@ -932,8 +1355,8 @@ var growlithe = {
     dex: 58,
     type: "Fire",
     ability: "Intimidate/Flash Fire/Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/058.shtml",
-    image: "http://www.serebii.net/xy/pokemon/058.png"
+    wiki: "http://www.serebii.net/pokedex-sm/058.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/058.png"
 };
 
 var arcanine = {
@@ -941,8 +1364,8 @@ var arcanine = {
     dex: 59,
     type: "Fire",
     ability: "Intimidate/Flash Fire/Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/059.shtml",
-    image: "http://www.serebii.net/xy/pokemon/059.png"
+    wiki: "http://www.serebii.net/pokedex-sm/059.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/059.png"
 };
 
 var poliwag = {
@@ -950,8 +1373,8 @@ var poliwag = {
     dex: 60,
     type: "Water",
     ability: "Water Absorb/Damp/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/060.shtml",
-    image: "http://www.serebii.net/xy/pokemon/060.png"
+    wiki: "http://www.serebii.net/pokedex-sm/060.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/060.png"
 };
 
 var poliwhirl = {
@@ -959,8 +1382,8 @@ var poliwhirl = {
     dex: 61,
     type: "Water",
     ability: "Water Absorb/Damp/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/061.shtml",
-    image: "http://www.serebii.net/xy/pokemon/061.png"
+    wiki: "http://www.serebii.net/pokedex-sm/061.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/061.png"
 };
 
 var poliwrath = {
@@ -968,8 +1391,8 @@ var poliwrath = {
     dex: 62,
     type: "Water/Fighting",
     ability: "Water Absorb/Damp/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/062.shtml",
-    image: "http://www.serebii.net/xy/pokemon/062.png"
+    wiki: "http://www.serebii.net/pokedex-sm/062.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/062.png"
 };
 
 var abra = {
@@ -977,8 +1400,8 @@ var abra = {
     dex: 63,
     type: "Psychic",
     ability: "Synchronize/Inner Focus/Magic Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/063.shtml",
-    image: "http://www.serebii.net/xy/pokemon/063.png"
+    wiki: "http://www.serebii.net/pokedex-sm/063.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/063.png"
 };
 
 var kadabra = {
@@ -986,8 +1409,8 @@ var kadabra = {
     dex: 64,
     type: "Psychic",
     ability: "Synchronize/Inner Focus/Magic Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/064.shtml",
-    image: "http://www.serebii.net/xy/pokemon/064.png"
+    wiki: "http://www.serebii.net/pokedex-sm/064.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/064.png"
 };
 
 var alakazam = {
@@ -995,8 +1418,8 @@ var alakazam = {
     dex: 65,
     type: "Psychic",
     ability: "Synchronize/Inner Focus/Magic Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/065.shtml",
-    image: "http://www.serebii.net/xy/pokemon/065.png"
+    wiki: "http://www.serebii.net/pokedex-sm/065.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/065.png"
 };
 
 var machop = {
@@ -1004,8 +1427,8 @@ var machop = {
     dex: 66,
     type: "Fighting",
     ability: "Guts/No Guard/Steadfast",
-    wiki: "http://www.serebii.net/pokedex-xy/066.shtml",
-    image: "http://www.serebii.net/xy/pokemon/066.png"
+    wiki: "http://www.serebii.net/pokedex-sm/066.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/066.png"
 };
 
 var machoke = {
@@ -1013,8 +1436,8 @@ var machoke = {
     dex: 67,
     type: "Fighting",
     ability: "Guts/No Guard/Steadfast",
-    wiki: "http://www.serebii.net/pokedex-xy/067.shtml",
-    image: "http://www.serebii.net/xy/pokemon/067.png"
+    wiki: "http://www.serebii.net/pokedex-sm/067.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/067.png"
 };
 
 var machamp = {
@@ -1022,8 +1445,8 @@ var machamp = {
     dex: 68,
     type: "Fighting",
     ability: "Guts/No Guard/Steadfast",
-    wiki: "http://www.serebii.net/pokedex-xy/068.shtml",
-    image: "http://www.serebii.net/xy/pokemon/068.png"
+    wiki: "http://www.serebii.net/pokedex-sm/068.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/068.png"
 };
 
 var bellsprout = {
@@ -1031,8 +1454,8 @@ var bellsprout = {
     dex: 69,
     type: "Grass/Poison",
     ability: "Chlorophyll/None/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/069.shtml",
-    image: "http://www.serebii.net/xy/pokemon/069.png"
+    wiki: "http://www.serebii.net/pokedex-sm/069.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/069.png"
 };
 
 var weepinbell = {
@@ -1040,8 +1463,8 @@ var weepinbell = {
     dex: 70,
     type: "Grass/Poison",
     ability: "Chlorophyll/None/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/070.shtml",
-    image: "http://www.serebii.net/xy/pokemon/070.png"
+    wiki: "http://www.serebii.net/pokedex-sm/070.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/070.png"
 };
 
 var victreebel = {
@@ -1049,8 +1472,8 @@ var victreebel = {
     dex: 71,
     type: "Grass/Poison",
     ability: "Chlorophyll/None/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/071.shtml",
-    image: "http://www.serebii.net/xy/pokemon/071.png"
+    wiki: "http://www.serebii.net/pokedex-sm/071.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/071.png"
 };
 
 var tentacool = {
@@ -1058,8 +1481,8 @@ var tentacool = {
     dex: 72,
     type: "Water/Poison",
     ability: "Clear Body/Liquid Ooze/Rain Dish",
-    wiki: "http://www.serebii.net/pokedex-xy/072.shtml",
-    image: "http://www.serebii.net/xy/pokemon/072.png"
+    wiki: "http://www.serebii.net/pokedex-sm/072.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/072.png"
 };
 
 var tentacruel = {
@@ -1067,8 +1490,8 @@ var tentacruel = {
     dex: 73,
     type: "Water/Poison",
     ability: "Clear Body/Liquid Ooze/Rain Dish",
-    wiki: "http://www.serebii.net/pokedex-xy/073.shtml",
-    image: "http://www.serebii.net/xy/pokemon/073.png"
+    wiki: "http://www.serebii.net/pokedex-sm/073.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/073.png"
 };
 
 var geodude = {
@@ -1076,8 +1499,8 @@ var geodude = {
     dex: 74,
     type: "Rock/Ground",
     ability: "Rock Head/Sturdy/Sand Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/074.shtml",
-    image: "http://www.serebii.net/xy/pokemon/074.png"
+    wiki: "http://www.serebii.net/pokedex-sm/074.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/074.png"
 };
 
 var graveler = {
@@ -1085,8 +1508,8 @@ var graveler = {
     dex: 75,
     type: "Rock/Ground",
     ability: "Rock Head/Sturdy/Sand Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/075.shtml",
-    image: "http://www.serebii.net/xy/pokemon/075.png"
+    wiki: "http://www.serebii.net/pokedex-sm/075.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/075.png"
 };
 
 var golem = {
@@ -1094,8 +1517,35 @@ var golem = {
     dex: 76,
     type: "Rock/Ground",
     ability: "Rock Head/Sturdy/Sand Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/076.shtml",
-    image: "http://www.serebii.net/xy/pokemon/076.png"
+    wiki: "http://www.serebii.net/pokedex-sm/076.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/076.png"
+};
+
+var alolan_geodude = {
+    name: "Alolan Geodude",
+    dex: 74,
+    type: "Rock/Electric",
+    ability: "Magnet Pull/Sturdy/Galvanise",
+    wiki: "http://www.serebii.net/pokedex-sm/074.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/074.png-a"
+};
+
+var alolan_graveler = {
+    name: "Alolan Graveler",
+    dex: 75,
+    type: "Rock/Electric",
+    ability: "Magnet Pull/Sturdy/Galvanise",
+    wiki: "http://www.serebii.net/pokedex-sm/075.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/075-a.png"
+};
+
+var alolan_golem = {
+    name: "Alolan Golem",
+    dex: 76,
+    type: "Rock/Electric",
+    ability: "Magnet Pull/Sturdy/Galvanise",
+    wiki: "http://www.serebii.net/pokedex-sm/076.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/076-a.png"
 };
 
 var ponyta = {
@@ -1103,8 +1553,8 @@ var ponyta = {
     dex: 77,
     type: "Fire",
     ability: "Run Away/Flash Fire/Flame Body",
-    wiki: "http://www.serebii.net/pokedex-xy/077.shtml",
-    image: "http://www.serebii.net/xy/pokemon/077.png"
+    wiki: "http://www.serebii.net/pokedex-sm/077.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/077.png"
 };
 
 var rapidash = {
@@ -1112,8 +1562,8 @@ var rapidash = {
     dex: 78,
     type: "Fire",
     ability: "Run Away/Flash Fire/Flame Body",
-    wiki: "http://www.serebii.net/pokedex-xy/078.shtml",
-    image: "http://www.serebii.net/xy/pokemon/078.png"
+    wiki: "http://www.serebii.net/pokedex-sm/078.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/078.png"
 };
 
 var slowpoke = {
@@ -1121,8 +1571,8 @@ var slowpoke = {
     dex: 79,
     type: "Water/Psychic",
     ability: "Oblivious/Own Tempo/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/079.shtml",
-    image: "http://www.serebii.net/xy/pokemon/079.png"
+    wiki: "http://www.serebii.net/pokedex-sm/079.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/079.png"
 };
 
 var slowbro = {
@@ -1130,8 +1580,8 @@ var slowbro = {
     dex: 80,
     type: "Water/Psychic",
     ability: "Oblivious/Own Tempo/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/080.shtml",
-    image: "http://www.serebii.net/xy/pokemon/080.png"
+    wiki: "http://www.serebii.net/pokedex-sm/080.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/080.png"
 };
 
 var magnemite = {
@@ -1139,8 +1589,8 @@ var magnemite = {
     dex: 81,
     type: "Electric/Steel",
     ability: "Magnet Pull/Sturdy/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/081.shtml",
-    image: "http://www.serebii.net/xy/pokemon/081.png"
+    wiki: "http://www.serebii.net/pokedex-sm/081.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/081.png"
 };
 
 var magneton = {
@@ -1148,8 +1598,8 @@ var magneton = {
     dex: 82,
     type: "Electric/Steel",
     ability: "Magnet Pull/Sturdy/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/082.shtml",
-    image: "http://www.serebii.net/xy/pokemon/082.png"
+    wiki: "http://www.serebii.net/pokedex-sm/082.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/082.png"
 };
 
 var farfetchd = {
@@ -1157,8 +1607,8 @@ var farfetchd = {
     dex: 83,
     type: "Normal/Flying",
     ability: "Keen Eye/Inner Focus/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/083.shtml",
-    image: "http://www.serebii.net/xy/pokemon/083.png"
+    wiki: "http://www.serebii.net/pokedex-sm/083.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/083.png"
 };
 
 var doduo = {
@@ -1166,8 +1616,8 @@ var doduo = {
     dex: 84,
     type: "Normal/Flying",
     ability: "Run Away/Early Bird/Tangled Feet",
-    wiki: "http://www.serebii.net/pokedex-xy/084.shtml",
-    image: "http://www.serebii.net/xy/pokemon/084.png"
+    wiki: "http://www.serebii.net/pokedex-sm/084.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/084.png"
 };
 
 var dodrio = {
@@ -1175,8 +1625,8 @@ var dodrio = {
     dex: 85,
     type: "Normal/Flying",
     ability: "Run Away/Early Bird/Tangled Feet",
-    wiki: "http://www.serebii.net/pokedex-xy/085.shtml",
-    image: "http://www.serebii.net/xy/pokemon/085.png"
+    wiki: "http://www.serebii.net/pokedex-sm/085.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/085.png"
 };
 
 var seel = {
@@ -1184,8 +1634,8 @@ var seel = {
     dex: 86,
     type: "Water",
     ability: "Thick Fat/Hydration/Ice Body",
-    wiki: "http://www.serebii.net/pokedex-xy/086.shtml",
-    image: "http://www.serebii.net/xy/pokemon/086.png"
+    wiki: "http://www.serebii.net/pokedex-sm/086.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/086.png"
 };
 
 var dewgong = {
@@ -1193,8 +1643,8 @@ var dewgong = {
     dex: 87,
     type: "Water/Ice",
     ability: "Thick Fat/Hydration/Ice Body",
-    wiki: "http://www.serebii.net/pokedex-xy/087.shtml",
-    image: "http://www.serebii.net/xy/pokemon/087.png"
+    wiki: "http://www.serebii.net/pokedex-sm/087.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/087.png"
 };
 
 var grimer = {
@@ -1202,8 +1652,8 @@ var grimer = {
     dex: 88,
     type: "Poison",
     ability: "Stench/Sticky Hold/Poison Touch",
-    wiki: "http://www.serebii.net/pokedex-xy/088.shtml",
-    image: "http://www.serebii.net/xy/pokemon/088.png"
+    wiki: "http://www.serebii.net/pokedex-sm/088.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/088.png"
 };
 
 var muk = {
@@ -1211,8 +1661,26 @@ var muk = {
     dex: 89,
     type: "Poison",
     ability: "Stench/Sticky Hold/Poison Touch",
-    wiki: "http://www.serebii.net/pokedex-xy/089.shtml",
-    image: "http://www.serebii.net/xy/pokemon/089.png"
+    wiki: "http://www.serebii.net/pokedex-sm/089.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/089.png"
+};
+
+var alolan_grimer = {
+    name: "Alolan Grimer",
+    dex: 88,
+    type: "Poison/Dark",
+    ability: "Poison Touch/Gluttony/Power of Alchemy",
+    wiki: "http://www.serebii.net/pokedex-sm/088.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/088-a.png"
+};
+
+var alolan_muk = {
+    name: "Alolan Muk",
+    dex: 89,
+    type: "Poison/Dark",
+    ability: "Poison Touch/Gluttony/Power of Alchemy",
+    wiki: "http://www.serebii.net/pokedex-sm/089.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/089-a.png"
 };
 
 var shellder = {
@@ -1220,8 +1688,8 @@ var shellder = {
     dex: 90,
     type: "Water",
     ability: "Shell Armor/Skill Link/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/090.shtml",
-    image: "http://www.serebii.net/xy/pokemon/090.png"
+    wiki: "http://www.serebii.net/pokedex-sm/090.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/090.png"
 };
 
 var cloyster = {
@@ -1229,8 +1697,8 @@ var cloyster = {
     dex: 91,
     type: "Water/Ice",
     ability: "Shell Armor/Skill Link/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/091.shtml",
-    image: "http://www.serebii.net/xy/pokemon/091.png"
+    wiki: "http://www.serebii.net/pokedex-sm/091.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/091.png"
 };
 
 var gastly = {
@@ -1238,8 +1706,8 @@ var gastly = {
     dex: 92,
     type: "Ghost/Poison",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/092.shtml",
-    image: "http://www.serebii.net/xy/pokemon/092.png"
+    wiki: "http://www.serebii.net/pokedex-sm/092.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/092.png"
 };
 
 var haunter = {
@@ -1247,8 +1715,8 @@ var haunter = {
     dex: 93,
     type: "Ghost/Poison",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/093.shtml",
-    image: "http://www.serebii.net/xy/pokemon/093.png"
+    wiki: "http://www.serebii.net/pokedex-sm/093.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/093.png"
 };
 
 var gengar = {
@@ -1256,8 +1724,8 @@ var gengar = {
     dex: 94,
     type: "Ghost/Poison",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/094.shtml",
-    image: "http://www.serebii.net/xy/pokemon/094.png"
+    wiki: "http://www.serebii.net/pokedex-sm/094.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/094.png"
 };
 
 var onix = {
@@ -1265,8 +1733,8 @@ var onix = {
     dex: 95,
     type: "Rock/Ground",
     ability: "Rock Head/Sturdy/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/095.shtml",
-    image: "http://www.serebii.net/xy/pokemon/095.png"
+    wiki: "http://www.serebii.net/pokedex-sm/095.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/095.png"
 };
 
 var drowzee = {
@@ -1274,8 +1742,8 @@ var drowzee = {
     dex: 96,
     type: "Psychic",
     ability: "Insomnia/Forewarn/Inner Focus",
-    wiki: "http://www.serebii.net/pokedex-xy/096.shtml",
-    image: "http://www.serebii.net/xy/pokemon/096.png"
+    wiki: "http://www.serebii.net/pokedex-sm/096.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/096.png"
 };
 
 var hypno = {
@@ -1283,8 +1751,8 @@ var hypno = {
     dex: 97,
     type: "Psychic",
     ability: "Insomnia/Forewarn/Inner Focus",
-    wiki: "http://www.serebii.net/pokedex-xy/097.shtml",
-    image: "http://www.serebii.net/xy/pokemon/097.png"
+    wiki: "http://www.serebii.net/pokedex-sm/097.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/097.png"
 };
 
 var krabby = {
@@ -1292,8 +1760,8 @@ var krabby = {
     dex: 98,
     type: "Water",
     ability: "Hyper Cutter/Shell Armor/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/098.shtml",
-    image: "http://www.serebii.net/xy/pokemon/098.png"
+    wiki: "http://www.serebii.net/pokedex-sm/098.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/098.png"
 };
 
 var kingler = {
@@ -1301,8 +1769,8 @@ var kingler = {
     dex: 99,
     type: "Water",
     ability: "Hyper Cutter/Shell Armor/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/099.shtml",
-    image: "http://www.serebii.net/xy/pokemon/099.png"
+    wiki: "http://www.serebii.net/pokedex-sm/099.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/099.png"
 };
 
 var voltorb = {
@@ -1310,8 +1778,8 @@ var voltorb = {
     dex: 100,
     type: "Electric",
     ability: "Soundproof/Static/Aftermath",
-    wiki: "http://www.serebii.net/pokedex-xy/100.shtml",
-    image: "http://www.serebii.net/xy/pokemon/100.png"
+    wiki: "http://www.serebii.net/pokedex-sm/100.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/100.png"
 };
 
 var electrode = {
@@ -1319,8 +1787,8 @@ var electrode = {
     dex: 101,
     type: "Electric",
     ability: "Soundproof/Static/Aftermath",
-    wiki: "http://www.serebii.net/pokedex-xy/101.shtml",
-    image: "http://www.serebii.net/xy/pokemon/101.png"
+    wiki: "http://www.serebii.net/pokedex-sm/101.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/101.png"
 };
 
 var exeggcute = {
@@ -1328,8 +1796,8 @@ var exeggcute = {
     dex: 102,
     type: "Grass/Psychic",
     ability: "Chlorophyll/None/Harvest",
-    wiki: "http://www.serebii.net/pokedex-xy/102.shtml",
-    image: "http://www.serebii.net/xy/pokemon/102.png"
+    wiki: "http://www.serebii.net/pokedex-sm/102.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/102.png"
 };
 
 var exeggutor = {
@@ -1337,8 +1805,17 @@ var exeggutor = {
     dex: 103,
     type: "Grass/Psychic",
     ability: "Chlorophyll/None/Harvest",
-    wiki: "http://www.serebii.net/pokedex-xy/103.shtml",
-    image: "http://www.serebii.net/xy/pokemon/103.png"
+    wiki: "http://www.serebii.net/pokedex-sm/103.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/103.png"
+};
+
+var alolan_exeggutor = {
+    name: "Alolan Exeggutor",
+    dex: 103,
+    type: "Grass/Dragon",
+    ability: "Frisk/None/Harvest",
+    wiki: "http://www.serebii.net/pokedex-sm/103.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/103-a.png"
 };
 
 var cubone = {
@@ -1346,8 +1823,8 @@ var cubone = {
     dex: 104,
     type: "Ground",
     ability: "Rock Head/Lightning Rod/Battle Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/104.shtml",
-    image: "http://www.serebii.net/xy/pokemon/104.png"
+    wiki: "http://www.serebii.net/pokedex-sm/104.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/104.png"
 };
 
 var marowak = {
@@ -1355,8 +1832,17 @@ var marowak = {
     dex: 105,
     type: "Ground",
     ability: "Rock Head/Lightning Rod/Battle Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/105.shtml",
-    image: "http://www.serebii.net/xy/pokemon/105.png"
+    wiki: "http://www.serebii.net/pokedex-sm/105.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/105.png"
+};
+
+var alolan_marowak = {
+    name: "Alolan Marowak",
+    dex: 105,
+    type: "Fire/Ghost",
+    ability: "Rock Head/Lightning Rod/Battle Armor",
+    wiki: "http://www.serebii.net/pokedex-sm/105.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/105-a.png"
 };
 
 var hitmonlee = {
@@ -1364,8 +1850,8 @@ var hitmonlee = {
     dex: 106,
     type: "Fighting",
     ability: "Limber/Reckless/Unburden",
-    wiki: "http://www.serebii.net/pokedex-xy/106.shtml",
-    image: "http://www.serebii.net/xy/pokemon/106.png"
+    wiki: "http://www.serebii.net/pokedex-sm/106.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/106.png"
 };
 
 var hitmonchan = {
@@ -1373,8 +1859,8 @@ var hitmonchan = {
     dex: 107,
     type: "Fighting",
     ability: "Keen Eye/Iron Fist/Inner Focus",
-    wiki: "http://www.serebii.net/pokedex-xy/107.shtml",
-    image: "http://www.serebii.net/xy/pokemon/107.png"
+    wiki: "http://www.serebii.net/pokedex-sm/107.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/107.png"
 };
 
 var lickitung = {
@@ -1382,8 +1868,8 @@ var lickitung = {
     dex: 108,
     type: "Normal",
     ability: "Own Tempo/Oblivious/Cloud Nine",
-    wiki: "http://www.serebii.net/pokedex-xy/108.shtml",
-    image: "http://www.serebii.net/xy/pokemon/108.png"
+    wiki: "http://www.serebii.net/pokedex-sm/108.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/108.png"
 };
 
 var koffing = {
@@ -1391,8 +1877,8 @@ var koffing = {
     dex: 109,
     type: "Poison",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/109.shtml",
-    image: "http://www.serebii.net/xy/pokemon/109.png"
+    wiki: "http://www.serebii.net/pokedex-sm/109.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/109.png"
 };
 
 var weezing = {
@@ -1400,8 +1886,8 @@ var weezing = {
     dex: 110,
     type: "Poison",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/110.shtml",
-    image: "http://www.serebii.net/xy/pokemon/110.png"
+    wiki: "http://www.serebii.net/pokedex-sm/110.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/110.png"
 };
 
 var rhyhorn = {
@@ -1409,8 +1895,8 @@ var rhyhorn = {
     dex: 111,
     type: "Ground/Rock",
     ability: "Lightning Rod/Rock Head/Reckless",
-    wiki: "http://www.serebii.net/pokedex-xy/111.shtml",
-    image: "http://www.serebii.net/xy/pokemon/111.png"
+    wiki: "http://www.serebii.net/pokedex-sm/111.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/111.png"
 };
 
 var rhydon = {
@@ -1418,8 +1904,8 @@ var rhydon = {
     dex: 112,
     type: "Ground/Rock",
     ability: "Lightning Rod/Rock Head/Reckless",
-    wiki: "http://www.serebii.net/pokedex-xy/112.shtml",
-    image: "http://www.serebii.net/xy/pokemon/112.png"
+    wiki: "http://www.serebii.net/pokedex-sm/112.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/112.png"
 };
 
 var chansey = {
@@ -1427,8 +1913,8 @@ var chansey = {
     dex: 113,
     type: "Normal",
     ability: "Natural Cure/Serene Grace/Healer",
-    wiki: "http://www.serebii.net/pokedex-xy/113.shtml",
-    image: "http://www.serebii.net/xy/pokemon/113.png"
+    wiki: "http://www.serebii.net/pokedex-sm/113.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/113.png"
 };
 
 var tangela = {
@@ -1436,8 +1922,8 @@ var tangela = {
     dex: 114,
     type: "Grass",
     ability: "Chlorophyll/Leaf Guard/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/114.shtml",
-    image: "http://www.serebii.net/xy/pokemon/114.png"
+    wiki: "http://www.serebii.net/pokedex-sm/114.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/114.png"
 };
 
 var kangaskhan = {
@@ -1445,8 +1931,8 @@ var kangaskhan = {
     dex: 115,
     type: "Normal",
     ability: "Early Bird/Scrappy/Inner Focus",
-    wiki: "http://www.serebii.net/pokedex-xy/115.shtml",
-    image: "http://www.serebii.net/xy/pokemon/115.png"
+    wiki: "http://www.serebii.net/pokedex-sm/115.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/115.png"
 };
 
 var horsea = {
@@ -1454,8 +1940,8 @@ var horsea = {
     dex: 116,
     type: "Water",
     ability: "Swift Swim/Sniper/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/116.shtml",
-    image: "http://www.serebii.net/xy/pokemon/116.png"
+    wiki: "http://www.serebii.net/pokedex-sm/116.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/116.png"
 };
 
 var seadra = {
@@ -1463,8 +1949,8 @@ var seadra = {
     dex: 117,
     type: "Water",
     ability: "Poison Point/Sniper/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/117.shtml",
-    image: "http://www.serebii.net/xy/pokemon/117.png"
+    wiki: "http://www.serebii.net/pokedex-sm/117.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/117.png"
 };
 
 var goldeen = {
@@ -1472,8 +1958,8 @@ var goldeen = {
     dex: 118,
     type: "Water",
     ability: "Swift Swim/Water Veil/Lightning Rod",
-    wiki: "http://www.serebii.net/pokedex-xy/118.shtml",
-    image: "http://www.serebii.net/xy/pokemon/118.png"
+    wiki: "http://www.serebii.net/pokedex-sm/118.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/118.png"
 };
 
 var seaking = {
@@ -1481,8 +1967,8 @@ var seaking = {
     dex: 119,
     type: "Water",
     ability: "Swift Swim/Water Veil/Lightning Rod",
-    wiki: "http://www.serebii.net/pokedex-xy/119.shtml",
-    image: "http://www.serebii.net/xy/pokemon/119.png"
+    wiki: "http://www.serebii.net/pokedex-sm/119.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/119.png"
 };
 
 var staryu = {
@@ -1490,8 +1976,8 @@ var staryu = {
     dex: 120,
     type: "Water",
     ability: "Illuminate/Natural Cure/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/120.shtml",
-    image: "http://www.serebii.net/xy/pokemon/120.png"
+    wiki: "http://www.serebii.net/pokedex-sm/120.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/120.png"
 };
 
 var starmie = {
@@ -1499,8 +1985,8 @@ var starmie = {
     dex: 121,
     type: "Water/Psychic",
     ability: "Illuminate/Natural Cure/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/121.shtml",
-    image: "http://www.serebii.net/xy/pokemon/121.png"
+    wiki: "http://www.serebii.net/pokedex-sm/121.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/121.png"
 };
 
 var mr_mime = {
@@ -1508,8 +1994,8 @@ var mr_mime = {
     dex: 122,
     type: "Psychic/Fairy",
     ability: "Soundproof/Filter/Technician",
-    wiki: "http://www.serebii.net/pokedex-xy/122.shtml",
-    image: "http://www.serebii.net/xy/pokemon/122.png"
+    wiki: "http://www.serebii.net/pokedex-sm/122.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/122.png"
 };
 
 var scyther = {
@@ -1517,8 +2003,8 @@ var scyther = {
     dex: 123,
     type: "Bug/Flying",
     ability: "Swarm/Technician/Steadfast",
-    wiki: "http://www.serebii.net/pokedex-xy/123.shtml",
-    image: "http://www.serebii.net/xy/pokemon/123.png"
+    wiki: "http://www.serebii.net/pokedex-sm/123.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/123.png"
 };
 
 var jynx = {
@@ -1526,8 +2012,8 @@ var jynx = {
     dex: 124,
     type: "Ice/Psychic",
     ability: "Oblivious/Forewarn/Dry Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/124.shtml",
-    image: "http://www.serebii.net/xy/pokemon/124.png"
+    wiki: "http://www.serebii.net/pokedex-sm/124.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/124.png"
 };
 
 var electabuzz = {
@@ -1535,8 +2021,8 @@ var electabuzz = {
     dex: 125,
     type: "Electric",
     ability: "Static/None/Vital Spirit",
-    wiki: "http://www.serebii.net/pokedex-xy/125.shtml",
-    image: "http://www.serebii.net/xy/pokemon/125.png"
+    wiki: "http://www.serebii.net/pokedex-sm/125.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/125.png"
 };
 
 var magmar = {
@@ -1544,8 +2030,8 @@ var magmar = {
     dex: 126,
     type: "Fire",
     ability: "Flame Body/None/Vital Spirit",
-    wiki: "http://www.serebii.net/pokedex-xy/126.shtml",
-    image: "http://www.serebii.net/xy/pokemon/126.png"
+    wiki: "http://www.serebii.net/pokedex-sm/126.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/126.png"
 };
 
 var pinsir = {
@@ -1553,8 +2039,8 @@ var pinsir = {
     dex: 127,
     type: "Bug",
     ability: "Hyper Cutter/Mold Breaker/Moxie",
-    wiki: "http://www.serebii.net/pokedex-xy/127.shtml",
-    image: "http://www.serebii.net/xy/pokemon/127.png"
+    wiki: "http://www.serebii.net/pokedex-sm/127.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/127.png"
 };
 
 var tauros = {
@@ -1562,8 +2048,8 @@ var tauros = {
     dex: 128,
     type: "Normal",
     ability: "Intimidate/Anger Point/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/128.shtml",
-    image: "http://www.serebii.net/xy/pokemon/128.png"
+    wiki: "http://www.serebii.net/pokedex-sm/128.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/128.png"
 };
 
 var magikarp = {
@@ -1571,8 +2057,8 @@ var magikarp = {
     dex: 129,
     type: "Water",
     ability: "Swift Swim/None/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/129.shtml",
-    image: "http://www.serebii.net/xy/pokemon/129.png"
+    wiki: "http://www.serebii.net/pokedex-sm/129.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/129.png"
 };
 
 var gyarados = {
@@ -1580,8 +2066,8 @@ var gyarados = {
     dex: 130,
     type: "Water/Flying",
     ability: "Intimidate/None/Moxie",
-    wiki: "http://www.serebii.net/pokedex-xy/130.shtml",
-    image: "http://www.serebii.net/xy/pokemon/130.png"
+    wiki: "http://www.serebii.net/pokedex-sm/130.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/130.png"
 };
 
 var lapras = {
@@ -1589,8 +2075,8 @@ var lapras = {
     dex: 131,
     type: "Water/Ice",
     ability: "Water Absorb/Shell Armor/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/131.shtml",
-    image: "http://www.serebii.net/xy/pokemon/131.png"
+    wiki: "http://www.serebii.net/pokedex-sm/131.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/131.png"
 };
 
 var ditto = {
@@ -1598,8 +2084,8 @@ var ditto = {
     dex: 132,
     type: "Normal",
     ability: "Limber/None/Imposter",
-    wiki: "http://www.serebii.net/pokedex-xy/132.shtml",
-    image: "http://www.serebii.net/xy/pokemon/132.png"
+    wiki: "http://www.serebii.net/pokedex-sm/132.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/132.png"
 };
 
 var eevee = {
@@ -1607,8 +2093,8 @@ var eevee = {
     dex: 133,
     type: "Normal",
     ability: "Run Away/Adaptability/Anticipation",
-    wiki: "http://www.serebii.net/pokedex-xy/133.shtml",
-    image: "http://www.serebii.net/xy/pokemon/133.png"
+    wiki: "http://www.serebii.net/pokedex-sm/133.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/133.png"
 };
 
 var vaporeon = {
@@ -1616,8 +2102,8 @@ var vaporeon = {
     dex: 134,
     type: "Water",
     ability: "Water Absorb/None/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/134.shtml",
-    image: "http://www.serebii.net/xy/pokemon/134.png"
+    wiki: "http://www.serebii.net/pokedex-sm/134.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/134.png"
 };
 
 var jolteon = {
@@ -1625,8 +2111,8 @@ var jolteon = {
     dex: 135,
     type: "Electric",
     ability: "Volt Absorb/None/Quick Feet",
-    wiki: "http://www.serebii.net/pokedex-xy/135.shtml",
-    image: "http://www.serebii.net/xy/pokemon/135.png"
+    wiki: "http://www.serebii.net/pokedex-sm/135.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/135.png"
 };
 
 var flareon = {
@@ -1634,8 +2120,8 @@ var flareon = {
     dex: 136,
     type: "Fire",
     ability: "Flash Fire/None/Guts",
-    wiki: "http://www.serebii.net/pokedex-xy/136.shtml",
-    image: "http://www.serebii.net/xy/pokemon/136.png"
+    wiki: "http://www.serebii.net/pokedex-sm/136.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/136.png"
 };
 
 var porygon = {
@@ -1643,8 +2129,8 @@ var porygon = {
     dex: 137,
     type: "Normal",
     ability: "Trace/Download/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/137.shtml",
-    image: "http://www.serebii.net/xy/pokemon/137.png"
+    wiki: "http://www.serebii.net/pokedex-sm/137.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/137.png"
 };
 
 var omanyte = {
@@ -1652,8 +2138,8 @@ var omanyte = {
     dex: 138,
     type: "Rock/Water",
     ability: "Swift Swim/Shell Armor/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/138.shtml",
-    image: "http://www.serebii.net/xy/pokemon/138.png"
+    wiki: "http://www.serebii.net/pokedex-sm/138.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/138.png"
 };
 
 var omastar = {
@@ -1661,8 +2147,8 @@ var omastar = {
     dex: 139,
     type: "Rock/Water",
     ability: "Swift Swim/Shell Armor/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/139.shtml",
-    image: "http://www.serebii.net/xy/pokemon/139.png"
+    wiki: "http://www.serebii.net/pokedex-sm/139.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/139.png"
 };
 
 var kabuto = {
@@ -1670,8 +2156,8 @@ var kabuto = {
     dex: 140,
     type: "Rock/Water",
     ability: "Swift Swim/Battle Armor/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/140.shtml",
-    image: "http://www.serebii.net/xy/pokemon/140.png"
+    wiki: "http://www.serebii.net/pokedex-sm/140.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/140.png"
 };
 
 var kabutops = {
@@ -1679,8 +2165,8 @@ var kabutops = {
     dex: 141,
     type: "Rock/Water",
     ability: "Swift Swim/Battle Armor/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/141.shtml",
-    image: "http://www.serebii.net/xy/pokemon/141.png"
+    wiki: "http://www.serebii.net/pokedex-sm/141.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/141.png"
 };
 
 var aerodactyl = {
@@ -1688,8 +2174,8 @@ var aerodactyl = {
     dex: 142,
     type: "Rock/Flying",
     ability: "Rock Head/Pressure/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/142.shtml",
-    image: "http://www.serebii.net/xy/pokemon/142.png"
+    wiki: "http://www.serebii.net/pokedex-sm/142.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/142.png"
 };
 
 var snorlax = {
@@ -1697,8 +2183,8 @@ var snorlax = {
     dex: 143,
     type: "Normal",
     ability: "Immunity/Thick Fat/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/143.shtml",
-    image: "http://www.serebii.net/xy/pokemon/143.png"
+    wiki: "http://www.serebii.net/pokedex-sm/143.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/143.png"
 };
 
 var articuno = {
@@ -1706,8 +2192,8 @@ var articuno = {
     dex: 144,
     type: "Ice/Flying",
     ability: "Pressure/None/Snow Cloak",
-    wiki: "http://www.serebii.net/pokedex-xy/144.shtml",
-    image: "http://www.serebii.net/xy/pokemon/144.png"
+    wiki: "http://www.serebii.net/pokedex-sm/144.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/144.png"
 };
 
 var zapdos = {
@@ -1715,8 +2201,8 @@ var zapdos = {
     dex: 145,
     type: "Electric/Flying",
     ability: "Pressure/None/Static/",
-    wiki: "http://www.serebii.net/pokedex-xy/145.shtml",
-    image: "http://www.serebii.net/xy/pokemon/145.png"
+    wiki: "http://www.serebii.net/pokedex-sm/145.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/145.png"
 };
 
 var moltres = {
@@ -1724,8 +2210,8 @@ var moltres = {
     dex: 146,
     type: "Fire/Flying",
     ability: "Pressure/None/Flame Body",
-    wiki: "http://www.serebii.net/pokedex-xy/146.shtml",
-    image: "http://www.serebii.net/xy/pokemon/146.png"
+    wiki: "http://www.serebii.net/pokedex-sm/146.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/146.png"
 };
 
 var dratini = {
@@ -1733,8 +2219,8 @@ var dratini = {
     dex: 147,
     type: "Dragon",
     ability: "Shed Skin/None/Marvel Scale",
-    wiki: "http://www.serebii.net/pokedex-xy/147.shtml",
-    image: "http://www.serebii.net/xy/pokemon/147.png"
+    wiki: "http://www.serebii.net/pokedex-sm/147.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/147.png"
 };
 
 var dragonair = {
@@ -1742,8 +2228,8 @@ var dragonair = {
     dex: 148,
     type: "Dragon",
     ability: "Shed Skin/None/Marvel Scale",
-    wiki: "http://www.serebii.net/pokedex-xy/148.shtml",
-    image: "http://www.serebii.net/xy/pokemon/148.png"
+    wiki: "http://www.serebii.net/pokedex-sm/148.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/148.png"
 };
 
 var dragonite = {
@@ -1751,8 +2237,8 @@ var dragonite = {
     dex: 149,
     type: "Dragon/Flying",
     ability: "Inner Focus/None/Multiscale",
-    wiki: "http://www.serebii.net/pokedex-xy/149.shtml",
-    image: "http://www.serebii.net/xy/pokemon/149.png"
+    wiki: "http://www.serebii.net/pokedex-sm/149.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/149.png"
 };
 
 var mewtwo = {
@@ -1760,8 +2246,8 @@ var mewtwo = {
     dex: 150,
     type: "Psychic",
     ability: "Pressure/None/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/150.shtml",
-    image: "http://www.serebii.net/xy/pokemon/150.png"
+    wiki: "http://www.serebii.net/pokedex-sm/150.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/150.png"
 };
 
 var mew = {
@@ -1769,8 +2255,8 @@ var mew = {
     dex: 151,
     type: "Psychic",
     ability: "Synchronize",
-    wiki: "http://www.serebii.net/pokedex-xy/151.shtml",
-    image: "http://www.serebii.net/xy/pokemon/151.png"
+    wiki: "http://www.serebii.net/pokedex-sm/151.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/151.png"
 };
 
 var chikorita = {
@@ -1778,8 +2264,8 @@ var chikorita = {
     dex: 152,
     type: "Grass",
     ability: "Overgrow/None/Leaf Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/152.shtml",
-    image: "http://www.serebii.net/xy/pokemon/152.png"
+    wiki: "http://www.serebii.net/pokedex-sm/152.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/152.png"
 };
 
 var bayleef = {
@@ -1787,8 +2273,8 @@ var bayleef = {
     dex: 153,
     type: "Grass",
     ability: "Overgrow/None/Leaf Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/153.shtml",
-    image: "http://www.serebii.net/xy/pokemon/153.png"
+    wiki: "http://www.serebii.net/pokedex-sm/153.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/153.png"
 };
 
 var meganium = {
@@ -1796,8 +2282,8 @@ var meganium = {
     dex: 154,
     type: "Grass",
     ability: "Overgrow/None/Leaf Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/154.shtml",
-    image: "http://www.serebii.net/xy/pokemon/154.png"
+    wiki: "http://www.serebii.net/pokedex-sm/154.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/154.png"
 };
 
 var cyndaquil = {
@@ -1805,8 +2291,8 @@ var cyndaquil = {
     dex: 155,
     type: "Fire",
     ability: "Blaze/None/Flash Fire",
-    wiki: "http://www.serebii.net/pokedex-xy/155.shtml",
-    image: "http://www.serebii.net/xy/pokemon/155.png"
+    wiki: "http://www.serebii.net/pokedex-sm/155.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/155.png"
 };
 
 var quilava = {
@@ -1814,8 +2300,8 @@ var quilava = {
     dex: 156,
     type: "Fire",
     ability: "Blaze/None/Flash Fire",
-    wiki: "http://www.serebii.net/pokedex-xy/156.shtml",
-    image: "http://www.serebii.net/xy/pokemon/156.png"
+    wiki: "http://www.serebii.net/pokedex-sm/156.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/156.png"
 };
 
 var typhlosion = {
@@ -1823,8 +2309,8 @@ var typhlosion = {
     dex: 157,
     type: "Fire",
     ability: "Blaze/None/Flash Fire",
-    wiki: "http://www.serebii.net/pokedex-xy/157.shtml",
-    image: "http://www.serebii.net/xy/pokemon/157.png"
+    wiki: "http://www.serebii.net/pokedex-sm/157.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/157.png"
 };
 
 var totodile = {
@@ -1832,8 +2318,8 @@ var totodile = {
     dex: 158,
     type: "Water",
     ability: "Torrent/None/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/158.shtml",
-    image: "http://www.serebii.net/xy/pokemon/158.png"
+    wiki: "http://www.serebii.net/pokedex-sm/158.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/158.png"
 };
 
 var croconaw = {
@@ -1841,8 +2327,8 @@ var croconaw = {
     dex: 159,
     type: "Water",
     ability: "Torrent/None/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/159.shtml",
-    image: "http://www.serebii.net/xy/pokemon/159.png"
+    wiki: "http://www.serebii.net/pokedex-sm/159.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/159.png"
 };
 
 var feraligatr = {
@@ -1850,8 +2336,8 @@ var feraligatr = {
     dex: 160,
     type: "Water",
     ability: "Torrent/None/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/160.shtml",
-    image: "http://www.serebii.net/xy/pokemon/160.png"
+    wiki: "http://www.serebii.net/pokedex-sm/160.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/160.png"
 };
 
 var sentret = {
@@ -1859,8 +2345,8 @@ var sentret = {
     dex: 161,
     type: "Normal",
     ability: "Run Away/Keen Eye/Frisk",
-    wiki: "http://www.serebii.net/pokedex-xy/161.shtml",
-    image: "http://www.serebii.net/xy/pokemon/161.png"
+    wiki: "http://www.serebii.net/pokedex-sm/161.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/161.png"
 };
 
 var furret = {
@@ -1868,8 +2354,8 @@ var furret = {
     dex: 162,
     type: "Normal",
     ability: "Run Away/Keen Eye/Frisk",
-    wiki: "http://www.serebii.net/pokedex-xy/162.shtml",
-    image: "http://www.serebii.net/xy/pokemon/162.png"
+    wiki: "http://www.serebii.net/pokedex-sm/162.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/162.png"
 };
 
 var hoothoot = {
@@ -1877,8 +2363,8 @@ var hoothoot = {
     dex: 163,
     type: "Normal/Flying",
     ability: "Insomnia/Keen Eye/Tinted Lens",
-    wiki: "http://www.serebii.net/pokedex-xy/163.shtml",
-    image: "http://www.serebii.net/xy/pokemon/163.png"
+    wiki: "http://www.serebii.net/pokedex-sm/163.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/163.png"
 };
 
 var noctowl = {
@@ -1886,8 +2372,8 @@ var noctowl = {
     dex: 164,
     type: "Normal/Flying",
     ability: "Insomnia/Keen Eye/Tinted Lens",
-    wiki: "http://www.serebii.net/pokedex-xy/164.shtml",
-    image: "http://www.serebii.net/xy/pokemon/164.png"
+    wiki: "http://www.serebii.net/pokedex-sm/164.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/164.png"
 };
 
 var ledyba = {
@@ -1895,8 +2381,8 @@ var ledyba = {
     dex: 165,
     type: "Bug/Flying",
     ability: "Swarm/Early Bird/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/165.shtml",
-    image: "http://www.serebii.net/xy/pokemon/165.png"
+    wiki: "http://www.serebii.net/pokedex-sm/165.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/165.png"
 };
 
 var ledian = {
@@ -1904,8 +2390,8 @@ var ledian = {
     dex: 166,
     type: "Bug/Flying",
     ability: "Swarm/Early Bird/Iron Fist",
-    wiki: "http://www.serebii.net/pokedex-xy/166.shtml",
-    image: "http://www.serebii.net/xy/pokemon/166.png"
+    wiki: "http://www.serebii.net/pokedex-sm/166.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/166.png"
 };
 
 var spinarak = {
@@ -1913,8 +2399,8 @@ var spinarak = {
     dex: 167,
     type: "Bug/Poison",
     ability: "Swarm/Insomnia/Sniper",
-    wiki: "http://www.serebii.net/pokedex-xy/167.shtml",
-    image: "http://www.serebii.net/xy/pokemon/167.png"
+    wiki: "http://www.serebii.net/pokedex-sm/167.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/167.png"
 };
 
 var ariados = {
@@ -1922,8 +2408,8 @@ var ariados = {
     dex: 168,
     type: "Bug/Poison",
     ability: "Swarm/Insomnia/Sniper",
-    wiki: "http://www.serebii.net/pokedex-xy/168.shtml",
-    image: "http://www.serebii.net/xy/pokemon/168.png"
+    wiki: "http://www.serebii.net/pokedex-sm/168.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/168.png"
 };
 
 var crobat = {
@@ -1931,8 +2417,8 @@ var crobat = {
     dex: 169,
     type: "Poison/Flying",
     ability: "Inner Focus/None/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/169.shtml",
-    image: "http://www.serebii.net/xy/pokemon/169.png"
+    wiki: "http://www.serebii.net/pokedex-sm/169.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/169.png"
 };
 
 var chinchou = {
@@ -1940,8 +2426,8 @@ var chinchou = {
     dex: 170,
     type: "Water/Electric",
     ability: "Volt Absorb/Illuminate/Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/170.shtml",
-    image: "http://www.serebii.net/xy/pokemon/170.png"
+    wiki: "http://www.serebii.net/pokedex-sm/170.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/170.png"
 };
 
 var lanturn = {
@@ -1949,8 +2435,8 @@ var lanturn = {
     dex: 171,
     type: "Water/Electric",
     ability: "Volt Absorb/Illuminate/Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/171.shtml",
-    image: "http://www.serebii.net/xy/pokemon/171.png"
+    wiki: "http://www.serebii.net/pokedex-sm/171.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/171.png"
 };
 
 var pichu = {
@@ -1958,8 +2444,8 @@ var pichu = {
     dex: 172,
     type: "Electric",
     ability: "Static/None/Lightning Rod",
-    wiki: "http://www.serebii.net/pokedex-xy/172.shtml",
-    image: "http://www.serebii.net/xy/pokemon/172.png"
+    wiki: "http://www.serebii.net/pokedex-sm/172.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/172.png"
 };
 
 var cleffa = {
@@ -1967,8 +2453,8 @@ var cleffa = {
     dex: 173,
     type: "Fairy",
     ability: "Cute Charm/Magic Guard/Friend Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/173.shtml",
-    image: "http://www.serebii.net/xy/pokemon/173.png"
+    wiki: "http://www.serebii.net/pokedex-sm/173.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/173.png"
 };
 
 var igglybuff = {
@@ -1976,8 +2462,8 @@ var igglybuff = {
     dex: 174,
     type: "Normal/Fairy",
     ability: "Cute Charm/Competitive/Friend Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/174.shtml",
-    image: "http://www.serebii.net/xy/pokemon/174.png"
+    wiki: "http://www.serebii.net/pokedex-sm/174.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/174.png"
 };
 
 var togepi = {
@@ -1985,8 +2471,8 @@ var togepi = {
     dex: 175,
     type: "Fairy",
     ability: "Hustle/Serene Grace/Super Luck",
-    wiki: "http://www.serebii.net/pokedex-xy/175.shtml",
-    image: "http://www.serebii.net/xy/pokemon/175.png"
+    wiki: "http://www.serebii.net/pokedex-sm/175.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/175.png"
 };
 
 var togetic = {
@@ -1994,8 +2480,8 @@ var togetic = {
     dex: 176,
     type: "Fairy/Flying",
     ability: "Hustle/Serene Grace/Super Luck",
-    wiki: "http://www.serebii.net/pokedex-xy/176.shtml",
-    image: "http://www.serebii.net/xy/pokemon/176.png"
+    wiki: "http://www.serebii.net/pokedex-sm/176.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/176.png"
 };
 
 var natu = {
@@ -2003,8 +2489,8 @@ var natu = {
     dex: 177,
     type: "Psychic/Flying",
     ability: "Synchronize/Early Bird/Magic Bounce",
-    wiki: "http://www.serebii.net/pokedex-xy/177.shtml",
-    image: "http://www.serebii.net/xy/pokemon/177.png"
+    wiki: "http://www.serebii.net/pokedex-sm/177.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/177.png"
 };
 
 var xatu = {
@@ -2012,8 +2498,8 @@ var xatu = {
     dex: 178,
     type: "Psychic/Flying",
     ability: "Synchronize/Early Bird/Magic Bounce",
-    wiki: "http://www.serebii.net/pokedex-xy/178.shtml",
-    image: "http://www.serebii.net/xy/pokemon/178.png"
+    wiki: "http://www.serebii.net/pokedex-sm/178.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/178.png"
 };
 
 var mareep = {
@@ -2021,8 +2507,8 @@ var mareep = {
     dex: 179,
     type: "Electric",
     ability: "Static/None/Plus",
-    wiki: "http://www.serebii.net/pokedex-xy/179.shtml",
-    image: "http://www.serebii.net/xy/pokemon/179.png"
+    wiki: "http://www.serebii.net/pokedex-sm/179.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/179.png"
 };
 
 var flaaffy = {
@@ -2030,8 +2516,8 @@ var flaaffy = {
     dex: 180,
     type: "Electric",
     ability: "Static/None/Plus",
-    wiki: "http://www.serebii.net/pokedex-xy/180.shtml",
-    image: "http://www.serebii.net/xy/pokemon/180.png"
+    wiki: "http://www.serebii.net/pokedex-sm/180.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/180.png"
 };
 
 var ampharos = {
@@ -2039,8 +2525,8 @@ var ampharos = {
     dex: 181,
     type: "Electric",
     ability: "Static/None/Plus",
-    wiki: "http://www.serebii.net/pokedex-xy/181.shtml",
-    image: "http://www.serebii.net/xy/pokemon/181.png"
+    wiki: "http://www.serebii.net/pokedex-sm/181.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/181.png"
 };
 
 var bellossom = {
@@ -2048,8 +2534,8 @@ var bellossom = {
     dex: 182,
     type: "Grass",
     ability: "Chlorophyll/None/Healer",
-    wiki: "http://www.serebii.net/pokedex-xy/182.shtml",
-    image: "http://www.serebii.net/xy/pokemon/182.png"
+    wiki: "http://www.serebii.net/pokedex-sm/182.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/182.png"
 };
 
 var marill = {
@@ -2057,8 +2543,8 @@ var marill = {
     dex: 183,
     type: "Water/Fairy",
     ability: "Thick Fat/Huge Power/Sap Sipper",
-    wiki: "http://www.serebii.net/pokedex-xy/183.shtml",
-    image: "http://www.serebii.net/xy/pokemon/183.png"
+    wiki: "http://www.serebii.net/pokedex-sm/183.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/183.png"
 };
 
 var azumarill = {
@@ -2066,8 +2552,8 @@ var azumarill = {
     dex: 184,
     type: "Water/Fairy",
     ability: "Thick Fat/Huge Power/Sap Sipper",
-    wiki: "http://www.serebii.net/pokedex-xy/184.shtml",
-    image: "http://www.serebii.net/xy/pokemon/184.png"
+    wiki: "http://www.serebii.net/pokedex-sm/184.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/184.png"
 };
 
 var sudowoodo = {
@@ -2075,8 +2561,8 @@ var sudowoodo = {
     dex: 185,
     type: "Rock",
     ability: "Sturdy/Rock Head/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/185.shtml",
-    image: "http://www.serebii.net/xy/pokemon/185.png"
+    wiki: "http://www.serebii.net/pokedex-sm/185.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/185.png"
 };
 
 var politoed = {
@@ -2084,8 +2570,8 @@ var politoed = {
     dex: 186,
     type: "Water",
     ability: "Water Absorb/Damp/Drizzle",
-    wiki: "http://www.serebii.net/pokedex-xy/186.shtml",
-    image: "http://www.serebii.net/xy/pokemon/186.png"
+    wiki: "http://www.serebii.net/pokedex-sm/186.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/186.png"
 };
 
 var hoppip = {
@@ -2093,8 +2579,8 @@ var hoppip = {
     dex: 187,
     type: "Grass/Flying",
     ability: "Chlorophyll/Leaf Guard/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/187.shtml",
-    image: "http://www.serebii.net/xy/pokemon/187.png"
+    wiki: "http://www.serebii.net/pokedex-sm/187.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/187.png"
 };
 
 var skiploom = {
@@ -2102,8 +2588,8 @@ var skiploom = {
     dex: 188,
     type: "Grass/Flying",
     ability: "Chlorophyll/Leaf Guard/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/188.shtml",
-    image: "http://www.serebii.net/xy/pokemon/188.png"
+    wiki: "http://www.serebii.net/pokedex-sm/188.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/188.png"
 };
 
 var jumpluff = {
@@ -2111,8 +2597,8 @@ var jumpluff = {
     dex: 189,
     type: "Grass/Flying",
     ability: "Chlorophyll/Leaf Guard/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/189.shtml",
-    image: "http://www.serebii.net/xy/pokemon/189.png"
+    wiki: "http://www.serebii.net/pokedex-sm/189.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/189.png"
 };
 
 var aipom = {
@@ -2120,8 +2606,8 @@ var aipom = {
     dex: 190,
     type: "Normal",
     ability: "Run Away/Pickup/Skill Link",
-    wiki: "http://www.serebii.net/pokedex-xy/190.shtml",
-    image: "http://www.serebii.net/xy/pokemon/190.png"
+    wiki: "http://www.serebii.net/pokedex-sm/190.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/190.png"
 };
 
 var sunkern = {
@@ -2129,8 +2615,8 @@ var sunkern = {
     dex: 191,
     type: "Grass",
     ability: "Chlorophyll/Solar Power/Early Bird",
-    wiki: "http://www.serebii.net/pokedex-xy/191.shtml",
-    image: "http://www.serebii.net/xy/pokemon/191.png"
+    wiki: "http://www.serebii.net/pokedex-sm/191.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/191.png"
 };
 
 var sunflora = {
@@ -2138,8 +2624,8 @@ var sunflora = {
     dex: 192,
     type: "Grass",
     ability: "Chlorophyll/Solar Power/Early Bird",
-    wiki: "http://www.serebii.net/pokedex-xy/192.shtml",
-    image: "http://www.serebii.net/xy/pokemon/192.png"
+    wiki: "http://www.serebii.net/pokedex-sm/192.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/192.png"
 };
 
 var yanma = {
@@ -2147,8 +2633,8 @@ var yanma = {
     dex: 193,
     type: "Bug/Flying",
     ability: "Speed Boost/Compound Eyes/Frisk",
-    wiki: "http://www.serebii.net/pokedex-xy/193.shtml",
-    image: "http://www.serebii.net/xy/pokemon/193.png"
+    wiki: "http://www.serebii.net/pokedex-sm/193.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/193.png"
 };
 
 var wooper = {
@@ -2156,8 +2642,8 @@ var wooper = {
     dex: 194,
     type: "Water/Ground",
     ability: "Damp/Water Absorb/Unaware",
-    wiki: "http://www.serebii.net/pokedex-xy/194.shtml",
-    image: "http://www.serebii.net/xy/pokemon/194.png"
+    wiki: "http://www.serebii.net/pokedex-sm/194.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/194.png"
 };
 
 var quagsire = {
@@ -2165,8 +2651,8 @@ var quagsire = {
     dex: 195,
     type: "Water/Ground",
     ability: "Damp/Water Absorb/Unaware",
-    wiki: "http://www.serebii.net/pokedex-xy/195.shtml",
-    image: "http://www.serebii.net/xy/pokemon/195.png"
+    wiki: "http://www.serebii.net/pokedex-sm/195.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/195.png"
 };
 
 var espeon = {
@@ -2174,8 +2660,8 @@ var espeon = {
     dex: 196,
     type: "Psychic",
     ability: "Synchronize/None/Magic Bounce",
-    wiki: "http://www.serebii.net/pokedex-xy/196.shtml",
-    image: "http://www.serebii.net/xy/pokemon/196.png"
+    wiki: "http://www.serebii.net/pokedex-sm/196.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/196.png"
 };
 
 var umbreon = {
@@ -2183,8 +2669,8 @@ var umbreon = {
     dex: 197,
     type: "Dark",
     ability: "Synchronize/None/Inner Focus",
-    wiki: "http://www.serebii.net/pokedex-xy/197.shtml",
-    image: "http://www.serebii.net/xy/pokemon/197.png"
+    wiki: "http://www.serebii.net/pokedex-sm/197.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/197.png"
 };
 
 var murkrow = {
@@ -2192,8 +2678,8 @@ var murkrow = {
     dex: 198,
     type: "Dark/Flying",
     ability: "Insomnia/Super Luck/Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/198.shtml",
-    image: "http://www.serebii.net/xy/pokemon/198.png"
+    wiki: "http://www.serebii.net/pokedex-sm/198.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/198.png"
 };
 
 var slowking = {
@@ -2201,8 +2687,8 @@ var slowking = {
     dex: 199,
     type: "Water/Psychic",
     ability: "Oblivious/Own Tempo/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/199.shtml",
-    image: "http://www.serebii.net/xy/pokemon/199.png"
+    wiki: "http://www.serebii.net/pokedex-sm/199.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/199.png"
 };
 
 var misdreavus = {
@@ -2210,8 +2696,8 @@ var misdreavus = {
     dex: 200,
     type: "Ghost",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/200.shtml",
-    image: "http://www.serebii.net/xy/pokemon/200.png"
+    wiki: "http://www.serebii.net/pokedex-sm/200.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/200.png"
 };
 
 var unown = {
@@ -2219,8 +2705,8 @@ var unown = {
     dex: 201,
     type: "Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/201.shtml",
-    image: "http://www.serebii.net/xy/pokemon/201.png"
+    wiki: "http://www.serebii.net/pokedex-sm/201.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/201.png"
 };
 
 var wobbuffet = {
@@ -2228,8 +2714,8 @@ var wobbuffet = {
     dex: 202,
     type: "Psychic",
     ability: "Shadow Tag/None/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/202.shtml",
-    image: "http://www.serebii.net/xy/pokemon/202.png"
+    wiki: "http://www.serebii.net/pokedex-sm/202.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/202.png"
 };
 
 var girafarig = {
@@ -2237,8 +2723,8 @@ var girafarig = {
     dex: 203,
     type: "Normal/Psychic",
     ability: "Inner Focus/Early Bird/Sap Sipper",
-    wiki: "http://www.serebii.net/pokedex-xy/203.shtml",
-    image: "http://www.serebii.net/xy/pokemon/203.png"
+    wiki: "http://www.serebii.net/pokedex-sm/203.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/203.png"
 };
 
 var pineco = {
@@ -2246,8 +2732,8 @@ var pineco = {
     dex: 204,
     type: "Bug",
     ability: "Sturdy/None/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/204.shtml",
-    image: "http://www.serebii.net/xy/pokemon/204.png"
+    wiki: "http://www.serebii.net/pokedex-sm/204.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/204.png"
 };
 
 var forretress = {
@@ -2255,8 +2741,8 @@ var forretress = {
     dex: 205,
     type: "Bug/Steel",
     ability: "Sturdy/None/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/205.shtml",
-    image: "http://www.serebii.net/xy/pokemon/205.png"
+    wiki: "http://www.serebii.net/pokedex-sm/205.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/205.png"
 };
 
 var dunsparce = {
@@ -2264,8 +2750,8 @@ var dunsparce = {
     dex: 206,
     type: "Normal",
     ability: "Serene Grace/Run Away/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/206.shtml",
-    image: "http://www.serebii.net/xy/pokemon/206.png"
+    wiki: "http://www.serebii.net/pokedex-sm/206.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/206.png"
 };
 
 var gligar = {
@@ -2273,8 +2759,8 @@ var gligar = {
     dex: 207,
     type: "Ground/Flying",
     ability: "Hyper Cutter/Sand Veil/Immunity",
-    wiki: "http://www.serebii.net/pokedex-xy/207.shtml",
-    image: "http://www.serebii.net/xy/pokemon/207.png"
+    wiki: "http://www.serebii.net/pokedex-sm/207.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/207.png"
 };
 
 var steelix = {
@@ -2282,8 +2768,8 @@ var steelix = {
     dex: 208,
     type: "Steel/Ground",
     ability: "Rock Head/Sturdy/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/208.shtml",
-    image: "http://www.serebii.net/xy/pokemon/208.png"
+    wiki: "http://www.serebii.net/pokedex-sm/208.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/208.png"
 };
 
 var snubbull = {
@@ -2291,8 +2777,8 @@ var snubbull = {
     dex: 209,
     type: "Fairy",
     ability: "Intimidate/Run Away/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/209.shtml",
-    image: "http://www.serebii.net/xy/pokemon/209.png"
+    wiki: "http://www.serebii.net/pokedex-sm/209.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/209.png"
 };
 
 var granbull = {
@@ -2300,8 +2786,8 @@ var granbull = {
     dex: 210,
     type: "Fairy",
     ability: "Intimidate/Quick Feet/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/210.shtml",
-    image: "http://www.serebii.net/xy/pokemon/210.png"
+    wiki: "http://www.serebii.net/pokedex-sm/210.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/210.png"
 };
 
 var qwilfish = {
@@ -2309,8 +2795,8 @@ var qwilfish = {
     dex: 211,
     type: "Water/Poison",
     ability: "Poison Point/Swift Swim/Intimidate",
-    wiki: "http://www.serebii.net/pokedex-xy/211.shtml",
-    image: "http://www.serebii.net/xy/pokemon/211.png"
+    wiki: "http://www.serebii.net/pokedex-sm/211.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/211.png"
 };
 
 var scizor = {
@@ -2318,8 +2804,8 @@ var scizor = {
     dex: 212,
     type: "Bug/Steel",
     ability: "Swarm/Technician/Light Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/212.shtml",
-    image: "http://www.serebii.net/xy/pokemon/212.png"
+    wiki: "http://www.serebii.net/pokedex-sm/212.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/212.png"
 };
 
 var shuckle = {
@@ -2327,8 +2813,8 @@ var shuckle = {
     dex: 213,
     type: "Bug/Rock",
     ability: "Sturdy/Gluttony/Contrary",
-    wiki: "http://www.serebii.net/pokedex-xy/213.shtml",
-    image: "http://www.serebii.net/xy/pokemon/213.png"
+    wiki: "http://www.serebii.net/pokedex-sm/213.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/213.png"
 };
 
 var heracross = {
@@ -2336,8 +2822,8 @@ var heracross = {
     dex: 214,
     type: "Bug/Fighting",
     ability: "Swarm/Guts/Moxie",
-    wiki: "http://www.serebii.net/pokedex-xy/214.shtml",
-    image: "http://www.serebii.net/xy/pokemon/214.png"
+    wiki: "http://www.serebii.net/pokedex-sm/214.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/214.png"
 };
 
 var sneasel = {
@@ -2345,8 +2831,8 @@ var sneasel = {
     dex: 215,
     type: "Dark/Ice",
     ability: "Inner Focus/Keen Eye/Pickpocket",
-    wiki: "http://www.serebii.net/pokedex-xy/215.shtml",
-    image: "http://www.serebii.net/xy/pokemon/215.png"
+    wiki: "http://www.serebii.net/pokedex-sm/215.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/215.png"
 };
 
 var teddiursa = {
@@ -2354,8 +2840,8 @@ var teddiursa = {
     dex: 216,
     type: "Normal",
     ability: "Pickup/Quick Feet/Honey Gather",
-    wiki: "http://www.serebii.net/pokedex-xy/216.shtml",
-    image: "http://www.serebii.net/xy/pokemon/216.png"
+    wiki: "http://www.serebii.net/pokedex-sm/216.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/216.png"
 };
 
 var ursaring = {
@@ -2363,8 +2849,8 @@ var ursaring = {
     dex: 217,
     type: "Normal",
     ability: "Guts/Quick Feet/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/217.shtml",
-    image: "http://www.serebii.net/xy/pokemon/217.png"
+    wiki: "http://www.serebii.net/pokedex-sm/217.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/217.png"
 };
 
 var slugma = {
@@ -2372,8 +2858,8 @@ var slugma = {
     dex: 218,
     type: "Fire",
     ability: "Magma Armor/Flame Body/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/218.shtml",
-    image: "http://www.serebii.net/xy/pokemon/218.png"
+    wiki: "http://www.serebii.net/pokedex-sm/218.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/218.png"
 };
 
 var magcargo = {
@@ -2381,8 +2867,8 @@ var magcargo = {
     dex: 219,
     type: "Fire/Rock",
     ability: "Magma Armor/Flame Body/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/219.shtml",
-    image: "http://www.serebii.net/xy/pokemon/219.png"
+    wiki: "http://www.serebii.net/pokedex-sm/219.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/219.png"
 };
 
 var swinub = {
@@ -2390,8 +2876,8 @@ var swinub = {
     dex: 220,
     type: "Ice/Ground",
     ability: "Oblivious/Snow Cloak/Thick Fat",
-    wiki: "http://www.serebii.net/pokedex-xy/220.shtml",
-    image: "http://www.serebii.net/xy/pokemon/220.png"
+    wiki: "http://www.serebii.net/pokedex-sm/220.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/220.png"
 };
 
 var piloswine = {
@@ -2399,8 +2885,8 @@ var piloswine = {
     dex: 221,
     type: "Ice/Ground",
     ability: "Oblivious/Snow Cloak/Thick Fat",
-    wiki: "http://www.serebii.net/pokedex-xy/221.shtml",
-    image: "http://www.serebii.net/xy/pokemon/221.png"
+    wiki: "http://www.serebii.net/pokedex-sm/221.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/221.png"
 };
 
 var corsola = {
@@ -2408,8 +2894,8 @@ var corsola = {
     dex: 222,
     type: "Water/Rock",
     ability: "Hustle/Natural Cure/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/222.shtml",
-    image: "http://www.serebii.net/xy/pokemon/222.png"
+    wiki: "http://www.serebii.net/pokedex-sm/222.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/222.png"
 };
 
 var remoraid = {
@@ -2417,8 +2903,8 @@ var remoraid = {
     dex: 223,
     type: "Water",
     ability: "Hustle/Sniper/Moody",
-    wiki: "http://www.serebii.net/pokedex-xy/223.shtml",
-    image: "http://www.serebii.net/xy/pokemon/223.png"
+    wiki: "http://www.serebii.net/pokedex-sm/223.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/223.png"
 };
 
 var octillery = {
@@ -2426,8 +2912,8 @@ var octillery = {
     dex: 224,
     type: "Water",
     ability: "Suction Cups/Sniper/Moody",
-    wiki: "http://www.serebii.net/pokedex-xy/224.shtml",
-    image: "http://www.serebii.net/xy/pokemon/224.png"
+    wiki: "http://www.serebii.net/pokedex-sm/224.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/224.png"
 };
 
 var delibird = {
@@ -2435,8 +2921,8 @@ var delibird = {
     dex: 225,
     type: "Ice/Flying",
     ability: "Vital Spirit/Hustle/Insomnia",
-    wiki: "http://www.serebii.net/pokedex-xy/225.shtml",
-    image: "http://www.serebii.net/xy/pokemon/225.png"
+    wiki: "http://www.serebii.net/pokedex-sm/225.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/225.png"
 };
 
 var mantine = {
@@ -2444,8 +2930,8 @@ var mantine = {
     dex: 226,
     type: "Water/Flying",
     ability: "Swift Swim/Water Absorb/Water Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/226.shtml",
-    image: "http://www.serebii.net/xy/pokemon/226.png"
+    wiki: "http://www.serebii.net/pokedex-sm/226.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/226.png"
 };
 
 var skarmory = {
@@ -2453,8 +2939,8 @@ var skarmory = {
     dex: 227,
     type: "Steel/Flying",
     ability: "Keen Eye/Sturdy/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/227.shtml",
-    image: "http://www.serebii.net/xy/pokemon/227.png"
+    wiki: "http://www.serebii.net/pokedex-sm/227.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/227.png"
 };
 
 var houndour = {
@@ -2462,8 +2948,8 @@ var houndour = {
     dex: 228,
     type: "Dark/Fire",
     ability: "Early Bird/Flash Fire/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/228.shtml",
-    image: "http://www.serebii.net/xy/pokemon/228.png"
+    wiki: "http://www.serebii.net/pokedex-sm/228.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/228.png"
 };
 
 var houndoom = {
@@ -2471,8 +2957,8 @@ var houndoom = {
     dex: 229,
     type: "Dark/Fire",
     ability: "Early Bird/Flash Fire/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/229.shtml",
-    image: "http://www.serebii.net/xy/pokemon/229.png"
+    wiki: "http://www.serebii.net/pokedex-sm/229.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/229.png"
 };
 
 var kingdra = {
@@ -2480,8 +2966,8 @@ var kingdra = {
     dex: 230,
     type: "Water/Dragon",
     ability: "Swift Swim/Sniper/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/230.shtml",
-    image: "http://www.serebii.net/xy/pokemon/230.png"
+    wiki: "http://www.serebii.net/pokedex-sm/230.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/230.png"
 };
 
 var phanpy = {
@@ -2489,8 +2975,8 @@ var phanpy = {
     dex: 231,
     type: "Ground",
     ability: "Pickup/None/Sand Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/231.shtml",
-    image: "http://www.serebii.net/xy/pokemon/231.png"
+    wiki: "http://www.serebii.net/pokedex-sm/231.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/231.png"
 };
 
 var donphan = {
@@ -2498,8 +2984,8 @@ var donphan = {
     dex: 232,
     type: "Ground",
     ability: "Sturdy/None/Sand Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/232.shtml",
-    image: "http://www.serebii.net/xy/pokemon/232.png"
+    wiki: "http://www.serebii.net/pokedex-sm/232.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/232.png"
 };
 
 var porygon2 = {
@@ -2507,8 +2993,8 @@ var porygon2 = {
     dex: 233,
     type: "Normal",
     ability: "Trace/Download/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/233.shtml",
-    image: "http://www.serebii.net/xy/pokemon/233.png"
+    wiki: "http://www.serebii.net/pokedex-sm/233.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/233.png"
 };
 
 var stantler = {
@@ -2516,8 +3002,8 @@ var stantler = {
     dex: 234,
     type: "Normal",
     ability: "Intimidate/Frisk/Sap Sipper",
-    wiki: "http://www.serebii.net/pokedex-xy/234.shtml",
-    image: "http://www.serebii.net/xy/pokemon/234.png"
+    wiki: "http://www.serebii.net/pokedex-sm/234.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/234.png"
 };
 
 var smeargle = {
@@ -2525,8 +3011,8 @@ var smeargle = {
     dex: 235,
     type: "Normal",
     ability: "Own Tempo/Technician/Moody",
-    wiki: "http://www.serebii.net/pokedex-xy/235.shtml",
-    image: "http://www.serebii.net/xy/pokemon/235.png"
+    wiki: "http://www.serebii.net/pokedex-sm/235.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/235.png"
 };
 
 var tyrogue = {
@@ -2534,8 +3020,8 @@ var tyrogue = {
     dex: 236,
     type: "Fighting",
     ability: "Guts/Steadfast/Vital Spirit",
-    wiki: "http://www.serebii.net/pokedex-xy/236.shtml",
-    image: "http://www.serebii.net/xy/pokemon/236.png"
+    wiki: "http://www.serebii.net/pokedex-sm/236.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/236.png"
 };
 
 var hitmontop = {
@@ -2543,8 +3029,8 @@ var hitmontop = {
     dex: 237,
     type: "Fighting",
     ability: "Intimidate/Technician/Steadfast",
-    wiki: "http://www.serebii.net/pokedex-xy/237.shtml",
-    image: "http://www.serebii.net/xy/pokemon/237.png"
+    wiki: "http://www.serebii.net/pokedex-sm/237.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/237.png"
 };
 
 var smoochum = {
@@ -2552,8 +3038,8 @@ var smoochum = {
     dex: 238,
     type: "Ice/Psychic",
     ability: "Oblivious/Forewarn/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/238.shtml",
-    image: "http://www.serebii.net/xy/pokemon/238.png"
+    wiki: "http://www.serebii.net/pokedex-sm/238.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/238.png"
 };
 
 var elekid = {
@@ -2561,8 +3047,8 @@ var elekid = {
     dex: 239,
     type: "Electric",
     ability: "Static/None/Vital Spirit",
-    wiki: "http://www.serebii.net/pokedex-xy/239.shtml",
-    image: "http://www.serebii.net/xy/pokemon/239.png"
+    wiki: "http://www.serebii.net/pokedex-sm/239.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/239.png"
 };
 
 var magby = {
@@ -2570,8 +3056,8 @@ var magby = {
     dex: 240,
     type: "Fire",
     ability: "Flame Body/None/Vital Spirit",
-    wiki: "http://www.serebii.net/pokedex-xy/240.shtml",
-    image: "http://www.serebii.net/xy/pokemon/240.png"
+    wiki: "http://www.serebii.net/pokedex-sm/240.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/240.png"
 };
 
 var miltank = {
@@ -2579,8 +3065,8 @@ var miltank = {
     dex: 241,
     type: "Normal",
     ability: "Thick Fat/Scrappy/Sap Sipper",
-    wiki: "http://www.serebii.net/pokedex-xy/241.shtml",
-    image: "http://www.serebii.net/xy/pokemon/241.png"
+    wiki: "http://www.serebii.net/pokedex-sm/241.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/241.png"
 };
 
 var blissey = {
@@ -2588,8 +3074,8 @@ var blissey = {
     dex: 242,
     type: "Normal",
     ability: "Natural Cure/Serene Grace/Healer",
-    wiki: "http://www.serebii.net/pokedex-xy/242.shtml",
-    image: "http://www.serebii.net/xy/pokemon/242.png"
+    wiki: "http://www.serebii.net/pokedex-sm/242.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/242.png"
 };
 
 var raikou = {
@@ -2597,8 +3083,8 @@ var raikou = {
     dex: 243,
     type: "Electric",
     ability: "Pressure/None/Volt Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/243.shtml",
-    image: "http://www.serebii.net/xy/pokemon/243.png"
+    wiki: "http://www.serebii.net/pokedex-sm/243.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/243.png"
 };
 
 var entei = {
@@ -2606,8 +3092,8 @@ var entei = {
     dex: 244,
     type: "Fire",
     ability: "Pressure/None/Flash Fire",
-    wiki: "http://www.serebii.net/pokedex-xy/244.shtml",
-    image: "http://www.serebii.net/xy/pokemon/244.png"
+    wiki: "http://www.serebii.net/pokedex-sm/244.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/244.png"
 };
 
 var suicune = {
@@ -2615,8 +3101,8 @@ var suicune = {
     dex: 245,
     type: "Water",
     ability: "Pressure/None/Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/245.shtml",
-    image: "http://www.serebii.net/xy/pokemon/245.png"
+    wiki: "http://www.serebii.net/pokedex-sm/245.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/245.png"
 };
 
 var larvitar = {
@@ -2624,8 +3110,8 @@ var larvitar = {
     dex: 246,
     type: "Rock/Ground",
     ability: "Guts/None/Sand Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/246.shtml",
-    image: "http://www.serebii.net/xy/pokemon/246.png"
+    wiki: "http://www.serebii.net/pokedex-sm/246.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/246.png"
 };
 
 var pupitar = {
@@ -2633,8 +3119,8 @@ var pupitar = {
     dex: 247,
     type: "Rock/Ground",
     ability: "Shed Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/247.shtml",
-    image: "http://www.serebii.net/xy/pokemon/247.png"
+    wiki: "http://www.serebii.net/pokedex-sm/247.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/247.png"
 };
 
 var tyranitar = {
@@ -2642,8 +3128,8 @@ var tyranitar = {
     dex: 248,
     type: "Rock/Dark",
     ability: "Sand Stream/None/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/248.shtml",
-    image: "http://www.serebii.net/xy/pokemon/248.png"
+    wiki: "http://www.serebii.net/pokedex-sm/248.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/248.png"
 };
 
 var lugia = {
@@ -2651,8 +3137,8 @@ var lugia = {
     dex: 249,
     type: "Psychic/Flying",
     ability: "Pressure/None/Multiscale",
-    wiki: "http://www.serebii.net/pokedex-xy/249.shtml",
-    image: "http://www.serebii.net/xy/pokemon/249.png"
+    wiki: "http://www.serebii.net/pokedex-sm/249.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/249.png"
 };
 
 var ho_oh = {
@@ -2660,8 +3146,8 @@ var ho_oh = {
     dex: 250,
     type: "Fire/Flying",
     ability: "Pressure/None/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/250.shtml",
-    image: "http://www.serebii.net/xy/pokemon/250.png"
+    wiki: "http://www.serebii.net/pokedex-sm/250.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/250.png"
 };
 
 var celebi = {
@@ -2669,8 +3155,8 @@ var celebi = {
     dex: 251,
     type: "Psychic/Grass",
     ability: "Natural Cure",
-    wiki: "http://www.serebii.net/pokedex-xy/251.shtml",
-    image: "http://www.serebii.net/xy/pokemon/251.png"
+    wiki: "http://www.serebii.net/pokedex-sm/251.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/251.png"
 };
 
 var treecko = {
@@ -2678,8 +3164,8 @@ var treecko = {
     dex: 252,
     type: "Grass",
     ability: "Overgrow/None/Unburden",
-    wiki: "http://www.serebii.net/pokedex-xy/252.shtml",
-    image: "http://www.serebii.net/xy/pokemon/252.png"
+    wiki: "http://www.serebii.net/pokedex-sm/252.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/252.png"
 };
 
 var grovyle = {
@@ -2687,8 +3173,8 @@ var grovyle = {
     dex: 253,
     type: "Grass",
     ability: "Overgrow/None/Unburden",
-    wiki: "http://www.serebii.net/pokedex-xy/253.shtml",
-    image: "http://www.serebii.net/xy/pokemon/253.png"
+    wiki: "http://www.serebii.net/pokedex-sm/253.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/253.png"
 };
 
 var sceptile = {
@@ -2696,8 +3182,8 @@ var sceptile = {
     dex: 254,
     type: "Grass",
     ability: "Overgrow/None/Unburden",
-    wiki: "http://www.serebii.net/pokedex-xy/254.shtml",
-    image: "http://www.serebii.net/xy/pokemon/254.png"
+    wiki: "http://www.serebii.net/pokedex-sm/254.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/254.png"
 };
 
 var torchic = {
@@ -2705,8 +3191,8 @@ var torchic = {
     dex: 255,
     type: "Fire",
     ability: "Blaze/None/Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/255.shtml",
-    image: "http://www.serebii.net/xy/pokemon/255.png"
+    wiki: "http://www.serebii.net/pokedex-sm/255.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/255.png"
 };
 
 var combusken = {
@@ -2714,8 +3200,8 @@ var combusken = {
     dex: 256,
     type: "Fire/Fighting",
     ability: "Blaze/None/Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/256.shtml",
-    image: "http://www.serebii.net/xy/pokemon/256.png"
+    wiki: "http://www.serebii.net/pokedex-sm/256.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/256.png"
 };
 
 var blaziken = {
@@ -2723,8 +3209,8 @@ var blaziken = {
     dex: 257,
     type: "Fire/Fighting",
     ability: "Blaze/None/Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/257.shtml",
-    image: "http://www.serebii.net/xy/pokemon/257.png"
+    wiki: "http://www.serebii.net/pokedex-sm/257.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/257.png"
 };
 
 var mudkip = {
@@ -2732,8 +3218,8 @@ var mudkip = {
     dex: 258,
     type: "Water",
     ability: "Torrent/None/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/258.shtml",
-    image: "http://www.serebii.net/xy/pokemon/258.png"
+    wiki: "http://www.serebii.net/pokedex-sm/258.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/258.png"
 };
 
 var marshtomp = {
@@ -2741,8 +3227,8 @@ var marshtomp = {
     dex: 259,
     type: "Water/Ground",
     ability: "Torrent/None/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/259.shtml",
-    image: "http://www.serebii.net/xy/pokemon/259.png"
+    wiki: "http://www.serebii.net/pokedex-sm/259.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/259.png"
 };
 
 var swampert = {
@@ -2750,8 +3236,8 @@ var swampert = {
     dex: 260,
     type: "Water/Ground",
     ability: "Torrent/None/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/260.shtml",
-    image: "http://www.serebii.net/xy/pokemon/260.png"
+    wiki: "http://www.serebii.net/pokedex-sm/260.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/260.png"
 };
 
 var poochyena = {
@@ -2759,8 +3245,8 @@ var poochyena = {
     dex: 261,
     type: "Dark",
     ability: "Run Away/Quick Feet/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/261.shtml",
-    image: "http://www.serebii.net/xy/pokemon/261.png"
+    wiki: "http://www.serebii.net/pokedex-sm/261.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/261.png"
 };
 
 var mightyena = {
@@ -2768,8 +3254,8 @@ var mightyena = {
     dex: 262,
     type: "Dark",
     ability: "Intimidate/Quick Feet/Moxie",
-    wiki: "http://www.serebii.net/pokedex-xy/262.shtml",
-    image: "http://www.serebii.net/xy/pokemon/262.png"
+    wiki: "http://www.serebii.net/pokedex-sm/262.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/262.png"
 };
 
 var zigzagoon = {
@@ -2777,8 +3263,8 @@ var zigzagoon = {
     dex: 263,
     type: "Normal",
     ability: "Pickup/Gluttony/Quick Feet",
-    wiki: "http://www.serebii.net/pokedex-xy/263.shtml",
-    image: "http://www.serebii.net/xy/pokemon/263.png"
+    wiki: "http://www.serebii.net/pokedex-sm/263.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/263.png"
 };
 
 var linoone = {
@@ -2786,8 +3272,8 @@ var linoone = {
     dex: 264,
     type: "Normal",
     ability: "Pickup/Gluttony/Quick Feet",
-    wiki: "http://www.serebii.net/pokedex-xy/264.shtml",
-    image: "http://www.serebii.net/xy/pokemon/264.png"
+    wiki: "http://www.serebii.net/pokedex-sm/264.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/264.png"
 };
 
 var wurmple = {
@@ -2795,8 +3281,8 @@ var wurmple = {
     dex: 265,
     type: "Bug",
     ability: "Shield Dust/None/Run Away",
-    wiki: "http://www.serebii.net/pokedex-xy/265.shtml",
-    image: "http://www.serebii.net/xy/pokemon/265.png"
+    wiki: "http://www.serebii.net/pokedex-sm/265.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/265.png"
 };
 
 var silcoon = {
@@ -2804,8 +3290,8 @@ var silcoon = {
     dex: 266,
     type: "Bug",
     ability: "Shed Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/266.shtml",
-    image: "http://www.serebii.net/xy/pokemon/266.png"
+    wiki: "http://www.serebii.net/pokedex-sm/266.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/266.png"
 };
 
 var beautifly = {
@@ -2813,8 +3299,8 @@ var beautifly = {
     dex: 267,
     type: "Bug/Flying",
     ability: "Swarm/None/Rivalry",
-    wiki: "http://www.serebii.net/pokedex-xy/267.shtml",
-    image: "http://www.serebii.net/xy/pokemon/267.png"
+    wiki: "http://www.serebii.net/pokedex-sm/267.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/267.png"
 };
 
 var cascoon = {
@@ -2822,8 +3308,8 @@ var cascoon = {
     dex: 268,
     type: "Bug",
     ability: "Shed Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/268.shtml",
-    image: "http://www.serebii.net/xy/pokemon/268.png"
+    wiki: "http://www.serebii.net/pokedex-sm/268.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/268.png"
 };
 
 var dustox = {
@@ -2831,8 +3317,8 @@ var dustox = {
     dex: 269,
     type: "Bug/Poison",
     ability: "Shield Dust/None/Compound Eyes",
-    wiki: "http://www.serebii.net/pokedex-xy/269.shtml",
-    image: "http://www.serebii.net/xy/pokemon/269.png"
+    wiki: "http://www.serebii.net/pokedex-sm/269.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/269.png"
 };
 
 var lotad = {
@@ -2840,8 +3326,8 @@ var lotad = {
     dex: 270,
     type: "Water/Grass",
     ability: "Swift Swim/Rain Dish/Own Tempo",
-    wiki: "http://www.serebii.net/pokedex-xy/270.shtml",
-    image: "http://www.serebii.net/xy/pokemon/270.png"
+    wiki: "http://www.serebii.net/pokedex-sm/270.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/270.png"
 };
 
 var lombre = {
@@ -2849,8 +3335,8 @@ var lombre = {
     dex: 271,
     type: "Water/Grass",
     ability: "Swift Swim/Rain Dish/Own Tempo",
-    wiki: "http://www.serebii.net/pokedex-xy/271.shtml",
-    image: "http://www.serebii.net/xy/pokemon/271.png"
+    wiki: "http://www.serebii.net/pokedex-sm/271.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/271.png"
 };
 
 var ludicolo = {
@@ -2858,8 +3344,8 @@ var ludicolo = {
     dex: 272,
     type: "Water/Grass",
     ability: "Swift Swim/Rain Dish/Own Tempo",
-    wiki: "http://www.serebii.net/pokedex-xy/272.shtml",
-    image: "http://www.serebii.net/xy/pokemon/272.png"
+    wiki: "http://www.serebii.net/pokedex-sm/272.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/272.png"
 };
 
 var seedot = {
@@ -2867,8 +3353,8 @@ var seedot = {
     dex: 273,
     type: "Grass",
     ability: "Chlorophyll/Early Bird/Pickpocket",
-    wiki: "http://www.serebii.net/pokedex-xy/273.shtml",
-    image: "http://www.serebii.net/xy/pokemon/273.png"
+    wiki: "http://www.serebii.net/pokedex-sm/273.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/273.png"
 };
 
 var nuzleaf = {
@@ -2876,8 +3362,8 @@ var nuzleaf = {
     dex: 274,
     type: "Grass/Dark",
     ability: "Chlorophyll/Early Bird/Pickpocket",
-    wiki: "http://www.serebii.net/pokedex-xy/274.shtml",
-    image: "http://www.serebii.net/xy/pokemon/274.png"
+    wiki: "http://www.serebii.net/pokedex-sm/274.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/274.png"
 };
 
 var shiftry = {
@@ -2885,8 +3371,8 @@ var shiftry = {
     dex: 275,
     type: "Grass/Dark",
     ability: "Chlorophyll/Early Bird/Pickpocket",
-    wiki: "http://www.serebii.net/pokedex-xy/275.shtml",
-    image: "http://www.serebii.net/xy/pokemon/275.png"
+    wiki: "http://www.serebii.net/pokedex-sm/275.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/275.png"
 };
 
 var taillow = {
@@ -2894,8 +3380,8 @@ var taillow = {
     dex: 276,
     type: "Normal/Flying",
     ability: "Guts/None/Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/276.shtml",
-    image: "http://www.serebii.net/xy/pokemon/276.png"
+    wiki: "http://www.serebii.net/pokedex-sm/276.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/276.png"
 };
 
 var swellow = {
@@ -2903,8 +3389,8 @@ var swellow = {
     dex: 277,
     type: "Normal/Flying",
     ability: "Guts/None/Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/277.shtml",
-    image: "http://www.serebii.net/xy/pokemon/277.png"
+    wiki: "http://www.serebii.net/pokedex-sm/277.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/277.png"
 };
 
 var wingull = {
@@ -2912,8 +3398,8 @@ var wingull = {
     dex: 278,
     type: "Water/Flying",
     ability: "Keen Eye/None/Rain Dish",
-    wiki: "http://www.serebii.net/pokedex-xy/278.shtml",
-    image: "http://www.serebii.net/xy/pokemon/278.png"
+    wiki: "http://www.serebii.net/pokedex-sm/278.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/278.png"
 };
 
 var pelipper = {
@@ -2921,8 +3407,8 @@ var pelipper = {
     dex: 279,
     type: "Water/Flying",
     ability: "Keen Eye/None/Rain Dish",
-    wiki: "http://www.serebii.net/pokedex-xy/279.shtml",
-    image: "http://www.serebii.net/xy/pokemon/279.png"
+    wiki: "http://www.serebii.net/pokedex-sm/279.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/279.png"
 };
 
 var ralts = {
@@ -2930,8 +3416,8 @@ var ralts = {
     dex: 280,
     type: "Psychic/Fairy",
     ability: "Synchronize/Trace/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/280.shtml",
-    image: "http://www.serebii.net/xy/pokemon/280.png"
+    wiki: "http://www.serebii.net/pokedex-sm/280.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/280.png"
 };
 
 var kirlia = {
@@ -2939,8 +3425,8 @@ var kirlia = {
     dex: 281,
     type: "Psychic/Fairy",
     ability: "Synchronize/Trace/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/281.shtml",
-    image: "http://www.serebii.net/xy/pokemon/281.png"
+    wiki: "http://www.serebii.net/pokedex-sm/281.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/281.png"
 };
 
 var gardevoir = {
@@ -2948,8 +3434,8 @@ var gardevoir = {
     dex: 282,
     type: "Psychic/Fairy",
     ability: "Synchronize/Trace/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/282.shtml",
-    image: "http://www.serebii.net/xy/pokemon/282.png"
+    wiki: "http://www.serebii.net/pokedex-sm/282.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/282.png"
 };
 
 var surskit = {
@@ -2957,8 +3443,8 @@ var surskit = {
     dex: 283,
     type: "Bug/Water",
     ability: "Swift Swim/None/Rain Dish",
-    wiki: "http://www.serebii.net/pokedex-xy/283.shtml",
-    image: "http://www.serebii.net/xy/pokemon/283.png"
+    wiki: "http://www.serebii.net/pokedex-sm/283.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/283.png"
 };
 
 var masquerain = {
@@ -2966,8 +3452,8 @@ var masquerain = {
     dex: 284,
     type: "Bug/Flying",
     ability: "Intimidate/None/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/284.shtml",
-    image: "http://www.serebii.net/xy/pokemon/284.png"
+    wiki: "http://www.serebii.net/pokedex-sm/284.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/284.png"
 };
 
 var shroomish = {
@@ -2975,8 +3461,8 @@ var shroomish = {
     dex: 285,
     type: "Grass",
     ability: "Effect Spore/Poison Heal/Quick Feet",
-    wiki: "http://www.serebii.net/pokedex-xy/285.shtml",
-    image: "http://www.serebii.net/xy/pokemon/285.png"
+    wiki: "http://www.serebii.net/pokedex-sm/285.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/285.png"
 };
 
 var breloom = {
@@ -2984,8 +3470,8 @@ var breloom = {
     dex: 286,
     type: "Grass/Fighting",
     ability: "Effect Spore/Poison Heal/Technician",
-    wiki: "http://www.serebii.net/pokedex-xy/286.shtml",
-    image: "http://www.serebii.net/xy/pokemon/286.png"
+    wiki: "http://www.serebii.net/pokedex-sm/286.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/286.png"
 };
 
 var slakoth = {
@@ -2993,8 +3479,8 @@ var slakoth = {
     dex: 287,
     type: "Normal",
     ability: "Truant",
-    wiki: "http://www.serebii.net/pokedex-xy/287.shtml",
-    image: "http://www.serebii.net/xy/pokemon/287.png"
+    wiki: "http://www.serebii.net/pokedex-sm/287.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/287.png"
 };
 
 var vigoroth = {
@@ -3002,8 +3488,8 @@ var vigoroth = {
     dex: 288,
     type: "Normal",
     ability: "Vital Spirit",
-    wiki: "http://www.serebii.net/pokedex-xy/288.shtml",
-    image: "http://www.serebii.net/xy/pokemon/288.png"
+    wiki: "http://www.serebii.net/pokedex-sm/288.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/288.png"
 };
 
 var slaking = {
@@ -3011,8 +3497,8 @@ var slaking = {
     dex: 289,
     type: "Normal",
     ability: "Truant",
-    wiki: "http://www.serebii.net/pokedex-xy/289.shtml",
-    image: "http://www.serebii.net/xy/pokemon/289.png"
+    wiki: "http://www.serebii.net/pokedex-sm/289.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/289.png"
 };
 
 var nincada = {
@@ -3020,8 +3506,8 @@ var nincada = {
     dex: 290,
     type: "Bug/Ground",
     ability: "Compound Eyes/None/Run Away",
-    wiki: "http://www.serebii.net/pokedex-xy/290.shtml",
-    image: "http://www.serebii.net/xy/pokemon/290.png"
+    wiki: "http://www.serebii.net/pokedex-sm/290.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/290.png"
 };
 
 var ninjask = {
@@ -3029,8 +3515,8 @@ var ninjask = {
     dex: 291,
     type: "Bug/Flying",
     ability: "Speed Boost/None/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/291.shtml",
-    image: "http://www.serebii.net/xy/pokemon/291.png"
+    wiki: "http://www.serebii.net/pokedex-sm/291.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/291.png"
 };
 
 var shedinja = {
@@ -3038,8 +3524,8 @@ var shedinja = {
     dex: 292,
     type: "Bug/Ghost",
     ability: "Wonder Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/292.shtml",
-    image: "http://www.serebii.net/xy/pokemon/292.png"
+    wiki: "http://www.serebii.net/pokedex-sm/292.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/292.png"
 };
 
 var whismur = {
@@ -3047,8 +3533,8 @@ var whismur = {
     dex: 293,
     type: "Normal",
     ability: "Soundproof/None/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/293.shtml",
-    image: "http://www.serebii.net/xy/pokemon/293.png"
+    wiki: "http://www.serebii.net/pokedex-sm/293.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/293.png"
 };
 
 var loudred = {
@@ -3056,8 +3542,8 @@ var loudred = {
     dex: 294,
     type: "Normal",
     ability: "Soundproof/None/Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/294.shtml",
-    image: "http://www.serebii.net/xy/pokemon/294.png"
+    wiki: "http://www.serebii.net/pokedex-sm/294.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/294.png"
 };
 
 var exploud = {
@@ -3065,8 +3551,8 @@ var exploud = {
     dex: 295,
     type: "Normal",
     ability: "Soundproof/None/Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/295.shtml",
-    image: "http://www.serebii.net/xy/pokemon/295.png"
+    wiki: "http://www.serebii.net/pokedex-sm/295.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/295.png"
 };
 
 var makuhita = {
@@ -3074,8 +3560,8 @@ var makuhita = {
     dex: 296,
     type: "Fighting",
     ability: "Thick Fat/Guts/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/296.shtml",
-    image: "http://www.serebii.net/xy/pokemon/296.png"
+    wiki: "http://www.serebii.net/pokedex-sm/296.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/296.png"
 };
 
 var hariyama = {
@@ -3083,8 +3569,8 @@ var hariyama = {
     dex: 297,
     type: "Fighting",
     ability: "Thick Fat/Guts/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/297.shtml",
-    image: "http://www.serebii.net/xy/pokemon/297.png"
+    wiki: "http://www.serebii.net/pokedex-sm/297.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/297.png"
 };
 
 var azurill = {
@@ -3092,8 +3578,8 @@ var azurill = {
     dex: 298,
     type: "Normal/Fairy",
     ability: "Thick Fat/Huge Power/Sap Sipper",
-    wiki: "http://www.serebii.net/pokedex-xy/298.shtml",
-    image: "http://www.serebii.net/xy/pokemon/298.png"
+    wiki: "http://www.serebii.net/pokedex-sm/298.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/298.png"
 };
 
 var nosepass = {
@@ -3101,8 +3587,8 @@ var nosepass = {
     dex: 299,
     type: "Rock",
     ability: "Sturdy/Magnet Pull/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/299.shtml",
-    image: "http://www.serebii.net/xy/pokemon/299.png"
+    wiki: "http://www.serebii.net/pokedex-sm/299.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/299.png"
 };
 
 var skitty = {
@@ -3110,8 +3596,8 @@ var skitty = {
     dex: 300,
     type: "Normal",
     ability: "Cute Charm/Normalize/Wonder Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/300.shtml",
-    image: "http://www.serebii.net/xy/pokemon/300.png"
+    wiki: "http://www.serebii.net/pokedex-sm/300.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/300.png"
 };
 
 var delcatty = {
@@ -3119,8 +3605,8 @@ var delcatty = {
     dex: 301,
     type: "Normal",
     ability: "Cute Charm/Normalize/Wonder Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/301.shtml",
-    image: "http://www.serebii.net/xy/pokemon/301.png"
+    wiki: "http://www.serebii.net/pokedex-sm/301.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/301.png"
 };
 
 var sableye = {
@@ -3128,8 +3614,8 @@ var sableye = {
     dex: 302,
     type: "Dark/Ghost",
     ability: "Keen Eye/Stall/Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/302.shtml",
-    image: "http://www.serebii.net/xy/pokemon/302.png"
+    wiki: "http://www.serebii.net/pokedex-sm/302.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/302.png"
 };
 
 var mawile = {
@@ -3137,8 +3623,8 @@ var mawile = {
     dex: 303,
     type: "Steel/Fairy",
     ability: "Hyper Cutter/Intimidate/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/303.shtml",
-    image: "http://www.serebii.net/xy/pokemon/303.png"
+    wiki: "http://www.serebii.net/pokedex-sm/303.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/303.png"
 };
 
 var aron = {
@@ -3146,8 +3632,8 @@ var aron = {
     dex: 304,
     type: "Steel/Rock",
     ability: "Sturdy/Rock Head/Heavy Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/304.shtml",
-    image: "http://www.serebii.net/xy/pokemon/304.png"
+    wiki: "http://www.serebii.net/pokedex-sm/304.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/304.png"
 };
 
 var lairon = {
@@ -3155,8 +3641,8 @@ var lairon = {
     dex: 305,
     type: "Steel/Rock",
     ability: "Sturdy/Rock Head/Heavy Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/305.shtml",
-    image: "http://www.serebii.net/xy/pokemon/305.png"
+    wiki: "http://www.serebii.net/pokedex-sm/305.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/305.png"
 };
 
 var aggron = {
@@ -3164,8 +3650,8 @@ var aggron = {
     dex: 306,
     type: "Steel/Rock",
     ability: "Sturdy/Rock Head/Heavy Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/306.shtml",
-    image: "http://www.serebii.net/xy/pokemon/306.png"
+    wiki: "http://www.serebii.net/pokedex-sm/306.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/306.png"
 };
 
 var meditite = {
@@ -3173,8 +3659,8 @@ var meditite = {
     dex: 307,
     type: "Fighting/Psychic",
     ability: "Pure Power/None/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/307.shtml",
-    image: "http://www.serebii.net/xy/pokemon/307.png"
+    wiki: "http://www.serebii.net/pokedex-sm/307.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/307.png"
 };
 
 var medicham = {
@@ -3182,8 +3668,8 @@ var medicham = {
     dex: 308,
     type: "Fighting/Psychic",
     ability: "Pure Power/None/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/308.shtml",
-    image: "http://www.serebii.net/xy/pokemon/308.png"
+    wiki: "http://www.serebii.net/pokedex-sm/308.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/308.png"
 };
 
 var electrike = {
@@ -3191,8 +3677,8 @@ var electrike = {
     dex: 309,
     type: "Electric",
     ability: "Static/Lightning Rod/Minus",
-    wiki: "http://www.serebii.net/pokedex-xy/309.shtml",
-    image: "http://www.serebii.net/xy/pokemon/309.png"
+    wiki: "http://www.serebii.net/pokedex-sm/309.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/309.png"
 };
 
 var manectric = {
@@ -3200,8 +3686,8 @@ var manectric = {
     dex: 310,
     type: "Electric",
     ability: "Static/Lightning Rod/Minus",
-    wiki: "http://www.serebii.net/pokedex-xy/310.shtml",
-    image: "http://www.serebii.net/xy/pokemon/310.png"
+    wiki: "http://www.serebii.net/pokedex-sm/310.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/310.png"
 };
 
 var plusle = {
@@ -3209,8 +3695,8 @@ var plusle = {
     dex: 311,
     type: "Electric",
     ability: "Plus/None/Lightning Rod/VI",
-    wiki: "http://www.serebii.net/pokedex-xy/311.shtml",
-    image: "http://www.serebii.net/xy/pokemon/311.png"
+    wiki: "http://www.serebii.net/pokedex-sm/311.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/311.png"
 };
 
 var minun = {
@@ -3218,8 +3704,8 @@ var minun = {
     dex: 312,
     type: "Electric",
     ability: "Minus/None/Volt Absorb/VI",
-    wiki: "http://www.serebii.net/pokedex-xy/312.shtml",
-    image: "http://www.serebii.net/xy/pokemon/312.png"
+    wiki: "http://www.serebii.net/pokedex-sm/312.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/312.png"
 };
 
 var volbeat = {
@@ -3227,8 +3713,8 @@ var volbeat = {
     dex: 313,
     type: "Bug",
     ability: "Illuminate/Swarm/Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/313.shtml",
-    image: "http://www.serebii.net/xy/pokemon/313.png"
+    wiki: "http://www.serebii.net/pokedex-sm/313.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/313.png"
 };
 
 var illumise = {
@@ -3236,8 +3722,8 @@ var illumise = {
     dex: 314,
     type: "Bug",
     ability: "Oblivious/Tinted Lens/Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/314.shtml",
-    image: "http://www.serebii.net/xy/pokemon/314.png"
+    wiki: "http://www.serebii.net/pokedex-sm/314.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/314.png"
 };
 
 var roselia = {
@@ -3245,8 +3731,8 @@ var roselia = {
     dex: 315,
     type: "Grass/Poison",
     ability: "Natural Cure/Poison Point/Leaf Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/315.shtml",
-    image: "http://www.serebii.net/xy/pokemon/315.png"
+    wiki: "http://www.serebii.net/pokedex-sm/315.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/315.png"
 };
 
 var gulpin = {
@@ -3254,8 +3740,8 @@ var gulpin = {
     dex: 316,
     type: "Poison",
     ability: "Liquid Ooze/Sticky Hold/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/316.shtml",
-    image: "http://www.serebii.net/xy/pokemon/316.png"
+    wiki: "http://www.serebii.net/pokedex-sm/316.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/316.png"
 };
 
 var swalot = {
@@ -3263,8 +3749,8 @@ var swalot = {
     dex: 317,
     type: "Poison",
     ability: "Liquid Ooze/Sticky Hold/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/317.shtml",
-    image: "http://www.serebii.net/xy/pokemon/317.png"
+    wiki: "http://www.serebii.net/pokedex-sm/317.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/317.png"
 };
 
 var carvanha = {
@@ -3272,8 +3758,8 @@ var carvanha = {
     dex: 318,
     type: "Water/Dark",
     ability: "Rough Skin/None/Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/318.shtml",
-    image: "http://www.serebii.net/xy/pokemon/318.png"
+    wiki: "http://www.serebii.net/pokedex-sm/318.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/318.png"
 };
 
 var sharpedo = {
@@ -3281,8 +3767,8 @@ var sharpedo = {
     dex: 319,
     type: "Water/Dark",
     ability: "Rough Skin/None/Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/319.shtml",
-    image: "http://www.serebii.net/xy/pokemon/319.png"
+    wiki: "http://www.serebii.net/pokedex-sm/319.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/319.png"
 };
 
 var wailmer = {
@@ -3290,8 +3776,8 @@ var wailmer = {
     dex: 320,
     type: "Water",
     ability: "Water Veil/Oblivious/Pressure",
-    wiki: "http://www.serebii.net/pokedex-xy/320.shtml",
-    image: "http://www.serebii.net/xy/pokemon/320.png"
+    wiki: "http://www.serebii.net/pokedex-sm/320.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/320.png"
 };
 
 var wailord = {
@@ -3299,8 +3785,8 @@ var wailord = {
     dex: 321,
     type: "Water",
     ability: "Water Veil/Oblivious/Pressure",
-    wiki: "http://www.serebii.net/pokedex-xy/321.shtml",
-    image: "http://www.serebii.net/xy/pokemon/321.png"
+    wiki: "http://www.serebii.net/pokedex-sm/321.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/321.png"
 };
 
 var numel = {
@@ -3308,8 +3794,8 @@ var numel = {
     dex: 322,
     type: "Fire/Ground",
     ability: "Oblivious/Simple/Own Tempo",
-    wiki: "http://www.serebii.net/pokedex-xy/322.shtml",
-    image: "http://www.serebii.net/xy/pokemon/322.png"
+    wiki: "http://www.serebii.net/pokedex-sm/322.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/322.png"
 };
 
 var camerupt = {
@@ -3317,8 +3803,8 @@ var camerupt = {
     dex: 323,
     type: "Fire/Ground",
     ability: "Magma Armor/Solid Rock/Anger Point",
-    wiki: "http://www.serebii.net/pokedex-xy/323.shtml",
-    image: "http://www.serebii.net/xy/pokemon/323.png"
+    wiki: "http://www.serebii.net/pokedex-sm/323.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/323.png"
 };
 
 var torkoal = {
@@ -3326,8 +3812,8 @@ var torkoal = {
     dex: 324,
     type: "Fire",
     ability: "White Smoke/None/Shell Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/324.shtml",
-    image: "http://www.serebii.net/xy/pokemon/324.png"
+    wiki: "http://www.serebii.net/pokedex-sm/324.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/324.png"
 };
 
 var spoink = {
@@ -3335,8 +3821,8 @@ var spoink = {
     dex: 325,
     type: "Psychic",
     ability: "Thick Fat/Own Tempo/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/325.shtml",
-    image: "http://www.serebii.net/xy/pokemon/325.png"
+    wiki: "http://www.serebii.net/pokedex-sm/325.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/325.png"
 };
 
 var grumpig = {
@@ -3344,8 +3830,8 @@ var grumpig = {
     dex: 326,
     type: "Psychic",
     ability: "Thick Fat/Own Tempo/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/326.shtml",
-    image: "http://www.serebii.net/xy/pokemon/326.png"
+    wiki: "http://www.serebii.net/pokedex-sm/326.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/326.png"
 };
 
 var spinda = {
@@ -3353,8 +3839,8 @@ var spinda = {
     dex: 327,
     type: "Normal",
     ability: "Own Tempo/Tangled Feet/Contrary",
-    wiki: "http://www.serebii.net/pokedex-xy/327.shtml",
-    image: "http://www.serebii.net/xy/pokemon/327.png"
+    wiki: "http://www.serebii.net/pokedex-sm/327.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/327.png"
 };
 
 var trapinch = {
@@ -3362,8 +3848,8 @@ var trapinch = {
     dex: 328,
     type: "Ground",
     ability: "Hyper Cutter/Arena Trap/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/328.shtml",
-    image: "http://www.serebii.net/xy/pokemon/328.png"
+    wiki: "http://www.serebii.net/pokedex-sm/328.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/328.png"
 };
 
 var vibrava = {
@@ -3371,8 +3857,8 @@ var vibrava = {
     dex: 329,
     type: "Ground/Dragon",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/329.shtml",
-    image: "http://www.serebii.net/xy/pokemon/329.png"
+    wiki: "http://www.serebii.net/pokedex-sm/329.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/329.png"
 };
 
 var flygon = {
@@ -3380,8 +3866,8 @@ var flygon = {
     dex: 330,
     type: "Ground/Dragon",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/330.shtml",
-    image: "http://www.serebii.net/xy/pokemon/330.png"
+    wiki: "http://www.serebii.net/pokedex-sm/330.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/330.png"
 };
 
 var cacnea = {
@@ -3389,8 +3875,8 @@ var cacnea = {
     dex: 331,
     type: "Grass",
     ability: "Sand Veil/None/Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/331.shtml",
-    image: "http://www.serebii.net/xy/pokemon/331.png"
+    wiki: "http://www.serebii.net/pokedex-sm/331.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/331.png"
 };
 
 var cacturne = {
@@ -3398,8 +3884,8 @@ var cacturne = {
     dex: 332,
     type: "Grass/Dark",
     ability: "Sand Veil/None/Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/332.shtml",
-    image: "http://www.serebii.net/xy/pokemon/332.png"
+    wiki: "http://www.serebii.net/pokedex-sm/332.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/332.png"
 };
 
 var swablu = {
@@ -3407,8 +3893,8 @@ var swablu = {
     dex: 333,
     type: "Normal/Flying",
     ability: "Natural Cure/None/Cloud Nine",
-    wiki: "http://www.serebii.net/pokedex-xy/333.shtml",
-    image: "http://www.serebii.net/xy/pokemon/333.png"
+    wiki: "http://www.serebii.net/pokedex-sm/333.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/333.png"
 };
 
 var altaria = {
@@ -3416,8 +3902,8 @@ var altaria = {
     dex: 334,
     type: "Dragon/Flying",
     ability: "Natural Cure/None/Cloud Nine",
-    wiki: "http://www.serebii.net/pokedex-xy/334.shtml",
-    image: "http://www.serebii.net/xy/pokemon/334.png"
+    wiki: "http://www.serebii.net/pokedex-sm/334.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/334.png"
 };
 
 var zangoose = {
@@ -3425,8 +3911,8 @@ var zangoose = {
     dex: 335,
     type: "Normal",
     ability: "Immunity/None/Toxic Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/335.shtml",
-    image: "http://www.serebii.net/xy/pokemon/335.png"
+    wiki: "http://www.serebii.net/pokedex-sm/335.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/335.png"
 };
 
 var seviper = {
@@ -3434,8 +3920,8 @@ var seviper = {
     dex: 336,
     type: "Poison",
     ability: "Shed Skin/None/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/336.shtml",
-    image: "http://www.serebii.net/xy/pokemon/336.png"
+    wiki: "http://www.serebii.net/pokedex-sm/336.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/336.png"
 };
 
 var lunatone = {
@@ -3443,8 +3929,8 @@ var lunatone = {
     dex: 337,
     type: "Rock/Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/337.shtml",
-    image: "http://www.serebii.net/xy/pokemon/337.png"
+    wiki: "http://www.serebii.net/pokedex-sm/337.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/337.png"
 };
 
 var solrock = {
@@ -3452,8 +3938,8 @@ var solrock = {
     dex: 338,
     type: "Rock/Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/338.shtml",
-    image: "http://www.serebii.net/xy/pokemon/338.png"
+    wiki: "http://www.serebii.net/pokedex-sm/338.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/338.png"
 };
 
 var barboach = {
@@ -3461,8 +3947,8 @@ var barboach = {
     dex: 339,
     type: "Water/Ground",
     ability: "Oblivious/Anticipation/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/339.shtml",
-    image: "http://www.serebii.net/xy/pokemon/339.png"
+    wiki: "http://www.serebii.net/pokedex-sm/339.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/339.png"
 };
 
 var whiscash = {
@@ -3470,8 +3956,8 @@ var whiscash = {
     dex: 340,
     type: "Water/Ground",
     ability: "Oblivious/Anticipation/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/340.shtml",
-    image: "http://www.serebii.net/xy/pokemon/340.png"
+    wiki: "http://www.serebii.net/pokedex-sm/340.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/340.png"
 };
 
 var corphish = {
@@ -3479,8 +3965,8 @@ var corphish = {
     dex: 341,
     type: "Water",
     ability: "Hyper Cutter/Shell Armor/Adaptability",
-    wiki: "http://www.serebii.net/pokedex-xy/341.shtml",
-    image: "http://www.serebii.net/xy/pokemon/341.png"
+    wiki: "http://www.serebii.net/pokedex-sm/341.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/341.png"
 };
 
 var crawdaunt = {
@@ -3488,8 +3974,8 @@ var crawdaunt = {
     dex: 342,
     type: "Water/Dark",
     ability: "Hyper Cutter/Shell Armor/Adaptability",
-    wiki: "http://www.serebii.net/pokedex-xy/342.shtml",
-    image: "http://www.serebii.net/xy/pokemon/342.png"
+    wiki: "http://www.serebii.net/pokedex-sm/342.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/342.png"
 };
 
 var baltoy = {
@@ -3497,8 +3983,8 @@ var baltoy = {
     dex: 343,
     type: "Ground/Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/343.shtml",
-    image: "http://www.serebii.net/xy/pokemon/343.png"
+    wiki: "http://www.serebii.net/pokedex-sm/343.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/343.png"
 };
 
 var claydol = {
@@ -3506,8 +3992,8 @@ var claydol = {
     dex: 344,
     type: "Ground/Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/344.shtml",
-    image: "http://www.serebii.net/xy/pokemon/344.png"
+    wiki: "http://www.serebii.net/pokedex-sm/344.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/344.png"
 };
 
 var lileep = {
@@ -3515,8 +4001,8 @@ var lileep = {
     dex: 345,
     type: "Rock/Grass",
     ability: "Suction Cups/None/Storm Drain",
-    wiki: "http://www.serebii.net/pokedex-xy/345.shtml",
-    image: "http://www.serebii.net/xy/pokemon/345.png"
+    wiki: "http://www.serebii.net/pokedex-sm/345.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/345.png"
 };
 
 var cradily = {
@@ -3524,8 +4010,8 @@ var cradily = {
     dex: 346,
     type: "Rock/Grass",
     ability: "Suction Cups/None/Storm Drain",
-    wiki: "http://www.serebii.net/pokedex-xy/346.shtml",
-    image: "http://www.serebii.net/xy/pokemon/346.png"
+    wiki: "http://www.serebii.net/pokedex-sm/346.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/346.png"
 };
 
 var anorith = {
@@ -3533,8 +4019,8 @@ var anorith = {
     dex: 347,
     type: "Rock/Bug",
     ability: "Battle Armor/None/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/347.shtml",
-    image: "http://www.serebii.net/xy/pokemon/347.png"
+    wiki: "http://www.serebii.net/pokedex-sm/347.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/347.png"
 };
 
 var armaldo = {
@@ -3542,8 +4028,8 @@ var armaldo = {
     dex: 348,
     type: "Rock/Bug",
     ability: "Battle Armor/None/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/348.shtml",
-    image: "http://www.serebii.net/xy/pokemon/348.png"
+    wiki: "http://www.serebii.net/pokedex-sm/348.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/348.png"
 };
 
 var feebas = {
@@ -3551,8 +4037,8 @@ var feebas = {
     dex: 349,
     type: "Water",
     ability: "Swift Swim/Oblivious/Adaptability",
-    wiki: "http://www.serebii.net/pokedex-xy/349.shtml",
-    image: "http://www.serebii.net/xy/pokemon/349.png"
+    wiki: "http://www.serebii.net/pokedex-sm/349.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/349.png"
 };
 
 var milotic = {
@@ -3560,8 +4046,8 @@ var milotic = {
     dex: 350,
     type: "Water",
     ability: "Marvel Scale/Competitive/Cute Charm",
-    wiki: "http://www.serebii.net/pokedex-xy/350.shtml",
-    image: "http://www.serebii.net/xy/pokemon/350.png"
+    wiki: "http://www.serebii.net/pokedex-sm/350.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/350.png"
 };
 
 var castform = {
@@ -3569,8 +4055,8 @@ var castform = {
     dex: 351,
     type: "Normal",
     ability: "Forecast",
-    wiki: "http://www.serebii.net/pokedex-xy/351.shtml",
-    image: "http://www.serebii.net/xy/pokemon/351.png"
+    wiki: "http://www.serebii.net/pokedex-sm/351.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/351.png"
 };
 
 var castform_sunny = {
@@ -3578,8 +4064,8 @@ var castform_sunny = {
     dex: 351,
     type: "Fire",
     ability: "Forecast",
-    wiki: "http://www.serebii.net/pokedex-xy/351.shtml",
-    image: "http://www.serebii.net/xy/pokemon/351-s.png"
+    wiki: "http://www.serebii.net/pokedex-sm/351.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/351-s.png"
 };
 
 var castform_rainy = {
@@ -3587,17 +4073,17 @@ var castform_rainy = {
     dex: 351,
     type: "Water",
     ability: "Forecast",
-    wiki: "http://www.serebii.net/pokedex-xy/351.shtml",
-    image: "http://www.serebii.net/xy/pokemon/351-r.png"
+    wiki: "http://www.serebii.net/pokedex-sm/351.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/351-r.png"
 };
 
 var castform_snowy = {
     name: "Castform Snowy",
     dex: 351,
-    type: "Normal",
+    type: "Ice",
     ability: "Forecast",
-    wiki: "http://www.serebii.net/pokedex-xy/351.shtml",
-    image: "http://www.serebii.net/xy/pokemon/351-i.png"
+    wiki: "http://www.serebii.net/pokedex-sm/351.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/351-i.png"
 };
 
 var kecleon = {
@@ -3605,8 +4091,8 @@ var kecleon = {
     dex: 352,
     type: "Normal",
     ability: "Color Change/None/Protean/VI",
-    wiki: "http://www.serebii.net/pokedex-xy/352.shtml",
-    image: "http://www.serebii.net/xy/pokemon/352.png"
+    wiki: "http://www.serebii.net/pokedex-sm/352.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/352.png"
 };
 
 var shuppet = {
@@ -3614,8 +4100,8 @@ var shuppet = {
     dex: 353,
     type: "Ghost",
     ability: "Insomnia/Frisk/Cursed Body",
-    wiki: "http://www.serebii.net/pokedex-xy/353.shtml",
-    image: "http://www.serebii.net/xy/pokemon/353.png"
+    wiki: "http://www.serebii.net/pokedex-sm/353.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/353.png"
 };
 
 var banette = {
@@ -3623,8 +4109,8 @@ var banette = {
     dex: 354,
     type: "Ghost",
     ability: "Insomnia/Frisk/Cursed Body",
-    wiki: "http://www.serebii.net/pokedex-xy/354.shtml",
-    image: "http://www.serebii.net/xy/pokemon/354.png"
+    wiki: "http://www.serebii.net/pokedex-sm/354.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/354.png"
 };
 
 var duskull = {
@@ -3632,8 +4118,8 @@ var duskull = {
     dex: 355,
     type: "Ghost",
     ability: "Levitate/None/Frisk/VI",
-    wiki: "http://www.serebii.net/pokedex-xy/355.shtml",
-    image: "http://www.serebii.net/xy/pokemon/355.png"
+    wiki: "http://www.serebii.net/pokedex-sm/355.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/355.png"
 };
 
 var dusclops = {
@@ -3641,8 +4127,8 @@ var dusclops = {
     dex: 356,
     type: "Ghost",
     ability: "Pressure/None/Frisk/VI",
-    wiki: "http://www.serebii.net/pokedex-xy/356.shtml",
-    image: "http://www.serebii.net/xy/pokemon/356.png"
+    wiki: "http://www.serebii.net/pokedex-sm/356.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/356.png"
 };
 
 var tropius = {
@@ -3650,8 +4136,8 @@ var tropius = {
     dex: 357,
     type: "Grass/Flying",
     ability: "Chlorophyll/Solar Power/Harvest",
-    wiki: "http://www.serebii.net/pokedex-xy/357.shtml",
-    image: "http://www.serebii.net/xy/pokemon/357.png"
+    wiki: "http://www.serebii.net/pokedex-sm/357.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/357.png"
 };
 
 var chimecho = {
@@ -3659,8 +4145,8 @@ var chimecho = {
     dex: 358,
     type: "Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/358.shtml",
-    image: "http://www.serebii.net/xy/pokemon/358.png"
+    wiki: "http://www.serebii.net/pokedex-sm/358.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/358.png"
 };
 
 var absol = {
@@ -3668,8 +4154,8 @@ var absol = {
     dex: 359,
     type: "Dark",
     ability: "Pressure/Super Luck/Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/359.shtml",
-    image: "http://www.serebii.net/xy/pokemon/359.png"
+    wiki: "http://www.serebii.net/pokedex-sm/359.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/359.png"
 };
 
 var wynaut = {
@@ -3677,8 +4163,8 @@ var wynaut = {
     dex: 360,
     type: "Psychic",
     ability: "Shadow Tag/None/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/360.shtml",
-    image: "http://www.serebii.net/xy/pokemon/360.png"
+    wiki: "http://www.serebii.net/pokedex-sm/360.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/360.png"
 };
 
 var snorunt = {
@@ -3686,8 +4172,8 @@ var snorunt = {
     dex: 361,
     type: "Ice",
     ability: "Inner Focus/Ice Body/Moody",
-    wiki: "http://www.serebii.net/pokedex-xy/361.shtml",
-    image: "http://www.serebii.net/xy/pokemon/361.png"
+    wiki: "http://www.serebii.net/pokedex-sm/361.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/361.png"
 };
 
 var glalie = {
@@ -3695,8 +4181,8 @@ var glalie = {
     dex: 362,
     type: "Ice",
     ability: "Inner Focus/Ice Body/Moody",
-    wiki: "http://www.serebii.net/pokedex-xy/362.shtml",
-    image: "http://www.serebii.net/xy/pokemon/362.png"
+    wiki: "http://www.serebii.net/pokedex-sm/362.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/362.png"
 };
 
 var spheal = {
@@ -3704,8 +4190,8 @@ var spheal = {
     dex: 363,
     type: "Ice/Water",
     ability: "Thick Fat/Ice Body/Oblivious",
-    wiki: "http://www.serebii.net/pokedex-xy/363.shtml",
-    image: "http://www.serebii.net/xy/pokemon/363.png"
+    wiki: "http://www.serebii.net/pokedex-sm/363.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/363.png"
 };
 
 var sealeo = {
@@ -3713,8 +4199,8 @@ var sealeo = {
     dex: 364,
     type: "Ice/Water",
     ability: "Thick Fat/Ice Body/Oblivious",
-    wiki: "http://www.serebii.net/pokedex-xy/364.shtml",
-    image: "http://www.serebii.net/xy/pokemon/364.png"
+    wiki: "http://www.serebii.net/pokedex-sm/364.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/364.png"
 };
 
 var walrein = {
@@ -3722,8 +4208,8 @@ var walrein = {
     dex: 365,
     type: "Ice/Water",
     ability: "Thick Fat/Ice Body/Oblivious",
-    wiki: "http://www.serebii.net/pokedex-xy/365.shtml",
-    image: "http://www.serebii.net/xy/pokemon/365.png"
+    wiki: "http://www.serebii.net/pokedex-sm/365.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/365.png"
 };
 
 var clamperl = {
@@ -3731,8 +4217,8 @@ var clamperl = {
     dex: 366,
     type: "Water",
     ability: "Shell Armor/None/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/366.shtml",
-    image: "http://www.serebii.net/xy/pokemon/366.png"
+    wiki: "http://www.serebii.net/pokedex-sm/366.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/366.png"
 };
 
 var huntail = {
@@ -3740,8 +4226,8 @@ var huntail = {
     dex: 367,
     type: "Water",
     ability: "Swift Swim/None/Water Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/367.shtml",
-    image: "http://www.serebii.net/xy/pokemon/367.png"
+    wiki: "http://www.serebii.net/pokedex-sm/367.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/367.png"
 };
 
 var gorebyss = {
@@ -3749,8 +4235,8 @@ var gorebyss = {
     dex: 368,
     type: "Water",
     ability: "Swift Swim/None/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/368.shtml",
-    image: "http://www.serebii.net/xy/pokemon/368.png"
+    wiki: "http://www.serebii.net/pokedex-sm/368.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/368.png"
 };
 
 var relicanth = {
@@ -3758,8 +4244,8 @@ var relicanth = {
     dex: 369,
     type: "Water/Rock",
     ability: "Swift Swim/Rock Head/Sturdy",
-    wiki: "http://www.serebii.net/pokedex-xy/369.shtml",
-    image: "http://www.serebii.net/xy/pokemon/369.png"
+    wiki: "http://www.serebii.net/pokedex-sm/369.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/369.png"
 };
 
 var luvdisc = {
@@ -3767,8 +4253,8 @@ var luvdisc = {
     dex: 370,
     type: "Water",
     ability: "Swift Swim/None/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/370.shtml",
-    image: "http://www.serebii.net/xy/pokemon/370.png"
+    wiki: "http://www.serebii.net/pokedex-sm/370.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/370.png"
 };
 
 var bagon = {
@@ -3776,8 +4262,8 @@ var bagon = {
     dex: 371,
     type: "Dragon",
     ability: "Rock Head/None/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/371.shtml",
-    image: "http://www.serebii.net/xy/pokemon/371.png"
+    wiki: "http://www.serebii.net/pokedex-sm/371.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/371.png"
 };
 
 var shelgon = {
@@ -3785,8 +4271,8 @@ var shelgon = {
     dex: 372,
     type: "Dragon",
     ability: "Rock Head/None/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/372.shtml",
-    image: "http://www.serebii.net/xy/pokemon/372.png"
+    wiki: "http://www.serebii.net/pokedex-sm/372.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/372.png"
 };
 
 var salamence = {
@@ -3794,8 +4280,8 @@ var salamence = {
     dex: 373,
     type: "Dragon/Flying",
     ability: "Intimidate/None/Moxie",
-    wiki: "http://www.serebii.net/pokedex-xy/373.shtml",
-    image: "http://www.serebii.net/xy/pokemon/373.png"
+    wiki: "http://www.serebii.net/pokedex-sm/373.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/373.png"
 };
 
 var beldum = {
@@ -3803,8 +4289,8 @@ var beldum = {
     dex: 374,
     type: "Steel/Psychic",
     ability: "Clear Body/None/Light Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/374.shtml",
-    image: "http://www.serebii.net/xy/pokemon/374.png"
+    wiki: "http://www.serebii.net/pokedex-sm/374.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/374.png"
 };
 
 var metang = {
@@ -3812,8 +4298,8 @@ var metang = {
     dex: 375,
     type: "Steel/Psychic",
     ability: "Clear Body/None/Light Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/375.shtml",
-    image: "http://www.serebii.net/xy/pokemon/375.png"
+    wiki: "http://www.serebii.net/pokedex-sm/375.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/375.png"
 };
 
 var metagross = {
@@ -3821,8 +4307,8 @@ var metagross = {
     dex: 376,
     type: "Steel/Psychic",
     ability: "Clear Body/None/Light Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/376.shtml",
-    image: "http://www.serebii.net/xy/pokemon/376.png"
+    wiki: "http://www.serebii.net/pokedex-sm/376.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/376.png"
 };
 
 var regirock = {
@@ -3830,8 +4316,8 @@ var regirock = {
     dex: 377,
     type: "Rock",
     ability: "Clear Body/None/Sturdy",
-    wiki: "http://www.serebii.net/pokedex-xy/377.shtml",
-    image: "http://www.serebii.net/xy/pokemon/377.png"
+    wiki: "http://www.serebii.net/pokedex-sm/377.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/377.png"
 };
 
 var regice = {
@@ -3839,8 +4325,8 @@ var regice = {
     dex: 378,
     type: "Ice",
     ability: "Clear Body/None/Ice Body",
-    wiki: "http://www.serebii.net/pokedex-xy/378.shtml",
-    image: "http://www.serebii.net/xy/pokemon/378.png"
+    wiki: "http://www.serebii.net/pokedex-sm/378.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/378.png"
 };
 
 var registeel = {
@@ -3848,8 +4334,8 @@ var registeel = {
     dex: 379,
     type: "Steel",
     ability: "Clear Body/None/Light Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/379.shtml",
-    image: "http://www.serebii.net/xy/pokemon/379.png"
+    wiki: "http://www.serebii.net/pokedex-sm/379.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/379.png"
 };
 
 var latias = {
@@ -3857,8 +4343,8 @@ var latias = {
     dex: 380,
     type: "Dragon/Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/380.shtml",
-    image: "http://www.serebii.net/xy/pokemon/380.png"
+    wiki: "http://www.serebii.net/pokedex-sm/380.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/380.png"
 };
 
 var latios = {
@@ -3866,8 +4352,8 @@ var latios = {
     dex: 381,
     type: "Dragon/Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/381.shtml",
-    image: "http://www.serebii.net/xy/pokemon/381.png"
+    wiki: "http://www.serebii.net/pokedex-sm/381.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/381.png"
 };
 
 var kyogre = {
@@ -3875,8 +4361,8 @@ var kyogre = {
     dex: 382,
     type: "Water",
     ability: "Drizzle",
-    wiki: "http://www.serebii.net/pokedex-xy/382.shtml",
-    image: "http://www.serebii.net/xy/pokemon/382.png"
+    wiki: "http://www.serebii.net/pokedex-sm/382.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/382.png"
 };
 
 var groudon = {
@@ -3884,8 +4370,8 @@ var groudon = {
     dex: 383,
     type: "Ground",
     ability: "Drought",
-    wiki: "http://www.serebii.net/pokedex-xy/383.shtml",
-    image: "http://www.serebii.net/xy/pokemon/383.png"
+    wiki: "http://www.serebii.net/pokedex-sm/383.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/383.png"
 };
 
 var rayquaza = {
@@ -3893,8 +4379,8 @@ var rayquaza = {
     dex: 384,
     type: "Dragon/Flying",
     ability: "Air Lock",
-    wiki: "http://www.serebii.net/pokedex-xy/384.shtml",
-    image: "http://www.serebii.net/xy/pokemon/384.png"
+    wiki: "http://www.serebii.net/pokedex-sm/384.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/384.png"
 };
 
 var jirachi = {
@@ -3902,8 +4388,8 @@ var jirachi = {
     dex: 385,
     type: "Steel/Psychic",
     ability: "Serene Grace",
-    wiki: "http://www.serebii.net/pokedex-xy/385.shtml",
-    image: "http://www.serebii.net/xy/pokemon/385.png"
+    wiki: "http://www.serebii.net/pokedex-sm/385.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/385.png"
 };
 
 var deoxys = {
@@ -3911,8 +4397,8 @@ var deoxys = {
     dex: 386,
     type: "Psychic",
     ability: "Pressure",
-    wiki: "http://www.serebii.net/pokedex-xy/386.shtml",
-    image: "http://www.serebii.net/xy/pokemon/386.png"
+    wiki: "http://www.serebii.net/pokedex-sm/386.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/386.png"
 };
 
 var turtwig = {
@@ -3920,8 +4406,8 @@ var turtwig = {
     dex: 387,
     type: "Grass",
     ability: "Overgrow/None/Shell Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/387.shtml",
-    image: "http://www.serebii.net/xy/pokemon/387.png"
+    wiki: "http://www.serebii.net/pokedex-sm/387.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/387.png"
 };
 
 var grotle = {
@@ -3929,8 +4415,8 @@ var grotle = {
     dex: 388,
     type: "Grass",
     ability: "Overgrow/None/Shell Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/388.shtml",
-    image: "http://www.serebii.net/xy/pokemon/388.png"
+    wiki: "http://www.serebii.net/pokedex-sm/388.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/388.png"
 };
 
 var torterra = {
@@ -3938,8 +4424,8 @@ var torterra = {
     dex: 389,
     type: "Grass/Ground",
     ability: "Overgrow/None/Shell Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/389.shtml",
-    image: "http://www.serebii.net/xy/pokemon/389.png"
+    wiki: "http://www.serebii.net/pokedex-sm/389.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/389.png"
 };
 
 var chimchar = {
@@ -3947,8 +4433,8 @@ var chimchar = {
     dex: 390,
     type: "Fire",
     ability: "Blaze/None/Iron Fist",
-    wiki: "http://www.serebii.net/pokedex-xy/390.shtml",
-    image: "http://www.serebii.net/xy/pokemon/390.png"
+    wiki: "http://www.serebii.net/pokedex-sm/390.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/390.png"
 };
 
 var monferno = {
@@ -3956,8 +4442,8 @@ var monferno = {
     dex: 391,
     type: "Fire/Fighting",
     ability: "Blaze/None/Iron Fist",
-    wiki: "http://www.serebii.net/pokedex-xy/391.shtml",
-    image: "http://www.serebii.net/xy/pokemon/391.png"
+    wiki: "http://www.serebii.net/pokedex-sm/391.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/391.png"
 };
 
 var infernape = {
@@ -3965,8 +4451,8 @@ var infernape = {
     dex: 392,
     type: "Fire/Fighting",
     ability: "Blaze/None/Iron Fist",
-    wiki: "http://www.serebii.net/pokedex-xy/392.shtml",
-    image: "http://www.serebii.net/xy/pokemon/392.png"
+    wiki: "http://www.serebii.net/pokedex-sm/392.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/392.png"
 };
 
 var piplup = {
@@ -3974,8 +4460,8 @@ var piplup = {
     dex: 393,
     type: "Water",
     ability: "Torrent/None/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/393.shtml",
-    image: "http://www.serebii.net/xy/pokemon/393.png"
+    wiki: "http://www.serebii.net/pokedex-sm/393.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/393.png"
 };
 
 var prinplup = {
@@ -3983,8 +4469,8 @@ var prinplup = {
     dex: 394,
     type: "Water",
     ability: "Torrent/None/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/394.shtml",
-    image: "http://www.serebii.net/xy/pokemon/394.png"
+    wiki: "http://www.serebii.net/pokedex-sm/394.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/394.png"
 };
 
 var empoleon = {
@@ -3992,8 +4478,8 @@ var empoleon = {
     dex: 395,
     type: "Water/Steel",
     ability: "Torrent/None/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/395.shtml",
-    image: "http://www.serebii.net/xy/pokemon/395.png"
+    wiki: "http://www.serebii.net/pokedex-sm/395.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/395.png"
 };
 
 var starly = {
@@ -4001,8 +4487,8 @@ var starly = {
     dex: 396,
     type: "Normal/Flying",
     ability: "Keen Eye/None/Reckless/VI",
-    wiki: "http://www.serebii.net/pokedex-xy/396.shtml",
-    image: "http://www.serebii.net/xy/pokemon/396.png"
+    wiki: "http://www.serebii.net/pokedex-sm/396.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/396.png"
 };
 
 var staravia = {
@@ -4010,8 +4496,8 @@ var staravia = {
     dex: 397,
     type: "Normal/Flying",
     ability: "Intimidate/None/Reckless",
-    wiki: "http://www.serebii.net/pokedex-xy/397.shtml",
-    image: "http://www.serebii.net/xy/pokemon/397.png"
+    wiki: "http://www.serebii.net/pokedex-sm/397.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/397.png"
 };
 
 var staraptor = {
@@ -4019,8 +4505,8 @@ var staraptor = {
     dex: 398,
     type: "Normal/Flying",
     ability: "Intimidate/None/Reckless",
-    wiki: "http://www.serebii.net/pokedex-xy/398.shtml",
-    image: "http://www.serebii.net/xy/pokemon/398.png"
+    wiki: "http://www.serebii.net/pokedex-sm/398.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/398.png"
 };
 
 var bidoof = {
@@ -4028,8 +4514,8 @@ var bidoof = {
     dex: 399,
     type: "Normal",
     ability: "Simple/Unaware/Moody",
-    wiki: "http://www.serebii.net/pokedex-xy/399.shtml",
-    image: "http://www.serebii.net/xy/pokemon/399.png"
+    wiki: "http://www.serebii.net/pokedex-sm/399.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/399.png"
 };
 
 var bibarel = {
@@ -4037,8 +4523,8 @@ var bibarel = {
     dex: 400,
     type: "Normal/Water",
     ability: "Simple/Unaware/Moody",
-    wiki: "http://www.serebii.net/pokedex-xy/400.shtml",
-    image: "http://www.serebii.net/xy/pokemon/400.png"
+    wiki: "http://www.serebii.net/pokedex-sm/400.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/400.png"
 };
 
 var kricketot = {
@@ -4046,8 +4532,8 @@ var kricketot = {
     dex: 401,
     type: "Bug",
     ability: "Shed Skin/None/Run Away",
-    wiki: "http://www.serebii.net/pokedex-xy/401.shtml",
-    image: "http://www.serebii.net/xy/pokemon/401.png"
+    wiki: "http://www.serebii.net/pokedex-sm/401.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/401.png"
 };
 
 var kricketune = {
@@ -4055,8 +4541,8 @@ var kricketune = {
     dex: 402,
     type: "Bug",
     ability: "Swarm/None/Technician",
-    wiki: "http://www.serebii.net/pokedex-xy/402.shtml",
-    image: "http://www.serebii.net/xy/pokemon/402.png"
+    wiki: "http://www.serebii.net/pokedex-sm/402.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/402.png"
 };
 
 var shinx = {
@@ -4064,8 +4550,8 @@ var shinx = {
     dex: 403,
     type: "Electric",
     ability: "Rivalry/Intimidate/Guts",
-    wiki: "http://www.serebii.net/pokedex-xy/403.shtml",
-    image: "http://www.serebii.net/xy/pokemon/403.png"
+    wiki: "http://www.serebii.net/pokedex-sm/403.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/403.png"
 };
 
 var luxio = {
@@ -4073,8 +4559,8 @@ var luxio = {
     dex: 404,
     type: "Electric",
     ability: "Rivalry/Intimidate/Guts",
-    wiki: "http://www.serebii.net/pokedex-xy/404.shtml",
-    image: "http://www.serebii.net/xy/pokemon/404.png"
+    wiki: "http://www.serebii.net/pokedex-sm/404.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/404.png"
 };
 
 var luxray = {
@@ -4082,8 +4568,8 @@ var luxray = {
     dex: 405,
     type: "Electric",
     ability: "Rivalry/Intimidate/Guts",
-    wiki: "http://www.serebii.net/pokedex-xy/405.shtml",
-    image: "http://www.serebii.net/xy/pokemon/405.png"
+    wiki: "http://www.serebii.net/pokedex-sm/405.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/405.png"
 };
 
 var budew = {
@@ -4091,8 +4577,8 @@ var budew = {
     dex: 406,
     type: "Grass/Poison",
     ability: "Natural Cure/Poison Point/Leaf Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/406.shtml",
-    image: "http://www.serebii.net/xy/pokemon/406.png"
+    wiki: "http://www.serebii.net/pokedex-sm/406.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/406.png"
 };
 
 var roserade = {
@@ -4100,8 +4586,8 @@ var roserade = {
     dex: 407,
     type: "Grass/Poison",
     ability: "Natural Cure/Poison Point/Technician",
-    wiki: "http://www.serebii.net/pokedex-xy/407.shtml",
-    image: "http://www.serebii.net/xy/pokemon/407.png"
+    wiki: "http://www.serebii.net/pokedex-sm/407.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/407.png"
 };
 
 var cranidos = {
@@ -4109,8 +4595,8 @@ var cranidos = {
     dex: 408,
     type: "Rock",
     ability: "Mold Breaker/None/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/408.shtml",
-    image: "http://www.serebii.net/xy/pokemon/408.png"
+    wiki: "http://www.serebii.net/pokedex-sm/408.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/408.png"
 };
 
 var rampardos = {
@@ -4118,8 +4604,8 @@ var rampardos = {
     dex: 409,
     type: "Rock",
     ability: "Mold Breaker/None/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/409.shtml",
-    image: "http://www.serebii.net/xy/pokemon/409.png"
+    wiki: "http://www.serebii.net/pokedex-sm/409.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/409.png"
 };
 
 var shieldon = {
@@ -4127,8 +4613,8 @@ var shieldon = {
     dex: 410,
     type: "Rock/Steel",
     ability: "Sturdy/None/Soundproof",
-    wiki: "http://www.serebii.net/pokedex-xy/410.shtml",
-    image: "http://www.serebii.net/xy/pokemon/410.png"
+    wiki: "http://www.serebii.net/pokedex-sm/410.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/410.png"
 };
 
 var bastiodon = {
@@ -4136,8 +4622,8 @@ var bastiodon = {
     dex: 411,
     type: "Rock/Steel",
     ability: "Sturdy/None/Soundproof",
-    wiki: "http://www.serebii.net/pokedex-xy/411.shtml",
-    image: "http://www.serebii.net/xy/pokemon/411.png"
+    wiki: "http://www.serebii.net/pokedex-sm/411.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/411.png"
 };
 
 var burmy = {
@@ -4145,8 +4631,8 @@ var burmy = {
     dex: 412,
     type: "Bug",
     ability: "Shed Skin/None/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/412.shtml",
-    image: "http://www.serebii.net/xy/pokemon/412.png"
+    wiki: "http://www.serebii.net/pokedex-sm/412.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/412.png"
 };
 
 var wormadam = {
@@ -4154,8 +4640,8 @@ var wormadam = {
     dex: 413,
     type: "Bug/Grass",
     ability: "Anticipation/None/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/413.shtml",
-    image: "http://www.serebii.net/xy/pokemon/413.png"
+    wiki: "http://www.serebii.net/pokedex-sm/413.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/413.png"
 };
 
 var wormadam_sandy = {
@@ -4163,8 +4649,8 @@ var wormadam_sandy = {
     dex: 413,
     type: "Bug/Ground",
     ability: "Anticipation/None/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/413.shtml",
-    image: "http://www.serebii.net/xy/pokemon/413-c.png"
+    wiki: "http://www.serebii.net/pokedex-sm/413.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/413-c.png"
 };
 
 var wormadam_trash = {
@@ -4172,8 +4658,8 @@ var wormadam_trash = {
     dex: 413,
     type: "Bug/Steel",
     ability: "Anticipation/None/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/413.shtml",
-    image: "http://www.serebii.net/xy/pokemon/413-s.png"
+    wiki: "http://www.serebii.net/pokedex-sm/413.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/413-s.png"
 };
 
 var mothim = {
@@ -4181,8 +4667,8 @@ var mothim = {
     dex: 414,
     type: "Bug/Flying",
     ability: "Swarm/None/Tinted Lens",
-    wiki: "http://www.serebii.net/pokedex-xy/414.shtml",
-    image: "http://www.serebii.net/xy/pokemon/414.png"
+    wiki: "http://www.serebii.net/pokedex-sm/414.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/414.png"
 };
 
 var combee = {
@@ -4190,8 +4676,8 @@ var combee = {
     dex: 415,
     type: "Bug/Flying",
     ability: "Honey Gather/None/Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/415.shtml",
-    image: "http://www.serebii.net/xy/pokemon/415.png"
+    wiki: "http://www.serebii.net/pokedex-sm/415.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/415.png"
 };
 
 var vespiquen = {
@@ -4199,8 +4685,8 @@ var vespiquen = {
     dex: 416,
     type: "Bug/Flying",
     ability: "Pressure/None/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/416.shtml",
-    image: "http://www.serebii.net/xy/pokemon/416.png"
+    wiki: "http://www.serebii.net/pokedex-sm/416.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/416.png"
 };
 
 var pachirisu = {
@@ -4208,8 +4694,8 @@ var pachirisu = {
     dex: 417,
     type: "Electric",
     ability: "Run Away/Pickup/Volt Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/417.shtml",
-    image: "http://www.serebii.net/xy/pokemon/417.png"
+    wiki: "http://www.serebii.net/pokedex-sm/417.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/417.png"
 };
 
 var buizel = {
@@ -4217,8 +4703,8 @@ var buizel = {
     dex: 418,
     type: "Water",
     ability: "Swift Swim/None/Water Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/418.shtml",
-    image: "http://www.serebii.net/xy/pokemon/418.png"
+    wiki: "http://www.serebii.net/pokedex-sm/418.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/418.png"
 };
 
 var floatzel = {
@@ -4226,8 +4712,8 @@ var floatzel = {
     dex: 419,
     type: "Water",
     ability: "Swift Swim/None/Water Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/419.shtml",
-    image: "http://www.serebii.net/xy/pokemon/419.png"
+    wiki: "http://www.serebii.net/pokedex-sm/419.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/419.png"
 };
 
 var cherubi = {
@@ -4235,8 +4721,8 @@ var cherubi = {
     dex: 420,
     type: "Grass",
     ability: "Chlorophyll",
-    wiki: "http://www.serebii.net/pokedex-xy/420.shtml",
-    image: "http://www.serebii.net/xy/pokemon/420.png"
+    wiki: "http://www.serebii.net/pokedex-sm/420.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/420.png"
 };
 
 var cherrim = {
@@ -4244,8 +4730,8 @@ var cherrim = {
     dex: 421,
     type: "Grass",
     ability: "Flower Gift",
-    wiki: "http://www.serebii.net/pokedex-xy/421.shtml",
-    image: "http://www.serebii.net/xy/pokemon/421.png"
+    wiki: "http://www.serebii.net/pokedex-sm/421.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/421.png"
 };
 
 var shellos = {
@@ -4253,8 +4739,8 @@ var shellos = {
     dex: 422,
     type: "Water",
     ability: "Sticky Hold/Storm Drain/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/422.shtml",
-    image: "http://www.serebii.net/xy/pokemon/422.png"
+    wiki: "http://www.serebii.net/pokedex-sm/422.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/422.png"
 };
 
 var gastrodon = {
@@ -4262,8 +4748,8 @@ var gastrodon = {
     dex: 423,
     type: "Water/Ground",
     ability: "Sticky Hold/Storm Drain/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/423.shtml",
-    image: "http://www.serebii.net/xy/pokemon/423.png"
+    wiki: "http://www.serebii.net/pokedex-sm/423.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/423.png"
 };
 
 var ambipom = {
@@ -4271,8 +4757,8 @@ var ambipom = {
     dex: 424,
     type: "Normal",
     ability: "Technician/Pickup/Skill Link",
-    wiki: "http://www.serebii.net/pokedex-xy/424.shtml",
-    image: "http://www.serebii.net/xy/pokemon/424.png"
+    wiki: "http://www.serebii.net/pokedex-sm/424.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/424.png"
 };
 
 var drifloon = {
@@ -4280,8 +4766,8 @@ var drifloon = {
     dex: 425,
     type: "Ghost/Flying",
     ability: "Aftermath/Unburden/Flare Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/425.shtml",
-    image: "http://www.serebii.net/xy/pokemon/425.png"
+    wiki: "http://www.serebii.net/pokedex-sm/425.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/425.png"
 };
 
 var drifblim = {
@@ -4289,8 +4775,8 @@ var drifblim = {
     dex: 426,
     type: "Ghost/Flying",
     ability: "Aftermath/Unburden/Flare Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/426.shtml",
-    image: "http://www.serebii.net/xy/pokemon/426.png"
+    wiki: "http://www.serebii.net/pokedex-sm/426.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/426.png"
 };
 
 var buneary = {
@@ -4298,8 +4784,8 @@ var buneary = {
     dex: 427,
     type: "Normal",
     ability: "Run Away/Klutz/Limber",
-    wiki: "http://www.serebii.net/pokedex-xy/427.shtml",
-    image: "http://www.serebii.net/xy/pokemon/427.png"
+    wiki: "http://www.serebii.net/pokedex-sm/427.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/427.png"
 };
 
 var lopunny = {
@@ -4307,8 +4793,8 @@ var lopunny = {
     dex: 428,
     type: "Normal",
     ability: "Cute Charm/Klutz/Limber",
-    wiki: "http://www.serebii.net/pokedex-xy/428.shtml",
-    image: "http://www.serebii.net/xy/pokemon/428.png"
+    wiki: "http://www.serebii.net/pokedex-sm/428.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/428.png"
 };
 
 var mismagius = {
@@ -4316,8 +4802,8 @@ var mismagius = {
     dex: 429,
     type: "Ghost",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/429.shtml",
-    image: "http://www.serebii.net/xy/pokemon/429.png"
+    wiki: "http://www.serebii.net/pokedex-sm/429.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/429.png"
 };
 
 var honchkrow = {
@@ -4325,8 +4811,8 @@ var honchkrow = {
     dex: 430,
     type: "Dark/Flying",
     ability: "Insomnia/Super Luck/Moxie",
-    wiki: "http://www.serebii.net/pokedex-xy/430.shtml",
-    image: "http://www.serebii.net/xy/pokemon/430.png"
+    wiki: "http://www.serebii.net/pokedex-sm/430.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/430.png"
 };
 
 var glameow = {
@@ -4334,8 +4820,8 @@ var glameow = {
     dex: 431,
     type: "Normal",
     ability: "Limber/Own Tempo/Keen Eye",
-    wiki: "http://www.serebii.net/pokedex-xy/431.shtml",
-    image: "http://www.serebii.net/xy/pokemon/431.png"
+    wiki: "http://www.serebii.net/pokedex-sm/431.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/431.png"
 };
 
 var purugly = {
@@ -4343,8 +4829,8 @@ var purugly = {
     dex: 432,
     type: "Normal",
     ability: "Thick Fat/Own Tempo/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/432.shtml",
-    image: "http://www.serebii.net/xy/pokemon/432.png"
+    wiki: "http://www.serebii.net/pokedex-sm/432.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/432.png"
 };
 
 var chingling = {
@@ -4352,8 +4838,8 @@ var chingling = {
     dex: 433,
     type: "Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/433.shtml",
-    image: "http://www.serebii.net/xy/pokemon/433.png"
+    wiki: "http://www.serebii.net/pokedex-sm/433.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/433.png"
 };
 
 var stunky = {
@@ -4361,8 +4847,8 @@ var stunky = {
     dex: 434,
     type: "Poison/Dark",
     ability: "Stench/Aftermath/Keen Eye",
-    wiki: "http://www.serebii.net/pokedex-xy/434.shtml",
-    image: "http://www.serebii.net/xy/pokemon/434.png"
+    wiki: "http://www.serebii.net/pokedex-sm/434.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/434.png"
 };
 
 var skuntank = {
@@ -4370,8 +4856,8 @@ var skuntank = {
     dex: 435,
     type: "Poison/Dark",
     ability: "Stench/Aftermath/Keen Eye",
-    wiki: "http://www.serebii.net/pokedex-xy/435.shtml",
-    image: "http://www.serebii.net/xy/pokemon/435.png"
+    wiki: "http://www.serebii.net/pokedex-sm/435.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/435.png"
 };
 
 var bronzor = {
@@ -4379,8 +4865,8 @@ var bronzor = {
     dex: 436,
     type: "Steel/Psychic",
     ability: "Levitate/Heatproof/Heavy Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/436.shtml",
-    image: "http://www.serebii.net/xy/pokemon/436.png"
+    wiki: "http://www.serebii.net/pokedex-sm/436.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/436.png"
 };
 
 var bronzong = {
@@ -4388,8 +4874,8 @@ var bronzong = {
     dex: 437,
     type: "Steel/Psychic",
     ability: "Levitate/Heatproof/Heavy Metal",
-    wiki: "http://www.serebii.net/pokedex-xy/437.shtml",
-    image: "http://www.serebii.net/xy/pokemon/437.png"
+    wiki: "http://www.serebii.net/pokedex-sm/437.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/437.png"
 };
 
 var bonsly = {
@@ -4397,8 +4883,8 @@ var bonsly = {
     dex: 438,
     type: "Rock",
     ability: "Sturdy/Rock Head/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/438.shtml",
-    image: "http://www.serebii.net/xy/pokemon/438.png"
+    wiki: "http://www.serebii.net/pokedex-sm/438.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/438.png"
 };
 
 var mime_jr = {
@@ -4406,8 +4892,8 @@ var mime_jr = {
     dex: 439,
     type: "Psychic/Fairy",
     ability: "Soundproof/Filter/Technician",
-    wiki: "http://www.serebii.net/pokedex-xy/439.shtml",
-    image: "http://www.serebii.net/xy/pokemon/439.png"
+    wiki: "http://www.serebii.net/pokedex-sm/439.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/439.png"
 };
 
 var happiny = {
@@ -4415,8 +4901,8 @@ var happiny = {
     dex: 440,
     type: "Normal",
     ability: "Natural Cure/Serene Grace/Friend Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/440.shtml",
-    image: "http://www.serebii.net/xy/pokemon/440.png"
+    wiki: "http://www.serebii.net/pokedex-sm/440.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/440.png"
 };
 
 var chatot = {
@@ -4424,8 +4910,8 @@ var chatot = {
     dex: 441,
     type: "Normal/Flying",
     ability: "Keen Eye/Tangled Feet/Big Pecks",
-    wiki: "http://www.serebii.net/pokedex-xy/441.shtml",
-    image: "http://www.serebii.net/xy/pokemon/441.png"
+    wiki: "http://www.serebii.net/pokedex-sm/441.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/441.png"
 };
 
 var spiritomb = {
@@ -4433,8 +4919,8 @@ var spiritomb = {
     dex: 442,
     type: "Ghost/Dark",
     ability: "Pressure/None/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/442.shtml",
-    image: "http://www.serebii.net/xy/pokemon/442.png"
+    wiki: "http://www.serebii.net/pokedex-sm/442.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/442.png"
 };
 
 var gible = {
@@ -4442,8 +4928,8 @@ var gible = {
     dex: 443,
     type: "Dragon/Ground",
     ability: "Sand Veil/None/Rough Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/443.shtml",
-    image: "http://www.serebii.net/xy/pokemon/443.png"
+    wiki: "http://www.serebii.net/pokedex-sm/443.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/443.png"
 };
 
 var gabite = {
@@ -4451,8 +4937,8 @@ var gabite = {
     dex: 444,
     type: "Dragon/Ground",
     ability: "Sand Veil/None/Rough Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/444.shtml",
-    image: "http://www.serebii.net/xy/pokemon/444.png"
+    wiki: "http://www.serebii.net/pokedex-sm/444.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/444.png"
 };
 
 var garchomp = {
@@ -4460,8 +4946,8 @@ var garchomp = {
     dex: 445,
     type: "Dragon/Ground",
     ability: "Sand Veil/None/Rough Skin",
-    wiki: "http://www.serebii.net/pokedex-xy/445.shtml",
-    image: "http://www.serebii.net/xy/pokemon/445.png"
+    wiki: "http://www.serebii.net/pokedex-sm/445.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/445.png"
 };
 
 var munchlax = {
@@ -4469,8 +4955,8 @@ var munchlax = {
     dex: 446,
     type: "Normal",
     ability: "Pickup/Thick Fat/Gluttony",
-    wiki: "http://www.serebii.net/pokedex-xy/446.shtml",
-    image: "http://www.serebii.net/xy/pokemon/446.png"
+    wiki: "http://www.serebii.net/pokedex-sm/446.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/446.png"
 };
 
 var riolu = {
@@ -4478,8 +4964,8 @@ var riolu = {
     dex: 447,
     type: "Fighting",
     ability: "Steadfast/Inner Focus/Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/447.shtml",
-    image: "http://www.serebii.net/xy/pokemon/447.png"
+    wiki: "http://www.serebii.net/pokedex-sm/447.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/447.png"
 };
 
 var lucario = {
@@ -4487,8 +4973,8 @@ var lucario = {
     dex: 448,
     type: "Fighting/Steel",
     ability: "Steadfast/Inner Focus/Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/448.shtml",
-    image: "http://www.serebii.net/xy/pokemon/448.png"
+    wiki: "http://www.serebii.net/pokedex-sm/448.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/448.png"
 };
 
 var hippopotas = {
@@ -4496,8 +4982,8 @@ var hippopotas = {
     dex: 449,
     type: "Ground",
     ability: "Sand Stream/None/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/449.shtml",
-    image: "http://www.serebii.net/xy/pokemon/449.png"
+    wiki: "http://www.serebii.net/pokedex-sm/449.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/449.png"
 };
 
 var hippowdon = {
@@ -4505,8 +4991,8 @@ var hippowdon = {
     dex: 450,
     type: "Ground",
     ability: "Sand Stream/None/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/450.shtml",
-    image: "http://www.serebii.net/xy/pokemon/450.png"
+    wiki: "http://www.serebii.net/pokedex-sm/450.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/450.png"
 };
 
 var skorupi = {
@@ -4514,8 +5000,8 @@ var skorupi = {
     dex: 451,
     type: "Poison/Bug",
     ability: "Battle Armor/Sniper/Keen Eye",
-    wiki: "http://www.serebii.net/pokedex-xy/451.shtml",
-    image: "http://www.serebii.net/xy/pokemon/451.png"
+    wiki: "http://www.serebii.net/pokedex-sm/451.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/451.png"
 };
 
 var drapion = {
@@ -4523,8 +5009,8 @@ var drapion = {
     dex: 452,
     type: "Poison/Dark",
     ability: "Battle Armor/Sniper/Keen Eye",
-    wiki: "http://www.serebii.net/pokedex-xy/452.shtml",
-    image: "http://www.serebii.net/xy/pokemon/452.png"
+    wiki: "http://www.serebii.net/pokedex-sm/452.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/452.png"
 };
 
 var croagunk = {
@@ -4532,8 +5018,8 @@ var croagunk = {
     dex: 453,
     type: "Poison/Fighting",
     ability: "Anticipation/Dry Skin/Poison Touch",
-    wiki: "http://www.serebii.net/pokedex-xy/453.shtml",
-    image: "http://www.serebii.net/xy/pokemon/453.png"
+    wiki: "http://www.serebii.net/pokedex-sm/453.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/453.png"
 };
 
 var toxicroak = {
@@ -4541,8 +5027,8 @@ var toxicroak = {
     dex: 454,
     type: "Poison/Fighting",
     ability: "Anticipation/Dry Skin/Poison Touch",
-    wiki: "http://www.serebii.net/pokedex-xy/454.shtml",
-    image: "http://www.serebii.net/xy/pokemon/454.png"
+    wiki: "http://www.serebii.net/pokedex-sm/454.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/454.png"
 };
 
 var carnivine = {
@@ -4550,8 +5036,8 @@ var carnivine = {
     dex: 455,
     type: "Grass",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/455.shtml",
-    image: "http://www.serebii.net/xy/pokemon/455.png"
+    wiki: "http://www.serebii.net/pokedex-sm/455.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/455.png"
 };
 
 var finneon = {
@@ -4559,8 +5045,8 @@ var finneon = {
     dex: 456,
     type: "Water",
     ability: "Swift Swim/Storm Drain/Water Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/456.shtml",
-    image: "http://www.serebii.net/xy/pokemon/456.png"
+    wiki: "http://www.serebii.net/pokedex-sm/456.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/456.png"
 };
 
 var lumineon = {
@@ -4568,8 +5054,8 @@ var lumineon = {
     dex: 457,
     type: "Water",
     ability: "Swift Swim/Storm Drain/Water Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/457.shtml",
-    image: "http://www.serebii.net/xy/pokemon/457.png"
+    wiki: "http://www.serebii.net/pokedex-sm/457.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/457.png"
 };
 
 var mantyke = {
@@ -4577,8 +5063,8 @@ var mantyke = {
     dex: 458,
     type: "Water/Flying",
     ability: "Swift Swim/Water Absorb/Water Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/458.shtml",
-    image: "http://www.serebii.net/xy/pokemon/458.png"
+    wiki: "http://www.serebii.net/pokedex-sm/458.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/458.png"
 };
 
 var snover = {
@@ -4586,8 +5072,8 @@ var snover = {
     dex: 459,
     type: "Grass/Ice",
     ability: "Snow Warning/None/Soundproof",
-    wiki: "http://www.serebii.net/pokedex-xy/459.shtml",
-    image: "http://www.serebii.net/xy/pokemon/459.png"
+    wiki: "http://www.serebii.net/pokedex-sm/459.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/459.png"
 };
 
 var abomasnow = {
@@ -4595,8 +5081,8 @@ var abomasnow = {
     dex: 460,
     type: "Grass/Ice",
     ability: "Snow Warning/None/Soundproof",
-    wiki: "http://www.serebii.net/pokedex-xy/460.shtml",
-    image: "http://www.serebii.net/xy/pokemon/460.png"
+    wiki: "http://www.serebii.net/pokedex-sm/460.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/460.png"
 };
 
 var weavile = {
@@ -4604,8 +5090,8 @@ var weavile = {
     dex: 461,
     type: "Dark/Ice",
     ability: "Pressure/None/Pickpocket",
-    wiki: "http://www.serebii.net/pokedex-xy/461.shtml",
-    image: "http://www.serebii.net/xy/pokemon/461.png"
+    wiki: "http://www.serebii.net/pokedex-sm/461.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/461.png"
 };
 
 var magnezone = {
@@ -4613,8 +5099,8 @@ var magnezone = {
     dex: 462,
     type: "Electric/Steel",
     ability: "Magnet Pull/Sturdy/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/462.shtml",
-    image: "http://www.serebii.net/xy/pokemon/462.png"
+    wiki: "http://www.serebii.net/pokedex-sm/462.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/462.png"
 };
 
 var lickilicky = {
@@ -4622,8 +5108,8 @@ var lickilicky = {
     dex: 463,
     type: "Normal",
     ability: "Own Tempo/Oblivious/Cloud Nine",
-    wiki: "http://www.serebii.net/pokedex-xy/463.shtml",
-    image: "http://www.serebii.net/xy/pokemon/463.png"
+    wiki: "http://www.serebii.net/pokedex-sm/463.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/463.png"
 };
 
 var rhyperior = {
@@ -4631,8 +5117,8 @@ var rhyperior = {
     dex: 464,
     type: "Ground/Rock",
     ability: "Lightning Rod/Solid Rock/Reckless",
-    wiki: "http://www.serebii.net/pokedex-xy/464.shtml",
-    image: "http://www.serebii.net/xy/pokemon/464.png"
+    wiki: "http://www.serebii.net/pokedex-sm/464.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/464.png"
 };
 
 var tangrowth = {
@@ -4640,8 +5126,8 @@ var tangrowth = {
     dex: 465,
     type: "Grass",
     ability: "Chlorophyll/Leaf Guard/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/465.shtml",
-    image: "http://www.serebii.net/xy/pokemon/465.png"
+    wiki: "http://www.serebii.net/pokedex-sm/465.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/465.png"
 };
 
 var electivire = {
@@ -4649,8 +5135,8 @@ var electivire = {
     dex: 466,
     type: "Electric",
     ability: "Motor Drive/None/Vital Spirit",
-    wiki: "http://www.serebii.net/pokedex-xy/466.shtml",
-    image: "http://www.serebii.net/xy/pokemon/466.png"
+    wiki: "http://www.serebii.net/pokedex-sm/466.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/466.png"
 };
 
 var magmortar = {
@@ -4658,8 +5144,8 @@ var magmortar = {
     dex: 467,
     type: "Fire",
     ability: "Flame Body/None/Vital Spirit",
-    wiki: "http://www.serebii.net/pokedex-xy/467.shtml",
-    image: "http://www.serebii.net/xy/pokemon/467.png"
+    wiki: "http://www.serebii.net/pokedex-sm/467.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/467.png"
 };
 
 var togekiss = {
@@ -4667,8 +5153,8 @@ var togekiss = {
     dex: 468,
     type: "Fairy/Flying",
     ability: "Hustle/Serene Grace/Super Luck",
-    wiki: "http://www.serebii.net/pokedex-xy/468.shtml",
-    image: "http://www.serebii.net/xy/pokemon/468.png"
+    wiki: "http://www.serebii.net/pokedex-sm/468.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/468.png"
 };
 
 var yanmega = {
@@ -4676,8 +5162,8 @@ var yanmega = {
     dex: 469,
     type: "Bug/Flying",
     ability: "Speed Boost/Tinted Lens/Frisk",
-    wiki: "http://www.serebii.net/pokedex-xy/469.shtml",
-    image: "http://www.serebii.net/xy/pokemon/469.png"
+    wiki: "http://www.serebii.net/pokedex-sm/469.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/469.png"
 };
 
 var leafeon = {
@@ -4685,8 +5171,8 @@ var leafeon = {
     dex: 470,
     type: "Grass",
     ability: "Leaf Guard/None/Chlorophyll",
-    wiki: "http://www.serebii.net/pokedex-xy/470.shtml",
-    image: "http://www.serebii.net/xy/pokemon/470.png"
+    wiki: "http://www.serebii.net/pokedex-sm/470.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/470.png"
 };
 
 var glaceon = {
@@ -4694,8 +5180,8 @@ var glaceon = {
     dex: 471,
     type: "Ice",
     ability: "Snow Cloak/None/Ice Body",
-    wiki: "http://www.serebii.net/pokedex-xy/471.shtml",
-    image: "http://www.serebii.net/xy/pokemon/471.png"
+    wiki: "http://www.serebii.net/pokedex-sm/471.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/471.png"
 };
 
 var gliscor = {
@@ -4703,8 +5189,8 @@ var gliscor = {
     dex: 472,
     type: "Ground/Flying",
     ability: "Hyper Cutter/Sand Veil/Poison Heal",
-    wiki: "http://www.serebii.net/pokedex-xy/472.shtml",
-    image: "http://www.serebii.net/xy/pokemon/472.png"
+    wiki: "http://www.serebii.net/pokedex-sm/472.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/472.png"
 };
 
 var mamoswine = {
@@ -4712,8 +5198,8 @@ var mamoswine = {
     dex: 473,
     type: "Ice/Ground",
     ability: "Oblivious/Snow Cloak/Thick Fat",
-    wiki: "http://www.serebii.net/pokedex-xy/473.shtml",
-    image: "http://www.serebii.net/xy/pokemon/473.png"
+    wiki: "http://www.serebii.net/pokedex-sm/473.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/473.png"
 };
 
 var porygon_z = {
@@ -4721,8 +5207,8 @@ var porygon_z = {
     dex: 474,
     type: "Normal",
     ability: "Adaptability/Download/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/474.shtml",
-    image: "http://www.serebii.net/xy/pokemon/474.png"
+    wiki: "http://www.serebii.net/pokedex-sm/474.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/474.png"
 };
 
 var gallade = {
@@ -4730,8 +5216,8 @@ var gallade = {
     dex: 475,
     type: "Psychic/Fighting",
     ability: "Steadfast/None/Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/475.shtml",
-    image: "http://www.serebii.net/xy/pokemon/475.png"
+    wiki: "http://www.serebii.net/pokedex-sm/475.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/475.png"
 };
 
 var probopass = {
@@ -4739,8 +5225,8 @@ var probopass = {
     dex: 476,
     type: "Rock/Steel",
     ability: "Sturdy/Magnet Pull/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/476.shtml",
-    image: "http://www.serebii.net/xy/pokemon/476.png"
+    wiki: "http://www.serebii.net/pokedex-sm/476.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/476.png"
 };
 
 var dusknoir = {
@@ -4748,8 +5234,8 @@ var dusknoir = {
     dex: 477,
     type: "Ghost",
     ability: "Pressure/None/Frisk/VI",
-    wiki: "http://www.serebii.net/pokedex-xy/477.shtml",
-    image: "http://www.serebii.net/xy/pokemon/477.png"
+    wiki: "http://www.serebii.net/pokedex-sm/477.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/477.png"
 };
 
 var froslass = {
@@ -4757,8 +5243,8 @@ var froslass = {
     dex: 478,
     type: "Ice/Ghost",
     ability: "Snow Cloak/None/Cursed Body",
-    wiki: "http://www.serebii.net/pokedex-xy/478.shtml",
-    image: "http://www.serebii.net/xy/pokemon/478.png"
+    wiki: "http://www.serebii.net/pokedex-sm/478.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/478.png"
 };
 
 var rotom = {
@@ -4766,8 +5252,8 @@ var rotom = {
     dex: 479,
     type: "Electric/Ghost",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/479.shtml",
-    image: "http://www.serebii.net/xy/pokemon/479.png"
+    wiki: "http://www.serebii.net/pokedex-sm/479.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/479.png"
 };
 
 var rotom_heat = {
@@ -4775,8 +5261,8 @@ var rotom_heat = {
     dex: 479,
     type: "Electric/Fire",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/479.shtml",
-    image: "http://www.serebii.net/xy/pokemon/479-h.png"
+    wiki: "http://www.serebii.net/pokedex-sm/479.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/479-h.png"
 };
 
 var rotom_wash = {
@@ -4784,8 +5270,8 @@ var rotom_wash = {
     dex: 479,
     type: "Electric/Water",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/479.shtml",
-    image: "http://www.serebii.net/xy/pokemon/479-w.png"
+    wiki: "http://www.serebii.net/pokedex-sm/479.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/479-w.png"
 };
 
 var rotom_frost = {
@@ -4793,8 +5279,8 @@ var rotom_frost = {
     dex: 479,
     type: "Electric/Frost",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/479.shtml",
-    image: "http://www.serebii.net/xy/pokemon/479-f.png"
+    wiki: "http://www.serebii.net/pokedex-sm/479.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/479-f.png"
 };
 
 var rotom_fan = {
@@ -4802,8 +5288,8 @@ var rotom_fan = {
     dex: 479,
     type: "Electric/Flying",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/479.shtml",
-    image: "http://www.serebii.net/xy/pokemon/479-s.png"
+    wiki: "http://www.serebii.net/pokedex-sm/479.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/479-s.png"
 };
 
 var rotom_mow = {
@@ -4811,8 +5297,8 @@ var rotom_mow = {
     dex: 479,
     type: "Electric/Grass",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/479.shtml",
-    image: "http://www.serebii.net/xy/pokemon/479-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/479.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/479-m.png"
 };
 
 var uxie = {
@@ -4820,8 +5306,8 @@ var uxie = {
     dex: 480,
     type: "Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/480.shtml",
-    image: "http://www.serebii.net/xy/pokemon/480.png"
+    wiki: "http://www.serebii.net/pokedex-sm/480.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/480.png"
 };
 
 var mesprit = {
@@ -4829,8 +5315,8 @@ var mesprit = {
     dex: 481,
     type: "Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/481.shtml",
-    image: "http://www.serebii.net/xy/pokemon/481.png"
+    wiki: "http://www.serebii.net/pokedex-sm/481.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/481.png"
 };
 
 var azelf = {
@@ -4838,8 +5324,8 @@ var azelf = {
     dex: 482,
     type: "Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/482.shtml",
-    image: "http://www.serebii.net/xy/pokemon/482.png"
+    wiki: "http://www.serebii.net/pokedex-sm/482.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/482.png"
 };
 
 var dialga = {
@@ -4847,8 +5333,8 @@ var dialga = {
     dex: 483,
     type: "Steel/Dragon",
     ability: "Pressure/None/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/483.shtml",
-    image: "http://www.serebii.net/xy/pokemon/483.png"
+    wiki: "http://www.serebii.net/pokedex-sm/483.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/483.png"
 };
 
 var palkia = {
@@ -4856,8 +5342,8 @@ var palkia = {
     dex: 484,
     type: "Water/Dragon",
     ability: "Pressure/None/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/484.shtml",
-    image: "http://www.serebii.net/xy/pokemon/484.png"
+    wiki: "http://www.serebii.net/pokedex-sm/484.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/484.png"
 };
 
 var heatran = {
@@ -4865,8 +5351,8 @@ var heatran = {
     dex: 485,
     type: "Fire/Steel",
     ability: "Flash Fire/None/Flame Body",
-    wiki: "http://www.serebii.net/pokedex-xy/485.shtml",
-    image: "http://www.serebii.net/xy/pokemon/485.png"
+    wiki: "http://www.serebii.net/pokedex-sm/485.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/485.png"
 };
 
 var regigigas = {
@@ -4874,8 +5360,8 @@ var regigigas = {
     dex: 486,
     type: "Normal",
     ability: "Slow Start",
-    wiki: "http://www.serebii.net/pokedex-xy/486.shtml",
-    image: "http://www.serebii.net/xy/pokemon/486.png"
+    wiki: "http://www.serebii.net/pokedex-sm/486.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/486.png"
 };
 
 var giratina = {
@@ -4883,8 +5369,8 @@ var giratina = {
     dex: 487,
     type: "Ghost/Dragon",
     ability: "Pressure/None/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/487.shtml",
-    image: "http://www.serebii.net/xy/pokemon/487.png"
+    wiki: "http://www.serebii.net/pokedex-sm/487.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/487.png"
 };
 
 var giratina_origin = {
@@ -4892,8 +5378,8 @@ var giratina_origin = {
     dex: 487,
     type: "Ghost/Dragon",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/487.shtml",
-    image: "http://www.serebii.net/xy/pokemon/487-o.png"
+    wiki: "http://www.serebii.net/pokedex-sm/487.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/487-o.png"
 };
 
 var cresselia = {
@@ -4901,8 +5387,8 @@ var cresselia = {
     dex: 488,
     type: "Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/488.shtml",
-    image: "http://www.serebii.net/xy/pokemon/488.png"
+    wiki: "http://www.serebii.net/pokedex-sm/488.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/488.png"
 };
 
 var phione = {
@@ -4910,8 +5396,8 @@ var phione = {
     dex: 489,
     type: "Water",
     ability: "Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/489.shtml",
-    image: "http://www.serebii.net/xy/pokemon/489.png"
+    wiki: "http://www.serebii.net/pokedex-sm/489.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/489.png"
 };
 
 var manaphy = {
@@ -4919,8 +5405,8 @@ var manaphy = {
     dex: 490,
     type: "Water",
     ability: "Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/490.shtml",
-    image: "http://www.serebii.net/xy/pokemon/490.png"
+    wiki: "http://www.serebii.net/pokedex-sm/490.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/490.png"
 };
 
 var darkrai = {
@@ -4928,8 +5414,8 @@ var darkrai = {
     dex: 491,
     type: "Dark",
     ability: "Bad Dreams",
-    wiki: "http://www.serebii.net/pokedex-xy/491.shtml",
-    image: "http://www.serebii.net/xy/pokemon/491.png"
+    wiki: "http://www.serebii.net/pokedex-sm/491.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/491.png"
 };
 
 var shaymin = {
@@ -4937,8 +5423,8 @@ var shaymin = {
     dex: 492,
     type: "Grass",
     ability: "Natural Cure",
-    wiki: "http://www.serebii.net/pokedex-xy/492.shtml",
-    image: "http://www.serebii.net/xy/pokemon/492.png"
+    wiki: "http://www.serebii.net/pokedex-sm/492.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/492.png"
 };
 
 var shaymin_sky = {
@@ -4946,8 +5432,8 @@ var shaymin_sky = {
     dex: 492,
     type: "Grass/Flying",
     ability: "Serene Grace",
-    wiki: "http://www.serebii.net/pokedex-xy/492.shtml",
-    image: "http://www.serebii.net/xy/pokemon/492-s.png"
+    wiki: "http://www.serebii.net/pokedex-sm/492.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/492-s.png"
 };
 
 var arceus = {
@@ -4955,8 +5441,8 @@ var arceus = {
     dex: 493,
     type: "Normal",
     ability: "Multitype",
-    wiki: "http://www.serebii.net/pokedex-xy/493.shtml",
-    image: "http://www.serebii.net/xy/pokemon/493.png"
+    wiki: "http://www.serebii.net/pokedex-sm/493.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/493.png"
 };
 
 var victini = {
@@ -4964,8 +5450,8 @@ var victini = {
     dex: 494,
     type: "Psychic/Fire",
     ability: "Victory Star",
-    wiki: "http://www.serebii.net/pokedex-xy/494.shtml",
-    image: "http://www.serebii.net/xy/pokemon/494.png"
+    wiki: "http://www.serebii.net/pokedex-sm/494.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/494.png"
 };
 
 var snivy = {
@@ -4973,8 +5459,8 @@ var snivy = {
     dex: 495,
     type: "Grass",
     ability: "Overgrow/None/Contrary",
-    wiki: "http://www.serebii.net/pokedex-xy/495.shtml",
-    image: "http://www.serebii.net/xy/pokemon/495.png"
+    wiki: "http://www.serebii.net/pokedex-sm/495.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/495.png"
 };
 
 var servine = {
@@ -4982,8 +5468,8 @@ var servine = {
     dex: 496,
     type: "Grass",
     ability: "Overgrow/None/Contrary",
-    wiki: "http://www.serebii.net/pokedex-xy/496.shtml",
-    image: "http://www.serebii.net/xy/pokemon/496.png"
+    wiki: "http://www.serebii.net/pokedex-sm/496.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/496.png"
 };
 
 var serperior = {
@@ -4991,8 +5477,8 @@ var serperior = {
     dex: 497,
     type: "Grass",
     ability: "Overgrow/None/Contrary",
-    wiki: "http://www.serebii.net/pokedex-xy/497.shtml",
-    image: "http://www.serebii.net/xy/pokemon/497.png"
+    wiki: "http://www.serebii.net/pokedex-sm/497.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/497.png"
 };
 
 var tepig = {
@@ -5000,8 +5486,8 @@ var tepig = {
     dex: 498,
     type: "Fire",
     ability: "Blaze/None/Thick Fat",
-    wiki: "http://www.serebii.net/pokedex-xy/498.shtml",
-    image: "http://www.serebii.net/xy/pokemon/498.png"
+    wiki: "http://www.serebii.net/pokedex-sm/498.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/498.png"
 };
 
 var pignite = {
@@ -5009,8 +5495,8 @@ var pignite = {
     dex: 499,
     type: "Fire/Fighting",
     ability: "Blaze/None/Thick Fat",
-    wiki: "http://www.serebii.net/pokedex-xy/499.shtml",
-    image: "http://www.serebii.net/xy/pokemon/499.png"
+    wiki: "http://www.serebii.net/pokedex-sm/499.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/499.png"
 };
 
 var emboar = {
@@ -5018,8 +5504,8 @@ var emboar = {
     dex: 500,
     type: "Fire/Fighting",
     ability: "Blaze/None/Reckless",
-    wiki: "http://www.serebii.net/pokedex-xy/500.shtml",
-    image: "http://www.serebii.net/xy/pokemon/500.png"
+    wiki: "http://www.serebii.net/pokedex-sm/500.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/500.png"
 };
 
 var oshawott = {
@@ -5027,8 +5513,8 @@ var oshawott = {
     dex: 501,
     type: "Water",
     ability: "Torrent/None/Shell Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/501.shtml",
-    image: "http://www.serebii.net/xy/pokemon/501.png"
+    wiki: "http://www.serebii.net/pokedex-sm/501.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/501.png"
 };
 
 var dewott = {
@@ -5036,8 +5522,8 @@ var dewott = {
     dex: 502,
     type: "Water",
     ability: "Torrent/None/Shell Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/502.shtml",
-    image: "http://www.serebii.net/xy/pokemon/502.png"
+    wiki: "http://www.serebii.net/pokedex-sm/502.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/502.png"
 };
 
 var samurott = {
@@ -5045,8 +5531,8 @@ var samurott = {
     dex: 503,
     type: "Water",
     ability: "Torrent/None/Shell Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/503.shtml",
-    image: "http://www.serebii.net/xy/pokemon/503.png"
+    wiki: "http://www.serebii.net/pokedex-sm/503.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/503.png"
 };
 
 var patrat = {
@@ -5054,8 +5540,8 @@ var patrat = {
     dex: 504,
     type: "Normal",
     ability: "Run Away/Keen Eye/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/504.shtml",
-    image: "http://www.serebii.net/xy/pokemon/504.png"
+    wiki: "http://www.serebii.net/pokedex-sm/504.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/504.png"
 };
 
 var watchog = {
@@ -5063,8 +5549,8 @@ var watchog = {
     dex: 505,
     type: "Normal",
     ability: "Illuminate/Keen Eye/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/505.shtml",
-    image: "http://www.serebii.net/xy/pokemon/505.png"
+    wiki: "http://www.serebii.net/pokedex-sm/505.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/505.png"
 };
 
 var lillipup = {
@@ -5072,8 +5558,8 @@ var lillipup = {
     dex: 506,
     type: "Normal",
     ability: "Vital Spirit/Pickup/Run Away",
-    wiki: "http://www.serebii.net/pokedex-xy/506.shtml",
-    image: "http://www.serebii.net/xy/pokemon/506.png"
+    wiki: "http://www.serebii.net/pokedex-sm/506.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/506.png"
 };
 
 var herdier = {
@@ -5081,8 +5567,8 @@ var herdier = {
     dex: 507,
     type: "Normal",
     ability: "Intimidate/Sand Rush/Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/507.shtml",
-    image: "http://www.serebii.net/xy/pokemon/507.png"
+    wiki: "http://www.serebii.net/pokedex-sm/507.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/507.png"
 };
 
 var stoutland = {
@@ -5090,8 +5576,8 @@ var stoutland = {
     dex: 508,
     type: "Normal",
     ability: "Intimidate/Sand Rush/Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/508.shtml",
-    image: "http://www.serebii.net/xy/pokemon/508.png"
+    wiki: "http://www.serebii.net/pokedex-sm/508.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/508.png"
 };
 
 var purrloin = {
@@ -5099,8 +5585,8 @@ var purrloin = {
     dex: 509,
     type: "Dark",
     ability: "Limber/Unburden/Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/509.shtml",
-    image: "http://www.serebii.net/xy/pokemon/509.png"
+    wiki: "http://www.serebii.net/pokedex-sm/509.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/509.png"
 };
 
 var liepard = {
@@ -5108,8 +5594,8 @@ var liepard = {
     dex: 510,
     type: "Dark",
     ability: "Limber/Unburden/Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/510.shtml",
-    image: "http://www.serebii.net/xy/pokemon/510.png"
+    wiki: "http://www.serebii.net/pokedex-sm/510.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/510.png"
 };
 
 var pansage = {
@@ -5117,8 +5603,8 @@ var pansage = {
     dex: 511,
     type: "Grass",
     ability: "Gluttony/None/Overgrow",
-    wiki: "http://www.serebii.net/pokedex-xy/511.shtml",
-    image: "http://www.serebii.net/xy/pokemon/511.png"
+    wiki: "http://www.serebii.net/pokedex-sm/511.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/511.png"
 };
 
 var simisage = {
@@ -5126,8 +5612,8 @@ var simisage = {
     dex: 512,
     type: "Grass",
     ability: "Gluttony/None/Overgrow",
-    wiki: "http://www.serebii.net/pokedex-xy/512.shtml",
-    image: "http://www.serebii.net/xy/pokemon/512.png"
+    wiki: "http://www.serebii.net/pokedex-sm/512.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/512.png"
 };
 
 var pansear = {
@@ -5135,8 +5621,8 @@ var pansear = {
     dex: 513,
     type: "Fire",
     ability: "Gluttony/None/Blaze",
-    wiki: "http://www.serebii.net/pokedex-xy/513.shtml",
-    image: "http://www.serebii.net/xy/pokemon/513.png"
+    wiki: "http://www.serebii.net/pokedex-sm/513.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/513.png"
 };
 
 var simisear = {
@@ -5144,8 +5630,8 @@ var simisear = {
     dex: 514,
     type: "Fire",
     ability: "Gluttony/None/Blaze",
-    wiki: "http://www.serebii.net/pokedex-xy/514.shtml",
-    image: "http://www.serebii.net/xy/pokemon/514.png"
+    wiki: "http://www.serebii.net/pokedex-sm/514.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/514.png"
 };
 
 var panpour = {
@@ -5153,8 +5639,8 @@ var panpour = {
     dex: 515,
     type: "Water",
     ability: "Gluttony/None/Torrent",
-    wiki: "http://www.serebii.net/pokedex-xy/515.shtml",
-    image: "http://www.serebii.net/xy/pokemon/515.png"
+    wiki: "http://www.serebii.net/pokedex-sm/515.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/515.png"
 };
 
 var simipour = {
@@ -5162,8 +5648,8 @@ var simipour = {
     dex: 516,
     type: "Water",
     ability: "Gluttony/None/Torrent",
-    wiki: "http://www.serebii.net/pokedex-xy/516.shtml",
-    image: "http://www.serebii.net/xy/pokemon/516.png"
+    wiki: "http://www.serebii.net/pokedex-sm/516.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/516.png"
 };
 
 var munna = {
@@ -5171,8 +5657,8 @@ var munna = {
     dex: 517,
     type: "Psychic",
     ability: "Forewarn/Synchronize/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/517.shtml",
-    image: "http://www.serebii.net/xy/pokemon/517.png"
+    wiki: "http://www.serebii.net/pokedex-sm/517.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/517.png"
 };
 
 var musharna = {
@@ -5180,8 +5666,8 @@ var musharna = {
     dex: 518,
     type: "Psychic",
     ability: "Forewarn/Synchronize/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/518.shtml",
-    image: "http://www.serebii.net/xy/pokemon/518.png"
+    wiki: "http://www.serebii.net/pokedex-sm/518.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/518.png"
 };
 
 var pidove = {
@@ -5189,8 +5675,8 @@ var pidove = {
     dex: 519,
     type: "Normal/Flying",
     ability: "Big Pecks/Super Luck/Rivalry",
-    wiki: "http://www.serebii.net/pokedex-xy/519.shtml",
-    image: "http://www.serebii.net/xy/pokemon/519.png"
+    wiki: "http://www.serebii.net/pokedex-sm/519.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/519.png"
 };
 
 var tranquill = {
@@ -5198,8 +5684,8 @@ var tranquill = {
     dex: 520,
     type: "Normal/Flying",
     ability: "Big Pecks/Super Luck/Rivalry",
-    wiki: "http://www.serebii.net/pokedex-xy/520.shtml",
-    image: "http://www.serebii.net/xy/pokemon/520.png"
+    wiki: "http://www.serebii.net/pokedex-sm/520.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/520.png"
 };
 
 var unfezant = {
@@ -5207,8 +5693,8 @@ var unfezant = {
     dex: 521,
     type: "Normal/Flying",
     ability: "Big Pecks/Super Luck/Rivalry",
-    wiki: "http://www.serebii.net/pokedex-xy/521.shtml",
-    image: "http://www.serebii.net/xy/pokemon/521.png"
+    wiki: "http://www.serebii.net/pokedex-sm/521.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/521.png"
 };
 
 var blitzle = {
@@ -5216,8 +5702,8 @@ var blitzle = {
     dex: 522,
     type: "Electric",
     ability: "Lightning Rod/Motor Drive/Sap Sipper",
-    wiki: "http://www.serebii.net/pokedex-xy/522.shtml",
-    image: "http://www.serebii.net/xy/pokemon/522.png"
+    wiki: "http://www.serebii.net/pokedex-sm/522.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/522.png"
 };
 
 var zebstrika = {
@@ -5225,8 +5711,8 @@ var zebstrika = {
     dex: 523,
     type: "Electric",
     ability: "Lightning Rod/Motor Drive/Sap Sipper",
-    wiki: "http://www.serebii.net/pokedex-xy/523.shtml",
-    image: "http://www.serebii.net/xy/pokemon/523.png"
+    wiki: "http://www.serebii.net/pokedex-sm/523.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/523.png"
 };
 
 var roggenrola = {
@@ -5234,8 +5720,8 @@ var roggenrola = {
     dex: 524,
     type: "Rock",
     ability: "Sturdy/None/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/524.shtml",
-    image: "http://www.serebii.net/xy/pokemon/524.png"
+    wiki: "http://www.serebii.net/pokedex-sm/524.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/524.png"
 };
 
 var boldore = {
@@ -5243,8 +5729,8 @@ var boldore = {
     dex: 525,
     type: "Rock",
     ability: "Sturdy/None/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/525.shtml",
-    image: "http://www.serebii.net/xy/pokemon/525.png"
+    wiki: "http://www.serebii.net/pokedex-sm/525.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/525.png"
 };
 
 var gigalith = {
@@ -5252,8 +5738,8 @@ var gigalith = {
     dex: 526,
     type: "Rock",
     ability: "Sturdy/None/Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/526.shtml",
-    image: "http://www.serebii.net/xy/pokemon/526.png"
+    wiki: "http://www.serebii.net/pokedex-sm/526.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/526.png"
 };
 
 var woobat = {
@@ -5261,8 +5747,8 @@ var woobat = {
     dex: 527,
     type: "Psychic/Flying",
     ability: "Unaware/Klutz/Simple",
-    wiki: "http://www.serebii.net/pokedex-xy/527.shtml",
-    image: "http://www.serebii.net/xy/pokemon/527.png"
+    wiki: "http://www.serebii.net/pokedex-sm/527.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/527.png"
 };
 
 var swoobat = {
@@ -5270,8 +5756,8 @@ var swoobat = {
     dex: 528,
     type: "Psychic/Flying",
     ability: "Unaware/Klutz/Simple",
-    wiki: "http://www.serebii.net/pokedex-xy/528.shtml",
-    image: "http://www.serebii.net/xy/pokemon/528.png"
+    wiki: "http://www.serebii.net/pokedex-sm/528.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/528.png"
 };
 
 var drilbur = {
@@ -5279,8 +5765,8 @@ var drilbur = {
     dex: 529,
     type: "Ground",
     ability: "Sand Rush/Sand Force/Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/529.shtml",
-    image: "http://www.serebii.net/xy/pokemon/529.png"
+    wiki: "http://www.serebii.net/pokedex-sm/529.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/529.png"
 };
 
 var excadrill = {
@@ -5288,8 +5774,8 @@ var excadrill = {
     dex: 530,
     type: "Ground/Steel",
     ability: "Sand Rush/Sand Force/Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/530.shtml",
-    image: "http://www.serebii.net/xy/pokemon/530.png"
+    wiki: "http://www.serebii.net/pokedex-sm/530.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/530.png"
 };
 
 var audino = {
@@ -5297,8 +5783,8 @@ var audino = {
     dex: 531,
     type: "Normal",
     ability: "Healer/Regenerator/Klutz",
-    wiki: "http://www.serebii.net/pokedex-xy/531.shtml",
-    image: "http://www.serebii.net/xy/pokemon/531.png"
+    wiki: "http://www.serebii.net/pokedex-sm/531.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/531.png"
 };
 
 var timburr = {
@@ -5306,8 +5792,8 @@ var timburr = {
     dex: 532,
     type: "Fighting",
     ability: "Guts/Sheer Force/Iron Fist",
-    wiki: "http://www.serebii.net/pokedex-xy/532.shtml",
-    image: "http://www.serebii.net/xy/pokemon/532.png"
+    wiki: "http://www.serebii.net/pokedex-sm/532.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/532.png"
 };
 
 var gurdurr = {
@@ -5315,8 +5801,8 @@ var gurdurr = {
     dex: 533,
     type: "Fighting",
     ability: "Guts/Sheer Force/Iron Fist",
-    wiki: "http://www.serebii.net/pokedex-xy/533.shtml",
-    image: "http://www.serebii.net/xy/pokemon/533.png"
+    wiki: "http://www.serebii.net/pokedex-sm/533.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/533.png"
 };
 
 var conkeldurr = {
@@ -5324,8 +5810,8 @@ var conkeldurr = {
     dex: 534,
     type: "Fighting",
     ability: "Guts/Sheer Force/Iron Fist",
-    wiki: "http://www.serebii.net/pokedex-xy/534.shtml",
-    image: "http://www.serebii.net/xy/pokemon/534.png"
+    wiki: "http://www.serebii.net/pokedex-sm/534.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/534.png"
 };
 
 var tympole = {
@@ -5333,8 +5819,8 @@ var tympole = {
     dex: 535,
     type: "Water",
     ability: "Swift Swim/Hydration/Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/535.shtml",
-    image: "http://www.serebii.net/xy/pokemon/535.png"
+    wiki: "http://www.serebii.net/pokedex-sm/535.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/535.png"
 };
 
 var palpitoad = {
@@ -5342,8 +5828,8 @@ var palpitoad = {
     dex: 536,
     type: "Water/Ground",
     ability: "Swift Swim/Hydration/Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/536.shtml",
-    image: "http://www.serebii.net/xy/pokemon/536.png"
+    wiki: "http://www.serebii.net/pokedex-sm/536.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/536.png"
 };
 
 var seismitoad = {
@@ -5351,8 +5837,8 @@ var seismitoad = {
     dex: 537,
     type: "Water/Ground",
     ability: "Swift Swim/Poison Touch/Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/537.shtml",
-    image: "http://www.serebii.net/xy/pokemon/537.png"
+    wiki: "http://www.serebii.net/pokedex-sm/537.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/537.png"
 };
 
 var throh = {
@@ -5360,8 +5846,8 @@ var throh = {
     dex: 538,
     type: "Fighting",
     ability: "Guts/Inner Focus/Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/538.shtml",
-    image: "http://www.serebii.net/xy/pokemon/538.png"
+    wiki: "http://www.serebii.net/pokedex-sm/538.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/538.png"
 };
 
 var sawk = {
@@ -5369,8 +5855,8 @@ var sawk = {
     dex: 539,
     type: "Fighting",
     ability: "Sturdy/Inner Focus/Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/539.shtml",
-    image: "http://www.serebii.net/xy/pokemon/539.png"
+    wiki: "http://www.serebii.net/pokedex-sm/539.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/539.png"
 };
 
 var sewaddle = {
@@ -5378,8 +5864,8 @@ var sewaddle = {
     dex: 540,
     type: "Bug/Grass",
     ability: "Swarm/Chlorophyll/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/540.shtml",
-    image: "http://www.serebii.net/xy/pokemon/540.png"
+    wiki: "http://www.serebii.net/pokedex-sm/540.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/540.png"
 };
 
 var swadloon = {
@@ -5387,8 +5873,8 @@ var swadloon = {
     dex: 541,
     type: "Bug/Grass",
     ability: "Leaf Guard/Chlorophyll/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/541.shtml",
-    image: "http://www.serebii.net/xy/pokemon/541.png"
+    wiki: "http://www.serebii.net/pokedex-sm/541.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/541.png"
 };
 
 var leavanny = {
@@ -5396,8 +5882,8 @@ var leavanny = {
     dex: 542,
     type: "Bug/Grass",
     ability: "Swarm/Chlorophyll/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/542.shtml",
-    image: "http://www.serebii.net/xy/pokemon/542.png"
+    wiki: "http://www.serebii.net/pokedex-sm/542.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/542.png"
 };
 
 var venipede = {
@@ -5405,8 +5891,8 @@ var venipede = {
     dex: 543,
     type: "Bug/Poison",
     ability: "Poison Point/Swarm/Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/543.shtml",
-    image: "http://www.serebii.net/xy/pokemon/543.png"
+    wiki: "http://www.serebii.net/pokedex-sm/543.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/543.png"
 };
 
 var whirlipede = {
@@ -5414,8 +5900,8 @@ var whirlipede = {
     dex: 544,
     type: "Bug/Poison",
     ability: "Poison Point/Swarm/Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/544.shtml",
-    image: "http://www.serebii.net/xy/pokemon/544.png"
+    wiki: "http://www.serebii.net/pokedex-sm/544.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/544.png"
 };
 
 var scolipede = {
@@ -5423,8 +5909,8 @@ var scolipede = {
     dex: 545,
     type: "Bug/Poison",
     ability: "Poison Point/Swarm/Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/545.shtml",
-    image: "http://www.serebii.net/xy/pokemon/545.png"
+    wiki: "http://www.serebii.net/pokedex-sm/545.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/545.png"
 };
 
 var cottonee = {
@@ -5432,8 +5918,8 @@ var cottonee = {
     dex: 546,
     type: "Grass",
     ability: "Prankster/Infiltrator/Chlorophyll",
-    wiki: "http://www.serebii.net/pokedex-xy/546.shtml",
-    image: "http://www.serebii.net/xy/pokemon/546.png"
+    wiki: "http://www.serebii.net/pokedex-sm/546.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/546.png"
 };
 
 var whimsicott = {
@@ -5441,8 +5927,8 @@ var whimsicott = {
     dex: 547,
     type: "Grass/Fairy",
     ability: "Prankster/Infiltrator/Chlorophyll",
-    wiki: "http://www.serebii.net/pokedex-xy/547.shtml",
-    image: "http://www.serebii.net/xy/pokemon/547.png"
+    wiki: "http://www.serebii.net/pokedex-sm/547.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/547.png"
 };
 
 var petilil = {
@@ -5450,8 +5936,8 @@ var petilil = {
     dex: 548,
     type: "Grass",
     ability: "Chlorophyll/Own Tempo/Leaf Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/548.shtml",
-    image: "http://www.serebii.net/xy/pokemon/548.png"
+    wiki: "http://www.serebii.net/pokedex-sm/548.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/548.png"
 };
 
 var lilligant = {
@@ -5459,8 +5945,8 @@ var lilligant = {
     dex: 549,
     type: "Grass",
     ability: "Chlorophyll/Own Tempo/Leaf Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/549.shtml",
-    image: "http://www.serebii.net/xy/pokemon/549.png"
+    wiki: "http://www.serebii.net/pokedex-sm/549.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/549.png"
 };
 
 var basculin = {
@@ -5468,8 +5954,8 @@ var basculin = {
     dex: 550,
     type: "Water",
     ability: "Reckless/Adaptability/Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/550.shtml",
-    image: "http://www.serebii.net/xy/pokemon/550.png"
+    wiki: "http://www.serebii.net/pokedex-sm/550.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/550.png"
 };
 
 var basculin_blue = {
@@ -5477,8 +5963,8 @@ var basculin_blue = {
     dex: 550,
     type: "Water",
     ability: "Rock Head/Adaptability/Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/550.shtml",
-    image: "http://www.serebii.net/xy/pokemon/550-b.png"
+    wiki: "http://www.serebii.net/pokedex-sm/550.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/550-b.png"
 };
 
 var sandile = {
@@ -5486,8 +5972,8 @@ var sandile = {
     dex: 551,
     type: "Ground/Dark",
     ability: "Intimidate/Moxie/Anger Point",
-    wiki: "http://www.serebii.net/pokedex-xy/551.shtml",
-    image: "http://www.serebii.net/xy/pokemon/551.png"
+    wiki: "http://www.serebii.net/pokedex-sm/551.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/551.png"
 };
 
 var krokorok = {
@@ -5495,8 +5981,8 @@ var krokorok = {
     dex: 552,
     type: "Ground/Dark",
     ability: "Intimidate/Moxie/Anger Point",
-    wiki: "http://www.serebii.net/pokedex-xy/552.shtml",
-    image: "http://www.serebii.net/xy/pokemon/552.png"
+    wiki: "http://www.serebii.net/pokedex-sm/552.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/552.png"
 };
 
 var krookodile = {
@@ -5504,8 +5990,8 @@ var krookodile = {
     dex: 553,
     type: "Ground/Dark",
     ability: "Intimidate/Moxie/Anger Point",
-    wiki: "http://www.serebii.net/pokedex-xy/553.shtml",
-    image: "http://www.serebii.net/xy/pokemon/553.png"
+    wiki: "http://www.serebii.net/pokedex-sm/553.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/553.png"
 };
 
 var darumaka = {
@@ -5513,8 +5999,8 @@ var darumaka = {
     dex: 554,
     type: "Fire",
     ability: "Hustle/None/Inner Focus",
-    wiki: "http://www.serebii.net/pokedex-xy/554.shtml",
-    image: "http://www.serebii.net/xy/pokemon/554.png"
+    wiki: "http://www.serebii.net/pokedex-sm/554.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/554.png"
 };
 
 var darmanitan = {
@@ -5522,8 +6008,8 @@ var darmanitan = {
     dex: 555,
     type: "Fire",
     ability: "Sheer Force/None/Zen Mode",
-    wiki: "http://www.serebii.net/pokedex-xy/555.shtml",
-    image: "http://www.serebii.net/xy/pokemon/555.png"
+    wiki: "http://www.serebii.net/pokedex-sm/555.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/555.png"
 };
 
 var darmanitan_zen = {
@@ -5531,8 +6017,8 @@ var darmanitan_zen = {
     dex: 555,
     type: "Fire/Psychic",
     ability: "Zen Mode",
-    wiki: "http://www.serebii.net/pokedex-xy/555.shtml",
-    image: "http://www.serebii.net/xy/pokemon/555-d.png"
+    wiki: "http://www.serebii.net/pokedex-sm/555.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/555-d.png"
 };
 
 var maractus = {
@@ -5540,8 +6026,8 @@ var maractus = {
     dex: 556,
     type: "Grass",
     ability: "Water Absorb/Chlorophyll/Storm Drain",
-    wiki: "http://www.serebii.net/pokedex-xy/556.shtml",
-    image: "http://www.serebii.net/xy/pokemon/556.png"
+    wiki: "http://www.serebii.net/pokedex-sm/556.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/556.png"
 };
 
 var dwebble = {
@@ -5549,8 +6035,8 @@ var dwebble = {
     dex: 557,
     type: "Bug/Rock",
     ability: "Sturdy/Shell Armor/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/557.shtml",
-    image: "http://www.serebii.net/xy/pokemon/557.png"
+    wiki: "http://www.serebii.net/pokedex-sm/557.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/557.png"
 };
 
 var crustle = {
@@ -5558,8 +6044,8 @@ var crustle = {
     dex: 558,
     type: "Bug/Rock",
     ability: "Sturdy/Shell Armor/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/558.shtml",
-    image: "http://www.serebii.net/xy/pokemon/558.png"
+    wiki: "http://www.serebii.net/pokedex-sm/558.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/558.png"
 };
 
 var scraggy = {
@@ -5567,8 +6053,8 @@ var scraggy = {
     dex: 559,
     type: "Dark/Fighting",
     ability: "Shed Skin/Moxie/Intimidate",
-    wiki: "http://www.serebii.net/pokedex-xy/559.shtml",
-    image: "http://www.serebii.net/xy/pokemon/559.png"
+    wiki: "http://www.serebii.net/pokedex-sm/559.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/559.png"
 };
 
 var scrafty = {
@@ -5576,8 +6062,8 @@ var scrafty = {
     dex: 560,
     type: "Dark/Fighting",
     ability: "Shed Skin/Moxie/Intimidate",
-    wiki: "http://www.serebii.net/pokedex-xy/560.shtml",
-    image: "http://www.serebii.net/xy/pokemon/560.png"
+    wiki: "http://www.serebii.net/pokedex-sm/560.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/560.png"
 };
 
 var sigilyph = {
@@ -5585,8 +6071,8 @@ var sigilyph = {
     dex: 561,
     type: "Psychic/Flying",
     ability: "Wonder Skin/Magic Guard/Tinted Lens",
-    wiki: "http://www.serebii.net/pokedex-xy/561.shtml",
-    image: "http://www.serebii.net/xy/pokemon/561.png"
+    wiki: "http://www.serebii.net/pokedex-sm/561.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/561.png"
 };
 
 var yamask = {
@@ -5594,8 +6080,8 @@ var yamask = {
     dex: 562,
     type: "Ghost",
     ability: "Mummy",
-    wiki: "http://www.serebii.net/pokedex-xy/562.shtml",
-    image: "http://www.serebii.net/xy/pokemon/562.png"
+    wiki: "http://www.serebii.net/pokedex-sm/562.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/562.png"
 };
 
 var cofagrigus = {
@@ -5603,8 +6089,8 @@ var cofagrigus = {
     dex: 563,
     type: "Ghost",
     ability: "Mummy",
-    wiki: "http://www.serebii.net/pokedex-xy/563.shtml",
-    image: "http://www.serebii.net/xy/pokemon/563.png"
+    wiki: "http://www.serebii.net/pokedex-sm/563.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/563.png"
 };
 
 var tirtouga = {
@@ -5612,8 +6098,8 @@ var tirtouga = {
     dex: 564,
     type: "Water/Rock",
     ability: "Solid Rock/Sturdy/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/564.shtml",
-    image: "http://www.serebii.net/xy/pokemon/564.png"
+    wiki: "http://www.serebii.net/pokedex-sm/564.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/564.png"
 };
 
 var carracosta = {
@@ -5621,8 +6107,8 @@ var carracosta = {
     dex: 565,
     type: "Water/Rock",
     ability: "Solid Rock/Sturdy/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/565.shtml",
-    image: "http://www.serebii.net/xy/pokemon/565.png"
+    wiki: "http://www.serebii.net/pokedex-sm/565.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/565.png"
 };
 
 var archen = {
@@ -5630,8 +6116,8 @@ var archen = {
     dex: 566,
     type: "Rock/Flying",
     ability: "Defeatist",
-    wiki: "http://www.serebii.net/pokedex-xy/566.shtml",
-    image: "http://www.serebii.net/xy/pokemon/566.png"
+    wiki: "http://www.serebii.net/pokedex-sm/566.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/566.png"
 };
 
 var archeops = {
@@ -5639,8 +6125,8 @@ var archeops = {
     dex: 567,
     type: "Rock/Flying",
     ability: "Defeatist",
-    wiki: "http://www.serebii.net/pokedex-xy/567.shtml",
-    image: "http://www.serebii.net/xy/pokemon/567.png"
+    wiki: "http://www.serebii.net/pokedex-sm/567.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/567.png"
 };
 
 var trubbish = {
@@ -5648,8 +6134,8 @@ var trubbish = {
     dex: 568,
     type: "Poison",
     ability: "Stench/Sticky Hold/Aftermath",
-    wiki: "http://www.serebii.net/pokedex-xy/568.shtml",
-    image: "http://www.serebii.net/xy/pokemon/568.png"
+    wiki: "http://www.serebii.net/pokedex-sm/568.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/568.png"
 };
 
 var garbodor = {
@@ -5657,8 +6143,8 @@ var garbodor = {
     dex: 569,
     type: "Poison",
     ability: "Stench/Weak Armor/Aftermath",
-    wiki: "http://www.serebii.net/pokedex-xy/569.shtml",
-    image: "http://www.serebii.net/xy/pokemon/569.png"
+    wiki: "http://www.serebii.net/pokedex-sm/569.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/569.png"
 };
 
 var zorua = {
@@ -5666,8 +6152,8 @@ var zorua = {
     dex: 570,
     type: "Dark",
     ability: "Illusion",
-    wiki: "http://www.serebii.net/pokedex-xy/570.shtml",
-    image: "http://www.serebii.net/xy/pokemon/570.png"
+    wiki: "http://www.serebii.net/pokedex-sm/570.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/570.png"
 };
 
 var zoroark = {
@@ -5675,8 +6161,8 @@ var zoroark = {
     dex: 571,
     type: "Dark",
     ability: "Illusion",
-    wiki: "http://www.serebii.net/pokedex-xy/571.shtml",
-    image: "http://www.serebii.net/xy/pokemon/571.png"
+    wiki: "http://www.serebii.net/pokedex-sm/571.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/571.png"
 };
 
 var minccino = {
@@ -5684,8 +6170,8 @@ var minccino = {
     dex: 572,
     type: "Normal",
     ability: "Cute Charm/Technician/Skill Link",
-    wiki: "http://www.serebii.net/pokedex-xy/572.shtml",
-    image: "http://www.serebii.net/xy/pokemon/572.png"
+    wiki: "http://www.serebii.net/pokedex-sm/572.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/572.png"
 };
 
 var cinccino = {
@@ -5693,8 +6179,8 @@ var cinccino = {
     dex: 573,
     type: "Normal",
     ability: "Cute Charm/Technician/Skill Link",
-    wiki: "http://www.serebii.net/pokedex-xy/573.shtml",
-    image: "http://www.serebii.net/xy/pokemon/573.png"
+    wiki: "http://www.serebii.net/pokedex-sm/573.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/573.png"
 };
 
 var gothita = {
@@ -5702,8 +6188,8 @@ var gothita = {
     dex: 574,
     type: "Psychic",
     ability: "Frisk/Competitive/Shadow Tag",
-    wiki: "http://www.serebii.net/pokedex-xy/574.shtml",
-    image: "http://www.serebii.net/xy/pokemon/574.png"
+    wiki: "http://www.serebii.net/pokedex-sm/574.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/574.png"
 };
 
 var gothorita = {
@@ -5711,8 +6197,8 @@ var gothorita = {
     dex: 575,
     type: "Psychic",
     ability: "Frisk/Competitive/Shadow Tag",
-    wiki: "http://www.serebii.net/pokedex-xy/575.shtml",
-    image: "http://www.serebii.net/xy/pokemon/575.png"
+    wiki: "http://www.serebii.net/pokedex-sm/575.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/575.png"
 };
 
 var gothitelle = {
@@ -5720,8 +6206,8 @@ var gothitelle = {
     dex: 576,
     type: "Psychic",
     ability: "Frisk/Competitive/Shadow Tag",
-    wiki: "http://www.serebii.net/pokedex-xy/576.shtml",
-    image: "http://www.serebii.net/xy/pokemon/576.png"
+    wiki: "http://www.serebii.net/pokedex-sm/576.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/576.png"
 };
 
 var solosis = {
@@ -5729,8 +6215,8 @@ var solosis = {
     dex: 577,
     type: "Psychic",
     ability: "Overcoat/Magic Guard/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/577.shtml",
-    image: "http://www.serebii.net/xy/pokemon/577.png"
+    wiki: "http://www.serebii.net/pokedex-sm/577.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/577.png"
 };
 
 var duosion = {
@@ -5738,8 +6224,8 @@ var duosion = {
     dex: 578,
     type: "Psychic",
     ability: "Overcoat/Magic Guard/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/578.shtml",
-    image: "http://www.serebii.net/xy/pokemon/578.png"
+    wiki: "http://www.serebii.net/pokedex-sm/578.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/578.png"
 };
 
 var reuniclus = {
@@ -5747,8 +6233,8 @@ var reuniclus = {
     dex: 579,
     type: "Psychic",
     ability: "Overcoat/Magic Guard/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/579.shtml",
-    image: "http://www.serebii.net/xy/pokemon/579.png"
+    wiki: "http://www.serebii.net/pokedex-sm/579.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/579.png"
 };
 
 var ducklett = {
@@ -5756,8 +6242,8 @@ var ducklett = {
     dex: 580,
     type: "Water/Flying",
     ability: "Keen Eye/Big Pecks/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/580.shtml",
-    image: "http://www.serebii.net/xy/pokemon/580.png"
+    wiki: "http://www.serebii.net/pokedex-sm/580.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/580.png"
 };
 
 var swanna = {
@@ -5765,8 +6251,8 @@ var swanna = {
     dex: 581,
     type: "Water/Flying",
     ability: "Keen Eye/Big Pecks/Hydration",
-    wiki: "http://www.serebii.net/pokedex-xy/581.shtml",
-    image: "http://www.serebii.net/xy/pokemon/581.png"
+    wiki: "http://www.serebii.net/pokedex-sm/581.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/581.png"
 };
 
 var vanillite = {
@@ -5774,8 +6260,8 @@ var vanillite = {
     dex: 582,
     type: "Ice",
     ability: "Ice Body/None/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/582.shtml",
-    image: "http://www.serebii.net/xy/pokemon/582.png"
+    wiki: "http://www.serebii.net/pokedex-sm/582.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/582.png"
 };
 
 var vanillish = {
@@ -5783,8 +6269,8 @@ var vanillish = {
     dex: 583,
     type: "Ice",
     ability: "Ice Body/None/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/583.shtml",
-    image: "http://www.serebii.net/xy/pokemon/583.png"
+    wiki: "http://www.serebii.net/pokedex-sm/583.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/583.png"
 };
 
 var vanilluxe = {
@@ -5792,8 +6278,8 @@ var vanilluxe = {
     dex: 584,
     type: "Ice",
     ability: "Ice Body/None/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/584.shtml",
-    image: "http://www.serebii.net/xy/pokemon/584.png"
+    wiki: "http://www.serebii.net/pokedex-sm/584.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/584.png"
 };
 
 var deerling = {
@@ -5801,8 +6287,8 @@ var deerling = {
     dex: 585,
     type: "Normal/Grass",
     ability: "Chlorophyll/Sap Sipper/Serene Grace",
-    wiki: "http://www.serebii.net/pokedex-xy/585.shtml",
-    image: "http://www.serebii.net/xy/pokemon/585.png"
+    wiki: "http://www.serebii.net/pokedex-sm/585.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/585.png"
 };
 
 var sawsbuck = {
@@ -5810,8 +6296,8 @@ var sawsbuck = {
     dex: 586,
     type: "Normal/Grass",
     ability: "Chlorophyll/Sap Sipper/Serene Grace",
-    wiki: "http://www.serebii.net/pokedex-xy/586.shtml",
-    image: "http://www.serebii.net/xy/pokemon/586.png"
+    wiki: "http://www.serebii.net/pokedex-sm/586.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/586.png"
 };
 
 var emolga = {
@@ -5819,8 +6305,8 @@ var emolga = {
     dex: 587,
     type: "Electric/Flying",
     ability: "Static/None/Motor Drive",
-    wiki: "http://www.serebii.net/pokedex-xy/587.shtml",
-    image: "http://www.serebii.net/xy/pokemon/587.png"
+    wiki: "http://www.serebii.net/pokedex-sm/587.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/587.png"
 };
 
 var karrablast = {
@@ -5828,8 +6314,8 @@ var karrablast = {
     dex: 588,
     type: "Bug",
     ability: "Swarm/Shed Skin/No Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/588.shtml",
-    image: "http://www.serebii.net/xy/pokemon/588.png"
+    wiki: "http://www.serebii.net/pokedex-sm/588.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/588.png"
 };
 
 var escavalier = {
@@ -5837,8 +6323,8 @@ var escavalier = {
     dex: 589,
     type: "Bug/Steel",
     ability: "Swarm/Shell Armor/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/589.shtml",
-    image: "http://www.serebii.net/xy/pokemon/589.png"
+    wiki: "http://www.serebii.net/pokedex-sm/589.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/589.png"
 };
 
 var foongus = {
@@ -5846,8 +6332,8 @@ var foongus = {
     dex: 590,
     type: "Grass/Poison",
     ability: "Effect Spore/None/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/590.shtml",
-    image: "http://www.serebii.net/xy/pokemon/590.png"
+    wiki: "http://www.serebii.net/pokedex-sm/590.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/590.png"
 };
 
 var amoonguss = {
@@ -5855,8 +6341,8 @@ var amoonguss = {
     dex: 591,
     type: "Grass/Poison",
     ability: "Effect Spore/None/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/591.shtml",
-    image: "http://www.serebii.net/xy/pokemon/591.png"
+    wiki: "http://www.serebii.net/pokedex-sm/591.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/591.png"
 };
 
 var frillish = {
@@ -5864,8 +6350,8 @@ var frillish = {
     dex: 592,
     type: "Water/Ghost",
     ability: "Water Absorb/Cursed Body/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/592.shtml",
-    image: "http://www.serebii.net/xy/pokemon/592.png"
+    wiki: "http://www.serebii.net/pokedex-sm/592.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/592.png"
 };
 
 var jellicent = {
@@ -5873,8 +6359,8 @@ var jellicent = {
     dex: 593,
     type: "Water/Ghost",
     ability: "Water Absorb/Cursed Body/Damp",
-    wiki: "http://www.serebii.net/pokedex-xy/593.shtml",
-    image: "http://www.serebii.net/xy/pokemon/593.png"
+    wiki: "http://www.serebii.net/pokedex-sm/593.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/593.png"
 };
 
 var alomomola = {
@@ -5882,8 +6368,8 @@ var alomomola = {
     dex: 594,
     type: "Water",
     ability: "Healer/Hydration/Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/594.shtml",
-    image: "http://www.serebii.net/xy/pokemon/594.png"
+    wiki: "http://www.serebii.net/pokedex-sm/594.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/594.png"
 };
 
 var joltik = {
@@ -5891,8 +6377,8 @@ var joltik = {
     dex: 595,
     type: "Bug/Electric",
     ability: "Compound Eyes/Unnerve/Swarm",
-    wiki: "http://www.serebii.net/pokedex-xy/595.shtml",
-    image: "http://www.serebii.net/xy/pokemon/595.png"
+    wiki: "http://www.serebii.net/pokedex-sm/595.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/595.png"
 };
 
 var galvantula = {
@@ -5900,8 +6386,8 @@ var galvantula = {
     dex: 596,
     type: "Bug/Electric",
     ability: "Compound Eyes/Unnerve/Swarm",
-    wiki: "http://www.serebii.net/pokedex-xy/596.shtml",
-    image: "http://www.serebii.net/xy/pokemon/596.png"
+    wiki: "http://www.serebii.net/pokedex-sm/596.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/596.png"
 };
 
 var ferroseed = {
@@ -5909,8 +6395,8 @@ var ferroseed = {
     dex: 597,
     type: "Grass/Steel",
     ability: "Iron Barbs",
-    wiki: "http://www.serebii.net/pokedex-xy/597.shtml",
-    image: "http://www.serebii.net/xy/pokemon/597.png"
+    wiki: "http://www.serebii.net/pokedex-sm/597.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/597.png"
 };
 
 var ferrothorn = {
@@ -5918,8 +6404,8 @@ var ferrothorn = {
     dex: 598,
     type: "Grass/Steel",
     ability: "Iron Barbs/None/Anticipation/VI",
-    wiki: "http://www.serebii.net/pokedex-xy/598.shtml",
-    image: "http://www.serebii.net/xy/pokemon/598.png"
+    wiki: "http://www.serebii.net/pokedex-sm/598.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/598.png"
 };
 
 var klink = {
@@ -5927,8 +6413,8 @@ var klink = {
     dex: 599,
     type: "Steel",
     ability: "Plus/Minus/Clear Body",
-    wiki: "http://www.serebii.net/pokedex-xy/599.shtml",
-    image: "http://www.serebii.net/xy/pokemon/599.png"
+    wiki: "http://www.serebii.net/pokedex-sm/599.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/599.png"
 };
 
 var klang = {
@@ -5936,8 +6422,8 @@ var klang = {
     dex: 600,
     type: "Steel",
     ability: "Plus/Minus/Clear Body",
-    wiki: "http://www.serebii.net/pokedex-xy/600.shtml",
-    image: "http://www.serebii.net/xy/pokemon/600.png"
+    wiki: "http://www.serebii.net/pokedex-sm/600.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/600.png"
 };
 
 var klinklang = {
@@ -5945,8 +6431,8 @@ var klinklang = {
     dex: 601,
     type: "Steel",
     ability: "Plus/Minus/Clear Body",
-    wiki: "http://www.serebii.net/pokedex-xy/601.shtml",
-    image: "http://www.serebii.net/xy/pokemon/601.png"
+    wiki: "http://www.serebii.net/pokedex-sm/601.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/601.png"
 };
 
 var tynamo = {
@@ -5954,8 +6440,8 @@ var tynamo = {
     dex: 602,
     type: "Electric",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/602.shtml",
-    image: "http://www.serebii.net/xy/pokemon/602.png"
+    wiki: "http://www.serebii.net/pokedex-sm/602.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/602.png"
 };
 
 var eelektrik = {
@@ -5963,8 +6449,8 @@ var eelektrik = {
     dex: 603,
     type: "Electric",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/603.shtml",
-    image: "http://www.serebii.net/xy/pokemon/603.png"
+    wiki: "http://www.serebii.net/pokedex-sm/603.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/603.png"
 };
 
 var eelektross = {
@@ -5972,8 +6458,8 @@ var eelektross = {
     dex: 604,
     type: "Electric",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/604.shtml",
-    image: "http://www.serebii.net/xy/pokemon/604.png"
+    wiki: "http://www.serebii.net/pokedex-sm/604.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/604.png"
 };
 
 var elgyem = {
@@ -5981,8 +6467,8 @@ var elgyem = {
     dex: 605,
     type: "Psychic",
     ability: "Telepathy/Synchronize/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/605.shtml",
-    image: "http://www.serebii.net/xy/pokemon/605.png"
+    wiki: "http://www.serebii.net/pokedex-sm/605.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/605.png"
 };
 
 var beheeyem = {
@@ -5990,8 +6476,8 @@ var beheeyem = {
     dex: 606,
     type: "Psychic",
     ability: "Telepathy/Synchronize/Analytic",
-    wiki: "http://www.serebii.net/pokedex-xy/606.shtml",
-    image: "http://www.serebii.net/xy/pokemon/606.png"
+    wiki: "http://www.serebii.net/pokedex-sm/606.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/606.png"
 };
 
 var litwick = {
@@ -5999,8 +6485,8 @@ var litwick = {
     dex: 607,
     type: "Ghost/Fire",
     ability: "Flash Fire/Flame Body/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/607.shtml",
-    image: "http://www.serebii.net/xy/pokemon/607.png"
+    wiki: "http://www.serebii.net/pokedex-sm/607.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/607.png"
 };
 
 var lampent = {
@@ -6008,8 +6494,8 @@ var lampent = {
     dex: 608,
     type: "Ghost/Fire",
     ability: "Flash Fire/Flame Body/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/608.shtml",
-    image: "http://www.serebii.net/xy/pokemon/608.png"
+    wiki: "http://www.serebii.net/pokedex-sm/608.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/608.png"
 };
 
 var chandelure = {
@@ -6017,8 +6503,8 @@ var chandelure = {
     dex: 609,
     type: "Ghost/Fire",
     ability: "Flash Fire/Flame Body/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/609.shtml",
-    image: "http://www.serebii.net/xy/pokemon/609.png"
+    wiki: "http://www.serebii.net/pokedex-sm/609.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/609.png"
 };
 
 var axew = {
@@ -6026,8 +6512,8 @@ var axew = {
     dex: 610,
     type: "Dragon",
     ability: "Rivalry/Mold Breaker/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/610.shtml",
-    image: "http://www.serebii.net/xy/pokemon/610.png"
+    wiki: "http://www.serebii.net/pokedex-sm/610.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/610.png"
 };
 
 var fraxure = {
@@ -6035,8 +6521,8 @@ var fraxure = {
     dex: 611,
     type: "Dragon",
     ability: "Rivalry/Mold Breaker/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/611.shtml",
-    image: "http://www.serebii.net/xy/pokemon/611.png"
+    wiki: "http://www.serebii.net/pokedex-sm/611.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/611.png"
 };
 
 var haxorus = {
@@ -6044,8 +6530,8 @@ var haxorus = {
     dex: 612,
     type: "Dragon",
     ability: "Rivalry/Mold Breaker/Unnerve",
-    wiki: "http://www.serebii.net/pokedex-xy/612.shtml",
-    image: "http://www.serebii.net/xy/pokemon/612.png"
+    wiki: "http://www.serebii.net/pokedex-sm/612.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/612.png"
 };
 
 var cubchoo = {
@@ -6053,8 +6539,8 @@ var cubchoo = {
     dex: 613,
     type: "Ice",
     ability: "Snow Cloak/None/Rattled",
-    wiki: "http://www.serebii.net/pokedex-xy/613.shtml",
-    image: "http://www.serebii.net/xy/pokemon/613.png"
+    wiki: "http://www.serebii.net/pokedex-sm/613.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/613.png"
 };
 
 var beartic = {
@@ -6062,8 +6548,8 @@ var beartic = {
     dex: 614,
     type: "Ice",
     ability: "Snow Cloak/None/Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/614.shtml",
-    image: "http://www.serebii.net/xy/pokemon/614.png"
+    wiki: "http://www.serebii.net/pokedex-sm/614.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/614.png"
 };
 
 var cryogonal = {
@@ -6071,8 +6557,8 @@ var cryogonal = {
     dex: 615,
     type: "Ice",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/615.shtml",
-    image: "http://www.serebii.net/xy/pokemon/615.png"
+    wiki: "http://www.serebii.net/pokedex-sm/615.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/615.png"
 };
 
 var shelmet = {
@@ -6080,8 +6566,8 @@ var shelmet = {
     dex: 616,
     type: "Bug",
     ability: "Hydration/Shell Armor/Overcoat",
-    wiki: "http://www.serebii.net/pokedex-xy/616.shtml",
-    image: "http://www.serebii.net/xy/pokemon/616.png"
+    wiki: "http://www.serebii.net/pokedex-sm/616.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/616.png"
 };
 
 var accelgor = {
@@ -6089,8 +6575,8 @@ var accelgor = {
     dex: 617,
     type: "Bug",
     ability: "Hydration/Sticky Hold/Unburden",
-    wiki: "http://www.serebii.net/pokedex-xy/617.shtml",
-    image: "http://www.serebii.net/xy/pokemon/617.png"
+    wiki: "http://www.serebii.net/pokedex-sm/617.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/617.png"
 };
 
 var stunfisk = {
@@ -6098,8 +6584,8 @@ var stunfisk = {
     dex: 618,
     type: "Ground/Electric",
     ability: "Static/Limber/Sand Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/618.shtml",
-    image: "http://www.serebii.net/xy/pokemon/618.png"
+    wiki: "http://www.serebii.net/pokedex-sm/618.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/618.png"
 };
 
 var mienfoo = {
@@ -6107,8 +6593,8 @@ var mienfoo = {
     dex: 619,
     type: "Fighting",
     ability: "Inner Focus/Regenerator/Reckless",
-    wiki: "http://www.serebii.net/pokedex-xy/619.shtml",
-    image: "http://www.serebii.net/xy/pokemon/619.png"
+    wiki: "http://www.serebii.net/pokedex-sm/619.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/619.png"
 };
 
 var mienshao = {
@@ -6116,8 +6602,8 @@ var mienshao = {
     dex: 620,
     type: "Fighting",
     ability: "Inner Focus/Regenerator/Reckless",
-    wiki: "http://www.serebii.net/pokedex-xy/620.shtml",
-    image: "http://www.serebii.net/xy/pokemon/620.png"
+    wiki: "http://www.serebii.net/pokedex-sm/620.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/620.png"
 };
 
 var druddigon = {
@@ -6125,8 +6611,8 @@ var druddigon = {
     dex: 621,
     type: "Dragon",
     ability: "Rough Skin/Sheer Force/Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/621.shtml",
-    image: "http://www.serebii.net/xy/pokemon/621.png"
+    wiki: "http://www.serebii.net/pokedex-sm/621.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/621.png"
 };
 
 var golett = {
@@ -6134,8 +6620,8 @@ var golett = {
     dex: 622,
     type: "Ground/Ghost",
     ability: "Iron Fist/Klutz/No Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/622.shtml",
-    image: "http://www.serebii.net/xy/pokemon/622.png"
+    wiki: "http://www.serebii.net/pokedex-sm/622.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/622.png"
 };
 
 var golurk = {
@@ -6143,8 +6629,8 @@ var golurk = {
     dex: 623,
     type: "Ground/Ghost",
     ability: "Iron Fist/Klutz/No Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/623.shtml",
-    image: "http://www.serebii.net/xy/pokemon/623.png"
+    wiki: "http://www.serebii.net/pokedex-sm/623.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/623.png"
 };
 
 var pawniard = {
@@ -6152,8 +6638,8 @@ var pawniard = {
     dex: 624,
     type: "Dark/Steel",
     ability: "Defiant/Inner Focus/Pressure",
-    wiki: "http://www.serebii.net/pokedex-xy/624.shtml",
-    image: "http://www.serebii.net/xy/pokemon/624.png"
+    wiki: "http://www.serebii.net/pokedex-sm/624.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/624.png"
 };
 
 var bisharp = {
@@ -6161,8 +6647,8 @@ var bisharp = {
     dex: 625,
     type: "Dark/Steel",
     ability: "Defiant/Inner Focus/Pressure",
-    wiki: "http://www.serebii.net/pokedex-xy/625.shtml",
-    image: "http://www.serebii.net/xy/pokemon/625.png"
+    wiki: "http://www.serebii.net/pokedex-sm/625.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/625.png"
 };
 
 var bouffalant = {
@@ -6170,8 +6656,8 @@ var bouffalant = {
     dex: 626,
     type: "Normal",
     ability: "Reckless/Sap Sipper/Soundproof",
-    wiki: "http://www.serebii.net/pokedex-xy/626.shtml",
-    image: "http://www.serebii.net/xy/pokemon/626.png"
+    wiki: "http://www.serebii.net/pokedex-sm/626.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/626.png"
 };
 
 var rufflet = {
@@ -6179,8 +6665,8 @@ var rufflet = {
     dex: 627,
     type: "Normal/Flying",
     ability: "Keen Eye/Sheer Force/Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/627.shtml",
-    image: "http://www.serebii.net/xy/pokemon/627.png"
+    wiki: "http://www.serebii.net/pokedex-sm/627.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/627.png"
 };
 
 var braviary = {
@@ -6188,8 +6674,8 @@ var braviary = {
     dex: 628,
     type: "Normal/Flying",
     ability: "Keen Eye/Sheer Force/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/628.shtml",
-    image: "http://www.serebii.net/xy/pokemon/628.png"
+    wiki: "http://www.serebii.net/pokedex-sm/628.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/628.png"
 };
 
 var vullaby = {
@@ -6197,8 +6683,8 @@ var vullaby = {
     dex: 629,
     type: "Dark/Flying",
     ability: "Big Pecks/Overcoat/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/629.shtml",
-    image: "http://www.serebii.net/xy/pokemon/629.png"
+    wiki: "http://www.serebii.net/pokedex-sm/629.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/629.png"
 };
 
 var mandibuzz = {
@@ -6206,8 +6692,8 @@ var mandibuzz = {
     dex: 630,
     type: "Dark/Flying",
     ability: "Big Pecks/Overcoat/Weak Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/630.shtml",
-    image: "http://www.serebii.net/xy/pokemon/630.png"
+    wiki: "http://www.serebii.net/pokedex-sm/630.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/630.png"
 };
 
 var heatmor = {
@@ -6215,8 +6701,8 @@ var heatmor = {
     dex: 631,
     type: "Fire",
     ability: "Gluttony/Flash Fire/White Smoke",
-    wiki: "http://www.serebii.net/pokedex-xy/631.shtml",
-    image: "http://www.serebii.net/xy/pokemon/631.png"
+    wiki: "http://www.serebii.net/pokedex-sm/631.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/631.png"
 };
 
 var durant = {
@@ -6224,8 +6710,8 @@ var durant = {
     dex: 632,
     type: "Bug/Steel",
     ability: "Swarm/Hustle/Truant",
-    wiki: "http://www.serebii.net/pokedex-xy/632.shtml",
-    image: "http://www.serebii.net/xy/pokemon/632.png"
+    wiki: "http://www.serebii.net/pokedex-sm/632.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/632.png"
 };
 
 var deino = {
@@ -6233,8 +6719,8 @@ var deino = {
     dex: 633,
     type: "Dark/Dragon",
     ability: "Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/633.shtml",
-    image: "http://www.serebii.net/xy/pokemon/633.png"
+    wiki: "http://www.serebii.net/pokedex-sm/633.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/633.png"
 };
 
 var zweilous = {
@@ -6242,8 +6728,8 @@ var zweilous = {
     dex: 634,
     type: "Dark/Dragon",
     ability: "Hustle",
-    wiki: "http://www.serebii.net/pokedex-xy/634.shtml",
-    image: "http://www.serebii.net/xy/pokemon/634.png"
+    wiki: "http://www.serebii.net/pokedex-sm/634.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/634.png"
 };
 
 var hydreigon = {
@@ -6251,8 +6737,8 @@ var hydreigon = {
     dex: 635,
     type: "Dark/Dragon",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/635.shtml",
-    image: "http://www.serebii.net/xy/pokemon/635.png"
+    wiki: "http://www.serebii.net/pokedex-sm/635.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/635.png"
 };
 
 var larvesta = {
@@ -6260,8 +6746,8 @@ var larvesta = {
     dex: 636,
     type: "Bug/Fire",
     ability: "Flame Body/None/Swarm",
-    wiki: "http://www.serebii.net/pokedex-xy/636.shtml",
-    image: "http://www.serebii.net/xy/pokemon/636.png"
+    wiki: "http://www.serebii.net/pokedex-sm/636.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/636.png"
 };
 
 var volcarona = {
@@ -6269,8 +6755,8 @@ var volcarona = {
     dex: 637,
     type: "Bug/Fire",
     ability: "Flame Body/None/Swarm",
-    wiki: "http://www.serebii.net/pokedex-xy/637.shtml",
-    image: "http://www.serebii.net/xy/pokemon/637.png"
+    wiki: "http://www.serebii.net/pokedex-sm/637.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/637.png"
 };
 
 var cobalion = {
@@ -6278,8 +6764,8 @@ var cobalion = {
     dex: 638,
     type: "Steel/Fighting",
     ability: "Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/638.shtml",
-    image: "http://www.serebii.net/xy/pokemon/638.png"
+    wiki: "http://www.serebii.net/pokedex-sm/638.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/638.png"
 };
 
 var terrakion = {
@@ -6287,8 +6773,8 @@ var terrakion = {
     dex: 639,
     type: "Rock/Fighting",
     ability: "Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/639.shtml",
-    image: "http://www.serebii.net/xy/pokemon/639.png"
+    wiki: "http://www.serebii.net/pokedex-sm/639.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/639.png"
 };
 
 var virizion = {
@@ -6296,8 +6782,8 @@ var virizion = {
     dex: 640,
     type: "Grass/Fighting",
     ability: "Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/640.shtml",
-    image: "http://www.serebii.net/xy/pokemon/640.png"
+    wiki: "http://www.serebii.net/pokedex-sm/640.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/640.png"
 };
 
 var tornadus = {
@@ -6305,8 +6791,8 @@ var tornadus = {
     dex: 641,
     type: "Flying",
     ability: "Prankster/None/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/641.shtml",
-    image: "http://www.serebii.net/xy/pokemon/641.png"
+    wiki: "http://www.serebii.net/pokedex-sm/641.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/641.png"
 };
 
 var tornadus_therian = {
@@ -6314,8 +6800,8 @@ var tornadus_therian = {
     dex: 641,
     type: "Flying",
     ability: "Regenerator",
-    wiki: "http://www.serebii.net/pokedex-xy/641.shtml",
-    image: "http://www.serebii.net/xy/pokemon/641-s.png"
+    wiki: "http://www.serebii.net/pokedex-sm/641.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/641-s.png"
 };
 
 var thundurus = {
@@ -6323,8 +6809,8 @@ var thundurus = {
     dex: 642,
     type: "Electric/Flying",
     ability: "Prankster/None/Defiant",
-    wiki: "http://www.serebii.net/pokedex-xy/642.shtml",
-    image: "http://www.serebii.net/xy/pokemon/642.png"
+    wiki: "http://www.serebii.net/pokedex-sm/642.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/642.png"
 };
 
 var thundurus_therian = {
@@ -6332,8 +6818,8 @@ var thundurus_therian = {
     dex: 642,
     type: "Electric/Flying",
     ability: "Volt Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/642.shtml",
-    image: "http://www.serebii.net/xy/pokemon/642-s.png"
+    wiki: "http://www.serebii.net/pokedex-sm/642.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/642-s.png"
 };
 
 var reshiram = {
@@ -6341,8 +6827,8 @@ var reshiram = {
     dex: 643,
     type: "Dragon/Fire",
     ability: "Turboblaze",
-    wiki: "http://www.serebii.net/pokedex-xy/643.shtml",
-    image: "http://www.serebii.net/xy/pokemon/643.png"
+    wiki: "http://www.serebii.net/pokedex-sm/643.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/643.png"
 };
 
 var zekrom = {
@@ -6350,8 +6836,8 @@ var zekrom = {
     dex: 644,
     type: "Dragon/Electric",
     ability: "Teravolt",
-    wiki: "http://www.serebii.net/pokedex-xy/644.shtml",
-    image: "http://www.serebii.net/xy/pokemon/644.png"
+    wiki: "http://www.serebii.net/pokedex-sm/644.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/644.png"
 };
 
 var landorus = {
@@ -6359,8 +6845,8 @@ var landorus = {
     dex: 645,
     type: "Ground/Flying",
     ability: "Sand Force/None/Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/645.shtml",
-    image: "http://www.serebii.net/xy/pokemon/645.png"
+    wiki: "http://www.serebii.net/pokedex-sm/645.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/645.png"
 };
 
 var landorus_therian = {
@@ -6368,8 +6854,8 @@ var landorus_therian = {
     dex: 645,
     type: "Ground/Flying",
     ability: "Intimidate",
-    wiki: "http://www.serebii.net/pokedex-xy/645.shtml",
-    image: "http://www.serebii.net/xy/pokemon/645-s.png"
+    wiki: "http://www.serebii.net/pokedex-sm/645.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/645-s.png"
 };
 
 var kyurem = {
@@ -6377,8 +6863,8 @@ var kyurem = {
     dex: 646,
     type: "Dragon/Ice",
     ability: "Pressure",
-    wiki: "http://www.serebii.net/pokedex-xy/646.shtml",
-    image: "http://www.serebii.net/xy/pokemon/646.png"
+    wiki: "http://www.serebii.net/pokedex-sm/646.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/646.png"
 };
 
 var white_kyurem = {
@@ -6386,8 +6872,8 @@ var white_kyurem = {
     dex: 646,
     type: "Dragon/Ice",
     ability: "Turboblaze",
-    wiki: "http://www.serebii.net/pokedex-xy/646.shtml",
-    image: "http://www.serebii.net/xy/pokemon/646-w.png"
+    wiki: "http://www.serebii.net/pokedex-sm/646.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/646-w.png"
 };
 
 var black_kyurem = {
@@ -6395,8 +6881,8 @@ var black_kyurem = {
     dex: 646,
     type: "Dragon/Ice",
     ability: "Teravolt",
-    wiki: "http://www.serebii.net/pokedex-xy/646.shtml",
-    image: "http://www.serebii.net/xy/pokemon/646-b.png"
+    wiki: "http://www.serebii.net/pokedex-sm/646.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/646-b.png"
 };
 
 var keldeo = {
@@ -6404,8 +6890,8 @@ var keldeo = {
     dex: 647,
     type: "Water/Fighting",
     ability: "Justified",
-    wiki: "http://www.serebii.net/pokedex-xy/647.shtml",
-    image: "http://www.serebii.net/xy/pokemon/647.png"
+    wiki: "http://www.serebii.net/pokedex-sm/647.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/647.png"
 };
 
 var meloetta = {
@@ -6413,8 +6899,8 @@ var meloetta = {
     dex: 648,
     type: "Normal/Psychic",
     ability: "Serene Grace",
-    wiki: "http://www.serebii.net/pokedex-xy/648.shtml",
-    image: "http://www.serebii.net/xy/pokemon/648.png"
+    wiki: "http://www.serebii.net/pokedex-sm/648.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/648.png"
 };
 
 var meloetta_pirouette = {
@@ -6422,8 +6908,8 @@ var meloetta_pirouette = {
     dex: 648,
     type: "Normal/Fighting",
     ability: "Serene Grace",
-    wiki: "http://www.serebii.net/pokedex-xy/648.shtml",
-    image: "http://www.serebii.net/xy/pokemon/648-s.png"
+    wiki: "http://www.serebii.net/pokedex-sm/648.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/648-s.png"
 };
 
 var genesect = {
@@ -6431,8 +6917,8 @@ var genesect = {
     dex: 649,
     type: "Bug/Steel",
     ability: "Download",
-    wiki: "http://www.serebii.net/pokedex-xy/649.shtml",
-    image: "http://www.serebii.net/xy/pokemon/649.png"
+    wiki: "http://www.serebii.net/pokedex-sm/649.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/649.png"
 };
 
 var chespin = {
@@ -6440,8 +6926,8 @@ var chespin = {
     dex: 650,
     type: "Grass",
     ability: "Overgrow/None/Bulletproof",
-    wiki: "http://www.serebii.net/pokedex-xy/650.shtml",
-    image: "http://www.serebii.net/xy/pokemon/650.png"
+    wiki: "http://www.serebii.net/pokedex-sm/650.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/650.png"
 };
 
 var quilladin = {
@@ -6449,8 +6935,8 @@ var quilladin = {
     dex: 651,
     type: "Grass",
     ability: "Overgrow/None/Bulletproof",
-    wiki: "http://www.serebii.net/pokedex-xy/651.shtml",
-    image: "http://www.serebii.net/xy/pokemon/651.png"
+    wiki: "http://www.serebii.net/pokedex-sm/651.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/651.png"
 };
 
 var chesnaught = {
@@ -6458,8 +6944,8 @@ var chesnaught = {
     dex: 652,
     type: "Grass/Fighting",
     ability: "Overgrow/None/Bulletproof",
-    wiki: "http://www.serebii.net/pokedex-xy/652.shtml",
-    image: "http://www.serebii.net/xy/pokemon/652.png"
+    wiki: "http://www.serebii.net/pokedex-sm/652.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/652.png"
 };
 
 var fennekin = {
@@ -6467,8 +6953,8 @@ var fennekin = {
     dex: 653,
     type: "Fire",
     ability: "Blaze/None/Magician",
-    wiki: "http://www.serebii.net/pokedex-xy/653.shtml",
-    image: "http://www.serebii.net/xy/pokemon/653.png"
+    wiki: "http://www.serebii.net/pokedex-sm/653.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/653.png"
 };
 
 var braixen = {
@@ -6476,8 +6962,8 @@ var braixen = {
     dex: 654,
     type: "Fire",
     ability: "Blaze/None/Magician",
-    wiki: "http://www.serebii.net/pokedex-xy/654.shtml",
-    image: "http://www.serebii.net/xy/pokemon/654.png"
+    wiki: "http://www.serebii.net/pokedex-sm/654.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/654.png"
 };
 
 var delphox = {
@@ -6485,8 +6971,8 @@ var delphox = {
     dex: 655,
     type: "Fire/Psychic",
     ability: "Blaze/None/Magician",
-    wiki: "http://www.serebii.net/pokedex-xy/655.shtml",
-    image: "http://www.serebii.net/xy/pokemon/655.png"
+    wiki: "http://www.serebii.net/pokedex-sm/655.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/655.png"
 };
 
 var froakie = {
@@ -6494,8 +6980,8 @@ var froakie = {
     dex: 656,
     type: "Water",
     ability: "Torrent/None/Protean",
-    wiki: "http://www.serebii.net/pokedex-xy/656.shtml",
-    image: "http://www.serebii.net/xy/pokemon/656.png"
+    wiki: "http://www.serebii.net/pokedex-sm/656.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/656.png"
 };
 
 var frogadier = {
@@ -6503,8 +6989,8 @@ var frogadier = {
     dex: 657,
     type: "Water",
     ability: "Torrent/None/Protean",
-    wiki: "http://www.serebii.net/pokedex-xy/657.shtml",
-    image: "http://www.serebii.net/xy/pokemon/657.png"
+    wiki: "http://www.serebii.net/pokedex-sm/657.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/657.png"
 };
 
 var greninja = {
@@ -6512,8 +6998,8 @@ var greninja = {
     dex: 658,
     type: "Water/Dark",
     ability: "Torrent/None/Protean",
-    wiki: "http://www.serebii.net/pokedex-xy/658.shtml",
-    image: "http://www.serebii.net/xy/pokemon/658.png"
+    wiki: "http://www.serebii.net/pokedex-sm/658.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/658.png"
 };
 
 var bunnelby = {
@@ -6521,8 +7007,8 @@ var bunnelby = {
     dex: 659,
     type: "Normal",
     ability: "Pickup/Cheek Pouch/Huge Power",
-    wiki: "http://www.serebii.net/pokedex-xy/659.shtml",
-    image: "http://www.serebii.net/xy/pokemon/659.png"
+    wiki: "http://www.serebii.net/pokedex-sm/659.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/659.png"
 };
 
 var diggersby = {
@@ -6530,8 +7016,8 @@ var diggersby = {
     dex: 660,
     type: "Normal/Ground",
     ability: "Pickup/Cheek Pouch/Huge Power",
-    wiki: "http://www.serebii.net/pokedex-xy/660.shtml",
-    image: "http://www.serebii.net/xy/pokemon/660.png"
+    wiki: "http://www.serebii.net/pokedex-sm/660.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/660.png"
 };
 
 var fletchling = {
@@ -6539,8 +7025,8 @@ var fletchling = {
     dex: 661,
     type: "Normal/Flying",
     ability: "Big Pecks/None/Gale Wings",
-    wiki: "http://www.serebii.net/pokedex-xy/661.shtml",
-    image: "http://www.serebii.net/xy/pokemon/661.png"
+    wiki: "http://www.serebii.net/pokedex-sm/661.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/661.png"
 };
 
 var fletchinder = {
@@ -6548,8 +7034,8 @@ var fletchinder = {
     dex: 662,
     type: "Fire/Flying",
     ability: "Flame Body/None/Gale Wings",
-    wiki: "http://www.serebii.net/pokedex-xy/662.shtml",
-    image: "http://www.serebii.net/xy/pokemon/662.png"
+    wiki: "http://www.serebii.net/pokedex-sm/662.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/662.png"
 };
 
 var talonflame = {
@@ -6557,8 +7043,8 @@ var talonflame = {
     dex: 663,
     type: "Fire/Flying",
     ability: "Flame Body/None/ Gale Wings",
-    wiki: "http://www.serebii.net/pokedex-xy/663.shtml",
-    image: "http://www.serebii.net/xy/pokemon/663.png"
+    wiki: "http://www.serebii.net/pokedex-sm/663.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/663.png"
 };
 
 var scatterbug = {
@@ -6566,8 +7052,8 @@ var scatterbug = {
     dex: 664,
     type: "Bug",
     ability: "Shield Dust/Compound Eyes/Friend Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/664.shtml",
-    image: "http://www.serebii.net/xy/pokemon/664.png"
+    wiki: "http://www.serebii.net/pokedex-sm/664.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/664.png"
 };
 
 var spewpa = {
@@ -6575,8 +7061,8 @@ var spewpa = {
     dex: 665,
     type: "Bug",
     ability: "Shed Skin/None/Friend Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/665.shtml",
-    image: "http://www.serebii.net/xy/pokemon/665.png"
+    wiki: "http://www.serebii.net/pokedex-sm/665.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/665.png"
 };
 
 var vivillon = {
@@ -6584,8 +7070,8 @@ var vivillon = {
     dex: 666,
     type: "Bug/Flying",
     ability: "Shield Dust/Compound Eyes/Friend Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/666.shtml",
-    image: "http://www.serebii.net/xy/pokemon/666.png"
+    wiki: "http://www.serebii.net/pokedex-sm/666.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/666.png"
 };
 
 var litleo = {
@@ -6593,8 +7079,8 @@ var litleo = {
     dex: 667,
     type: "Fire/Normal",
     ability: "Rivalry/Unnerve/Moxie",
-    wiki: "http://www.serebii.net/pokedex-xy/667.shtml",
-    image: "http://www.serebii.net/xy/pokemon/667.png"
+    wiki: "http://www.serebii.net/pokedex-sm/667.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/667.png"
 };
 
 var pyroar = {
@@ -6602,8 +7088,8 @@ var pyroar = {
     dex: 668,
     type: "Fire/Normal",
     ability: "Rivalry/Unnerve/Moxie",
-    wiki: "http://www.serebii.net/pokedex-xy/668.shtml",
-    image: "http://www.serebii.net/xy/pokemon/668.png"
+    wiki: "http://www.serebii.net/pokedex-sm/668.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/668.png"
 };
 
 var flabébé = {
@@ -6611,8 +7097,8 @@ var flabébé = {
     dex: 669,
     type: "Fairy",
     ability: "Flower Veil/None/Symbiosis",
-    wiki: "http://www.serebii.net/pokedex-xy/669.shtml",
-    image: "http://www.serebii.net/xy/pokemon/669.png"
+    wiki: "http://www.serebii.net/pokedex-sm/669.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/669.png"
 };
 
 var floette = {
@@ -6620,8 +7106,8 @@ var floette = {
     dex: 670,
     type: "Fairy",
     ability: "Flower Veil/None/Symbiosis",
-    wiki: "http://www.serebii.net/pokedex-xy/670.shtml",
-    image: "http://www.serebii.net/xy/pokemon/670.png"
+    wiki: "http://www.serebii.net/pokedex-sm/670.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/670.png"
 };
 
 var florges = {
@@ -6629,8 +7115,8 @@ var florges = {
     dex: 671,
     type: "Fairy",
     ability: "Flower Veil/None/Symbiosis",
-    wiki: "http://www.serebii.net/pokedex-xy/671.shtml",
-    image: "http://www.serebii.net/xy/pokemon/671.png"
+    wiki: "http://www.serebii.net/pokedex-sm/671.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/671.png"
 };
 
 var skiddo = {
@@ -6638,8 +7124,8 @@ var skiddo = {
     dex: 672,
     type: "Grass",
     ability: "Sap Sipper/None/Grass Pelt",
-    wiki: "http://www.serebii.net/pokedex-xy/672.shtml",
-    image: "http://www.serebii.net/xy/pokemon/672.png"
+    wiki: "http://www.serebii.net/pokedex-sm/672.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/672.png"
 };
 
 var gogoat = {
@@ -6647,8 +7133,8 @@ var gogoat = {
     dex: 673,
     type: "Grass",
     ability: "Sap Sipper/None/Grass Pelt",
-    wiki: "http://www.serebii.net/pokedex-xy/673.shtml",
-    image: "http://www.serebii.net/xy/pokemon/673.png"
+    wiki: "http://www.serebii.net/pokedex-sm/673.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/673.png"
 };
 
 var pancham = {
@@ -6656,8 +7142,8 @@ var pancham = {
     dex: 674,
     type: "Fighting",
     ability: "Iron Fist/Mold Breaker/Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/674.shtml",
-    image: "http://www.serebii.net/xy/pokemon/674.png"
+    wiki: "http://www.serebii.net/pokedex-sm/674.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/674.png"
 };
 
 var pangoro = {
@@ -6665,8 +7151,8 @@ var pangoro = {
     dex: 675,
     type: "Fighting/Dark",
     ability: "Iron Fist/Mold Breaker/Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/675.shtml",
-    image: "http://www.serebii.net/xy/pokemon/675.png"
+    wiki: "http://www.serebii.net/pokedex-sm/675.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/675.png"
 };
 
 var furfrou = {
@@ -6674,8 +7160,8 @@ var furfrou = {
     dex: 676,
     type: "Normal",
     ability: "Fur Coat",
-    wiki: "http://www.serebii.net/pokedex-xy/676.shtml",
-    image: "http://www.serebii.net/xy/pokemon/676.png"
+    wiki: "http://www.serebii.net/pokedex-sm/676.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/676.png"
 };
 
 var espurr = {
@@ -6683,8 +7169,8 @@ var espurr = {
     dex: 677,
     type: "Psychic",
     ability: "Keen Eye/Infiltrator/Own Tempo",
-    wiki: "http://www.serebii.net/pokedex-xy/677.shtml",
-    image: "http://www.serebii.net/xy/pokemon/677.png"
+    wiki: "http://www.serebii.net/pokedex-sm/677.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/677.png"
 };
 
 var meowstic = {
@@ -6692,8 +7178,8 @@ var meowstic = {
     dex: 678,
     type: "Psychic",
     ability: "Keen Eye/Infiltrator/Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/678.shtml",
-    image: "http://www.serebii.net/xy/pokemon/678.png"
+    wiki: "http://www.serebii.net/pokedex-sm/678.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/678.png"
 };
 
 var honedge = {
@@ -6701,8 +7187,8 @@ var honedge = {
     dex: 679,
     type: "Steel/Ghost",
     ability: "No Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/679.shtml",
-    image: "http://www.serebii.net/xy/pokemon/679.png"
+    wiki: "http://www.serebii.net/pokedex-sm/679.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/679.png"
 };
 
 var doublade = {
@@ -6710,8 +7196,8 @@ var doublade = {
     dex: 680,
     type: "Steel/Ghost",
     ability: "No Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/680.shtml",
-    image: "http://www.serebii.net/xy/pokemon/680.png"
+    wiki: "http://www.serebii.net/pokedex-sm/680.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/680.png"
 };
 
 var aegislash = {
@@ -6719,8 +7205,8 @@ var aegislash = {
     dex: 681,
     type: "Steel/Ghost",
     ability: "Stance Change",
-    wiki: "http://www.serebii.net/pokedex-xy/681.shtml",
-    image: "http://www.serebii.net/xy/pokemon/681.png"
+    wiki: "http://www.serebii.net/pokedex-sm/681.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/681.png"
 };
 
 var spritzee = {
@@ -6728,8 +7214,8 @@ var spritzee = {
     dex: 682,
     type: "Fairy",
     ability: "Healer/None/Aroma Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/682.shtml",
-    image: "http://www.serebii.net/xy/pokemon/682.png"
+    wiki: "http://www.serebii.net/pokedex-sm/682.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/682.png"
 };
 
 var aromatisse = {
@@ -6737,8 +7223,8 @@ var aromatisse = {
     dex: 683,
     type: "Fairy",
     ability: "Healer/None/Aroma Veil",
-    wiki: "http://www.serebii.net/pokedex-xy/683.shtml",
-    image: "http://www.serebii.net/xy/pokemon/683.png"
+    wiki: "http://www.serebii.net/pokedex-sm/683.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/683.png"
 };
 
 var swirlix = {
@@ -6746,8 +7232,8 @@ var swirlix = {
     dex: 684,
     type: "Fairy",
     ability: "Sweet Veil/None/Unburden",
-    wiki: "http://www.serebii.net/pokedex-xy/684.shtml",
-    image: "http://www.serebii.net/xy/pokemon/684.png"
+    wiki: "http://www.serebii.net/pokedex-sm/684.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/684.png"
 };
 
 var slurpuff = {
@@ -6755,8 +7241,8 @@ var slurpuff = {
     dex: 685,
     type: "Fairy",
     ability: "Sweet Veil/None/Unburden",
-    wiki: "http://www.serebii.net/pokedex-xy/685.shtml",
-    image: "http://www.serebii.net/xy/pokemon/685.png"
+    wiki: "http://www.serebii.net/pokedex-sm/685.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/685.png"
 };
 
 var inkay = {
@@ -6764,8 +7250,8 @@ var inkay = {
     dex: 686,
     type: "Dark/Psychic",
     ability: "Contrary/Suction Cups/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/686.shtml",
-    image: "http://www.serebii.net/xy/pokemon/686.png"
+    wiki: "http://www.serebii.net/pokedex-sm/686.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/686.png"
 };
 
 var malamar = {
@@ -6773,8 +7259,8 @@ var malamar = {
     dex: 687,
     type: "Dark/Psychic",
     ability: "Contrary/Suction Cups/Infiltrator",
-    wiki: "http://www.serebii.net/pokedex-xy/687.shtml",
-    image: "http://www.serebii.net/xy/pokemon/687.png"
+    wiki: "http://www.serebii.net/pokedex-sm/687.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/687.png"
 };
 
 var binacle = {
@@ -6782,8 +7268,8 @@ var binacle = {
     dex: 688,
     type: "Rock/Water",
     ability: "Sniper/Tough Claws/Pickpocket",
-    wiki: "http://www.serebii.net/pokedex-xy/688.shtml",
-    image: "http://www.serebii.net/xy/pokemon/688.png"
+    wiki: "http://www.serebii.net/pokedex-sm/688.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/688.png"
 };
 
 var barbaracle = {
@@ -6791,8 +7277,8 @@ var barbaracle = {
     dex: 689,
     type: "Rock/Water",
     ability: "Sniper/Tough Claws/Pickpocket",
-    wiki: "http://www.serebii.net/pokedex-xy/689.shtml",
-    image: "http://www.serebii.net/xy/pokemon/689.png"
+    wiki: "http://www.serebii.net/pokedex-sm/689.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/689.png"
 };
 
 var skrelp = {
@@ -6800,8 +7286,8 @@ var skrelp = {
     dex: 690,
     type: "Poison/Water",
     ability: "Poison Point/Poison Touch/Adaptability",
-    wiki: "http://www.serebii.net/pokedex-xy/690.shtml",
-    image: "http://www.serebii.net/xy/pokemon/690.png"
+    wiki: "http://www.serebii.net/pokedex-sm/690.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/690.png"
 };
 
 var dragalge = {
@@ -6809,8 +7295,8 @@ var dragalge = {
     dex: 691,
     type: "Poison/Dragon",
     ability: "Poison Point/Poison Touch/Adaptability",
-    wiki: "http://www.serebii.net/pokedex-xy/691.shtml",
-    image: "http://www.serebii.net/xy/pokemon/691.png"
+    wiki: "http://www.serebii.net/pokedex-sm/691.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/691.png"
 };
 
 var clauncher = {
@@ -6818,8 +7304,8 @@ var clauncher = {
     dex: 692,
     type: "Water",
     ability: "Mega Launcher",
-    wiki: "http://www.serebii.net/pokedex-xy/692.shtml",
-    image: "http://www.serebii.net/xy/pokemon/692.png"
+    wiki: "http://www.serebii.net/pokedex-sm/692.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/692.png"
 };
 
 var clawitzer = {
@@ -6827,8 +7313,8 @@ var clawitzer = {
     dex: 693,
     type: "Water",
     ability: "Mega Launcher",
-    wiki: "http://www.serebii.net/pokedex-xy/693.shtml",
-    image: "http://www.serebii.net/xy/pokemon/693.png"
+    wiki: "http://www.serebii.net/pokedex-sm/693.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/693.png"
 };
 
 var helioptile = {
@@ -6836,8 +7322,8 @@ var helioptile = {
     dex: 694,
     type: "Electric/Normal",
     ability: "Dry Skin/Sand Veil/Solar Power",
-    wiki: "http://www.serebii.net/pokedex-xy/694.shtml",
-    image: "http://www.serebii.net/xy/pokemon/694.png"
+    wiki: "http://www.serebii.net/pokedex-sm/694.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/694.png"
 };
 
 var heliolisk = {
@@ -6845,8 +7331,8 @@ var heliolisk = {
     dex: 695,
     type: "Electric/Normal",
     ability: "Dry Skin/Sand Veil/Solar Power",
-    wiki: "http://www.serebii.net/pokedex-xy/695.shtml",
-    image: "http://www.serebii.net/xy/pokemon/695.png"
+    wiki: "http://www.serebii.net/pokedex-sm/695.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/695.png"
 };
 
 var tyrunt = {
@@ -6854,8 +7340,8 @@ var tyrunt = {
     dex: 696,
     type: "Rock/Dragon",
     ability: "Strong Jaw/None/Sturdy",
-    wiki: "http://www.serebii.net/pokedex-xy/696.shtml",
-    image: "http://www.serebii.net/xy/pokemon/696.png"
+    wiki: "http://www.serebii.net/pokedex-sm/696.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/696.png"
 };
 
 var tyrantrum = {
@@ -6863,8 +7349,8 @@ var tyrantrum = {
     dex: 697,
     type: "Rock/Dragon",
     ability: "Strong Jaw/None/Rock Head",
-    wiki: "http://www.serebii.net/pokedex-xy/697.shtml",
-    image: "http://www.serebii.net/xy/pokemon/697.png"
+    wiki: "http://www.serebii.net/pokedex-sm/697.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/697.png"
 };
 
 var amaura = {
@@ -6872,8 +7358,8 @@ var amaura = {
     dex: 698,
     type: "Rock/Ice",
     ability: "Refrigerate/None/Snow Warning",
-    wiki: "http://www.serebii.net/pokedex-xy/698.shtml",
-    image: "http://www.serebii.net/xy/pokemon/698.png"
+    wiki: "http://www.serebii.net/pokedex-sm/698.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/698.png"
 };
 
 var aurorus = {
@@ -6881,8 +7367,8 @@ var aurorus = {
     dex: 699,
     type: "Rock/Ice",
     ability: "Refrigerate/None/Snow Warning",
-    wiki: "http://www.serebii.net/pokedex-xy/699.shtml",
-    image: "http://www.serebii.net/xy/pokemon/699.png"
+    wiki: "http://www.serebii.net/pokedex-sm/699.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/699.png"
 };
 
 var sylveon = {
@@ -6890,8 +7376,8 @@ var sylveon = {
     dex: 700,
     type: "Fairy",
     ability: "Cute Charm/None/Pixilate",
-    wiki: "http://www.serebii.net/pokedex-xy/700.shtml",
-    image: "http://www.serebii.net/xy/pokemon/700.png"
+    wiki: "http://www.serebii.net/pokedex-sm/700.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/700.png"
 };
 
 var hawlucha = {
@@ -6899,8 +7385,8 @@ var hawlucha = {
     dex: 701,
     type: "Fighting/Flying",
     ability: "Limber/Unburden/Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/701.shtml",
-    image: "http://www.serebii.net/xy/pokemon/701.png"
+    wiki: "http://www.serebii.net/pokedex-sm/701.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/701.png"
 };
 
 var dedenne = {
@@ -6908,8 +7394,8 @@ var dedenne = {
     dex: 702,
     type: "Electric/Fairy",
     ability: "Cheek Pouch/Pickup/Plus",
-    wiki: "http://www.serebii.net/pokedex-xy/702.shtml",
-    image: "http://www.serebii.net/xy/pokemon/702.png"
+    wiki: "http://www.serebii.net/pokedex-sm/702.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/702.png"
 };
 
 var carbink = {
@@ -6917,8 +7403,8 @@ var carbink = {
     dex: 703,
     type: "Rock/Fairy",
     ability: "Clear Body/None/Sturdy",
-    wiki: "http://www.serebii.net/pokedex-xy/703.shtml",
-    image: "http://www.serebii.net/xy/pokemon/703.png"
+    wiki: "http://www.serebii.net/pokedex-sm/703.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/703.png"
 };
 
 var goomy = {
@@ -6926,8 +7412,8 @@ var goomy = {
     dex: 704,
     type: "Dragon",
     ability: "Sap Sipper/Hydration/Gooey",
-    wiki: "http://www.serebii.net/pokedex-xy/704.shtml",
-    image: "http://www.serebii.net/xy/pokemon/704.png"
+    wiki: "http://www.serebii.net/pokedex-sm/704.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/704.png"
 };
 
 var sliggoo = {
@@ -6935,8 +7421,8 @@ var sliggoo = {
     dex: 705,
     type: "Dragon",
     ability: "Sap Sipper/Hydration/Gooey",
-    wiki: "http://www.serebii.net/pokedex-xy/705.shtml",
-    image: "http://www.serebii.net/xy/pokemon/705.png"
+    wiki: "http://www.serebii.net/pokedex-sm/705.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/705.png"
 };
 
 var goodra = {
@@ -6944,8 +7430,8 @@ var goodra = {
     dex: 706,
     type: "Dragon",
     ability: "Sap Sipper/Hydration/Gooey",
-    wiki: "http://www.serebii.net/pokedex-xy/706.shtml",
-    image: "http://www.serebii.net/xy/pokemon/706.png"
+    wiki: "http://www.serebii.net/pokedex-sm/706.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/706.png"
 };
 
 var klefki = {
@@ -6953,8 +7439,8 @@ var klefki = {
     dex: 707,
     type: "Steel/Fairy",
     ability: "Prankster/None/Magician",
-    wiki: "http://www.serebii.net/pokedex-xy/707.shtml",
-    image: "http://www.serebii.net/xy/pokemon/707.png"
+    wiki: "http://www.serebii.net/pokedex-sm/707.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/707.png"
 };
 
 var phantump = {
@@ -6962,8 +7448,8 @@ var phantump = {
     dex: 708,
     type: "Ghost/Grass",
     ability: "Natural Cure/Frisk/Harvest",
-    wiki: "http://www.serebii.net/pokedex-xy/708.shtml",
-    image: "http://www.serebii.net/xy/pokemon/708.png"
+    wiki: "http://www.serebii.net/pokedex-sm/708.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/708.png"
 };
 
 var trevenant = {
@@ -6971,8 +7457,8 @@ var trevenant = {
     dex: 709,
     type: "Ghost/Grass",
     ability: "Natural Cure/Frisk/Harvest",
-    wiki: "http://www.serebii.net/pokedex-xy/709.shtml",
-    image: "http://www.serebii.net/xy/pokemon/709.png"
+    wiki: "http://www.serebii.net/pokedex-sm/709.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/709.png"
 };
 
 var pumpkaboo = {
@@ -6980,8 +7466,8 @@ var pumpkaboo = {
     dex: 710,
     type: "Ghost/Grass",
     ability: "Pickup/Frisk/Insomnia",
-    wiki: "http://www.serebii.net/pokedex-xy/710.shtml",
-    image: "http://www.serebii.net/xy/pokemon/710.png"
+    wiki: "http://www.serebii.net/pokedex-sm/710.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/710.png"
 };
 
 var gourgeist = {
@@ -6989,8 +7475,8 @@ var gourgeist = {
     dex: 711,
     type: "Ghost/Grass",
     ability: "Pickup/Frisk/Insomnia",
-    wiki: "http://www.serebii.net/pokedex-xy/711.shtml",
-    image: "http://www.serebii.net/xy/pokemon/711.png"
+    wiki: "http://www.serebii.net/pokedex-sm/711.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/711.png"
 };
 
 var bergmite = {
@@ -6998,8 +7484,8 @@ var bergmite = {
     dex: 712,
     type: "Ice",
     ability: "Own Tempo/Ice Body/Sturdy",
-    wiki: "http://www.serebii.net/pokedex-xy/712.shtml",
-    image: "http://www.serebii.net/xy/pokemon/712.png"
+    wiki: "http://www.serebii.net/pokedex-sm/712.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/712.png"
 };
 
 var avalugg = {
@@ -7007,8 +7493,8 @@ var avalugg = {
     dex: 713,
     type: "Ice",
     ability: "Own Tempo/Ice Body/Sturdy",
-    wiki: "http://www.serebii.net/pokedex-xy/713.shtml",
-    image: "http://www.serebii.net/xy/pokemon/713.png"
+    wiki: "http://www.serebii.net/pokedex-sm/713.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/713.png"
 };
 
 var noibat = {
@@ -7016,8 +7502,8 @@ var noibat = {
     dex: 714,
     type: "Flying/Dragon",
     ability: "Frisk/Infiltrator/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/714.shtml",
-    image: "http://www.serebii.net/xy/pokemon/714.png"
+    wiki: "http://www.serebii.net/pokedex-sm/714.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/714.png"
 };
 
 var noivern = {
@@ -7025,8 +7511,8 @@ var noivern = {
     dex: 715,
     type: "Flying/Dragon",
     ability: "Frisk/Infiltrator/Telepathy",
-    wiki: "http://www.serebii.net/pokedex-xy/715.shtml",
-    image: "http://www.serebii.net/xy/pokemon/715.png"
+    wiki: "http://www.serebii.net/pokedex-sm/715.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/715.png"
 };
 
 var xerneas = {
@@ -7034,8 +7520,8 @@ var xerneas = {
     dex: 716,
     type: "Fairy",
     ability: "Fairy Aura",
-    wiki: "http://www.serebii.net/pokedex-xy/716.shtml",
-    image: "http://www.serebii.net/xy/pokemon/716.png"
+    wiki: "http://www.serebii.net/pokedex-sm/716.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/716.png"
 };
 
 var yveltal = {
@@ -7043,8 +7529,8 @@ var yveltal = {
     dex: 717,
     type: "Dark/Flying",
     ability: "Dark Aura",
-    wiki: "http://www.serebii.net/pokedex-xy/717.shtml",
-    image: "http://www.serebii.net/xy/pokemon/717.png"
+    wiki: "http://www.serebii.net/pokedex-sm/717.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/717.png"
 };
 
 var zygarde = {
@@ -7052,8 +7538,8 @@ var zygarde = {
     dex: 718,
     type: "Dragon/Ground",
     ability: "Aura Break/Power Construct",
-    wiki: "http://www.serebii.net/pokedex-xy/718.shtml",
-    image: "http://www.serebii.net/xy/pokemon/718.png"
+    wiki: "http://www.serebii.net/pokedex-sm/718.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/718.png"
 };
 
 var diancie = {
@@ -7061,8 +7547,8 @@ var diancie = {
     dex: 719,
     type: "Rock/Fairy",
     ability: "Clear Body",
-    wiki: "http://www.serebii.net/pokedex-xy/719.shtml",
-    image: "http://www.serebii.net/xy/pokemon/719.png"
+    wiki: "http://www.serebii.net/pokedex-sm/719.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/719.png"
 };
 
 var hoopa = {
@@ -7070,8 +7556,8 @@ var hoopa = {
     dex: 720,
     type: "Psychic/Ghost",
     ability: "Magician",
-    wiki: "http://www.serebii.net/pokedex-xy/720.shtml",
-    image: "http://www.serebii.net/xy/pokemon/720.png"
+    wiki: "http://www.serebii.net/pokedex-sm/720.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/720.png"
 };
 
 var hoopa_unbound = {
@@ -7079,8 +7565,8 @@ var hoopa_unbound = {
     dex: 720,
     type: "Psychic/Dark",
     ability: "Magician",
-    wiki: "http://www.serebii.net/pokedex-xy/720.shtml",
-    image: "http://www.serebii.net/xy/pokemon/720-u.png"
+    wiki: "http://www.serebii.net/pokedex-sm/720.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/720-u.png"
 };
 
 var volcanion = {
@@ -7088,8 +7574,747 @@ var volcanion = {
     dex: 721,
     type: "Fire/Water",
     ability: "Water Absorb",
-    wiki: "http://www.serebii.net/pokedex-xy/721.shtml",
-    image: "http://www.serebii.net/xy/pokemon/721.png"
+    wiki: "http://www.serebii.net/pokedex-sm/721.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/721.png"
+};
+
+var rowlet = {
+    name: "Rowlet",
+    dex: 722,
+    type: "Grass/Flying",
+    ability: "Overgrow/None/Long Reach",
+    wiki: "http://www.serebii.net/pokedex-sm/722.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/722.png"
+};
+
+var dartrix = {
+    name: "Dartrix",
+    dex: 723,
+    type: "Grass/Flying",
+    ability: "Overgrow/None/Long Reach",
+    wiki: "http://www.serebii.net/pokedex-sm/723.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/723.png"
+};
+
+var decidueye = {
+    name: "Decidueye",
+    dex: 724,
+    type: "Grass/Ghost",
+    ability: "Overgrow/None/Long Reach",
+    wiki: "http://www.serebii.net/pokedex-sm/724.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/724.png"
+};
+
+var litten = {
+    name: "Litten",
+    dex: 725,
+    type: "Fire",
+    ability: "Blaze/None/Intimidate",
+    wiki: "http://www.serebii.net/pokedex-sm/725.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/725.png"
+};
+
+var torracat = {
+    name: "Torracat",
+    dex: 726,
+    type: "Fire",
+    ability: "Blaze/None/Intimidate",
+    wiki: "http://www.serebii.net/pokedex-sm/726.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/726.png"
+};
+
+var incineroar = {
+    name: "Incineroar",
+    dex: 727,
+    type: "Fire/Dark",
+    ability: "Blaze/None/Intimidate",
+    wiki: "http://www.serebii.net/pokedex-sm/727.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/727.png"
+};
+
+var popplio = {
+    name: "Popplio",
+    dex: 728,
+    type: "Water",
+    ability: "Torrent/None/Liquid Voice",
+    wiki: "http://www.serebii.net/pokedex-sm/728.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/728.png"
+};
+
+var brionne = {
+    name: "Brionne",
+    dex: 729,
+    type: "Water",
+    ability: "Torrent/None/Liquid Voice",
+    wiki: "http://www.serebii.net/pokedex-sm/729.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/729.png"
+};
+
+var primarina = {
+    name: "Primarina",
+    dex: 730,
+    type: "Water/Fairy",
+    ability: "Torrent/None/Liquid Voice",
+    wiki: "http://www.serebii.net/pokedex-sm/730.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/730.png"
+};
+
+var pikipek = {
+    name: "Pikipek",
+    dex: 731,
+    type: "Normal/Flying",
+    ability: "Keen Eye/Skill Link/",
+    wiki: "http://www.serebii.net/pokedex-sm/731.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/731.png"
+};
+
+var trumbeak = {
+    name: "Trumbeak",
+    dex: 732,
+    type: "Normal/Flying",
+    ability: "Keen Eye/Skill Link/",
+    wiki: "http://www.serebii.net/pokedex-sm/732.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/732.png"
+};
+
+var toucannon = {
+    name: "Toucannon",
+    dex: 733,
+    type: "Normal/Flying",
+    ability: "Keen Eye/Skill Link/",
+    wiki: "http://www.serebii.net/pokedex-sm/733.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/733.png"
+};
+
+var yungoos = {
+    name: "Yungoos",
+    dex: 734,
+    type: "Normal",
+    ability: "Stakeout/Strong Jaw/Adaptability",
+    wiki: "http://www.serebii.net/pokedex-sm/734.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/734.png"
+};
+
+var gumshoos = {
+    name: "Gumshoos",
+    dex: 735,
+    type: "Normal",
+    ability: "Stakeout/Strong Jaw/Adaptability",
+    wiki: "http://www.serebii.net/pokedex-sm/735.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/735.png"
+};
+
+var grubbin = {
+    name: "Grubbin",
+    dex: 736,
+    type: "Bug",
+    ability: "Swarm",
+    wiki: "http://www.serebii.net/pokedex-sm/736.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/736.png"
+};
+
+var charjabug = {
+    name: "Charjabug",
+    dex: 737,
+    type: "Bug/Electric",
+    ability: "Battery",
+    wiki: "http://www.serebii.net/pokedex-sm/737.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/737.png"
+};
+
+var vikavolt = {
+    name: "Vikavolt",
+    dex: 738,
+    type: "Bug/Electric",
+    ability: "Levitate",
+    wiki: "http://www.serebii.net/pokedex-sm/738.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/738.png"
+};
+
+var crabrawler = {
+    name: "Crabrawler",
+    dex: 739,
+    type: "Fighting",
+    ability: "Hyper Cutter/Iron Fist/Anger Point",
+    wiki: "http://www.serebii.net/pokedex-sm/739.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/739.png"
+};
+
+var crabominable = {
+    name: "Crabominable",
+    dex: 740,
+    type: "Fighting/Ice",
+    ability: "Hyper Cutter/Iron Fist/Anger Point",
+    wiki: "http://www.serebii.net/pokedex-sm/740.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/740.png"
+};
+
+var oricorio = {
+    name: "Oricorio",
+    dex: 741,
+    type: "Fire/Flying",
+    ability: "Dancer",
+    wiki: "http://www.serebii.net/pokedex-sm/741.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/741.png"
+};
+
+var cutiefly = {
+    name: "Cutiefly",
+    dex: 742,
+    type: "Bug/Fairy",
+    ability: "Honey Gather/Shield Dust/Sweet Veil",
+    wiki: "http://www.serebii.net/pokedex-sm/742.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/742.png"
+};
+
+var ribombee = {
+    name: "Ribombee",
+    dex: 743,
+    type: "Bug/Fairy",
+    ability: "Honey Gather/Shield Dust/Sweet Veil",
+    wiki: "http://www.serebii.net/pokedex-sm/743.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/743.png"
+};
+
+var rockruff = {
+    name: "Rockruff",
+    dex: 744,
+    type: "Rock",
+    ability: "Keen Eye/Vital Spirit/Steadfast",
+    wiki: "http://www.serebii.net/pokedex-sm/744.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/744.png"
+};
+
+var lycanroc = {
+    name: "Lycanroc",
+    dex: 745,
+    type: "Rock",
+    ability: "Keen Eye/Sand Rush/Steadfast",
+    wiki: "http://www.serebii.net/pokedex-sm/745.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/745.png"
+};
+
+var lycanroc_midnight = {
+    name: "Lycanroc Midnight",
+    dex: 745,
+    type: "Rock",
+    ability: "Keen Eye/Vital Spirit/No Guard",
+    wiki: "http://www.serebii.net/pokedex-sm/745.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/745-m.png"
+};
+
+
+var wishiwashi = {
+    name: "Wishiwashi",
+    dex: 746,
+    type: "Water",
+    ability: "Schooling",
+    wiki: "http://www.serebii.net/pokedex-sm/746.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/746.png"
+};
+
+var mareanie = {
+    name: "Mareanie",
+    dex: 747,
+    type: "Poison/Water",
+    ability: "Merciless/Limber/Regenerator",
+    wiki: "http://www.serebii.net/pokedex-sm/747.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/747.png"
+};
+
+var toxapex = {
+    name: "Toxapex",
+    dex: 748,
+    type: "Poison/Water",
+    ability: "Merciless/Limber/Regenerator",
+    wiki: "http://www.serebii.net/pokedex-sm/748.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/748.png"
+};
+
+var mudbray = {
+    name: "Mudbray",
+    dex: 749,
+    type: "Ground",
+    ability: "Own Tempo/Stamina/Inner Focus",
+    wiki: "http://www.serebii.net/pokedex-sm/749.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/749.png"
+};
+
+var mudsdale = {
+    name: "Mudsdale",
+    dex: 750,
+    type: "Ground",
+    ability: "Own Tempo/Stamina/Inner Focus",
+    wiki: "http://www.serebii.net/pokedex-sm/750.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/750.png"
+};
+
+var dewpider = {
+    name: "Dewpider",
+    dex: 751,
+    type: "Water/Bug",
+    ability: "Water Bubble/None/Water Absorb",
+    wiki: "http://www.serebii.net/pokedex-sm/751.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/751.png"
+};
+
+var araquanid = {
+    name: "Araquanid",
+    dex: 752,
+    type: "Water/Bug",
+    ability: "Water Bubble/None/Water Absorb",
+    wiki: "http://www.serebii.net/pokedex-sm/752.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/752.png"
+};
+
+var fomantis = {
+    name: "Fomantis",
+    dex: 753,
+    type: "Grass",
+    ability: "Leaf Guard/None/Contrary",
+    wiki: "http://www.serebii.net/pokedex-sm/753.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/753.png"
+};
+
+var lurantis = {
+    name: "Lurantis",
+    dex: 754,
+    type: "Grass",
+    ability: "Leaf Guard/None/Contrary",
+    wiki: "http://www.serebii.net/pokedex-sm/754.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/754.png"
+};
+
+var morelull = {
+    name: "Morelull",
+    dex: 755,
+    type: "Grass/Fairy",
+    ability: "Illuminate/Effect Spore/Rain Dish",
+    wiki: "http://www.serebii.net/pokedex-sm/755.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/755.png"
+};
+
+var shiinotic = {
+    name: "Shiinotic",
+    dex: 756,
+    type: "Grass/Fairy",
+    ability: "Illuminate/Effect Spore/Rain Dish",
+    wiki: "http://www.serebii.net/pokedex-sm/756.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/756.png"
+};
+
+var salandit = {
+    name: "Salandit",
+    dex: 757,
+    type: "Poison/Fire",
+    ability: "Corrosion/None/Oblivious",
+    wiki: "http://www.serebii.net/pokedex-sm/757.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/757.png"
+};
+
+var salazzle = {
+    name: "Salazzle",
+    dex: 758,
+    type: "Poison/Fire",
+    ability: "Corrosion/None/Oblivious",
+    wiki: "http://www.serebii.net/pokedex-sm/758.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/758.png"
+};
+
+var stufful = {
+    name: "Stufful",
+    dex: 759,
+    type: "Normal/Fighting",
+    ability: "Fluffy/Klutz/Cute Charm",
+    wiki: "http://www.serebii.net/pokedex-sm/759.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/759.png"
+};
+
+var bewear = {
+    name: "Bewear",
+    dex: 760,
+    type: "Normal/Fighting",
+    ability: "Fluffy/Klutz/Unnerve",
+    wiki: "http://www.serebii.net/pokedex-sm/760.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/760.png"
+};
+
+var bounsweet = {
+    name: "Bounsweet",
+    dex: 761,
+    type: "Grass",
+    ability: "Leaf Guard/Oblivious/Sweet Veil",
+    wiki: "http://www.serebii.net/pokedex-sm/761.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/761.png"
+};
+
+var steenee = {
+    name: "Steenee",
+    dex: 762,
+    type: "Grass",
+    ability: "Leaf Guard/Oblivious/Sweet Veil",
+    wiki: "http://www.serebii.net/pokedex-sm/762.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/762.png"
+};
+
+var tsareena = {
+    name: "Tsareena",
+    dex: 763,
+    type: "Grass",
+    ability: "Leaf Guard/Queenly Majesty/Sweet Veil",
+    wiki: "http://www.serebii.net/pokedex-sm/763.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/763.png"
+};
+
+var comfey = {
+    name: "Comfey",
+    dex: 764,
+    type: "Fairy",
+    ability: "Flower Veil/Triage/Natural Cure",
+    wiki: "http://www.serebii.net/pokedex-sm/764.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/764.png"
+};
+
+var oranguru = {
+    name: "Oranguru",
+    dex: 765,
+    type: "Normal/Psychic",
+    ability: "Inner Focus/Telepathy/Symbiosis",
+    wiki: "http://www.serebii.net/pokedex-sm/765.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/765.png"
+};
+
+var passimian = {
+    name: "Passimian",
+    dex: 766,
+    type: "Fighting",
+    ability: "Receiver/None/Defiant",
+    wiki: "http://www.serebii.net/pokedex-sm/766.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/766.png"
+};
+
+var wimpod = {
+    name: "Wimpod",
+    dex: 767,
+    type: "Bug/Water",
+    ability: "Wimp Out",
+    wiki: "http://www.serebii.net/pokedex-sm/767.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/767.png"
+};
+
+var golisopod = {
+    name: "Golisopod",
+    dex: 768,
+    type: "Bug/Water",
+    ability: "Emergency Exit",
+    wiki: "http://www.serebii.net/pokedex-sm/768.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/768.png"
+};
+
+var sandygast = {
+    name: "Sandygast",
+    dex: 769,
+    type: "Ghost/Ground",
+    ability: "Water Compaction/None/Sand Veil",
+    wiki: "http://www.serebii.net/pokedex-sm/769.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/769.png"
+};
+
+var palossand = {
+    name: "Palossand",
+    dex: 770,
+    type: "Ghost/Ground",
+    ability: "Water Compaction/None/Sand Veil",
+    wiki: "http://www.serebii.net/pokedex-sm/770.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/770.png"
+};
+
+var pyukumuku = {
+    name: "Pyukumuku",
+    dex: 771,
+    type: "Water",
+    ability: "Innards Out/None/Unaware",
+    wiki: "http://www.serebii.net/pokedex-sm/771.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/771.png"
+};
+
+var type_null = {
+    name: "Type: Null",
+    dex: 772,
+    type: "Normal",
+    ability: "Battle Armor",
+    wiki: "http://www.serebii.net/pokedex-sm/772.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/772.png"
+};
+
+var silvally = {
+    name: "Silvally",
+    dex: 773,
+    type: "Normal",
+    ability: "RKS System",
+    wiki: "http://www.serebii.net/pokedex-sm/773.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/773.png"
+};
+
+var minior = {
+    name: "Minior",
+    dex: 774,
+    type: "Rock/Flying",
+    ability: "Shields Down",
+    wiki: "http://www.serebii.net/pokedex-sm/774.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/774.png"
+};
+
+var komala = {
+    name: "Komala",
+    dex: 775,
+    type: "Normal",
+    ability: "Comatose",
+    wiki: "http://www.serebii.net/pokedex-sm/775.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/775.png"
+};
+
+var turtonator = {
+    name: "Turtonator",
+    dex: 776,
+    type: "Fire/Dragon",
+    ability: "Shell Armor",
+    wiki: "http://www.serebii.net/pokedex-sm/776.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/776.png"
+};
+
+var togedemaru = {
+    name: "Togedemaru",
+    dex: 777,
+    type: "Electric/Steel",
+    ability: "Iron Barbs/Lightning Rod/Sturdy",
+    wiki: "http://www.serebii.net/pokedex-sm/777.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/777.png"
+};
+
+var mimikyu = {
+    name: "Mimikyu",
+    dex: 778,
+    type: "Ghost/Fairy",
+    ability: "Disguise",
+    wiki: "http://www.serebii.net/pokedex-sm/778.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/778.png"
+};
+
+var bruxish = {
+    name: "Bruxish",
+    dex: 779,
+    type: "Water/Psychic",
+    ability: "Dazzling/Strong Jaw/Wonder Skin",
+    wiki: "http://www.serebii.net/pokedex-sm/779.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/779.png"
+};
+
+var drampa = {
+    name: "Drampa",
+    dex: 780,
+    type: "Normal/Dragon",
+    ability: "Berserk/Sap Sipper/Cloud Nine",
+    wiki: "http://www.serebii.net/pokedex-sm/780.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/780.png"
+};
+
+var dhelmise = {
+    name: "Dhelmise",
+    dex: 781,
+    type: "Ghost/Grass",
+    ability: "Steelworker",
+    wiki: "http://www.serebii.net/pokedex-sm/781.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/781.png"
+};
+
+var jangmo_o = {
+    name: "Jangmo-o",
+    dex: 782,
+    type: "Dragon",
+    ability: "Bulletproof/Soundproof/Overcoat",
+    wiki: "http://www.serebii.net/pokedex-sm/782.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/782.png"
+};
+
+var hakamo_o = {
+    name: "Hakamo-o",
+    dex: 783,
+    type: "Dragon/Fighting",
+    ability: "Bulletproof/Soundproof/Overcoat",
+    wiki: "http://www.serebii.net/pokedex-sm/783.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/783.png"
+};
+
+var kommo_o = {
+    name: "Kommo-o",
+    dex: 784,
+    type: "Dragon/Fighting",
+    ability: "Bulletproof/Soundproof/Overcoat",
+    wiki: "http://www.serebii.net/pokedex-sm/784.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/784.png"
+};
+
+var tapu_koko = {
+    name: "Tapu Koko",
+    dex: 785,
+    type: "Electric/Fairy",
+    ability: "Electric Surge/None/Telepathy",
+    wiki: "http://www.serebii.net/pokedex-sm/785.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/785.png"
+};
+
+var tapu_lele = {
+    name: "Tapu Lele",
+    dex: 786,
+    type: "Psychic/Fairy",
+    ability: "Psychic Surge/None/Telepathy",
+    wiki: "http://www.serebii.net/pokedex-sm/786.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/786.png"
+};
+
+var tapu_bulu = {
+    name: "Tapu Bulu",
+    dex: 787,
+    type: "Grass/Fairy",
+    ability: "Grassy Surge/None/Telepathy",
+    wiki: "http://www.serebii.net/pokedex-sm/787.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/787.png"
+};
+
+var tapu_fini = {
+    name: "Tapu Fini",
+    dex: 788,
+    type: "Water/Fairy",
+    ability: "Misty Surge/None/Telepathy",
+    wiki: "http://www.serebii.net/pokedex-sm/788.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/788.png"
+};
+
+var cosmog = {
+    name: "Cosmog",
+    dex: 789,
+    type: "Psychic",
+    ability: "Unaware",
+    wiki: "http://www.serebii.net/pokedex-sm/789.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/789.png"
+};
+
+var cosmoem = {
+    name: "Cosmoem",
+    dex: 790,
+    type: "Psychic",
+    ability: "Sturdy",
+    wiki: "http://www.serebii.net/pokedex-sm/790.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/790.png"
+};
+
+var solgaleo = {
+    name: "Solgaleo",
+    dex: 791,
+    type: "Psychic/Steel",
+    ability: "Full Metal Body",
+    wiki: "http://www.serebii.net/pokedex-sm/791.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/791.png"
+};
+
+var lunala = {
+    name: "Lunala",
+    dex: 792,
+    type: "Psychic/Ghost",
+    ability: "Shadow Shield",
+    wiki: "http://www.serebii.net/pokedex-sm/792.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/792.png"
+};
+
+var nihilego = {
+    name: "Nihilego",
+    dex: 793,
+    type: "Rock/Poison",
+    ability: "Beast Boost",
+    wiki: "http://www.serebii.net/pokedex-sm/793.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/793.png"
+};
+
+var buzzwole = {
+    name: "Buzzwole",
+    dex: 794,
+    type: "Bug/Fighting",
+    ability: "Beast Boost",
+    wiki: "http://www.serebii.net/pokedex-sm/794.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/794.png"
+};
+
+var pheromosa = {
+    name: "Pheromosa",
+    dex: 795,
+    type: "Bug/Fighting",
+    ability: "Beast Boost",
+    wiki: "http://www.serebii.net/pokedex-sm/795.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/795.png"
+};
+
+var xurkitree = {
+    name: "Xurkitree",
+    dex: 796,
+    type: "Electric",
+    ability: "Beast Boost",
+    wiki: "http://www.serebii.net/pokedex-sm/796.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/796.png"
+};
+
+var celesteela = {
+    name: "Celesteela",
+    dex: 797,
+    type: "Steel/Flying",
+    ability: "Beast Boost",
+    wiki: "http://www.serebii.net/pokedex-sm/797.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/797.png"
+};
+
+var kartana = {
+    name: "Kartana",
+    dex: 798,
+    type: "Grass/Steel",
+    ability: "Beast Boost",
+    wiki: "http://www.serebii.net/pokedex-sm/798.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/798.png"
+};
+
+var guzzlord = {
+    name: "Guzzlord",
+    dex: 799,
+    type: "Dark/Dragon",
+    ability: "Beast Boost",
+    wiki: "http://www.serebii.net/pokedex-sm/799.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/799.png"
+};
+
+var necrozma = {
+    name: "Necrozma",
+    dex: 800,
+    type: "Psychic",
+    ability: "Prism Armor",
+    wiki: "http://www.serebii.net/pokedex-sm/800.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/800.png"
+};
+
+var magearna = {
+    name: "Magearna",
+    dex: 801,
+    type: "Steel/Fairy",
+    ability: "Soul-Heart",
+    wiki: "http://www.serebii.net/pokedex-sm/801.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/801.png"
+};
+
+var marshadow = {
+    name: "Marshadow",
+    dex: 802,
+    type: "Fighting/Ghost",
+    ability: "Technician",
+    wiki: "http://www.serebii.net/pokedex-sm/802.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/802.png"
 };
 
 var mega_venusaur = {
@@ -7097,8 +8322,8 @@ var mega_venusaur = {
     dex: 3,
     type: "Grass/Poison",
     ability: "Thick Fat",
-    wiki: "http://www.serebii.net/pokedex-xy/003.shtml",
-    image: "http://www.serebii.net/xy/pokemon/003-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/003.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/003-m.png"
 };
 
 var mega_charizard_x = {
@@ -7106,8 +8331,8 @@ var mega_charizard_x = {
     dex: 6,
     type: "Fire/Dragon",
     ability: "Tough Claws",
-    wiki: "http://www.serebii.net/pokedex-xy/006.shtml",
-    image: "http://www.serebii.net/xy/pokemon/006-mx.png"
+    wiki: "http://www.serebii.net/pokedex-sm/006.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/006-mx.png"
 };
 
 var mega_charizard_y = {
@@ -7115,8 +8340,8 @@ var mega_charizard_y = {
     dex: 6,
     type: "Fire/Flying",
     ability: "Drought",
-    wiki: "http://www.serebii.net/pokedex-xy/006.shtml",
-    image: "http://www.serebii.net/xy/pokemon/006-my.png"
+    wiki: "http://www.serebii.net/pokedex-sm/006.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/006-my.png"
 };
 
 var mega_blastoise = {
@@ -7124,8 +8349,8 @@ var mega_blastoise = {
     dex: 9,
     type: "Water",
     ability: "Mega Launcher",
-    wiki: "http://www.serebii.net/pokedex-xy/009.shtml",
-    image: "http://www.serebii.net/xy/pokemon/009-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/009.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/009-m.png"
 };
 
 var mega_beedrill = {
@@ -7133,8 +8358,8 @@ var mega_beedrill = {
     dex: 15,
     type: "Bug/Poison",
     ability: "Adaptability",
-    wiki: "http://www.serebii.net/pokedex-xy/015.shtml",
-    image: "http://www.serebii.net/xy/pokemon/015-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/015.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/015-m.png"
 };
 
 var mega_pidgeot = {
@@ -7142,8 +8367,8 @@ var mega_pidgeot = {
     dex: 18,
     type: "Normal/Flying",
     ability: "No Guard",
-    wiki: "http://www.serebii.net/pokedex-xy/018.shtml",
-    image: "http://www.serebii.net/xy/pokemon/018-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/018.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/018-m.png"
 };
 
 var mega_alakazam = {
@@ -7151,8 +8376,8 @@ var mega_alakazam = {
     dex: 65,
     type: "Psychic",
     ability: "Trace",
-    wiki: "http://www.serebii.net/pokedex-xy/065.shtml",
-    image: "http://www.serebii.net/xy/pokemon/065-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/065.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/065-m.png"
 };
 
 var mega_slowbro = {
@@ -7160,8 +8385,8 @@ var mega_slowbro = {
     dex: 80,
     type: "Water/Psychic",
     ability: "Shell Armor",
-    wiki: "http://www.serebii.net/pokedex-xy/080.shtml",
-    image: "http://www.serebii.net/xy/pokemon/080-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/080.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/080-m.png"
 };
 
 var mega_gengar = {
@@ -7169,8 +8394,8 @@ var mega_gengar = {
     dex: 94,
     type: "Ghost/Poison",
     ability: "Shadow Tag",
-    wiki: "http://www.serebii.net/pokedex-xy/094.shtml",
-    image: "http://www.serebii.net/xy/pokemon/094-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/094.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/094-m.png"
 };
 
 var mega_kangaskhan = {
@@ -7178,8 +8403,8 @@ var mega_kangaskhan = {
     dex: 115,
     type: "Normal",
     ability: "Parental Bond",
-    wiki: "http://www.serebii.net/pokedex-xy/115.shtml",
-    image: "http://www.serebii.net/xy/pokemon/115-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/115.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/115-m.png"
 };
 
 var mega_pinsir = {
@@ -7187,8 +8412,8 @@ var mega_pinsir = {
     dex: 127,
     type: "Bug/Flying",
     ability: "Aerilate",
-    wiki: "http://www.serebii.net/pokedex-xy/127.shtml",
-    image: "http://www.serebii.net/xy/pokemon/127-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/127.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/127-m.png"
 };
 
 var mega_gyarados = {
@@ -7196,8 +8421,8 @@ var mega_gyarados = {
     dex: 130,
     type: "Water/Dark",
     ability: "Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/130.shtml",
-    image: "http://www.serebii.net/xy/pokemon/130-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/130.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/130-m.png"
 };
 
 var mega_aerodactyl = {
@@ -7205,8 +8430,8 @@ var mega_aerodactyl = {
     dex: 142,
     type: "Rock/Flying",
     ability: "Tough Claws",
-    wiki: "http://www.serebii.net/pokedex-xy/142.shtml",
-    image: "http://www.serebii.net/xy/pokemon/142-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/142.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/142-m.png"
 };
 
 var mega_mewtwo_x = {
@@ -7214,8 +8439,8 @@ var mega_mewtwo_x = {
     dex: 150,
     type: "Psychic/Fighting",
     ability: "Steadfast",
-    wiki: "http://www.serebii.net/pokedex-xy/150.shtml",
-    image: "http://www.serebii.net/xy/pokemon/150-mx.png"
+    wiki: "http://www.serebii.net/pokedex-sm/150.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/150-mx.png"
 };
 
 var mega_mewtwo_y = {
@@ -7223,8 +8448,8 @@ var mega_mewtwo_y = {
     dex: 150,
     type: "Psychic",
     ability: "Insomnia",
-    wiki: "http://www.serebii.net/pokedex-xy/150.shtml",
-    image: "http://www.serebii.net/xy/pokemon/150-my.png"
+    wiki: "http://www.serebii.net/pokedex-sm/150.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/150-my.png"
 };
 
 var mega_ampharos = {
@@ -7232,8 +8457,8 @@ var mega_ampharos = {
     dex: 181,
     type: "Electric/Dragon",
     ability: "Mold Breaker",
-    wiki: "http://www.serebii.net/pokedex-xy/181.shtml",
-    image: "http://www.serebii.net/xy/pokemon/181-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/181.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/181-m.png"
 };
 
 var mega_steelix = {
@@ -7241,8 +8466,8 @@ var mega_steelix = {
     dex: 208,
     type: "Steel/Ground",
     ability: "Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/208.shtml",
-    image: "http://www.serebii.net/xy/pokemon/208-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/208.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/208-m.png"
 };
 
 var mega_scizor = {
@@ -7250,8 +8475,8 @@ var mega_scizor = {
     dex: 212,
     type: "Bug/Steel",
     ability: "Technician",
-    wiki: "http://www.serebii.net/pokedex-xy/212.shtml",
-    image: "http://www.serebii.net/xy/pokemon/212-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/212.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/212-m.png"
 };
 
 var mega_heracross = {
@@ -7259,8 +8484,8 @@ var mega_heracross = {
     dex: 214,
     type: "Bug/Fighting",
     ability: "Skill Link",
-    wiki: "http://www.serebii.net/pokedex-xy/214.shtml",
-    image: "http://www.serebii.net/xy/pokemon/214-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/214.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/214-m.png"
 };
 
 var mega_houndoom = {
@@ -7268,8 +8493,8 @@ var mega_houndoom = {
     dex: 229,
     type: "Dark/Fire",
     ability: "Solar Power",
-    wiki: "http://www.serebii.net/pokedex-xy/229.shtml",
-    image: "http://www.serebii.net/xy/pokemon/229-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/229.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/229-m.png"
 };
 
 var mega_tyranitar = {
@@ -7277,8 +8502,8 @@ var mega_tyranitar = {
     dex: 248,
     type: "Rock/Dark",
     ability: "Sand Stream",
-    wiki: "http://www.serebii.net/pokedex-xy/248.shtml",
-    image: "http://www.serebii.net/xy/pokemon/248-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/248.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/248-m.png"
 };
 
 var mega_sceptile = {
@@ -7286,8 +8511,8 @@ var mega_sceptile = {
     dex: 254,
     type: "Grass/Dragon",
     ability: "Lightning Rod",
-    wiki: "http://www.serebii.net/pokedex-xy/254.shtml",
-    image: "http://www.serebii.net/xy/pokemon/254-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/254.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/254-m.png"
 };
 
 var mega_blaziken = {
@@ -7295,8 +8520,8 @@ var mega_blaziken = {
     dex: 257,
     type: "Fire/Fighting",
     ability: "Speed Boost",
-    wiki: "http://www.serebii.net/pokedex-xy/257.shtml",
-    image: "http://www.serebii.net/xy/pokemon/257-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/257.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/257-m.png"
 };
 
 var mega_swampert = {
@@ -7304,8 +8529,8 @@ var mega_swampert = {
     dex: 260,
     type: "Water/Ground",
     ability: "Swift Swim",
-    wiki: "http://www.serebii.net/pokedex-xy/260.shtml",
-    image: "http://www.serebii.net/xy/pokemon/260-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/260.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/260-m.png"
 };
 
 var mega_gardevoir = {
@@ -7313,8 +8538,8 @@ var mega_gardevoir = {
     dex: 282,
     type: "Psychic/Fairy",
     ability: "Pixilate",
-    wiki: "http://www.serebii.net/pokedex-xy/282.shtml",
-    image: "http://www.serebii.net/xy/pokemon/282-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/282.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/282-m.png"
 };
 
 var mega_sableye = {
@@ -7322,8 +8547,8 @@ var mega_sableye = {
     dex: 302,
     type: "Dark/Ghost",
     ability: "Magic Bounce",
-    wiki: "http://www.serebii.net/pokedex-xy/302.shtml",
-    image: "http://www.serebii.net/xy/pokemon/302-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/302.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/302-m.png"
 };
 
 var mega_mawile = {
@@ -7331,8 +8556,8 @@ var mega_mawile = {
     dex: 303,
     type: "Steel/Fairy",
     ability: "Huge Power",
-    wiki: "http://www.serebii.net/pokedex-xy/303.shtml",
-    image: "http://www.serebii.net/xy/pokemon/303-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/303.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/303-m.png"
 };
 
 var mega_aggron = {
@@ -7340,8 +8565,8 @@ var mega_aggron = {
     dex: 306,
     type: "Steel",
     ability: "Filter",
-    wiki: "http://www.serebii.net/pokedex-xy/306.shtml",
-    image: "http://www.serebii.net/xy/pokemon/306-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/306.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/306-m.png"
 };
 
 var mega_medicham = {
@@ -7349,8 +8574,8 @@ var mega_medicham = {
     dex: 308,
     type: "Fighting/Psychic",
     ability: "Pure Power",
-    wiki: "http://www.serebii.net/pokedex-xy/308.shtml",
-    image: "http://www.serebii.net/xy/pokemon/308-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/308.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/308-m.png"
 };
 
 var mega_manectric = {
@@ -7358,8 +8583,8 @@ var mega_manectric = {
     dex: 310,
     type: "Electric",
     ability: "Intimidate",
-    wiki: "http://www.serebii.net/pokedex-xy/310.shtml",
-    image: "http://www.serebii.net/xy/pokemon/310-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/310.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/310-m.png"
 };
 
 var mega_sharpedo = {
@@ -7367,8 +8592,8 @@ var mega_sharpedo = {
     dex: 319,
     type: "Water/Dark",
     ability: "Strong Jaw",
-    wiki: "http://www.serebii.net/pokedex-xy/319.shtml",
-    image: "http://www.serebii.net/xy/pokemon/319-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/319.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/319-m.png"
 };
 
 var mega_camerupt = {
@@ -7376,8 +8601,8 @@ var mega_camerupt = {
     dex: 323,
     type: "Fire/Ground",
     ability: "Sheer Force",
-    wiki: "http://www.serebii.net/pokedex-xy/323.shtml",
-    image: "http://www.serebii.net/xy/pokemon/323-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/323.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/323-m.png"
 };
 
 var mega_altaria = {
@@ -7385,8 +8610,8 @@ var mega_altaria = {
     dex: 334,
     type: "Dragon/Fairy",
     ability: "Pixilate",
-    wiki: "http://www.serebii.net/pokedex-xy/334.shtml",
-    image: "http://www.serebii.net/xy/pokemon/334-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/334.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/334-m.png"
 };
 
 var mega_banette = {
@@ -7394,8 +8619,8 @@ var mega_banette = {
     dex: 354,
     type: "Ghost",
     ability: "Prankster",
-    wiki: "http://www.serebii.net/pokedex-xy/354.shtml",
-    image: "http://www.serebii.net/xy/pokemon/354-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/354.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/354-m.png"
 };
 
 var mega_absol = {
@@ -7403,8 +8628,8 @@ var mega_absol = {
     dex: 359,
     type: "Dark",
     ability: "Magic Bounce",
-    wiki: "http://www.serebii.net/pokedex-xy/359.shtml",
-    image: "http://www.serebii.net/xy/pokemon/359-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/359.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/359-m.png"
 };
 
 var mega_glalie = {
@@ -7412,8 +8637,8 @@ var mega_glalie = {
     dex: 362,
     type: "Ice",
     ability: "Refrigerate",
-    wiki: "http://www.serebii.net/pokedex-xy/362.shtml",
-    image: "http://www.serebii.net/xy/pokemon/362-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/362.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/362-m.png"
 };
 
 var mega_salamence = {
@@ -7421,8 +8646,8 @@ var mega_salamence = {
     dex: 373,
     type: "Dragon/Flying",
     ability: "Aerilate",
-    wiki: "http://www.serebii.net/pokedex-xy/373.shtml",
-    image: "http://www.serebii.net/xy/pokemon/373-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/373.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/373-m.png"
 };
 
 var mega_metagross = {
@@ -7430,8 +8655,8 @@ var mega_metagross = {
     dex: 376,
     type: "Steel/Psychic",
     ability: "Tough Claws",
-    wiki: "http://www.serebii.net/pokedex-xy/376.shtml",
-    image: "http://www.serebii.net/xy/pokemon/376-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/376.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/376-m.png"
 };
 
 var mega_latias = {
@@ -7439,8 +8664,8 @@ var mega_latias = {
     dex: 380,
     type: "Dragon/Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/380.shtml",
-    image: "http://www.serebii.net/xy/pokemon/380-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/380.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/380-m.png"
 };
 
 var mega_latios = {
@@ -7448,8 +8673,8 @@ var mega_latios = {
     dex: 381,
     type: "Dragon/Psychic",
     ability: "Levitate",
-    wiki: "http://www.serebii.net/pokedex-xy/381.shtml",
-    image: "http://www.serebii.net/xy/pokemon/381-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/381.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/381-m.png"
 };
 
 var mega_rayquaza = {
@@ -7457,8 +8682,8 @@ var mega_rayquaza = {
     dex: 384,
     type: "Dragon/Flying",
     ability: "Delta Stream",
-    wiki: "http://www.serebii.net/pokedex-xy/384.shtml",
-    image: "http://www.serebii.net/xy/pokemon/384-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/384.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/384-m.png"
 };
 
 var mega_lopunny = {
@@ -7466,8 +8691,8 @@ var mega_lopunny = {
     dex: 428,
     type: "Normal/Fighting",
     ability: "Scrappy",
-    wiki: "http://www.serebii.net/pokedex-xy/428.shtml",
-    image: "http://www.serebii.net/xy/pokemon/428-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/428.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/428-m.png"
 };
 
 var mega_garchomp = {
@@ -7475,8 +8700,8 @@ var mega_garchomp = {
     dex: 445,
     type: "Dragon/Ground",
     ability: "Sand Force",
-    wiki: "http://www.serebii.net/pokedex-xy/445.shtml",
-    image: "http://www.serebii.net/xy/pokemon/445-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/445.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/445-m.png"
 };
 
 var mega_lucario = {
@@ -7484,8 +8709,8 @@ var mega_lucario = {
     dex: 448,
     type: "Fighting/Steel",
     ability: "Adaptability",
-    wiki: "http://www.serebii.net/pokedex-xy/448.shtml",
-    image: "http://www.serebii.net/xy/pokemon/448-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/448.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/448-m.png"
 };
 
 var mega_abomasnow = {
@@ -7493,8 +8718,8 @@ var mega_abomasnow = {
     dex: 460,
     type: "Grass/Ice",
     ability: "Snow Warning",
-    wiki: "http://www.serebii.net/pokedex-xy/460.shtml",
-    image: "http://www.serebii.net/xy/pokemon/460-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/460.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/460-m.png"
 };
 
 var mega_gallade = {
@@ -7502,8 +8727,8 @@ var mega_gallade = {
     dex: 475,
     type: "Psychic/Fighting",
     ability: "Inner Focus",
-    wiki: "http://www.serebii.net/pokedex-xy/475.shtml",
-    image: "http://www.serebii.net/xy/pokemon/475-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/475.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/475-m.png"
 };
 
 var mega_audino = {
@@ -7511,8 +8736,8 @@ var mega_audino = {
     dex: 531,
     type: "Normal/Fairy",
     ability: "Healer",
-    wiki: "http://www.serebii.net/pokedex-xy/531.shtml",
-    image: "http://www.serebii.net/xy/pokemon/531-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/531.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/531-m.png"
 };
 
 var mega_diancie = {
@@ -7520,8 +8745,8 @@ var mega_diancie = {
     dex: 719,
     type: "Rock/Fairy",
     ability: "Magic Bounce",
-    wiki: "http://www.serebii.net/pokedex-xy/719.shtml",
-    image: "http://www.serebii.net/xy/pokemon/719-m.png"
+    wiki: "http://www.serebii.net/pokedex-sm/719.shtml",
+    image: "http://www.serebii.net/sunmoon/pokemon/719-m.png"
 };
 
 var pound = {
@@ -7532,7 +8757,7 @@ var pound = {
     pp: 35,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/pound.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/pound.shtml"
 };
 
 var karate_chop = {
@@ -7543,7 +8768,7 @@ var karate_chop = {
     pp: 25,
     acc: 100,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/karatechop.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/karatechop.shtml"
 };
 
 var double_slap = {
@@ -7554,7 +8779,7 @@ var double_slap = {
     pp: 10,
     acc: 85,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/doubleslap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/doubleslap.shtml"
 };
 
 var comet_punch = {
@@ -7565,7 +8790,7 @@ var comet_punch = {
     pp: 15,
     acc: 85,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/cometpunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/cometpunch.shtml"
 };
 
 var mega_punch = {
@@ -7576,7 +8801,7 @@ var mega_punch = {
     pp: 20,
     acc: 85,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/megapunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/megapunch.shtml"
 };
 
 var pay_day = {
@@ -7587,7 +8812,7 @@ var pay_day = {
     pp: 20,
     acc: 100,
     effect: "A small amount of money is gained after the battle resolves.",
-    wiki: "http://www.serebii.net/attackdex-xy/payday.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/payday.shtml"
 };
 
 var fire_punch = {
@@ -7598,7 +8823,7 @@ var fire_punch = {
     pp: 15,
     acc: 100,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/firepunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/firepunch.shtml"
 };
 
 var ice_punch = {
@@ -7609,7 +8834,7 @@ var ice_punch = {
     pp: 15,
     acc: 100,
     effect: "May freeze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/icepunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/icepunch.shtml"
 };
 
 var thunder_punch = {
@@ -7620,7 +8845,7 @@ var thunder_punch = {
     pp: 15,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/thunderpunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thunderpunch.shtml"
 };
 
 var scratch = {
@@ -7631,7 +8856,7 @@ var scratch = {
     pp: 35,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/scratch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/scratch.shtml"
 };
 
 var vice_grip = {
@@ -7642,7 +8867,7 @@ var vice_grip = {
     pp: 30,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/vicegrip.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/vicegrip.shtml"
 };
 
 var guillotine = {
@@ -7653,7 +8878,7 @@ var guillotine = {
     pp: 5,
     acc: -1,
     effect: "One-Hit-KO, if it hits.",
-    wiki: "http://www.serebii.net/attackdex-xy/guillotine.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/guillotine.shtml"
 };
 
 var razor_wind = {
@@ -7664,7 +8889,7 @@ var razor_wind = {
     pp: 10,
     acc: 100,
     effect: "Charges on first turn, attacks on second. High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/razorwind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/razorwind.shtml"
 };
 
 var swords_dance = {
@@ -7675,7 +8900,7 @@ var swords_dance = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/swordsdance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/swordsdance.shtml"
 };
 
 var cut = {
@@ -7686,7 +8911,7 @@ var cut = {
     pp: 30,
     acc: 95,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/cut.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/cut.shtml"
 };
 
 var gust = {
@@ -7697,7 +8922,7 @@ var gust = {
     pp: 35,
     acc: 100,
     effect: "Hits Pokémon using Fly/Bounce with double power.",
-    wiki: "http://www.serebii.net/attackdex-xy/gust.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gust.shtml"
 };
 
 var wing_attack = {
@@ -7708,7 +8933,7 @@ var wing_attack = {
     pp: 35,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/wingattack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/wingattack.shtml"
 };
 
 var whirlwind = {
@@ -7719,7 +8944,7 @@ var whirlwind = {
     pp: 20,
     acc: -1,
     effect: "In battles, the opponent switches. In the wild, the Pokémon runs.",
-    wiki: "http://www.serebii.net/attackdex-xy/whirlwind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/whirlwind.shtml"
 };
 
 var fly = {
@@ -7730,7 +8955,7 @@ var fly = {
     pp: 15,
     acc: 95,
     effect: "Flies up on first turn, attacks on second turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/fly.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fly.shtml"
 };
 
 var bind = {
@@ -7741,7 +8966,7 @@ var bind = {
     pp: 20,
     acc: 85,
     effect: "Traps opponent, damaging them for 4-5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/bind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bind.shtml"
 };
 
 var slam = {
@@ -7752,7 +8977,7 @@ var slam = {
     pp: 20,
     acc: 75,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/slam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/slam.shtml"
 };
 
 var vine_whip = {
@@ -7763,7 +8988,7 @@ var vine_whip = {
     pp: 25,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/vinewhip.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/vinewhip.shtml"
 };
 
 var stomp = {
@@ -7774,7 +8999,7 @@ var stomp = {
     pp: 20,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/stomp.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stomp.shtml"
 };
 
 var double_kick = {
@@ -7785,7 +9010,7 @@ var double_kick = {
     pp: 30,
     acc: 100,
     effect: "Hits twice in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/doublekick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/doublekick.shtml"
 };
 
 var mega_kick = {
@@ -7796,7 +9021,7 @@ var mega_kick = {
     pp: 5,
     acc: 75,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/megakick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/megakick.shtml"
 };
 
 var jump_kick = {
@@ -7807,7 +9032,7 @@ var jump_kick = {
     pp: 10,
     acc: 95,
     effect: "If it misses, the user loses half their HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/jumpkick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/jumpkick.shtml"
 };
 
 var rolling_kick = {
@@ -7818,7 +9043,7 @@ var rolling_kick = {
     pp: 15,
     acc: 85,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/rollingkick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rollingkick.shtml"
 };
 
 var sand_attack = {
@@ -7829,7 +9054,7 @@ var sand_attack = {
     pp: 15,
     acc: 100,
     effect: "Lowers opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/sandattack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sandattack.shtml"
 };
 
 var headbutt = {
@@ -7840,7 +9065,7 @@ var headbutt = {
     pp: 15,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/headbutt.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/headbutt.shtml"
 };
 
 var horn_attack = {
@@ -7851,7 +9076,7 @@ var horn_attack = {
     pp: 25,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/hornattack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hornattack.shtml"
 };
 
 var fury_attack = {
@@ -7862,7 +9087,7 @@ var fury_attack = {
     pp: 20,
     acc: 85,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/furyattack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/furyattack.shtml"
 };
 
 var horn_drill = {
@@ -7873,7 +9098,7 @@ var horn_drill = {
     pp: 5,
     acc: -1,
     effect: "One-Hit-KO, if it hits.",
-    wiki: "http://www.serebii.net/attackdex-xy/horndrill.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/horndrill.shtml"
 };
 
 var tackle = {
@@ -7884,7 +9109,7 @@ var tackle = {
     pp: 35,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/tackle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tackle.shtml"
 };
 
 var body_slam = {
@@ -7895,7 +9120,7 @@ var body_slam = {
     pp: 15,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/bodyslam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bodyslam.shtml"
 };
 
 var wrap = {
@@ -7906,7 +9131,7 @@ var wrap = {
     pp: 20,
     acc: 90,
     effect: "Traps opponent, damaging them for 4-5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/wrap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/wrap.shtml"
 };
 
 var take_down = {
@@ -7917,7 +9142,7 @@ var take_down = {
     pp: 20,
     acc: 85,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/takedown.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/takedown.shtml"
 };
 
 var thrash = {
@@ -7928,7 +9153,7 @@ var thrash = {
     pp: 10,
     acc: 100,
     effect: "User attacks for 2-3 turns but then becomes confused.",
-    wiki: "http://www.serebii.net/attackdex-xy/thrash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thrash.shtml"
 };
 
 var double_edge = {
@@ -7939,7 +9164,7 @@ var double_edge = {
     pp: 15,
     acc: 100,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/double_edge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/double_edge.shtml"
 };
 
 var tail_whip = {
@@ -7950,7 +9175,7 @@ var tail_whip = {
     pp: 30,
     acc: 100,
     effect: "Lowers opponent's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/tailwhip.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tailwhip.shtml"
 };
 
 var poison_sting = {
@@ -7961,7 +9186,7 @@ var poison_sting = {
     pp: 35,
     acc: 100,
     effect: "May poison the opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/poisonsting.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/poisonsting.shtml"
 };
 
 var twineedle = {
@@ -7972,7 +9197,7 @@ var twineedle = {
     pp: 20,
     acc: 100,
     effect: "Hits twice in one turn. May poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/twineedle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/twineedle.shtml"
 };
 
 var pin_missile = {
@@ -7983,7 +9208,7 @@ var pin_missile = {
     pp: 20,
     acc: 95,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/pinmissile.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/pinmissile.shtml"
 };
 
 var leer = {
@@ -7994,7 +9219,7 @@ var leer = {
     pp: 30,
     acc: 100,
     effect: "Lowers opponent's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/leer.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/leer.shtml"
 };
 
 var bite = {
@@ -8005,7 +9230,7 @@ var bite = {
     pp: 25,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/bite.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bite.shtml"
 };
 
 var growl = {
@@ -8016,7 +9241,7 @@ var growl = {
     pp: 40,
     acc: 100,
     effect: "Lowers opponent's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/growl.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/growl.shtml"
 };
 
 var roar = {
@@ -8027,7 +9252,7 @@ var roar = {
     pp: 20,
     acc: -1,
     effect: "In battles, the opponent switches. In the wild, the Pokémon runs.",
-    wiki: "http://www.serebii.net/attackdex-xy/roar.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/roar.shtml"
 };
 
 var sing = {
@@ -8038,7 +9263,7 @@ var sing = {
     pp: 15,
     acc: 55,
     effect: "Puts opponent to sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/sing.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sing.shtml"
 };
 
 var supersonic = {
@@ -8049,7 +9274,7 @@ var supersonic = {
     pp: 20,
     acc: 55,
     effect: "Confuses opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/supersonic.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/supersonic.shtml"
 };
 
 var sonic_boom = {
@@ -8060,7 +9285,7 @@ var sonic_boom = {
     pp: 20,
     acc: 90,
     effect: "Always inflicts 20 HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/sonicboom.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sonicboom.shtml"
 };
 
 var disable = {
@@ -8071,7 +9296,7 @@ var disable = {
     pp: 20,
     acc: 100,
     effect: "Opponent can't use its last attack for a few turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/disable.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/disable.shtml"
 };
 
 var acid = {
@@ -8082,7 +9307,7 @@ var acid = {
     pp: 30,
     acc: 100,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/acid.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/acid.shtml"
 };
 
 var ember = {
@@ -8093,7 +9318,7 @@ var ember = {
     pp: 25,
     acc: 100,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/ember.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/ember.shtml"
 };
 
 var flamethrower = {
@@ -8104,7 +9329,7 @@ var flamethrower = {
     pp: 15,
     acc: 100,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/flamethrower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flamethrower.shtml"
 };
 
 var mist = {
@@ -8115,7 +9340,7 @@ var mist = {
     pp: 30,
     acc: -1,
     effect: "User's stats cannot be changed for a period of time.",
-    wiki: "http://www.serebii.net/attackdex-xy/mist.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mist.shtml"
 };
 
 var water_gun = {
@@ -8126,7 +9351,7 @@ var water_gun = {
     pp: 25,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/watergun.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/watergun.shtml"
 };
 
 var hydro_pump = {
@@ -8137,7 +9362,7 @@ var hydro_pump = {
     pp: 5,
     acc: 80,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/hydropump.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hydropump.shtml"
 };
 
 var surf = {
@@ -8148,7 +9373,7 @@ var surf = {
     pp: 15,
     acc: 100,
     effect: "Hits all adjacent Pokémon.",
-    wiki: "http://www.serebii.net/attackdex-xy/surf.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/surf.shtml"
 };
 
 var ice_beam = {
@@ -8159,7 +9384,7 @@ var ice_beam = {
     pp: 10,
     acc: 100,
     effect: "May freeze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/icebeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/icebeam.shtml"
 };
 
 var blizzard = {
@@ -8170,7 +9395,7 @@ var blizzard = {
     pp: 5,
     acc: 70,
     effect: "May freeze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/blizzard.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/blizzard.shtml"
 };
 
 var psybeam = {
@@ -8181,7 +9406,7 @@ var psybeam = {
     pp: 20,
     acc: 100,
     effect: "May confuse opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/psybeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psybeam.shtml"
 };
 
 var bubble_beam = {
@@ -8192,7 +9417,7 @@ var bubble_beam = {
     pp: 20,
     acc: 100,
     effect: "May lower opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/bubblebeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bubblebeam.shtml"
 };
 
 var aurora_beam = {
@@ -8203,7 +9428,7 @@ var aurora_beam = {
     pp: 20,
     acc: 100,
     effect: "May lower opponent's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/aurorabeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aurorabeam.shtml"
 };
 
 var hyper_beam = {
@@ -8214,7 +9439,7 @@ var hyper_beam = {
     pp: 5,
     acc: 90,
     effect: "User must recharge next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/hyperbeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hyperbeam.shtml"
 };
 
 var peck = {
@@ -8225,7 +9450,7 @@ var peck = {
     pp: 35,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/peck.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/peck.shtml"
 };
 
 var drill_peck = {
@@ -8236,7 +9461,7 @@ var drill_peck = {
     pp: 20,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/drillpeck.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/drillpeck.shtml"
 };
 
 var submission = {
@@ -8247,7 +9472,7 @@ var submission = {
     pp: 25,
     acc: 80,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/submission.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/submission.shtml"
 };
 
 var low_kick = {
@@ -8258,7 +9483,7 @@ var low_kick = {
     pp: 20,
     acc: 100,
     effect: "The heavier the opponent, the stronger the attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/lowkick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lowkick.shtml"
 };
 
 var counter = {
@@ -8269,7 +9494,7 @@ var counter = {
     pp: 20,
     acc: 100,
     effect: "When hit by a Physical Attack, user strikes back with 2x power.",
-    wiki: "http://www.serebii.net/attackdex-xy/counter.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/counter.shtml"
 };
 
 var seismic_toss = {
@@ -8280,7 +9505,7 @@ var seismic_toss = {
     pp: 20,
     acc: 100,
     effect: "Inflicts damage equal to user's level.",
-    wiki: "http://www.serebii.net/attackdex-xy/seismictoss.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/seismictoss.shtml"
 };
 
 var strength = {
@@ -8291,7 +9516,7 @@ var strength = {
     pp: 15,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/strength.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/strength.shtml"
 };
 
 var absorb = {
@@ -8302,7 +9527,7 @@ var absorb = {
     pp: 25,
     acc: 100,
     effect: "User recovers half the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/absorb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/absorb.shtml"
 };
 
 var mega_drain = {
@@ -8313,7 +9538,7 @@ var mega_drain = {
     pp: 15,
     acc: 100,
     effect: "User recovers half the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/megadrain.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/megadrain.shtml"
 };
 
 var leech_seed = {
@@ -8324,7 +9549,7 @@ var leech_seed = {
     pp: 10,
     acc: 90,
     effect: "User steals HP from opponent each turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/leechseed.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/leechseed.shtml"
 };
 
 var growth = {
@@ -8335,7 +9560,7 @@ var growth = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Attack and Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/growth.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/growth.shtml"
 };
 
 var razor_leaf = {
@@ -8346,7 +9571,7 @@ var razor_leaf = {
     pp: 25,
     acc: 95,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/razorleaf.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/razorleaf.shtml"
 };
 
 var solar_beam = {
@@ -8357,7 +9582,7 @@ var solar_beam = {
     pp: 10,
     acc: 100,
     effect: "Charges on first turn, attacks on second.",
-    wiki: "http://www.serebii.net/attackdex-xy/solarbeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/solarbeam.shtml"
 };
 
 var poison_powder = {
@@ -8368,7 +9593,7 @@ var poison_powder = {
     pp: 35,
     acc: 75,
     effect: "Poisons opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/poisonpowder.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/poisonpowder.shtml"
 };
 
 var stun_spore = {
@@ -8379,7 +9604,7 @@ var stun_spore = {
     pp: 30,
     acc: 75,
     effect: "Paralyzes opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/stunspore.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stunspore.shtml"
 };
 
 var sleep_powder = {
@@ -8390,7 +9615,7 @@ var sleep_powder = {
     pp: 15,
     acc: 75,
     effect: "Puts opponent to sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/sleeppowder.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sleeppowder.shtml"
 };
 
 var petal_dance = {
@@ -8401,7 +9626,7 @@ var petal_dance = {
     pp: 10,
     acc: 100,
     effect: "User attacks for 2-3 turns but then becomes confused.",
-    wiki: "http://www.serebii.net/attackdex-xy/petaldance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/petaldance.shtml"
 };
 
 var string_shot = {
@@ -8412,7 +9637,7 @@ var string_shot = {
     pp: 40,
     acc: 95,
     effect: "Sharply lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/stringshot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stringshot.shtml"
 };
 
 var dragon_rage = {
@@ -8423,7 +9648,7 @@ var dragon_rage = {
     pp: 10,
     acc: 100,
     effect: "Always inflicts 40 HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/dragonrage.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragonrage.shtml"
 };
 
 var fire_spin = {
@@ -8434,7 +9659,7 @@ var fire_spin = {
     pp: 15,
     acc: 85,
     effect: "Traps opponent, damaging them for 4-5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/firespin.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/firespin.shtml"
 };
 
 var thunder_shock = {
@@ -8445,7 +9670,7 @@ var thunder_shock = {
     pp: 30,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/thundershock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thundershock.shtml"
 };
 
 var thunderbolt = {
@@ -8456,7 +9681,7 @@ var thunderbolt = {
     pp: 15,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/thunderbolt.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thunderbolt.shtml"
 };
 
 var thunder_wave = {
@@ -8467,7 +9692,7 @@ var thunder_wave = {
     pp: 20,
     acc: 100,
     effect: "Paralyzes opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/thunderwave.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thunderwave.shtml"
 };
 
 var thunder = {
@@ -8478,7 +9703,7 @@ var thunder = {
     pp: 10,
     acc: 70,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/thunder.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thunder.shtml"
 };
 
 var rock_throw = {
@@ -8489,7 +9714,7 @@ var rock_throw = {
     pp: 15,
     acc: 90,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/rockthrow.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rockthrow.shtml"
 };
 
 var earthquake = {
@@ -8500,7 +9725,7 @@ var earthquake = {
     pp: 10,
     acc: 100,
     effect: "Power is doubled if opponent is underground from using Dig.",
-    wiki: "http://www.serebii.net/attackdex-xy/earthquake.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/earthquake.shtml"
 };
 
 var fissure = {
@@ -8511,7 +9736,7 @@ var fissure = {
     pp: 5,
     acc: -1,
     effect: "One-Hit-KO, if it hits.",
-    wiki: "http://www.serebii.net/attackdex-xy/fissure.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fissure.shtml"
 };
 
 var dig = {
@@ -8522,7 +9747,7 @@ var dig = {
     pp: 10,
     acc: 100,
     effect: "Digs underground on first turn, attacks on second. Can also escape from caves.",
-    wiki: "http://www.serebii.net/attackdex-xy/dig.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dig.shtml"
 };
 
 var toxic = {
@@ -8533,7 +9758,7 @@ var toxic = {
     pp: 10,
     acc: 90,
     effect: "Badly poisons opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/toxic.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/toxic.shtml"
 };
 
 var confusion = {
@@ -8544,7 +9769,7 @@ var confusion = {
     pp: 25,
     acc: 100,
     effect: "May confuse opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/confusion.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/confusion.shtml"
 };
 
 var psychic = {
@@ -8555,7 +9780,7 @@ var psychic = {
     pp: 10,
     acc: 100,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/psychic.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psychic.shtml"
 };
 
 var hypnosis = {
@@ -8566,7 +9791,7 @@ var hypnosis = {
     pp: 20,
     acc: 60,
     effect: "Puts opponent to sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/hypnosis.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hypnosis.shtml"
 };
 
 var meditate = {
@@ -8577,7 +9802,7 @@ var meditate = {
     pp: 40,
     acc: -1,
     effect: "Raises user's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/meditate.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/meditate.shtml"
 };
 
 var agility = {
@@ -8588,7 +9813,7 @@ var agility = {
     pp: 30,
     acc: -1,
     effect: "Sharply raises user's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/agility.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/agility.shtml"
 };
 
 var quick_attack = {
@@ -8599,7 +9824,7 @@ var quick_attack = {
     pp: 30,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/quickattack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/quickattack.shtml"
 };
 
 var rage = {
@@ -8610,7 +9835,7 @@ var rage = {
     pp: 20,
     acc: 100,
     effect: "Raises user's Attack when hit.",
-    wiki: "http://www.serebii.net/attackdex-xy/rage.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rage.shtml"
 };
 
 var teleport = {
@@ -8621,7 +9846,7 @@ var teleport = {
     pp: 20,
     acc: -1,
     effect: "Allows user to flee wild battles; also warps player to last PokéCenter.",
-    wiki: "http://www.serebii.net/attackdex-xy/teleport.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/teleport.shtml"
 };
 
 var night_shade = {
@@ -8632,7 +9857,7 @@ var night_shade = {
     pp: 15,
     acc: 100,
     effect: "Inflicts damage equal to user's level.",
-    wiki: "http://www.serebii.net/attackdex-xy/nightshade.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/nightshade.shtml"
 };
 
 var mimic = {
@@ -8643,7 +9868,7 @@ var mimic = {
     pp: 10,
     acc: 100,
     effect: "Copies the opponent's last move.",
-    wiki: "http://www.serebii.net/attackdex-xy/mimic.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mimic.shtml"
 };
 
 var screech = {
@@ -8654,7 +9879,7 @@ var screech = {
     pp: 40,
     acc: 85,
     effect: "Sharply lowers opponent's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/screech.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/screech.shtml"
 };
 
 var double_team = {
@@ -8665,7 +9890,7 @@ var double_team = {
     pp: 15,
     acc: -1,
     effect: "Raises user's Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/doubleteam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/doubleteam.shtml"
 };
 
 var recover = {
@@ -8676,7 +9901,7 @@ var recover = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/recover.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/recover.shtml"
 };
 
 var harden = {
@@ -8687,7 +9912,7 @@ var harden = {
     pp: 30,
     acc: -1,
     effect: "Raises user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/harden.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/harden.shtml"
 };
 
 var minimize = {
@@ -8698,7 +9923,7 @@ var minimize = {
     pp: 10,
     acc: -1,
     effect: "Sharply raises user's Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/minimize.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/minimize.shtml"
 };
 
 var smokescreen = {
@@ -8709,7 +9934,7 @@ var smokescreen = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/smokescreen.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/smokescreen.shtml"
 };
 
 var confuse_ray = {
@@ -8720,7 +9945,7 @@ var confuse_ray = {
     pp: 10,
     acc: 100,
     effect: "Confuses opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/confuseray.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/confuseray.shtml"
 };
 
 var withdraw = {
@@ -8731,7 +9956,7 @@ var withdraw = {
     pp: 40,
     acc: -1,
     effect: "Raises user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/withdraw.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/withdraw.shtml"
 };
 
 var defense_curl = {
@@ -8742,7 +9967,7 @@ var defense_curl = {
     pp: 40,
     acc: -1,
     effect: "Raises user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/defensecurl.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/defensecurl.shtml"
 };
 
 var barrier = {
@@ -8753,7 +9978,7 @@ var barrier = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/barrier.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/barrier.shtml"
 };
 
 var light_screen = {
@@ -8764,7 +9989,7 @@ var light_screen = {
     pp: 30,
     acc: -1,
     effect: "Halves damage from Special attacks for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/lightscreen.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lightscreen.shtml"
 };
 
 var haze = {
@@ -8775,7 +10000,7 @@ var haze = {
     pp: 30,
     acc: -1,
     effect: "Resets all stat changes.",
-    wiki: "http://www.serebii.net/attackdex-xy/haze.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/haze.shtml"
 };
 
 var reflect = {
@@ -8786,7 +10011,7 @@ var reflect = {
     pp: 20,
     acc: -1,
     effect: "Halves damage from Physical attacks for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/reflect.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/reflect.shtml"
 };
 
 var focus_energy = {
@@ -8797,7 +10022,7 @@ var focus_energy = {
     pp: 30,
     acc: -1,
     effect: "Increases critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/focusenergy.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/focusenergy.shtml"
 };
 
 var bide = {
@@ -8808,7 +10033,7 @@ var bide = {
     pp: 10,
     acc: 100,
     effect: "User takes damage for two turns then strikes back double.",
-    wiki: "http://www.serebii.net/attackdex-xy/bide.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bide.shtml"
 };
 
 var metronome = {
@@ -8819,7 +10044,7 @@ var metronome = {
     pp: 10,
     acc: -1,
     effect: "User performs any move in the game at random.",
-    wiki: "http://www.serebii.net/attackdex-xy/metronome.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/metronome.shtml"
 };
 
 var mirror_move = {
@@ -8830,7 +10055,7 @@ var mirror_move = {
     pp: 20,
     acc: -1,
     effect: "User performs the opponent's last move.",
-    wiki: "http://www.serebii.net/attackdex-xy/mirrormove.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mirrormove.shtml"
 };
 
 var self_destruct = {
@@ -8841,7 +10066,7 @@ var self_destruct = {
     pp: 5,
     acc: 100,
     effect: "User faints.",
-    wiki: "http://www.serebii.net/attackdex-xy/self_destruct.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/self_destruct.shtml"
 };
 
 var egg_bomb = {
@@ -8852,7 +10077,7 @@ var egg_bomb = {
     pp: 10,
     acc: 75,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/eggbomb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/eggbomb.shtml"
 };
 
 var lick = {
@@ -8863,7 +10088,7 @@ var lick = {
     pp: 30,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/lick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lick.shtml"
 };
 
 var smog = {
@@ -8874,7 +10099,7 @@ var smog = {
     pp: 20,
     acc: 70,
     effect: "May poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/smog.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/smog.shtml"
 };
 
 var sludge = {
@@ -8885,7 +10110,7 @@ var sludge = {
     pp: 20,
     acc: 100,
     effect: "May poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/sludge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sludge.shtml"
 };
 
 var bone_club = {
@@ -8896,7 +10121,7 @@ var bone_club = {
     pp: 20,
     acc: 85,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/boneclub.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/boneclub.shtml"
 };
 
 var fire_blast = {
@@ -8907,7 +10132,7 @@ var fire_blast = {
     pp: 5,
     acc: 85,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/fireblast.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fireblast.shtml"
 };
 
 var waterfall = {
@@ -8918,7 +10143,7 @@ var waterfall = {
     pp: 15,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/waterfall.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/waterfall.shtml"
 };
 
 var clamp = {
@@ -8929,7 +10154,7 @@ var clamp = {
     pp: 15,
     acc: 85,
     effect: "Traps opponent, damaging them for 4-5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/clamp.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/clamp.shtml"
 };
 
 var swift = {
@@ -8940,7 +10165,7 @@ var swift = {
     pp: 20,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/swift.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/swift.shtml"
 };
 
 var skull_bash = {
@@ -8951,7 +10176,7 @@ var skull_bash = {
     pp: 10,
     acc: 100,
     effect: "Raises Defense on first turn, attacks on second.",
-    wiki: "http://www.serebii.net/attackdex-xy/skullbash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/skullbash.shtml"
 };
 
 var spike_cannon = {
@@ -8962,7 +10187,7 @@ var spike_cannon = {
     pp: 15,
     acc: 100,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/spikecannon.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spikecannon.shtml"
 };
 
 var constrict = {
@@ -8973,7 +10198,7 @@ var constrict = {
     pp: 35,
     acc: 100,
     effect: "May lower opponent's Speed by one stage.",
-    wiki: "http://www.serebii.net/attackdex-xy/constrict.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/constrict.shtml"
 };
 
 var amnesia = {
@@ -8984,7 +10209,7 @@ var amnesia = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/amnesia.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/amnesia.shtml"
 };
 
 var kinesis = {
@@ -8995,7 +10220,7 @@ var kinesis = {
     pp: 15,
     acc: 80,
     effect: "Lowers opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/kinesis.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/kinesis.shtml"
 };
 
 var soft_boiled = {
@@ -9006,7 +10231,7 @@ var soft_boiled = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/soft_boiled.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/soft_boiled.shtml"
 };
 
 var high_jump_kick = {
@@ -9017,7 +10242,7 @@ var high_jump_kick = {
     pp: 10,
     acc: 90,
     effect: "If it misses, the user loses half their HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/highjumpkick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/highjumpkick.shtml"
 };
 
 var glare = {
@@ -9028,7 +10253,7 @@ var glare = {
     pp: 30,
     acc: 100,
     effect: "Paralyzes opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/glare.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/glare.shtml"
 };
 
 var dream_eater = {
@@ -9039,7 +10264,7 @@ var dream_eater = {
     pp: 15,
     acc: 100,
     effect: "User recovers half the HP inflicted on a sleeping opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/dreameater.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dreameater.shtml"
 };
 
 var poison_gas = {
@@ -9050,7 +10275,7 @@ var poison_gas = {
     pp: 40,
     acc: 90,
     effect: "Poisons opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/poisongas.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/poisongas.shtml"
 };
 
 var barrage = {
@@ -9061,7 +10286,7 @@ var barrage = {
     pp: 20,
     acc: 85,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/barrage.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/barrage.shtml"
 };
 
 var leech_life = {
@@ -9072,7 +10297,7 @@ var leech_life = {
     pp: 15,
     acc: 100,
     effect: "User recovers half the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/leechlife.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/leechlife.shtml"
 };
 
 var lovely_kiss = {
@@ -9083,7 +10308,7 @@ var lovely_kiss = {
     pp: 10,
     acc: 75,
     effect: "Puts opponent to sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/lovelykiss.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lovelykiss.shtml"
 };
 
 var sky_attack = {
@@ -9094,7 +10319,7 @@ var sky_attack = {
     pp: 5,
     acc: 90,
     effect: "Charges on first turn, attacks on second. May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/skyattack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/skyattack.shtml"
 };
 
 var transform = {
@@ -9105,7 +10330,7 @@ var transform = {
     pp: 10,
     acc: -1,
     effect: "User takes on the form and attacks of the opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/transform.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/transform.shtml"
 };
 
 var bubble = {
@@ -9116,7 +10341,7 @@ var bubble = {
     pp: 30,
     acc: 100,
     effect: "May lower opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/bubble.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bubble.shtml"
 };
 
 var dizzy_punch = {
@@ -9127,7 +10352,7 @@ var dizzy_punch = {
     pp: 10,
     acc: 100,
     effect: "May confuse opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/dizzypunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dizzypunch.shtml"
 };
 
 var spore = {
@@ -9138,7 +10363,7 @@ var spore = {
     pp: 15,
     acc: 100,
     effect: "Puts opponent to sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/spore.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spore.shtml"
 };
 
 var flash = {
@@ -9149,7 +10374,7 @@ var flash = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/flash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flash.shtml"
 };
 
 var psywave = {
@@ -9160,7 +10385,7 @@ var psywave = {
     pp: 15,
     acc: 100,
     effect: "Inflicts damage 50-150% of user's level.",
-    wiki: "http://www.serebii.net/attackdex-xy/psywave.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psywave.shtml"
 };
 
 var splash = {
@@ -9171,7 +10396,7 @@ var splash = {
     pp: 40,
     acc: -1,
     effect: "Doesn't do ANYTHING.",
-    wiki: "http://www.serebii.net/attackdex-xy/splash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/splash.shtml"
 };
 
 var acid_armor = {
@@ -9182,7 +10407,7 @@ var acid_armor = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/acidarmor.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/acidarmor.shtml"
 };
 
 var crabhammer = {
@@ -9193,7 +10418,7 @@ var crabhammer = {
     pp: 10,
     acc: 90,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/crabhammer.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/crabhammer.shtml"
 };
 
 var explosion = {
@@ -9204,7 +10429,7 @@ var explosion = {
     pp: 5,
     acc: 100,
     effect: "User faints.",
-    wiki: "http://www.serebii.net/attackdex-xy/explosion.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/explosion.shtml"
 };
 
 var fury_swipes = {
@@ -9215,7 +10440,7 @@ var fury_swipes = {
     pp: 15,
     acc: 80,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/furyswipes.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/furyswipes.shtml"
 };
 
 var bonemerang = {
@@ -9226,7 +10451,7 @@ var bonemerang = {
     pp: 10,
     acc: 90,
     effect: "Hits twice in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/bonemerang.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bonemerang.shtml"
 };
 
 var rest = {
@@ -9237,7 +10462,7 @@ var rest = {
     pp: 10,
     acc: -1,
     effect: "User sleeps for 2 turns, but user is fully healed.",
-    wiki: "http://www.serebii.net/attackdex-xy/rest.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rest.shtml"
 };
 
 var rock_slide = {
@@ -9248,7 +10473,7 @@ var rock_slide = {
     pp: 10,
     acc: 90,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/rockslide.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rockslide.shtml"
 };
 
 var hyper_fang = {
@@ -9259,7 +10484,7 @@ var hyper_fang = {
     pp: 15,
     acc: 90,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/hyperfang.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hyperfang.shtml"
 };
 
 var sharpen = {
@@ -9270,7 +10495,7 @@ var sharpen = {
     pp: 30,
     acc: -1,
     effect: "Raises user's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/sharpen.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sharpen.shtml"
 };
 
 var conversion = {
@@ -9281,7 +10506,7 @@ var conversion = {
     pp: 30,
     acc: -1,
     effect: "Changes user's type to that of its first move.",
-    wiki: "http://www.serebii.net/attackdex-xy/conversion.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/conversion.shtml"
 };
 
 var tri_attack = {
@@ -9292,7 +10517,7 @@ var tri_attack = {
     pp: 10,
     acc: 100,
     effect: "May paralyze, burn or freeze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/triattack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/triattack.shtml"
 };
 
 var super_fang = {
@@ -9303,7 +10528,7 @@ var super_fang = {
     pp: 10,
     acc: 90,
     effect: "Always takes off half of the opponent's HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/superfang.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/superfang.shtml"
 };
 
 var slash = {
@@ -9314,7 +10539,7 @@ var slash = {
     pp: 20,
     acc: 100,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/slash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/slash.shtml"
 };
 
 var substitute = {
@@ -9325,7 +10550,7 @@ var substitute = {
     pp: 10,
     acc: -1,
     effect: "Uses HP to creates a decoy that takes hits.",
-    wiki: "http://www.serebii.net/attackdex-xy/substitute.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/substitute.shtml"
 };
 
 var struggle = {
@@ -9336,7 +10561,7 @@ var struggle = {
     pp: 1,
     acc: -1,
     effect: "Only usable when all PP are gone. Hurts the user.",
-    wiki: "http://www.serebii.net/attackdex-xy/struggle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/struggle.shtml"
 };
 
 var sketch = {
@@ -9347,7 +10572,7 @@ var sketch = {
     pp: 1,
     acc: -1,
     effect: "Permanently copies the opponent's last move.",
-    wiki: "http://www.serebii.net/attackdex-xy/sketch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sketch.shtml"
 };
 
 var triple_kick = {
@@ -9358,7 +10583,7 @@ var triple_kick = {
     pp: 10,
     acc: 90,
     effect: "Hits thrice in one turn at increasing power.",
-    wiki: "http://www.serebii.net/attackdex-xy/triplekick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/triplekick.shtml"
 };
 
 var thief = {
@@ -9369,7 +10594,7 @@ var thief = {
     pp: 25,
     acc: 100,
     effect: "Also steals opponent's held item.",
-    wiki: "http://www.serebii.net/attackdex-xy/thief.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thief.shtml"
 };
 
 var spider_web = {
@@ -9380,7 +10605,7 @@ var spider_web = {
     pp: 10,
     acc: 100,
     effect: "Opponent cannot escape/switch.",
-    wiki: "http://www.serebii.net/attackdex-xy/spiderweb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spiderweb.shtml"
 };
 
 var mind_reader = {
@@ -9391,7 +10616,7 @@ var mind_reader = {
     pp: 5,
     acc: 100,
     effect: "User's next attack is guaranteed to hit.",
-    wiki: "http://www.serebii.net/attackdex-xy/mindreader.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mindreader.shtml"
 };
 
 var nightmare = {
@@ -9402,7 +10627,7 @@ var nightmare = {
     pp: 15,
     acc: 100,
     effect: "The sleeping opponent loses 25% of its max HP each turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/nightmare.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/nightmare.shtml"
 };
 
 var flame_wheel = {
@@ -9413,7 +10638,7 @@ var flame_wheel = {
     pp: 25,
     acc: 100,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/flamewheel.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flamewheel.shtml"
 };
 
 var snore = {
@@ -9424,7 +10649,7 @@ var snore = {
     pp: 15,
     acc: 100,
     effect: "Can only be used if asleep. May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/snore.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/snore.shtml"
 };
 
 var curse = {
@@ -9435,7 +10660,7 @@ var curse = {
     pp: 10,
     acc: -1,
     effect: "Ghosts lose 50% of max HP and curse the opponent; Non-Ghosts raise Attack, Defense and lower Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/curse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/curse.shtml"
 };
 
 var flail = {
@@ -9446,7 +10671,7 @@ var flail = {
     pp: 15,
     acc: 100,
     effect: "The lower the user's HP, the higher the power.",
-    wiki: "http://www.serebii.net/attackdex-xy/flail.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flail.shtml"
 };
 
 var conversion_2 = {
@@ -9457,7 +10682,7 @@ var conversion_2 = {
     pp: 30,
     acc: 100,
     effect: "User changes type to become resistant to opponent's last move.",
-    wiki: "http://www.serebii.net/attackdex-xy/conversion2.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/conversion2.shtml"
 };
 
 var aeroblast = {
@@ -9468,7 +10693,7 @@ var aeroblast = {
     pp: 5,
     acc: 95,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/aeroblast.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aeroblast.shtml"
 };
 
 var cotton_spore = {
@@ -9479,7 +10704,7 @@ var cotton_spore = {
     pp: 40,
     acc: 100,
     effect: "Sharply lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/cottonspore.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/cottonspore.shtml"
 };
 
 var reversal = {
@@ -9490,7 +10715,7 @@ var reversal = {
     pp: 15,
     acc: 100,
     effect: "The lower the user's HP, the higher the power.",
-    wiki: "http://www.serebii.net/attackdex-xy/reversal.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/reversal.shtml"
 };
 
 var spite = {
@@ -9501,7 +10726,7 @@ var spite = {
     pp: 10,
     acc: 100,
     effect: "The opponent's last move loses 2-5 PP.",
-    wiki: "http://www.serebii.net/attackdex-xy/spite.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spite.shtml"
 };
 
 var powder_snow = {
@@ -9512,7 +10737,7 @@ var powder_snow = {
     pp: 25,
     acc: 100,
     effect: "May freeze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/powdersnow.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/powdersnow.shtml"
 };
 
 var protect = {
@@ -9523,7 +10748,7 @@ var protect = {
     pp: 10,
     acc: -1,
     effect: "User is not affected by opponent's move.",
-    wiki: "http://www.serebii.net/attackdex-xy/protect.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/protect.shtml"
 };
 
 var mach_punch = {
@@ -9534,7 +10759,7 @@ var mach_punch = {
     pp: 30,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/machpunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/machpunch.shtml"
 };
 
 var scary_face = {
@@ -9545,7 +10770,7 @@ var scary_face = {
     pp: 10,
     acc: 100,
     effect: "Sharply lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/scaryface.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/scaryface.shtml"
 };
 
 var feint_attack = {
@@ -9556,7 +10781,7 @@ var feint_attack = {
     pp: 20,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/feintattack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/feintattack.shtml"
 };
 
 var sweet_kiss = {
@@ -9567,7 +10792,7 @@ var sweet_kiss = {
     pp: 10,
     acc: 75,
     effect: "Confuses opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/sweetkiss.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sweetkiss.shtml"
 };
 
 var belly_drum = {
@@ -9578,7 +10803,7 @@ var belly_drum = {
     pp: 10,
     acc: -1,
     effect: "User loses 50% of its max HP, but Attack raises to maximum.",
-    wiki: "http://www.serebii.net/attackdex-xy/bellydrum.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bellydrum.shtml"
 };
 
 var sludge_bomb = {
@@ -9589,7 +10814,7 @@ var sludge_bomb = {
     pp: 10,
     acc: 100,
     effect: "May poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/sludgebomb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sludgebomb.shtml"
 };
 
 var mud_slap = {
@@ -9600,7 +10825,7 @@ var mud_slap = {
     pp: 10,
     acc: 100,
     effect: "Lowers opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/mud_slap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mud_slap.shtml"
 };
 
 var octazooka = {
@@ -9611,7 +10836,7 @@ var octazooka = {
     pp: 10,
     acc: 85,
     effect: "May lower opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/octazooka.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/octazooka.shtml"
 };
 
 var spikes = {
@@ -9622,7 +10847,7 @@ var spikes = {
     pp: 20,
     acc: -1,
     effect: "Hurts opponents when they switch into battle.",
-    wiki: "http://www.serebii.net/attackdex-xy/spikes.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spikes.shtml"
 };
 
 var zap_cannon = {
@@ -9633,7 +10858,7 @@ var zap_cannon = {
     pp: 5,
     acc: 50,
     effect: "Paralyzes opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/zapcannon.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/zapcannon.shtml"
 };
 
 var foresight = {
@@ -9644,7 +10869,7 @@ var foresight = {
     pp: 40,
     acc: 100,
     effect: "Resets opponent's Evasiveness, Normal-type and Fighting-type attacks can now hit Ghosts, and Ghost-type attacks hit Normal.",
-    wiki: "http://www.serebii.net/attackdex-xy/foresight.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/foresight.shtml"
 };
 
 var destiny_bond = {
@@ -9655,7 +10880,7 @@ var destiny_bond = {
     pp: 5,
     acc: -1,
     effect: "If the user faints, the opponent also faints.",
-    wiki: "http://www.serebii.net/attackdex-xy/destinybond.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/destinybond.shtml"
 };
 
 var perish_song = {
@@ -9666,7 +10891,7 @@ var perish_song = {
     pp: 5,
     acc: -1,
     effect: "Any Pokémon in play when this attack is used faints in 3 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/perishsong.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/perishsong.shtml"
 };
 
 var icy_wind = {
@@ -9677,7 +10902,7 @@ var icy_wind = {
     pp: 15,
     acc: 95,
     effect: "Lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/icywind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/icywind.shtml"
 };
 
 var detect = {
@@ -9688,7 +10913,7 @@ var detect = {
     pp: 5,
     acc: -1,
     effect: "Opponent's attack doesn't affect you, but may fail if used often.",
-    wiki: "http://www.serebii.net/attackdex-xy/detect.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/detect.shtml"
 };
 
 var bone_rush = {
@@ -9699,7 +10924,7 @@ var bone_rush = {
     pp: 10,
     acc: 90,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/bonerush.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bonerush.shtml"
 };
 
 var lock_on = {
@@ -9710,7 +10935,7 @@ var lock_on = {
     pp: 5,
     acc: 100,
     effect: "User's next attack is guaranteed to hit.",
-    wiki: "http://www.serebii.net/attackdex-xy/lock_on.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lock_on.shtml"
 };
 
 var outrage = {
@@ -9721,7 +10946,7 @@ var outrage = {
     pp: 10,
     acc: 100,
     effect: "User attacks for 2-3 turns but then becomes confused.",
-    wiki: "http://www.serebii.net/attackdex-xy/outrage.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/outrage.shtml"
 };
 
 var sandstorm = {
@@ -9732,7 +10957,7 @@ var sandstorm = {
     pp: 10,
     acc: -1,
     effect: "Creates a sandstorm for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/sandstorm.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sandstorm.shtml"
 };
 
 var giga_drain = {
@@ -9743,7 +10968,7 @@ var giga_drain = {
     pp: 10,
     acc: 100,
     effect: "User recovers half the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/gigadrain.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gigadrain.shtml"
 };
 
 var endure = {
@@ -9754,7 +10979,7 @@ var endure = {
     pp: 10,
     acc: -1,
     effect: "Always left with at least 1 HP, but may fail if used consecutively.",
-    wiki: "http://www.serebii.net/attackdex-xy/endure.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/endure.shtml"
 };
 
 var charm = {
@@ -9765,7 +10990,7 @@ var charm = {
     pp: 20,
     acc: 100,
     effect: "Sharply lowers opponent's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/charm.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/charm.shtml"
 };
 
 var rollout = {
@@ -9776,7 +11001,7 @@ var rollout = {
     pp: 20,
     acc: 90,
     effect: "Doubles in power each turn for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/rollout.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rollout.shtml"
 };
 
 var false_swipe = {
@@ -9787,7 +11012,7 @@ var false_swipe = {
     pp: 40,
     acc: 100,
     effect: "Always leaves opponent with at least 1 HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/falseswipe.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/falseswipe.shtml"
 };
 
 var swagger = {
@@ -9798,7 +11023,7 @@ var swagger = {
     pp: 15,
     acc: 90,
     effect: "Opponent becomes confused, but its Attack is raised two stages.",
-    wiki: "http://www.serebii.net/attackdex-xy/swagger.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/swagger.shtml"
 };
 
 var milk_drink = {
@@ -9809,7 +11034,7 @@ var milk_drink = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/milkdrink.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/milkdrink.shtml"
 };
 
 var spark = {
@@ -9820,7 +11045,7 @@ var spark = {
     pp: 20,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/spark.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spark.shtml"
 };
 
 var fury_cutter = {
@@ -9831,7 +11056,7 @@ var fury_cutter = {
     pp: 20,
     acc: 95,
     effect: "Power increases each turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/furycutter.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/furycutter.shtml"
 };
 
 var steel_wing = {
@@ -9842,7 +11067,7 @@ var steel_wing = {
     pp: 25,
     acc: 90,
     effect: "May raise user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/steelwing.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/steelwing.shtml"
 };
 
 var mean_look = {
@@ -9853,7 +11078,7 @@ var mean_look = {
     pp: 5,
     acc: 100,
     effect: "Opponent cannot flee or switch.",
-    wiki: "http://www.serebii.net/attackdex-xy/meanlook.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/meanlook.shtml"
 };
 
 var attract = {
@@ -9864,7 +11089,7 @@ var attract = {
     pp: 15,
     acc: 100,
     effect: "If opponent is the opposite gender, it's less likely to attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/attract.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/attract.shtml"
 };
 
 var sleep_talk = {
@@ -9875,7 +11100,7 @@ var sleep_talk = {
     pp: 10,
     acc: -1,
     effect: "User performs one of its own moves while sleeping.",
-    wiki: "http://www.serebii.net/attackdex-xy/sleeptalk.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sleeptalk.shtml"
 };
 
 var heal_bell = {
@@ -9886,7 +11111,7 @@ var heal_bell = {
     pp: 5,
     acc: -1,
     effect: "Heals the user's party's status conditions.",
-    wiki: "http://www.serebii.net/attackdex-xy/healbell.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/healbell.shtml"
 };
 
 var _return = {
@@ -9897,7 +11122,7 @@ var _return = {
     pp: 20,
     acc: 100,
     effect: "Power increases with user's Happiness.",
-    wiki: "http://www.serebii.net/attackdex-xy/return.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/return.shtml"
 };
 
 var present = {
@@ -9908,7 +11133,7 @@ var present = {
     pp: 15,
     acc: 90,
     effect: "Either deals damage or heals.",
-    wiki: "http://www.serebii.net/attackdex-xy/present.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/present.shtml"
 };
 
 var frustration = {
@@ -9919,7 +11144,7 @@ var frustration = {
     pp: 20,
     acc: 100,
     effect: "Power decreases with higher Happiness.",
-    wiki: "http://www.serebii.net/attackdex-xy/frustration.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/frustration.shtml"
 };
 
 var safeguard = {
@@ -9930,7 +11155,7 @@ var safeguard = {
     pp: 25,
     acc: -1,
     effect: "The user's party is protected from status conditions.",
-    wiki: "http://www.serebii.net/attackdex-xy/safeguard.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/safeguard.shtml"
 };
 
 var pain_split = {
@@ -9941,7 +11166,7 @@ var pain_split = {
     pp: 20,
     acc: 100,
     effect: "The user's and opponent's HP becomes the average of both.",
-    wiki: "http://www.serebii.net/attackdex-xy/painsplit.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/painsplit.shtml"
 };
 
 var sacred_fire = {
@@ -9952,7 +11177,7 @@ var sacred_fire = {
     pp: 5,
     acc: 95,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/sacredfire.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sacredfire.shtml"
 };
 
 var magnitude = {
@@ -9963,7 +11188,7 @@ var magnitude = {
     pp: 30,
     acc: 100,
     effect: "Hits with random power.",
-    wiki: "http://www.serebii.net/attackdex-xy/magnitude.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/magnitude.shtml"
 };
 
 var dynamic_punch = {
@@ -9974,7 +11199,7 @@ var dynamic_punch = {
     pp: 5,
     acc: 50,
     effect: "Confuses opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/dynamicpunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dynamicpunch.shtml"
 };
 
 var megahorn = {
@@ -9985,7 +11210,7 @@ var megahorn = {
     pp: 10,
     acc: 85,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/megahorn.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/megahorn.shtml"
 };
 
 var dragon_breath = {
@@ -9996,7 +11221,7 @@ var dragon_breath = {
     pp: 20,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/dragonbreath.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragonbreath.shtml"
 };
 
 var baton_pass = {
@@ -10007,7 +11232,7 @@ var baton_pass = {
     pp: 40,
     acc: -1,
     effect: "User switches out and gives stat changes to the incoming Pokémon.",
-    wiki: "http://www.serebii.net/attackdex-xy/batonpass.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/batonpass.shtml"
 };
 
 var encore = {
@@ -10018,7 +11243,7 @@ var encore = {
     pp: 5,
     acc: 100,
     effect: "Forces opponent to keep using its last move for 3 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/encore.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/encore.shtml"
 };
 
 var pursuit = {
@@ -10029,7 +11254,7 @@ var pursuit = {
     pp: 20,
     acc: 100,
     effect: "Double power if the opponent is switching out.",
-    wiki: "http://www.serebii.net/attackdex-xy/pursuit.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/pursuit.shtml"
 };
 
 var rapid_spin = {
@@ -10040,7 +11265,7 @@ var rapid_spin = {
     pp: 40,
     acc: 100,
     effect: "Removes effects of trap moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/rapidspin.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rapidspin.shtml"
 };
 
 var sweet_scent = {
@@ -10051,7 +11276,7 @@ var sweet_scent = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/sweetscent.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sweetscent.shtml"
 };
 
 var iron_tail = {
@@ -10062,7 +11287,7 @@ var iron_tail = {
     pp: 15,
     acc: 75,
     effect: "May lower opponent's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/irontail.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/irontail.shtml"
 };
 
 var metal_claw = {
@@ -10073,7 +11298,7 @@ var metal_claw = {
     pp: 35,
     acc: 95,
     effect: "May raise user's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/metalclaw.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/metalclaw.shtml"
 };
 
 var vital_throw = {
@@ -10084,7 +11309,7 @@ var vital_throw = {
     pp: 10,
     acc: -1,
     effect: "User attacks last, but ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/vitalthrow.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/vitalthrow.shtml"
 };
 
 var morning_sun = {
@@ -10095,7 +11320,7 @@ var morning_sun = {
     pp: 5,
     acc: -1,
     effect: "User recovers HP. Amount varies with the weather.",
-    wiki: "http://www.serebii.net/attackdex-xy/morningsun.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/morningsun.shtml"
 };
 
 var synthesis = {
@@ -10106,7 +11331,7 @@ var synthesis = {
     pp: 5,
     acc: -1,
     effect: "User recovers HP. Amount varies with the weather.",
-    wiki: "http://www.serebii.net/attackdex-xy/synthesis.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/synthesis.shtml"
 };
 
 var moonlight = {
@@ -10117,7 +11342,7 @@ var moonlight = {
     pp: 5,
     acc: -1,
     effect: "User recovers HP. Amount varies with the weather.",
-    wiki: "http://www.serebii.net/attackdex-xy/moonlight.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/moonlight.shtml"
 };
 
 var hidden_power = {
@@ -10128,7 +11353,7 @@ var hidden_power = {
     pp: 15,
     acc: 100,
     effect: "Type and power depends on user's IVs.",
-    wiki: "http://www.serebii.net/attackdex-xy/hiddenpower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hiddenpower.shtml"
 };
 
 var cross_chop = {
@@ -10139,7 +11364,7 @@ var cross_chop = {
     pp: 5,
     acc: 80,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/crosschop.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/crosschop.shtml"
 };
 
 var twister = {
@@ -10150,7 +11375,7 @@ var twister = {
     pp: 20,
     acc: 100,
     effect: "May cause flinching. Hits Pokémon using Fly/Bounce with double power.",
-    wiki: "http://www.serebii.net/attackdex-xy/twister.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/twister.shtml"
 };
 
 var rain_dance = {
@@ -10161,7 +11386,7 @@ var rain_dance = {
     pp: 5,
     acc: -1,
     effect: "Makes it rain for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/raindance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/raindance.shtml"
 };
 
 var sunny_day = {
@@ -10172,7 +11397,7 @@ var sunny_day = {
     pp: 5,
     acc: -1,
     effect: "Makes it sunny for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/sunnyday.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sunnyday.shtml"
 };
 
 var crunch = {
@@ -10183,7 +11408,7 @@ var crunch = {
     pp: 15,
     acc: 100,
     effect: "May lower opponent's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/crunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/crunch.shtml"
 };
 
 var mirror_coat = {
@@ -10194,7 +11419,7 @@ var mirror_coat = {
     pp: 20,
     acc: 100,
     effect: "When hit by a Special Attack, user strikes back with 2x power.",
-    wiki: "http://www.serebii.net/attackdex-xy/mirrorcoat.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mirrorcoat.shtml"
 };
 
 var psych_up = {
@@ -10205,7 +11430,7 @@ var psych_up = {
     pp: 10,
     acc: -1,
     effect: "Copies the opponent's stat changes.",
-    wiki: "http://www.serebii.net/attackdex-xy/psychup.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psychup.shtml"
 };
 
 var extreme_speed = {
@@ -10216,7 +11441,7 @@ var extreme_speed = {
     pp: 5,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/extremespeed.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/extremespeed.shtml"
 };
 
 var ancient_power = {
@@ -10227,7 +11452,7 @@ var ancient_power = {
     pp: 5,
     acc: 100,
     effect: "May raise all user's stats at once.",
-    wiki: "http://www.serebii.net/attackdex-xy/ancientpower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/ancientpower.shtml"
 };
 
 var shadow_ball = {
@@ -10238,7 +11463,7 @@ var shadow_ball = {
     pp: 15,
     acc: 100,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/shadowball.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shadowball.shtml"
 };
 
 var future_sight = {
@@ -10249,7 +11474,7 @@ var future_sight = {
     pp: 10,
     acc: 100,
     effect: "Damage occurs 2 turns later.",
-    wiki: "http://www.serebii.net/attackdex-xy/futuresight.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/futuresight.shtml"
 };
 
 var rock_smash = {
@@ -10260,7 +11485,7 @@ var rock_smash = {
     pp: 15,
     acc: 100,
     effect: "May lower opponent's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/rocksmash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rocksmash.shtml"
 };
 
 var whirlpool = {
@@ -10271,7 +11496,7 @@ var whirlpool = {
     pp: 15,
     acc: 85,
     effect: "Traps opponent, damaging them for 4-5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/whirlpool.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/whirlpool.shtml"
 };
 
 var beat_up = {
@@ -10282,7 +11507,7 @@ var beat_up = {
     pp: 10,
     acc: 100,
     effect: "Each Pokémon in your party attacks.",
-    wiki: "http://www.serebii.net/attackdex-xy/beatup.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/beatup.shtml"
 };
 
 var fake_out = {
@@ -10293,7 +11518,7 @@ var fake_out = {
     pp: 10,
     acc: 100,
     effect: "User attacks first, foe flinches. Only usable on first turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/fakeout.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fakeout.shtml"
 };
 
 var uproar = {
@@ -10304,7 +11529,7 @@ var uproar = {
     pp: 10,
     acc: 100,
     effect: "User attacks for 3 turns and prevents sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/uproar.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/uproar.shtml"
 };
 
 var stockpile = {
@@ -10315,7 +11540,7 @@ var stockpile = {
     pp: 20,
     acc: -1,
     effect: "Stores energy for use with Spit Up and Swallow.",
-    wiki: "http://www.serebii.net/attackdex-xy/stockpile.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stockpile.shtml"
 };
 
 var spit_up = {
@@ -10326,7 +11551,7 @@ var spit_up = {
     pp: 10,
     acc: 100,
     effect: "Power depends on how many times the user performed Stockpile.",
-    wiki: "http://www.serebii.net/attackdex-xy/spitup.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spitup.shtml"
 };
 
 var swallow = {
@@ -10337,7 +11562,7 @@ var swallow = {
     pp: 10,
     acc: -1,
     effect: "The more times the user has performed Stockpile, the more HP is recovered.",
-    wiki: "http://www.serebii.net/attackdex-xy/swallow.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/swallow.shtml"
 };
 
 var heat_wave = {
@@ -10348,7 +11573,7 @@ var heat_wave = {
     pp: 10,
     acc: 90,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/heatwave.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/heatwave.shtml"
 };
 
 var hail = {
@@ -10359,7 +11584,7 @@ var hail = {
     pp: 10,
     acc: -1,
     effect: "Non-Ice types are damaged for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/hail.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hail.shtml"
 };
 
 var torment = {
@@ -10370,7 +11595,7 @@ var torment = {
     pp: 15,
     acc: 100,
     effect: "Opponent cannot use the same move in a row.",
-    wiki: "http://www.serebii.net/attackdex-xy/torment.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/torment.shtml"
 };
 
 var flatter = {
@@ -10381,7 +11606,7 @@ var flatter = {
     pp: 15,
     acc: 100,
     effect: "Confuses opponent, but raises its Special Attack by two stages.",
-    wiki: "http://www.serebii.net/attackdex-xy/flatter.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flatter.shtml"
 };
 
 var will_o_wisp = {
@@ -10392,7 +11617,7 @@ var will_o_wisp = {
     pp: 15,
     acc: 85,
     effect: "Burns opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/will_o_wisp.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/will_o_wisp.shtml"
 };
 
 var memento = {
@@ -10403,7 +11628,7 @@ var memento = {
     pp: 10,
     acc: 100,
     effect: "User faints, sharply lowers opponent's Attack and Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/memento.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/memento.shtml"
 };
 
 var facade = {
@@ -10414,7 +11639,7 @@ var facade = {
     pp: 20,
     acc: 100,
     effect: "Power doubles if user is burned, poisoned, or paralyzed.",
-    wiki: "http://www.serebii.net/attackdex-xy/facade.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/facade.shtml"
 };
 
 var focus_punch = {
@@ -10425,7 +11650,7 @@ var focus_punch = {
     pp: 20,
     acc: 100,
     effect: "If the user is hit before attacking, it flinches instead.",
-    wiki: "http://www.serebii.net/attackdex-xy/focuspunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/focuspunch.shtml"
 };
 
 var smelling_salts = {
@@ -10436,7 +11661,7 @@ var smelling_salts = {
     pp: 10,
     acc: 100,
     effect: "Power doubles if opponent is paralyzed, but cures it.",
-    wiki: "http://www.serebii.net/attackdex-xy/smellingsalts.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/smellingsalts.shtml"
 };
 
 var follow_me = {
@@ -10447,7 +11672,7 @@ var follow_me = {
     pp: 20,
     acc: 100,
     effect: "In Double Battle, the user takes all the attacks.",
-    wiki: "http://www.serebii.net/attackdex-xy/followme.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/followme.shtml"
 };
 
 var nature_power = {
@@ -10458,7 +11683,7 @@ var nature_power = {
     pp: 20,
     acc: -1,
     effect: "Uses a certain move based on the current terrain.",
-    wiki: "http://www.serebii.net/attackdex-xy/naturepower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/naturepower.shtml"
 };
 
 var charge = {
@@ -10469,7 +11694,7 @@ var charge = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Special Defense and next Electric move's power increases.",
-    wiki: "http://www.serebii.net/attackdex-xy/charge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/charge.shtml"
 };
 
 var taunt = {
@@ -10480,7 +11705,7 @@ var taunt = {
     pp: 20,
     acc: 100,
     effect: "Opponent can only use moves that attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/taunt.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/taunt.shtml"
 };
 
 var helping_hand = {
@@ -10491,7 +11716,7 @@ var helping_hand = {
     pp: 20,
     acc: -1,
     effect: "In Double Battles, boosts the power of the partner's move.",
-    wiki: "http://www.serebii.net/attackdex-xy/helpinghand.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/helpinghand.shtml"
 };
 
 var trick = {
@@ -10502,7 +11727,7 @@ var trick = {
     pp: 10,
     acc: 100,
     effect: "Swaps held items with the opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/trick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/trick.shtml"
 };
 
 var role_play = {
@@ -10513,7 +11738,7 @@ var role_play = {
     pp: 10,
     acc: -1,
     effect: "User copies the opponent's Ability.",
-    wiki: "http://www.serebii.net/attackdex-xy/roleplay.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/roleplay.shtml"
 };
 
 var wish = {
@@ -10524,7 +11749,7 @@ var wish = {
     pp: 10,
     acc: -1,
     effect: "The user recovers HP in the following turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/wish.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/wish.shtml"
 };
 
 var assist = {
@@ -10535,7 +11760,7 @@ var assist = {
     pp: 20,
     acc: -1,
     effect: "In a Double Battle, user randomly attacks with a partner's move.",
-    wiki: "http://www.serebii.net/attackdex-xy/assist.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/assist.shtml"
 };
 
 var ingrain = {
@@ -10546,7 +11771,7 @@ var ingrain = {
     pp: 20,
     acc: -1,
     effect: "User restores HP each turn. User cannot escape/switch.",
-    wiki: "http://www.serebii.net/attackdex-xy/ingrain.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/ingrain.shtml"
 };
 
 var superpower = {
@@ -10557,7 +11782,7 @@ var superpower = {
     pp: 5,
     acc: 100,
     effect: "Lowers user's Attack and Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/superpower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/superpower.shtml"
 };
 
 var magic_coat = {
@@ -10568,7 +11793,7 @@ var magic_coat = {
     pp: 15,
     acc: -1,
     effect: "Reflects moves that cause status conditions back to the attacker.",
-    wiki: "http://www.serebii.net/attackdex-xy/magiccoat.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/magiccoat.shtml"
 };
 
 var recycle = {
@@ -10579,7 +11804,7 @@ var recycle = {
     pp: 10,
     acc: 100,
     effect: "User's used hold item is restored.",
-    wiki: "http://www.serebii.net/attackdex-xy/recycle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/recycle.shtml"
 };
 
 var revenge = {
@@ -10590,7 +11815,7 @@ var revenge = {
     pp: 10,
     acc: 100,
     effect: "Power increases if user was hit first.",
-    wiki: "http://www.serebii.net/attackdex-xy/revenge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/revenge.shtml"
 };
 
 var brick_break = {
@@ -10601,7 +11826,7 @@ var brick_break = {
     pp: 15,
     acc: 100,
     effect: "Breaks through Reflect and Light Screen barriers.",
-    wiki: "http://www.serebii.net/attackdex-xy/brickbreak.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/brickbreak.shtml"
 };
 
 var yawn = {
@@ -10612,7 +11837,7 @@ var yawn = {
     pp: 10,
     acc: 100,
     effect: "Puts opponent to sleep in the next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/yawn.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/yawn.shtml"
 };
 
 var knock_off = {
@@ -10623,7 +11848,7 @@ var knock_off = {
     pp: 20,
     acc: 100,
     effect: "Removes opponent's held item for the rest of the battle.",
-    wiki: "http://www.serebii.net/attackdex-xy/knockoff.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/knockoff.shtml"
 };
 
 var endeavor = {
@@ -10634,7 +11859,7 @@ var endeavor = {
     pp: 5,
     acc: 100,
     effect: "Reduces opponent's HP to same as user's.",
-    wiki: "http://www.serebii.net/attackdex-xy/endeavor.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/endeavor.shtml"
 };
 
 var eruption = {
@@ -10645,7 +11870,7 @@ var eruption = {
     pp: 5,
     acc: 100,
     effect: "Stronger when the user's HP is higher.",
-    wiki: "http://www.serebii.net/attackdex-xy/eruption.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/eruption.shtml"
 };
 
 var skill_swap = {
@@ -10656,7 +11881,7 @@ var skill_swap = {
     pp: 10,
     acc: 100,
     effect: "The user swaps Abilities with the opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/skillswap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/skillswap.shtml"
 };
 
 var imprison = {
@@ -10667,7 +11892,7 @@ var imprison = {
     pp: 10,
     acc: 100,
     effect: "Opponent is unable to use moves that the user also knows.",
-    wiki: "http://www.serebii.net/attackdex-xy/imprison.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/imprison.shtml"
 };
 
 var refresh = {
@@ -10678,7 +11903,7 @@ var refresh = {
     pp: 20,
     acc: 100,
     effect: "Cures paralysis, poison, and burns.",
-    wiki: "http://www.serebii.net/attackdex-xy/refresh.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/refresh.shtml"
 };
 
 var grudge = {
@@ -10689,7 +11914,7 @@ var grudge = {
     pp: 5,
     acc: 100,
     effect: "If the users faints after using this move, the PP for the opponent's last move is depleted.",
-    wiki: "http://www.serebii.net/attackdex-xy/grudge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/grudge.shtml"
 };
 
 var snatch = {
@@ -10700,7 +11925,7 @@ var snatch = {
     pp: 10,
     acc: 100,
     effect: "Steals the effects of the opponent's next move.",
-    wiki: "http://www.serebii.net/attackdex-xy/snatch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/snatch.shtml"
 };
 
 var secret_power = {
@@ -10711,7 +11936,7 @@ var secret_power = {
     pp: 20,
     acc: 100,
     effect: "Effects of the attack vary with the location.",
-    wiki: "http://www.serebii.net/attackdex-xy/secretpower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/secretpower.shtml"
 };
 
 var dive = {
@@ -10722,7 +11947,7 @@ var dive = {
     pp: 10,
     acc: 100,
     effect: "Dives underwater on first turn, attacks on second turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/dive.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dive.shtml"
 };
 
 var arm_thrust = {
@@ -10733,7 +11958,7 @@ var arm_thrust = {
     pp: 20,
     acc: 100,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/armthrust.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/armthrust.shtml"
 };
 
 var camouflage = {
@@ -10744,7 +11969,7 @@ var camouflage = {
     pp: 20,
     acc: -1,
     effect: "Changes user's type according to the location.",
-    wiki: "http://www.serebii.net/attackdex-xy/camouflage.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/camouflage.shtml"
 };
 
 var tail_glow = {
@@ -10755,7 +11980,7 @@ var tail_glow = {
     pp: 20,
     acc: -1,
     effect: "Drastically raises user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/tailglow.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tailglow.shtml"
 };
 
 var luster_purge = {
@@ -10766,7 +11991,7 @@ var luster_purge = {
     pp: 5,
     acc: 100,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/lusterpurge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lusterpurge.shtml"
 };
 
 var mist_ball = {
@@ -10777,7 +12002,7 @@ var mist_ball = {
     pp: 5,
     acc: 100,
     effect: "May lower opponent's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/mistball.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mistball.shtml"
 };
 
 var feather_dance = {
@@ -10788,7 +12013,7 @@ var feather_dance = {
     pp: 15,
     acc: 100,
     effect: "Sharply lowers opponent's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/featherdance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/featherdance.shtml"
 };
 
 var teeter_dance = {
@@ -10799,7 +12024,7 @@ var teeter_dance = {
     pp: 20,
     acc: 100,
     effect: "Confuses all Pokémon.",
-    wiki: "http://www.serebii.net/attackdex-xy/teeterdance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/teeterdance.shtml"
 };
 
 var blaze_kick = {
@@ -10810,7 +12035,7 @@ var blaze_kick = {
     pp: 10,
     acc: 90,
     effect: "High critical hit ratio. May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/blazekick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/blazekick.shtml"
 };
 
 var mud_sport = {
@@ -10821,7 +12046,7 @@ var mud_sport = {
     pp: 15,
     acc: -1,
     effect: "Weakens the power of Electric-type moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/mudsport.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mudsport.shtml"
 };
 
 var ice_ball = {
@@ -10832,7 +12057,7 @@ var ice_ball = {
     pp: 20,
     acc: 90,
     effect: "Doubles in power each turn for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/iceball.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/iceball.shtml"
 };
 
 var needle_arm = {
@@ -10843,7 +12068,7 @@ var needle_arm = {
     pp: 15,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/needlearm.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/needlearm.shtml"
 };
 
 var slack_off = {
@@ -10854,7 +12079,7 @@ var slack_off = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/slackoff.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/slackoff.shtml"
 };
 
 var hyper_voice = {
@@ -10865,7 +12090,7 @@ var hyper_voice = {
     pp: 10,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/hypervoice.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hypervoice.shtml"
 };
 
 var poison_fang = {
@@ -10876,7 +12101,7 @@ var poison_fang = {
     pp: 15,
     acc: 100,
     effect: "May badly poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/poisonfang.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/poisonfang.shtml"
 };
 
 var crush_claw = {
@@ -10887,7 +12112,7 @@ var crush_claw = {
     pp: 10,
     acc: 95,
     effect: "May lower opponent's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/crushclaw.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/crushclaw.shtml"
 };
 
 var blast_burn = {
@@ -10898,7 +12123,7 @@ var blast_burn = {
     pp: 5,
     acc: 90,
     effect: "User must recharge next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/blastburn.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/blastburn.shtml"
 };
 
 var hydro_cannon = {
@@ -10909,7 +12134,7 @@ var hydro_cannon = {
     pp: 5,
     acc: 90,
     effect: "User must recharge next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/hydrocannon.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hydrocannon.shtml"
 };
 
 var meteor_mash = {
@@ -10920,7 +12145,7 @@ var meteor_mash = {
     pp: 10,
     acc: 90,
     effect: "May raise user's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/meteormash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/meteormash.shtml"
 };
 
 var astonish = {
@@ -10931,7 +12156,7 @@ var astonish = {
     pp: 15,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/astonish.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/astonish.shtml"
 };
 
 var weather_ball = {
@@ -10942,7 +12167,7 @@ var weather_ball = {
     pp: 10,
     acc: 100,
     effect: "Move's power and type changes with the weather.",
-    wiki: "http://www.serebii.net/attackdex-xy/weatherball.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/weatherball.shtml"
 };
 
 var aromatherapy = {
@@ -10953,7 +12178,7 @@ var aromatherapy = {
     pp: 5,
     acc: -1,
     effect: "Cures all status problems in your party.",
-    wiki: "http://www.serebii.net/attackdex-xy/aromatherapy.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aromatherapy.shtml"
 };
 
 var fake_tears = {
@@ -10964,7 +12189,7 @@ var fake_tears = {
     pp: 20,
     acc: 100,
     effect: "Sharply lowers opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/faketears.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/faketears.shtml"
 };
 
 var air_cutter = {
@@ -10975,7 +12200,7 @@ var air_cutter = {
     pp: 25,
     acc: 95,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/aircutter.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aircutter.shtml"
 };
 
 var overheat = {
@@ -10986,7 +12211,7 @@ var overheat = {
     pp: 5,
     acc: 90,
     effect: "Sharply lowers user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/overheat.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/overheat.shtml"
 };
 
 var odor_sleuth = {
@@ -10997,7 +12222,7 @@ var odor_sleuth = {
     pp: 40,
     acc: 100,
     effect: "Resets opponent's Evasiveness, Normal-type and Fighting-type attacks can now hit Ghosts, and Ghost-type attacks hit Normal.",
-    wiki: "http://www.serebii.net/attackdex-xy/odorsleuth.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/odorsleuth.shtml"
 };
 
 var rock_tomb = {
@@ -11008,7 +12233,7 @@ var rock_tomb = {
     pp: 15,
     acc: 95,
     effect: "Lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/rocktomb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rocktomb.shtml"
 };
 
 var silver_wind = {
@@ -11019,7 +12244,7 @@ var silver_wind = {
     pp: 5,
     acc: 100,
     effect: "May raise all stats of user at once.",
-    wiki: "http://www.serebii.net/attackdex-xy/silverwind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/silverwind.shtml"
 };
 
 var metal_sound = {
@@ -11030,7 +12255,7 @@ var metal_sound = {
     pp: 40,
     acc: 85,
     effect: "Sharply lowers opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/metalsound.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/metalsound.shtml"
 };
 
 var grass_whistle = {
@@ -11041,7 +12266,7 @@ var grass_whistle = {
     pp: 15,
     acc: 55,
     effect: "Puts opponent to sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/grasswhistle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/grasswhistle.shtml"
 };
 
 var tickle = {
@@ -11052,7 +12277,7 @@ var tickle = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Attack and Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/tickle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tickle.shtml"
 };
 
 var cosmic_power = {
@@ -11063,7 +12288,7 @@ var cosmic_power = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Defense and Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/cosmicpower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/cosmicpower.shtml"
 };
 
 var water_spout = {
@@ -11074,7 +12299,7 @@ var water_spout = {
     pp: 5,
     acc: 100,
     effect: "The higher the user's HP, the higher the damage caused.",
-    wiki: "http://www.serebii.net/attackdex-xy/waterspout.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/waterspout.shtml"
 };
 
 var signal_beam = {
@@ -11085,7 +12310,7 @@ var signal_beam = {
     pp: 15,
     acc: 100,
     effect: "May confuse opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/signalbeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/signalbeam.shtml"
 };
 
 var shadow_punch = {
@@ -11096,7 +12321,7 @@ var shadow_punch = {
     pp: 20,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/shadowpunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shadowpunch.shtml"
 };
 
 var extrasensory = {
@@ -11107,7 +12332,7 @@ var extrasensory = {
     pp: 20,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/extrasensory.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/extrasensory.shtml"
 };
 
 var sky_uppercut = {
@@ -11118,7 +12343,7 @@ var sky_uppercut = {
     pp: 15,
     acc: 90,
     effect: "Hits the opponent, even during Fly.",
-    wiki: "http://www.serebii.net/attackdex-xy/skyuppercut.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/skyuppercut.shtml"
 };
 
 var sand_tomb = {
@@ -11129,7 +12354,7 @@ var sand_tomb = {
     pp: 15,
     acc: 85,
     effect: "Traps opponent, damaging them for 4-5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/sandtomb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sandtomb.shtml"
 };
 
 var sheer_cold = {
@@ -11140,7 +12365,7 @@ var sheer_cold = {
     pp: 5,
     acc: -1,
     effect: "One-Hit-KO, if it hits.",
-    wiki: "http://www.serebii.net/attackdex-xy/sheercold.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sheercold.shtml"
 };
 
 var muddy_water = {
@@ -11151,7 +12376,7 @@ var muddy_water = {
     pp: 10,
     acc: 85,
     effect: "May lower opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/muddywater.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/muddywater.shtml"
 };
 
 var bullet_seed = {
@@ -11162,7 +12387,7 @@ var bullet_seed = {
     pp: 30,
     acc: 100,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/bulletseed.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bulletseed.shtml"
 };
 
 var aerial_ace = {
@@ -11173,7 +12398,7 @@ var aerial_ace = {
     pp: 20,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/aerialace.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aerialace.shtml"
 };
 
 var icicle_spear = {
@@ -11184,7 +12409,7 @@ var icicle_spear = {
     pp: 30,
     acc: 100,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/iciclespear.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/iciclespear.shtml"
 };
 
 var iron_defense = {
@@ -11195,7 +12420,7 @@ var iron_defense = {
     pp: 15,
     acc: -1,
     effect: "Sharply raises user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/irondefense.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/irondefense.shtml"
 };
 
 var block = {
@@ -11206,7 +12431,7 @@ var block = {
     pp: 5,
     acc: -1,
     effect: "Opponent cannot flee or switch.",
-    wiki: "http://www.serebii.net/attackdex-xy/block.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/block.shtml"
 };
 
 var howl = {
@@ -11217,7 +12442,7 @@ var howl = {
     pp: 40,
     acc: -1,
     effect: "Raises user's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/howl.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/howl.shtml"
 };
 
 var dragon_claw = {
@@ -11228,7 +12453,7 @@ var dragon_claw = {
     pp: 15,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/dragonclaw.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragonclaw.shtml"
 };
 
 var frenzy_plant = {
@@ -11239,7 +12464,7 @@ var frenzy_plant = {
     pp: 5,
     acc: 90,
     effect: "User must recharge next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/frenzyplant.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/frenzyplant.shtml"
 };
 
 var bulk_up = {
@@ -11250,7 +12475,7 @@ var bulk_up = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Attack and Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/bulkup.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bulkup.shtml"
 };
 
 var bounce = {
@@ -11261,7 +12486,7 @@ var bounce = {
     pp: 5,
     acc: 85,
     effect: "Springs up on first turn, attacks on second. May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/bounce.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bounce.shtml"
 };
 
 var mud_shot = {
@@ -11272,7 +12497,7 @@ var mud_shot = {
     pp: 15,
     acc: 95,
     effect: "Lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/mudshot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mudshot.shtml"
 };
 
 var poison_tail = {
@@ -11283,7 +12508,7 @@ var poison_tail = {
     pp: 25,
     acc: 100,
     effect: "High critical hit ratio. May poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/poisontail.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/poisontail.shtml"
 };
 
 var covet = {
@@ -11294,7 +12519,7 @@ var covet = {
     pp: 25,
     acc: 100,
     effect: "Opponent's item is stolen by the user.",
-    wiki: "http://www.serebii.net/attackdex-xy/covet.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/covet.shtml"
 };
 
 var volt_tackle = {
@@ -11305,7 +12530,7 @@ var volt_tackle = {
     pp: 15,
     acc: 100,
     effect: "User receives recoil damage. May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/volttackle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/volttackle.shtml"
 };
 
 var magical_leaf = {
@@ -11316,7 +12541,7 @@ var magical_leaf = {
     pp: 20,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/magicalleaf.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/magicalleaf.shtml"
 };
 
 var water_sport = {
@@ -11327,7 +12552,7 @@ var water_sport = {
     pp: 15,
     acc: 100,
     effect: "Weakens the power of Fire-type moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/watersport.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/watersport.shtml"
 };
 
 var calm_mind = {
@@ -11338,7 +12563,7 @@ var calm_mind = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Special Attack and Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/calmmind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/calmmind.shtml"
 };
 
 var leaf_blade = {
@@ -11349,7 +12574,7 @@ var leaf_blade = {
     pp: 15,
     acc: 100,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/leafblade.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/leafblade.shtml"
 };
 
 var dragon_dance = {
@@ -11360,7 +12585,7 @@ var dragon_dance = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Attack and Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/dragondance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragondance.shtml"
 };
 
 var rock_blast = {
@@ -11371,7 +12596,7 @@ var rock_blast = {
     pp: 10,
     acc: 90,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/rockblast.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rockblast.shtml"
 };
 
 var shock_wave = {
@@ -11382,7 +12607,7 @@ var shock_wave = {
     pp: 20,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/shockwave.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shockwave.shtml"
 };
 
 var water_pulse = {
@@ -11393,7 +12618,7 @@ var water_pulse = {
     pp: 20,
     acc: 100,
     effect: "May confuse opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/waterpulse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/waterpulse.shtml"
 };
 
 var doom_desire = {
@@ -11404,7 +12629,7 @@ var doom_desire = {
     pp: 5,
     acc: 100,
     effect: "Damage occurs 2 turns later.",
-    wiki: "http://www.serebii.net/attackdex-xy/doomdesire.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/doomdesire.shtml"
 };
 
 var psycho_boost = {
@@ -11415,7 +12640,7 @@ var psycho_boost = {
     pp: 5,
     acc: 90,
     effect: "Sharply lowers user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/psychoboost.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psychoboost.shtml"
 };
 
 var roost = {
@@ -11426,7 +12651,7 @@ var roost = {
     pp: 10,
     acc: -1,
     effect: "User recovers half of its max HP and loses the Flying type temporarily.",
-    wiki: "http://www.serebii.net/attackdex-xy/roost.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/roost.shtml"
 };
 
 var gravity = {
@@ -11437,7 +12662,7 @@ var gravity = {
     pp: 5,
     acc: -1,
     effect: "Prevents moves like Fly and Bounce and the Ability Levitate for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/gravity.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gravity.shtml"
 };
 
 var miracle_eye = {
@@ -11448,7 +12673,7 @@ var miracle_eye = {
     pp: 40,
     acc: -1,
     effect: "Resets opponent's Evasiveness, removes Dark's Psychic immunity.",
-    wiki: "http://www.serebii.net/attackdex-xy/miracleeye.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/miracleeye.shtml"
 };
 
 var wake_up_slap = {
@@ -11459,7 +12684,7 @@ var wake_up_slap = {
     pp: 10,
     acc: 100,
     effect: "Power doubles if opponent is asleep, but wakes it up.",
-    wiki: "http://www.serebii.net/attackdex-xy/wake_upslap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/wake_upslap.shtml"
 };
 
 var hammer_arm = {
@@ -11470,7 +12695,7 @@ var hammer_arm = {
     pp: 10,
     acc: 90,
     effect: "Lowers user's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/hammerarm.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hammerarm.shtml"
 };
 
 var gyro_ball = {
@@ -11481,7 +12706,7 @@ var gyro_ball = {
     pp: 5,
     acc: 100,
     effect: "The slower the user, the stronger the attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/gyroball.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gyroball.shtml"
 };
 
 var healing_wish = {
@@ -11492,7 +12717,7 @@ var healing_wish = {
     pp: 10,
     acc: -1,
     effect: "The user faints and the next Pokémon released is fully healed.",
-    wiki: "http://www.serebii.net/attackdex-xy/healingwish.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/healingwish.shtml"
 };
 
 var brine = {
@@ -11503,7 +12728,7 @@ var brine = {
     pp: 10,
     acc: 100,
     effect: "Power doubles if opponent's HP is less than 50%.",
-    wiki: "http://www.serebii.net/attackdex-xy/brine.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/brine.shtml"
 };
 
 var natural_gift = {
@@ -11514,7 +12739,7 @@ var natural_gift = {
     pp: 15,
     acc: 100,
     effect: "Power and type depend on the user's held berry.",
-    wiki: "http://www.serebii.net/attackdex-xy/naturalgift.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/naturalgift.shtml"
 };
 
 var feint = {
@@ -11525,7 +12750,7 @@ var feint = {
     pp: 10,
     acc: 100,
     effect: "Only hits if opponent uses Protect or Detect in the same turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/feint.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/feint.shtml"
 };
 
 var pluck = {
@@ -11536,7 +12761,7 @@ var pluck = {
     pp: 20,
     acc: 100,
     effect: "If the opponent is holding a berry, its effect is stolen by user.",
-    wiki: "http://www.serebii.net/attackdex-xy/pluck.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/pluck.shtml"
 };
 
 var tailwind = {
@@ -11547,7 +12772,7 @@ var tailwind = {
     pp: 15,
     acc: -1,
     effect: "Doubles Speed for 4 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/tailwind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tailwind.shtml"
 };
 
 var acupressure = {
@@ -11558,7 +12783,7 @@ var acupressure = {
     pp: 30,
     acc: -1,
     effect: "Sharply raises a random stat.",
-    wiki: "http://www.serebii.net/attackdex-xy/acupressure.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/acupressure.shtml"
 };
 
 var metal_burst = {
@@ -11569,7 +12794,7 @@ var metal_burst = {
     pp: 10,
     acc: 100,
     effect: "Deals damage equal to 1.5x opponent's attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/metalburst.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/metalburst.shtml"
 };
 
 var u_turn = {
@@ -11580,7 +12805,7 @@ var u_turn = {
     pp: 20,
     acc: 100,
     effect: "User switches out immediately after attacking.",
-    wiki: "http://www.serebii.net/attackdex-xy/u_turn.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/u_turn.shtml"
 };
 
 var close_combat = {
@@ -11591,7 +12816,7 @@ var close_combat = {
     pp: 5,
     acc: 100,
     effect: "Lowers user's Defense and Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/closecombat.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/closecombat.shtml"
 };
 
 var payback = {
@@ -11602,7 +12827,7 @@ var payback = {
     pp: 10,
     acc: 100,
     effect: "Power doubles if the user was attacked first.",
-    wiki: "http://www.serebii.net/attackdex-xy/payback.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/payback.shtml"
 };
 
 var assurance = {
@@ -11613,7 +12838,7 @@ var assurance = {
     pp: 10,
     acc: 100,
     effect: "Power doubles if opponent already took damage in the same turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/assurance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/assurance.shtml"
 };
 
 var embargo = {
@@ -11624,7 +12849,7 @@ var embargo = {
     pp: 15,
     acc: 100,
     effect: "Opponent cannot use items.",
-    wiki: "http://www.serebii.net/attackdex-xy/embargo.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/embargo.shtml"
 };
 
 var fling = {
@@ -11635,7 +12860,7 @@ var fling = {
     pp: 10,
     acc: 100,
     effect: "Power depends on held item.",
-    wiki: "http://www.serebii.net/attackdex-xy/fling.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fling.shtml"
 };
 
 var psycho_shift = {
@@ -11646,7 +12871,7 @@ var psycho_shift = {
     pp: 10,
     acc: 100,
     effect: "Gives the opponent the user's status condition, if it hits.",
-    wiki: "http://www.serebii.net/attackdex-xy/psychoshift.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psychoshift.shtml"
 };
 
 var trump_card = {
@@ -11657,7 +12882,7 @@ var trump_card = {
     pp: 5,
     acc: -1,
     effect: "The lower the PP, the higher the power.",
-    wiki: "http://www.serebii.net/attackdex-xy/trumpcard.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/trumpcard.shtml"
 };
 
 var heal_block = {
@@ -11668,7 +12893,7 @@ var heal_block = {
     pp: 15,
     acc: 100,
     effect: "Prevents the opponent from restoring HP for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/healblock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/healblock.shtml"
 };
 
 var wring_out = {
@@ -11679,7 +12904,7 @@ var wring_out = {
     pp: 5,
     acc: 100,
     effect: "The higher the opponent's HP, the higher the damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/wringout.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/wringout.shtml"
 };
 
 var power_trick = {
@@ -11690,7 +12915,7 @@ var power_trick = {
     pp: 10,
     acc: -1,
     effect: "User's own Attack and Defense switch.",
-    wiki: "http://www.serebii.net/attackdex-xy/powertrick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/powertrick.shtml"
 };
 
 var gastro_acid = {
@@ -11701,7 +12926,7 @@ var gastro_acid = {
     pp: 10,
     acc: 100,
     effect: "Cancels out the effect of the opponent's Ability.",
-    wiki: "http://www.serebii.net/attackdex-xy/gastroacid.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gastroacid.shtml"
 };
 
 var lucky_chant = {
@@ -11712,7 +12937,7 @@ var lucky_chant = {
     pp: 30,
     acc: -1,
     effect: "Opponent cannot land critical hits for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/luckychant.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/luckychant.shtml"
 };
 
 var me_first = {
@@ -11723,7 +12948,7 @@ var me_first = {
     pp: 20,
     acc: -1,
     effect: "User copies the opponent's attack with 1.5× power.",
-    wiki: "http://www.serebii.net/attackdex-xy/mefirst.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mefirst.shtml"
 };
 
 var copycat = {
@@ -11734,7 +12959,7 @@ var copycat = {
     pp: 20,
     acc: -1,
     effect: "Copies opponent's last move.",
-    wiki: "http://www.serebii.net/attackdex-xy/copycat.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/copycat.shtml"
 };
 
 var power_swap = {
@@ -11745,7 +12970,7 @@ var power_swap = {
     pp: 10,
     acc: -1,
     effect: "User and opponent swap Attack and Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/powerswap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/powerswap.shtml"
 };
 
 var guard_swap = {
@@ -11756,7 +12981,7 @@ var guard_swap = {
     pp: 10,
     acc: -1,
     effect: "User and opponent swap Defense and Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/guardswap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/guardswap.shtml"
 };
 
 var punishment = {
@@ -11767,7 +12992,7 @@ var punishment = {
     pp: 5,
     acc: 100,
     effect: "Power increases when opponent's stats have been raised.",
-    wiki: "http://www.serebii.net/attackdex-xy/punishment.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/punishment.shtml"
 };
 
 var last_resort = {
@@ -11778,7 +13003,7 @@ var last_resort = {
     pp: 5,
     acc: 100,
     effect: "Can only be used after all other moves are used.",
-    wiki: "http://www.serebii.net/attackdex-xy/lastresort.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lastresort.shtml"
 };
 
 var worry_seed = {
@@ -11789,7 +13014,7 @@ var worry_seed = {
     pp: 10,
     acc: 100,
     effect: "Changes the opponent's Ability to Insomnia.",
-    wiki: "http://www.serebii.net/attackdex-xy/worryseed.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/worryseed.shtml"
 };
 
 var sucker_punch = {
@@ -11800,7 +13025,7 @@ var sucker_punch = {
     pp: 5,
     acc: 100,
     effect: "User attacks first, but only works if opponent is readying an attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/suckerpunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/suckerpunch.shtml"
 };
 
 var toxic_spikes = {
@@ -11811,7 +13036,7 @@ var toxic_spikes = {
     pp: 20,
     acc: -1,
     effect: "Poisons opponents when they switch into battle.",
-    wiki: "http://www.serebii.net/attackdex-xy/toxicspikes.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/toxicspikes.shtml"
 };
 
 var heart_swap = {
@@ -11822,7 +13047,7 @@ var heart_swap = {
     pp: 10,
     acc: -1,
     effect: "Stat changes are swapped with the opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/heartswap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/heartswap.shtml"
 };
 
 var aqua_ring = {
@@ -11833,7 +13058,7 @@ var aqua_ring = {
     pp: 20,
     acc: -1,
     effect: "Restores a little HP each turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/aquaring.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aquaring.shtml"
 };
 
 var magnet_rise = {
@@ -11844,7 +13069,7 @@ var magnet_rise = {
     pp: 10,
     acc: -1,
     effect: "User becomes immune to Ground-type moves for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/magnetrise.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/magnetrise.shtml"
 };
 
 var flare_blitz = {
@@ -11855,7 +13080,7 @@ var flare_blitz = {
     pp: 15,
     acc: 100,
     effect: "User receives recoil damage. May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/flareblitz.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flareblitz.shtml"
 };
 
 var force_palm = {
@@ -11866,7 +13091,7 @@ var force_palm = {
     pp: 10,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/forcepalm.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/forcepalm.shtml"
 };
 
 var aura_sphere = {
@@ -11877,7 +13102,7 @@ var aura_sphere = {
     pp: 20,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/aurasphere.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aurasphere.shtml"
 };
 
 var rock_polish = {
@@ -11888,7 +13113,7 @@ var rock_polish = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/rockpolish.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rockpolish.shtml"
 };
 
 var poison_jab = {
@@ -11899,7 +13124,7 @@ var poison_jab = {
     pp: 20,
     acc: 100,
     effect: "May poison the opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/poisonjab.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/poisonjab.shtml"
 };
 
 var dark_pulse = {
@@ -11910,7 +13135,7 @@ var dark_pulse = {
     pp: 15,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/darkpulse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/darkpulse.shtml"
 };
 
 var night_slash = {
@@ -11921,7 +13146,7 @@ var night_slash = {
     pp: 15,
     acc: 100,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/nightslash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/nightslash.shtml"
 };
 
 var aqua_tail = {
@@ -11932,7 +13157,7 @@ var aqua_tail = {
     pp: 10,
     acc: 90,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/aquatail.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aquatail.shtml"
 };
 
 var seed_bomb = {
@@ -11943,7 +13168,7 @@ var seed_bomb = {
     pp: 15,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/seedbomb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/seedbomb.shtml"
 };
 
 var air_slash = {
@@ -11954,7 +13179,7 @@ var air_slash = {
     pp: 15,
     acc: 95,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/airslash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/airslash.shtml"
 };
 
 var x_scissor = {
@@ -11965,7 +13190,7 @@ var x_scissor = {
     pp: 15,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/x_scissor.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/x_scissor.shtml"
 };
 
 var bug_buzz = {
@@ -11976,7 +13201,7 @@ var bug_buzz = {
     pp: 10,
     acc: 100,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/bugbuzz.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bugbuzz.shtml"
 };
 
 var dragon_pulse = {
@@ -11987,7 +13212,7 @@ var dragon_pulse = {
     pp: 10,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/dragonpulse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragonpulse.shtml"
 };
 
 var dragon_rush = {
@@ -11998,7 +13223,7 @@ var dragon_rush = {
     pp: 10,
     acc: 75,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/dragonrush.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragonrush.shtml"
 };
 
 var power_gem = {
@@ -12009,7 +13234,7 @@ var power_gem = {
     pp: 20,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/powergem.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/powergem.shtml"
 };
 
 var drain_punch = {
@@ -12020,7 +13245,7 @@ var drain_punch = {
     pp: 10,
     acc: 100,
     effect: "User recovers half the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/drainpunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/drainpunch.shtml"
 };
 
 var vacuum_wave = {
@@ -12031,7 +13256,7 @@ var vacuum_wave = {
     pp: 30,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/vacuumwave.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/vacuumwave.shtml"
 };
 
 var focus_blast = {
@@ -12042,7 +13267,7 @@ var focus_blast = {
     pp: 5,
     acc: 70,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/focusblast.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/focusblast.shtml"
 };
 
 var energy_ball = {
@@ -12053,7 +13278,7 @@ var energy_ball = {
     pp: 10,
     acc: 100,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/energyball.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/energyball.shtml"
 };
 
 var brave_bird = {
@@ -12064,7 +13289,7 @@ var brave_bird = {
     pp: 15,
     acc: 100,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/bravebird.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bravebird.shtml"
 };
 
 var earth_power = {
@@ -12075,7 +13300,7 @@ var earth_power = {
     pp: 10,
     acc: 100,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/earthpower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/earthpower.shtml"
 };
 
 var switcheroo = {
@@ -12086,7 +13311,7 @@ var switcheroo = {
     pp: 10,
     acc: 100,
     effect: "Swaps held items with the opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/switcheroo.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/switcheroo.shtml"
 };
 
 var giga_impact = {
@@ -12097,7 +13322,7 @@ var giga_impact = {
     pp: 5,
     acc: 90,
     effect: "User must recharge next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/gigaimpact.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gigaimpact.shtml"
 };
 
 var nasty_plot = {
@@ -12108,7 +13333,7 @@ var nasty_plot = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/nastyplot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/nastyplot.shtml"
 };
 
 var bullet_punch = {
@@ -12119,7 +13344,7 @@ var bullet_punch = {
     pp: 30,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/bulletpunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bulletpunch.shtml"
 };
 
 var avalanche = {
@@ -12130,7 +13355,7 @@ var avalanche = {
     pp: 10,
     acc: 100,
     effect: "Power doubles if user took damage first.",
-    wiki: "http://www.serebii.net/attackdex-xy/avalanche.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/avalanche.shtml"
 };
 
 var ice_shard = {
@@ -12141,7 +13366,7 @@ var ice_shard = {
     pp: 30,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/iceshard.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/iceshard.shtml"
 };
 
 var shadow_claw = {
@@ -12152,7 +13377,7 @@ var shadow_claw = {
     pp: 15,
     acc: 100,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/shadowclaw.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shadowclaw.shtml"
 };
 
 var thunder_fang = {
@@ -12163,7 +13388,7 @@ var thunder_fang = {
     pp: 15,
     acc: 95,
     effect: "May cause flinching and/or paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/thunderfang.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thunderfang.shtml"
 };
 
 var ice_fang = {
@@ -12174,7 +13399,7 @@ var ice_fang = {
     pp: 15,
     acc: 95,
     effect: "May cause flinching and/or freeze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/icefang.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/icefang.shtml"
 };
 
 var fire_fang = {
@@ -12185,7 +13410,7 @@ var fire_fang = {
     pp: 15,
     acc: 95,
     effect: "May cause flinching and/or burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/firefang.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/firefang.shtml"
 };
 
 var shadow_sneak = {
@@ -12196,7 +13421,7 @@ var shadow_sneak = {
     pp: 30,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/shadowsneak.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shadowsneak.shtml"
 };
 
 var mud_bomb = {
@@ -12207,7 +13432,7 @@ var mud_bomb = {
     pp: 10,
     acc: 85,
     effect: "May lower opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/mudbomb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mudbomb.shtml"
 };
 
 var psycho_cut = {
@@ -12218,7 +13443,7 @@ var psycho_cut = {
     pp: 20,
     acc: 100,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/psychocut.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psychocut.shtml"
 };
 
 var zen_headbutt = {
@@ -12229,7 +13454,7 @@ var zen_headbutt = {
     pp: 15,
     acc: 90,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/zenheadbutt.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/zenheadbutt.shtml"
 };
 
 var mirror_shot = {
@@ -12240,7 +13465,7 @@ var mirror_shot = {
     pp: 10,
     acc: 85,
     effect: "May lower opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/mirrorshot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mirrorshot.shtml"
 };
 
 var flash_cannon = {
@@ -12251,7 +13476,7 @@ var flash_cannon = {
     pp: 10,
     acc: 100,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/flashcannon.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flashcannon.shtml"
 };
 
 var rock_climb = {
@@ -12262,7 +13487,7 @@ var rock_climb = {
     pp: 20,
     acc: 85,
     effect: "May confuse opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/rockclimb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rockclimb.shtml"
 };
 
 var defog = {
@@ -12273,7 +13498,7 @@ var defog = {
     pp: 15,
     acc: -1,
     effect: "Lowers opponent's Evasiveness and clears fog.",
-    wiki: "http://www.serebii.net/attackdex-xy/defog.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/defog.shtml"
 };
 
 var trick_room = {
@@ -12284,7 +13509,7 @@ var trick_room = {
     pp: 5,
     acc: -1,
     effect: "Slower Pokémon move first in the turn for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/trickroom.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/trickroom.shtml"
 };
 
 var draco_meteor = {
@@ -12295,7 +13520,7 @@ var draco_meteor = {
     pp: 5,
     acc: 90,
     effect: "Sharply lowers user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/dracometeor.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dracometeor.shtml"
 };
 
 var discharge = {
@@ -12306,7 +13531,7 @@ var discharge = {
     pp: 15,
     acc: 100,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/discharge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/discharge.shtml"
 };
 
 var lava_plume = {
@@ -12317,7 +13542,7 @@ var lava_plume = {
     pp: 15,
     acc: 100,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/lavaplume.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lavaplume.shtml"
 };
 
 var leaf_storm = {
@@ -12328,7 +13553,7 @@ var leaf_storm = {
     pp: 5,
     acc: 90,
     effect: "Sharply lowers user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/leafstorm.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/leafstorm.shtml"
 };
 
 var power_whip = {
@@ -12339,7 +13564,7 @@ var power_whip = {
     pp: 10,
     acc: 85,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/powerwhip.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/powerwhip.shtml"
 };
 
 var rock_wrecker = {
@@ -12350,7 +13575,7 @@ var rock_wrecker = {
     pp: 5,
     acc: 90,
     effect: "User must recharge next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/rockwrecker.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rockwrecker.shtml"
 };
 
 var cross_poison = {
@@ -12361,7 +13586,7 @@ var cross_poison = {
     pp: 20,
     acc: 100,
     effect: "High critical hit ratio. May poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/crosspoison.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/crosspoison.shtml"
 };
 
 var gunk_shot = {
@@ -12372,7 +13597,7 @@ var gunk_shot = {
     pp: 5,
     acc: 80,
     effect: "May poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/gunkshot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gunkshot.shtml"
 };
 
 var iron_head = {
@@ -12383,7 +13608,7 @@ var iron_head = {
     pp: 15,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/ironhead.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/ironhead.shtml"
 };
 
 var magnet_bomb = {
@@ -12394,7 +13619,7 @@ var magnet_bomb = {
     pp: 20,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/magnetbomb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/magnetbomb.shtml"
 };
 
 var stone_edge = {
@@ -12405,7 +13630,7 @@ var stone_edge = {
     pp: 5,
     acc: 80,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/stoneedge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stoneedge.shtml"
 };
 
 var captivate = {
@@ -12416,7 +13641,7 @@ var captivate = {
     pp: 20,
     acc: 100,
     effect: "Sharply lowers opponent's Special Attack if opposite gender.",
-    wiki: "http://www.serebii.net/attackdex-xy/captivate.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/captivate.shtml"
 };
 
 var stealth_rock = {
@@ -12427,7 +13652,7 @@ var stealth_rock = {
     pp: 20,
     acc: -1,
     effect: "Damages opponent switching into battle.",
-    wiki: "http://www.serebii.net/attackdex-xy/stealthrock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stealthrock.shtml"
 };
 
 var grass_knot = {
@@ -12438,7 +13663,7 @@ var grass_knot = {
     pp: 20,
     acc: 100,
     effect: "The heavier the opponent, the stronger the attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/grassknot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/grassknot.shtml"
 };
 
 var chatter = {
@@ -12449,7 +13674,7 @@ var chatter = {
     pp: 20,
     acc: 100,
     effect: "Confuses opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/chatter.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/chatter.shtml"
 };
 
 var judgment = {
@@ -12460,7 +13685,7 @@ var judgment = {
     pp: 10,
     acc: 100,
     effect: "Type depends on the Arceus Plate being held.",
-    wiki: "http://www.serebii.net/attackdex-xy/judgment.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/judgment.shtml"
 };
 
 var bug_bite = {
@@ -12471,7 +13696,7 @@ var bug_bite = {
     pp: 20,
     acc: 100,
     effect: "Receives the effect from the opponent's held berry.",
-    wiki: "http://www.serebii.net/attackdex-xy/bugbite.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bugbite.shtml"
 };
 
 var charge_beam = {
@@ -12482,7 +13707,7 @@ var charge_beam = {
     pp: 10,
     acc: 90,
     effect: "May raise user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/chargebeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/chargebeam.shtml"
 };
 
 var wood_hammer = {
@@ -12493,7 +13718,7 @@ var wood_hammer = {
     pp: 15,
     acc: 100,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/woodhammer.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/woodhammer.shtml"
 };
 
 var aqua_jet = {
@@ -12504,7 +13729,7 @@ var aqua_jet = {
     pp: 20,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/aquajet.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aquajet.shtml"
 };
 
 var attack_order = {
@@ -12515,7 +13740,7 @@ var attack_order = {
     pp: 15,
     acc: 100,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/attackorder.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/attackorder.shtml"
 };
 
 var defend_order = {
@@ -12526,7 +13751,7 @@ var defend_order = {
     pp: 10,
     acc: -1,
     effect: "Raises user's Defense and Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/defendorder.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/defendorder.shtml"
 };
 
 var heal_order = {
@@ -12537,7 +13762,7 @@ var heal_order = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/healorder.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/healorder.shtml"
 };
 
 var head_smash = {
@@ -12548,7 +13773,7 @@ var head_smash = {
     pp: 5,
     acc: 80,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/headsmash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/headsmash.shtml"
 };
 
 var double_hit = {
@@ -12559,7 +13784,7 @@ var double_hit = {
     pp: 10,
     acc: 90,
     effect: "Hits twice in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/doublehit.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/doublehit.shtml"
 };
 
 var roar_of_time = {
@@ -12570,7 +13795,7 @@ var roar_of_time = {
     pp: 5,
     acc: 90,
     effect: "User must recharge next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/roaroftime.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/roaroftime.shtml"
 };
 
 var spacial_rend = {
@@ -12581,7 +13806,7 @@ var spacial_rend = {
     pp: 5,
     acc: 95,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/spacialrend.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spacialrend.shtml"
 };
 
 var lunar_dance = {
@@ -12592,7 +13817,7 @@ var lunar_dance = {
     pp: 10,
     acc: -1,
     effect: "The user faints but the next Pokémon released is fully healed.",
-    wiki: "http://www.serebii.net/attackdex-xy/lunardance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lunardance.shtml"
 };
 
 var crush_grip = {
@@ -12603,7 +13828,7 @@ var crush_grip = {
     pp: 5,
     acc: 100,
     effect: "More powerful when opponent has higher HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/crushgrip.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/crushgrip.shtml"
 };
 
 var magma_storm = {
@@ -12614,7 +13839,7 @@ var magma_storm = {
     pp: 5,
     acc: 75,
     effect: "Traps opponent, damaging them for 4-5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/magmastorm.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/magmastorm.shtml"
 };
 
 var dark_void = {
@@ -12625,7 +13850,7 @@ var dark_void = {
     pp: 10,
     acc: 80,
     effect: "Puts all adjacent opponents to sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/darkvoid.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/darkvoid.shtml"
 };
 
 var seed_flare = {
@@ -12636,7 +13861,7 @@ var seed_flare = {
     pp: 5,
     acc: 85,
     effect: "May lower opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/seedflare.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/seedflare.shtml"
 };
 
 var ominous_wind = {
@@ -12647,7 +13872,7 @@ var ominous_wind = {
     pp: 5,
     acc: 100,
     effect: "May raise all user's stats at once.",
-    wiki: "http://www.serebii.net/attackdex-xy/ominouswind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/ominouswind.shtml"
 };
 
 var shadow_force = {
@@ -12658,7 +13883,7 @@ var shadow_force = {
     pp: 5,
     acc: 100,
     effect: "Disappears on first turn, attacks on second. Can strike through Protect/Detect.",
-    wiki: "http://www.serebii.net/attackdex-xy/shadowforce.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shadowforce.shtml"
 };
 
 var hone_claws = {
@@ -12669,7 +13894,7 @@ var hone_claws = {
     pp: 15,
     acc: -1,
     effect: "Raises user's Attack and Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/honeclaws.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/honeclaws.shtml"
 };
 
 var wide_guard = {
@@ -12680,7 +13905,7 @@ var wide_guard = {
     pp: 10,
     acc: -1,
     effect: "Protects the user's team from multi-target attacks.",
-    wiki: "http://www.serebii.net/attackdex-xy/wideguard.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/wideguard.shtml"
 };
 
 var guard_split = {
@@ -12691,7 +13916,7 @@ var guard_split = {
     pp: 10,
     acc: -1,
     effect: "Averages Defense and Special Defense with the target.",
-    wiki: "http://www.serebii.net/attackdex-xy/guardsplit.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/guardsplit.shtml"
 };
 
 var power_split = {
@@ -12702,7 +13927,7 @@ var power_split = {
     pp: 10,
     acc: -1,
     effect: "Averages Attack and Special Attack with the target.",
-    wiki: "http://www.serebii.net/attackdex-xy/powersplit.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/powersplit.shtml"
 };
 
 var wonder_room = {
@@ -12713,7 +13938,7 @@ var wonder_room = {
     pp: 10,
     acc: -1,
     effect: "Swaps every Pokémon's Defense and Special Defense for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/wonderroom.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/wonderroom.shtml"
 };
 
 var psyshock = {
@@ -12724,7 +13949,7 @@ var psyshock = {
     pp: 10,
     acc: 100,
     effect: "Inflicts damage based on the target's Defense, not Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/psyshock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psyshock.shtml"
 };
 
 var venoshock = {
@@ -12735,7 +13960,7 @@ var venoshock = {
     pp: 10,
     acc: 100,
     effect: "Inflicts double damage if the target is poisoned.",
-    wiki: "http://www.serebii.net/attackdex-xy/venoshock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/venoshock.shtml"
 };
 
 var autotomize = {
@@ -12746,7 +13971,7 @@ var autotomize = {
     pp: 15,
     acc: -1,
     effect: "Halves weight and sharply raises Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/autotomize.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/autotomize.shtml"
 };
 
 var rage_powder = {
@@ -12757,7 +13982,7 @@ var rage_powder = {
     pp: 20,
     acc: -1,
     effect: "Forces attacks to hit user, not team-mates.",
-    wiki: "http://www.serebii.net/attackdex-xy/ragepowder.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/ragepowder.shtml"
 };
 
 var telekinesis = {
@@ -12768,7 +13993,7 @@ var telekinesis = {
     pp: 15,
     acc: -1,
     effect: "Ignores opponent's Evasiveness for three turns, add Ground immunity.",
-    wiki: "http://www.serebii.net/attackdex-xy/telekinesis.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/telekinesis.shtml"
 };
 
 var magic_room = {
@@ -12779,7 +14004,7 @@ var magic_room = {
     pp: 10,
     acc: -1,
     effect: "Suppresses the effects of held items for five turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/magicroom.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/magicroom.shtml"
 };
 
 var smack_down = {
@@ -12790,7 +14015,7 @@ var smack_down = {
     pp: 15,
     acc: 100,
     effect: "Makes Flying-type Pokémon vulnerable to Ground moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/smackdown.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/smackdown.shtml"
 };
 
 var storm_throw = {
@@ -12801,7 +14026,7 @@ var storm_throw = {
     pp: 10,
     acc: 100,
     effect: "Always results in a critical hit.",
-    wiki: "http://www.serebii.net/attackdex-xy/stormthrow.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stormthrow.shtml"
 };
 
 var flame_burst = {
@@ -12812,7 +14037,7 @@ var flame_burst = {
     pp: 15,
     acc: 100,
     effect: "May also injure nearby Pokémon.",
-    wiki: "http://www.serebii.net/attackdex-xy/flameburst.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flameburst.shtml"
 };
 
 var sludge_wave = {
@@ -12823,7 +14048,7 @@ var sludge_wave = {
     pp: 10,
     acc: 100,
     effect: "May poison opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/sludgewave.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sludgewave.shtml"
 };
 
 var quiver_dance = {
@@ -12834,7 +14059,7 @@ var quiver_dance = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Special Attack, Special Defense and Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/quiverdance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/quiverdance.shtml"
 };
 
 var heavy_slam = {
@@ -12845,7 +14070,7 @@ var heavy_slam = {
     pp: 10,
     acc: 100,
     effect: "The heavier the user, the stronger the attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/heavyslam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/heavyslam.shtml"
 };
 
 var synchronoise = {
@@ -12856,7 +14081,7 @@ var synchronoise = {
     pp: 15,
     acc: 100,
     effect: "Hits any Pokémon that shares a type with the user.",
-    wiki: "http://www.serebii.net/attackdex-xy/synchronoise.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/synchronoise.shtml"
 };
 
 var electro_ball = {
@@ -12867,7 +14092,7 @@ var electro_ball = {
     pp: 10,
     acc: 100,
     effect: "The faster the user, the stronger the attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/electroball.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/electroball.shtml"
 };
 
 var soak = {
@@ -12878,7 +14103,7 @@ var soak = {
     pp: 20,
     acc: 100,
     effect: "Changes the target's type to water.",
-    wiki: "http://www.serebii.net/attackdex-xy/soak.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/soak.shtml"
 };
 
 var flame_charge = {
@@ -12889,7 +14114,7 @@ var flame_charge = {
     pp: 20,
     acc: 100,
     effect: "Raises user's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/flamecharge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flamecharge.shtml"
 };
 
 var coil = {
@@ -12900,7 +14125,7 @@ var coil = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Attack, Defense and Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/coil.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/coil.shtml"
 };
 
 var low_sweep = {
@@ -12911,7 +14136,7 @@ var low_sweep = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/lowsweep.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lowsweep.shtml"
 };
 
 var acid_spray = {
@@ -12922,7 +14147,7 @@ var acid_spray = {
     pp: 20,
     acc: 100,
     effect: "Sharply lowers opponent's Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/acidspray.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/acidspray.shtml"
 };
 
 var foul_play = {
@@ -12933,7 +14158,7 @@ var foul_play = {
     pp: 15,
     acc: 100,
     effect: "Uses the opponent's Attack stat.",
-    wiki: "http://www.serebii.net/attackdex-xy/foulplay.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/foulplay.shtml"
 };
 
 var simple_beam = {
@@ -12944,7 +14169,7 @@ var simple_beam = {
     pp: 15,
     acc: 100,
     effect: "Changes target's ability to Simple.",
-    wiki: "http://www.serebii.net/attackdex-xy/simplebeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/simplebeam.shtml"
 };
 
 var entrainment = {
@@ -12955,7 +14180,7 @@ var entrainment = {
     pp: 15,
     acc: 100,
     effect: "Makes target's ability same as user's.",
-    wiki: "http://www.serebii.net/attackdex-xy/entrainment.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/entrainment.shtml"
 };
 
 var after_you = {
@@ -12966,7 +14191,7 @@ var after_you = {
     pp: 15,
     acc: -1,
     effect: "Gives target priority in the next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/afteryou.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/afteryou.shtml"
 };
 
 var round = {
@@ -12977,7 +14202,7 @@ var round = {
     pp: 15,
     acc: 100,
     effect: "Power increases if teammates use it in the same turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/round.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/round.shtml"
 };
 
 var echoed_voice = {
@@ -12988,7 +14213,7 @@ var echoed_voice = {
     pp: 15,
     acc: 100,
     effect: "Power increases each turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/echoedvoice.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/echoedvoice.shtml"
 };
 
 var chip_away = {
@@ -12999,7 +14224,7 @@ var chip_away = {
     pp: 20,
     acc: 100,
     effect: "Ignores opponent's stat changes.",
-    wiki: "http://www.serebii.net/attackdex-xy/chipaway.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/chipaway.shtml"
 };
 
 var clear_smog = {
@@ -13010,7 +14235,7 @@ var clear_smog = {
     pp: 15,
     acc: -1,
     effect: "Removes all of the target's stat changes.",
-    wiki: "http://www.serebii.net/attackdex-xy/clearsmog.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/clearsmog.shtml"
 };
 
 var stored_power = {
@@ -13021,7 +14246,7 @@ var stored_power = {
     pp: 10,
     acc: 100,
     effect: "Power increases when user's stats have been raised.",
-    wiki: "http://www.serebii.net/attackdex-xy/storedpower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/storedpower.shtml"
 };
 
 var quick_guard = {
@@ -13032,7 +14257,7 @@ var quick_guard = {
     pp: 15,
     acc: -1,
     effect: "Fast moves won't damage the user or its teammates.",
-    wiki: "http://www.serebii.net/attackdex-xy/quickguard.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/quickguard.shtml"
 };
 
 var ally_switch = {
@@ -13043,7 +14268,7 @@ var ally_switch = {
     pp: 15,
     acc: -1,
     effect: "User switches with opposite teammate.",
-    wiki: "http://www.serebii.net/attackdex-xy/allyswitch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/allyswitch.shtml"
 };
 
 var scald = {
@@ -13054,7 +14279,7 @@ var scald = {
     pp: 15,
     acc: 100,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/scald.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/scald.shtml"
 };
 
 var shell_smash = {
@@ -13065,7 +14290,7 @@ var shell_smash = {
     pp: 15,
     acc: -1,
     effect: "Sharply raises user's Attack, Special Attack and Speed but lowers Defense and Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/shellsmash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shellsmash.shtml"
 };
 
 var heal_pulse = {
@@ -13076,7 +14301,7 @@ var heal_pulse = {
     pp: 10,
     acc: -1,
     effect: "Restores half the target's max HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/healpulse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/healpulse.shtml"
 };
 
 var hex = {
@@ -13087,7 +14312,7 @@ var hex = {
     pp: 10,
     acc: 100,
     effect: "Inflicts more damage if the target has a status condition.",
-    wiki: "http://www.serebii.net/attackdex-xy/hex.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hex.shtml"
 };
 
 var sky_drop = {
@@ -13098,7 +14323,7 @@ var sky_drop = {
     pp: 10,
     acc: 100,
     effect: "Takes opponent into the air on first turn, drops them on second turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/skydrop.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/skydrop.shtml"
 };
 
 var shift_gear = {
@@ -13109,7 +14334,7 @@ var shift_gear = {
     pp: 10,
     acc: -1,
     effect: "Raises user's Attack and sharply raises Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/shiftgear.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shiftgear.shtml"
 };
 
 var circle_throw = {
@@ -13120,7 +14345,7 @@ var circle_throw = {
     pp: 10,
     acc: 90,
     effect: "In battles, the opponent switches. In the wild, the Pokémon runs.",
-    wiki: "http://www.serebii.net/attackdex-xy/circlethrow.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/circlethrow.shtml"
 };
 
 var incinerate = {
@@ -13131,7 +14356,7 @@ var incinerate = {
     pp: 15,
     acc: 100,
     effect: "Destroys the target's held berry.",
-    wiki: "http://www.serebii.net/attackdex-xy/incinerate.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/incinerate.shtml"
 };
 
 var quash = {
@@ -13142,7 +14367,7 @@ var quash = {
     pp: 15,
     acc: 100,
     effect: "Makes the target act last this turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/quash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/quash.shtml"
 };
 
 var acrobatics = {
@@ -13153,7 +14378,7 @@ var acrobatics = {
     pp: 15,
     acc: 100,
     effect: "Stronger when the user does not have a held item.",
-    wiki: "http://www.serebii.net/attackdex-xy/acrobatics.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/acrobatics.shtml"
 };
 
 var reflect_type = {
@@ -13164,7 +14389,7 @@ var reflect_type = {
     pp: 15,
     acc: -1,
     effect: "User becomes the target's type.",
-    wiki: "http://www.serebii.net/attackdex-xy/reflecttype.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/reflecttype.shtml"
 };
 
 var retaliate = {
@@ -13175,7 +14400,7 @@ var retaliate = {
     pp: 5,
     acc: 100,
     effect: "Inflicts double damage if a teammate fainted on the last turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/retaliate.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/retaliate.shtml"
 };
 
 var final_gambit = {
@@ -13186,7 +14411,7 @@ var final_gambit = {
     pp: 5,
     acc: 100,
     effect: "Inflicts damage equal to the user's remaining HP. User faints.",
-    wiki: "http://www.serebii.net/attackdex-xy/finalgambit.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/finalgambit.shtml"
 };
 
 var bestow = {
@@ -13197,7 +14422,7 @@ var bestow = {
     pp: 15,
     acc: -1,
     effect: "Gives the user's held item to the target.",
-    wiki: "http://www.serebii.net/attackdex-xy/bestow.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bestow.shtml"
 };
 
 var inferno = {
@@ -13208,7 +14433,7 @@ var inferno = {
     pp: 5,
     acc: 50,
     effect: "Burns opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/inferno.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/inferno.shtml"
 };
 
 var water_pledge = {
@@ -13219,7 +14444,7 @@ var water_pledge = {
     pp: 10,
     acc: 100,
     effect: "Added effects appear if preceded by Fire Pledge or succeeded by Grass Pledge.",
-    wiki: "http://www.serebii.net/attackdex-xy/waterpledge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/waterpledge.shtml"
 };
 
 var fire_pledge = {
@@ -13230,7 +14455,7 @@ var fire_pledge = {
     pp: 10,
     acc: 100,
     effect: "Added effects appear if combined with Grass Pledge or Water Pledge.",
-    wiki: "http://www.serebii.net/attackdex-xy/firepledge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/firepledge.shtml"
 };
 
 var grass_pledge = {
@@ -13241,7 +14466,7 @@ var grass_pledge = {
     pp: 10,
     acc: 100,
     effect: "Added effects appear if preceded by Water Pledge or succeeded by Fire Pledge.",
-    wiki: "http://www.serebii.net/attackdex-xy/grasspledge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/grasspledge.shtml"
 };
 
 var volt_switch = {
@@ -13252,7 +14477,7 @@ var volt_switch = {
     pp: 20,
     acc: 100,
     effect: "User must switch out after attacking.",
-    wiki: "http://www.serebii.net/attackdex-xy/voltswitch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/voltswitch.shtml"
 };
 
 var struggle_bug = {
@@ -13263,7 +14488,7 @@ var struggle_bug = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/strugglebug.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/strugglebug.shtml"
 };
 
 var bulldoze = {
@@ -13274,7 +14499,7 @@ var bulldoze = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/bulldoze.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bulldoze.shtml"
 };
 
 var frost_breath = {
@@ -13285,7 +14510,7 @@ var frost_breath = {
     pp: 10,
     acc: 90,
     effect: "Always results in a critical hit.",
-    wiki: "http://www.serebii.net/attackdex-xy/frostbreath.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/frostbreath.shtml"
 };
 
 var dragon_tail = {
@@ -13296,7 +14521,7 @@ var dragon_tail = {
     pp: 10,
     acc: 90,
     effect: "In battles, the opponent switches. In the wild, the Pokémon runs.",
-    wiki: "http://www.serebii.net/attackdex-xy/dragontail.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragontail.shtml"
 };
 
 var work_up = {
@@ -13307,7 +14532,7 @@ var work_up = {
     pp: 30,
     acc: -1,
     effect: "Raises user's Attack and Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/workup.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/workup.shtml"
 };
 
 var electroweb = {
@@ -13318,7 +14543,7 @@ var electroweb = {
     pp: 15,
     acc: 95,
     effect: "Lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/electroweb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/electroweb.shtml"
 };
 
 var wild_charge = {
@@ -13329,7 +14554,7 @@ var wild_charge = {
     pp: 15,
     acc: 100,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/wildcharge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/wildcharge.shtml"
 };
 
 var drill_run = {
@@ -13340,7 +14565,7 @@ var drill_run = {
     pp: 10,
     acc: 95,
     effect: "High critical hit ratio.",
-    wiki: "http://www.serebii.net/attackdex-xy/drillrun.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/drillrun.shtml"
 };
 
 var dual_chop = {
@@ -13351,7 +14576,7 @@ var dual_chop = {
     pp: 15,
     acc: 90,
     effect: "Hits twice in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/dualchop.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dualchop.shtml"
 };
 
 var heart_stamp = {
@@ -13362,7 +14587,7 @@ var heart_stamp = {
     pp: 25,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/heartstamp.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/heartstamp.shtml"
 };
 
 var horn_leech = {
@@ -13373,7 +14598,7 @@ var horn_leech = {
     pp: 10,
     acc: 100,
     effect: "User recovers half the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/hornleech.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hornleech.shtml"
 };
 
 var sacred_sword = {
@@ -13384,7 +14609,7 @@ var sacred_sword = {
     pp: 15,
     acc: 100,
     effect: "Ignores opponent's stat changes.",
-    wiki: "http://www.serebii.net/attackdex-xy/sacredsword.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sacredsword.shtml"
 };
 
 var razor_shell = {
@@ -13395,7 +14620,7 @@ var razor_shell = {
     pp: 10,
     acc: 95,
     effect: "May lower opponent's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/razorshell.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/razorshell.shtml"
 };
 
 var heat_crash = {
@@ -13406,7 +14631,7 @@ var heat_crash = {
     pp: 10,
     acc: 100,
     effect: "The heavier the user, the stronger the attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/heatcrash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/heatcrash.shtml"
 };
 
 var leaf_tornado = {
@@ -13417,7 +14642,7 @@ var leaf_tornado = {
     pp: 10,
     acc: 90,
     effect: "May lower opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/leaftornado.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/leaftornado.shtml"
 };
 
 var steamroller = {
@@ -13428,7 +14653,7 @@ var steamroller = {
     pp: 20,
     acc: 100,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/steamroller.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/steamroller.shtml"
 };
 
 var cotton_guard = {
@@ -13439,7 +14664,7 @@ var cotton_guard = {
     pp: 10,
     acc: -1,
     effect: "Drastically raises user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/cottonguard.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/cottonguard.shtml"
 };
 
 var night_daze = {
@@ -13450,7 +14675,7 @@ var night_daze = {
     pp: 10,
     acc: 95,
     effect: "May lower opponent's Accuracy.",
-    wiki: "http://www.serebii.net/attackdex-xy/nightdaze.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/nightdaze.shtml"
 };
 
 var psystrike = {
@@ -13461,7 +14686,7 @@ var psystrike = {
     pp: 10,
     acc: 100,
     effect: "Inflicts damage based on the target's Defense, not Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/psystrike.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psystrike.shtml"
 };
 
 var tail_slap = {
@@ -13472,7 +14697,7 @@ var tail_slap = {
     pp: 10,
     acc: 85,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/tailslap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tailslap.shtml"
 };
 
 var hurricane = {
@@ -13483,7 +14708,7 @@ var hurricane = {
     pp: 10,
     acc: 70,
     effect: "May confuse opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/hurricane.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hurricane.shtml"
 };
 
 var head_charge = {
@@ -13494,7 +14719,7 @@ var head_charge = {
     pp: 15,
     acc: 100,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/headcharge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/headcharge.shtml"
 };
 
 var gear_grind = {
@@ -13505,7 +14730,7 @@ var gear_grind = {
     pp: 15,
     acc: 85,
     effect: "Hits twice in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/geargrind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/geargrind.shtml"
 };
 
 var searing_shot = {
@@ -13516,7 +14741,7 @@ var searing_shot = {
     pp: 5,
     acc: 100,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/searingshot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/searingshot.shtml"
 };
 
 var techno_blast = {
@@ -13527,7 +14752,7 @@ var techno_blast = {
     pp: 5,
     acc: 100,
     effect: "Type depends on the Drive being held.",
-    wiki: "http://www.serebii.net/attackdex-xy/technoblast.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/technoblast.shtml"
 };
 
 var relic_song = {
@@ -13538,7 +14763,7 @@ var relic_song = {
     pp: 10,
     acc: 100,
     effect: "May put the target to sleep.",
-    wiki: "http://www.serebii.net/attackdex-xy/relicsong.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/relicsong.shtml"
 };
 
 var secret_sword = {
@@ -13549,7 +14774,7 @@ var secret_sword = {
     pp: 10,
     acc: 100,
     effect: "Inflicts damage based on the target's Defense, not Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/secretsword.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/secretsword.shtml"
 };
 
 var glaciate = {
@@ -13560,7 +14785,7 @@ var glaciate = {
     pp: 10,
     acc: 95,
     effect: "Lowers opponent's Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/glaciate.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/glaciate.shtml"
 };
 
 var bolt_strike = {
@@ -13571,7 +14796,7 @@ var bolt_strike = {
     pp: 5,
     acc: 85,
     effect: "May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/boltstrike.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/boltstrike.shtml"
 };
 
 var blue_flare = {
@@ -13582,7 +14807,7 @@ var blue_flare = {
     pp: 5,
     acc: 85,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/blueflare.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/blueflare.shtml"
 };
 
 var fiery_dance = {
@@ -13593,7 +14818,7 @@ var fiery_dance = {
     pp: 10,
     acc: 100,
     effect: "May raise user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/fierydance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fierydance.shtml"
 };
 
 var freeze_shock = {
@@ -13604,7 +14829,7 @@ var freeze_shock = {
     pp: 5,
     acc: 90,
     effect: "Charges on first turn, attacks on second. May paralyze opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/freezeshock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/freezeshock.shtml"
 };
 
 var ice_burn = {
@@ -13615,7 +14840,7 @@ var ice_burn = {
     pp: 5,
     acc: 90,
     effect: "Charges on first turn, attacks on second. May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/iceburn.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/iceburn.shtml"
 };
 
 var snarl = {
@@ -13626,7 +14851,7 @@ var snarl = {
     pp: 15,
     acc: 95,
     effect: "Lowers opponent's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/snarl.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/snarl.shtml"
 };
 
 var icicle_crash = {
@@ -13637,7 +14862,7 @@ var icicle_crash = {
     pp: 10,
     acc: 90,
     effect: "May cause flinching.",
-    wiki: "http://www.serebii.net/attackdex-xy/iciclecrash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/iciclecrash.shtml"
 };
 
 var v_create = {
@@ -13648,7 +14873,7 @@ var v_create = {
     pp: 5,
     acc: 95,
     effect: "Lowers user's Defense, Special Defense and Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/v_create.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/v_create.shtml"
 };
 
 var fusion_flare = {
@@ -13659,7 +14884,7 @@ var fusion_flare = {
     pp: 5,
     acc: 100,
     effect: "Power increases if Fusion Bolt is used in the same turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/fusionflare.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fusionflare.shtml"
 };
 
 var fusion_bolt = {
@@ -13670,7 +14895,7 @@ var fusion_bolt = {
     pp: 5,
     acc: 100,
     effect: "Power increases if Fusion Flare is used in the same turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/fusionbolt.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fusionbolt.shtml"
 };
 
 var flying_press = {
@@ -13681,7 +14906,7 @@ var flying_press = {
     pp: 10,
     acc: 95,
     effect: "Deals Fighting and Flying type damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/flyingpress.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flyingpress.shtml"
 };
 
 var mat_block = {
@@ -13692,7 +14917,7 @@ var mat_block = {
     pp: 10,
     acc: -1,
     effect: "Protects teammates from damaging moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/matblock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/matblock.shtml"
 };
 
 var belch = {
@@ -13703,7 +14928,7 @@ var belch = {
     pp: 10,
     acc: 90,
     effect: "User must have consumed a Berry.",
-    wiki: "http://www.serebii.net/attackdex-xy/belch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/belch.shtml"
 };
 
 var rototiller = {
@@ -13714,7 +14939,7 @@ var rototiller = {
     pp: 10,
     acc: -1,
     effect: "Raises Attack and Special Attack of Grass-types.",
-    wiki: "http://www.serebii.net/attackdex-xy/rototiller.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/rototiller.shtml"
 };
 
 var sticky_web = {
@@ -13725,7 +14950,7 @@ var sticky_web = {
     pp: 20,
     acc: -1,
     effect: "Lowers opponent's Speed when switching into battle.",
-    wiki: "http://www.serebii.net/attackdex-xy/stickyweb.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stickyweb.shtml"
 };
 
 var fell_stinger = {
@@ -13736,7 +14961,7 @@ var fell_stinger = {
     pp: 25,
     acc: 100,
     effect: "Sharply raises user's Attack if target is KO'd.",
-    wiki: "http://www.serebii.net/attackdex-xy/fellstinger.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fellstinger.shtml"
 };
 
 var phantom_force = {
@@ -13747,7 +14972,7 @@ var phantom_force = {
     pp: 10,
     acc: 100,
     effect: "Disappears on first turn, attacks on second. Can strike through Protect/Detect.",
-    wiki: "http://www.serebii.net/attackdex-xy/phantomforce.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/phantomforce.shtml"
 };
 
 var trick_or_treat = {
@@ -13758,7 +14983,7 @@ var trick_or_treat = {
     pp: 20,
     acc: 100,
     effect: "Adds Ghost type to opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/trick_or_treat.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/trick_or_treat.shtml"
 };
 
 var noble_roar = {
@@ -13769,7 +14994,7 @@ var noble_roar = {
     pp: 30,
     acc: 100,
     effect: "Lowers opponent's Attack and Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/nobleroar.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/nobleroar.shtml"
 };
 
 var ion_deluge = {
@@ -13780,7 +15005,7 @@ var ion_deluge = {
     pp: 25,
     acc: -1,
     effect: "Changes Normal-type moves to Electric-type.",
-    wiki: "http://www.serebii.net/attackdex-xy/iondeluge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/iondeluge.shtml"
 };
 
 var parabolic_charge = {
@@ -13791,7 +15016,7 @@ var parabolic_charge = {
     pp: 20,
     acc: 100,
     effect: "User recovers half the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/paraboliccharge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/paraboliccharge.shtml"
 };
 
 var forests_curse = {
@@ -13802,7 +15027,7 @@ var forests_curse = {
     pp: 20,
     acc: 100,
     effect: "Adds Grass type to opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/forestscurse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/forestscurse.shtml"
 };
 
 var petal_blizzard = {
@@ -13813,7 +15038,7 @@ var petal_blizzard = {
     pp: 15,
     acc: 100,
     effect: "Hits all adjacent Pokémon.",
-    wiki: "http://www.serebii.net/attackdex-xy/petalblizzard.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/petalblizzard.shtml"
 };
 
 var freeze_dry = {
@@ -13824,7 +15049,7 @@ var freeze_dry = {
     pp: 20,
     acc: 100,
     effect: "May freeze opponent. Super-effective against Water types.",
-    wiki: "http://www.serebii.net/attackdex-xy/freeze_dry.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/freeze_dry.shtml"
 };
 
 var disarming_voice = {
@@ -13835,7 +15060,7 @@ var disarming_voice = {
     pp: 15,
     acc: -1,
     effect: "Ignores Accuracy and Evasiveness.",
-    wiki: "http://www.serebii.net/attackdex-xy/disarmingvoice.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/disarmingvoice.shtml"
 };
 
 var parting_shot = {
@@ -13846,7 +15071,7 @@ var parting_shot = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Attack and Special Attack then switches out.",
-    wiki: "http://www.serebii.net/attackdex-xy/partingshot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/partingshot.shtml"
 };
 
 var topsy_turvy = {
@@ -13857,7 +15082,7 @@ var topsy_turvy = {
     pp: 20,
     acc: 100,
     effect: "Reverses stat changes of opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/topsy_turvy.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/topsy_turvy.shtml"
 };
 
 var draining_kiss = {
@@ -13868,7 +15093,7 @@ var draining_kiss = {
     pp: 10,
     acc: 100,
     effect: "User recovers most the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/drainingkiss.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/drainingkiss.shtml"
 };
 
 var crafty_shield = {
@@ -13879,7 +15104,7 @@ var crafty_shield = {
     pp: 10,
     acc: -1,
     effect: "Protects the Pokémon from status moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/craftyshield.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/craftyshield.shtml"
 };
 
 var flower_shield = {
@@ -13890,7 +15115,7 @@ var flower_shield = {
     pp: 10,
     acc: -1,
     effect: "Sharply raises Defense of all Grass-type Pokémon on the field.",
-    wiki: "http://www.serebii.net/attackdex-xy/flowershield.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/flowershield.shtml"
 };
 
 var grassy_terrain = {
@@ -13901,7 +15126,7 @@ var grassy_terrain = {
     pp: 10,
     acc: -1,
     effect: "Restores a little HP of all Pokémon for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/grassyterrain.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/grassyterrain.shtml"
 };
 
 var misty_terrain = {
@@ -13912,7 +15137,7 @@ var misty_terrain = {
     pp: 10,
     acc: -1,
     effect: "Protects the field from status conditions for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/mistyterrain.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mistyterrain.shtml"
 };
 
 var electrify = {
@@ -13923,7 +15148,7 @@ var electrify = {
     pp: 20,
     acc: -1,
     effect: "Changes the target's move to Electric type.",
-    wiki: "http://www.serebii.net/attackdex-xy/electrify.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/electrify.shtml"
 };
 
 var play_rough = {
@@ -13934,7 +15159,7 @@ var play_rough = {
     pp: 10,
     acc: 90,
     effect: "May lower opponent's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/playrough.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/playrough.shtml"
 };
 
 var fairy_wind = {
@@ -13945,7 +15170,7 @@ var fairy_wind = {
     pp: 30,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/fairywind.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fairywind.shtml"
 };
 
 var moonblast = {
@@ -13956,7 +15181,7 @@ var moonblast = {
     pp: 15,
     acc: 100,
     effect: "May lower opponent's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/moonblast.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/moonblast.shtml"
 };
 
 var boomburst = {
@@ -13967,7 +15192,7 @@ var boomburst = {
     pp: 10,
     acc: 100,
     effect: "Hits all adjacent Pokémon.",
-    wiki: "http://www.serebii.net/attackdex-xy/boomburst.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/boomburst.shtml"
 };
 
 var fairy_lock = {
@@ -13978,7 +15203,7 @@ var fairy_lock = {
     pp: 10,
     acc: -1,
     effect: "Prevents fleeing in the next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/fairylock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fairylock.shtml"
 };
 
 var kings_shield = {
@@ -13989,7 +15214,7 @@ var kings_shield = {
     pp: 10,
     acc: -1,
     effect: "Protects against attacks, and lowers opponent's Attack on contact.",
-    wiki: "http://www.serebii.net/attackdex-xy/kingsshield.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/kingsshield.shtml"
 };
 
 var play_nice = {
@@ -14000,7 +15225,7 @@ var play_nice = {
     pp: 20,
     acc: -1,
     effect: "Lowers opponent's Attack. Always hits.",
-    wiki: "http://www.serebii.net/attackdex-xy/playnice.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/playnice.shtml"
 };
 
 var confide = {
@@ -14011,7 +15236,7 @@ var confide = {
     pp: 20,
     acc: -1,
     effect: "Lowers opponent's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/confide.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/confide.shtml"
 };
 
 var diamond_storm = {
@@ -14022,7 +15247,7 @@ var diamond_storm = {
     pp: 5,
     acc: 95,
     effect: "May raise user's Defense",
-    wiki: "http://www.serebii.net/attackdex-xy/diamondstorm.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/diamondstorm.shtml"
 };
 
 var steam_eruption = {
@@ -14033,7 +15258,7 @@ var steam_eruption = {
     pp: 5,
     acc: 95,
     effect: "May burn opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/steameruption.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/steameruption.shtml"
 };
 
 var hyperspace_hole = {
@@ -14044,7 +15269,7 @@ var hyperspace_hole = {
     pp: 5,
     acc: -1,
     effect: "Can strike through Protect/Detect.",
-    wiki: "http://www.serebii.net/attackdex-xy/hyperspacehole.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hyperspacehole.shtml"
 };
 
 var water_shuriken = {
@@ -14055,7 +15280,7 @@ var water_shuriken = {
     pp: 20,
     acc: 100,
     effect: "Hits 2-5 times in one turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/watershuriken.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/watershuriken.shtml"
 };
 
 var mystical_fire = {
@@ -14066,7 +15291,7 @@ var mystical_fire = {
     pp: 10,
     acc: 100,
     effect: "Lowers opponent's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/mysticalfire.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/mysticalfire.shtml"
 };
 
 var spiky_shield = {
@@ -14077,7 +15302,7 @@ var spiky_shield = {
     pp: 10,
     acc: -1,
     effect: "Protects user and inflicts damage on contact moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/spikyshield.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spikyshield.shtml"
 };
 
 var aromatic_mist = {
@@ -14088,7 +15313,7 @@ var aromatic_mist = {
     pp: 20,
     acc: -1,
     effect: "Raises Special Defense of allies.",
-    wiki: "http://www.serebii.net/attackdex-xy/aromaticmist.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aromaticmist.shtml"
 };
 
 var eerie_impulse = {
@@ -14099,7 +15324,7 @@ var eerie_impulse = {
     pp: 15,
     acc: 100,
     effect: "Sharply lowers opponent's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/eerieimpulse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/eerieimpulse.shtml"
 };
 
 var venom_drench = {
@@ -14110,7 +15335,7 @@ var venom_drench = {
     pp: 20,
     acc: 100,
     effect: "Lowers poisoned opponent's Special Attack and Speed.",
-    wiki: "http://www.serebii.net/attackdex-xy/venomdrench.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/venomdrench.shtml"
 };
 
 var powder = {
@@ -14121,7 +15346,7 @@ var powder = {
     pp: 20,
     acc: 100,
     effect: "Damages Pokémon using Fire type moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/powder.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/powder.shtml"
 };
 
 var geomancy = {
@@ -14132,7 +15357,7 @@ var geomancy = {
     pp: 10,
     acc: -1,
     effect: "Charges on first turn, sharply raises user's Sp. Attack, Sp. Defense and Speed on the second.",
-    wiki: "http://www.serebii.net/attackdex-xy/geomancy.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/geomancy.shtml"
 };
 
 var magnetic_flux = {
@@ -14143,7 +15368,7 @@ var magnetic_flux = {
     pp: 20,
     acc: -1,
     effect: "Raises Defense and Sp. Defense of Plus/Minus Pokémon.",
-    wiki: "http://www.serebii.net/attackdex-xy/magneticflux.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/magneticflux.shtml"
 };
 
 var happy_hour = {
@@ -14154,7 +15379,7 @@ var happy_hour = {
     pp: 30,
     acc: -1,
     effect: "Doubles prize money from trainer battles.",
-    wiki: "http://www.serebii.net/attackdex-xy/happyhour.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/happyhour.shtml"
 };
 
 var electric_terrain = {
@@ -14165,7 +15390,7 @@ var electric_terrain = {
     pp: 10,
     acc: -1,
     effect: "Prevents all Pokémon from falling asleep for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/electricterrain.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/electricterrain.shtml"
 };
 
 var dazzling_gleam = {
@@ -14176,7 +15401,7 @@ var dazzling_gleam = {
     pp: 10,
     acc: 100,
     effect: "Hits all adjacent opponents.",
-    wiki: "http://www.serebii.net/attackdex-xy/dazzlinggleam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dazzlinggleam.shtml"
 };
 
 var celebrate = {
@@ -14187,7 +15412,7 @@ var celebrate = {
     pp: 40,
     acc: -1,
     effect: "The Pokémon congratulates you on your special day. No battle effect.",
-    wiki: "http://www.serebii.net/attackdex-xy/celebrate.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/celebrate.shtml"
 };
 
 var hold_hands = {
@@ -14198,7 +15423,7 @@ var hold_hands = {
     pp: 40,
     acc: -1,
     effect: "Makes the user and an ally very happy.",
-    wiki: "http://www.serebii.net/attackdex-xy/holdhands.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/holdhands.shtml"
 };
 
 var baby_doll_eyes = {
@@ -14209,7 +15434,7 @@ var baby_doll_eyes = {
     pp: 30,
     acc: 100,
     effect: "Always goes first. Lowers the target's attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/baby_dolleyes.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/baby_dolleyes.shtml"
 };
 
 var nuzzle = {
@@ -14220,7 +15445,7 @@ var nuzzle = {
     pp: 20,
     acc: 100,
     effect: "Paralyzes opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/nuzzle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/nuzzle.shtml"
 };
 
 var hold_back = {
@@ -14231,7 +15456,7 @@ var hold_back = {
     pp: 40,
     acc: 100,
     effect: "Always leaves opponent with at least 1 HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/holdback.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/holdback.shtml"
 };
 
 var infestation = {
@@ -14242,7 +15467,7 @@ var infestation = {
     pp: 20,
     acc: 100,
     effect: "Traps opponent, damaging them for 4-5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/infestation.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/infestation.shtml"
 };
 
 var power_up_punch = {
@@ -14253,7 +15478,7 @@ var power_up_punch = {
     pp: 20,
     acc: 100,
     effect: "Raises Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/power_uppunch.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/power_uppunch.shtml"
 };
 
 var oblivion_wing = {
@@ -14264,7 +15489,7 @@ var oblivion_wing = {
     pp: 10,
     acc: 100,
     effect: "User recovers most of the HP inflicted on opponent.",
-    wiki: "http://www.serebii.net/attackdex-xy/oblivionwing.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/oblivionwing.shtml"
 };
 
 var thousand_arrows = {
@@ -14275,7 +15500,7 @@ var thousand_arrows = {
     pp: 10,
     acc: 100,
     effect: "Makes Flying-type Pokémon vulnerable to Ground moves.",
-    wiki: "http://www.serebii.net/attackdex-xy/thousandarrows.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thousandarrows.shtml"
 };
 
 var thousand_waves = {
@@ -14286,7 +15511,7 @@ var thousand_waves = {
     pp: 10,
     acc: 100,
     effect: "Opponent cannot flee or switch.",
-    wiki: "http://www.serebii.net/attackdex-xy/thousandwaves.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/thousandwaves.shtml"
 };
 
 var lands_wrath = {
@@ -14297,7 +15522,7 @@ var lands_wrath = {
     pp: 10,
     acc: 100,
     effect: "None",
-    wiki: "http://www.serebii.net/attackdex-xy/landswrath.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/landswrath.shtml"
 };
 
 var light_of_ruin = {
@@ -14308,7 +15533,7 @@ var light_of_ruin = {
     pp: 5,
     acc: 90,
     effect: "User receives recoil damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/lightofruin.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lightofruin.shtml"
 };
 
 var origin_pulse = {
@@ -14319,7 +15544,7 @@ var origin_pulse = {
     pp: 10,
     acc: 85,
     effect: "Hits all adjacent opponents.",
-    wiki: "http://www.serebii.net/attackdex-xy/originpulse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/originpulse.shtml"
 };
 
 var precipice_blades = {
@@ -14330,7 +15555,7 @@ var precipice_blades = {
     pp: 10,
     acc: 85,
     effect: "Hits all adjacent opponents.",
-    wiki: "http://www.serebii.net/attackdex-xy/precipiceblades.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/precipiceblades.shtml"
 };
 
 var dragon_ascent = {
@@ -14341,7 +15566,7 @@ var dragon_ascent = {
     pp: 5,
     acc: 100,
     effect: "Lowers user's Defense and Special Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/dragonascent.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragonascent.shtml"
 };
 
 var hyperspace_fury = {
@@ -14352,7 +15577,7 @@ var hyperspace_fury = {
     pp: 5,
     acc: -1,
     effect: "Lowers user's Defense. Can strike through Protect/Detect.",
-    wiki: "http://www.serebii.net/attackdex-xy/hyperspacefury.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hyperspacefury.shtml"
 };
 
 var ten_million_volt_thunderbolt = {
@@ -14363,7 +15588,7 @@ var ten_million_volt_thunderbolt = {
     pp: 1,
     acc: -1,
     effect: "Pikachu-exclusive Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/10000000voltthunderbolt.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/10000000voltthunderbolt.shtml"
 };
 
 var accelerock = {
@@ -14374,7 +15599,7 @@ var accelerock = {
     pp: 20,
     acc: 100,
     effect: "User attacks first.",
-    wiki: "http://www.serebii.net/attackdex-xy/accelerock.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/accelerock.shtml"
 };
 
 var acid_downpour = {
@@ -14385,7 +15610,7 @@ var acid_downpour = {
     pp: 1,
     acc: -1,
     effect: "Poison type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/aciddownpour.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/aciddownpour.shtml"
 };
 
 var all_out_pummeling = {
@@ -14396,7 +15621,7 @@ var all_out_pummeling = {
     pp: 1,
     acc: -1,
     effect: "Fighting type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/all-outpummeling.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/all-outpummeling.shtml"
 };
 
 var anchor_shot = {
@@ -14407,7 +15632,7 @@ var anchor_shot = {
     pp: 20,
     acc: 100,
     effect: "The user entangles the target with its anchor chain while attacking. The target becomes unable to flee.",
-    wiki: "http://www.serebii.net/attackdex-xy/anchorshot.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/anchorshot.shtml"
 };
 
 var aurora_veil = {
@@ -14418,7 +15643,7 @@ var aurora_veil = {
     pp: 20,
     acc: -1,
     effect: "Halves damage from Physical and Special attacks for five turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/auroraveil.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/auroraveil.shtml"
 };
 
 var baneful_bunker = {
@@ -14429,7 +15654,7 @@ var baneful_bunker = {
     pp: 10,
     acc: -1,
     effect: "In addition to protecting the user from attacks, this move also poisons any attacker that makes direct contact.",
-    wiki: "http://www.serebii.net/attackdex-xy/banefulbunker.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/banefulbunker.shtml"
 };
 
 var beak_blast = {
@@ -14440,7 +15665,7 @@ var beak_blast = {
     pp: 15,
     acc: 100,
     effect: "The user first heats up its beak, and then it attacks the target. Making direct contact with the Pokémon while it’s heating up its beak results in a burn.",
-    wiki: "http://www.serebii.net/attackdex-xy/beakblast.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/beakblast.shtml"
 };
 
 var black_hole_eclipse = {
@@ -14451,7 +15676,7 @@ var black_hole_eclipse = {
     pp: 1,
     acc: -1,
     effect: "Dark type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/blackholeeclipse.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/blackholeeclipse.shtml"
 };
 
 var bloom_doom = {
@@ -14462,7 +15687,7 @@ var bloom_doom = {
     pp: 1,
     acc: -1,
     effect: "Grass type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/bloomdoom.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/bloomdoom.shtml"
 };
 
 var breakneck_blitz = {
@@ -14473,7 +15698,7 @@ var breakneck_blitz = {
     pp: 1,
     acc: -1,
     effect: "Normal type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/breakneckblitz.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/breakneckblitz.shtml"
 };
 
 var brutal_swing = {
@@ -14484,7 +15709,7 @@ var brutal_swing = {
     pp: 20,
     acc: 100,
     effect: "The user swings its body around violently to inflict damage on everything in its vicinity.",
-    wiki: "http://www.serebii.net/attackdex-xy/brutalswing.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/brutalswing.shtml"
 };
 
 var burn_up = {
@@ -14495,7 +15720,7 @@ var burn_up = {
     pp: 5,
     acc: 100,
     effect: "To inflict massive damage, the user burns itself out. After using this move, the user will no longer be Fire type.",
-    wiki: "http://www.serebii.net/attackdex-xy/burnup.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/burnup.shtml"
 };
 
 var catastropika = {
@@ -14506,7 +15731,7 @@ var catastropika = {
     pp: 1,
     acc: -1,
     effect: "Pikachu-exclusive Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/catastropika.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/catastropika.shtml"
 };
 
 var clanging_scales = {
@@ -14517,7 +15742,7 @@ var clanging_scales = {
     pp: 5,
     acc: 100,
     effect: "Lowers user's Defense.",
-    wiki: "http://www.serebii.net/attackdex-xy/clangingscales.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/clangingscales.shtml"
 };
 
 var continental_crush = {
@@ -14528,7 +15753,7 @@ var continental_crush = {
     pp: 1,
     acc: -1,
     effect: "Rock type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/continentalcrush.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/continentalcrush.shtml"
 };
 
 var core_enforcer = {
@@ -14539,7 +15764,7 @@ var core_enforcer = {
     pp: 10,
     acc: 100,
     effect: "Scorches a 'Z' pattern on the ground.",
-    wiki: "http://www.serebii.net/attackdex-xy/coreenforcer.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/coreenforcer.shtml"
 };
 
 var corkscrew_crash = {
@@ -14550,7 +15775,7 @@ var corkscrew_crash = {
     pp: 1,
     acc: -1,
     effect: "Steel type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/corkscrewcrash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/corkscrewcrash.shtml"
 };
 
 var darkest_lariat = {
@@ -14561,7 +15786,7 @@ var darkest_lariat = {
     pp: 10,
     acc: 100,
     effect: "Ignores opponent's stat changes.",
-    wiki: "http://www.serebii.net/attackdex-xy/darkestlariat.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/darkestlariat.shtml"
 };
 
 var devastating_drake = {
@@ -14572,7 +15797,7 @@ var devastating_drake = {
     pp: 1,
     acc: -1,
     effect: "Dragon type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/devastatingdrake.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/devastatingdrake.shtml"
 };
 
 var dragon_hammer = {
@@ -14583,7 +15808,7 @@ var dragon_hammer = {
     pp: 15,
     acc: 100,
     effect: "The user uses its body like a hammer to attack the target and inflict damage.",
-    wiki: "http://www.serebii.net/attackdex-xy/dragonhammer.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/dragonhammer.shtml"
 };
 
 var extreme_evoboost = {
@@ -14594,7 +15819,7 @@ var extreme_evoboost = {
     pp: 1,
     acc: -1,
     effect: "Eevee-exclusive Z-Move. Sharply raises all stats.",
-    wiki: "http://www.serebii.net/attackdex-xy/extremeevoboost.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/extremeevoboost.shtml"
 };
 
 var fire_lash = {
@@ -14605,7 +15830,7 @@ var fire_lash = {
     pp: 15,
     acc: 100,
     effect: "The user strikes the target with a burning lash. This also lowers the target’s Defense stat.",
-    wiki: "http://www.serebii.net/attackdex-xy/firelash.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/firelash.shtml"
 };
 
 var first_impression = {
@@ -14616,7 +15841,7 @@ var first_impression = {
     pp: 10,
     acc: 100,
     effect: "Although this move has great power, it only works the first turn the user is in battle.",
-    wiki: "http://www.serebii.net/attackdex-xy/firstimpression.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/firstimpression.shtml"
 };
 
 var fleur_cannon = {
@@ -14627,7 +15852,7 @@ var fleur_cannon = {
     pp: 5,
     acc: 90,
     effect: "Sharply lowers user's Special Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/fleurcannon.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/fleurcannon.shtml"
 };
 
 var floral_healing = {
@@ -14638,7 +15863,7 @@ var floral_healing = {
     pp: 10,
     acc: -1,
     effect: "The user restores the target’s HP by up to half of its max HP. It restores more HP when the terrain is grass.",
-    wiki: "http://www.serebii.net/attackdex-xy/floralhealing.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/floralhealing.shtml"
 };
 
 var gear_up = {
@@ -14649,7 +15874,7 @@ var gear_up = {
     pp: 20,
     acc: -1,
     effect: "The user engages its gears to raise the Attack and Sp. Atk stats of ally Pokémon with the Plus or Minus Ability.",
-    wiki: "http://www.serebii.net/attackdex-xy/gearup.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gearup.shtml"
 };
 
 var genesis_supernova = {
@@ -14660,7 +15885,7 @@ var genesis_supernova = {
     pp: 1,
     acc: -1,
     effect: "Mew-exclusive Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/genesissupernova.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/genesissupernova.shtml"
 };
 
 var gigavolt_havoc = {
@@ -14671,7 +15896,7 @@ var gigavolt_havoc = {
     pp: 1,
     acc: -1,
     effect: "Electric type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/gigavolthavoc.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/gigavolthavoc.shtml"
 };
 
 var guardian_of_alola = {
@@ -14682,7 +15907,7 @@ var guardian_of_alola = {
     pp: 1,
     acc: -1,
     effect: "Tapu-exclusive Z-move. Cuts opponent's HP by 75%.",
-    wiki: "http://www.serebii.net/attackdex-xy/guardianofalola.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/guardianofalola.shtml"
 };
 
 var high_horsepower = {
@@ -14693,7 +15918,7 @@ var high_horsepower = {
     pp: 10,
     acc: 95,
     effect: "The user fiercely attacks the target using its entire body.",
-    wiki: "http://www.serebii.net/attackdex-xy/highhorsepower.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/highhorsepower.shtml"
 };
 
 var hydro_vortex = {
@@ -14704,7 +15929,7 @@ var hydro_vortex = {
     pp: 1,
     acc: -1,
     effect: "Water type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/hydrovortex.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/hydrovortex.shtml"
 };
 
 var ice_hammer = {
@@ -14715,7 +15940,7 @@ var ice_hammer = {
     pp: 10,
     acc: 90,
     effect: "The user swings and hits with its strong, heavy fist. It lowers the user’s Speed, however.",
-    wiki: "http://www.serebii.net/attackdex-xy/icehammer.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/icehammer.shtml"
 };
 
 var inferno_overdrive = {
@@ -14726,7 +15951,7 @@ var inferno_overdrive = {
     pp: 1,
     acc: -1,
     effect: "Fire type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/infernooverdrive.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/infernooverdrive.shtml"
 };
 
 var instruct = {
@@ -14737,7 +15962,7 @@ var instruct = {
     pp: 15,
     acc: -1,
     effect: "Allows an ally to use a move instead.",
-    wiki: "http://www.serebii.net/attackdex-xy/instruct.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/instruct.shtml"
 };
 
 var laser_focus = {
@@ -14748,7 +15973,7 @@ var laser_focus = {
     pp: 30,
     acc: -1,
     effect: "User's next attack is guaranteed to result in a critical hit.",
-    wiki: "http://www.serebii.net/attackdex-xy/laserfocus.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/laserfocus.shtml"
 };
 
 var leafage = {
@@ -14759,7 +15984,7 @@ var leafage = {
     pp: 40,
     acc: 100,
     effect: "Strikes opponent with leaves.",
-    wiki: "http://www.serebii.net/attackdex-xy/leafage.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/leafage.shtml"
 };
 
 var liquidation = {
@@ -14770,7 +15995,7 @@ var liquidation = {
     pp: 10,
     acc: 100,
     effect: "The user slams into the target using a full-force blast of water. This may also lower the target’s Defense stat.",
-    wiki: "http://www.serebii.net/attackdex-xy/liquidation.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/liquidation.shtml"
 };
 
 var lunge = {
@@ -14781,7 +16006,7 @@ var lunge = {
     pp: 15,
     acc: 100,
     effect: "The user makes a lunge at the target, attacking with full force. This also lowers the target’s Attack stat.",
-    wiki: "http://www.serebii.net/attackdex-xy/lunge.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/lunge.shtml"
 };
 
 var malicious_moonsault = {
@@ -14792,7 +16017,7 @@ var malicious_moonsault = {
     pp: 1,
     acc: -1,
     effect: "Incineroar-exclusive Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/maliciousmoonsault.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/maliciousmoonsault.shtml"
 };
 
 var moongeist_beam = {
@@ -14803,7 +16028,7 @@ var moongeist_beam = {
     pp: 5,
     acc: 100,
     effect: "Ignores the target's ability.",
-    wiki: "http://www.serebii.net/attackdex-xy/moongeistbeam.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/moongeistbeam.shtml"
 };
 
 var multi_attack = {
@@ -14814,7 +16039,7 @@ var multi_attack = {
     pp: 10,
     acc: 100,
     effect: "Type matches user's current type.",
-    wiki: "http://www.serebii.net/attackdex-xy/multi-attack.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/multi-attack.shtml"
 };
 
 var natures_madness = {
@@ -14825,7 +16050,7 @@ var natures_madness = {
     pp: 10,
     acc: 90,
     effect: "Halves the foe's HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/nature'smadness.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/nature'smadness.shtml"
 };
 
 var never_ending_nightmare = {
@@ -14836,7 +16061,7 @@ var never_ending_nightmare = {
     pp: 1,
     acc: -1,
     effect: "Ghost type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/never-endingnightmare.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/never-endingnightmare.shtml"
 };
 
 var oceanic_operetta = {
@@ -14847,7 +16072,7 @@ var oceanic_operetta = {
     pp: 1,
     acc: -1,
     effect: "Primarina-exclusive Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/oceanicoperetta.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/oceanicoperetta.shtml"
 };
 
 var pollen_puff = {
@@ -14858,7 +16083,7 @@ var pollen_puff = {
     pp: 15,
     acc: 100,
     effect: "The user attacks the enemy with a pollen puff that explodes. If the target is an ally, it gives the ally a pollen puff that restores its HP instead.",
-    wiki: "http://www.serebii.net/attackdex-xy/pollenpuff.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/pollenpuff.shtml"
 };
 
 var power_trip = {
@@ -14869,7 +16094,7 @@ var power_trip = {
     pp: 10,
     acc: 100,
     effect: "The user boasts its strength and attacks the target. The more the user’s stats are raised, the greater the move’s power.",
-    wiki: "http://www.serebii.net/attackdex-xy/powertrip.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/powertrip.shtml"
 };
 
 var prismatic_laser = {
@@ -14880,7 +16105,7 @@ var prismatic_laser = {
     pp: 10,
     acc: 100,
     effect: "The user shoots powerful lasers using the power of a prism. The user can’t move on the next turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/prismaticlaser.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/prismaticlaser.shtml"
 };
 
 var psychic_fangs = {
@@ -14891,7 +16116,7 @@ var psychic_fangs = {
     pp: 10,
     acc: 100,
     effect: "The user bites the target with its psychic capabilities. This can also destroy Light Screen and Reflect.",
-    wiki: "http://www.serebii.net/attackdex-xy/psychicfangs.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psychicfangs.shtml"
 };
 
 var psychic_terrain = {
@@ -14902,7 +16127,7 @@ var psychic_terrain = {
     pp: 10,
     acc: -1,
     effect: "Prevents priority moves from being used for 5 turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/psychicterrain.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/psychicterrain.shtml"
 };
 
 var pulverizing_pancake = {
@@ -14913,7 +16138,7 @@ var pulverizing_pancake = {
     pp: 1,
     acc: -1,
     effect: "Snorlax-exclusive Normal type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/pulverizingpancake.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/pulverizingpancake.shtml"
 };
 
 var purify = {
@@ -14924,7 +16149,7 @@ var purify = {
     pp: 20,
     acc: -1,
     effect: "The user heals the target’s status condition. If the move succeeds, it also restores the user’s own HP.",
-    wiki: "http://www.serebii.net/attackdex-xy/purify.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/purify.shtml"
 };
 
 var revelation_dance = {
@@ -14935,7 +16160,7 @@ var revelation_dance = {
     pp: 15,
     acc: 100,
     effect: "Type changes based on Oricorio's form.",
-    wiki: "http://www.serebii.net/attackdex-xy/revelationdance.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/revelationdance.shtml"
 };
 
 var savage_spin_out = {
@@ -14946,7 +16171,7 @@ var savage_spin_out = {
     pp: 1,
     acc: -1,
     effect: "Bug type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/savagespin-out.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/savagespin-out.shtml"
 };
 
 var shadow_bone = {
@@ -14957,7 +16182,7 @@ var shadow_bone = {
     pp: 10,
     acc: 100,
     effect: "The user attacks by beating the target with a bone that contains a spirit. This may also lower the target’s Defense stat.",
-    wiki: "http://www.serebii.net/attackdex-xy/shadowbone.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shadowbone.shtml"
 };
 
 var shattered_psyche = {
@@ -14968,7 +16193,7 @@ var shattered_psyche = {
     pp: 1,
     acc: -1,
     effect: "Psychic type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/shatteredpsyche.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shatteredpsyche.shtml"
 };
 
 var shell_trap = {
@@ -14979,7 +16204,7 @@ var shell_trap = {
     pp: 5,
     acc: 100,
     effect: "Deals more damage to opponent if hit by a Physical move.",
-    wiki: "http://www.serebii.net/attackdex-xy/shelltrap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shelltrap.shtml"
 };
 
 var shore_up = {
@@ -14990,7 +16215,7 @@ var shore_up = {
     pp: 10,
     acc: -1,
     effect: "The user regains up to half of its max HP. It restores more HP in a sandstorm.",
-    wiki: "http://www.serebii.net/attackdex-xy/shoreup.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/shoreup.shtml"
 };
 
 var sinister_arrow_raid = {
@@ -15001,7 +16226,7 @@ var sinister_arrow_raid = {
     pp: 1,
     acc: -1,
     effect: "Decidueye-exclusive Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/sinisterarrowraid.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sinisterarrowraid.shtml"
 };
 
 var smart_strike = {
@@ -15012,7 +16237,7 @@ var smart_strike = {
     pp: 10,
     acc: -1,
     effect: "The user stabs the target with a sharp horn. This attack never misses.",
-    wiki: "http://www.serebii.net/attackdex-xy/smartstrike.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/smartstrike.shtml"
 };
 
 var solar_blade = {
@@ -15023,7 +16248,7 @@ var solar_blade = {
     pp: 10,
     acc: 100,
     effect: "Charges on first turn, attacks on second.",
-    wiki: "http://www.serebii.net/attackdex-xy/solarblade.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/solarblade.shtml"
 };
 
 var soul_stealing_7_star_strike = {
@@ -15034,7 +16259,7 @@ var soul_stealing_7_star_strike = {
     pp: 1,
     acc: -1,
     effect: "Marshadow-exclusive Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/soul-stealing7-starstrike.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/soul-stealing7-starstrike.shtml"
 };
 
 var sparkling_aria = {
@@ -15045,7 +16270,7 @@ var sparkling_aria = {
     pp: 10,
     acc: 100,
     effect: "Heals the burns of its target.",
-    wiki: "http://www.serebii.net/attackdex-xy/sparklingaria.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sparklingaria.shtml"
 };
 
 var spectral_thief = {
@@ -15056,7 +16281,7 @@ var spectral_thief = {
     pp: 10,
     acc: 100,
     effect: "The user hides in the target’s shadow, steals the target’s stat boosts, and then attacks.",
-    wiki: "http://www.serebii.net/attackdex-xy/spectralthief.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spectralthief.shtml"
 };
 
 var speed_swap = {
@@ -15067,7 +16292,7 @@ var speed_swap = {
     pp: 10,
     acc: -1,
     effect: "The user exchanges Speed stats with the target.",
-    wiki: "http://www.serebii.net/attackdex-xy/speedswap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/speedswap.shtml"
 };
 
 var spirit_shackle = {
@@ -15078,7 +16303,7 @@ var spirit_shackle = {
     pp: 10,
     acc: 100,
     effect: "Prevents the opponent switching out.",
-    wiki: "http://www.serebii.net/attackdex-xy/spiritshackle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spiritshackle.shtml"
 };
 
 var spotlight = {
@@ -15089,7 +16314,7 @@ var spotlight = {
     pp: 15,
     acc: -1,
     effect: "The user shines a spotlight on the target so that only the target will be attacked during the turn.",
-    wiki: "http://www.serebii.net/attackdex-xy/spotlight.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/spotlight.shtml"
 };
 
 var stoked_sparksurfer = {
@@ -15100,7 +16325,7 @@ var stoked_sparksurfer = {
     pp: 1,
     acc: -1,
     effect: "Raichu-exclusive Electric type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/stokedsparksurfer.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stokedsparksurfer.shtml"
 };
 
 var stomping_tantrum = {
@@ -15111,7 +16336,7 @@ var stomping_tantrum = {
     pp: 10,
     acc: 100,
     effect: "Driven by frustration, the user attacks the target. If the user’s previous move has failed, the power of this move doubles.",
-    wiki: "http://www.serebii.net/attackdex-xy/stompingtantrum.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/stompingtantrum.shtml"
 };
 
 var strength_sap = {
@@ -15122,7 +16347,7 @@ var strength_sap = {
     pp: 10,
     acc: 100,
     effect: "The user restores its HP by the same amount as the target’s Attack stat. It also lowers the target’s Attack stat.",
-    wiki: "http://www.serebii.net/attackdex-xy/strengthsap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/strengthsap.shtml"
 };
 
 var subzero_slammer = {
@@ -15133,7 +16358,7 @@ var subzero_slammer = {
     pp: 1,
     acc: -1,
     effect: "Ice type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/subzeroslammer.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/subzeroslammer.shtml"
 };
 
 var sunsteel_strike = {
@@ -15144,7 +16369,7 @@ var sunsteel_strike = {
     pp: 5,
     acc: 100,
     effect: "Ignores the target's ability.",
-    wiki: "http://www.serebii.net/attackdex-xy/sunsteelstrike.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/sunsteelstrike.shtml"
 };
 
 var supersonic_skystrike = {
@@ -15155,7 +16380,7 @@ var supersonic_skystrike = {
     pp: 1,
     acc: -1,
     effect: "Flying type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/supersonicskystrike.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/supersonicskystrike.shtml"
 };
 
 var tearful_look = {
@@ -15166,7 +16391,7 @@ var tearful_look = {
     pp: 20,
     acc: -1,
     effect: "The user gets teary eyed to make the target lose its combative spirit. This lowers the target’s Attack and Sp. Atk stats.",
-    wiki: "http://www.serebii.net/attackdex-xy/tearfullook.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tearfullook.shtml"
 };
 
 var tectonic_rage = {
@@ -15177,7 +16402,7 @@ var tectonic_rage = {
     pp: 1,
     acc: -1,
     effect: "Ground type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/tectonicrage.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tectonicrage.shtml"
 };
 
 var throat_chop = {
@@ -15188,7 +16413,7 @@ var throat_chop = {
     pp: 15,
     acc: 100,
     effect: "Prevents use of sound moves for two turns.",
-    wiki: "http://www.serebii.net/attackdex-xy/throatchop.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/throatchop.shtml"
 };
 
 var toxic_thread = {
@@ -15199,7 +16424,7 @@ var toxic_thread = {
     pp: 20,
     acc: 100,
     effect: "The user shoots poisonous threads to poison the target and lower the target’s Speed stat.",
-    wiki: "http://www.serebii.net/attackdex-xy/toxicthread.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/toxicthread.shtml"
 };
 
 var trop_kick = {
@@ -15210,7 +16435,7 @@ var trop_kick = {
     pp: 15,
     acc: 100,
     effect: "Lowers opponent's Attack.",
-    wiki: "http://www.serebii.net/attackdex-xy/tropkick.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/tropkick.shtml"
 };
 
 var twinkle_tackle = {
@@ -15221,7 +16446,7 @@ var twinkle_tackle = {
     pp: 1,
     acc: -1,
     effect: "Fairy type Z-Move.",
-    wiki: "http://www.serebii.net/attackdex-xy/twinkletackle.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/twinkletackle.shtml"
 };
 
 var zing_zap = {
@@ -15232,7 +16457,7 @@ var zing_zap = {
     pp: 10,
     acc: 100,
     effect: "A strong electric blast crashes down on the target, giving it an electric shock. This may also make the target flinch.",
-    wiki: "http://www.serebii.net/attackdex-xy/zingzap.shtml"
+    wiki: "http://www.serebii.net/attackdex-sm/zingzap.shtml"
 };
 
 
@@ -16245,49 +17470,49 @@ var heracronite = {
 };
 
 var hm01 = {
-    name: "Hm01",
+    name: "HM01",
     desc: "Teaches the move Cut.",
     wiki: "http://www.serebii.net/itemdex/hm01.shtml"
 };
 
 var hm02 = {
-    name: "Hm02",
+    name: "HM02",
     desc: "Teaches the move Fly.",
     wiki: "http://www.serebii.net/itemdex/hm02.shtml"
 };
 
 var hm03 = {
-    name: "Hm03",
+    name: "HM03",
     desc: "Teaches the move Surf.",
     wiki: "http://www.serebii.net/itemdex/hm03.shtml"
 };
 
 var hm04 = {
-    name: "Hm04",
+    name: "HM04",
     desc: "Teaches the move Strength.",
     wiki: "http://www.serebii.net/itemdex/hm04.shtml"
 };
 
 var hm05 = {
-    name: "Hm05",
+    name: "HM05",
     desc: "Teaches the move Flash/Defog/Whirlpool/Waterfall.",
     wiki: "http://www.serebii.net/itemdex/hm05.shtml"
 };
 
 var hm06 = {
-    name: "Hm06",
+    name: "HM06",
     desc: "Teaches the move Whirlpool/Rock Smash/Dive.",
     wiki: "http://www.serebii.net/itemdex/hm06.shtml"
 };
 
 var hm07 = {
-    name: "Hm07",
+    name: "HM07",
     desc: "Teaches the move Waterfall.",
     wiki: "http://www.serebii.net/itemdex/hm07.shtml"
 };
 
 var hm08 = {
-    name: "Hm08",
+    name: "HM08",
     desc: "Teaches the move Dive/Rock Climb.",
     wiki: "http://www.serebii.net/itemdex/hm08.shtml"
 };
@@ -17745,607 +18970,607 @@ var tinymushroom = {
 };
 
 var tm01 = {
-    name: "Tm01",
+    name: "TM01",
     desc: "Teaches the move Mega Punch/DynamicPunch/Focus Punch/Hone Claws.",
     wiki: "http://www.serebii.net/itemdex/tm01.shtml"
 };
 
 var tm02 = {
-    name: "Tm02",
+    name: "TM02",
     desc: "Teaches the move Razor Wind/Headbutt/Dragon Claw.",
     wiki: "http://www.serebii.net/itemdex/tm02.shtml"
 };
 
 var tm03 = {
-    name: "Tm03",
+    name: "TM03",
     desc: "Teaches the move Swords Dance/Curse/Water Pulse/Psyshock.",
     wiki: "http://www.serebii.net/itemdex/tm03.shtml"
 };
 
 var tm04 = {
-    name: "Tm04",
+    name: "TM04",
     desc: "Teaches the move Whirlwind/Rollout/Calm Mind.",
     wiki: "http://www.serebii.net/itemdex/tm04.shtml"
 };
 
 var tm05 = {
-    name: "Tm05",
+    name: "TM05",
     desc: "Teaches the move Mega Kick/Roar.",
     wiki: "http://www.serebii.net/itemdex/tm05.shtml"
 };
 
 var tm06 = {
-    name: "Tm06",
+    name: "TM06",
     desc: "Teaches the move Toxic.",
     wiki: "http://www.serebii.net/itemdex/tm06.shtml"
 };
 
 var tm07 = {
-    name: "Tm07",
+    name: "TM07",
     desc: "Teaches the move Horn Drill/Zap Cannon/Hail.",
     wiki: "http://www.serebii.net/itemdex/tm07.shtml"
 };
 
 var tm08 = {
-    name: "Tm08",
+    name: "TM08",
     desc: "Teaches the move Body Slam/Rock Smash/Bulk Up.",
     wiki: "http://www.serebii.net/itemdex/tm08.shtml"
 };
 
 var tm09 = {
-    name: "Tm09",
+    name: "TM09",
     desc: "Teaches the move Take Down/Psych Up/Bullet Seed/Venoshock.",
     wiki: "http://www.serebii.net/itemdex/tm09.shtml"
 };
 
 var tm10 = {
-    name: "Tm10",
+    name: "TM10",
     desc: "Teaches the move Double-Edge/Hidden Power.",
     wiki: "http://www.serebii.net/itemdex/tm10.shtml"
 };
 
 var tm100 = {
-    name: "Tm100",
+    name: "TM100",
     desc: "Teaches the move Confide.",
     wiki: "http://www.serebii.net/itemdex/tm100.shtml"
 };
 
 var tm11 = {
-    name: "Tm11",
+    name: "TM11",
     desc: "Teaches the move BubbleBeam/Sunny Day.",
     wiki: "http://www.serebii.net/itemdex/tm11.shtml"
 };
 
 var tm12 = {
-    name: "Tm12",
+    name: "TM12",
     desc: "Teaches the move Water Gun/Sweet Scent/Taunt.",
     wiki: "http://www.serebii.net/itemdex/tm12.shtml"
 };
 
 var tm13 = {
-    name: "Tm13",
+    name: "TM13",
     desc: "Teaches the move Snore/Ice Beam.",
     wiki: "http://www.serebii.net/itemdex/tm13.shtml"
 };
 
 var tm14 = {
-    name: "Tm14",
+    name: "TM14",
     desc: "Teaches the move Blizzard.",
     wiki: "http://www.serebii.net/itemdex/tm14.shtml"
 };
 
 var tm15 = {
-    name: "Tm15",
+    name: "TM15",
     desc: "Teaches the move Hyper Beam.",
     wiki: "http://www.serebii.net/itemdex/tm15.shtml"
 };
 
 var tm16 = {
-    name: "Tm16",
+    name: "TM16",
     desc: "Teaches the move Pay Day/Icy Wind/Light Screen.",
     wiki: "http://www.serebii.net/itemdex/tm16.shtml"
 };
 
 var tm17 = {
-    name: "Tm17",
+    name: "TM17",
     desc: "Teaches the move Submission/Protect.",
     wiki: "http://www.serebii.net/itemdex/tm17.shtml"
 };
 
 var tm18 = {
-    name: "Tm18",
+    name: "TM18",
     desc: "Teaches the move Counter/Rain Dance.",
     wiki: "http://www.serebii.net/itemdex/tm18.shtml"
 };
 
 var tm19 = {
-    name: "Tm19",
+    name: "TM19",
     desc: "Teaches the move Seismic Toss/Giga Drain/Telekinesis/Roost.",
     wiki: "http://www.serebii.net/itemdex/tm19.shtml"
 };
 
 var tm20 = {
-    name: "Tm20",
+    name: "TM20",
     desc: "Teaches the move Rage/Endure/Safeguard.",
     wiki: "http://www.serebii.net/itemdex/tm20.shtml"
 };
 
 var tm21 = {
-    name: "Tm21",
+    name: "TM21",
     desc: "Teaches the move Mega Drain/Frustration.",
     wiki: "http://www.serebii.net/itemdex/tm21.shtml"
 };
 
 var tm22 = {
-    name: "Tm22",
+    name: "TM22",
     desc: "Teaches the move SolarBeam.",
     wiki: "http://www.serebii.net/itemdex/tm22.shtml"
 };
 
 var tm23 = {
-    name: "Tm23",
+    name: "TM23",
     desc: "Teaches the move Dragon Rage/Iron Tail/Smack Down.",
     wiki: "http://www.serebii.net/itemdex/tm23.shtml"
 };
 
 var tm24 = {
-    name: "Tm24",
+    name: "TM24",
     desc: "Teaches the move Thunderbolt/DragonBreath.",
     wiki: "http://www.serebii.net/itemdex/tm24.shtml"
 };
 
 var tm25 = {
-    name: "Tm25",
+    name: "TM25",
     desc: "Teaches the move Thunder.",
     wiki: "http://www.serebii.net/itemdex/tm25.shtml"
 };
 
 var tm26 = {
-    name: "Tm26",
+    name: "TM26",
     desc: "Teaches the move Earthquake.",
     wiki: "http://www.serebii.net/itemdex/tm26.shtml"
 };
 
 var tm27 = {
-    name: "Tm27",
+    name: "TM27",
     desc: "Teaches the move Fissure/Return.",
     wiki: "http://www.serebii.net/itemdex/tm27.shtml"
 };
 
 var tm28 = {
-    name: "Tm28",
+    name: "TM28",
     desc: "Teaches the move Dig.",
     wiki: "http://www.serebii.net/itemdex/tm28.shtml"
 };
 
 var tm29 = {
-    name: "Tm29",
+    name: "TM29",
     desc: "Teaches the move Psychic.",
     wiki: "http://www.serebii.net/itemdex/tm29.shtml"
 };
 
 var tm30 = {
-    name: "Tm30",
+    name: "TM30",
     desc: "Teaches the move Teleport/Shadow Ball.",
     wiki: "http://www.serebii.net/itemdex/tm30.shtml"
 };
 
 var tm31 = {
-    name: "Tm31",
+    name: "TM31",
     desc: "Teaches the move Mimic/Mud-Slap/Brick Break.",
     wiki: "http://www.serebii.net/itemdex/tm31.shtml"
 };
 
 var tm32 = {
-    name: "Tm32",
+    name: "TM32",
     desc: "Teaches the move Double Team.",
     wiki: "http://www.serebii.net/itemdex/tm32.shtml"
 };
 
 var tm33 = {
-    name: "Tm33",
+    name: "TM33",
     desc: "Teaches the move Ice Punch/Reflect.",
     wiki: "http://www.serebii.net/itemdex/tm33.shtml"
 };
 
 var tm34 = {
-    name: "Tm34",
+    name: "TM34",
     desc: "Teaches the move Bide/Swagger/Shock Wave/Sludge Wave.",
     wiki: "http://www.serebii.net/itemdex/tm34.shtml"
 };
 
 var tm35 = {
-    name: "Tm35",
+    name: "TM35",
     desc: "Teaches the move Metronome/Sleep Talk/Flamethrower.",
     wiki: "http://www.serebii.net/itemdex/tm35.shtml"
 };
 
 var tm36 = {
-    name: "Tm36",
+    name: "TM36",
     desc: "Teaches the move Selfdestruct/Sludge Bomb.",
     wiki: "http://www.serebii.net/itemdex/tm36.shtml"
 };
 
 var tm37 = {
-    name: "Tm37",
+    name: "TM37",
     desc: "Teaches the move Egg Bomb/Sandstorm.",
     wiki: "http://www.serebii.net/itemdex/tm37.shtml"
 };
 
 var tm38 = {
-    name: "Tm38",
+    name: "TM38",
     desc: "Teaches the move Fire Blast.",
     wiki: "http://www.serebii.net/itemdex/tm38.shtml"
 };
 
 var tm39 = {
-    name: "Tm39",
+    name: "TM39",
     desc: "Teaches the move Swift/Rock Tomb.",
     wiki: "http://www.serebii.net/itemdex/tm39.shtml"
 };
 
 var tm40 = {
-    name: "Tm40",
+    name: "TM40",
     desc: "Teaches the move Skull Bash/Defense Curl/Aerial Ace.",
     wiki: "http://www.serebii.net/itemdex/tm40.shtml"
 };
 
 var tm41 = {
-    name: "Tm41",
+    name: "TM41",
     desc: "Teaches the move Softboiled/ThunderPunch/Torment.",
     wiki: "http://www.serebii.net/itemdex/tm41.shtml"
 };
 
 var tm42 = {
-    name: "Tm42",
+    name: "TM42",
     desc: "Teaches the move Dream Eater/Facade.",
     wiki: "http://www.serebii.net/itemdex/tm42.shtml"
 };
 
 var tm43 = {
-    name: "Tm43",
+    name: "TM43",
     desc: "Teaches the move Sky Attack/Detect/Secret Power/Flame Charge.",
     wiki: "http://www.serebii.net/itemdex/tm43.shtml"
 };
 
 var tm44 = {
-    name: "Tm44",
+    name: "TM44",
     desc: "Teaches the move Rest.",
     wiki: "http://www.serebii.net/itemdex/tm44.shtml"
 };
 
 var tm45 = {
-    name: "Tm45",
+    name: "TM45",
     desc: "Teaches the move Thunder Wave/Attract.",
     wiki: "http://www.serebii.net/itemdex/tm45.shtml"
 };
 
 var tm46 = {
-    name: "Tm46",
+    name: "TM46",
     desc: "Teaches the move Psywave/Thief.",
     wiki: "http://www.serebii.net/itemdex/tm46.shtml"
 };
 
 var tm47 = {
-    name: "Tm47",
+    name: "TM47",
     desc: "Teaches the move Explosion/Steel Wing/Low Sweep.",
     wiki: "http://www.serebii.net/itemdex/tm47.shtml"
 };
 
 var tm48 = {
-    name: "Tm48",
+    name: "TM48",
     desc: "Teaches the move Rock Slide/Fire Punch/Skill Swap/Round.",
     wiki: "http://www.serebii.net/itemdex/tm48.shtml"
 };
 
 var tm49 = {
-    name: "Tm49",
+    name: "TM49",
     desc: "Teaches the move Tri Attack/Fury Cutter/Snatch/Echoed Voice.",
     wiki: "http://www.serebii.net/itemdex/tm49.shtml"
 };
 
 var tm50 = {
-    name: "Tm50",
+    name: "TM50",
     desc: "Teaches the move Substitute/Nightmare/Overheat.",
     wiki: "http://www.serebii.net/itemdex/tm50.shtml"
 };
 
 var tm51 = {
-    name: "Tm51",
+    name: "TM51",
     desc: "Teaches the move Roost/Ally Switch/Steel Wing.",
     wiki: "http://www.serebii.net/itemdex/tm51.shtml"
 };
 
 var tm52 = {
-    name: "Tm52",
+    name: "TM52",
     desc: "Teaches the move Focus Blast.",
     wiki: "http://www.serebii.net/itemdex/tm52.shtml"
 };
 
 var tm53 = {
-    name: "Tm53",
+    name: "TM53",
     desc: "Teaches the move Energy Ball.",
     wiki: "http://www.serebii.net/itemdex/tm53.shtml"
 };
 
 var tm54 = {
-    name: "Tm54",
+    name: "TM54",
     desc: "Teaches the move False Swipe.",
     wiki: "http://www.serebii.net/itemdex/tm54.shtml"
 };
 
 var tm55 = {
-    name: "Tm55",
+    name: "TM55",
     desc: "Teaches the move Brine/Scald.",
     wiki: "http://www.serebii.net/itemdex/tm55.shtml"
 };
 
 var tm56 = {
-    name: "Tm56",
+    name: "TM56",
     desc: "Teaches the move Fling.",
     wiki: "http://www.serebii.net/itemdex/tm56.shtml"
 };
 
 var tm57 = {
-    name: "Tm57",
+    name: "TM57",
     desc: "Teaches the move Charge Beam.",
     wiki: "http://www.serebii.net/itemdex/tm57.shtml"
 };
 
 var tm58 = {
-    name: "Tm58",
+    name: "TM58",
     desc: "Teaches the move Endure/Sky Drop.",
     wiki: "http://www.serebii.net/itemdex/tm58.shtml"
 };
 
 var tm59 = {
-    name: "Tm59",
+    name: "TM59",
     desc: "Teaches the move Dragon Pulse/Incinerate.",
     wiki: "http://www.serebii.net/itemdex/tm59.shtml"
 };
 
 var tm60 = {
-    name: "Tm60",
+    name: "TM60",
     desc: "Teaches the move Drain Punch/Quash.",
     wiki: "http://www.serebii.net/itemdex/tm60.shtml"
 };
 
 var tm61 = {
-    name: "Tm61",
+    name: "TM61",
     desc: "Teaches the move Will-O-Wisp.",
     wiki: "http://www.serebii.net/itemdex/tm61.shtml"
 };
 
 var tm62 = {
-    name: "Tm62",
+    name: "TM62",
     desc: "Teaches the move Silver Wind/Acrobatics.",
     wiki: "http://www.serebii.net/itemdex/tm62.shtml"
 };
 
 var tm63 = {
-    name: "Tm63",
+    name: "TM63",
     desc: "Teaches the move Embargo.",
     wiki: "http://www.serebii.net/itemdex/tm63.shtml"
 };
 
 var tm64 = {
-    name: "Tm64",
+    name: "TM64",
     desc: "Teaches the move Explosion.",
     wiki: "http://www.serebii.net/itemdex/tm64.shtml"
 };
 
 var tm65 = {
-    name: "Tm65",
+    name: "TM65",
     desc: "Teaches the move Shadow Claw.",
     wiki: "http://www.serebii.net/itemdex/tm65.shtml"
 };
 
 var tm66 = {
-    name: "Tm66",
+    name: "TM66",
     desc: "Teaches the move Payback.",
     wiki: "http://www.serebii.net/itemdex/tm66.shtml"
 };
 
 var tm67 = {
-    name: "Tm67",
+    name: "TM67",
     desc: "Teaches the move Recycle/Retaliate.",
     wiki: "http://www.serebii.net/itemdex/tm67.shtml"
 };
 
 var tm68 = {
-    name: "Tm68",
+    name: "TM68",
     desc: "Teaches the move Giga Impact.",
     wiki: "http://www.serebii.net/itemdex/tm68.shtml"
 };
 
 var tm69 = {
-    name: "Tm69",
+    name: "TM69",
     desc: "Teaches the move Rock Polish.",
     wiki: "http://www.serebii.net/itemdex/tm69.shtml"
 };
 
 var tm70 = {
-    name: "Tm70",
+    name: "TM70",
     desc: "Teaches the move Flash.",
     wiki: "http://www.serebii.net/itemdex/tm70.shtml"
 };
 
 var tm71 = {
-    name: "Tm71",
+    name: "TM71",
     desc: "Teaches the move Stone Edge.",
     wiki: "http://www.serebii.net/itemdex/tm71.shtml"
 };
 
 var tm72 = {
-    name: "Tm72",
+    name: "TM72",
     desc: "Teaches the move Avalanche/Volt Switch.",
     wiki: "http://www.serebii.net/itemdex/tm72.shtml"
 };
 
 var tm73 = {
-    name: "Tm73",
+    name: "TM73",
     desc: "Teaches the move Thunder Wave.",
     wiki: "http://www.serebii.net/itemdex/tm73.shtml"
 };
 
 var tm74 = {
-    name: "Tm74",
+    name: "TM74",
     desc: "Teaches the move Gyro Ball.",
     wiki: "http://www.serebii.net/itemdex/tm74.shtml"
 };
 
 var tm75 = {
-    name: "Tm75",
+    name: "TM75",
     desc: "Teaches the move Swords Dance.",
     wiki: "http://www.serebii.net/itemdex/tm75.shtml"
 };
 
 var tm76 = {
-    name: "Tm76",
+    name: "TM76",
     desc: "Teaches the move Stealth Rock/Struggle Bug.",
     wiki: "http://www.serebii.net/itemdex/tm76.shtml"
 };
 
 var tm77 = {
-    name: "Tm77",
+    name: "TM77",
     desc: "Teaches the move Psych Up.",
     wiki: "http://www.serebii.net/itemdex/tm77.shtml"
 };
 
 var tm78 = {
-    name: "Tm78",
+    name: "TM78",
     desc: "Teaches the move Captivate/Bulldoze.",
     wiki: "http://www.serebii.net/itemdex/tm78.shtml"
 };
 
 var tm79 = {
-    name: "Tm79",
+    name: "TM79",
     desc: "Teaches the move Dark Pulse/Frost Breath.",
     wiki: "http://www.serebii.net/itemdex/tm79.shtml"
 };
 
 var tm80 = {
-    name: "Tm80",
+    name: "TM80",
     desc: "Teaches the move Rock Slide.",
     wiki: "http://www.serebii.net/itemdex/tm80.shtml"
 };
 
 var tm81 = {
-    name: "Tm81",
+    name: "TM81",
     desc: "Teaches the move X-Scissor.",
     wiki: "http://www.serebii.net/itemdex/tm81.shtml"
 };
 
 var tm82 = {
-    name: "Tm82",
+    name: "TM82",
     desc: "Teaches the move Sleep Talk/Dragon Tail.",
     wiki: "http://www.serebii.net/itemdex/tm82.shtml"
 };
 
 var tm83 = {
-    name: "Tm83",
+    name: "TM83",
     desc: "Teaches the move Natural Gift/Work Up/Infestation.",
     wiki: "http://www.serebii.net/itemdex/tm83.shtml"
 };
 
 var tm84 = {
-    name: "Tm84",
+    name: "TM84",
     desc: "Teaches the move Poison Jab.",
     wiki: "http://www.serebii.net/itemdex/tm84.shtml"
 };
 
 var tm85 = {
-    name: "Tm85",
+    name: "TM85",
     desc: "Teaches the move Dream Eater.",
     wiki: "http://www.serebii.net/itemdex/tm85.shtml"
 };
 
 var tm86 = {
-    name: "Tm86",
+    name: "TM86",
     desc: "Teaches the move Grass Knot.",
     wiki: "http://www.serebii.net/itemdex/tm86.shtml"
 };
 
 var tm87 = {
-    name: "Tm87",
+    name: "TM87",
     desc: "Teaches the move Swagger.",
     wiki: "http://www.serebii.net/itemdex/tm87.shtml"
 };
 
 var tm88 = {
-    name: "Tm88",
+    name: "TM88",
     desc: "Teaches the move Pluck/Sleep Talk.",
     wiki: "http://www.serebii.net/itemdex/tm88.shtml"
 };
 
 var tm89 = {
-    name: "Tm89",
+    name: "TM89",
     desc: "Teaches the move U-turn.",
     wiki: "http://www.serebii.net/itemdex/tm89.shtml"
 };
 
 var tm90 = {
-    name: "Tm90",
+    name: "TM90",
     desc: "Teaches the move Substitute.",
     wiki: "http://www.serebii.net/itemdex/tm90.shtml"
 };
 
 var tm91 = {
-    name: "Tm91",
+    name: "TM91",
     desc: "Teaches the move Flash Cannon.",
     wiki: "http://www.serebii.net/itemdex/tm91.shtml"
 };
 
 var tm92 = {
-    name: "Tm92",
+    name: "TM92",
     desc: "Teaches the move Trick Room.",
     wiki: "http://www.serebii.net/itemdex/tm92.shtml"
 };
 
 var tm93 = {
-    name: "Tm93",
+    name: "TM93",
     desc: "Teaches the move Wild Charge.",
     wiki: "http://www.serebii.net/itemdex/tm93.shtml"
 };
 
 var tm94 = {
-    name: "Tm94",
+    name: "TM94",
     desc: "Teaches the move Rock Smash.",
     wiki: "http://www.serebii.net/itemdex/tm94.shtml"
 };
 
 var tm95 = {
-    name: "Tm95",
+    name: "TM95",
     desc: "Teaches the move Snarl.",
     wiki: "http://www.serebii.net/itemdex/tm95.shtml"
 };
 
 var tm96 = {
-    name: "Tm96",
+    name: "TM96",
     desc: "Teaches the move Nature Power.",
     wiki: "http://www.serebii.net/itemdex/tm96.shtml"
 };
 
 var tm97 = {
-    name: "Tm97",
+    name: "TM97",
     desc: "Teaches the move Dark Pulse.",
     wiki: "http://www.serebii.net/itemdex/tm97.shtml"
 };
 
 var tm98 = {
-    name: "Tm98",
+    name: "TM98",
     desc: "Teaches the move Power-Up Punch.",
     wiki: "http://www.serebii.net/itemdex/tm98.shtml"
 };
 
 var tm99 = {
-    name: "Tm99",
+    name: "TM99",
     desc: "Teaches the move Dazzling Gleam.",
     wiki: "http://www.serebii.net/itemdex/tm99.shtml"
 };
 
 var tmv_pass = {
-    name: "Tmv Pass",
+    name: "TMv Pass",
     desc: "A commuter pass that allows the holder to ride the TMV between Lumiose City and Kiloude City at any time.",
     wiki: "http://www.serebii.net/itemdex/tmvpass.shtml"
 };
@@ -20109,7 +21334,7 @@ var rivalry = {
 };
 
 var rks_system = {
-    name: "Rks System",
+    name: "RKS System",
     desc: "Changes type to match a specific item.",
     wiki: "http://www.serebii.net/abilitydex/rkssystem.shtml"
 };
@@ -20568,4 +21793,100 @@ var zen_mode = {
     name: "Zen Mode",
     desc: "Changes the Pokémon's shape when HP is halved.",
     wiki: "http://www.serebii.net/abilitydex/zenmode.shtml"
+};
+
+var emergency_exit = {
+    name: "Emergency Exit",
+    desc: "The Pokémon, sensing danger, switches out when its HP becomes half or less.",
+    wiki: "http://www.serebii.net/abilitydex/emergencyexit.shtml"
+};
+
+var merciless = {
+    name: "Merciless",
+    desc: "The Pokémon’s attacks become critical hits if the target is poisoned.",
+    wiki: "http://www.serebii.net/abilitydex/merciless.shtml"
+};
+
+var water_bubble = {
+    name: "Water Bubble",
+    desc: "Lowers the power of Fire-type moves done to the Pokémon and prevents the Pokémon from getting a burn. Also secretly doubles the power of Water-type moves.",
+    wiki: "http://www.serebii.net/abilitydex/waterbubble.shtml"
+};
+
+var steelworker = {
+    name: "Steelworker",
+    desc: "Powers up Steel-type moves.",
+    wiki: "http://www.serebii.net/abilitydex/steelworker.shtml"
+};
+
+var slush_rush = {
+    name: "Slush Rush",
+    desc: "Boosts the Pokémon’s Speed stat in a hailstorm.",
+    wiki: "http://www.serebii.net/abilitydex/slushrush.shtml"
+};
+
+var long_reach = {
+    name: "Long Reach",
+    desc: "The Pokémon uses its moves without making contact with the target.",
+    wiki: "http://www.serebii.net/abilitydex/longreach.shtml"
+};
+
+var liquid_voice = {
+    name: "Liquid Voice",
+    desc: "All sound-based moves become Water-type moves.",
+    wiki: "http://www.serebii.net/abilitydex/liquidvoice.shtml"
+};
+
+var galvanize = {
+    name: "Galvanize",
+    desc: "Normal-type moves become Electric-type moves. The power of those moves is boosted a little.",
+    wiki: "http://www.serebii.net/abilitydex/galvanize.shtml"
+};
+
+var tangling_hair = {
+    name: "Tangling Hair",
+    desc: "Contact with the Pokémon lowers the attacker’s Speed stat.",
+    wiki: "http://www.serebii.net/abilitydex/tanglinghair.shtml"
+};
+
+var power_of_alchemy = {
+    name: "Power Of Alchemy",
+    desc: "The Pokémon copies the Ability of a defeated ally.",
+    wiki: "http://www.serebii.net/abilitydex/powerofalchemy.shtml"
+};
+
+var beast_boost = {
+    name: "Beast Boost",
+    desc: "The Pokémon boosts its most proficient stat each time it knocks out a Pokémon.",
+    wiki: "http://www.serebii.net/abilitydex/beastboost.shtml"
+};
+
+var psychic_surge = {
+    name: "Psychic Surge",
+    desc: "Turns the ground into Psychic Terrain when the Pokémon enters a battle.",
+    wiki: "http://www.serebii.net/abilitydex/psychicsurge.shtml"
+};
+
+var misty_surge = {
+    name: "Misty Surge",
+    desc: "Turns the ground into Misty Terrain when the Pokémon enters a battle.",
+    wiki: "http://www.serebii.net/abilitydex/mistysurge.shtml"
+};
+
+var grassy_surge = {
+    name: "Grassy Surge",
+    desc: "Turns the ground into Grassy Terrain when the Pokémon enters a battle.",
+    wiki: "http://www.serebii.net/abilitydex/grassysurge.shtml"
+};
+
+var full_metal_body = {
+    name: "Full Metal Body",
+    desc: "Prevents other Pokémon’s moves or Abilities from lowering the Pokémon’s stats.",
+    wiki: "http://www.serebii.net/abilitydex/fullmetalbody.shtml"
+};
+
+var prism_armor = {
+    name: "Prism Armor",
+    desc: "Reduces the power of supereffective attacks taken.",
+    wiki: "http://www.serebii.net/abilitydex/prismarmor.shtml"
 };
