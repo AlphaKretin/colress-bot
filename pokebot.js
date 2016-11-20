@@ -1,18 +1,22 @@
+//discord API boilerplate, logins in
 var Discord = require('discord.io');
 var bot = new Discord.Client({
     autorun: true,
-    token: "alololoa"
+    token: "minor text fixes"
 });
 
+//arrays of all pokemon/moves/items/abilities, including megas, alolans, and some alt formes
 var mons = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate", "alolan rattata", "alolan raticate", "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "alolan raichu", "sandshrew", "sandslash", "alolan sandshrew", "alolan sandslash", "nidoranf", "nidorina", "nidoqueen", "nidoranm", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "alolan vulpix", "alolan ninetales", "jigglypuff", "wigglytuff", "zubat", "golbat", "oddish", "gloom", "vileplume", "paras", "parasect", "venonat", "venomoth", "diglett", "dugtrio", "alolan diglett", "alolan dugtrio", "meowth", "persian", "alolan meowth", "alolan persian", "psyduck", "golduck", "mankey", "primeape", "growlithe", "arcanine", "poliwag", "poliwhirl", "poliwrath", "abra", "kadabra", "alakazam", "machop", "machoke", "machamp", "bellsprout", "weepinbell", "victreebel", "tentacool", "tentacruel", "geodude", "graveler", "golem", "alolan geodude", "alolan graveler", "alolan golem", "ponyta", "rapidash", "slowpoke", "slowbro", "magnemite", "magneton", "farfetchd", "doduo", "dodrio", "seel", "dewgong", "grimer", "muk", "alolan grimer", "alolan muk", "shellder", "cloyster", "gastly", "haunter", "gengar", "onix", "drowzee", "hypno", "krabby", "kingler", "voltorb", "electrode", "exeggcute", "exeggutor", "alolan exeggutor", "cubone", "marowak", "alolan marowak", "hitmonlee", "hitmonchan", "lickitung", "koffing", "weezing", "rhyhorn", "rhydon", "chansey", "tangela", "kangaskhan", "horsea", "seadra", "goldeen", "seaking", "staryu", "starmie", "mr mime", "scyther", "jynx", "electabuzz", "magmar", "pinsir", "tauros", "magikarp", "gyarados", "lapras", "ditto", "eevee", "vaporeon", "jolteon", "flareon", "porygon", "omanyte", "omastar", "kabuto", "kabutops", "aerodactyl", "snorlax", "articuno", "zapdos", "moltres", "dratini", "dragonair", "dragonite", "mewtwo", "mew", "chikorita", "bayleef", "meganium", "cyndaquil", "quilava", "typhlosion", "totodile", "croconaw", "feraligatr", "sentret", "furret", "hoothoot", "noctowl", "ledyba", "ledian", "spinarak", "ariados", "crobat", "chinchou", "lanturn", "pichu", "cleffa", "igglybuff", "togepi", "togetic", "natu", "xatu", "mareep", "flaaffy", "ampharos", "bellossom", "marill", "azumarill", "sudowoodo", "politoed", "hoppip", "skiploom", "jumpluff", "aipom", "sunkern", "sunflora", "yanma", "wooper", "quagsire", "espeon", "umbreon", "murkrow", "slowking", "misdreavus", "unown", "wobbuffet", "girafarig", "pineco", "forretress", "dunsparce", "gligar", "steelix", "snubbull", "granbull", "qwilfish", "scizor", "shuckle", "heracross", "sneasel", "teddiursa", "ursaring", "slugma", "magcargo", "swinub", "piloswine", "corsola", "remoraid", "octillery", "delibird", "mantine", "skarmory", "houndour", "houndoom", "kingdra", "phanpy", "donphan", "porygon2", "stantler", "smeargle", "tyrogue", "hitmontop", "smoochum", "elekid", "magby", "miltank", "blissey", "raikou", "entei", "suicune", "larvitar", "pupitar", "tyranitar", "lugia", "ho_oh", "celebi", "treecko", "grovyle", "sceptile", "torchic", "combusken", "blaziken", "mudkip", "marshtomp", "swampert", "poochyena", "mightyena", "zigzagoon", "linoone", "wurmple", "silcoon", "beautifly", "cascoon", "dustox", "lotad", "lombre", "ludicolo", "seedot", "nuzleaf", "shiftry", "taillow", "swellow", "wingull", "pelipper", "ralts", "kirlia", "gardevoir", "surskit", "masquerain", "shroomish", "breloom", "slakoth", "vigoroth", "slaking", "nincada", "ninjask", "shedinja", "whismur", "loudred", "exploud", "makuhita", "hariyama", "azurill", "nosepass", "skitty", "delcatty", "sableye", "mawile", "aron", "lairon", "aggron", "meditite", "medicham", "electrike", "manectric", "plusle", "minun", "volbeat", "illumise", "roselia", "gulpin", "swalot", "carvanha", "sharpedo", "wailmer", "wailord", "numel", "camerupt", "torkoal", "spoink", "grumpig", "spinda", "trapinch", "vibrava", "flygon", "cacnea", "cacturne", "swablu", "altaria", "zangoose", "seviper", "lunatone", "solrock", "barboach", "whiscash", "corphish", "crawdaunt", "baltoy", "claydol", "lileep", "cradily", "anorith", "armaldo", "feebas", "milotic", "castform", "castform sunny", "castform rainy", "castform snowy", "kecleon", "shuppet", "banette", "duskull", "dusclops", "tropius", "chimecho", "absol", "wynaut", "snorunt", "glalie", "spheal", "sealeo", "walrein", "clamperl", "huntail", "gorebyss", "relicanth", "luvdisc", "bagon", "shelgon", "salamence", "beldum", "metang", "metagross", "regirock", "regice", "registeel", "latias", "latios", "kyogre", "groudon", "rayquaza", "jirachi", "deoxys", "turtwig", "grotle", "torterra", "chimchar", "monferno", "infernape", "piplup", "prinplup", "empoleon", "starly", "staravia", "staraptor", "bidoof", "bibarel", "kricketot", "kricketune", "shinx", "luxio", "luxray", "budew", "roserade", "cranidos", "rampardos", "shieldon", "bastiodon", "burmy", "wormadam", "wormadam sandy", "wormadam trash", "mothim", "combee", "vespiquen", "pachirisu", "buizel", "floatzel", "cherubi", "cherrim", "shellos", "gastrodon", "ambipom", "drifloon", "drifblim", "buneary", "lopunny", "mismagius", "honchkrow", "glameow", "purugly", "chingling", "stunky", "skuntank", "bronzor", "bronzong", "bonsly", "mime jr", "happiny", "chatot", "spiritomb", "gible", "gabite", "garchomp", "munchlax", "riolu", "lucario", "hippopotas", "hippowdon", "skorupi", "drapion", "croagunk", "toxicroak", "carnivine", "finneon", "lumineon", "mantyke", "snover", "abomasnow", "weavile", "magnezone", "lickilicky", "rhyperior", "tangrowth", "electivire", "magmortar", "togekiss", "yanmega", "leafeon", "glaceon", "gliscor", "mamoswine", "porygon_z", "gallade", "probopass", "dusknoir", "froslass", "rotom", "rotom heat", "rotom wash", "rotom mow", "rotom fan", "rotom frost", "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran", "regigigas", "giratina", "giratina origin", "cresselia", "phione", "manaphy", "darkrai", "shaymin", "shaymin sky", "arceus", "victini", "snivy", "servine", "serperior", "tepig", "pignite", "emboar", "oshawott", "dewott", "samurott", "patrat", "watchog", "lillipup", "herdier", "stoutland", "purrloin", "liepard", "pansage", "simisage", "pansear", "simisear", "panpour", "simipour", "munna", "musharna", "pidove", "tranquill", "unfezant", "blitzle", "zebstrika", "roggenrola", "boldore", "gigalith", "woobat", "swoobat", "drilbur", "excadrill", "audino", "timburr", "gurdurr", "conkeldurr", "tympole", "palpitoad", "seismitoad", "throh", "sawk", "sewaddle", "swadloon", "leavanny", "venipede", "whirlipede", "scolipede", "cottonee", "whimsicott", "petilil", "lilligant", "basculin", "basculin blue", "sandile", "krokorok", "krookodile", "darumaka", "darmanitan", "darmanitan zen", "maractus", "dwebble", "crustle", "scraggy", "scrafty", "sigilyph", "yamask", "cofagrigus", "tirtouga", "carracosta", "archen", "archeops", "trubbish", "garbodor", "zorua", "zoroark", "minccino", "cinccino", "gothita", "gothorita", "gothitelle", "solosis", "duosion", "reuniclus", "ducklett", "swanna", "vanillite", "vanillish", "vanilluxe", "deerling", "sawsbuck", "emolga", "karrablast", "escavalier", "foongus", "amoonguss", "frillish", "jellicent", "alomomola", "joltik", "galvantula", "ferroseed", "ferrothorn", "klink", "klang", "klinklang", "tynamo", "eelektrik", "eelektross", "elgyem", "beheeyem", "litwick", "lampent", "chandelure", "axew", "fraxure", "haxorus", "cubchoo", "beartic", "cryogonal", "shelmet", "accelgor", "stunfisk", "mienfoo", "mienshao", "druddigon", "golett", "golurk", "pawniard", "bisharp", "bouffalant", "rufflet", "braviary", "vullaby", "mandibuzz", "heatmor", "durant", "deino", "zweilous", "hydreigon", "larvesta", "volcarona", "cobalion", "terrakion", "virizion", "tornadus", "tornadus therian", "thundurus", "thundurus therian", "reshiram", "zekrom", "landorus", "landorus therian", "kyurem", "white kyurem", "black kyurem", "keldeo", "meloetta", "meloetta pirouette", "genesect", "chespin", "quilladin", "chesnaught", "fennekin", "braixen", "delphox", "froakie", "frogadier", "greninja", "bunnelby", "diggersby", "fletchling", "fletchinder", "talonflame", "scatterbug", "spewpa", "vivillon", "litleo", "pyroar", "flabebe", "floette", "florges", "skiddo", "gogoat", "pancham", "pangoro", "furfrou", "espurr", "meowstic", "honedge", "doublade", "aegislash", "spritzee", "aromatisse", "swirlix", "slurpuff", "inkay", "malamar", "binacle", "barbaracle", "skrelp", "dragalge", "clauncher", "clawitzer", "helioptile", "heliolisk", "tyrunt", "tyrantrum", "amaura", "aurorus", "sylveon", "hawlucha", "dedenne", "carbink", "goomy", "sliggoo", "goodra", "klefki", "phantump", "trevenant", "pumpkaboo", "gourgeist", "bergmite", "avalugg", "noibat", "noivern", "xerneas", "yveltal", "zygarde", "diancie", "hoopa", "hoopa unbound", "volcanion", "mega venusaur", "mega charizard x", "mega charizard y", "mega blastoise", "mega alakazam", "mega gengar", "mega kangaskhan", "mega pinsir", "mega gyarados", "mega aerodactyl", "mega mewtwo x", "mega mewtwo y", "mega ampharos", "mega scizor", "mega heracross", "mega houndoom", "mega tyranitar", "mega blaziken", "mega gardevoir", "mega mawile", "mega aggron", "mega medicham", "mega manectric", "mega banette", "mega absol", "mega garchomp", "mega lucario", "mega abomasnow", "mega beedrill", "mega pidgeot", "mega slowbro", "mega steelix", "mega sceptile", "mega swampert", "mega sableye", "mega sharpedo", "mega camerupt", "mega altaria", "mega glalie", "mega salamence", "mega metagross", "mega latias", "mega latios", "mega rayquaza", "mega lopunny", "mega gallade", "mega audino", "mega diancie", "rowlet", "dartrix", "decidueye", "litten", "torracat", "incineroar", "popplio", "brionne", "primarina", "pikipek", "trumbeak", "toucannon", "yungoos", "gumshoos", "grubbin", "charjabug", "vikavolt", "crabrawler", "crabominable", "oricorio", "cutiefly", "ribombee", "rockruff", "lycanroc", "lycanroc midnight", "wishiwashi", "mareanie", "toxapex", "mudbray", "mudsdale", "dewpider", "araquanid", "fomantis", "lurantis", "morelull", "shiinotic", "salandit", "salazzle", "stufful", "bewear", "bounsweet", "steenee", "tsareena", "comfey", "oranguru", "passimian", "wimpod", "golisopod", "sandygast", "palossand", "pyukumuku", "type null", "silvally", "minior", "komala", "turtonator", "togedemaru", "mimikyu", "bruxish", "drampa", "dhelmise", "jangmo_o", "hakamo_o", "kommo_o", "tapu koko", "tapu lele", "tapu bulu", "tapu fini", "cosmog", "cosmoem", "solgaleo", "lunala", "nihilego", "buzzwole", "pheromosa", "xurkitree", "celesteela", "kartana", "guzzlord", "necrozma", "magearna", "marshadow"];
 var moves = ["pound", "karate chop", "double slap", "comet punch", "mega punch", "pay day", "fire punch", "ice punch", "thunder punch", "scratch", "vice grip", "guillotine", "razor wind", "swords dance", "cut", "gust", "wing attack", "whirlwind", "fly", "bind", "slam", "vine whip", "stomp", "double kick", "mega kick", "jump kick", "rolling kick", "sand attack", "headbutt", "horn attack", "fury attack", "horn drill", "tackle", "body slam", "wrap", "take down", "thrash", "double_edge", "tail whip", "poison sting", "twineedle", "pin missile", "leer", "bite", "growl", "roar", "sing", "supersonic", "sonic boom", "disable", "acid", "ember", "flamethrower", "mist", "water gun", "hydro pump", "surf", "ice beam", "blizzard", "psybeam", "bubble beam", "aurora beam", "hyper beam", "peck", "drill peck", "submission", "low kick", "counter", "seismic toss", "strength", "absorb", "mega drain", "leech seed", "growth", "razor leaf", "solar beam", "poison powder", "stun spore", "sleep powder", "petal dance", "string shot", "dragon rage", "fire spin", "thunder shock", "thunderbolt", "thunder wave", "thunder", "rock throw", "earthquake", "fissure", "dig", "toxic", "confusion", "psychic", "hypnosis", "meditate", "agility", "quick attack", "rage", "teleport", "night shade", "mimic", "screech", "double team", "recover", "harden", "minimize", "smokescreen", "confuse ray", "withdraw", "defense curl", "barrier", "light screen", "haze", "reflect", "focus energy", "bide", "metronome", "mirror move", "self_destruct", "egg bomb", "lick", "smog", "sludge", "bone club", "fire blast", "waterfall", "clamp", "swift", "skull bash", "spike cannon", "constrict", "amnesia", "kinesis", "soft_boiled", "high jump kick", "glare", "dream eater", "poison gas", "barrage", "leech life", "lovely kiss", "sky attack", "transform", "bubble", "dizzy punch", "spore", "flash", "psywave", "splash", "acid armor", "crabhammer", "explosion", "fury swipes", "bonemerang", "rest", "rock slide", "hyper fang", "sharpen", "conversion", "tri attack", "super fang", "slash", "substitute", "struggle", "sketch", "triple kick", "thief", "spider web", "mind reader", "nightmare", "flame wheel", "snore", "curse", "flail", "conversion 2", "aeroblast", "cotton spore", "reversal", "spite", "powder snow", "protect", "mach punch", "scary face", "feint attack", "sweet kiss", "belly drum", "sludge bomb", "mud_slap", "octazooka", "spikes", "zap cannon", "foresight", "destiny bond", "perish song", "icy wind", "detect", "bone rush", "lock_on", "outrage", "sandstorm", "giga drain", "endure", "charm", "rollout", "false swipe", "swagger", "milk drink", "spark", "fury cutter", "steel wing", "mean look", "attract", "sleep talk", "heal bell", "_return", "present", "frustration", "safeguard", "pain split", "sacred fire", "magnitude", "dynamic punch", "megahorn", "dragon breath", "baton pass", "encore", "pursuit", "rapid spin", "sweet scent", "iron tail", "metal claw", "vital throw", "morning sun", "synthesis", "moonlight", "hidden power", "cross chop", "twister", "rain dance", "sunny day", "crunch", "mirror coat", "psych up", "extreme speed", "ancient power", "shadow ball", "future sight", "rock smash", "whirlpool", "beat up", "fake out", "uproar", "stockpile", "spit up", "swallow", "heat wave", "hail", "torment", "flatter", "will_o_wisp", "memento", "facade", "focus punch", "smelling salts", "follow me", "nature power", "charge", "taunt", "helping hand", "trick", "role play", "wish", "assist", "ingrain", "superpower", "magic coat", "recycle", "revenge", "brick break", "yawn", "knock off", "endeavor", "eruption", "skill swap", "imprison", "refresh", "grudge", "snatch", "secret power", "dive", "arm thrust", "camouflage", "tail glow", "luster purge", "mist ball", "feather dance", "teeter dance", "blaze kick", "mud sport", "ice ball", "needle arm", "slack off", "hyper voice", "poison fang", "crush claw", "blast burn", "hydro cannon", "meteor mash", "astonish", "weather ball", "aromatherapy", "fake tears", "air cutter", "overheat", "odor sleuth", "rock tomb", "silver wind", "metal sound", "grass whistle", "tickle", "cosmic power", "water spout", "signal beam", "shadow punch", "extrasensory", "sky uppercut", "sand tomb", "sheer cold", "muddy water", "bullet seed", "aerial ace", "icicle spear", "iron defense", "block", "howl", "dragon claw", "frenzy plant", "bulk up", "bounce", "mud shot", "poison tail", "covet", "volt tackle", "magical leaf", "water sport", "calm mind", "leaf blade", "dragon dance", "rock blast", "shock wave", "water pulse", "doom desire", "psycho boost", "roost", "gravity", "miracle eye", "wake_up slap", "hammer arm", "gyro ball", "healing wish", "brine", "natural gift", "feint", "pluck", "tailwind", "acupressure", "metal burst", "u_turn", "close combat", "payback", "assurance", "embargo", "fling", "psycho shift", "trump card", "heal block", "wring out", "power trick", "gastro acid", "lucky chant", "me first", "copycat", "power swap", "guard swap", "punishment", "last resort", "worry seed", "sucker punch", "toxic spikes", "heart swap", "aqua ring", "magnet rise", "flare blitz", "force palm", "aura sphere", "rock polish", "poison jab", "dark pulse", "night slash", "aqua tail", "seed bomb", "air slash", "x_scissor", "bug buzz", "dragon pulse", "dragon rush", "power gem", "drain punch", "vacuum wave", "focus blast", "energy ball", "brave bird", "earth power", "switcheroo", "giga impact", "nasty plot", "bullet punch", "avalanche", "ice shard", "shadow claw", "thunder fang", "ice fang", "fire fang", "shadow sneak", "mud bomb", "psycho cut", "zen headbutt", "mirror shot", "flash cannon", "rock climb", "defog", "trick room", "draco meteor", "discharge", "lava plume", "leaf storm", "power whip", "rock wrecker", "cross poison", "gunk shot", "iron head", "magnet bomb", "stone edge", "captivate", "stealth rock", "grass knot", "chatter", "judgment", "bug bite", "charge beam", "wood hammer", "aqua jet", "attack order", "defend order", "heal order", "head smash", "double hit", "roar of time", "spacial rend", "lunar dance", "crush grip", "magma storm", "dark void", "seed flare", "ominous wind", "shadow force", "hone claws", "wide guard", "guard split", "power split", "wonder room", "psyshock", "venoshock", "autotomize", "rage powder", "telekinesis", "magic room", "smack down", "storm throw", "flame burst", "sludge wave", "quiver dance", "heavy slam", "synchronoise", "electro ball", "soak", "flame charge", "coil", "low sweep", "acid spray", "foul play", "simple beam", "entrainment", "after you", "round", "echoed voice", "chip away", "clear smog", "stored power", "quick guard", "ally switch", "scald", "shell smash", "heal pulse", "hex", "sky drop", "shift gear", "circle throw", "incinerate", "quash", "acrobatics", "reflect type", "retaliate", "final gambit", "bestow", "inferno", "water pledge", "fire pledge", "grass pledge", "volt switch", "struggle bug", "bulldoze", "frost breath", "dragon tail", "work up", "electroweb", "wild charge", "drill run", "dual chop", "heart stamp", "horn leech", "sacred sword", "razor shell", "heat crash", "leaf tornado", "steamroller", "cotton guard", "night daze", "psystrike", "tail slap", "hurricane", "head charge", "gear grind", "searing shot", "techno blast", "relic song", "secret sword", "glaciate", "bolt strike", "blue flare", "fiery dance", "freeze shock", "ice burn", "snarl", "icicle crash", "v_create", "fusion flare", "fusion bolt", "flying press", "mat block", "belch", "rototiller", "sticky web", "fell stinger", "phantom force", "trick_or_treat", "noble roar", "ion deluge", "parabolic charge", "forests curse", "petal blizzard", "freeze_dry", "disarming voice", "parting shot", "topsy_turvy", "draining kiss", "crafty shield", "flower shield", "grassy terrain", "misty terrain", "electrify", "play rough", "fairy wind", "moonblast", "boomburst", "fairy lock", "kings shield", "play nice", "confide", "diamond storm", "steam eruption", "hyperspace hole", "water shuriken", "mystical fire", "spiky shield", "aromatic mist", "eerie impulse", "venom drench", "powder", "geomancy", "magnetic flux", "happy hour", "electric terrain", "dazzling gleam", "celebrate", "hold hands", "baby_doll eyes", "nuzzle", "hold back", "infestation", "power_up punch", "oblivion wing", "thousand arrows", "thousand waves", "lands wrath", "light of ruin", "origin pulse", "precipice blades", "dragon ascent", "hyperspace fury", "ten million volt thunderbolt", "accelerock", "acid downpour", "all_out pummeling", "anchor shot", "aurora veil", "baneful bunker", "beak blast", "black hole eclipse", "bloom doom", "breakneck blitz", "brutal swing", "burn up", "catastropika", "clanging scales", "continental crush", "core enforcer", "corkscrew crash", "darkest lariat", "devastating drake", "dragon hammer", "extreme evoboost", "fire lash", "first impression", "fleur cannon", "floral healing", "gear up", "genesis supernova", "gigavolt havoc", "guardian of alola", "high horsepower", "hydro vortex", "ice hammer", "inferno overdrive", "instruct", "laser focus", "leafage", "liquidation", "lunge", "malicious moonsault", "moongeist beam", "multi_attack", "natures madness", "never_ending nightmare", "oceanic operetta", "pollen puff", "power trip", "prismatic laser", "psychic fangs", "psychic terrain", "pulverizing pancake", "purify", "revelation dance", "savage spin_out", "shadow bone", "shattered psyche", "shell trap", "shore up", "sinister arrow raid", "smart strike", "solar blade", "soul_stealing 7_star strike", "sparkling aria", "spectral thief", "speed swap", "spirit shackle", "spotlight", "stoked sparksurfer", "stomping tantrum", "strength sap", "subzero slammer", "sunsteel strike", "supersonic skystrike", "tearful look", "tectonic rage", "throat chop", "toxic thread", "trop kick", "twinkle tackle", "zing zap"];
 var items = ["ability capsule", "ability urge", "abomasite", "absolite", "absorb bulb", "adamant orb", "adventure rules", "aerodactylite", "aggronite", "aguav berry", "air balloon", "alakazite", "altarianite", "ampharosite", "amulet coin", "antidote", "apicot berry", "armor fossil", "aspear berry", "audinite", "awakening", "babiri berry", "balmmushroom", "banettite", "beedrillite", "belue berry", "berry juice", "big mushroom", "big nugget", "big pearl", "big root", "binding band", "black belt", "black flute", "black sludge", "blackglasses", "blastoisinite", "blazikenite", "blk apricorn", "blu apricorn", "blue flute", "blue scarf", "blue shard", "bluk berry", "brightpowder", "bug gem", "burn drive", "burn heal", "calcium", "cameruptite", "carbos", "casteliacone", "cell battery", "charcoal", "charizardite x", "charizardite y", "charti berry", "cheri berry", "cherish ball", "chesto berry", "chilan berry", "chill drive", "choice band", "choice scarf", "choice specs", "chople berry", "claw fossil", "cleanse tag", "clever wing", "coba berry", "colbur berry", "colress machine", "comet shard", "cornn berry", "cover fossil", "custap berry", "damp mulch", "damp rock", "dark gem", "dawn stone", "deepseascale", "deepseatooth", "destiny knot", "diancite", "dire hit", "dire hit 2", "dire hit 3", "dive ball", "dna splicers", "dome fossil", "douse drive", "draco plate", "dragon fang", "dragon gem", "dragon scale", "dread plate", "dream ball", "dropped item", "dubious disc", "durin berry", "dusk ball", "dusk stone", "earth plate", "eject button", "electirizer", "electric gem", "elevator key", "elixir", "energy root", "energypowder", "enigma berry", "escape rope", "ether", "everstone", "eviolite", "exp share", "expert belt", "fairy gem", "fast ball", "fighting gem", "figy berry", "fire gem", "fire stone", "fist plate", "flame orb", "flame plate", "float stone", "fluffy tail", "flying gem", "focus band", "focus sash", "fresh water", "friend ball", "full heal", "full incense", "full restore", "galladite", "ganlon berry", "garchompite", "gardevoirite", "gengarite", "genius wing", "ghost gem", "glalitite", "gooey mulch", "grass gem", "great ball", "green scarf", "green shard", "grepa berry", "grip claw", "griseous orb", "grn apricorn", "ground gem", "growth mulch", "grubby hanky", "guard spec", "gyaradosite", "haban berry", "hard stone", "heal ball", "heal powder", "health wing", "heart scale", "heat rock", "heavy ball", "helix fossil", "heracronite", "hm01", "hm02", "hm03", "hm04", "hm05", "hm06", "hm07", "hm08", "holo caster", "hondew berry", "honey", "honor of kalos", "houndoominite", "hp up", "hyper potion", "iapapa berry", "ice gem", "ice heal", "icicle plate", "icy rock", "insect plate", "intriguing stone", "iron", "iron ball", "iron plate", "item drop", "item urge", "jaboca berry", "kangaskhanite", "kasib berry", "kebia berry", "kelpsy berry", "kings rock", "lagging tail", "lansat berry", "latiasite", "latiosite", "lava cookie", "lax incense", "leaf stone", "leftovers", "lemonade", "lens case", "leppa berry", "level ball", "liechi berry", "life orb", "light ball", "light clay", "looker ticket", "lopunnite", "love ball", "lucarionite", "luck incense", "lucky egg", "lucky punch", "lum berry", "lure ball", "lustrous orb", "luxury ball", "macho brace", "magmarizer", "magnet", "mago berry", "magost berry", "manectite", "master ball", "mawilite", "max elixir", "max ether", "max potion", "max repel", "max revive", "meadow plate", "medal box", "medichamite", "mental herb", "metagrossite", "metal coat", "metal powder", "metronome", "mewtwonite x", "mewtwonite y", "micle berry", "mind plate", "miracle seed", "moomoo milk", "moon ball", "moon stone", "muscle band", "muscle wing", "mystic water", "nanab berry", "nest ball", "net ball", "nevermeltice", "nomel berry", "normal gem", "nugget", "occa berry", "odd incense", "odd keystone", "old amber", "old gateau", "oran berry", "oval charm", "oval stone", "pamtre berry", "park ball", "parlyz heal", "pass orb", "passho berry", "payapa berry", "pearl", "pearl string", "pecha berry", "permit", "persim berry", "petaya berry", "pidgeotite", "pinap berry", "pink scarf", "pinsirite", "pixie plate", "plasma card", "plume fossil", "pnk apricorn", "poison barb", "poison gem", "poké ball", "poké doll", "poké toy", "pomeg berry", "potion", "power anklet", "power band", "power belt", "power bracer", "power herb", "power lens", "power plant pass", "power weight", "pp max", "pp up", "premier ball", "pretty wing", "prism scale", "profs letter", "protector", "protein", "psychic gem", "pure incense", "qualot berry", "quick ball", "quick claw", "quick powder", "rabuta berry", "rare bone", "rare candy", "rawst berry", "razor claw", "razor fang", "razz berry", "reaper cloth", "red apricorn", "red card", "red flute", "red scarf", "red shard", "relic band", "relic copper", "relic crown", "relic gold", "relic silver", "relic statue", "relic vase", "repeat ball", "repel", "reset urge", "resist wing", "reveal glass", "revival herb", "revive", "rindo berry", "ring target", "rock gem", "rock incense", "rocky helmet", "roller skates", "root fossil", "rose incense", "rowap berry", "sablenite", "sacred ash", "safari ball", "salac berry", "salamencite", "sceptilite", "scizorite", "scope lens", "sea incense", "sharp beak", "sharpedonite", "shed shell", "shell bell", "shiny charm", "shiny stone", "shoal salt", "shoal shell", "shock drive", "shuca berry", "silk scarf", "silverpowder", "sitrus berry", "skull fossil", "sky plate", "slowbronite", "smoke ball", "smooth rock", "soda pop", "soft sand", "soothe bell", "soul dew", "spell tag", "spelon berry", "splash plate", "spooky plate", "sport ball", "sprinklotad", "stable mulch", "star piece", "stardust", "starf berry", "steel gem", "steelixite", "stick", "sticky barb", "stone plate", "sun stone", "super potion", "super repel", "swampertite", "sweet heart", "swift wing", "tamato berry", "tanga berry", "thick club", "thunderstone", "timer ball", "tinymushroom", "tm01", "tm02", "tm03", "tm04", "tm05", "tm06", "tm07", "tm08", "tm09", "tm10", "tm100", "tm11", "tm12", "tm13", "tm14", "tm15", "tm16", "tm17", "tm18", "tm19", "tm20", "tm21", "tm22", "tm23", "tm24", "tm25", "tm26", "tm27", "tm28", "tm29", "tm30", "tm31", "tm32", "tm33", "tm34", "tm35", "tm36", "tm37", "tm38", "tm39", "tm40", "tm41", "tm42", "tm43", "tm44", "tm45", "tm46", "tm47", "tm48", "tm49", "tm50", "tm51", "tm52", "tm53", "tm54", "tm55", "tm56", "tm57", "tm58", "tm59", "tm60", "tm61", "tm62", "tm63", "tm64", "tm65", "tm66", "tm67", "tm68", "tm69", "tm70", "tm71", "tm72", "tm73", "tm74", "tm75", "tm76", "tm77", "tm78", "tm79", "tm80", "tm81", "tm82", "tm83", "tm84", "tm85", "tm86", "tm87", "tm88", "tm89", "tm90", "tm91", "tm92", "tm93", "tm94", "tm95", "tm96", "tm97", "tm98", "tm99", "tmv pass", "toxic orb", "toxic plate", "twistedspoon", "tyranitarite", "ultra ball", "up_grade", "venusaurite", "wacan berry", "water gem", "water stone", "watmel berry", "wave incense", "wepear berry", "white flute", "white herb", "wht apricorn", "wide lens", "wiki berry", "wise glasses", "x accuracy", "x accuracy 2", "x accuracy 3", "x accuracy 6", "x attack", "x attack 2", "x attack 3", "x attack 6", "x defend", "x defend 2", "x defend 3", "x defend 6", "x sp def", "x sp def 2", "x sp def 3", "x sp def 6", "x special", "x special 2", "x special 3", "x special 6", "x speed", "x speed 2", "x speed 3", "x speed 6", "yache berry", "yellow flute", "yellow scarf", "yellow shard", "ylw apricorn", "zap plate", "zinc", "zoom lens", "normalium z", "firium z", "waterium z", "electrium z", "grassium z", "icium z", "fightinium z", "poisonium z", "groundium z", "flyinium z", "psychium z", "buginium z", "rockium z", "ghostium z", "dragonium z", "darkinium z", "steelium z", "fairium z", "pikanium z", "bottle cap", "gold bottle cap", "z_ring", "decidium z", "incinium z", "primarium z", "tapunium z", "marshadium z", "aloraichium z", "snorlium z", "eevium z", "mewnium z", "normalium z", "firium z", "waterium z", "electrium z", "grassium z", "icium z", "fightinium z", "poisonium z", "groundium z", "flyinium z", "psychium z", "buginium z", "rockium z", "ghostium z", "dragonium z", "darkinium z", "steelium z", "fairium z", "pikanium z", "decidium z", "incinium z", "primarium z", "tapunium z", "marshadium z", "aloraichium z", "snorlium z", "eevium z", "mewnium z", "pikashunium z", "forage bag", "fishing rod", "professors mask", "festival ticket", "sparkling stone", "adrenaline orb", "zygarde cube", "ice stone", "ride pager", "beast ball", "big malasada", "red nectar", "yellow nectar", "pink nectar", "purple nectar", "sun flute", "moon flute", "enigmatic card", "terrain extender", "protective pads", "electric seed", "psychic seed", "misty seed", "grassy seed", "fighting memory", "flying memory", "poison memory", "ground memory", "rock memory", "bug memory", "ghost memory", "steel memory", "fire memory", "water memory", "grass memory", "electric memory", "psychic memory", "ice memory", "dragon memory", "dark memory", "fairy memory"];
 var abilities = ["adaptability", "aerilate", "aftermath", "air lock", "analytic", "anger point", "anticipation", "arena trap", "aroma veil", "aura break", "bad dreams", "battery", "battle armor", "battle bond", "berserk", "big pecks", "blaze", "bulletproof", "cacophony", "cheek pouch", "chlorophyll", "clear body", "cloud nine", "color change", "comatose", "competitive", "compound eyes", "contrary", "corrosion", "cursed body", "cute charm", "damp", "dancer", "dark aura", "dazzling", "defeatist", "defiant", "delta stream", "desolate land", "disguise", "download", "drizzle", "drought", "dry skin", "early bird", "effect spore", "electric surge", "fairy aura", "filter", "flame body", "flare boost", "flash fire", "flower gift", "flower veil", "fluffy", "forecast", "forewarn", "friend guard", "frisk", "full metal body", "fur coat", "gale wings", "gluttony", "gooey", "grass pelt", "guts", "harvest", "healer", "heatproof", "heavy metal", "honey gather", "huge power", "hustle", "hydration", "hyper cutter", "ice body", "illuminate", "illusion", "immunity", "imposter", "innards out", "infiltrator", "inner focus", "insomnia", "intimidate", "iron barbs", "iron fist", "justified", "keen eye", "klutz", "leaf guard", "levitate", "light metal", "lightning rod", "limber", "liquid ooze", "magic bounce", "magic guard", "magician", "magma armor", "magnet pull", "marvel scale", "mega launcher", "minus", "mold breaker", "moody", "motor drive", "moxie", "multiscale", "multitype", "mummy", "natural cure", "no guard", "normalize", "oblivious", "overcoat", "overgrow", "own tempo", "parental bond", "pickpocket", "pickup", "pixilate", "plus", "poison heal", "poison point", "poison touch", "power construct", "prankster", "pressure", "primordial sea", "protean", "pure power", "queenly majesty", "quick feet", "rain dish", "rattled", "receiver", "reckless", "refrigerate", "regenerator", "rivalry", "rks system", "rock head", "rough skin", "run away", "sand force", "sand rush", "sand stream", "sand veil", "sap sipper", "schooling", "scrappy", "serene grace", "shadow shield", "shadow tag", "shed skin", "sheer force", "shell armor", "shield dust", "shields down", "simple", "skill link", "slow start", "sniper", "snow cloak", "snow warning", "solar power", "solid rock", "soul_heart", "soundproof", "speed boost", "stakeout", "stall", "stamina", "stance change", "static", "steadfast", "stench", "sticky hold", "storm drain", "strong jaw", "sturdy", "suction cups", "super luck", "surge surfer", "swarm", "sweet veil", "swift swim", "symbiosis", "synchronize", "tangled feet", "technician", "telepathy", "teravolt", "thick fat", "tinted lens", "torrent", "tough claws", "toxic boost", "trace", "triage", "truant", "turboblaze", "unaware", "unburden", "unnerve", "victory star", "vital spirit", "volt absorb", "water absorb", "water compaction", "water veil", "weak armor", "white smoke", "wimp out", "wonder guard", "wonder skin", "zen mode", "emergency exit", "merciless", "water bubble", "steelworker", "slush rush", "long reach", "liquid voice", "galvanize", "tangling hair", "power of alchemy", "beast boost", "psychic surge", "misty surge", "grassy surge", "full metal body", "prism armor"];
 
+//confirms login
 bot.on('ready', function(event) {
     console.log('Logged in as %s - %s\n', bot.username, bot.id);
 });
 
+//reads incoming messages to look for commands
 bot.on('message', function(user, userID, channelID, message, event) {
     if (message.toLowerCase().substring(0, 5) === "!help") {
         help(user, userID, channelID, message, event);
@@ -46,10 +50,11 @@ bot.on('message', function(user, userID, channelID, message, event) {
     }
 });
 
+//outputs help text
 function help(user, userID, channelID, message, event) {
     bot.sendMessage({
         to: channelID,
-        message: "Hi, I'm PokéBot! My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
+        message: "Hello, I am Colress. My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
         "\n!help: Displays this help message." + 
         "\n!pokemon: Serves information about individual Pokémon." + 
         "\n!move: Serves information about Pokémon moves." + 
@@ -62,29 +67,37 @@ function help(user, userID, channelID, message, event) {
         "\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
         "\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." + 
         "\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" + 
-        "\n~~Please use your Master Ball on Fearow or Tentacruel.~~" + 
         "\nI was created by AlphaKretin, using discord.io in node.js."
     });
 }
 
+//returns pokemon info
 function pokemon(user, userID, channelID, message, event) {
-    var mon = message.substring(9);
-    mon = mon.toLowerCase();
-    if (mon === "help") {
+    var mon = message.substring(9); //gets part of message after the "!pokemon" that sent it here
+    var out = "";
+    mon = mon.toLowerCase(); //formatted to match array
+    if (mon === "help") { //returns help text
         bot.sendMessage({
             to: channelID,
             message: "This command serves information about Pokémon! Use the Pokémon's name as the argument. If it doesn't work, try ignoring or substituting special characters - for example, 'nidoranm', 'farfetchd', 'mr mime', 'ho_oh', 'flabebe'. For alternate formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'mega charizard y'."
         });
-    } else if (mon === "list") {
+    } else if (mon === "list") { //lists all pokemon until character limit
         list(user, userID, channelID, message, event, mons);
-    } else if (mon === "rap") {
+    } else if (mon === "rap") { //returns pokerap text
         rap(user, userID, channelID, message, event);
     } else {
-        if (mons.indexOf(mon) !== -1) {
-            mon = mon.replace(/ /g, "_");
+        if (mons.indexOf(mon) !== -1) { //if text is a pokemon in the array
+            mon = mon.replace(/ /g, "_"); //remove spaces
+            //eval reads string as JS, in this case all set up to be named object vars for each pokemon
+            //HACK: eval, one day instead implement as array of objects with IDs
+            if (eval(mon).alola === -1){
+            	out = "Image: " + eval(mon).image + "\nName: " + eval(mon).name + "\nPokédex No.: " + eval(mon).dex + "\nType: " + eval(mon).type + "\nAbility: " + eval(mon).ability + "\nWiki Link: " + eval(mon).wiki;
+            } else {
+            	out = "Image: " + eval(mon).image + "\nName: " + eval(mon).name + "\nPokédex No.: " + eval(mon).dex + "\nAlola Dex No.: " + eval(mon).alola + "\nType: " + eval(mon).type + "\nAbility: " + eval(mon).ability + "\nWiki Link: " + eval(mon).wiki;
+            }
             bot.sendMessage({
                 to: channelID,
-                message: "Image: " + eval(mon).image + "\nName: " + eval(mon).name + "\nPokédex No.: " + eval(mon).dex + "\nAlola Dex No.: " + eval(mon).alola + "\nType: " + eval(mon).type + "\nAbility: " + eval(mon).ability + "\nWiki Link: " + eval(mon).wiki
+                message: out
             });
         } else {
             bot.sendMessage({
@@ -95,6 +108,7 @@ function pokemon(user, userID, channelID, message, event) {
     }
 }
 
+//returns move info, see pokemon function
 function move(user, userID, channelID, message, event) {
     var mov = message.substring(6);
     mov = mov.toLowerCase();
@@ -107,10 +121,16 @@ function move(user, userID, channelID, message, event) {
         list(user, userID, channelID, message, event, moves);
     } else {
         if (moves.indexOf(mov) !== -1) {
+        	var out = "";
             mov = mov.replace(/ /g, "_");
+            if (eval(mov).zeffect === undefined){
+            	out = "Name: " + eval(mov).name + "\nType: " + eval(mov).type + "\nCategory: " + eval(mov).cat + "\nPower: " + eval(mov).power + "\nPP: " + eval(mov).pp + "\nAccuracy: " + eval(mov).acc + "\nEffect: " + eval(mov).effect + "\nWiki Link: " + eval(mov).wiki;
+            } else {
+            	out =  "Name: " + eval(mov).name + "\nType: " + eval(mov).type + "\nCategory: " + eval(mov).cat + "\nPower: " + eval(mov).power + "\nPP: " + eval(mov).pp + "\nAccuracy: " + eval(mov).acc + "\nEffect: " + eval(mov).effect + "\nZ-Move Effect: " + eval(mov).zeffect + "\nWiki Link: " + eval(mov).wiki;
+            }
             bot.sendMessage({
                 to: channelID,
-                message: "Name: " + eval(mov).name + "\nType: " + eval(mov).type + "\nCategory: " + eval(mov).cat + "\nPower: " + eval(mov).power + "\nPP: " + eval(mov).pp + "\nAccuracy: " + eval(mov).acc + "\nEffect: " + eval(mov).effect + "\nWiki Link: " + eval(mov).wiki
+                message: out
             });
         } else {
             bot.sendMessage({
@@ -121,6 +141,7 @@ function move(user, userID, channelID, message, event) {
     }
 }
 
+//returns item info, see pokemon function
 function item(user, userID, channelID, message, event) {
     var it = message.substring(6);
     it = it.toLowerCase();
@@ -147,6 +168,7 @@ function item(user, userID, channelID, message, event) {
     }
 }
 
+//returns ability info, see pokemon function
 function ability(user, userID, channelID, message, event) {
     var ab = message.substring(9);
     ab = ab.toLowerCase();
@@ -173,14 +195,15 @@ function ability(user, userID, channelID, message, event) {
     }
 }
 
+//returns info about type relations
 function weak(user, userID, channelID, message, event) {
     var types = ["normal", "fire", "fighting", "water", "flying", "grass", "poison", "electric", "ground", "psychic", "rock", "ice", "bug", "dragon", "ghost", "dark", "steel", "fairy"];
-    var monsTemp = new Array(mons.length);
+    var monsTemp = new Array(mons.length); //need array with spaces removed for matching. curse you Mr. Mime!
     for (var i = 0; i < mons.length; i++) {
         monsTemp[i] = mons[i].replace(/ /g, "_");
     }
     var mon = message.substring(6);
-    var normal = 0;
+    var normal = 0; //each type as int, type relations as different sides of 0
     var fire = 0;
     var fighting = 0;
     var water = 0;
@@ -198,15 +221,14 @@ function weak(user, userID, channelID, message, event) {
     var dark = 0;
     var steel = 0;
     var fairy = 0;
-    var weaks = "";
+    var weaks = ""; //strings for output later
     var res = "";
     var imms = "";
-    var cont = 0;
+    var cont = 0; //determines whether to continue, can't be an if because i need for, and also two different kinds of throughput
     var type = "";
     var out = "";
     mon = mon.toLowerCase();
     mon = mon.replace(/ /g, "_");
-    console.log(mon);
     if (mon === "help") {
         bot.sendMessage({
             to: channelID,
@@ -9788,6 +9810,7 @@ var swords_dance = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Attack.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/swordsdance.shtml"
 };
 
@@ -9832,6 +9855,7 @@ var whirlwind = {
     pp: 20,
     acc: -1,
     effect: "In battles, the opponent switches. In the wild, the Pokémon runs.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/whirlwind.shtml"
 };
 
@@ -9942,6 +9966,7 @@ var sand_attack = {
     pp: 15,
     acc: 100,
     effect: "Lowers opponent's Accuracy.",
+    zeffect: "Evasiveness ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sandattack.shtml"
 };
 
@@ -10063,6 +10088,7 @@ var tail_whip = {
     pp: 30,
     acc: 100,
     effect: "Lowers opponent's Defense.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/tailwhip.shtml"
 };
 
@@ -10107,6 +10133,7 @@ var leer = {
     pp: 30,
     acc: 100,
     effect: "Lowers opponent's Defense.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/leer.shtml"
 };
 
@@ -10129,6 +10156,7 @@ var growl = {
     pp: 40,
     acc: 100,
     effect: "Lowers opponent's Attack.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/growl.shtml"
 };
 
@@ -10140,6 +10168,7 @@ var roar = {
     pp: 20,
     acc: -1,
     effect: "In battles, the opponent switches. In the wild, the Pokémon runs.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/roar.shtml"
 };
 
@@ -10151,6 +10180,7 @@ var sing = {
     pp: 15,
     acc: 55,
     effect: "Puts opponent to sleep.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sing.shtml"
 };
 
@@ -10162,6 +10192,7 @@ var supersonic = {
     pp: 20,
     acc: 55,
     effect: "Confuses opponent.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/supersonic.shtml"
 };
 
@@ -10184,6 +10215,7 @@ var disable = {
     pp: 20,
     acc: 100,
     effect: "Opponent can't use its last attack for a few turns.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/disable.shtml"
 };
 
@@ -10228,6 +10260,7 @@ var mist = {
     pp: 30,
     acc: -1,
     effect: "User's stats cannot be changed for a period of time.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/mist.shtml"
 };
 
@@ -10437,6 +10470,7 @@ var leech_seed = {
     pp: 10,
     acc: 90,
     effect: "User steals HP from opponent each turn.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/leechseed.shtml"
 };
 
@@ -10448,6 +10482,7 @@ var growth = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Attack and Special Attack.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/growth.shtml"
 };
 
@@ -10481,6 +10516,7 @@ var poison_powder = {
     pp: 35,
     acc: 75,
     effect: "Poisons opponent.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/poisonpowder.shtml"
 };
 
@@ -10492,6 +10528,7 @@ var stun_spore = {
     pp: 30,
     acc: 75,
     effect: "Paralyzes opponent.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/stunspore.shtml"
 };
 
@@ -10503,6 +10540,7 @@ var sleep_powder = {
     pp: 15,
     acc: 75,
     effect: "Puts opponent to sleep.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sleeppowder.shtml"
 };
 
@@ -10525,6 +10563,7 @@ var string_shot = {
     pp: 40,
     acc: 95,
     effect: "Sharply lowers opponent's Speed.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/stringshot.shtml"
 };
 
@@ -10580,6 +10619,7 @@ var thunder_wave = {
     pp: 20,
     acc: 100,
     effect: "Paralyzes opponent.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/thunderwave.shtml"
 };
 
@@ -10646,6 +10686,7 @@ var toxic = {
     pp: 10,
     acc: 90,
     effect: "Badly poisons opponent.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/toxic.shtml"
 };
 
@@ -10679,6 +10720,7 @@ var hypnosis = {
     pp: 20,
     acc: 60,
     effect: "Puts opponent to sleep.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/hypnosis.shtml"
 };
 
@@ -10690,6 +10732,7 @@ var meditate = {
     pp: 40,
     acc: -1,
     effect: "Raises user's Attack.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/meditate.shtml"
 };
 
@@ -10701,6 +10744,7 @@ var agility = {
     pp: 30,
     acc: -1,
     effect: "Sharply raises user's Speed.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/agility.shtml"
 };
 
@@ -10734,6 +10778,7 @@ var teleport = {
     pp: 20,
     acc: -1,
     effect: "Allows user to flee wild battles; also warps player to last PokéCenter.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/teleport.shtml"
 };
 
@@ -10756,6 +10801,7 @@ var mimic = {
     pp: 10,
     acc: 100,
     effect: "Copies the opponent's last move.",
+    zeffect: "Accuracy ↑",
     wiki: "http://www.serebii.net/attackdex-sm/mimic.shtml"
 };
 
@@ -10767,6 +10813,7 @@ var screech = {
     pp: 40,
     acc: 85,
     effect: "Sharply lowers opponent's Defense.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/screech.shtml"
 };
 
@@ -10778,6 +10825,7 @@ var double_team = {
     pp: 15,
     acc: -1,
     effect: "Raises user's Evasiveness.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/doubleteam.shtml"
 };
 
@@ -10789,6 +10837,7 @@ var recover = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/recover.shtml"
 };
 
@@ -10800,6 +10849,7 @@ var harden = {
     pp: 30,
     acc: -1,
     effect: "Raises user's Defense.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/harden.shtml"
 };
 
@@ -10811,6 +10861,7 @@ var minimize = {
     pp: 10,
     acc: -1,
     effect: "Sharply raises user's Evasiveness.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/minimize.shtml"
 };
 
@@ -10822,6 +10873,7 @@ var smokescreen = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Accuracy.",
+    zeffect: "Evasiveness ↑",
     wiki: "http://www.serebii.net/attackdex-sm/smokescreen.shtml"
 };
 
@@ -10833,6 +10885,7 @@ var confuse_ray = {
     pp: 10,
     acc: 100,
     effect: "Confuses opponent.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/confuseray.shtml"
 };
 
@@ -10844,6 +10897,7 @@ var withdraw = {
     pp: 40,
     acc: -1,
     effect: "Raises user's Defense.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/withdraw.shtml"
 };
 
@@ -10855,6 +10909,7 @@ var defense_curl = {
     pp: 40,
     acc: -1,
     effect: "Raises user's Defense.",
+    zeffect: "Accuracy ↑",
     wiki: "http://www.serebii.net/attackdex-sm/defensecurl.shtml"
 };
 
@@ -10866,6 +10921,7 @@ var barrier = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Defense.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/barrier.shtml"
 };
 
@@ -10877,6 +10933,7 @@ var light_screen = {
     pp: 30,
     acc: -1,
     effect: "Halves damage from Special attacks for 5 turns.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/lightscreen.shtml"
 };
 
@@ -10888,6 +10945,7 @@ var haze = {
     pp: 30,
     acc: -1,
     effect: "Resets all stat changes.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/haze.shtml"
 };
 
@@ -10899,6 +10957,7 @@ var reflect = {
     pp: 20,
     acc: -1,
     effect: "Halves damage from Physical attacks for 5 turns.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/reflect.shtml"
 };
 
@@ -10910,6 +10969,7 @@ var focus_energy = {
     pp: 30,
     acc: -1,
     effect: "Increases critical hit ratio.",
+    zeffect: "Accuracy ↑",
     wiki: "http://www.serebii.net/attackdex-sm/focusenergy.shtml"
 };
 
@@ -10943,6 +11003,7 @@ var mirror_move = {
     pp: 20,
     acc: -1,
     effect: "User performs the opponent's last move.",
+    zeffect: "Attack ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/mirrormove.shtml"
 };
 
@@ -11097,6 +11158,7 @@ var amnesia = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Special Defense.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/amnesia.shtml"
 };
 
@@ -11108,6 +11170,7 @@ var kinesis = {
     pp: 15,
     acc: 80,
     effect: "Lowers opponent's Accuracy.",
+    zeffect: "Evasiveness ↑",
     wiki: "http://www.serebii.net/attackdex-sm/kinesis.shtml"
 };
 
@@ -11119,6 +11182,7 @@ var soft_boiled = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/soft_boiled.shtml"
 };
 
@@ -11141,6 +11205,7 @@ var glare = {
     pp: 30,
     acc: 100,
     effect: "Paralyzes opponent.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/glare.shtml"
 };
 
@@ -11163,6 +11228,7 @@ var poison_gas = {
     pp: 40,
     acc: 90,
     effect: "Poisons opponent.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/poisongas.shtml"
 };
 
@@ -11181,8 +11247,8 @@ var leech_life = {
     name: "Leech Life",
     type: "Bug",
     cat: "Physical",
-    power: 20,
-    pp: 15,
+    power: 80,
+    pp: 10,
     acc: 100,
     effect: "User recovers half the HP inflicted on opponent.",
     wiki: "http://www.serebii.net/attackdex-sm/leechlife.shtml"
@@ -11196,6 +11262,7 @@ var lovely_kiss = {
     pp: 10,
     acc: 75,
     effect: "Puts opponent to sleep.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/lovelykiss.shtml"
 };
 
@@ -11218,6 +11285,7 @@ var transform = {
     pp: 10,
     acc: -1,
     effect: "User takes on the form and attacks of the opponent.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/transform.shtml"
 };
 
@@ -11251,6 +11319,7 @@ var spore = {
     pp: 15,
     acc: 100,
     effect: "Puts opponent to sleep.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/spore.shtml"
 };
 
@@ -11262,6 +11331,7 @@ var flash = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Accuracy.",
+    zeffect: "Evasiveness ↑",
     wiki: "http://www.serebii.net/attackdex-sm/flash.shtml"
 };
 
@@ -11284,6 +11354,7 @@ var splash = {
     pp: 40,
     acc: -1,
     effect: "Doesn't do ANYTHING.",
+    zeffect: "Attack ↑↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/splash.shtml"
 };
 
@@ -11295,6 +11366,7 @@ var acid_armor = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Defense.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/acidarmor.shtml"
 };
 
@@ -11350,6 +11422,7 @@ var rest = {
     pp: 10,
     acc: -1,
     effect: "User sleeps for 2 turns, but user is fully healed.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/rest.shtml"
 };
 
@@ -11383,6 +11456,7 @@ var sharpen = {
     pp: 30,
     acc: -1,
     effect: "Raises user's Attack.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sharpen.shtml"
 };
 
@@ -11394,6 +11468,7 @@ var conversion = {
     pp: 30,
     acc: -1,
     effect: "Changes user's type to that of its first move.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/conversion.shtml"
 };
 
@@ -11438,6 +11513,7 @@ var substitute = {
     pp: 10,
     acc: -1,
     effect: "Uses HP to creates a decoy that takes hits.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/substitute.shtml"
 };
 
@@ -11460,6 +11536,7 @@ var sketch = {
     pp: 1,
     acc: -1,
     effect: "Permanently copies the opponent's last move.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sketch.shtml"
 };
 
@@ -11493,6 +11570,7 @@ var spider_web = {
     pp: 10,
     acc: 100,
     effect: "Opponent cannot escape/switch.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/spiderweb.shtml"
 };
 
@@ -11504,6 +11582,7 @@ var mind_reader = {
     pp: 5,
     acc: 100,
     effect: "User's next attack is guaranteed to hit.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/mindreader.shtml"
 };
 
@@ -11515,6 +11594,7 @@ var nightmare = {
     pp: 15,
     acc: 100,
     effect: "The sleeping opponent loses 25% of its max HP each turn.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/nightmare.shtml"
 };
 
@@ -11548,6 +11628,7 @@ var curse = {
     pp: 10,
     acc: -1,
     effect: "Ghosts lose 50% of max HP and curse the opponent; Non-Ghosts raise Attack, Defense and lower Speed.",
+    zeffect: "Restores user's HP 100% if user is Ghost-type, Attack ↑ otherwise",
     wiki: "http://www.serebii.net/attackdex-sm/curse.shtml"
 };
 
@@ -11570,6 +11651,7 @@ var conversion_2 = {
     pp: 30,
     acc: 100,
     effect: "User changes type to become resistant to opponent's last move.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/conversion2.shtml"
 };
 
@@ -11592,6 +11674,7 @@ var cotton_spore = {
     pp: 40,
     acc: 100,
     effect: "Sharply lowers opponent's Speed.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/cottonspore.shtml"
 };
 
@@ -11614,6 +11697,7 @@ var spite = {
     pp: 10,
     acc: 100,
     effect: "The opponent's last move loses 2-5 PP.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/spite.shtml"
 };
 
@@ -11636,6 +11720,7 @@ var protect = {
     pp: 10,
     acc: -1,
     effect: "User is not affected by opponent's move.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/protect.shtml"
 };
 
@@ -11658,6 +11743,7 @@ var scary_face = {
     pp: 10,
     acc: 100,
     effect: "Sharply lowers opponent's Speed.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/scaryface.shtml"
 };
 
@@ -11680,6 +11766,7 @@ var sweet_kiss = {
     pp: 10,
     acc: 75,
     effect: "Confuses opponent.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sweetkiss.shtml"
 };
 
@@ -11691,6 +11778,7 @@ var belly_drum = {
     pp: 10,
     acc: -1,
     effect: "User loses 50% of its max HP, but Attack raises to maximum.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/bellydrum.shtml"
 };
 
@@ -11735,6 +11823,7 @@ var spikes = {
     pp: 20,
     acc: -1,
     effect: "Hurts opponents when they switch into battle.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/spikes.shtml"
 };
 
@@ -11757,6 +11846,7 @@ var foresight = {
     pp: 40,
     acc: 100,
     effect: "Resets opponent's Evasiveness, Normal-type and Fighting-type attacks can now hit Ghosts, and Ghost-type attacks hit Normal.",
+    zeffect: "Boosts critical-hit ratio",
     wiki: "http://www.serebii.net/attackdex-sm/foresight.shtml"
 };
 
@@ -11768,6 +11858,7 @@ var destiny_bond = {
     pp: 5,
     acc: -1,
     effect: "If the user faints, the opponent also faints.",
+    zeffect: "Becomes center of attention",
     wiki: "http://www.serebii.net/attackdex-sm/destinybond.shtml"
 };
 
@@ -11779,6 +11870,7 @@ var perish_song = {
     pp: 5,
     acc: -1,
     effect: "Any Pokémon in play when this attack is used faints in 3 turns.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/perishsong.shtml"
 };
 
@@ -11801,6 +11893,7 @@ var detect = {
     pp: 5,
     acc: -1,
     effect: "Opponent's attack doesn't affect you, but may fail if used often.",
+    zeffect: "Evasiveness ↑",
     wiki: "http://www.serebii.net/attackdex-sm/detect.shtml"
 };
 
@@ -11823,6 +11916,7 @@ var lock_on = {
     pp: 5,
     acc: 100,
     effect: "User's next attack is guaranteed to hit.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/lock_on.shtml"
 };
 
@@ -11845,6 +11939,7 @@ var sandstorm = {
     pp: 10,
     acc: -1,
     effect: "Creates a sandstorm for 5 turns.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sandstorm.shtml"
 };
 
@@ -11867,6 +11962,7 @@ var endure = {
     pp: 10,
     acc: -1,
     effect: "Always left with at least 1 HP, but may fail if used consecutively.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/endure.shtml"
 };
 
@@ -11878,6 +11974,7 @@ var charm = {
     pp: 20,
     acc: 100,
     effect: "Sharply lowers opponent's Attack.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/charm.shtml"
 };
 
@@ -11911,6 +12008,7 @@ var swagger = {
     pp: 15,
     acc: 90,
     effect: "Opponent becomes confused, but its Attack is raised two stages.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/swagger.shtml"
 };
 
@@ -11922,6 +12020,7 @@ var milk_drink = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/milkdrink.shtml"
 };
 
@@ -11966,6 +12065,7 @@ var mean_look = {
     pp: 5,
     acc: 100,
     effect: "Opponent cannot flee or switch.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/meanlook.shtml"
 };
 
@@ -11977,6 +12077,7 @@ var attract = {
     pp: 15,
     acc: 100,
     effect: "If opponent is the opposite gender, it's less likely to attack.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/attract.shtml"
 };
 
@@ -11988,6 +12089,7 @@ var sleep_talk = {
     pp: 10,
     acc: -1,
     effect: "User performs one of its own moves while sleeping.",
+    zeffect: "Boosts critical-hit ratio",
     wiki: "http://www.serebii.net/attackdex-sm/sleeptalk.shtml"
 };
 
@@ -11999,6 +12101,7 @@ var heal_bell = {
     pp: 5,
     acc: -1,
     effect: "Heals the user's party's status conditions.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/healbell.shtml"
 };
 
@@ -12043,6 +12146,7 @@ var safeguard = {
     pp: 25,
     acc: -1,
     effect: "The user's party is protected from status conditions.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/safeguard.shtml"
 };
 
@@ -12054,6 +12158,7 @@ var pain_split = {
     pp: 20,
     acc: 100,
     effect: "The user's and opponent's HP becomes the average of both.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/painsplit.shtml"
 };
 
@@ -12120,6 +12225,7 @@ var baton_pass = {
     pp: 40,
     acc: -1,
     effect: "User switches out and gives stat changes to the incoming Pokémon.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/batonpass.shtml"
 };
 
@@ -12131,6 +12237,7 @@ var encore = {
     pp: 5,
     acc: 100,
     effect: "Forces opponent to keep using its last move for 3 turns.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/encore.shtml"
 };
 
@@ -12164,6 +12271,7 @@ var sweet_scent = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Evasiveness.",
+    zeffect: "Accuracy ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sweetscent.shtml"
 };
 
@@ -12208,6 +12316,7 @@ var morning_sun = {
     pp: 5,
     acc: -1,
     effect: "User recovers HP. Amount varies with the weather.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/morningsun.shtml"
 };
 
@@ -12219,6 +12328,7 @@ var synthesis = {
     pp: 5,
     acc: -1,
     effect: "User recovers HP. Amount varies with the weather.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/synthesis.shtml"
 };
 
@@ -12230,6 +12340,7 @@ var moonlight = {
     pp: 5,
     acc: -1,
     effect: "User recovers HP. Amount varies with the weather.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/moonlight.shtml"
 };
 
@@ -12274,6 +12385,7 @@ var rain_dance = {
     pp: 5,
     acc: -1,
     effect: "Makes it rain for 5 turns.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/raindance.shtml"
 };
 
@@ -12285,6 +12397,7 @@ var sunny_day = {
     pp: 5,
     acc: -1,
     effect: "Makes it sunny for 5 turns.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/sunnyday.shtml"
 };
 
@@ -12318,6 +12431,7 @@ var psych_up = {
     pp: 10,
     acc: -1,
     effect: "Copies the opponent's stat changes.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/psychup.shtml"
 };
 
@@ -12428,6 +12542,7 @@ var stockpile = {
     pp: 20,
     acc: -1,
     effect: "Stores energy for use with Spit Up and Swallow.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/stockpile.shtml"
 };
 
@@ -12450,6 +12565,7 @@ var swallow = {
     pp: 10,
     acc: -1,
     effect: "The more times the user has performed Stockpile, the more HP is recovered.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/swallow.shtml"
 };
 
@@ -12472,6 +12588,7 @@ var hail = {
     pp: 10,
     acc: -1,
     effect: "Non-Ice types are damaged for 5 turns.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/hail.shtml"
 };
 
@@ -12483,6 +12600,7 @@ var torment = {
     pp: 15,
     acc: 100,
     effect: "Opponent cannot use the same move in a row.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/torment.shtml"
 };
 
@@ -12494,6 +12612,7 @@ var flatter = {
     pp: 15,
     acc: 100,
     effect: "Confuses opponent, but raises its Special Attack by two stages.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/flatter.shtml"
 };
 
@@ -12505,6 +12624,7 @@ var will_o_wisp = {
     pp: 15,
     acc: 85,
     effect: "Burns opponent.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/will_o_wisp.shtml"
 };
 
@@ -12516,6 +12636,7 @@ var memento = {
     pp: 10,
     acc: 100,
     effect: "User faints, sharply lowers opponent's Attack and Special Attack.",
+    zeffect: "Restores replacement’s HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/memento.shtml"
 };
 
@@ -12560,6 +12681,7 @@ var follow_me = {
     pp: 20,
     acc: 100,
     effect: "In Double Battle, the user takes all the attacks.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/followme.shtml"
 };
 
@@ -12582,6 +12704,7 @@ var charge = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Special Defense and next Electric move's power increases.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/charge.shtml"
 };
 
@@ -12593,6 +12716,7 @@ var taunt = {
     pp: 20,
     acc: 100,
     effect: "Opponent can only use moves that attack.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/taunt.shtml"
 };
 
@@ -12604,6 +12728,7 @@ var helping_hand = {
     pp: 20,
     acc: -1,
     effect: "In Double Battles, boosts the power of the partner's move.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/helpinghand.shtml"
 };
 
@@ -12615,6 +12740,7 @@ var trick = {
     pp: 10,
     acc: 100,
     effect: "Swaps held items with the opponent.",
+    zeffect: "Speed ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/trick.shtml"
 };
 
@@ -12626,6 +12752,7 @@ var role_play = {
     pp: 10,
     acc: -1,
     effect: "User copies the opponent's Ability.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/roleplay.shtml"
 };
 
@@ -12637,6 +12764,7 @@ var wish = {
     pp: 10,
     acc: -1,
     effect: "The user recovers HP in the following turn.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/wish.shtml"
 };
 
@@ -12659,6 +12787,7 @@ var ingrain = {
     pp: 20,
     acc: -1,
     effect: "User restores HP each turn. User cannot escape/switch.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/ingrain.shtml"
 };
 
@@ -12681,6 +12810,7 @@ var magic_coat = {
     pp: 15,
     acc: -1,
     effect: "Reflects moves that cause status conditions back to the attacker.",
+    zeffect: "Special Defense ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/magiccoat.shtml"
 };
 
@@ -12692,6 +12822,7 @@ var recycle = {
     pp: 10,
     acc: 100,
     effect: "User's used hold item is restored.",
+    zeffect: "Speed ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/recycle.shtml"
 };
 
@@ -12725,6 +12856,7 @@ var yawn = {
     pp: 10,
     acc: 100,
     effect: "Puts opponent to sleep in the next turn.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/yawn.shtml"
 };
 
@@ -12769,6 +12901,7 @@ var skill_swap = {
     pp: 10,
     acc: 100,
     effect: "The user swaps Abilities with the opponent.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/skillswap.shtml"
 };
 
@@ -12780,6 +12913,7 @@ var imprison = {
     pp: 10,
     acc: 100,
     effect: "Opponent is unable to use moves that the user also knows.",
+    zeffect: "Special Defense ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/imprison.shtml"
 };
 
@@ -12791,6 +12925,7 @@ var refresh = {
     pp: 20,
     acc: 100,
     effect: "Cures paralysis, poison, and burns.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/refresh.shtml"
 };
 
@@ -12802,6 +12937,7 @@ var grudge = {
     pp: 5,
     acc: 100,
     effect: "If the users faints after using this move, the PP for the opponent's last move is depleted.",
+    zeffect: "Becomes center of attention",
     wiki: "http://www.serebii.net/attackdex-sm/grudge.shtml"
 };
 
@@ -12813,6 +12949,7 @@ var snatch = {
     pp: 10,
     acc: 100,
     effect: "Steals the effects of the opponent's next move.",
+    zeffect: "Speed ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/snatch.shtml"
 };
 
@@ -12857,6 +12994,7 @@ var camouflage = {
     pp: 20,
     acc: -1,
     effect: "Changes user's type according to the location.",
+    zeffect: "Evasiveness ↑",
     wiki: "http://www.serebii.net/attackdex-sm/camouflage.shtml"
 };
 
@@ -12868,6 +13006,7 @@ var tail_glow = {
     pp: 20,
     acc: -1,
     effect: "Drastically raises user's Special Attack.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/tailglow.shtml"
 };
 
@@ -12901,6 +13040,7 @@ var feather_dance = {
     pp: 15,
     acc: 100,
     effect: "Sharply lowers opponent's Attack.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/featherdance.shtml"
 };
 
@@ -12912,6 +13052,7 @@ var teeter_dance = {
     pp: 20,
     acc: 100,
     effect: "Confuses all Pokémon.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/teeterdance.shtml"
 };
 
@@ -12934,6 +13075,7 @@ var mud_sport = {
     pp: 15,
     acc: -1,
     effect: "Weakens the power of Electric-type moves.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/mudsport.shtml"
 };
 
@@ -12967,6 +13109,7 @@ var slack_off = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/slackoff.shtml"
 };
 
@@ -13066,6 +13209,7 @@ var aromatherapy = {
     pp: 5,
     acc: -1,
     effect: "Cures all status problems in your party.",
+    zeffect: "Restores user's HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/aromatherapy.shtml"
 };
 
@@ -13077,6 +13221,7 @@ var fake_tears = {
     pp: 20,
     acc: 100,
     effect: "Sharply lowers opponent's Special Defense.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/faketears.shtml"
 };
 
@@ -13110,6 +13255,7 @@ var odor_sleuth = {
     pp: 40,
     acc: 100,
     effect: "Resets opponent's Evasiveness, Normal-type and Fighting-type attacks can now hit Ghosts, and Ghost-type attacks hit Normal.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/odorsleuth.shtml"
 };
 
@@ -13143,6 +13289,7 @@ var metal_sound = {
     pp: 40,
     acc: 85,
     effect: "Sharply lowers opponent's Special Defense.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/metalsound.shtml"
 };
 
@@ -13154,6 +13301,7 @@ var grass_whistle = {
     pp: 15,
     acc: 55,
     effect: "Puts opponent to sleep.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/grasswhistle.shtml"
 };
 
@@ -13165,6 +13313,7 @@ var tickle = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Attack and Defense.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/tickle.shtml"
 };
 
@@ -13176,6 +13325,7 @@ var cosmic_power = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Defense and Special Defense.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/cosmicpower.shtml"
 };
 
@@ -13308,6 +13458,7 @@ var iron_defense = {
     pp: 15,
     acc: -1,
     effect: "Sharply raises user's Defense.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/irondefense.shtml"
 };
 
@@ -13319,6 +13470,7 @@ var block = {
     pp: 5,
     acc: -1,
     effect: "Opponent cannot flee or switch.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/block.shtml"
 };
 
@@ -13330,6 +13482,7 @@ var howl = {
     pp: 40,
     acc: -1,
     effect: "Raises user's Attack.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/howl.shtml"
 };
 
@@ -13363,6 +13516,7 @@ var bulk_up = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Attack and Defense.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/bulkup.shtml"
 };
 
@@ -13440,6 +13594,7 @@ var water_sport = {
     pp: 15,
     acc: 100,
     effect: "Weakens the power of Fire-type moves.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/watersport.shtml"
 };
 
@@ -13451,6 +13606,7 @@ var calm_mind = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Special Attack and Special Defense.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/calmmind.shtml"
 };
 
@@ -13473,6 +13629,7 @@ var dragon_dance = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Attack and Speed.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/dragondance.shtml"
 };
 
@@ -13539,6 +13696,7 @@ var roost = {
     pp: 10,
     acc: -1,
     effect: "User recovers half of its max HP and loses the Flying type temporarily.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/roost.shtml"
 };
 
@@ -13550,6 +13708,7 @@ var gravity = {
     pp: 5,
     acc: -1,
     effect: "Prevents moves like Fly and Bounce and the Ability Levitate for 5 turns.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/gravity.shtml"
 };
 
@@ -13561,6 +13720,7 @@ var miracle_eye = {
     pp: 40,
     acc: -1,
     effect: "Resets opponent's Evasiveness, removes Dark's Psychic immunity.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/miracleeye.shtml"
 };
 
@@ -13660,6 +13820,7 @@ var tailwind = {
     pp: 15,
     acc: -1,
     effect: "Doubles Speed for 4 turns.",
+    zeffect: "Boosts critical-hit ratio",
     wiki: "http://www.serebii.net/attackdex-sm/tailwind.shtml"
 };
 
@@ -13671,6 +13832,7 @@ var acupressure = {
     pp: 30,
     acc: -1,
     effect: "Sharply raises a random stat.",
+    zeffect: "Boosts critical-hit ratio",
     wiki: "http://www.serebii.net/attackdex-sm/acupressure.shtml"
 };
 
@@ -13737,6 +13899,7 @@ var embargo = {
     pp: 15,
     acc: 100,
     effect: "Opponent cannot use items.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/embargo.shtml"
 };
 
@@ -13759,6 +13922,7 @@ var psycho_shift = {
     pp: 10,
     acc: 100,
     effect: "Gives the opponent the user's status condition, if it hits.",
+    zeffect: "Special Attack ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/psychoshift.shtml"
 };
 
@@ -13781,6 +13945,7 @@ var heal_block = {
     pp: 15,
     acc: 100,
     effect: "Prevents the opponent from restoring HP for 5 turns.",
+    zeffect: "Special Attack ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/healblock.shtml"
 };
 
@@ -13803,6 +13968,7 @@ var power_trick = {
     pp: 10,
     acc: -1,
     effect: "User's own Attack and Defense switch.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/powertrick.shtml"
 };
 
@@ -13814,6 +13980,7 @@ var gastro_acid = {
     pp: 10,
     acc: 100,
     effect: "Cancels out the effect of the opponent's Ability.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/gastroacid.shtml"
 };
 
@@ -13825,6 +13992,7 @@ var lucky_chant = {
     pp: 30,
     acc: -1,
     effect: "Opponent cannot land critical hits for 5 turns.",
+    zeffect: "Evasiveness ↑",
     wiki: "http://www.serebii.net/attackdex-sm/luckychant.shtml"
 };
 
@@ -13836,6 +14004,7 @@ var me_first = {
     pp: 20,
     acc: -1,
     effect: "User copies the opponent's attack with 1.5× power.",
+    zeffect: "Speed ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/mefirst.shtml"
 };
 
@@ -13847,6 +14016,7 @@ var copycat = {
     pp: 20,
     acc: -1,
     effect: "Copies opponent's last move.",
+    zeffect: "Accuracy ↑",
     wiki: "http://www.serebii.net/attackdex-sm/copycat.shtml"
 };
 
@@ -13858,6 +14028,7 @@ var power_swap = {
     pp: 10,
     acc: -1,
     effect: "User and opponent swap Attack and Special Attack.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/powerswap.shtml"
 };
 
@@ -13869,6 +14040,7 @@ var guard_swap = {
     pp: 10,
     acc: -1,
     effect: "User and opponent swap Defense and Special Defense.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/guardswap.shtml"
 };
 
@@ -13902,6 +14074,7 @@ var worry_seed = {
     pp: 10,
     acc: 100,
     effect: "Changes the opponent's Ability to Insomnia.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/worryseed.shtml"
 };
 
@@ -13924,6 +14097,7 @@ var toxic_spikes = {
     pp: 20,
     acc: -1,
     effect: "Poisons opponents when they switch into battle.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/toxicspikes.shtml"
 };
 
@@ -13935,6 +14109,7 @@ var heart_swap = {
     pp: 10,
     acc: -1,
     effect: "Stat changes are swapped with the opponent.",
+    zeffect: "Boosts critical-hit ratio",
     wiki: "http://www.serebii.net/attackdex-sm/heartswap.shtml"
 };
 
@@ -13946,6 +14121,7 @@ var aqua_ring = {
     pp: 20,
     acc: -1,
     effect: "Restores a little HP each turn.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/aquaring.shtml"
 };
 
@@ -13957,6 +14133,7 @@ var magnet_rise = {
     pp: 10,
     acc: -1,
     effect: "User becomes immune to Ground-type moves for 5 turns.",
+    zeffect: "Evasiveness ↑",
     wiki: "http://www.serebii.net/attackdex-sm/magnetrise.shtml"
 };
 
@@ -14001,6 +14178,7 @@ var rock_polish = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Speed.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/rockpolish.shtml"
 };
 
@@ -14199,6 +14377,7 @@ var switcheroo = {
     pp: 10,
     acc: 100,
     effect: "Swaps held items with the opponent.",
+    zeffect: "Speed ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/switcheroo.shtml"
 };
 
@@ -14221,6 +14400,7 @@ var nasty_plot = {
     pp: 20,
     acc: -1,
     effect: "Sharply raises user's Special Attack.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/nastyplot.shtml"
 };
 
@@ -14386,6 +14566,7 @@ var defog = {
     pp: 15,
     acc: -1,
     effect: "Lowers opponent's Evasiveness and clears fog.",
+    zeffect: "Accuracy ↑",
     wiki: "http://www.serebii.net/attackdex-sm/defog.shtml"
 };
 
@@ -14397,6 +14578,7 @@ var trick_room = {
     pp: 5,
     acc: -1,
     effect: "Slower Pokémon move first in the turn for 5 turns.",
+    zeffect: "Accuracy ↑",
     wiki: "http://www.serebii.net/attackdex-sm/trickroom.shtml"
 };
 
@@ -14529,6 +14711,7 @@ var captivate = {
     pp: 20,
     acc: 100,
     effect: "Sharply lowers opponent's Special Attack if opposite gender.",
+    zeffect: "Special Defense ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/captivate.shtml"
 };
 
@@ -14540,6 +14723,7 @@ var stealth_rock = {
     pp: 20,
     acc: -1,
     effect: "Damages opponent switching into battle.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/stealthrock.shtml"
 };
 
@@ -14639,6 +14823,7 @@ var defend_order = {
     pp: 10,
     acc: -1,
     effect: "Raises user's Defense and Special Defense.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/defendorder.shtml"
 };
 
@@ -14650,6 +14835,7 @@ var heal_order = {
     pp: 10,
     acc: -1,
     effect: "User recovers half its max HP.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/healorder.shtml"
 };
 
@@ -14738,6 +14924,7 @@ var dark_void = {
     pp: 10,
     acc: 80,
     effect: "Puts all adjacent opponents to sleep.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/darkvoid.shtml"
 };
 
@@ -14782,6 +14969,7 @@ var hone_claws = {
     pp: 15,
     acc: -1,
     effect: "Raises user's Attack and Accuracy.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/honeclaws.shtml"
 };
 
@@ -14793,6 +14981,7 @@ var wide_guard = {
     pp: 10,
     acc: -1,
     effect: "Protects the user's team from multi-target attacks.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/wideguard.shtml"
 };
 
@@ -14804,6 +14993,7 @@ var guard_split = {
     pp: 10,
     acc: -1,
     effect: "Averages Defense and Special Defense with the target.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/guardsplit.shtml"
 };
 
@@ -14815,6 +15005,7 @@ var power_split = {
     pp: 10,
     acc: -1,
     effect: "Averages Attack and Special Attack with the target.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/powersplit.shtml"
 };
 
@@ -14826,6 +15017,7 @@ var wonder_room = {
     pp: 10,
     acc: -1,
     effect: "Swaps every Pokémon's Defense and Special Defense for 5 turns.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/wonderroom.shtml"
 };
 
@@ -14859,6 +15051,7 @@ var autotomize = {
     pp: 15,
     acc: -1,
     effect: "Halves weight and sharply raises Speed.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/autotomize.shtml"
 };
 
@@ -14870,6 +15063,7 @@ var rage_powder = {
     pp: 20,
     acc: -1,
     effect: "Forces attacks to hit user, not team-mates.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/ragepowder.shtml"
 };
 
@@ -14881,6 +15075,7 @@ var telekinesis = {
     pp: 15,
     acc: -1,
     effect: "Ignores opponent's Evasiveness for three turns, add Ground immunity.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/telekinesis.shtml"
 };
 
@@ -14892,6 +15087,7 @@ var magic_room = {
     pp: 10,
     acc: -1,
     effect: "Suppresses the effects of held items for five turns.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/magicroom.shtml"
 };
 
@@ -14947,6 +15143,7 @@ var quiver_dance = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Special Attack, Special Defense and Speed.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/quiverdance.shtml"
 };
 
@@ -14991,6 +15188,7 @@ var soak = {
     pp: 20,
     acc: 100,
     effect: "Changes the target's type to water.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/soak.shtml"
 };
 
@@ -15013,6 +15211,7 @@ var coil = {
     pp: 20,
     acc: -1,
     effect: "Raises user's Attack, Defense and Accuracy.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/coil.shtml"
 };
 
@@ -15057,6 +15256,7 @@ var simple_beam = {
     pp: 15,
     acc: 100,
     effect: "Changes target's ability to Simple.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/simplebeam.shtml"
 };
 
@@ -15068,6 +15268,7 @@ var entrainment = {
     pp: 15,
     acc: 100,
     effect: "Makes target's ability same as user's.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/entrainment.shtml"
 };
 
@@ -15079,6 +15280,7 @@ var after_you = {
     pp: 15,
     acc: -1,
     effect: "Gives target priority in the next turn.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/afteryou.shtml"
 };
 
@@ -15145,6 +15347,7 @@ var quick_guard = {
     pp: 15,
     acc: -1,
     effect: "Fast moves won't damage the user or its teammates.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/quickguard.shtml"
 };
 
@@ -15156,6 +15359,7 @@ var ally_switch = {
     pp: 15,
     acc: -1,
     effect: "User switches with opposite teammate.",
+    zeffect: "Speed ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/allyswitch.shtml"
 };
 
@@ -15178,6 +15382,7 @@ var shell_smash = {
     pp: 15,
     acc: -1,
     effect: "Sharply raises user's Attack, Special Attack and Speed but lowers Defense and Special Defense.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/shellsmash.shtml"
 };
 
@@ -15189,6 +15394,7 @@ var heal_pulse = {
     pp: 10,
     acc: -1,
     effect: "Restores half the target's max HP.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/healpulse.shtml"
 };
 
@@ -15222,6 +15428,7 @@ var shift_gear = {
     pp: 10,
     acc: -1,
     effect: "Raises user's Attack and sharply raises Speed.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/shiftgear.shtml"
 };
 
@@ -15255,6 +15462,7 @@ var quash = {
     pp: 15,
     acc: 100,
     effect: "Makes the target act last this turn.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/quash.shtml"
 };
 
@@ -15277,6 +15485,7 @@ var reflect_type = {
     pp: 15,
     acc: -1,
     effect: "User becomes the target's type.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/reflecttype.shtml"
 };
 
@@ -15310,6 +15519,7 @@ var bestow = {
     pp: 15,
     acc: -1,
     effect: "Gives the user's held item to the target.",
+    zeffect: "Speed ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/bestow.shtml"
 };
 
@@ -15420,6 +15630,7 @@ var work_up = {
     pp: 30,
     acc: -1,
     effect: "Raises user's Attack and Special Attack.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/workup.shtml"
 };
 
@@ -15552,6 +15763,7 @@ var cotton_guard = {
     pp: 10,
     acc: -1,
     effect: "Drastically raises user's Defense.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/cottonguard.shtml"
 };
 
@@ -15805,6 +16017,7 @@ var mat_block = {
     pp: 10,
     acc: -1,
     effect: "Protects teammates from damaging moves.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/matblock.shtml"
 };
 
@@ -15827,6 +16040,7 @@ var rototiller = {
     pp: 10,
     acc: -1,
     effect: "Raises Attack and Special Attack of Grass-types.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/rototiller.shtml"
 };
 
@@ -15838,6 +16052,7 @@ var sticky_web = {
     pp: 20,
     acc: -1,
     effect: "Lowers opponent's Speed when switching into battle.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/stickyweb.shtml"
 };
 
@@ -15871,6 +16086,7 @@ var trick_or_treat = {
     pp: 20,
     acc: 100,
     effect: "Adds Ghost type to opponent.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/trick_or_treat.shtml"
 };
 
@@ -15882,6 +16098,7 @@ var noble_roar = {
     pp: 30,
     acc: 100,
     effect: "Lowers opponent's Attack and Special Attack.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/nobleroar.shtml"
 };
 
@@ -15893,6 +16110,7 @@ var ion_deluge = {
     pp: 25,
     acc: -1,
     effect: "Changes Normal-type moves to Electric-type.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/iondeluge.shtml"
 };
 
@@ -15915,6 +16133,7 @@ var forests_curse = {
     pp: 20,
     acc: 100,
     effect: "Adds Grass type to opponent.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/forestscurse.shtml"
 };
 
@@ -15959,6 +16178,7 @@ var parting_shot = {
     pp: 20,
     acc: 100,
     effect: "Lowers opponent's Attack and Special Attack then switches out.",
+    zeffect: "Restores replacement’s HP 100%",
     wiki: "http://www.serebii.net/attackdex-sm/partingshot.shtml"
 };
 
@@ -15970,6 +16190,7 @@ var topsy_turvy = {
     pp: 20,
     acc: 100,
     effect: "Reverses stat changes of opponent.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/topsy_turvy.shtml"
 };
 
@@ -15992,6 +16213,7 @@ var crafty_shield = {
     pp: 10,
     acc: -1,
     effect: "Protects the Pokémon from status moves.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/craftyshield.shtml"
 };
 
@@ -16003,6 +16225,7 @@ var flower_shield = {
     pp: 10,
     acc: -1,
     effect: "Sharply raises Defense of all Grass-type Pokémon on the field.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/flowershield.shtml"
 };
 
@@ -16014,6 +16237,7 @@ var grassy_terrain = {
     pp: 10,
     acc: -1,
     effect: "Restores a little HP of all Pokémon for 5 turns.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/grassyterrain.shtml"
 };
 
@@ -16025,6 +16249,7 @@ var misty_terrain = {
     pp: 10,
     acc: -1,
     effect: "Protects the field from status conditions for 5 turns.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/mistyterrain.shtml"
 };
 
@@ -16036,6 +16261,7 @@ var electrify = {
     pp: 20,
     acc: -1,
     effect: "Changes the target's move to Electric type.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/electrify.shtml"
 };
 
@@ -16091,6 +16317,7 @@ var fairy_lock = {
     pp: 10,
     acc: -1,
     effect: "Prevents fleeing in the next turn.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/fairylock.shtml"
 };
 
@@ -16102,6 +16329,7 @@ var kings_shield = {
     pp: 10,
     acc: -1,
     effect: "Protects against attacks, and lowers opponent's Attack on contact.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/kingsshield.shtml"
 };
 
@@ -16113,6 +16341,7 @@ var play_nice = {
     pp: 20,
     acc: -1,
     effect: "Lowers opponent's Attack. Always hits.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/playnice.shtml"
 };
 
@@ -16124,6 +16353,7 @@ var confide = {
     pp: 20,
     acc: -1,
     effect: "Lowers opponent's Special Attack.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/confide.shtml"
 };
 
@@ -16190,6 +16420,7 @@ var spiky_shield = {
     pp: 10,
     acc: -1,
     effect: "Protects user and inflicts damage on contact moves.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/spikyshield.shtml"
 };
 
@@ -16201,6 +16432,7 @@ var aromatic_mist = {
     pp: 20,
     acc: -1,
     effect: "Raises Special Defense of allies.",
+    zeffect: "Special Defense ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/aromaticmist.shtml"
 };
 
@@ -16212,6 +16444,7 @@ var eerie_impulse = {
     pp: 15,
     acc: 100,
     effect: "Sharply lowers opponent's Special Attack.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/eerieimpulse.shtml"
 };
 
@@ -16223,6 +16456,7 @@ var venom_drench = {
     pp: 20,
     acc: 100,
     effect: "Lowers poisoned opponent's Special Attack and Speed.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/venomdrench.shtml"
 };
 
@@ -16234,6 +16468,7 @@ var powder = {
     pp: 20,
     acc: 100,
     effect: "Damages Pokémon using Fire type moves.",
+    zeffect: "Special Defense ↑↑",
     wiki: "http://www.serebii.net/attackdex-sm/powder.shtml"
 };
 
@@ -16245,6 +16480,7 @@ var geomancy = {
     pp: 10,
     acc: -1,
     effect: "Charges on first turn, sharply raises user's Sp. Attack, Sp. Defense and Speed on the second.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/geomancy.shtml"
 };
 
@@ -16256,6 +16492,7 @@ var magnetic_flux = {
     pp: 20,
     acc: -1,
     effect: "Raises Defense and Sp. Defense of Plus/Minus Pokémon.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/magneticflux.shtml"
 };
 
@@ -16267,6 +16504,7 @@ var happy_hour = {
     pp: 30,
     acc: -1,
     effect: "Doubles prize money from trainer battles.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/happyhour.shtml"
 };
 
@@ -16278,6 +16516,7 @@ var electric_terrain = {
     pp: 10,
     acc: -1,
     effect: "Prevents all Pokémon from falling asleep for 5 turns.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/electricterrain.shtml"
 };
 
@@ -16300,6 +16539,7 @@ var celebrate = {
     pp: 40,
     acc: -1,
     effect: "The Pokémon congratulates you on your special day. No battle effect.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/celebrate.shtml"
 };
 
@@ -16311,6 +16551,7 @@ var hold_hands = {
     pp: 40,
     acc: -1,
     effect: "Makes the user and an ally very happy.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/holdhands.shtml"
 };
 
@@ -16322,6 +16563,7 @@ var baby_doll_eyes = {
     pp: 30,
     acc: 100,
     effect: "Always goes first. Lowers the target's attack.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/baby_dolleyes.shtml"
 };
 
@@ -16531,6 +16773,7 @@ var aurora_veil = {
     pp: 20,
     acc: -1,
     effect: "Halves damage from Physical and Special attacks for five turns.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/auroraveil.shtml"
 };
 
@@ -16542,6 +16785,7 @@ var baneful_bunker = {
     pp: 10,
     acc: -1,
     effect: "In addition to protecting the user from attacks, this move also poisons any attacker that makes direct contact.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/banefulbunker.shtml"
 };
 
@@ -16751,6 +16995,7 @@ var floral_healing = {
     pp: 10,
     acc: -1,
     effect: "The user restores the target’s HP by up to half of its max HP. It restores more HP when the terrain is grass.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/floralhealing.shtml"
 };
 
@@ -16762,6 +17007,7 @@ var gear_up = {
     pp: 20,
     acc: -1,
     effect: "The user engages its gears to raise the Attack and Sp. Atk stats of ally Pokémon with the Plus or Minus Ability.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/gearup.shtml"
 };
 
@@ -16850,6 +17096,7 @@ var instruct = {
     pp: 15,
     acc: -1,
     effect: "Allows an ally to use a move instead.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/instruct.shtml"
 };
 
@@ -16861,6 +17108,7 @@ var laser_focus = {
     pp: 30,
     acc: -1,
     effect: "User's next attack is guaranteed to result in a critical hit.",
+    zeffect: "Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/laserfocus.shtml"
 };
 
@@ -17015,6 +17263,7 @@ var psychic_terrain = {
     pp: 10,
     acc: -1,
     effect: "Prevents priority moves from being used for 5 turns.",
+    zeffect: "Special Attack ↑",
     wiki: "http://www.serebii.net/attackdex-sm/psychicterrain.shtml"
 };
 
@@ -17037,6 +17286,7 @@ var purify = {
     pp: 20,
     acc: -1,
     effect: "The user heals the target’s status condition. If the move succeeds, it also restores the user’s own HP.",
+    zeffect: "All stats ↑",
     wiki: "http://www.serebii.net/attackdex-sm/purify.shtml"
 };
 
@@ -17103,6 +17353,7 @@ var shore_up = {
     pp: 10,
     acc: -1,
     effect: "The user regains up to half of its max HP. It restores more HP in a sandstorm.",
+    zeffect: "Remove user's stat debuffs",
     wiki: "http://www.serebii.net/attackdex-sm/shoreup.shtml"
 };
 
@@ -17180,6 +17431,7 @@ var speed_swap = {
     pp: 10,
     acc: -1,
     effect: "The user exchanges Speed stats with the target.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/speedswap.shtml"
 };
 
@@ -17202,6 +17454,7 @@ var spotlight = {
     pp: 15,
     acc: -1,
     effect: "The user shines a spotlight on the target so that only the target will be attacked during the turn.",
+    zeffect: "Special Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/spotlight.shtml"
 };
 
@@ -17235,6 +17488,7 @@ var strength_sap = {
     pp: 10,
     acc: 100,
     effect: "The user restores its HP by the same amount as the target’s Attack stat. It also lowers the target’s Attack stat.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/strengthsap.shtml"
 };
 
@@ -17279,6 +17533,7 @@ var tearful_look = {
     pp: 20,
     acc: -1,
     effect: "The user gets teary eyed to make the target lose its combative spirit. This lowers the target’s Attack and Sp. Atk stats.",
+    zeffect: "Defense ↑",
     wiki: "http://www.serebii.net/attackdex-sm/tearfullook.shtml"
 };
 
@@ -17312,6 +17567,7 @@ var toxic_thread = {
     pp: 20,
     acc: 100,
     effect: "The user shoots poisonous threads to poison the target and lower the target’s Speed stat.",
+    zeffect: "Speed ↑",
     wiki: "http://www.serebii.net/attackdex-sm/toxicthread.shtml"
 };
 
@@ -17347,7 +17603,6 @@ var zing_zap = {
     effect: "A strong electric blast crashes down on the target, giving it an electric shock. This may also make the target flinch.",
     wiki: "http://www.serebii.net/attackdex-sm/zingzap.shtml"
 };
-
 
 var ability_capsule = {
     name: "Ability Capsule",
@@ -20494,9 +20749,9 @@ var ultra_ball = {
 };
 
 var up_grade = {
-    name: "Up_grade",
+    name: "Up-Grade",
     desc: "A transparent device filled with all sorts of data. It was produced by Silph Co.",
-    wiki: "http://www.serebii.net/itemdex/up_grade.shtml"
+    wiki: "http://www.serebii.net/itemdex/up-grade.shtml"
 };
 
 var venusaurite = {
