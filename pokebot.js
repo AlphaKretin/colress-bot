@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "aloladex"
+	token: "shrink"
 });
 
 //confirms login
@@ -300,78 +300,24 @@ function ability(user, userID, channelID, message, event) {
 
 //returns info about type relations
 function weak(user, userID, channelID, message, event) {
-    var types = [{
-        id: "normal",
-        value: 0
-    },
-    {
-        id: "fire",
-        value: 0
-    },
-    {
-        id: "fighting",
-        value: 0
-    },
-    {
-        id: "water",
-        value: 0
-    },
-    {
-        id: "flying",
-        value: 0
-    },
-    {
-        id: "grass",
-        value: 0
-    },
-    {
-        id: "poison",
-        value: 0
-    },
-    {
-        id: "electric",
-        value: 0
-    },
-    {
-        id: "ground",
-        value: 0
-    },
-    {
-        id: "psychic",
-        value: 0
-    },
-    {
-        id: "rock",
-        value: 0
-    },
-    {
-        id: "ice",
-        value: 0
-    },
-    {
-        id: "bug",
-        value: 0
-    },
-    {
-        id: "dragon",
-        value: 0
-    },
-    {
-        id: "ghost",
-        value: 0
-    },
-    {
-        id: "dark",
-        value: 0
-    },
-    {
-        id: "steel",
-        value: 0
-    },
-    {
-        id: "fairy",
-        value: 0
-    }];
+    var types = [{id: "normal", value: 0},
+    {id: "fire", value: 0},
+    {id: "fighting", value: 0},
+    {id: "water", value: 0},
+    {id: "flying", value: 0},
+    {id: "grass", value: 0},
+    {id: "poison", value: 0},
+    {id: "electric", value: 0},
+    {id: "ground", value: 0},
+    {id: "psychic", value: 0},
+    {id: "rock", value: 0},
+    {id: "ice", value: 0},
+    {id: "bug", value: 0},
+    {id: "dragon", value: 0},
+    {id: "ghost", value: 0},
+    {id: "dark", value: 0},
+    {id: "steel", value: 0},
+    {id: "fairy", value: 0}];
     var weaks = ""; //strings for output later
     var res = "";
     var imms = "";
@@ -393,466 +339,228 @@ function weak(user, userID, channelID, message, event) {
         if (type.indexOf("normal") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "ghost":
-                        type.value -= 10;
-                    case "fighting":
-                        type.value++;
+                    case "ghost": type.value -= 10; break;
+                    case "fighting": type.value++; break;
                 }
             }
         }
         if (type.indexOf("fire") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "bug":
-                        typ.value--;
-                        break;
-                    case "fairy":
-                        typ.value--;
-                        break;
-                    case "fire":
-                        typ.value--;
-                        break;
-                    case "grass":
-                        typ.value--;
-                        break;
-                    case "ice":
-                        typ.value--;
-                        break;
-                    case "steel":
-                        typ.value--;
-                        break;
-                    case "ground":
-                        typ.value++;
-                        break;
-                    case "rock":
-                        typ.value++;
-                        break;
-                    case "water":
-                        typ.value++;
-                        break;
+                    case "bug": typ.value--; break;
+                    case "fairy": typ.value--; break;
+                    case "fire": typ.value--; break;
+                    case "grass": typ.value--; break;
+                    case "ice": typ.value--; break;
+                    case "steel": typ.value--; break;
+                    case "ground": typ.value++; break;
+                    case "rock": typ.value++; break;
+                    case "water": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("fighting") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "bug":
-                        typ.value--;
-                        break;
-                    case "dark":
-                        typ.value--;
-                        break;
-                    case "rock":
-                        typ.value--;
-                        break;
-                    case "fairy":
-                        typ.value++;
-                        break;
-                    case "flying":
-                        typ.value++;
-                        break;
-                    case "psychic":
-                        typ.value++;
-                        break;
+                    case "bug": typ.value--; break;
+                    case "dark": typ.value--; break;
+                    case "rock": typ.value--; break;
+                    case "fairy": typ.value++; break;
+                    case "flying": typ.value++; break;
+                    case "psychic": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("water") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "fire":
-                        typ.value--;
-                        break;
-                    case "ice":
-                        typ.value--;
-                        break;
-                    case "steel":
-                        typ.value--;
-                        break;
-                    case "water":
-                        typ.value--;
-                        break;
-                    case "electric":
-                        typ.value++;
-                        break;
-                    case "grass":
-                        typ.value++;
-                        break;
+                    case "fire": typ.value--; break;
+                    case "ice": typ.value--; break;
+                    case "steel": typ.value--; break;
+                    case "water": typ.value--; break;
+                    case "electric": typ.value++; break;
+                    case "grass": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("flying") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "bug":
-                        typ.value--;
-                        break;
-                    case "fighting":
-                        typ.value--;
-                        break;
-                    case "grass":
-                        typ.value--;
-                        break;
-                    case "ground ":
-                        typ.value -= 10;
-                        break;
-                    case "electric":
-                        typ.value++;
-                        break;
-                    case "ice":
-                        typ.value++;
-                        break;
-                    case "rock":
-                        typ.value++;
-                        break;
+                    case "bug": typ.value--; break;
+                    case "fighting": typ.value--; break;
+                    case "grass": typ.value--; break;
+                    case "ground ": typ.value -= 10; break;
+                    case "electric": typ.value++; break;
+                    case "ice": typ.value++; break;
+                    case "rock": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("grass") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "electric":
-                        typ.value--;
-                        break;
-                    case "grass":
-                        typ.value--;
-                        break;
-                    case "ground":
-                        typ.value--;
-                        break;
-                    case "water":
-                        typ.value--;
-                        break;
-                    case "bug":
-                        typ.value++;
-                        break;
-                    case "fire":
-                        typ.value++;
-                        break;
-                    case "flying":
-                        typ.value++;
-                        break;
-                    case "ice":
-                        typ.value++;
-                        break;
-                    case "poison":
-                        typ.value++;
-                        break;
+                    case "electric": typ.value--; break;
+                    case "grass": typ.value--; break;
+                    case "ground": typ.value--; break;
+                    case "water": typ.value--; break;
+                    case "bug": typ.value++; break;
+                    case "fire": typ.value++; break;
+                    case "flying": typ.value++; break;
+                    case "ice": typ.value++; break;
+                    case "poison": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("poison") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "bug":
-                        typ.value--;
-                        break;
-                    case "fairy":
-                        typ.value--;
-                        break;
-                    case "fighting":
-                        typ.value--;
-                        break;
-                    case "grass":
-                        typ.value--;
-                        break;
-                    case "poison":
-                        typ.value--;
-                        break;
-                    case "ground":
-                        typ.value++;
-                        break;
-                    case "psychic":
-                        typ.value++;
-                        break;
+                    case "bug": typ.value--; break;
+                    case "fairy": typ.value--; break;
+                    case "fighting": typ.value--; break;
+                    case "grass": typ.value--; break;
+                    case "poison": typ.value--; break;
+                    case "ground": typ.value++; break;
+                    case "psychic": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("electric") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "electric":
-                        typ.value--;
-                        break;
-                    case "flying":
-                        typ.value--;
-                        break;
-                    case "steel":
-                        typ.value--;
-                        break;
-                    case "ground":
-                        typ.value++;
-                        break;
+                    case "electric": typ.value--; break;
+                    case "flying": typ.value--; break;
+                    case "steel": typ.value--; break;
+                    case "ground": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("ground") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "poison":
-                        typ.value--;
-                        break;
-                    case "rock":
-                        typ.value--;
-                        break;
-                    case "electric ":
-                        typ.value -= 10;
-                        break;
-                    case "grass":
-                        typ.value++;
-                        break;
-                    case "ice":
-                        typ.value++;
-                        break;
-                    case "water":
-                        typ.value++;
-                        break;
+                    case "poison": typ.value--; break;
+                    case "rock": typ.value--; break;
+                    case "electric ": typ.value -= 10; break;
+                    case "grass": typ.value++; break;
+                    case "ice": typ.value++; break;
+                    case "water": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("psychic") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "fighting":
-                        typ.value--;
-                        break;
-                    case "psychic":
-                        typ.value--;
-                        break;
-                    case "bug":
-                        typ.value++;
-                        break;
-                    case "dark":
-                        typ.value++;
-                        break;
-                    case "ghost":
-                        typ.value++;
-                        break;
+                    case "fighting": typ.value--; break;
+                    case "psychic": typ.value--; break;
+                    case "bug": typ.value++; break;
+                    case "dark": typ.value++; break;
+                    case "ghost": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("rock") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "fire":
-                        typ.value--;
-                        break;
-                    case "flying":
-                        typ.value--;
-                        break;
-                    case "normal":
-                        typ.value--;
-                        break;
-                    case "poison":
-                        typ.value--;
-                        break;
-                    case "fighting":
-                        typ.value++;
-                        break;
-                    case "grass":
-                        typ.value++;
-                        break;
-                    case "ground":
-                        typ.value++;
-                        break;
-                    case "steel":
-                        typ.value++;
-                        break;
-                    case "water":
-                        typ.value++;
-                        break;
+                    case "fire": typ.value--; break;
+                    case "flying": typ.value--; break;
+                    case "normal": typ.value--; break;
+                    case "poison": typ.value--; break;
+                    case "fighting": typ.value++; break;
+                    case "grass": typ.value++; break;
+                    case "ground": typ.value++; break;
+                    case "steel": typ.value++; break;
+                    case "water": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("ice") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "ice":
-                        typ.value--;
-                        break;
-                    case "fighting":
-                        typ.value++;
-                        break;
-                    case "fire":
-                        typ.value++;
-                        break;
-                    case "rock":
-                        typ.value++;
-                        break;
-                    case "steel":
-                        typ.value++;
-                        break;
+                    case "ice": typ.value--; break;
+                    case "fighting": typ.value++; break;
+                    case "fire": typ.value++; break;
+                    case "rock": typ.value++; break;
+                    case "steel": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("bug") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "fighting":
-                        typ.value--;
-                        break;
-                    case "grass":
-                        typ.value--;
-                        break;
-                    case "ground":
-                        typ.value--;
-                        break;
-                    case "fire":
-                        typ.value++;
-                        break;
-                    case "flying":
-                        typ.value++;
-                        break;
-                    case "rock":
-                        typ.value++;
-                        break;
+                    case "fighting": typ.value--; break;
+                    case "grass": typ.value--; break;
+                    case "ground": typ.value--; break;
+                    case "fire": typ.value++; break;
+                    case "flying": typ.value++; break;
+                    case "rock": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("dragon") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "electric":
-                        typ.value--;
-                        break;
-                    case "fire":
-                        typ.value--;
-                        break;
-                    case "grass":
-                        typ.value--;
-                        break;
-                    case "water":
-                        typ.value--;
-                        break;
-                    case "dragon":
-                        typ.value++;
-                        break;
-                    case "ice":
-                        typ.value++;
-                        break;
-                    case "fairy":
-                        typ.value++;
-                        break;
+                    case "electric": typ.value--; break;
+                    case "fire": typ.value--; break;
+                    case "grass": typ.value--; break;
+                    case "water": typ.value--; break;
+                    case "dragon": typ.value++; break;
+                    case "ice": typ.value++; break;
+                    case "fairy": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("ghost") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "bug":
-                        typ.value--;
-                        break;
-                    case "poison":
-                        typ.value--;
-                        break;
-                    case "normal ":
-                        typ.value -= 10;
-                        break;
-                    case "fighting ":
-                        typ.value -= 10;
-                        break;
-                    case "ghost":
-                        typ.value++;
-                        break;
-                    case "dark":
-                        typ.value++;
-                        break;
+                    case "bug": typ.value--; break;
+                    case "poison": typ.value--; break;
+                    case "normal ": typ.value -= 10; break;
+                    case "fighting ": typ.value -= 10; break;
+                    case "ghost": typ.value++; break;
+                    case "dark": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("dark") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "dark":
-                        typ.value--;
-                        break;
-                    case "ghost":
-                        typ.value--;
-                        break;
-                    case "psychic ":
-                        typ.value -= 10;
-                        break;
-                    case "bug":
-                        typ.value++;
-                        break;
-                    case "fighting":
-                        typ.value++;
-                        break;
-                    case "fairy":
-                        typ.value++;
-                        break;
+                    case "dark": typ.value--; break;
+                    case "ghost": typ.value--; break;
+                    case "psychic ": typ.value -= 10; break;
+                    case "bug": typ.value++; break;
+                    case "fighting": typ.value++; break;
+                    case "fairy": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("steel") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "bug":
-                        typ.value--;
-                        break;
-                    case "dragon":
-                        typ.value--;
-                        break;
-                    case "fairy":
-                        typ.value--;
-                        break;
-                    case "flying":
-                        typ.value--;
-                        break;
-                    case "grass":
-                        typ.value--;
-                        break;
-                    case "ice":
-                        typ.value--;
-                        break;
-                    case "normal":
-                        typ.value--;
-                        break;
-                    case "psychic":
-                        typ.value--;
-                        break;
-                    case "rock":
-                        typ.value--;
-                        break;
-                    case "steel":
-                        typ.value--;
-                        break;
-                    case "poison ":
-                        typ.value -= 10;
-                        break;
-                    case "fighting":
-                        typ.value++;
-                        break;
-                    case "fire":
-                        typ.value++;
-                        break;
-                    case "ground":
-                        typ.value++;
-                        break;
+                    case "bug": typ.value--; break;
+                    case "dragon": typ.value--; break;
+                    case "fairy": typ.value--; break;
+                    case "flying": typ.value--; break;
+                    case "grass": typ.value--; break;
+                    case "ice": typ.value--; break;
+                    case "normal": typ.value--; break;
+                    case "psychic": typ.value--; break;
+                    case "rock": typ.value--; break;
+                    case "steel": typ.value--; break;
+                    case "poison ": typ.value -= 10; break;
+                    case "fighting": typ.value++; break;
+                    case "fire": typ.value++; break;
+                    case "ground": typ.value++; break;
                 }
             }
         }
         if (type.indexOf("fairy") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
-                    case "bug":
-                        typ.value--;
-                        break;
-                    case "dark":
-                        typ.value--;
-                        break;
-                    case "fighting":
-                        typ.value--;
-                        break;
-                    case "dragon ":
-                        typ.value -= 10;
-                        break;
-                    case "poison":
-                        typ.value++;
-                        break;
-                    case "steel":
-                        typ.value++;
-                        break;
+                    case "bug": typ.value--; break;
+                    case "dark": typ.value--; break;
+                    case "fighting": typ.value--; break;
+                    case "dragon ": typ.value -= 10; break;
+                    case "poison": typ.value++; break;
+                    case "steel": typ.value++; break;
                 }
             }
         }
