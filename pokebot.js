@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "shrink"
+	token: "remove horror"
 });
 
 //confirms login
@@ -84,8 +84,6 @@ function pokemon(user, userID, channelID, message, event) {
 			to: channelID,
 			message: "This command serves information about Pokémon! Use the Pokémon's name as the argument. For alternate formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'mega charizard y'."
 		});
-	} else if (mon === "list") { //lists all pokemon until character limit
-		list(user, userID, channelID, message, event, mons);
 	} else if (mon === "rap") { //returns pokerap text
 		rap(user, userID, channelID, message, event);
 	} else {
@@ -189,8 +187,6 @@ function move(user, userID, channelID, message, event) {
 			to: channelID,
 			message: "This command serves information about Pokémon's moves! Use the move's name as the argument, with spaces where appropriate."
 		});
-	} else if (mov === "list") {
-		list(user, userID, channelID, message, event, moves);
 	} else {
 		var out = "";
 		for (var move of moves) {
@@ -242,8 +238,6 @@ function item(user, userID, channelID, message, event) {
 			to: channelID,
 			message: "This command serves information about items! Use the item's name as the argument, with spaces where appropriate, full stops."
 		});
-	} else if (it === "list") {
-		list(user, userID, channelID, message, event, items);
 	} else {
 		for (var ite of items) {
 			if (ite.id === it) {
@@ -275,8 +269,6 @@ function ability(user, userID, channelID, message, event) {
 			to: channelID,
 			message: "This command serves information about abilities! Use the ability's name as the argument, with spaces where appropriate."
 		});
-	} else if (ab === "list") {
-		list(user, userID, channelID, message, event, abilities);
 	} else {
 		for (var abi of abilities) {
 			if (abi.id === ab) {
@@ -590,19 +582,6 @@ function weak(user, userID, channelID, message, event) {
             message: "Pokémon: " + current.name + "\nWeaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms
         });
     }
-}
-
-function list(user, userID, channelID, message, event, arr) {
-	var out = "";
-	for (var i = 0; i < arr.length; i++) {
-		if (out.length + arr[i].length < 2000) {
-			out += arr[i] + ", ";
-		}
-	}
-	bot.sendMessage({
-		to: channelID,
-		message: "" + out
-	});
 }
 
 function rap(user, userID, channelID, message, event) {
