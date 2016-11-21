@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "pokedex"
+	token: "aloladex"
 });
 
 //confirms login
@@ -20,6 +20,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	}
 	if (message.toLowerCase().substring(0, 8) === "!pokedex") {
 		pokedex(user, userID, channelID, message, event);
+	}
+	if (message.toLowerCase().substring(0, 9) === "!aloladex") {
+		aloladex(user, userID, channelID, message, event);
 	}
 	if (message.toLowerCase().substring(0, 5) === "!move") {
 		move(user, userID, channelID, message, event);
@@ -55,6 +58,7 @@ function help(user, userID, channelID, message, event) {
 		"\n!help: Displays this help message." + 
 		"\n!pokemon: Serves information about individual Pokémon." + 
 		"\n!pokedex: Serves Pokémon information by Pokédex number lookup." +
+		"\n!aloladex: Serves Pokémon information by Alola Pokédex number lookup." +
 		"\n!move: Serves information about Pokémon moves." + 
 		"\n!item: Serves information about items." + 
 		"\n!ability: Serves information about pokemon abilites." + 
@@ -139,6 +143,36 @@ function pokedex(user, userID, channelID, message, event) {
 			bot.sendMessage({
 				to: channelID,
 				message: out
+			});
+		}
+	}
+}
+
+function aloladex(user, userID, channelID, message, event) {
+	var mon = message.substring(10); //gets part of message after the "!pokemon" that sent it here
+	var out = "";
+	var current;
+	if (mon === "help") { //returns help text
+		bot.sendMessage({
+			to: channelID,
+			message: "This command serves information about Pokémon by Alola Pokédex number lookup! Use the Pokémon's Alola Pokédex number as the argument. Alternate formes are not supported."
+		});
+	} else {
+		mon = parseInt(mon);
+		for (var man of mons) {
+			if (man.alola === mon) {
+				current = man;
+			}
+		}
+		if (current === undefined) {
+			bot.sendMessage({
+				to: channelID,
+				message: "I don't recognise that Pokémon, " + user + "!"
+			});
+		} else {
+			bot.sendMessage({
+				to: channelID,
+				message: "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki
 			});
 		}
 	}
