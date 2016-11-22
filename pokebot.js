@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "remove horror"
+	token: ""
 });
 
 //confirms login
@@ -95,7 +95,7 @@ function pokemon(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that Pokémon, " + "@<" + userID + ">" + "!"
+				message: "I don't recognise that Pokémon, " + user + "!"
 			});
 		} else {
 			if (current.alola === -1) {
@@ -130,7 +130,7 @@ function pokedex(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that Pokémon, " + "@<" + userID + ">" + "!"
+				message: "I don't recognise that Pokémon, " + user + "!"
 			});
 		} else {
 			if (current.alola === -1) {
@@ -165,7 +165,7 @@ function aloladex(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that Pokémon, " + "@<" + userID + ">" + "!"
+				message: "I don't recognise that Pokémon, " + user + "!"
 			});
 		} else {
 			bot.sendMessage({
@@ -198,7 +198,7 @@ function move(user, userID, channelID, message, event) {
 		if (current === undefined) { //if it didn't find anything
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that move, " + "@<" + userID + ">" + "!"
+				message: "I don't recognise that move, " + user + "!"
 			});
 		} else {
 			for (var prop of moveprops){//not every move object has every property, so this iterates through them
@@ -248,7 +248,7 @@ function item(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that item, " + "@<" + userID + ">" + "!"
+				message: "I don't recognise that item, " + user + "!"
 			});
 		} else {
 			bot.sendMessage({
@@ -278,7 +278,7 @@ function ability(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that ability, " + "@<" + userID + ">" + "!"
+				message: "I don't recognise that ability, " + user + "!"
 			});
 		} else {
 			bot.sendMessage({
@@ -314,7 +314,7 @@ function weak(user, userID, channelID, message, event) {
     var imms = "";
     var out = "";
     var current;
-    var mon = message.substring(6);
+    var mon = message.substring(6).toLowerCase();
     for (var mo of mons) {
         if (mo.id === mon) {
             current = mo;
@@ -323,19 +323,10 @@ function weak(user, userID, channelID, message, event) {
     if (current === undefined) {
         bot.sendMessage({
             to: channelID,
-            message: "I don't recognise that Pokémon, " + "@<" + userID + ">" + "!"
+            message: "I don't recognise that Pokémon, " + user + "!"
         });
     } else {
         var type = current.type.toLowerCase();
-        if (type.indexOf("normal") !== -1) {
-            for (var typ of types) {
-                switch (typ.id) {
-                    case "ghost": type.value -= 10; break;
-                    case "fighting": type.value++; break;
-					default: break;
-                }
-            }
-        }
         if (type.indexOf("fire") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
@@ -352,6 +343,15 @@ function weak(user, userID, channelID, message, event) {
                 }
             }
         }
+        if (type.indexOf("normal") !== -1) {
+            for (var typ of types) {
+                switch (typ.id) {
+                    case "ghost": type.value -= 10; break;
+                    case "fighting": type.value++; break;
+					default: break;
+                }
+            }
+        } 
         if (type.indexOf("fighting") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
@@ -384,7 +384,7 @@ function weak(user, userID, channelID, message, event) {
                     case "bug": typ.value--; break;
                     case "fighting": typ.value--; break;
                     case "grass": typ.value--; break;
-                    case "ground ": typ.value -= 10; break;
+                    case "ground": typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; break;
                     case "electric": typ.value++; break;
                     case "ice": typ.value++; break;
                     case "rock": typ.value++; break;
@@ -438,7 +438,7 @@ function weak(user, userID, channelID, message, event) {
                 switch (typ.id) {
                     case "poison": typ.value--; break;
                     case "rock": typ.value--; break;
-                    case "electric ": typ.value -= 10; break;
+                    case "electric": typ.value -= 10; break;
                     case "grass": typ.value++; break;
                     case "ice": typ.value++; break;
                     case "water": typ.value++; break;
@@ -518,8 +518,8 @@ function weak(user, userID, channelID, message, event) {
                 switch (typ.id) {
                     case "bug": typ.value--; break;
                     case "poison": typ.value--; break;
-                    case "normal ": typ.value -= 10; break;
-                    case "fighting ": typ.value -= 10; break;
+                    case "normal": typ.value -= 10; break;
+                    case "fighting": typ.value -= 10; break;
                     case "ghost": typ.value++; break;
                     case "dark": typ.value++; break;
 					default: break;
@@ -531,7 +531,7 @@ function weak(user, userID, channelID, message, event) {
                 switch (typ.id) {
                     case "dark": typ.value--; break;
                     case "ghost": typ.value--; break;
-                    case "psychic ": typ.value -= 10; break;
+                    case "psychic": typ.value -= 10; break;
                     case "bug": typ.value++; break;
                     case "fighting": typ.value++; break;
                     case "fairy": typ.value++; break;
@@ -552,7 +552,7 @@ function weak(user, userID, channelID, message, event) {
                     case "psychic": typ.value--; break;
                     case "rock": typ.value--; break;
                     case "steel": typ.value--; break;
-                    case "poison ": typ.value -= 10; break;
+                    case "poison": typ.value -= 10; break;
                     case "fighting": typ.value++; break;
                     case "fire": typ.value++; break;
                     case "ground": typ.value++; break;
@@ -566,7 +566,7 @@ function weak(user, userID, channelID, message, event) {
                     case "bug": typ.value--; break;
                     case "dark": typ.value--; break;
                     case "fighting": typ.value--; break;
-                    case "dragon ": typ.value -= 10; break;
+                    case "dragon": typ.value -= 10; break;
                     case "poison": typ.value++; break;
                     case "steel": typ.value++; break;
 					default: break;
