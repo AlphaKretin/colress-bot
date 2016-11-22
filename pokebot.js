@@ -112,7 +112,7 @@ function pokemon(user, userID, channelID, message, event) {
 }
 
 function pokedex(user, userID, channelID, message, event) {
-	var mon = message.substring(9); //gets part of message after the "!pokemon" that sent it here
+	var mon = message.substring(9); //gets part of message after the "!pokedex" that sent it here
 	var out = "";
 	var current;
 	if (mon === "help") { //returns help text
@@ -147,7 +147,7 @@ function pokedex(user, userID, channelID, message, event) {
 }
 
 function aloladex(user, userID, channelID, message, event) {
-	var mon = message.substring(10); //gets part of message after the "!pokemon" that sent it here
+	var mon = message.substring(10); //gets part of message after the "!aloladex" that sent it here
 	var out = "";
 	var current;
 	if (mon === "help") { //returns help text
@@ -178,8 +178,9 @@ function aloladex(user, userID, channelID, message, event) {
 
 //returns move info, see pokemon function
 function move(user, userID, channelID, message, event) {
-	var moveprops = ["name", "type", "cat", "power", "pp", "acc", "effect", "zeffect", "wiki"];
-	var current;
+	var moveprops = ["name", "type", "cat", "power", "pp", "acc", "effect", "zeffect", "wiki"]; //list of potential properties in a move object for iteration
+	var current; //working var, deliberately left undefined for later
+	var out = "";
 	var mov = message.substring(6);
 	mov = mov.toLowerCase();
 	if (mov === "help") {
@@ -189,19 +190,19 @@ function move(user, userID, channelID, message, event) {
 		});
 	} else {
 		var out = "";
-		for (var move of moves) {
+		for (var move of moves) {//find move in array that matches user input
 			if (move.id === mov) {
-				current = move;
+				current = move; //assign it to a wider-scoped var for use
 			}
 		}
-		if (current === undefined) {
+		if (current === undefined) { //if it didn't find anything
 			bot.sendMessage({
 				to: channelID,
 				message: "I don't recognise that move, " + user + "!"
 			});
 		} else {
-			for (var prop of moveprops){
-				if (current[prop] !== undefined){
+			for (var prop of moveprops){//not every move object has every property, so this iterates through them
+				if (current[prop] !== undefined){//to see which ones it has and add them to the output
 					out += propToString(prop) + ": " + current[prop] + "\n";
 				}
 			}
@@ -250,10 +251,9 @@ function item(user, userID, channelID, message, event) {
 				message: "I don't recognise that item, " + user + "!"
 			});
 		} else {
-			out = "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki;
 			bot.sendMessage({
 				to: channelID,
-				message: out
+				message: "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki
 			});
 		}
 	}
@@ -281,10 +281,9 @@ function ability(user, userID, channelID, message, event) {
 				message: "I don't recognise that ability, " + user + "!"
 			});
 		} else {
-			out = "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki;
 			bot.sendMessage({
 				to: channelID,
-				message: out
+				message: "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki
 			});
 		}
 	}
@@ -333,6 +332,7 @@ function weak(user, userID, channelID, message, event) {
                 switch (typ.id) {
                     case "ghost": type.value -= 10; break;
                     case "fighting": type.value++; break;
+					default: break;
                 }
             }
         }
@@ -348,6 +348,7 @@ function weak(user, userID, channelID, message, event) {
                     case "ground": typ.value++; break;
                     case "rock": typ.value++; break;
                     case "water": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -360,6 +361,7 @@ function weak(user, userID, channelID, message, event) {
                     case "fairy": typ.value++; break;
                     case "flying": typ.value++; break;
                     case "psychic": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -372,6 +374,7 @@ function weak(user, userID, channelID, message, event) {
                     case "water": typ.value--; break;
                     case "electric": typ.value++; break;
                     case "grass": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -385,6 +388,7 @@ function weak(user, userID, channelID, message, event) {
                     case "electric": typ.value++; break;
                     case "ice": typ.value++; break;
                     case "rock": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -400,6 +404,7 @@ function weak(user, userID, channelID, message, event) {
                     case "flying": typ.value++; break;
                     case "ice": typ.value++; break;
                     case "poison": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -413,6 +418,7 @@ function weak(user, userID, channelID, message, event) {
                     case "poison": typ.value--; break;
                     case "ground": typ.value++; break;
                     case "psychic": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -423,6 +429,7 @@ function weak(user, userID, channelID, message, event) {
                     case "flying": typ.value--; break;
                     case "steel": typ.value--; break;
                     case "ground": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -435,6 +442,7 @@ function weak(user, userID, channelID, message, event) {
                     case "grass": typ.value++; break;
                     case "ice": typ.value++; break;
                     case "water": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -446,6 +454,7 @@ function weak(user, userID, channelID, message, event) {
                     case "bug": typ.value++; break;
                     case "dark": typ.value++; break;
                     case "ghost": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -461,6 +470,7 @@ function weak(user, userID, channelID, message, event) {
                     case "ground": typ.value++; break;
                     case "steel": typ.value++; break;
                     case "water": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -472,6 +482,7 @@ function weak(user, userID, channelID, message, event) {
                     case "fire": typ.value++; break;
                     case "rock": typ.value++; break;
                     case "steel": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -484,6 +495,7 @@ function weak(user, userID, channelID, message, event) {
                     case "fire": typ.value++; break;
                     case "flying": typ.value++; break;
                     case "rock": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -497,6 +509,7 @@ function weak(user, userID, channelID, message, event) {
                     case "dragon": typ.value++; break;
                     case "ice": typ.value++; break;
                     case "fairy": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -509,6 +522,7 @@ function weak(user, userID, channelID, message, event) {
                     case "fighting ": typ.value -= 10; break;
                     case "ghost": typ.value++; break;
                     case "dark": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -521,6 +535,7 @@ function weak(user, userID, channelID, message, event) {
                     case "bug": typ.value++; break;
                     case "fighting": typ.value++; break;
                     case "fairy": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -541,6 +556,7 @@ function weak(user, userID, channelID, message, event) {
                     case "fighting": typ.value++; break;
                     case "fire": typ.value++; break;
                     case "ground": typ.value++; break;
+					default: break;
                 }
             }
         }
@@ -553,6 +569,7 @@ function weak(user, userID, channelID, message, event) {
                     case "dragon ": typ.value -= 10; break;
                     case "poison": typ.value++; break;
                     case "steel": typ.value++; break;
+					default: break;
                 }
             }
         }
