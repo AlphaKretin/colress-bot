@@ -95,7 +95,7 @@ function pokemon(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that Pokémon, " + user + "!"
+				message: "I don't recognise that Pokémon, " + "@<" + userID + ">" + "!"
 			});
 		} else {
 			if (current.alola === -1) {
@@ -130,7 +130,7 @@ function pokedex(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that Pokémon, " + user + "!"
+				message: "I don't recognise that Pokémon, " + "@<" + userID + ">" + "!"
 			});
 		} else {
 			if (current.alola === -1) {
@@ -165,7 +165,7 @@ function aloladex(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that Pokémon, " + user + "!"
+				message: "I don't recognise that Pokémon, " + "@<" + userID + ">" + "!"
 			});
 		} else {
 			bot.sendMessage({
@@ -198,7 +198,7 @@ function move(user, userID, channelID, message, event) {
 		if (current === undefined) { //if it didn't find anything
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that move, " + user + "!"
+				message: "I don't recognise that move, " + "@<" + userID + ">" + "!"
 			});
 		} else {
 			for (var prop of moveprops){//not every move object has every property, so this iterates through them
@@ -248,7 +248,7 @@ function item(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that item, " + user + "!"
+				message: "I don't recognise that item, " + "@<" + userID + ">" + "!"
 			});
 		} else {
 			bot.sendMessage({
@@ -278,7 +278,7 @@ function ability(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			bot.sendMessage({
 				to: channelID,
-				message: "I don't recognise that ability, " + user + "!"
+				message: "I don't recognise that ability, " + "@<" + userID + ">" + "!"
 			});
 		} else {
 			bot.sendMessage({
@@ -323,7 +323,7 @@ function weak(user, userID, channelID, message, event) {
     if (current === undefined) {
         bot.sendMessage({
             to: channelID,
-            message: "I don't recognise that Pokémon, " + user + "!"
+            message: "I don't recognise that Pokémon, " + "@<" + userID + ">" + "!"
         });
     } else {
         var type = current.type.toLowerCase();
