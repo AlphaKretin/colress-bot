@@ -2,13 +2,30 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "online"
+	token: "pokegoons"
 });
 
 //confirms login
 bot.on('ready', function(event) {
 	console.log('Logged in as %s - %s\n', bot.username, bot.id);
 });
+
+function sendMessage(user, userID, channelID, message, event, output){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+	if (serverID === "160817374587650048"){
+		bot.sendMessage({
+			to: "256301677768998913",
+			message: output
+		});
+	} else {
+		bot.sendMessage({
+			to: channelID
+			message: output
+		});
+	}
+}
+
+bot.on('disconnect', function() { bot.connect() });
 
 //reads incoming messages to look for commands
 bot.on('message', function(user, userID, channelID, message, event) {
@@ -52,25 +69,24 @@ bot.on('message', function(user, userID, channelID, message, event) {
 
 //outputs help text
 function help(user, userID, channelID, message, event) {
-	bot.sendMessage({
-		to: channelID,
-		message: "Hello, I am Colress. My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
-		"\n!help: Displays this help message." + 
-		"\n!pokemon: Serves information about individual Pokémon." + 
-		"\n!pokedex: Serves Pokémon information by Pokédex number lookup." +
-		"\n!aloladex: Serves Pokémon information by Alola Pokédex number lookup." +
-		"\n!move: Serves information about Pokémon moves." + 
-		"\n!item: Serves information about items." + 
-		"\n!ability: Serves information about pokemon abilites." + 
-		"\n!weak: Calculates the type relationships of a Pokémon." + 
-		"\n!typechart: Displays a chart of type strengths and weaknesses." + 
-		"\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" + 
-		"\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" + 
-		"\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
-		"\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." + 
-		"\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" + 
-		"\nI was created by AlphaKretin, using discord.io in node.js."
-	});
+	sendMessage(user, userID, channelID, message, event,
+	"Hello, I am Colress. My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
+	"\n!help: Displays this help message." + 
+	"\n!pokemon: Serves information about individual Pokémon." + 
+	"\n!pokedex: Serves Pokémon information by Pokédex number lookup." +
+	"\n!aloladex: Serves Pokémon information by Alola Pokédex number lookup." +
+	"\n!move: Serves information about Pokémon moves." + 
+	"\n!item: Serves information about items." + 
+	"\n!ability: Serves information about pokemon abilites." + 
+	"\n!weak: Calculates the type relationships of a Pokémon." + 
+	"\n!typechart: Displays a chart of type strengths and weaknesses." + 
+	"\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" + 
+	"\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" + 
+	"\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
+	"\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." + 
+	"\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" + 
+	"\nI was created by AlphaKretin, using discord.io in node.js."
+	);
 }
 
 //returns pokemon info
@@ -80,10 +96,7 @@ function pokemon(user, userID, channelID, message, event) {
 	var current;
 	mon = mon.toLowerCase(); //formatted to match array
 	if (mon === "help") { //returns help text
-		bot.sendMessage({
-			to: channelID,
-			message: "This command serves information about Pokémon! Use the Pokémon's name as the argument. For alternate formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'mega charizard y'."
-		});
+		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon! Use the Pokémon's name as the argument. For alternate formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'mega charizard y'.");
 	} else if (mon === "rap") { //returns pokerap text
 		rap(user, userID, channelID, message, event);
 	} else {
@@ -93,20 +106,14 @@ function pokemon(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			bot.sendMessage({
-				to: channelID,
-				message: "I don't recognise that Pokémon, " + user + "!"
-			});
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
 		} else {
 			if (current.alola === -1) {
 				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki;
 			} else {
 				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki;
 			}
-			bot.sendMessage({
-				to: channelID,
-				message: out
-			});
+			sendMessage(user, userID, channelID, message, event, out);
 		}
 	}
 }
@@ -116,10 +123,7 @@ function pokedex(user, userID, channelID, message, event) {
 	var out = "";
 	var current;
 	if (mon === "help") { //returns help text
-		bot.sendMessage({
-			to: channelID,
-			message: "This command serves information about Pokémon by Pokédex number lookup! Use the Pokémon's Pokédex number as the argument. Alternate formes are not supported."
-		});
+		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon by Pokédex number lookup! Use the Pokémon's Pokédex number as the argument. Alternate formes are not supported.");
 	} else {
 		mon = parseInt(mon);
 		for (var man of mons) {
@@ -128,20 +132,14 @@ function pokedex(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			bot.sendMessage({
-				to: channelID,
-				message: "I don't recognise that Pokémon, " + user + "!"
-			});
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
 		} else {
 			if (current.alola === -1) {
 				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki;
 			} else {
 				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki;
 			}
-			bot.sendMessage({
-				to: channelID,
-				message: out
-			});
+			sendMessage(user, userID, channelID, message, event, out);
 		}
 	}
 }
@@ -151,10 +149,7 @@ function aloladex(user, userID, channelID, message, event) {
 	var out = "";
 	var current;
 	if (mon === "help") { //returns help text
-		bot.sendMessage({
-			to: channelID,
-			message: "This command serves information about Pokémon by Alola Pokédex number lookup! Use the Pokémon's Alola Pokédex number as the argument. Alternate formes are not supported."
-		});
+		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon by Alola Pokédex number lookup! Use the Pokémon's Alola Pokédex number as the argument. Alternate formes are not supported.");
 	} else {
 		mon = parseInt(mon);
 		for (var man of mons) {
@@ -163,15 +158,9 @@ function aloladex(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			bot.sendMessage({
-				to: channelID,
-				message: "I don't recognise that Pokémon, " + user + "!"
-			});
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
 		} else {
-			bot.sendMessage({
-				to: channelID,
-				message: "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki
-			});
+			sendMessage(user, userID, channelID, message, event, "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki);
 		}
 	}
 }
@@ -184,10 +173,7 @@ function move(user, userID, channelID, message, event) {
 	var mov = message.substring(6);
 	mov = mov.toLowerCase();
 	if (mov === "help") {
-		bot.sendMessage({
-			to: channelID,
-			message: "This command serves information about Pokémon's moves! Use the move's name as the argument, with spaces where appropriate."
-		});
+		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon's moves! Use the move's name as the argument, with spaces where appropriate.");
 	} else {
 		var out = "";
 		for (var move of moves) {//find move in array that matches user input
@@ -196,20 +182,14 @@ function move(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) { //if it didn't find anything
-			bot.sendMessage({
-				to: channelID,
-				message: "I don't recognise that move, " + user + "!"
-			});
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that move, " + user + "!");
 		} else {
 			for (var prop of moveprops){//not every move object has every property, so this iterates through them
 				if (current[prop] !== undefined){//to see which ones it has and add them to the output
 					out += propToString(prop) + ": " + current[prop] + "\n";
 				}
 			}
-			bot.sendMessage({
-				to: channelID,
-				message: out
-			});
+			sendMessage(user, userID, channelID, message, event, out);
 		}
 	}
 }
@@ -236,10 +216,7 @@ function item(user, userID, channelID, message, event) {
 	var current;
 	it = it.toLowerCase();
 	if (it === "help") {
-		bot.sendMessage({
-			to: channelID,
-			message: "This command serves information about items! Use the item's name as the argument, with spaces where appropriate, full stops."
-		});
+		sendMessage(user, userID, channelID, message, event, "This command serves information about items! Use the item's name as the argument, with spaces where appropriate, full stops.");
 	} else {
 		for (var ite of items) {
 			if (ite.id === it) {
@@ -247,15 +224,9 @@ function item(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			bot.sendMessage({
-				to: channelID,
-				message: "I don't recognise that item, " + user + "!"
-			});
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that item, " + user + "!");
 		} else {
-			bot.sendMessage({
-				to: channelID,
-				message: "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki
-			});
+			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki);
 		}
 	}
 }
@@ -266,10 +237,7 @@ function ability(user, userID, channelID, message, event) {
 	var current;
 	ab = ab.toLowerCase();
 	if (ab === "help") {
-		bot.sendMessage({
-			to: channelID,
-			message: "This command serves information about abilities! Use the ability's name as the argument, with spaces where appropriate."
-		});
+		sendMessage(user, userID, channelID, message, event, "This command serves information about abilities! Use the ability's name as the argument, with spaces where appropriate.");
 	} else {
 		for (var abi of abilities) {
 			if (abi.id === ab) {
@@ -277,15 +245,9 @@ function ability(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			bot.sendMessage({
-				to: channelID,
-				message: "I don't recognise that ability, " + user + "!"
-			});
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that ability, " + user + "!");
 		} else {
-			bot.sendMessage({
-				to: channelID,
-				message: "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki
-			});
+			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki);
 		}
 	}
 }
@@ -322,10 +284,7 @@ function weak(user, userID, channelID, message, event) {
         }
     }
     if (current === undefined) {
-        bot.sendMessage({
-            to: channelID,
-            message: "I don't recognise that Pokémon, " + user + "!"
-        });
+        sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
     } else {
         var type = current.type.toLowerCase();
         if (type.indexOf("fire") !== -1) {
@@ -595,10 +554,7 @@ function weak(user, userID, channelID, message, event) {
         imms = imms.slice(0, imms.length - 2);
         res = res.slice(0, res.length - 2);
         weaks = weaks.slice(0, weaks.length - 2);
-        bot.sendMessage({
-            to: channelID,
-            message: "Pokémon: " + current.name + "\nWeaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms
-        });
+        sendMessage(user, userID, channelID, message, event, "Pokémon: " + current.name + "\nWeaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms);
     }
 }
 
@@ -643,45 +599,27 @@ function rap(user, userID, channelID, message, event) {
 		"Mewtwo, Tentacruel, Aerodactyl\n" +
 		"Omanyte, Slowpoke\n" +
 		"Pidgeot, Arbok - That's all, folks!";
-	bot.sendMessage({
-		to: channelID,
-		message: "" + out
-	});
+	sendMessage(user, userID, channelID, message, event, "" + out);
 }
 
 function typechart(user, userID, channelID, message, event) {
-	bot.sendMessage({
-		to: channelID,
-		message: "http://i.imgur.com/fylyCdC.png"
-	});
+	sendMessage(user, userID, channelID, message, event, "http://i.imgur.com/fylyCdC.png");
 }
 
 function evolution(user, userID, channelID, message, event) {
 	if (message !== "!evolution confirm spoiler") {
-		bot.sendMessage({
-			to: channelID,
-			message: "Spoiler alert! This command displays an image that spoils aspects of the new Sun and Moon! If you're sure you, and everyone else in the channel, are fine with seeing it, type '!evolution confirm spoiler'."
-		});
+		sendMessage(user, userID, channelID, message, event, "Spoiler alert! This command displays an image that spoils aspects of the new Sun and Moon! If you're sure you, and everyone else in the channel, are fine with seeing it, type '!evolution confirm spoiler'.");
 	} else {
-		bot.sendMessage({
-			to: channelID,
-			message: "https://a.pomf.cat/lmesct.png"
-		});
+		sendMessage(user, userID, channelID, message, event, "https://a.pomf.cat/lmesct.png");
 	}
 }
 
 function qr(user, userID, channelID, message, event) {
-	bot.sendMessage({
-		to: channelID,
-		message: "http://imgur.com/a/EFOqs"
-	});
+	sendMessage(user, userID, channelID, message, event, "http://imgur.com/a/EFOqs");
 }
 
 function nature(user, userID, channelID, message, event) {
-	bot.sendMessage({
-		to: channelID,
-		message: "http://faqs.neoseeker.com/Games/DS/pokemon_bw_2_nature.png"
-	});
+	sendMessage(user, userID, channelID, message, event, "http://faqs.neoseeker.com/Games/DS/pokemon_bw_2_nature.png");
 }
 
 function c(string) {
@@ -708,7 +646,7 @@ var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass
  {id: "pidgeot", name: "Pidgeot", dex: 18, alola: -1, type: "Normal/Flying", ability: "Keen Eye/Tangled Feet/Big Pecks", wiki: "http://www.serebii.net/pokedex-sm/018.shtml", image: "http://www.serebii.net/sunmoon/pokemon/018.png"},
  {id: "rattata", name: "Rattata", dex: 19, alola: 13, type: "Normal", ability: "Run Away/Guts/Hustle", wiki: "http://www.serebii.net/pokedex-sm/019.shtml", image: "http://www.serebii.net/sunmoon/pokemon/019.png"},
  {id: "raticate", name: "Raticate", dex: 20, alola: 14, type: "Normal", ability: "Run Away/Guts/Hustle", wiki: "http://www.serebii.net/pokedex-sm/020.shtml", image: "http://www.serebii.net/sunmoon/pokemon/020.png"},
- {id: "alolan rattata", name: "Rattata", dex: 19, alola: 13, type: "Dark/Normal", ability: "Gluttony/Hustle/Thick Fat", wiki: "http://www.serebii.net/pokedex-sm/019.shtml", image: "http://www.serebii.net/sunmoon/pokemon/019-a.png"},
+ {id: "alolan rattata", name: "Alolan Rattata", dex: 19, alola: 13, type: "Dark/Normal", ability: "Gluttony/Hustle/Thick Fat", wiki: "http://www.serebii.net/pokedex-sm/019.shtml", image: "http://www.serebii.net/sunmoon/pokemon/019-a.png"},
  {id: "alolan raticate", name: "Alolan Raticate", dex: 20, alola: 14, type: "Dark Normal", ability: "Gluttony/Hustle/Thick Fat", wiki: "http://www.serebii.net/pokedex-sm/020.shtml", image: "http://www.serebii.net/sunmoon/pokemon/020-a.png"},
  {id: "spearow", name: "Spearow", dex: 21, alola: 59, type: "Normal/Flying", ability: "Keen Eye/None/Sniper", wiki: "http://www.serebii.net/pokedex-sm/021.shtml", image: "http://www.serebii.net/sunmoon/pokemon/021.png"},
  {id: "fearow", name: "Fearow", dex: 22, alola: 60, type: "Normal/Flying", ability: "Keen Eye/None/Sniper", wiki: "http://www.serebii.net/pokedex-sm/022.shtml", image: "http://www.serebii.net/sunmoon/pokemon/022.png"},
@@ -1550,7 +1488,7 @@ var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass
  {id: "sandygast", name: "Sandygast", dex: 769, alola: 186, type: "Ghost/Ground", ability: "Water Compaction/None/Sand Veil", wiki: "http://www.serebii.net/pokedex-sm/769.shtml", image: "http://www.serebii.net/sunmoon/pokemon/769.png"},
  {id: "palossand", name: "Palossand", dex: 770, alola: 187, type: "Ghost/Ground", ability: "Water Compaction/None/Sand Veil", wiki: "http://www.serebii.net/pokedex-sm/770.shtml", image: "http://www.serebii.net/sunmoon/pokemon/770.png"},
  {id: "pyukumuku", name: "Pyukumuku", dex: 771, alola: 200, type: "Water", ability: "Innards Out/None/Unaware", wiki: "http://www.serebii.net/pokedex-sm/771.shtml", image: "http://www.serebii.net/sunmoon/pokemon/771.png"},
- {id: "type null", name: "Type: Null", dex: 772, alola: 203, type: "Normal", ability: "Battle Armor", wiki: "http://www.serebii.net/pokedex-sm/772.shtml", image: "http://www.serebii.net/sunmoon/pokemon/772.png"},
+ {id: "type: null", name: "Type: Null", dex: 772, alola: 203, type: "Normal", ability: "Battle Armor", wiki: "http://www.serebii.net/pokedex-sm/772.shtml", image: "http://www.serebii.net/sunmoon/pokemon/772.png"},
  {id: "silvally", name: "Silvally", dex: 773, alola: 204, type: "Normal", ability: "RKS System", wiki: "http://www.serebii.net/pokedex-sm/773.shtml", image: "http://www.serebii.net/sunmoon/pokemon/773.png"},
  {id: "minior", name: "Minior", dex: 774, alola: 213, type: "Rock/Flying", ability: "Shields Down", wiki: "http://www.serebii.net/pokedex-sm/774.shtml", image: "http://www.serebii.net/sunmoon/pokemon/774.png"},
  {id: "komala", name: "Komala", dex: 775, alola: 222, type: "Normal", ability: "Comatose", wiki: "http://www.serebii.net/pokedex-sm/775.shtml", image: "http://www.serebii.net/sunmoon/pokemon/775.png"},
