@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "pokegoons"
+	token: "minor text fixes"
 });
 
 //confirms login
@@ -19,7 +19,7 @@ function sendMessage(user, userID, channelID, message, event, output){
 		});
 	} else {
 		bot.sendMessage({
-			to: channelID
+			to: channelID,
 			message: output
 		});
 	}
@@ -109,9 +109,9 @@ function pokemon(user, userID, channelID, message, event) {
 			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
 		} else {
 			if (current.alola === -1) {
-				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki;
+				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
 			} else {
-				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki;
+				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
 			}
 			sendMessage(user, userID, channelID, message, event, out);
 		}
@@ -135,9 +135,9 @@ function pokedex(user, userID, channelID, message, event) {
 			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
 		} else {
 			if (current.alola === -1) {
-				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki;
+				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
 			} else {
-				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki;
+				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
 			}
 			sendMessage(user, userID, channelID, message, event, out);
 		}
@@ -160,7 +160,7 @@ function aloladex(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
 		} else {
-			sendMessage(user, userID, channelID, message, event, "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nWiki Link: " + current.wiki);
+			sendMessage(user, userID, channelID, message, event, "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki);
 		}
 	}
 }
@@ -204,7 +204,7 @@ function propToString(prop){
 		case "acc": return "Accuracy";
 		case "effect": return "Effect";
 		case "zeffect": return "Z-Move Effect";
-		case "wiki": return "Wiki Link";
+		case "wiki": return "Serebii Link";
 		case "tm": return "TMs";
 		default: return "Error";
 	}
@@ -226,7 +226,7 @@ function item(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			sendMessage(user, userID, channelID, message, event, "I don't recognise that item, " + user + "!");
 		} else {
-			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki);
+			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nSerebii Link: " + current.wiki);
 		}
 	}
 }
@@ -247,7 +247,7 @@ function ability(user, userID, channelID, message, event) {
 		if (current === undefined) {
 			sendMessage(user, userID, channelID, message, event, "I don't recognise that ability, " + user + "!");
 		} else {
-			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nWiki Link: " + current.wiki);
+			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nSerebii Link: " + current.wiki);
 		}
 	}
 }
@@ -1908,7 +1908,7 @@ var moves = [{id: "pound", name: "Pound", type: "Normal", cat: "Physical", power
  {id: "punishment", name: "Punishment", type: "Dark", cat: "Physical", pp: 5, acc: 100, effect: "Power increases when opponent's stats have been raised.", wiki: "http://www.serebii.net/attackdex-sm/punishment.shtml"},
  {id: "last resort", name: "Last Resort", type: "Normal", cat: "Physical", power: 140, pp: 5, acc: 100, effect: "Can only be used after all other moves are used.", wiki: "http://www.serebii.net/attackdex-sm/lastresort.shtml"},
  {id: "worry seed", name: "Worry Seed", type: "Grass", cat: "Status", pp: 10, acc: 100, effect: "Changes the opponent's Ability to Insomnia.", zeffect: "Speed ↑", wiki: "http://www.serebii.net/attackdex-sm/worryseed.shtml"},
- {id: "sucker punch", name: "Sucker Punch", type: "Dark", cat: "Physical", power: 80, pp: 5, acc: 100, effect: "User attacks first, but only works if opponent is readying an attack.", wiki: "http://www.serebii.net/attackdex-sm/suckerpunch.shtml"},
+ {id: "sucker punch", name: "Sucker Punch", type: "Dark", cat: "Physical", power: 70, pp: 5, acc: 100, effect: "User attacks first, but only works if opponent is readying an attack.", wiki: "http://www.serebii.net/attackdex-sm/suckerpunch.shtml"},
  {id: "toxic spikes", name: "Toxic Spikes", type: "Poison", cat: "Status", pp: 20, effect: "Poisons opponents when they switch into battle.", zeffect: "Defense ↑", wiki: "http://www.serebii.net/attackdex-sm/toxicspikes.shtml"},
  {id: "heart swap", name: "Heart Swap", type: "Psychic", cat: "Status", pp: 10, effect: "Stat changes are swapped with the opponent.", zeffect: "Boosts critical-hit ratio", wiki: "http://www.serebii.net/attackdex-sm/heartswap.shtml"},
  {id: "aqua ring", name: "Aqua Ring", type: "Water", cat: "Status", pp: 20, effect: "Restores a little HP each turn.", zeffect: "Defense ↑", wiki: "http://www.serebii.net/attackdex-sm/aquaring.shtml"},
