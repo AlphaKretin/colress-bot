@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "@mentions in pokegoons"
+	token: "spelling"
 });
 
 //confirms login
@@ -724,12 +724,12 @@ var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass
  {id: "geodude", name: "Geodude", dex: 74, alola: 229, type: "Rock/Ground", ability: "Rock Head/Sturdy/Sand Veil", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074.png"},
  {id: "graveler", name: "Graveler", dex: 75, alola: 230, type: "Rock/Ground", ability: "Rock Head/Sturdy/Sand Veil", wiki: "http://www.serebii.net/pokedex-sm/075.shtml", image: "http://www.serebii.net/sunmoon/pokemon/075.png"},
  {id: "golem", name: "Golem", dex: 76, alola: 231, type: "Rock/Ground", ability: "Rock Head/Sturdy/Sand Veil", wiki: "http://www.serebii.net/pokedex-sm/076.shtml", image: "http://www.serebii.net/sunmoon/pokemon/076.png"},
- {id: "alolan geodude", name: "Alolan Geodude", dex: 74, alola: 229, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanise", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074.png-a"},
- {id: "alolan graveler", name: "Alolan Graveler", dex: 75, alola: 230, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanise", wiki: "http://www.serebii.net/pokedex-sm/075.shtml", image: "http://www.serebii.net/sunmoon/pokemon/075-a.png"},
- {id: "alolan golem", name: "Alolan Golem", dex: 76, alola: 231, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanise", wiki: "http://www.serebii.net/pokedex-sm/076.shtml", image: "http://www.serebii.net/sunmoon/pokemon/076-a.png"},
- {id: "geodude-a", name: "Alolan Geodude", dex: 74, alola: 229, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanise", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074.png-a"},
- {id: "graveler-a", name: "Alolan Graveler", dex: 75, alola: 230, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanise", wiki: "http://www.serebii.net/pokedex-sm/075.shtml", image: "http://www.serebii.net/sunmoon/pokemon/075-a.png"},
- {id: "golem-a", name: "Alolan Golem", dex: 76, alola: 231, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanise", wiki: "http://www.serebii.net/pokedex-sm/076.shtml", image: "http://www.serebii.net/sunmoon/pokemon/076-a.png"},
+ {id: "alolan geodude", name: "Alolan Geodude", dex: 74, alola: 229, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074.png-a"},
+ {id: "alolan graveler", name: "Alolan Graveler", dex: 75, alola: 230, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/075.shtml", image: "http://www.serebii.net/sunmoon/pokemon/075-a.png"},
+ {id: "alolan golem", name: "Alolan Golem", dex: 76, alola: 231, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/076.shtml", image: "http://www.serebii.net/sunmoon/pokemon/076-a.png"},
+ {id: "geodude-a", name: "Alolan Geodude", dex: 74, alola: 229, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074.png-a"},
+ {id: "graveler-a", name: "Alolan Graveler", dex: 75, alola: 230, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/075.shtml", image: "http://www.serebii.net/sunmoon/pokemon/075-a.png"},
+ {id: "golem-a", name: "Alolan Golem", dex: 76, alola: 231, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/076.shtml", image: "http://www.serebii.net/sunmoon/pokemon/076-a.png"},
  {id: "ponyta", name: "Ponyta", dex: 77, alola: -1, type: "Fire", ability: "Run Away/Flash Fire/Flame Body", wiki: "http://www.serebii.net/pokedex-sm/077.shtml", image: "http://www.serebii.net/sunmoon/pokemon/077.png"},
  {id: "rapidash", name: "Rapidash", dex: 78, alola: -1, type: "Fire", ability: "Run Away/Flash Fire/Flame Body", wiki: "http://www.serebii.net/pokedex-sm/078.shtml", image: "http://www.serebii.net/sunmoon/pokemon/078.png"},
  {id: "slowpoke", name: "Slowpoke", dex: 79, alola: 31, type: "Water/Psychic", ability: "Oblivious/Own Tempo/Regenerator", wiki: "http://www.serebii.net/pokedex-sm/079.shtml", image: "http://www.serebii.net/sunmoon/pokemon/079.png"},
