@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "spelling"
+	token: "lookup"
 });
 
 //confirms login
@@ -65,6 +65,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0, 7) === "!nature") {
 		nature(user, userID, channelID, message, event);
 	}
+	if (message.toLowerCase().substring(0, 7) === "!lookup") {
+		lookup(user, userID, channelID, message, event);
+	}
 });
 
 //outputs help text
@@ -114,6 +117,36 @@ function pokemon(user, userID, channelID, message, event) {
 				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
 			}
 			sendMessage(user, userID, channelID, message, event, out);
+		}
+	}
+}
+
+function lookup(user, userID, channelID, message, event) {
+	var query = message.substring(8); //gets part of message after the "!lookup" that sent it here
+	for (var mon of mons){
+		if (mon.id === query){
+			pokemon(user, userID, channelID, "!pokemon " + query, event);
+			return;
+		}
+		if (mon.dex === parseInt(query)){
+			pokedex(user, userID, channelID, "!pokedex " + query, event);
+			return;
+		}
+	}
+	for (var ite of items){
+		if (ite.id === query){
+			item(user, userID, channelID, "!item " + query, event);
+			return;
+		}
+	}
+	for (var mov of moves){
+		if (mov.id === query){
+			move(user, userID, channelID, "!move " + query, event);
+		}
+	}
+	for (var ab of abilities){
+		if (ab.id === query){
+			ability(user, userID, channelID, "!ability " + query, event);
 		}
 	}
 }
