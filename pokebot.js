@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "form synonyms"
+	token: "@mentions in pokegoons"
 });
 
 //confirms login
@@ -15,7 +15,7 @@ function sendMessage(user, userID, channelID, message, event, output){
 	if (serverID === "160817374587650048"){
 		bot.sendMessage({
 			to: "256301677768998913",
-			message: output
+			message: "<@" + userID + "> \n" + output
 		});
 	} else {
 		bot.sendMessage({
@@ -106,7 +106,7 @@ function pokemon(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
 		} else {
 			if (current.alola === -1) {
 				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
@@ -132,7 +132,7 @@ function pokedex(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
 		} else {
 			if (current.alola === -1) {
 				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
@@ -158,7 +158,7 @@ function aloladex(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
 		} else {
 			sendMessage(user, userID, channelID, message, event, "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki);
 		}
@@ -182,7 +182,7 @@ function move(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) { //if it didn't find anything
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that move, " + user + "!");
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that move!");
 		} else {
 			for (var prop of moveprops){//not every move object has every property, so this iterates through them
 				if (current[prop] !== undefined){//to see which ones it has and add them to the output
@@ -224,7 +224,7 @@ function item(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that item, " + user + "!");
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that item!");
 		} else {
 			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nSerebii Link: " + current.wiki);
 		}
@@ -245,7 +245,7 @@ function ability(user, userID, channelID, message, event) {
 			}
 		}
 		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that ability, " + user + "!");
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that ability!");
 		} else {
 			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nSerebii Link: " + current.wiki);
 		}
@@ -284,7 +284,7 @@ function weak(user, userID, channelID, message, event) {
         }
     }
     if (current === undefined) {
-        sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon, " + user + "!");
+        sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
     } else {
         var type = current.type.toLowerCase();
         if (type.indexOf("fire") !== -1) {
@@ -1346,7 +1346,7 @@ var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass
  {id: "kyurem white", name: "White Kyurem", dex: 646, alola: -1, type: "Dragon/Ice", ability: "Turboblaze", wiki: "http://www.serebii.net/pokedex-sm/646.shtml", image: "http://www.serebii.net/sunmoon/pokemon/646-w.png"},
  {id: "kyurem black", name: "Black Kyurem", dex: 646, alola: -1, type: "Dragon/Ice", ability: "Teravolt", wiki: "http://www.serebii.net/pokedex-sm/646.shtml", image: "http://www.serebii.net/sunmoon/pokemon/646-b.png"},
  {id: "kyurem-w", name: "White Kyurem", dex: 646, alola: -1, type: "Dragon/Ice", ability: "Turboblaze", wiki: "http://www.serebii.net/pokedex-sm/646.shtml", image: "http://www.serebii.net/sunmoon/pokemon/646-w.png"},
- {id: "kyurem-w", name: "Black Kyurem", dex: 646, alola: -1, type: "Dragon/Ice", ability: "Teravolt", wiki: "http://www.serebii.net/pokedex-sm/646.shtml", image: "http://www.serebii.net/sunmoon/pokemon/646-b.png"},
+ {id: "kyurem-b", name: "Black Kyurem", dex: 646, alola: -1, type: "Dragon/Ice", ability: "Teravolt", wiki: "http://www.serebii.net/pokedex-sm/646.shtml", image: "http://www.serebii.net/sunmoon/pokemon/646-b.png"},
  {id: "keldeo", name: "Keldeo", dex: 647, alola: -1, type: "Water/Fighting", ability: "Justified", wiki: "http://www.serebii.net/pokedex-sm/647.shtml", image: "http://www.serebii.net/sunmoon/pokemon/647.png"},
  {id: "meloetta", name: "Meloetta", dex: 648, alola: -1, type: "Normal/Psychic", ability: "Serene Grace", wiki: "http://www.serebii.net/pokedex-sm/648.shtml", image: "http://www.serebii.net/sunmoon/pokemon/648.png"},
  {id: "meloetta pirouette", name: "Meloetta Pirouette", dex: 648, alola: -1, type: "Normal/Fighting", ability: "Serene Grace", wiki: "http://www.serebii.net/pokedex-sm/648.shtml", image: "http://www.serebii.net/sunmoon/pokemon/648-s.png"},
