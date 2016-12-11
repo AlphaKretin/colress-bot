@@ -2,9 +2,10 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "lookup"
+	token: "11/12/16"
 });
 
+var fcs = [{id: "247697943098818570", code: "5432-WOWP-LSMA"}];
 //confirms login
 bot.on('ready', function(event) {
 	console.log('Logged in as %s - %s\n', bot.username, bot.id);
@@ -12,11 +13,18 @@ bot.on('ready', function(event) {
 
 function sendMessage(user, userID, channelID, message, event, output){
 	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-	if (serverID === "160817374587650048"){
-		bot.sendMessage({
-			to: "256301677768998913",
-			message: "<@" + userID + "> \n" + output
-		});
+	if (serverID === "160817374587650048"){//in Pokegoons...
+		if (channelID === "256301677768998913"){//
+			bot.sendMessage({
+				to: "256301677768998913",
+				message: output //if user's already in bot spam, no need to direct attention
+			});
+		} else {
+			bot.sendMessage({
+				to: "256301677768998913", //i'm only allowed in bot spam
+				message: "<@" + userID + "> \n" + output //and should mention to make sure users posting elsewhere see it
+			});
+		}
 	} else {
 		bot.sendMessage({
 			to: channelID,
@@ -25,7 +33,7 @@ function sendMessage(user, userID, channelID, message, event, output){
 	}
 }
 
-bot.on('disconnect', function() { bot.connect() });
+bot.on('disconnect', function() { bot.connect(); });
 
 //reads incoming messages to look for commands
 bot.on('message', function(user, userID, channelID, message, event) {
@@ -68,6 +76,12 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0, 7) === "!lookup") {
 		lookup(user, userID, channelID, message, event);
 	}
+	if (message.toLowerCase().substring(0, 9) === "!goodluck"){
+		goodluck(user, userID, channelID, message, event);
+	}
+	if (message.toLowerCase().substring(0, 3) === "!fc"){
+		fc(user, userID, channelID, message, event);
+	}
 });
 
 //outputs help text
@@ -81,6 +95,7 @@ function help(user, userID, channelID, message, event) {
 	"\n!move: Serves information about Pokémon moves." + 
 	"\n!item: Serves information about items." + 
 	"\n!ability: Serves information about pokemon abilites." + 
+	"\n!lookup: Tries the appropriate command of any above based off the query." +
 	"\n!weak: Calculates the type relationships of a Pokémon." + 
 	"\n!typechart: Displays a chart of type strengths and weaknesses." + 
 	"\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" + 
@@ -91,6 +106,80 @@ function help(user, userID, channelID, message, event) {
 	"\nI was created by AlphaKretin, using discord.io in node.js."
 	);
 }
+
+function fc(user, userID, channelID, message, event) {
+    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (serverID === "160817374587650048") { //in Pokegoons, Samson has this covered
+        return;
+    } else {
+        var current;
+        if (message === "!fc") {
+            for (var c of fcs) {
+                if (c.id === userID) {
+                    current = c;
+                }
+            }
+            if (current === undefined) {
+                sendMessage(user, userID, channelID, message, event, "I don't know your FC, <@" + userID + ">!");
+            } else {
+                sendMessage(user, userID, channelID, message, event, "Your FC is **" + current.code + "**, <@" + userID + ">!");
+            }
+        } else if (message.match(/<@\d*>/) !== null) {
+            var current;
+            var queryID = message.match(/<@\d*>/)[0].slice(2, 20);
+            for (var c of fcs) {
+                if (c.id === queryID) {
+                    current = c;
+                }
+            }
+            if (current !== undefined){
+            	var queryCode = current.code;
+            }
+            for (var c of fcs) {
+                if (c.id === userID) {
+                    current = c;
+                }
+            }
+            if (current !== undefined){
+            	var userCode = current.code;
+            }
+            var out = "";
+            if (queryCode === undefined){
+            	out += "I don't know <@" + queryID + ">'s FC, <@" + userID + ">! ";
+            } else {
+            	out += "<@" + queryID + ">'s FC is **" + queryCode + "**, <@" + userID + ">! "  
+            }
+            if (userCode === undefined){
+            	out += "Also, I don't know your FC!";
+            } else {
+            	out += "Also, your FC is **" + userCode + "**!";
+            }
+            sendMessage(user, userID, channelID, message, event, out);
+        } else {
+            var input = message.substring(4);
+            input = input.replace(/\D/g, '');
+            if (input.length === 12) {
+                input = input.slice(0, 4) + "-" + input.slice(4, 8) + "-" + input.slice(8);
+                var a = true;
+                for (var c of fcs) {
+                    if (c.id === userID) {
+                        c.code = input;
+                        a = false;
+                    }
+                }
+                if (a) {
+                    fcs.push({
+                        id: userID,
+                        code: input
+                    });
+                }
+                sendMessage(user, userID, channelID, message, event, "Your FC is **" + input + "**, <@" + userID + ">!");
+            } else {
+                sendMessage(user, userID, channelID, message, event, "FCs are 12 digits, <@" + userID + ">!");
+            }
+        }
+    }
+} 
 
 //returns pokemon info
 function pokemon(user, userID, channelID, message, event) {
@@ -649,6 +738,10 @@ function evolution(user, userID, channelID, message, event) {
 
 function qr(user, userID, channelID, message, event) {
 	sendMessage(user, userID, channelID, message, event, "http://imgur.com/a/EFOqs");
+}
+
+function goodluck(user, userID, channelID, message, event){
+	sendMessage(user, userID, channelID, message, event, "https://www.youtube.com/watch?v=9uKIeamPi2Y");
 }
 
 function nature(user, userID, channelID, message, event) {
