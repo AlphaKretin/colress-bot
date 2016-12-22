@@ -2,13 +2,21 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "11/12/16"
+	token: "22/12/16"
 });
+var jsonfile = require('jsonfile');
+var file = "data.json";
+var incoming = [];
+var yetToLoad = true;
 
-var fcs = [{id: "247697943098818570", code: "5432-WOWP-LSMA"}];
+var fcs = [{id: "247697943098818570", code: "5432-WOWP-LSMA", ign: "Colress"}];
 //confirms login
 bot.on('ready', function(event) {
 	console.log('Logged in as %s - %s\n', bot.username, bot.id);
+	jsonfile.readFile(file, function(err, obj) {
+		console.dir(obj);
+		incoming = obj;
+	});
 });
 
 function sendMessage(user, userID, channelID, message, event, output){
@@ -82,29 +90,91 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0, 3) === "!fc"){
 		fc(user, userID, channelID, message, event);
 	}
+	if (message.toLowerCase().substring(0,6) === "!shiny"){
+		shiny(user, userID, channelID, message, event);
+	}
+	copyReplay(user, userID, channelID, message, event);
 });
 
 //outputs help text
 function help(user, userID, channelID, message, event) {
-	sendMessage(user, userID, channelID, message, event,
-	"Hello, I am Colress. My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
-	"\n!help: Displays this help message." + 
-	"\n!pokemon: Serves information about individual Pokémon." + 
-	"\n!pokedex: Serves Pokémon information by Pokédex number lookup." +
-	"\n!aloladex: Serves Pokémon information by Alola Pokédex number lookup." +
-	"\n!move: Serves information about Pokémon moves." + 
-	"\n!item: Serves information about items." + 
-	"\n!ability: Serves information about pokemon abilites." + 
-	"\n!lookup: Tries the appropriate command of any above based off the query." +
-	"\n!weak: Calculates the type relationships of a Pokémon." + 
-	"\n!typechart: Displays a chart of type strengths and weaknesses." + 
-	"\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" + 
-	"\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" + 
-	"\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
-	"\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." + 
-	"\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" + 
-	"\nI was created by AlphaKretin, using discord.io in node.js."
-	);
+    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (serverID === "160817374587650048") {
+        bot.createDMChannel(userID);
+        sendMessage(user, userID, channelID, message, event, "I'll message you the help text!");
+        sendMessage(user, userID, userID, message, event,
+            "Hello, I am Colress. My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
+            "\n!help: Displays this help message." +
+            "\n!pokemon: Serves information about individual Pokémon." +
+            "\n!pokedex: Serves Pokémon information by Pokédex number lookup." +
+            "\n!aloladex: Serves Pokémon information by Alola Pokédex number lookup." +
+            "\n!move: Serves information about Pokémon moves." +
+            "\n!item: Serves information about items." +
+            "\n!ability: Serves information about pokemon abilites." +
+            "\n!lookup: Tries the appropriate command of any above based off the query." +
+            "\n!weak: Calculates the type relationships of a Pokémon." +
+            "\n!typechart: Displays a chart of type strengths and weaknesses." +
+            "\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" +
+            "\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" +
+            "\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
+            "\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." +
+            "\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" +
+            "\nI was created by AlphaKretin, using discord.io in node.js."
+        );
+    } else {
+        bot.createDMChannel(userID);
+        sendMessage(user, userID, channelID, message, event, "I'll message you the help text!");
+        sendMessage(user, userID, userID, message, event,
+            "Hello, I am Colress. My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
+            "\n!help: Displays this help message." +
+            "\n!pokemon: Serves information about individual Pokémon." +
+            "\n!pokedex: Serves Pokémon information by Pokédex number lookup." +
+            "\n!aloladex: Serves Pokémon information by Alola Pokédex number lookup." +
+            "\n!move: Serves information about Pokémon moves." +
+            "\n!item: Serves information about items." +
+            "\n!ability: Serves information about pokemon abilites." +
+            "\n!lookup: Tries the appropriate command of any above based off the query." +
+            "\n!fc: Store and access user's Friend Codes for trading. See \"!fc help\"." +
+            "\n!weak: Calculates the type relationships of a Pokémon." +
+            "\n!typechart: Displays a chart of type strengths and weaknesses." +
+            "\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" +
+            "\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" +
+            "\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
+            "\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." +
+            "\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" +
+            "\nI was created by AlphaKretin, using discord.io in node.js."
+        );
+    }
+}
+
+function shiny(user, userID, channelID, message, event) {
+    var mon = message.substring(7); //gets part of message after the "!shiny" that sent it here
+    var out = "";
+    var current;
+    mon = mon.toLowerCase(); //formatted to match array
+    for (var man of mons) {
+        if (man.id === mon) {
+            current = man;
+        }
+    }
+    if (current === undefined) {
+        sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
+    } else {
+    	var len = current.image.length;
+    	out = "http://www.serebii.net/Shiny/SM/" + current.image.slice(len - 7);
+        sendMessage(user, userID, channelID, message, event, out);
+    }
+}
+
+function copyReplay(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+	if (serverID !== "208216477986324480" || channelID === "258112783151923201" || userID === "247697943098818570"){
+		return;
+	} else {
+		if (message.includes("http://replay.pokemonshowdown.com/")){
+			sendMessage(user, userID, "258112783151923201", message, event, message);
+		}
+	}
 }
 
 function fc(user, userID, channelID, message, event) {
@@ -112,6 +182,25 @@ function fc(user, userID, channelID, message, event) {
     if (serverID === "160817374587650048") { //in Pokegoons, Samson has this covered
         return;
     } else {
+    	if (yetToLoad){
+    		var inArray = false;
+    		for (var inc of incoming){
+    			inArray = false;
+    			for (var c of fcs){
+    				if (c.id === inc.id){
+    					inArray = true;
+    				}
+    			}
+    			if (!inArray){
+    				fcs.push(inc);
+    			}
+    		}
+			yetToLoad = false;
+		}
+        if (message === "!fc help") {
+            sendMessage(user, userID, channelID, message, event, "This command stores and recalls Friend Codes and in-game names! '!fc' with no arguments to check your own, '!fc @mention' to check another user's, '!fc 0000-0000-0000 name' (dashes optional) to register your own.");
+            return;
+        }
         var current;
         if (message === "!fc") {
             for (var c of fcs) {
@@ -121,65 +210,88 @@ function fc(user, userID, channelID, message, event) {
             }
             if (current === undefined) {
                 sendMessage(user, userID, channelID, message, event, "I don't know your FC, <@" + userID + ">!");
+            } else if (current.ign === ""){
+            	sendMessage(user, userID, channelID, message, event, "Your FC is **" + current.code + "**, <@" + userID + ">!");
             } else {
-                sendMessage(user, userID, channelID, message, event, "Your FC is **" + current.code + "**, <@" + userID + ">!");
+                sendMessage(user, userID, channelID, message, event, "Your FC is **" + current.code + "**, and your in-game name is **" + current.ign + "**, <@" + userID + ">!");
             }
-        } else if (message.match(/<@\d*>/) !== null) {
+        } else if (message.match(/<@.\d*>/) !== null) {
             var current;
-            var queryID = message.match(/<@\d*>/)[0].slice(2, 20);
+            var queryID = message.replace(/\D/g, '');
             for (var c of fcs) {
                 if (c.id === queryID) {
                     current = c;
                 }
             }
-            if (current !== undefined){
-            	var queryCode = current.code;
+            if (current !== undefined) {
+                var queryCode = current.code;
+                var queryIgn = current.ign;
             }
             for (var c of fcs) {
                 if (c.id === userID) {
                     current = c;
                 }
             }
-            if (current !== undefined){
-            	var userCode = current.code;
+            if (current !== undefined) {
+                var userCode = current.code;
+                var userIgn = current.ign;
             }
             var out = "";
-            if (queryCode === undefined){
-            	out += "I don't know <@" + queryID + ">'s FC, <@" + userID + ">! ";
+            if (queryCode === undefined) {
+                out += "I don't know <@" + queryID + ">'s FC, <@" + userID + ">! ";
+            } else if (queryIgn === "") {
+                out += "<@" + queryID + ">'s FC is **" + queryCode + "**, <@" + userID + ">! ";
             } else {
-            	out += "<@" + queryID + ">'s FC is **" + queryCode + "**, <@" + userID + ">! "  
+                out += "<@" + queryID + ">'s FC is **" + queryCode + "**, with the in-game name **" + queryIgn + "**, <@" + userID + ">! ";
             }
-            if (userCode === undefined){
-            	out += "Also, I don't know your FC!";
+            if (userCode === undefined) {
+                out += "Also, I don't know your FC!";
+            } else if (userIgn === "") {
+                out += "Also, your FC is **" + userCode + "**!";
             } else {
-            	out += "Also, your FC is **" + userCode + "**!";
+                out += "Also, your FC is **" + userCode + "**, with the in-game name **" + userIgn + "**!";
             }
             sendMessage(user, userID, channelID, message, event, out);
         } else {
-            var input = message.substring(4);
-            input = input.replace(/\D/g, '');
-            if (input.length === 12) {
-                input = input.slice(0, 4) + "-" + input.slice(4, 8) + "-" + input.slice(8);
+            var input = message.split(" ");
+            var inputCode = input[1].replace(/\D/g, '');
+            var inputIgn = "";
+            if (input.length > 2) {
+                inputIgn = input[2];
+            }
+            if (inputCode.length === 12) {
+                inputCode = inputCode.slice(0, 4) + "-" + inputCode.slice(4, 8) + "-" + inputCode.slice(8);
                 var a = true;
                 for (var c of fcs) {
                     if (c.id === userID) {
-                        c.code = input;
+                        c.code = inputCode;
+                        if (inputIgn !== "") {
+                            c.ign = inputIgn;
+                        }
                         a = false;
                     }
                 }
                 if (a) {
                     fcs.push({
                         id: userID,
-                        code: input
+                        code: inputCode,
+                        ign: inputIgn
                     });
                 }
-                sendMessage(user, userID, channelID, message, event, "Your FC is **" + input + "**, <@" + userID + ">!");
+                if (inputIgn === ""){
+                	sendMessage(user, userID, channelID, message, event, "Your FC is **" + inputCode + "**, <@" + userID + ">!");
+                } else {
+                	sendMessage(user, userID, channelID, message, event, "Your FC is **" + inputCode + "**, with the in-game name **" + inputIgn + "**, <@" + userID + ">!");
+                }
             } else {
                 sendMessage(user, userID, channelID, message, event, "FCs are 12 digits, <@" + userID + ">!");
             }
+            jsonfile.writeFile(file, fcs, function (err) {
+  				console.error(err);
+			});
         }
     }
-} 
+}
 
 //returns pokemon info
 function pokemon(user, userID, channelID, message, event) {
@@ -2402,7 +2514,7 @@ var moves = [{id: "pound", name: "Pound", type: "Normal", cat: "Physical", power
  {id: "malicious moonsault", name: "Malicious Moonsault", type: "Dark", cat: "Physical", power: 180, pp: 1, effect: "Incineroar-exclusive Z-Move.", wiki: "http://www.serebii.net/attackdex-sm/maliciousmoonsault.shtml"},
  {id: "moongeist beam", name: "Moongeist Beam", type: "Ghost", cat: "Special", power: 100, pp: 5, acc: 100, effect: "Ignores the target's ability.", wiki: "http://www.serebii.net/attackdex-sm/moongeistbeam.shtml"},
  {id: "multi-attack", name: "Multi-Attack", type: "Normal", cat: "Physical", power: 90, pp: 10, acc: 100, effect: "Type matches user's current type.", wiki: "http://www.serebii.net/attackdex-sm/multi-attack.shtml"},
- {id: "natures madness", name: "Nature's Madness", type: "Fairy", cat: "Special", pp: 10, acc: 90, effect: "Halves the foe's HP.", wiki: "http://www.serebii.net/attackdex-sm/nature'smadness.shtml"},
+ {id: "nature's madness", name: "Nature's Madness", type: "Fairy", cat: "Special", pp: 10, acc: 90, effect: "Halves the foe's HP.", wiki: "http://www.serebii.net/attackdex-sm/nature'smadness.shtml"},
  {id: "never-ending nightmare", name: "Never-ending Nightmare", type: "Ghost", cat: "N/A", pp: 1, effect: "Ghost type Z-Move.", wiki: "http://www.serebii.net/attackdex-sm/never-endingnightmare.shtml"},
  {id: "oceanic operetta", name: "Oceanic Operetta", type: "Water", cat: "Special", power: 195, pp: 1, effect: "Primarina-exclusive Z-Move.", wiki: "http://www.serebii.net/attackdex-sm/oceanicoperetta.shtml"},
  {id: "pollen puff", name: "Pollen Puff", type: "Bug", cat: "Special", power: 90, pp: 15, acc: 100, effect: "The user attacks the enemy with a pollen puff that explodes. If the target is an ally, it gives the ally a pollen puff that restores its HP instead.", wiki: "http://www.serebii.net/attackdex-sm/pollenpuff.shtml"},
@@ -2857,7 +2969,7 @@ var items = [{id: "ability capsule", name: "Ability Capsule", desc: "A capsule t
  {id: "tanga berry", name: "Tanga Berry", desc: "Weakens a supereffective Bug-type attack against the holding Pokémon.", wiki: "http://www.serebii.net/itemdex/tangaberry.shtml"},
  {id: "thick club", name: "Thick Club", desc: "Increases Attack when held by Cubone or Marowak.", wiki: "http://www.serebii.net/itemdex/thickclub.shtml"},
  {id: "thunderstone", name: "Thunderstone", desc: "A peculiar stone that makes certain species of Pokémon evolve. It has a thunderbolt pattern.", wiki: "http://www.serebii.net/itemdex/thunderstone.shtml"},
- {id: "timer ball", name: "Timer Ball", desc: "A somewhat different BALL that becomes progressively better the more turns there are in a battle.", wiki: "http://www.serebii.net/itemdex/timerball.shtml"},
+ {id: "timer ball", name: "Timer Ball", desc: "A somewhat different Poké Ball that becomes progressively better the more turns there are in a battle.", wiki: "http://www.serebii.net/itemdex/timerball.shtml"},
  {id: "tinymushroom", name: "Tinymushroom", desc: "A small and rare mushroom. It is sought after by collectors.", wiki: "http://www.serebii.net/itemdex/tinymushroom.shtml"},
  {id: "tm01", name: "TM01", desc: "Teaches the move Mega Punch/DynamicPunch/Focus Punch/Hone Claws.", wiki: "http://www.serebii.net/itemdex/tm01.shtml"},
  {id: "tm02", name: "TM02", desc: "Teaches the move Razor Wind/Headbutt/Dragon Claw.", wiki: "http://www.serebii.net/itemdex/tm02.shtml"},
