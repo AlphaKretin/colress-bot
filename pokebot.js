@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "22/12/16"
+	token: "newyear"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -134,6 +134,7 @@ function help(user, userID, channelID, message, event) {
             "\n!item: Serves information about items." +
             "\n!ability: Serves information about pokemon abilites." +
             "\n!lookup: Tries the appropriate command of any above based off the query." +
+            "\n!shiny: Displays the shiny form of a given Pokémon." +
             "\n!fc: Store and access user's Friend Codes for trading. See \"!fc help\"." +
             "\n!weak: Calculates the type relationships of a Pokémon." +
             "\n!typechart: Displays a chart of type strengths and weaknesses." +
@@ -161,7 +162,9 @@ function shiny(user, userID, channelID, message, event) {
         sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
     } else {
     	var len = current.image.length;
-    	out = "http://www.serebii.net/Shiny/SM/" + current.image.slice(len - 7);
+    	var num = current.image.split("/");
+    	num = num[num.length - 1];
+    	out = "http://www.serebii.net/Shiny/SM/" + num;
         sendMessage(user, userID, channelID, message, event, out);
     }
 }
@@ -2572,6 +2575,7 @@ var items = [{id: "ability capsule", name: "Ability Capsule", desc: "A capsule t
  {id: "apicot berry", name: "Apicot Berry", desc: "Raises Special Defense when HP is low.", wiki: "http://www.serebii.net/itemdex/apicotberry.shtml"},
  {id: "armor fossil", name: "Armor Fossil", desc: "A fossil from a prehistoric Pokémon that lived on the land. It appears to be part of a collar.", wiki: "http://www.serebii.net/itemdex/armorfossil.shtml"},
  {id: "aspear berry", name: "Aspear Berry", desc: "If held by a Pokémon, it defrosts it.", wiki: "http://www.serebii.net/itemdex/aspearberry.shtml"},
+ {id: "assault vest", name: "Assault Vest", desc: "When held by a Pokémon, it increases the Sp. Defense stat by 50% but requires the Pokémon to only use damaging attacks.", wiki: "http://serebii.net/itemdex/assaultvest.shtml"},
  {id: "audinite", name: "Audinite", desc: "One of a variety of mysterious Mega Stones. Have Audino hold it, and this stone will enable it to Mega Evolve during battle.", wiki: "http://www.serebii.net/itemdex/audinite.shtml"},
  {id: "awakening", name: "Awakening", desc: "A spray-type medicine. It awakens a Pokémon from the clutches of sleep.", wiki: "http://www.serebii.net/itemdex/awakening.shtml"},
  {id: "babiri berry", name: "Babiri Berry", desc: "Weakens a supereffective Steel-type attack against the holding Pokémon.", wiki: "http://www.serebii.net/itemdex/babiriberry.shtml"},
