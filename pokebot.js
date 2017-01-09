@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "newyear"
+	token: "primals"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -581,7 +581,7 @@ function weak(user, userID, channelID, message, event) {
                     case "bug": typ.value--; break;
                     case "fighting": typ.value--; break;
                     case "grass": typ.value--; break;
-                    case "ground": typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; typ.value--; break;
+                    case "ground": typ.value -= 10; break;
                     case "electric": typ.value++; break;
                     case "ice": typ.value++; break;
                     case "rock": typ.value++; break;
@@ -965,7 +965,7 @@ var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass
  {id: "geodude", name: "Geodude", dex: 74, alola: 229, type: "Rock/Ground", ability: "Rock Head/Sturdy/Sand Veil", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074.png"},
  {id: "graveler", name: "Graveler", dex: 75, alola: 230, type: "Rock/Ground", ability: "Rock Head/Sturdy/Sand Veil", wiki: "http://www.serebii.net/pokedex-sm/075.shtml", image: "http://www.serebii.net/sunmoon/pokemon/075.png"},
  {id: "golem", name: "Golem", dex: 76, alola: 231, type: "Rock/Ground", ability: "Rock Head/Sturdy/Sand Veil", wiki: "http://www.serebii.net/pokedex-sm/076.shtml", image: "http://www.serebii.net/sunmoon/pokemon/076.png"},
- {id: "alolan geodude", name: "Alolan Geodude", dex: 74, alola: 229, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074.png-a"},
+ {id: "alolan geodude", name: "Alolan Geodude", dex: 74, alola: 229, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074-a.png"},
  {id: "alolan graveler", name: "Alolan Graveler", dex: 75, alola: 230, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/075.shtml", image: "http://www.serebii.net/sunmoon/pokemon/075-a.png"},
  {id: "alolan golem", name: "Alolan Golem", dex: 76, alola: 231, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/076.shtml", image: "http://www.serebii.net/sunmoon/pokemon/076-a.png"},
  {id: "geodude-a", name: "Alolan Geodude", dex: 74, alola: 229, type: "Rock/Electric", ability: "Magnet Pull/Sturdy/Galvanize", wiki: "http://www.serebii.net/pokedex-sm/074.shtml", image: "http://www.serebii.net/sunmoon/pokemon/074.png-a"},
@@ -1291,7 +1291,9 @@ var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass
  {id: "latias", name: "Latias", dex: 380, alola: -1, type: "Dragon/Psychic", ability: "Levitate", wiki: "http://www.serebii.net/pokedex-sm/380.shtml", image: "http://www.serebii.net/sunmoon/pokemon/380.png"},
  {id: "latios", name: "Latios", dex: 381, alola: -1, type: "Dragon/Psychic", ability: "Levitate", wiki: "http://www.serebii.net/pokedex-sm/381.shtml", image: "http://www.serebii.net/sunmoon/pokemon/381.png"},
  {id: "kyogre", name: "Kyogre", dex: 382, alola: -1, type: "Water", ability: "Drizzle", wiki: "http://www.serebii.net/pokedex-sm/382.shtml", image: "http://www.serebii.net/sunmoon/pokemon/382.png"},
+ {id: "primal kyogre", name: "Primal Kyogre", dex: 382, alola: -1, type: "Water", ability: "Primordial Sea", wiki: "http://www.serebii.net/pokedex-sm/382.shtml", image: "http://www.serebii.net/sunmoon/pokemon/382-m.png"},
  {id: "groudon", name: "Groudon", dex: 383, alola: -1, type: "Ground", ability: "Drought", wiki: "http://www.serebii.net/pokedex-sm/383.shtml", image: "http://www.serebii.net/sunmoon/pokemon/383.png"},
+ {id: "primal groudon", name: "Primal Groudon", dex: 383, alola: -1, type: "Ground/Fire", ability: "Desolate Land", wiki: "http://www.serebii.net/pokedex-sm/383.shtml", image: "http://www.serebii.net/sunmoon/pokemon/383-m.png"},
  {id: "rayquaza", name: "Rayquaza", dex: 384, alola: -1, type: "Dragon/Flying", ability: "Air Lock", wiki: "http://www.serebii.net/pokedex-sm/384.shtml", image: "http://www.serebii.net/sunmoon/pokemon/384.png"},
  {id: "jirachi", name: "Jirachi", dex: 385, alola: -1, type: "Steel/Psychic", ability: "Serene Grace", wiki: "http://www.serebii.net/pokedex-sm/385.shtml", image: "http://www.serebii.net/sunmoon/pokemon/385.png"},
  {id: "deoxys", name: "Deoxys", dex: 386, alola: -1, type: "Psychic", ability: "Pressure", wiki: "http://www.serebii.net/pokedex-sm/386.shtml", image: "http://www.serebii.net/sunmoon/pokemon/386.png"},
