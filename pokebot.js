@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "primals"
+	token: "game"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -14,10 +14,18 @@ var fcs = [{id: "247697943098818570", code: "5432-WOWP-LSMA", ign: "Colress"}];
 bot.on('ready', function(event) {
 	console.log('Logged in as %s - %s\n', bot.username, bot.id);
 	jsonfile.readFile(file, function(err, obj) {
-		console.dir(obj);
+		//console.dir(obj);
 		incoming = obj;
 	});
 });
+
+//vars for game that need to hold between two functions
+var gameRunning = false;
+var gameServer;
+var gameChannel;
+var gameAnswer;
+var timeout1;
+var timeout2;
 
 function sendMessage(user, userID, channelID, message, event, output){
 	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
@@ -93,7 +101,13 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0,6) === "!shiny"){
 		shiny(user, userID, channelID, message, event);
 	}
+	if (message.toLowerCase().substring(0,5) === "!game"){
+		game(user, userID, channelID, message, event);
+	}
 	copyReplay(user, userID, channelID, message, event);
+	if (gameRunning){
+		validateAnswer(user, userID, channelID, message, event);
+	}
 });
 
 //outputs help text
@@ -137,6 +151,7 @@ function help(user, userID, channelID, message, event) {
             "\n!shiny: Displays the shiny form of a given Pokémon." +
             "\n!fc: Store and access user's Friend Codes for trading. See \"!fc help\"." +
             "\n!weak: Calculates the type relationships of a Pokémon." +
+            "\n!game: Play a game of \"Who's that Pokémon?\"." +
             "\n!typechart: Displays a chart of type strengths and weaknesses." +
             "\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" +
             "\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" +
@@ -146,6 +161,52 @@ function help(user, userID, channelID, message, event) {
             "\nI was created by AlphaKretin, using discord.io in node.js."
         );
     }
+}
+
+function game(user, userID, channelID, message, event) {
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+	if (gameRunning){
+		return;
+	} else {
+		//pick a random pokemon
+		var index = getIncInt(0, mons.length - 1)
+		var mon = mons[index]; 
+		var name = mon.name; //string
+		var sprite = mon.image; //string, serebii link to image
+		var hint = "";
+		for (var letter of name){
+			if (getIncInt(0, 3) !== 0 && letter !== " "){
+				letter = "-";
+			}
+			hint += letter;
+		}
+		
+		//start game
+		gameRunning = true;
+		gameServer = serverID;
+		gameChannel = channelID;
+		gameAnswer = name;
+		sendMessage(user, userID, channelID, message, event, "You have 10 seconds to name this Pokémon!\n" + sprite);
+		timeout1 = setTimeout(function(){ sendMessage(user, userID, channelID, message, event, "Have a hint: `" + hint + "`"); }, 5000);
+		timeout2 = setTimeout(function(){ 
+			sendMessage(user, userID, channelID, message, event, "Time's up! The Pokémon was " + name + "! Try again next time!");
+			gameRunning = false; 
+		}, 10000);
+	}
+}
+
+function validateAnswer(user, userID, channelID, message, event) {
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+	if (serverID !== gameServer || channelID !== gameChannel) {
+		return;
+	} else {
+		if (message.toLowerCase() === gameAnswer.toLowerCase()) {
+			clearTimeout(timeout1);
+			clearTimeout(timeout2);
+			sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it! The answer was " + gameAnswer + "!");
+			gameRunning = false;
+		}
+	}
 }
 
 function shiny(user, userID, channelID, message, event) {
@@ -865,6 +926,12 @@ function nature(user, userID, channelID, message, event) {
 
 function c(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function getIncInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass/Poison", ability: "Overgrow/None/Chlorophyll", wiki: "http://www.serebii.net/pokedex-sm/001.shtml", image: "http://www.serebii.net/sunmoon/pokemon/001.png"},
