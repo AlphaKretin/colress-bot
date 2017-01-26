@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "games"
+	token: "hangman"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -26,6 +26,7 @@ var gameChannel;
 var gameAnswer;
 var gameHint;
 var gameDex;
+var gameWrongs;
 var timeout1;
 var timeout2;
 
@@ -97,6 +98,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0, 9) === "!goodluck"){
 		goodluck(user, userID, channelID, message, event);
 	}
+	if (message.toLowerCase().substring(0, 16) === "!congratulations"){
+		congratulations(user, userID, channelID, message, event);
+	}
 	if (message.toLowerCase().substring(0, 3) === "!fc"){
 		fc(user, userID, channelID, message, event);
 	}
@@ -110,8 +114,14 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (gameRunning === "highlow"){
 		validateAnswerHiLo(user, userID, channelID, message, event);
 	}
+	if (gameRunning === "highlow2"){
+		validateAnswerHiLo2(user, userID, channelID, message, event);
+	}
 	if (gameRunning === "whosthat"){
 		validateAnswerWhosThat(user, userID, channelID, message, event);
+	}
+	if (gameRunning === "hangman"){
+		validateAnswerHangman(user, userID, channelID, message, event);
 	}
 });
 
@@ -168,142 +178,199 @@ function help(user, userID, channelID, message, event) {
     }
 }
 
-function game(user, userID, channelID, message, event) {
-    var input = message.split(" ")[1];
-    if (input === "highlow") {
-        gameHiLo(user, userID, channelID, message, event);
-    } else if (input === "whosthat") {
-        gameWhosThat(user, userID, channelID, message, event);
-    } else {
-        sendMessage(user, userID, channelID, message, event, "That's not a game I know! Try \"highlow\" or \"whosthat\"!");
-    }
+//returns pokemon info
+function pokemon(user, userID, channelID, message, event) {
+	var mon = message.substring(9); //gets part of message after the "!pokemon" that sent it here
+	var out = "";
+	var current;
+	mon = mon.toLowerCase(); //formatted to match array
+	if (mon === "help") { //returns help text
+		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon! Use the Pokémon's name as the argument. For alternate formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'mega charizard y'.");
+	} else if (mon === "rap") { //returns pokerap text
+		rap(user, userID, channelID, message, event);
+	} else {
+		for (var man of mons) {
+			if (man.id === mon) {
+				current = man;
+			}
+		}
+		if (current === undefined) {
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
+		} else {
+			if (current.alola === -1) {
+				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
+			} else {
+				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
+			}
+			sendMessage(user, userID, channelID, message, event, out);
+		}
+	}
 }
 
-function gameWhosThat(user, userID, channelID, message, event) {
-    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-    if (gameRunning != "none") {
-        return;
-    } else {
-        //pick a random pokemon
-        var index = getIncInt(0, mons.length - 1)
-        var mon = mons[index];
-        var name = mon.name; //string
-        var sprite = mon.image; //string, serebii link to image
-        var hint = "";
-        for (var letter of name) {
-            if (getIncInt(0, 3) !== 0 && letter !== " ") {
-                letter = "-";
-            }
-            hint += letter;
-        }
-
-        //start game
-        gameRunning = "whosthat";
-        gameServer = serverID;
-        gameChannel = channelID;
-        gameAnswer = name;
-        sendMessage(user, userID, channelID, message, event, "You have 10 seconds to name this Pokémon!\n" + sprite);
-        timeout1 = setTimeout(function () {
-            sendMessage(user, userID, channelID, message, event, "Have a hint: `" + hint + "`");
-        }, 5000);
-        timeout2 = setTimeout(function () {
-            sendMessage(user, userID, channelID, message, event, "Time's up! The Pokémon was " + name + "! Try again next time!");
-            gameRunning = "none";
-        }, 10000);
-    }
+function pokedex(user, userID, channelID, message, event) {
+	var mon = message.substring(9); //gets part of message after the "!pokedex" that sent it here
+	var out = "";
+	var current;
+	if (mon === "help") { //returns help text
+		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon by Pokédex number lookup! Use the Pokémon's Pokédex number as the argument. Alternate formes are not supported.");
+	} else {
+		mon = parseInt(mon);
+		for (var man of mons) {
+			if (man.dex === mon) {
+				current = man;
+				break;
+			}
+		}
+		if (current === undefined) {
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
+		} else {
+			if (current.alola === -1) {
+				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
+			} else {
+				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
+			}
+			sendMessage(user, userID, channelID, message, event, out);
+		}
+	}
 }
 
-function validateAnswerWhosThat(user, userID, channelID, message, event) {
-    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-    if (serverID !== gameServer || channelID !== gameChannel) {
-        return;
-    } else {
-        if (message.toLowerCase() === gameAnswer.toLowerCase()) {
-            clearTimeout(timeout1);
-            clearTimeout(timeout2);
-            sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it! The answer was " + gameAnswer + "!");
-            gameRunning = "none";
-        }
-    }
+function aloladex(user, userID, channelID, message, event) {
+	var mon = message.substring(10); //gets part of message after the "!aloladex" that sent it here
+	var out = "";
+	var current;
+	if (mon === "help") { //returns help text
+		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon by Alola Pokédex number lookup! Use the Pokémon's Alola Pokédex number as the argument. Alternate formes are not supported.");
+	} else {
+		mon = parseInt(mon);
+		for (var man of mons) {
+			if (man.alola === mon) {
+				current = man;
+				break;
+			}
+		}
+		if (current === undefined) {
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
+		} else {
+			sendMessage(user, userID, channelID, message, event, "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki);
+		}
+	}
 }
 
-function gameHiLo(user, userID, channelID, message, event) {
-    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-    if (gameRunning != "none") {
-        return;
-    } else {
-        //pick a random pokemon
-        var index = getIncInt(0, mons.length - 1)
-        var mon = mons[index];
-        var name = mon.name; //string
-        var dex = mon.dex; //int
-        var hint = "";
-        for (var letter of name) {
-            if (getIncInt(0, 2) !== 0 && letter !== " ") {
-                letter = "-";
-            }
-            hint += letter;
-        }
-
-        //start game
-        gameRunning = "highlow";
-        gameServer = serverID;
-        gameChannel = channelID;
-        gameAnswer = name;
-        gameDex = dex;
-        gameHint = hint;
-        gameGuesses = 0;
-        sendMessage(user, userID, channelID, message, event, "You have 10 guesses to name the Pokémon with a National Pokédex number of **" + dex + "**!");
-    }
+//returns move info, see pokemon function
+function move(user, userID, channelID, message, event) {
+	var moveprops = ["name", "type", "cat", "power", "pp", "acc", "effect", "zeffect", "tm", "wiki"]; //list of potential properties in a move object for iteration
+	var current; //working var, deliberately left undefined for later
+	var out = "";
+	var mov = message.substring(6);
+	mov = mov.toLowerCase();
+	if (mov === "help") {
+		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon's moves! Use the move's name as the argument, with spaces where appropriate.");
+	} else {
+		var out = "";
+		for (var move of moves) {//find move in array that matches user input
+			if (move.id === mov) {
+				current = move; //assign it to a wider-scoped var for use
+			}
+		}
+		if (current === undefined) { //if it didn't find anything
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that move!");
+		} else {
+			for (var prop of moveprops){//not every move object has every property, so this iterates through them
+				if (current[prop] !== undefined){//to see which ones it has and add them to the output
+					out += propToString(prop) + ": " + current[prop] + "\n";
+				}
+			}
+			sendMessage(user, userID, channelID, message, event, out);
+		}
+	}
 }
 
-function validateAnswerHiLo(user, userID, channelID, message, event) {
-    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-    if (serverID !== gameServer || channelID !== gameChannel || userID === "247697943098818570") {
-        return;
-    } else {
-        var rightAnswer = false;
-        for (var mon of mons) {
-            if (mon.dex === gameDex) {
-                if (message.toLowerCase() === mon.name.toLowerCase()) {
-                    rightAnswer = true;
-                }
-            }
-        }
-        if (rightAnswer) {
-            gameGuesses++;
-            sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it in " + gameGuesses + " guess(es)! The answer I had in mind was " + gameAnswer + ", but if it has alternate formes, they were valid too!");
-            gameRunning = "none";
-        } else {
-            var out;
-            var guess;
-            for (var mon of mons) {
-                if (mon.name.toLowerCase() === message.toLowerCase()) {
-                    guess = mon.dex;
-                }
-            }
-            if (guess === undefined) {
-                return;
-            } else {
-                gameGuesses++;
-                if (guess < gameDex) {
-                    out = "That Pokémon is too early in the Pokédex!\n"
-                } else { //if (guess > gameDex)
-                    out = "That Pokémon is too late in the Pokédex!\n"
-                }
-                if (gameGuesses === 5) {
-                    out += "Have a hint: " + gameHint + "\n";
-                    out += "You have " + (10 - gameGuesses) + " guess(es) left!"
-                } else if (gameGuesses === 10) {
-                    out += "Sorry, but you're out of guesses! The answer I had in mind was " + gameAnswer + ", but if it has alternate formes, they were valid too!";
-                    gameRunning = "none";
-                } else {
-                    out += "You have " + (10 - gameGuesses) + " guess(es) left!"
-                }
-                sendMessage(user, userID, channelID, message, event, out);
-            }
-        }
-    }
+function propToString(prop){
+	switch (prop){
+		case "name": return "Name";
+		case "type": return "Type";
+		case "cat": return "Category";
+		case "power": return "Power";
+		case "pp": return "PP";
+		case "acc": return "Accuracy";
+		case "effect": return "Effect";
+		case "zeffect": return "Z-Move Effect";
+		case "wiki": return "Serebii Link";
+		case "tm": return "TMs";
+		default: return "Error";
+	}
+}
+
+//returns item info, see pokemon function
+function item(user, userID, channelID, message, event) {
+	var it = message.substring(6);
+	var current;
+	it = it.toLowerCase();
+	if (it === "help") {
+		sendMessage(user, userID, channelID, message, event, "This command serves information about items! Use the item's name as the argument, with spaces where appropriate, full stops.");
+	} else {
+		for (var ite of items) {
+			if (ite.id === it) {
+				current = ite;
+			}
+		}
+		if (current === undefined) {
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that item!");
+		} else {
+			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nSerebii Link: " + current.wiki);
+		}
+	}
+}
+
+//returns ability info, see pokemon function
+function ability(user, userID, channelID, message, event) {
+	var ab = message.substring(9);
+	var current;
+	ab = ab.toLowerCase();
+	if (ab === "help") {
+		sendMessage(user, userID, channelID, message, event, "This command serves information about abilities! Use the ability's name as the argument, with spaces where appropriate.");
+	} else {
+		for (var abi of abilities) {
+			if (abi.id === ab) {
+				current = abi;
+			}
+		}
+		if (current === undefined) {
+			sendMessage(user, userID, channelID, message, event, "I don't recognise that ability!");
+		} else {
+			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nSerebii Link: " + current.wiki);
+		}
+	}
+}
+
+function lookup(user, userID, channelID, message, event) {
+	var query = message.substring(8); //gets part of message after the "!lookup" that sent it here
+	for (var mon of mons){
+		if (mon.id === query){
+			pokemon(user, userID, channelID, "!pokemon " + query, event);
+			return;
+		}
+		if (mon.dex === parseInt(query)){
+			pokedex(user, userID, channelID, "!pokedex " + query, event);
+			return;
+		}
+	}
+	for (var ite of items){
+		if (ite.id === query){
+			item(user, userID, channelID, "!item " + query, event);
+			return;
+		}
+	}
+	for (var mov of moves){
+		if (mov.id === query){
+			move(user, userID, channelID, "!move " + query, event);
+		}
+	}
+	for (var ab of abilities){
+		if (ab.id === query){
+			ability(user, userID, channelID, "!ability " + query, event);
+		}
+	}
 }
 
 function shiny(user, userID, channelID, message, event) {
@@ -325,17 +392,6 @@ function shiny(user, userID, channelID, message, event) {
     	out = "http://www.serebii.net/Shiny/SM/" + num;
         sendMessage(user, userID, channelID, message, event, out);
     }
-}
-
-function copyReplay(user, userID, channelID, message, event){
-	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-	if (serverID !== "208216477986324480" || channelID === "258112783151923201" || userID === "247697943098818570"){
-		return;
-	} else {
-		if (message.includes("http://replay.pokemonshowdown.com/")){
-			sendMessage(user, userID, "258112783151923201", message, event, message);
-		}
-	}
 }
 
 function fc(user, userID, channelID, message, event) {
@@ -452,199 +508,6 @@ function fc(user, userID, channelID, message, event) {
 			});
         }
     }
-}
-
-//returns pokemon info
-function pokemon(user, userID, channelID, message, event) {
-	var mon = message.substring(9); //gets part of message after the "!pokemon" that sent it here
-	var out = "";
-	var current;
-	mon = mon.toLowerCase(); //formatted to match array
-	if (mon === "help") { //returns help text
-		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon! Use the Pokémon's name as the argument. For alternate formes, spell out the forme name in full - for example, 'landorus therian', 'white kyurem', 'mega charizard y'.");
-	} else if (mon === "rap") { //returns pokerap text
-		rap(user, userID, channelID, message, event);
-	} else {
-		for (var man of mons) {
-			if (man.id === mon) {
-				current = man;
-			}
-		}
-		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
-		} else {
-			if (current.alola === -1) {
-				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
-			} else {
-				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
-			}
-			sendMessage(user, userID, channelID, message, event, out);
-		}
-	}
-}
-
-function lookup(user, userID, channelID, message, event) {
-	var query = message.substring(8); //gets part of message after the "!lookup" that sent it here
-	for (var mon of mons){
-		if (mon.id === query){
-			pokemon(user, userID, channelID, "!pokemon " + query, event);
-			return;
-		}
-		if (mon.dex === parseInt(query)){
-			pokedex(user, userID, channelID, "!pokedex " + query, event);
-			return;
-		}
-	}
-	for (var ite of items){
-		if (ite.id === query){
-			item(user, userID, channelID, "!item " + query, event);
-			return;
-		}
-	}
-	for (var mov of moves){
-		if (mov.id === query){
-			move(user, userID, channelID, "!move " + query, event);
-		}
-	}
-	for (var ab of abilities){
-		if (ab.id === query){
-			ability(user, userID, channelID, "!ability " + query, event);
-		}
-	}
-}
-
-function pokedex(user, userID, channelID, message, event) {
-	var mon = message.substring(9); //gets part of message after the "!pokedex" that sent it here
-	var out = "";
-	var current;
-	if (mon === "help") { //returns help text
-		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon by Pokédex number lookup! Use the Pokémon's Pokédex number as the argument. Alternate formes are not supported.");
-	} else {
-		mon = parseInt(mon);
-		for (var man of mons) {
-			if (man.dex === mon) {
-				current = man;
-			}
-		}
-		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
-		} else {
-			if (current.alola === -1) {
-				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
-			} else {
-				out = "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki;
-			}
-			sendMessage(user, userID, channelID, message, event, out);
-		}
-	}
-}
-
-function aloladex(user, userID, channelID, message, event) {
-	var mon = message.substring(10); //gets part of message after the "!aloladex" that sent it here
-	var out = "";
-	var current;
-	if (mon === "help") { //returns help text
-		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon by Alola Pokédex number lookup! Use the Pokémon's Alola Pokédex number as the argument. Alternate formes are not supported.");
-	} else {
-		mon = parseInt(mon);
-		for (var man of mons) {
-			if (man.alola === mon) {
-				current = man;
-			}
-		}
-		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
-		} else {
-			sendMessage(user, userID, channelID, message, event, "Image: " + current.image + "\nName: " + current.name + "\nPokédex No.: " + current.dex + "\nAlola Dex No.: " + current.alola + "\nType: " + current.type + "\nAbility: " + current.ability + "\nSerebii Link: " + current.wiki);
-		}
-	}
-}
-
-//returns move info, see pokemon function
-function move(user, userID, channelID, message, event) {
-	var moveprops = ["name", "type", "cat", "power", "pp", "acc", "effect", "zeffect", "tm", "wiki"]; //list of potential properties in a move object for iteration
-	var current; //working var, deliberately left undefined for later
-	var out = "";
-	var mov = message.substring(6);
-	mov = mov.toLowerCase();
-	if (mov === "help") {
-		sendMessage(user, userID, channelID, message, event, "This command serves information about Pokémon's moves! Use the move's name as the argument, with spaces where appropriate.");
-	} else {
-		var out = "";
-		for (var move of moves) {//find move in array that matches user input
-			if (move.id === mov) {
-				current = move; //assign it to a wider-scoped var for use
-			}
-		}
-		if (current === undefined) { //if it didn't find anything
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that move!");
-		} else {
-			for (var prop of moveprops){//not every move object has every property, so this iterates through them
-				if (current[prop] !== undefined){//to see which ones it has and add them to the output
-					out += propToString(prop) + ": " + current[prop] + "\n";
-				}
-			}
-			sendMessage(user, userID, channelID, message, event, out);
-		}
-	}
-}
-
-function propToString(prop){
-	switch (prop){
-		case "name": return "Name";
-		case "type": return "Type";
-		case "cat": return "Category";
-		case "power": return "Power";
-		case "pp": return "PP";
-		case "acc": return "Accuracy";
-		case "effect": return "Effect";
-		case "zeffect": return "Z-Move Effect";
-		case "wiki": return "Serebii Link";
-		case "tm": return "TMs";
-		default: return "Error";
-	}
-}
-
-//returns item info, see pokemon function
-function item(user, userID, channelID, message, event) {
-	var it = message.substring(6);
-	var current;
-	it = it.toLowerCase();
-	if (it === "help") {
-		sendMessage(user, userID, channelID, message, event, "This command serves information about items! Use the item's name as the argument, with spaces where appropriate, full stops.");
-	} else {
-		for (var ite of items) {
-			if (ite.id === it) {
-				current = ite;
-			}
-		}
-		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that item!");
-		} else {
-			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nSerebii Link: " + current.wiki);
-		}
-	}
-}
-
-//returns ability info, see pokemon function
-function ability(user, userID, channelID, message, event) {
-	var ab = message.substring(9);
-	var current;
-	ab = ab.toLowerCase();
-	if (ab === "help") {
-		sendMessage(user, userID, channelID, message, event, "This command serves information about abilities! Use the ability's name as the argument, with spaces where appropriate.");
-	} else {
-		for (var abi of abilities) {
-			if (abi.id === ab) {
-				current = abi;
-			}
-		}
-		if (current === undefined) {
-			sendMessage(user, userID, channelID, message, event, "I don't recognise that ability!");
-		} else {
-			sendMessage(user, userID, channelID, message, event, "Name: " + current.name + "\nDescription: " + current.desc + "\nSerebii Link: " + current.wiki);
-		}
-	}
 }
 
 //returns info about type relations
@@ -953,6 +816,321 @@ function weak(user, userID, channelID, message, event) {
     }
 }
 
+function game(user, userID, channelID, message, event) {
+    var input = message.toLowerCase().split(" ")[1];
+    switch (input){
+    	case "highlow": 
+    		gameHiLo(user, userID, channelID, message, event); 
+    		break;
+    	case "highlow2":
+        	gameHiLo2(user, userID, channelID, message, event);
+        	break;
+    	case "hangman":
+    		gameHangman(user, userID, channelID, message, event);
+    		break;
+    	case "whosthat":
+    		gameWhosThat(user, userID, channelID, message, event);
+    		break;
+    	default:
+        	sendMessage(user, userID, channelID, message, event, "That's not a game I know! Try \"highlow\", \"highlow2\", \"whosthat\" or \"hangman\"!");
+    }
+}
+
+function gameHiLo(user, userID, channelID, message, event) {
+    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (gameRunning !== "none") {
+        return;
+    } else {
+        //pick a random pokemon
+        var index = getIncInt(0, mons.length - 1)
+        var mon = mons[index];
+        var name = mon.name; //string
+        var dex = mon.dex; //int
+
+        //start game
+        gameRunning = "highlow";
+        gameServer = serverID;
+        gameChannel = channelID;
+        gameAnswer = name;
+        gameDex = dex;
+        gameGuesses = 0;
+        sendMessage(user, userID, channelID, message, event, "You have 10 guesses to name National Pokédex number of the following Pokémon: **" + name + "**!");
+    }
+}
+
+function validateAnswerHiLo(user, userID, channelID, message, event) {
+    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (serverID !== gameServer || channelID !== gameChannel || userID === "247697943098818570") {
+        return;
+    } else {
+        var rightAnswer = false;
+        for (var mon of mons) {
+            if (mon.name === gameAnswer) {
+                if (message === mon.dex.toString()) {
+                    rightAnswer = true;
+                    break;
+                }
+            }
+        }
+        if (rightAnswer) {
+            gameGuesses++;
+            sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it in " + gameGuesses + " guess(es)! The National Pokédex number of " + gameAnswer + " is **" + gameDex + "**!");
+            gameRunning = "none";
+        } else {
+            var out;
+            var guess;
+            for (var mon of mons) {
+                if (mon.dex.toString() === message) {
+                    guess = mon;
+                    break;
+                }
+            }
+            if (guess === undefined) {
+                return;
+            } else {
+                gameGuesses++;
+                if (guess.dex < gameDex) {
+                    out = "That Pokémon is " + guess.name + ", which is too early in the Pokédex!\n"
+                } else { //if (guess.dex > gameDex)
+                    out = "That Pokémon is " + guess.name + ", which is too late in the Pokédex!\n"
+                }
+                if (gameGuesses === 10) {
+                    out += "Sorry, but you're out of guesses! The National Pokédex number of " + gameAnswer + " is **" + gameDex + "**!";
+                    gameRunning = "none";
+                } else {
+                    out += "You have " + (10 - gameGuesses) + " guess(es) left!"
+                }
+                sendMessage(user, userID, channelID, message, event, out);
+            }
+        }
+    }
+}
+
+function gameHiLo2(user, userID, channelID, message, event) {
+    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (gameRunning !== "none") {
+        return;
+    } else {
+        //pick a random pokemon
+        var index = getIncInt(0, mons.length - 1)
+        var mon = mons[index];
+        var name = mon.name; //string
+        var dex = mon.dex; //int
+        var hint = "";
+        for (var letter of name) {
+            if (getIncInt(0, 2) !== 0 && letter !== " ") {
+                letter = "-";
+            }
+            hint += letter;
+        }
+
+        //start game
+        gameRunning = "highlow2";
+        gameServer = serverID;
+        gameChannel = channelID;
+        gameAnswer = name;
+        gameDex = dex;
+        gameHint = hint;
+        gameGuesses = 0;
+        sendMessage(user, userID, channelID, message, event, "You have 10 guesses to name the Pokémon with a National Pokédex number of **" + dex + "**!");
+    }
+}
+
+function validateAnswerHiLo2(user, userID, channelID, message, event) {
+    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (serverID !== gameServer || channelID !== gameChannel || userID === "247697943098818570") {
+        return;
+    } else {
+        var rightAnswer = false;
+        for (var mon of mons) {
+            if (mon.dex === gameDex) {
+                if (message.toLowerCase() === mon.name.toLowerCase()) {
+                    rightAnswer = true;
+                    break;
+                }
+            }
+        }
+        if (rightAnswer) {
+            gameGuesses++;
+            sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it in " + gameGuesses + " guess(es)! The answer I had in mind was " + gameAnswer + ", but if it has alternate formes, they were valid too!");
+            gameRunning = "none";
+        } else {
+            var out;
+            var guess;
+            for (var mon of mons) {
+                if (mon.name.toLowerCase() === message.toLowerCase()) {
+                    guess = mon;
+                    break;
+                }
+            }
+            if (guess === undefined) {
+                return;
+            } else {
+                gameGuesses++;
+                if (guess.dex < gameDex) {
+                    out = "That Pokémon is number " + guess.dex + ", which is too early in the Pokédex!\n"
+                } else { //if (guess.dex > gameDex)
+                    out = "That Pokémon is number " + guess.dex + ", which is too late in the Pokédex!\n"
+                }
+                if (gameGuesses === 5) {
+                    out += "Have a hint: " + gameHint + "\n";
+                    out += "You have " + (10 - gameGuesses) + " guess(es) left!"
+                } else if (gameGuesses === 10) {
+                    out += "Sorry, but you're out of guesses! The answer I had in mind was " + gameAnswer + ", but if it has alternate formes, they were valid too!";
+                    gameRunning = "none";
+                } else {
+                    out += "You have " + (10 - gameGuesses) + " guess(es) left!"
+                }
+                sendMessage(user, userID, channelID, message, event, out);
+            }
+        }
+    }
+}
+
+function gameWhosThat(user, userID, channelID, message, event) {
+    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (gameRunning !== "none") {
+        return;
+    } else {
+        //pick a random pokemon
+        var index = getIncInt(0, mons.length - 1)
+        var mon = mons[index];
+        var name = mon.name; //string
+        var sprite = mon.image; //string, serebii link to image
+        var hint = "";
+        for (var letter of name) {
+            if (getIncInt(0, 3) !== 0 && letter !== " ") {
+                letter = "-";
+            }
+            hint += letter;
+        }
+
+        //start game
+        gameRunning = "whosthat";
+        gameServer = serverID;
+        gameChannel = channelID;
+        gameAnswer = name;
+        sendMessage(user, userID, channelID, message, event, "You have 10 seconds to name this Pokémon!\n" + sprite);
+        timeout1 = setTimeout(function () {
+            sendMessage(user, userID, channelID, message, event, "Have a hint: `" + hint + "`");
+        }, 5000);
+        timeout2 = setTimeout(function () {
+            sendMessage(user, userID, channelID, message, event, "Time's up! The Pokémon was " + name + "! Try again next time!");
+            gameRunning = "none";
+        }, 10000);
+    }
+}
+
+function validateAnswerWhosThat(user, userID, channelID, message, event) {
+    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (serverID !== gameServer || channelID !== gameChannel) {
+        return;
+    } else {
+        if (message.toLowerCase() === gameAnswer.toLowerCase()) {
+            clearTimeout(timeout1);
+            clearTimeout(timeout2);
+            sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it! The answer was " + gameAnswer + "!");
+            gameRunning = "none";
+        }
+    }
+}
+
+function gameHangman(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (gameRunning !== "none") {
+        return;
+    } else {
+        //pick a random pokemon
+        var index = getIncInt(0, mons.length - 1)
+        var mon = mons[index];
+        var name = mon.name; //string
+        var hint = "";
+        for (var letter of name) {
+            if (letter !== " ") {
+                letter = "-";
+            }
+            hint += letter;
+        }
+
+        //start game
+        gameRunning = "hangman";
+        gameServer = serverID;
+        gameChannel = channelID;
+        gameAnswer = name;
+        gameHint = hint;
+        gameGuesses = 0;
+        gameWrongs = [];
+        sendMessage(user, userID, channelID, message, event, "Guess the letters in this Pokémon's name! You can make 10 mistakes before the game is over.\n`" + hint + "`");
+        }
+}
+
+function validateAnswerHangman(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (serverID !== gameServer || channelID !== gameChannel) {
+        return;
+    } else {
+    	var pass = false;
+    	for (var mon of mons){
+    		if (mon.name.toLowerCase() === message.toLowerCase()){
+    			pass = true;
+    			break;
+    		}
+    	}
+    	if (!(pass || message.length === 1)) {
+    		return;
+    	}
+    	if (pass){
+    		if (message.toLowerCase() === gameAnswer.toLowerCase()){
+    			sendMessage(user, userID, channelID, message, event, "You got it, ending with <@" + userID + ">'s guess! The answer was " + gameAnswer + "!\nWrong guesses: `" + gameWrongs.toString() + "`");
+    			gameRunning = "none";
+    		} else {
+    			gameGuesses++;
+    			if (gameGuesses < 10) {
+    				gameWrongs.push(message.toLowerCase());
+    				sendMessage(user, userID, channelID, message, event, "Sorry, <@" + userID + ">, that's wrong! That was strike #" + gameGuesses + "! Your current progress is:\n`" + gameHint + "`\nWrong guesses: `" + gameWrongs.toString() + "`");
+    			} else {
+    				sendMessage(user, userID, channelID, message, event, "Sorry, <@" + userID + ">, that's wrong, and it was your last strike! The game is over. The answer was " + gameAnswer + ".`\nWrong guesses: `" + gameWrongs.toString() + "`");
+    				gameRunning = "none";
+    			}
+    		}
+    	} else if (message.length = 1){
+    		if (gameAnswer.toLowerCase().indexOf(message.toLowerCase()) > -1) {
+    			for (var i = 0; i < gameAnswer.length; i++){
+    				if (gameAnswer.charAt(i).toLowerCase() === message.toLowerCase()){
+    					gameHint = gameHint.replaceAt(i, gameAnswer.charAt(i));
+    				}
+    			}
+    			if (gameHint === gameAnswer){
+    				sendMessage(user, userID, channelID, message, event, "You got it, ending with <@" + userID + ">'s guess! The answer was " + gameAnswer + "!\nWrong guesses: `" + gameWrongs.toString() + "`");
+    				gameRunning = "none";
+    			} else {
+    				sendMessage(user, userID, channelID, message, event, "That's correct, <@" + userID + ">! Your current progress is:\n`" + gameHint + "`\nWrong guesses: `" + gameWrongs.toString() + "`");
+    			}
+    		} else {
+    			gameGuesses++;
+    			if (gameGuesses < 10) {
+    				gameWrongs.push(message.toLowerCase());
+    				sendMessage(user, userID, channelID, message, event, "Sorry, <@" + userID + ">, that's wrong! That was strike #" + gameGuesses + "! Your current progress is:\n`" + gameHint + "`\nWrong guesses: `" + gameWrongs.toString() + "`");
+    			} else {
+    				sendMessage(user, userID, channelID, message, event, "Sorry, <@" + userID + ">, that's wrong, and it was your last strike! The game is over. The answer was " + gameAnswer + ".\nWrong guesses: `" + gameWrongs.toString() + "`");
+    				gameRunning = "none";
+    			}
+    		}
+    	}
+    }
+}
+
+function copyReplay(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+	if (serverID !== "208216477986324480" || channelID === "258112783151923201" || userID === "247697943098818570"){
+		return;
+	} else {
+		if (message.includes("http://replay.pokemonshowdown.com/")){
+			sendMessage(user, userID, "258112783151923201", message, event, message);
+		}
+	}
+}
+
 function rap(user, userID, channelID, message, event) {
 	var out = "Electrode, Diglett, Nidoran, Mankey\n" +
 		"Venusaur, Rattata, Fearow, Pidgey\n" +
@@ -1017,6 +1195,10 @@ function goodluck(user, userID, channelID, message, event){
 	sendMessage(user, userID, channelID, message, event, "https://www.youtube.com/watch?v=9uKIeamPi2Y");
 }
 
+function congratulations(user, userID, channelID, message, event){
+	sendMessage(user, userID, channelID, message, event, "https://www.youtube.com/watch?v=oyFQVZ2h0V8");
+}
+
 function nature(user, userID, channelID, message, event) {
 	sendMessage(user, userID, channelID, message, event, "http://faqs.neoseeker.com/Games/DS/pokemon_bw_2_nature.png");
 }
@@ -1029,6 +1211,10 @@ function getIncInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+String.prototype.replaceAt=function(index, character) {
+    return this.substr(0, index) + character + this.substr(index+character.length);
 }
 
 var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass/Poison", ability: "Overgrow/None/Chlorophyll", wiki: "http://www.serebii.net/pokedex-sm/001.shtml", image: "http://www.serebii.net/sunmoon/pokemon/001.png"},
