@@ -1,2 +1,2 @@
 # poke-bot
-Repo for my Pokémon Discord bot, very WIP
+Repo for Colress, my Pokémon Discord Bot. I'd describe it here but it's basically just a backup.
