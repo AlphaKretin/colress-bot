@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "hangman"
+	token: "reactions"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -77,8 +77,20 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0, 8) === "!ability") {
 		ability(user, userID, channelID, message, event);
 	}
+	if (message.toLowerCase().substring(0, 7) === "!lookup") {
+		lookup(user, userID, channelID, message, event);
+	}
+	if (message.toLowerCase().substring(0,6) === "!shiny"){
+		shiny(user, userID, channelID, message, event);
+	}
+	if (message.toLowerCase().substring(0, 3) === "!fc"){
+		fc(user, userID, channelID, message, event);
+	}
 	if (message.toLowerCase().substring(0, 5) === "!weak") {
 		weak(user, userID, channelID, message, event);
+	}
+	if (message.toLowerCase().substring(0,5) === "!game"){
+		game(user, userID, channelID, message, event);
 	}
 	if (message.toLowerCase().substring(0, 10) === "!typechart") {
 		typechart(user, userID, channelID, message, event);
@@ -92,23 +104,11 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0, 7) === "!nature") {
 		nature(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 7) === "!lookup") {
-		lookup(user, userID, channelID, message, event);
-	}
 	if (message.toLowerCase().substring(0, 9) === "!goodluck"){
 		goodluck(user, userID, channelID, message, event);
 	}
 	if (message.toLowerCase().substring(0, 16) === "!congratulations"){
 		congratulations(user, userID, channelID, message, event);
-	}
-	if (message.toLowerCase().substring(0, 3) === "!fc"){
-		fc(user, userID, channelID, message, event);
-	}
-	if (message.toLowerCase().substring(0,6) === "!shiny"){
-		shiny(user, userID, channelID, message, event);
-	}
-	if (message.toLowerCase().substring(0,5) === "!game"){
-		game(user, userID, channelID, message, event);
 	}
 	copyReplay(user, userID, channelID, message, event);
 	if (gameRunning === "highlow"){
@@ -166,7 +166,7 @@ function help(user, userID, channelID, message, event) {
             "\n!shiny: Displays the shiny form of a given Pokémon." +
             "\n!fc: Store and access user's Friend Codes for trading. See \"!fc help\"." +
             "\n!weak: Calculates the type relationships of a Pokémon." +
-            "\n!game: Play a game of \"Who's that Pokémon?\"." +
+            "\n!game: Play one of several text-based games." +
             "\n!typechart: Displays a chart of type strengths and weaknesses." +
             "\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" +
             "\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" +
@@ -371,6 +371,50 @@ function lookup(user, userID, channelID, message, event) {
 			ability(user, userID, channelID, "!ability " + query, event);
 		}
 	}
+}
+
+function rap(user, userID, channelID, message, event) {
+	var out = "Electrode, Diglett, Nidoran, Mankey\n" +
+		"Venusaur, Rattata, Fearow, Pidgey\n" +
+		"Seaking, Jolteon, Dragonite, Gastly\n" +
+		"Ponyta, Vaporeon, Poliwrath, Butterfree\n" +
+		"Venomoth, Poliwag, Nidorino, Golduck\n" +
+		"Ivysaur, Grimer, Victreebel, Moltres\n" +
+		"Nidoking, Farfetch'd, Abra, Jigglypuff\n" +
+		"Kingler, Rhyhorn, Clefable, Wigglytuff\n" +
+		"Zubat, Primeape, Meowth, Onix\n" +
+		"Geodude, Rapidash, Magneton, Snorlax\n" +
+		"Gengar, Tangela, Goldeen, Spearow\n" +
+		"Weezing, Seel, Gyarados, Slowbro\n" +
+		"Kabuto, Persian, Paras, Horsea\n" +
+		"Raticate, Magnemite, Kadabra, Weepinbell\n" +
+		"Ditto, Cloyster, Caterpie, Sandshrew\n" +
+		"Bulbasaur, Charmander, Golem, Pikachu\n" +
+		"Alakazam, Doduo, Venonat, Machoke\n" +
+		"Kangaskhan, Hypno, Electabuzz, Flareon\n" +
+		"Blastoise, Poliwhirl, Oddish, Drowzee\n" +
+		"Raichu, Nidoqueen, Bellsprout, Starmie\n" +
+		"Metapod, Marowak, Kakuna, Clefairy\n" +
+		"Dodrio, Seadra, Vileplume, Krabby\n" +
+		"Lickitung, Tauros, Weedle, Nidoran\n" +
+		"Machop, Shellder, Porygon, Hitmonchan\n" +
+		"Articuno, Jynx, Nidorina, Beedrill\n" +
+		"Haunter, Squirtle, Chansey (Pokémon!)\n" +
+		"Parasect, Exeggcute, Muk, Dewgong\n" +
+		"Pidgeotto, Lapras, Vulpix, Rhydon\n" +
+		"Charizard, Machamp, Pinsir, Koffing\n" +
+		"Dugtrio, Golbat, Staryu, Magikarp\n" +
+		"Ninetales, Ekans, Omastar\n" +
+		"Scyther, Tentacool, Dragonair, Magmar\n" +
+		"Sandslash, Hitmonlee, Psyduck, Arcanine\n" +
+		"Eevee, Exeggutor, Kabutops, Zapdos\n" +
+		"Dratini, Growlithe, Mr. Mime, Cubone\n" +
+		"Graveler, Voltorb, Gloom - We're almost home!\n" +
+		"Charmeleon, Wartortle\n" +
+		"Mewtwo, Tentacruel, Aerodactyl\n" +
+		"Omanyte, Slowpoke\n" +
+		"Pidgeot, Arbok - That's all, folks!";
+	sendMessage(user, userID, channelID, message, event, "" + out);
 }
 
 function shiny(user, userID, channelID, message, event) {
@@ -874,6 +918,7 @@ function validateAnswerHiLo(user, userID, channelID, message, event) {
         }
         if (rightAnswer) {
             gameGuesses++;
+            bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👍"}, function(err, res){ if (err) { console.log(err); } });
             sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it in " + gameGuesses + " guess(es)! The National Pokédex number of " + gameAnswer + " is **" + gameDex + "**!");
             gameRunning = "none";
         } else {
@@ -952,6 +997,7 @@ function validateAnswerHiLo2(user, userID, channelID, message, event) {
         }
         if (rightAnswer) {
             gameGuesses++;
+            bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👍"}, function(err, res){ if (err) { console.log(err); } });
             sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it in " + gameGuesses + " guess(es)! The answer I had in mind was " + gameAnswer + ", but if it has alternate formes, they were valid too!");
             gameRunning = "none";
         } else {
@@ -1029,6 +1075,7 @@ function validateAnswerWhosThat(user, userID, channelID, message, event) {
         if (message.toLowerCase() === gameAnswer.toLowerCase()) {
             clearTimeout(timeout1);
             clearTimeout(timeout2);
+            bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👍"}, function(err, res){ if (err) { console.log(err); } });
             sendMessage(user, userID, channelID, message, event, "<@" + userID + "> got it! The answer was " + gameAnswer + "!");
             gameRunning = "none";
         }
@@ -1044,6 +1091,7 @@ function gameHangman(user, userID, channelID, message, event){
         var index = getIncInt(0, mons.length - 1)
         var mon = mons[index];
         var name = mon.name; //string
+        name = name.replace("é", "e").replace("♂", "M").replace("♀", "F");
         var hint = "";
         for (var letter of name) {
             if (letter !== " ") {
@@ -1081,14 +1129,17 @@ function validateAnswerHangman(user, userID, channelID, message, event){
     	}
     	if (pass){
     		if (message.toLowerCase() === gameAnswer.toLowerCase()){
+    			bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👍"}, function(err, res){ if (err) { console.log(err); } });
     			sendMessage(user, userID, channelID, message, event, "You got it, ending with <@" + userID + ">'s guess! The answer was " + gameAnswer + "!\nWrong guesses: `" + gameWrongs.toString() + "`");
     			gameRunning = "none";
     		} else {
     			gameGuesses++;
     			if (gameGuesses < 10) {
     				gameWrongs.push(message.toLowerCase());
+    				bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👎"}, function(err, res){ if (err) { console.log(err); } });
     				sendMessage(user, userID, channelID, message, event, "Sorry, <@" + userID + ">, that's wrong! That was strike #" + gameGuesses + "! Your current progress is:\n`" + gameHint + "`\nWrong guesses: `" + gameWrongs.toString() + "`");
     			} else {
+    				bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👎"}, function(err, res){ if (err) { console.log(err); } });
     				sendMessage(user, userID, channelID, message, event, "Sorry, <@" + userID + ">, that's wrong, and it was your last strike! The game is over. The answer was " + gameAnswer + ".`\nWrong guesses: `" + gameWrongs.toString() + "`");
     				gameRunning = "none";
     			}
@@ -1101,78 +1152,27 @@ function validateAnswerHangman(user, userID, channelID, message, event){
     				}
     			}
     			if (gameHint === gameAnswer){
+    				bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👍"}, function(err, res){ if (err) { console.log(err); } });
     				sendMessage(user, userID, channelID, message, event, "You got it, ending with <@" + userID + ">'s guess! The answer was " + gameAnswer + "!\nWrong guesses: `" + gameWrongs.toString() + "`");
     				gameRunning = "none";
     			} else {
+    				bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👍"}, function(err, res){ if (err) { console.log(err); } });
     				sendMessage(user, userID, channelID, message, event, "That's correct, <@" + userID + ">! Your current progress is:\n`" + gameHint + "`\nWrong guesses: `" + gameWrongs.toString() + "`");
     			}
     		} else {
     			gameGuesses++;
     			if (gameGuesses < 10) {
     				gameWrongs.push(message.toLowerCase());
+    				bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👎"}, function(err, res){ if (err) { console.log(err); } });
     				sendMessage(user, userID, channelID, message, event, "Sorry, <@" + userID + ">, that's wrong! That was strike #" + gameGuesses + "! Your current progress is:\n`" + gameHint + "`\nWrong guesses: `" + gameWrongs.toString() + "`");
     			} else {
+    				bot.addReaction({ channelID: channelID, messageID: event.d.id, reaction: "👎"}, function(err, res){ if (err) { console.log(err); } });
     				sendMessage(user, userID, channelID, message, event, "Sorry, <@" + userID + ">, that's wrong, and it was your last strike! The game is over. The answer was " + gameAnswer + ".\nWrong guesses: `" + gameWrongs.toString() + "`");
     				gameRunning = "none";
     			}
     		}
     	}
     }
-}
-
-function copyReplay(user, userID, channelID, message, event){
-	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-	if (serverID !== "208216477986324480" || channelID === "258112783151923201" || userID === "247697943098818570"){
-		return;
-	} else {
-		if (message.includes("http://replay.pokemonshowdown.com/")){
-			sendMessage(user, userID, "258112783151923201", message, event, message);
-		}
-	}
-}
-
-function rap(user, userID, channelID, message, event) {
-	var out = "Electrode, Diglett, Nidoran, Mankey\n" +
-		"Venusaur, Rattata, Fearow, Pidgey\n" +
-		"Seaking, Jolteon, Dragonite, Gastly\n" +
-		"Ponyta, Vaporeon, Poliwrath, Butterfree\n" +
-		"Venomoth, Poliwag, Nidorino, Golduck\n" +
-		"Ivysaur, Grimer, Victreebel, Moltres\n" +
-		"Nidoking, Farfetch'd, Abra, Jigglypuff\n" +
-		"Kingler, Rhyhorn, Clefable, Wigglytuff\n" +
-		"Zubat, Primeape, Meowth, Onix\n" +
-		"Geodude, Rapidash, Magneton, Snorlax\n" +
-		"Gengar, Tangela, Goldeen, Spearow\n" +
-		"Weezing, Seel, Gyarados, Slowbro\n" +
-		"Kabuto, Persian, Paras, Horsea\n" +
-		"Raticate, Magnemite, Kadabra, Weepinbell\n" +
-		"Ditto, Cloyster, Caterpie, Sandshrew\n" +
-		"Bulbasaur, Charmander, Golem, Pikachu\n" +
-		"Alakazam, Doduo, Venonat, Machoke\n" +
-		"Kangaskhan, Hypno, Electabuzz, Flareon\n" +
-		"Blastoise, Poliwhirl, Oddish, Drowzee\n" +
-		"Raichu, Nidoqueen, Bellsprout, Starmie\n" +
-		"Metapod, Marowak, Kakuna, Clefairy\n" +
-		"Dodrio, Seadra, Vileplume, Krabby\n" +
-		"Lickitung, Tauros, Weedle, Nidoran\n" +
-		"Machop, Shellder, Porygon, Hitmonchan\n" +
-		"Articuno, Jynx, Nidorina, Beedrill\n" +
-		"Haunter, Squirtle, Chansey (Pokémon!)\n" +
-		"Parasect, Exeggcute, Muk, Dewgong\n" +
-		"Pidgeotto, Lapras, Vulpix, Rhydon\n" +
-		"Charizard, Machamp, Pinsir, Koffing\n" +
-		"Dugtrio, Golbat, Staryu, Magikarp\n" +
-		"Ninetales, Ekans, Omastar\n" +
-		"Scyther, Tentacool, Dragonair, Magmar\n" +
-		"Sandslash, Hitmonlee, Psyduck, Arcanine\n" +
-		"Eevee, Exeggutor, Kabutops, Zapdos\n" +
-		"Dratini, Growlithe, Mr. Mime, Cubone\n" +
-		"Graveler, Voltorb, Gloom - We're almost home!\n" +
-		"Charmeleon, Wartortle\n" +
-		"Mewtwo, Tentacruel, Aerodactyl\n" +
-		"Omanyte, Slowpoke\n" +
-		"Pidgeot, Arbok - That's all, folks!";
-	sendMessage(user, userID, channelID, message, event, "" + out);
 }
 
 function typechart(user, userID, channelID, message, event) {
@@ -1191,6 +1191,10 @@ function qr(user, userID, channelID, message, event) {
 	sendMessage(user, userID, channelID, message, event, "http://imgur.com/a/EFOqs");
 }
 
+function nature(user, userID, channelID, message, event) {
+	sendMessage(user, userID, channelID, message, event, "http://faqs.neoseeker.com/Games/DS/pokemon_bw_2_nature.png");
+}
+
 function goodluck(user, userID, channelID, message, event){
 	sendMessage(user, userID, channelID, message, event, "https://www.youtube.com/watch?v=9uKIeamPi2Y");
 }
@@ -1199,8 +1203,15 @@ function congratulations(user, userID, channelID, message, event){
 	sendMessage(user, userID, channelID, message, event, "https://www.youtube.com/watch?v=oyFQVZ2h0V8");
 }
 
-function nature(user, userID, channelID, message, event) {
-	sendMessage(user, userID, channelID, message, event, "http://faqs.neoseeker.com/Games/DS/pokemon_bw_2_nature.png");
+function copyReplay(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+	if (serverID !== "208216477986324480" || channelID === "258112783151923201" || userID === "247697943098818570"){
+		return;
+	} else {
+		if (message.includes("http://replay.pokemonshowdown.com/")){
+			sendMessage(user, userID, "258112783151923201", message, event, message);
+		}
+	}
 }
 
 function c(string) {
@@ -3581,7 +3592,7 @@ var items = [{id: "ability capsule", name: "Ability Capsule", desc: "A capsule t
  {id: "dark memory", name: "Dark Memory", desc: "A memory disc that contains Dark-type data. It changes the type of the holder if held by a certain species of Pokémon.", wiki: "http://www.serebii.net/itemdex/darkmemory.shtml"},
  {id: "fairy memory", name: "Fairy Memory", desc: "A memory disc that contains Fairy-type data. It changes the type of the holder if held by a certain species of Pokémon.", wiki: "http://www.serebii.net/itemdex/fairymemory.shtml"}];
  
- var abilities = [{id: "adaptability", name: "Adaptability", desc: "Powers up moves of the same type.", wiki: "http://www.serebii.net/abilitydex/adaptability.shtml"},
+var abilities = [{id: "adaptability", name: "Adaptability", desc: "Powers up moves of the same type.", wiki: "http://www.serebii.net/abilitydex/adaptability.shtml"},
  {id: "aerilate", name: "Aerilate", desc: "Normal-type moves become Flying-type moves.", wiki: "http://www.serebii.net/abilitydex/aerilate.shtml"},
  {id: "aftermath", name: "Aftermath", desc: "Damages the foe landing the finishing hit.", wiki: "http://www.serebii.net/abilitydex/aftermath.shtml"},
  {id: "air lock", name: "Air Lock", desc: "Eliminates the effects of weather.", wiki: "http://www.serebii.net/abilitydex/airlock.shtml"},
