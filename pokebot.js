@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "acro game"
+	token: "acro fixes"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -28,6 +28,8 @@ var gameHint;
 var gameDex;
 var gameWrongs;
 var gameLetters;
+var gamePlayers;
+var gameVoters;
 var timeout1;
 var timeout2;
 
@@ -1194,7 +1196,7 @@ function gameAcro(user, userID, channelID, message, event){
         return;
     } else {
         //pick a random pokemon
-        var len = getIncInt(3, 5)
+        var len = getIncInt(3, 5);
         var acronym = "";
         var letter;
         gameLetters = [];
@@ -1209,6 +1211,8 @@ function gameAcro(user, userID, channelID, message, event){
         gameServer = serverID;
         gameChannel = channelID;
         gameWrongs = [];
+        gamePlayers = [];
+        gameVoters = [];
         sendMessage(user, userID, channelID, message, event, "You have 30 seconds to make a sentence that fits the following acronym: `" + acronym + "`");
         setTimeout(function() {
         	if (gameWrongs.length < 2){
@@ -1216,20 +1220,32 @@ function gameAcro(user, userID, channelID, message, event){
         		gameRunning = "none";
         	} else {
         		gameWrongs = shuffle(gameWrongs);
-        		var out = "Vote for your favourite answer!\n"
+        		var out = "Vote for your favourite answer!\n";
         		for (var i = 0; i < gameWrongs.length; i++){
         			out += (i + 1) + ": `" + gameWrongs[i].answer + "`\n";
         		}
         		sendMessage(user, userID, channelID, message, event, out);
         		gameRunning = "acro2";
         		setTimeout(function() {
-        			var winner = gameWrongs[0];
+        			console.log("start acro2 end");
+        			var winners = [gameWrongs[0]];
+        			var win = winners[0];
         			for (var wrong of gameWrongs){
-        				if (wrong.votes > winner.votes){
-        					winner = wrong;
+        				win = winners[0];
+        				if (wrong.votes === win.votes && winners.indexOf(wrong) === -1){
+        					winners.push(wrong);
+        				} else if (wrong.votes > win.votes){
+        					winners = [wrong];
         				}
         			}
-        			sendMessage(user, userID, channelID, message, event, "Congratulations, <@" + winner.userID + ">!\nYou won with the answer `" + winner.answer + "`.\nYou got " + winner.votes + " votes!");
+        			console.log("survived nested loop");
+        			var out = "";
+        			for (var winner of winners){
+        				out += "Congratulations, <@" + winner.userID + ">!\nYou won with the answer `" + winner.answer + "`.\n";
+        			}
+        			out += "You got " + winners[0].votes + " votes!";
+        			console.log(out);
+        			sendMessage(user, userID, channelID, message, event, out);
         			gameRunning = "none";       			
         		}, 10000);
         	}
@@ -1304,9 +1320,11 @@ function validateAnswerAcro(user, userID, channelID, message, event){
     			pass = false;
     		}
     	}
+    	if (gamePlayers.indexOf(userID) !== -1) { pass = false; }
     	if (pass){
     		bot.deleteMessage({ channelID: channelID, messageID: event.d.id});
     		gameWrongs.push({ userID: userID, answer: message, votes: 0 });
+    		gamePlayers.push(userID);
     		sendMessage(user, userID, channelID, message, event, "Answer accepted, <@" + userID + ">!");
     	}
     }
@@ -1317,12 +1335,14 @@ function validateAnswerAcro2(user, userID, channelID, message, event){
     if (serverID !== gameServer || channelID !== gameChannel) {
         return;
     } else {
+    	if (gameVoters.indexOf(userID) !== -1) { return; }
     	var index = parseInt(message);
     	if (isNaN(index)){ return; }
     	index = index - 1;
     	if (index < gameWrongs.length){
     		gameWrongs[index].votes++;
     		bot.deleteMessage({ channelID: channelID, messageID: event.d.id});
+    		gameVoters.push(userID);
     		sendMessage(user, userID, channelID, message, event, "Vote accepted, <@" + userID + ">!");
     	}
     }
