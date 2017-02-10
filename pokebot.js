@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "reactions"
+	token: "acro game"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -27,6 +27,7 @@ var gameAnswer;
 var gameHint;
 var gameDex;
 var gameWrongs;
+var gameLetters;
 var timeout1;
 var timeout2;
 
@@ -37,18 +38,18 @@ function sendMessage(user, userID, channelID, message, event, output){
 			bot.sendMessage({
 				to: "256301677768998913",
 				message: output //if user's already in bot spam, no need to direct attention
-			});
+			}, function(err, res){ if (err) { console.log(err); } return res});
 		} else {
 			bot.sendMessage({
 				to: "256301677768998913", //i'm only allowed in bot spam
 				message: "<@" + userID + "> \n" + output //and should mention to make sure users posting elsewhere see it
-			});
+			}, function(err, res){ if (err) { console.log(err); } return res});
 		}
 	} else {
 		bot.sendMessage({
 			to: channelID,
 			message: output
-		});
+		}, function(err, res){ if (err) { console.log(err); } return res});
 	}
 }
 
@@ -104,6 +105,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0, 7) === "!nature") {
 		nature(user, userID, channelID, message, event);
 	}
+	if (message.toLowerCase().substring(0, 2) === "!a") {
+		avatar(user, userID, channelID, message, event);
+	}
 	if (message.toLowerCase().substring(0, 9) === "!goodluck"){
 		goodluck(user, userID, channelID, message, event);
 	}
@@ -122,6 +126,12 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	}
 	if (gameRunning === "hangman"){
 		validateAnswerHangman(user, userID, channelID, message, event);
+	}
+	if (gameRunning === "acro"){
+		validateAnswerAcro(user, userID, channelID, message, event);
+	}
+	if (gameRunning === "acro2"){
+		validateAnswerAcro2(user, userID, channelID, message, event);
 	}
 });
 
@@ -875,8 +885,11 @@ function game(user, userID, channelID, message, event) {
     	case "whosthat":
     		gameWhosThat(user, userID, channelID, message, event);
     		break;
+    	case "acro":
+    		gameAcro(user, userID, channelID, message, event);
+    		break;
     	default:
-        	sendMessage(user, userID, channelID, message, event, "That's not a game I know! Try \"highlow\", \"highlow2\", \"whosthat\" or \"hangman\"!");
+        	sendMessage(user, userID, channelID, message, event, "That's not a game I know! Try \"highlow\", \"highlow2\", \"whosthat\", \"hangman\" or \"acro\"!");
     }
 }
 
@@ -1175,16 +1188,152 @@ function validateAnswerHangman(user, userID, channelID, message, event){
     }
 }
 
+function gameAcro(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (gameRunning !== "none") {
+        return;
+    } else {
+        //pick a random pokemon
+        var len = getIncInt(3, 5)
+        var acronym = "";
+        var letter;
+        gameLetters = [];
+        for (var i = 0; i < len; i++){
+        	letter = randomLetter();
+        	gameLetters.push(letter);
+        	acronym += letter + ".";
+        }
+
+        //start game
+        gameRunning = "acro";
+        gameServer = serverID;
+        gameChannel = channelID;
+        gameWrongs = [];
+        sendMessage(user, userID, channelID, message, event, "You have 30 seconds to make a sentence that fits the following acronym: `" + acronym + "`");
+        setTimeout(function() {
+        	if (gameWrongs.length < 2){
+        		sendMessage(user, userID, channelID, message, event, "Not enough participants!");
+        		gameRunning = "none";
+        	} else {
+        		gameWrongs = shuffle(gameWrongs);
+        		var out = "Vote for your favourite answer!\n"
+        		for (var i = 0; i < gameWrongs.length; i++){
+        			out += (i + 1) + ": `" + gameWrongs[i].answer + "`\n";
+        		}
+        		sendMessage(user, userID, channelID, message, event, out);
+        		gameRunning = "acro2";
+        		setTimeout(function() {
+        			var winner = gameWrongs[0];
+        			for (var wrong of gameWrongs){
+        				if (wrong.votes > winner.votes){
+        					winner = wrong;
+        				}
+        			}
+        			sendMessage(user, userID, channelID, message, event, "Congratulations, <@" + winner.userID + ">!\nYou won with the answer `" + winner.answer + "`.\nYou got " + winner.votes + " votes!");
+        			gameRunning = "none";       			
+        		}, 10000);
+        	}
+        }, 30000);
+    }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function randomLetter() {
+	console.log("random letter called");
+	var randNum = Math.floor((Math.random() * 26) + 1); //random no between 1 and 26
+	switch (randNum) {
+	case 1: return "A";
+	case 2: return "B";
+	case 3: return "C";
+	case 4: return "D";
+	case 5: return "E";
+	case 6: return "F";
+	case 7: return "G";
+	case 8: return "H";
+	case 9: return "I";
+	case 10: return "J";
+	case 11: return "K";
+	case 12: return "L";
+	case 13: return "M";
+	case 14: return "N";
+	case 15: return "O";
+	case 16: return "P";
+	case 17: return "Q";
+	case 18: return "R";
+	case 19: return "S";
+	case 20: return "T";
+	case 21: return "U";
+	case 22: return "V";
+	case 23: return "W";
+	case 24: return "X";
+	case 25: return "Y";
+	case 26: return "Z";
+	}
+}
+
+function validateAnswerAcro(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (serverID !== gameServer || channelID !== gameChannel) {
+        return;
+    } else {
+    	//console.log("valAnsAcro1 len: " + gameLetters.length);
+    	var pass = true;
+    	var input = message.split(" ");
+    	if (input.length !== gameLetters.length) { return; }
+    	for (var i = 0; i < gameLetters.length; i++){
+    		//console.log("input[" + i + "]");
+    		if (input[i] === undefined || input[i].charAt(0).toUpperCase() !== gameLetters[i]){
+    			pass = false;
+    		}
+    	}
+    	if (pass){
+    		bot.deleteMessage({ channelID: channelID, messageID: event.d.id});
+    		gameWrongs.push({ userID: userID, answer: message, votes: 0 });
+    		sendMessage(user, userID, channelID, message, event, "Answer accepted, <@" + userID + ">!");
+    	}
+    }
+}
+
+function validateAnswerAcro2(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+    if (serverID !== gameServer || channelID !== gameChannel) {
+        return;
+    } else {
+    	var index = parseInt(message);
+    	if (isNaN(index)){ return; }
+    	index = index - 1;
+    	if (index < gameWrongs.length){
+    		gameWrongs[index].votes++;
+    		bot.deleteMessage({ channelID: channelID, messageID: event.d.id});
+    		sendMessage(user, userID, channelID, message, event, "Vote accepted, <@" + userID + ">!");
+    	}
+    }
+}
+
 function typechart(user, userID, channelID, message, event) {
 	sendMessage(user, userID, channelID, message, event, "http://i.imgur.com/fylyCdC.png");
 }
 
 function evolution(user, userID, channelID, message, event) {
-	if (message !== "!evolution confirm spoiler") {
-		sendMessage(user, userID, channelID, message, event, "Spoiler alert! This command displays an image that spoils aspects of the new Sun and Moon! If you're sure you, and everyone else in the channel, are fine with seeing it, type '!evolution confirm spoiler'.");
-	} else {
-		sendMessage(user, userID, channelID, message, event, "https://a.pomf.cat/lmesct.png");
-	}
+	sendMessage(user, userID, channelID, message, event, "https://a.pomf.cat/lmesct.png");
 }
 
 function qr(user, userID, channelID, message, event) {
@@ -1193,6 +1342,23 @@ function qr(user, userID, channelID, message, event) {
 
 function nature(user, userID, channelID, message, event) {
 	sendMessage(user, userID, channelID, message, event, "http://faqs.neoseeker.com/Games/DS/pokemon_bw_2_nature.png");
+}
+
+function avatar(user, userID, channelID, message, event) {
+	var input = message.split(" ")[1];
+	if (!(input.match(/<@.\d*>/))) {
+		sendMessage(user, userID, channelID, message, event, "I don't think that's a user!");
+	} else {
+		var queryID = input.replace(/\D/g, '');
+		var queryUser;
+		bot.getUser({ userID: queryID }, function (err, res) { 
+			if (err){ return console.log(err); } 
+			queryUser = res;
+			var userAvatar = queryUser.avatar;
+			var output = "https://cdn.discordapp.com/avatars/" + queryID + "/" + userAvatar + ".gif";
+			sendMessage(user, userID, channelID, message, event, output); 
+		});
+	}
 }
 
 function goodluck(user, userID, channelID, message, event){
