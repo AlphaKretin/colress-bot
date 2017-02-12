@@ -79,6 +79,7 @@ Usage: `!fc` or `fc [@mention]` or `!fc [12 digit number] [name]`
 The `!fc` command interfaces with a database of Nintendo 3DS Friend Codes for use with online trading and battling. First, users set their information with the latter of the above argument sets, with their 12 digit Friend Code and the name of their Trainer in the game, so you can find them in the Friend Plaza. Then, users can call their own information with the first example, or somebody else's with the second.
 
 Below is an example of all 3 uses of the command. Note that Colress' FC is hard-coded to include letters as a joke, they are normally invalid:
+
 ![!fc output](/readme-images/fc.png)
 
 ### !weak
@@ -87,6 +88,7 @@ Usage: `!weak [name]`
 The `!weak` command searches for a Pokémon by name and returns a list of the types it is weak to, it resists, and that it is immune to. When a type is displayed in **bold**, it indicates that both of a Pokémon's types are weak or resistant to the given type, amplifying the damage modifier.
 
 As an example, `!weak mimikyu` returns the following output:
+
 ![!weak output](/readme-images/weak.png)
 
 ### Reference Images
@@ -124,8 +126,8 @@ Usage: `!game highlow2`
 This is an alternate version of the high-low game where the rules are reversed. Colress provides a Pokédex number and players guess the Pokémon's name, with a hint at 5 guesses.
 
 Below are snippets of an example game of high-low2:
-![!game highlow2 a](/reademe-images/highlow2a.png)
-![!game highlow2 b](/reademe-images/highlow2b.png)
+![!game highlow2 a](/readme-images/highlow2a.png)
+![!game highlow2 b](/readme-images/highlow2b.png)
 
 #### Who's that?
 Usage: `!game whosthat`
@@ -133,6 +135,7 @@ Usage: `!game whosthat`
 This is a game of "Who's that Pokémon?", where Colress provides an image of a Pokémon and players have 10 seconds to give its name, with a hint at 5 seconds. At this time, the images aren't obscured in any way, so the game is rather easy.
 
 Below is an example game of who's that:
+
 ![!game whosthat](/readme-images/whosthat.png)
 
 #### Hangman
@@ -141,8 +144,8 @@ Usage: `!game hangman`
 In this game, Colress provides a series of blank spaces corresponding to a Pokémon's name, and players have to guess what letters are in the name through trial and error, with no more than 10 mistakes.
 
 Below are snippets of an example game of hangman:
-![!game hangman 1](/reademe-images/hangman1.png)
-![!game hangman 2](/reademe-images/hangman2.png)
+![!game hangman 1](/readme-images/hangman1.png)
+![!game hangman 2](/reaeme-images/hangman2.png)
 
 #### Acronyms
 Usage: `!game acro`
