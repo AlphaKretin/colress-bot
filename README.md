@@ -92,7 +92,7 @@ As an example, `!weak mimikyu` returns the following output:
 ![!weak output](/readme-images/weak.png)
 
 ### Reference Images
-The following commands all output a link often to an image, which Discord should automatically embed.
+The following commands all output a link, often to an image, which Discord should automatically embed.
 * `!typechart` displays a chart of Pokémon type relationships
 * `!evolution` displays a reference for evolution methods for Pokémon newly introduced in Sun and Moon versions
 * `!qr` links an imgur album of QR codes for Sun and Moon's scanning feature
