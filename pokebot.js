@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "acro fixes"
+	token: "avatar fix"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -107,7 +107,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (message.toLowerCase().substring(0, 7) === "!nature") {
 		nature(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 2) === "!a") {
+	if (message.toLowerCase().substring(0, 7) === "!avatar") {
 		avatar(user, userID, channelID, message, event);
 	}
 	if (message.toLowerCase().substring(0, 9) === "!goodluck"){
