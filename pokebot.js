@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "avatar fix"
+	token: "new help file"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -139,55 +139,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 
 //outputs help text
 function help(user, userID, channelID, message, event) {
-    var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-    if (serverID === "160817374587650048") {
-        bot.createDMChannel(userID);
-        sendMessage(user, userID, channelID, message, event, "I'll message you the help text!");
-        sendMessage(user, userID, userID, message, event,
-            "Hello, I am Colress. My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
-            "\n!help: Displays this help message." +
-            "\n!pokemon: Serves information about individual Pokémon." +
-            "\n!pokedex: Serves Pokémon information by Pokédex number lookup." +
-            "\n!aloladex: Serves Pokémon information by Alola Pokédex number lookup." +
-            "\n!move: Serves information about Pokémon moves." +
-            "\n!item: Serves information about items." +
-            "\n!ability: Serves information about pokemon abilites." +
-            "\n!lookup: Tries the appropriate command of any above based off the query." +
-            "\n!weak: Calculates the type relationships of a Pokémon." +
-            "\n!typechart: Displays a chart of type strengths and weaknesses." +
-            "\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" +
-            "\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" +
-            "\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
-            "\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." +
-            "\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" +
-            "\nI was created by AlphaKretin, using discord.io in node.js."
-        );
-    } else {
-        bot.createDMChannel(userID);
-        sendMessage(user, userID, channelID, message, event, "I'll message you the help text!");
-        sendMessage(user, userID, userID, message, event,
-            "Hello, I am Colress. My job is to serve information about data in the Pokémon games. I recognise the following commands: " +
-            "\n!help: Displays this help message." +
-            "\n!pokemon: Serves information about individual Pokémon." +
-            "\n!pokedex: Serves Pokémon information by Pokédex number lookup." +
-            "\n!aloladex: Serves Pokémon information by Alola Pokédex number lookup." +
-            "\n!move: Serves information about Pokémon moves." +
-            "\n!item: Serves information about items." +
-            "\n!ability: Serves information about pokemon abilites." +
-            "\n!lookup: Tries the appropriate command of any above based off the query." +
-            "\n!shiny: Displays the shiny form of a given Pokémon." +
-            "\n!fc: Store and access user's Friend Codes for trading. See \"!fc help\"." +
-            "\n!weak: Calculates the type relationships of a Pokémon." +
-            "\n!game: Play one of several text-based games." +
-            "\n!typechart: Displays a chart of type strengths and weaknesses." +
-            "\n!evolution: Displays an image guide for evolving new Alolan Pokémon. Spoiler alert!" +
-            "\n!qr: Links a list of QR codes for Pokémon Sun and Moon's scanning feature. Spoilers, and maybe cheating?" +
-            "\n!nature: Displays a chart of the effects of each Nature on a Pokémon's stats." +
-            "\nFor more detail on each command, call it with 'help' as the first argument. For example, '!pokemon help'." +
-            "\nBy the way, I can respond to direct messages as well. Please feel free to try it if you don't want to clutter up a server!" +
-            "\nI was created by AlphaKretin, using discord.io in node.js."
-        );
-    }
+    sendMessage(user, userID, channelID, message, event, "My documentation can be found at https://tinyurl.com/colressdocs");
 }
 
 //returns pokemon info
