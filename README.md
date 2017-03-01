@@ -145,7 +145,7 @@ In this game, Colress provides a series of blank spaces corresponding to a Poké
 
 Below are snippets of an example game of hangman:
 ![!game hangman 1](/readme-images/hangman1.png)
-![!game hangman 2](/reaeme-images/hangman2.png)
+![!game hangman 2](/readme-images/hangman2.png)
 
 #### Acronyms
 Usage: `!game acro`
