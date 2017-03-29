@@ -109,6 +109,14 @@ The `!avatar` command returns a link to the image that the user mentioned has as
 As an example, `!avatar @Colress#7376` returns the following output:
 ![!avatar output](/readme-images/avatar.png)
 
+### !roll
+Usage: `!roll [dice]d[sides]`
+
+The `!roll` command simulates a given number of dice rolls and returns each result and the total.
+
+As an example, `!roll 2d6` returns the following output:
+![!roll output](/readme-images/roll.png)
+
 ### !game
 For fun, Colress can play a variety of text-based games. `!game` with no arguments, or an invalid one, will return a list of games.
 

@@ -2,12 +2,14 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "new help file"
+	token: "diceroll"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
+var filev = "datav.json";
 var incoming = [];
 var yetToLoad = true;
+var venomCount = -1;
 
 var fcs = [{id: "247697943098818570", code: "5432-WOWP-LSMA", ign: "Colress"}];
 //confirms login
@@ -59,62 +61,66 @@ bot.on('disconnect', function() { bot.connect(); });
 
 //reads incoming messages to look for commands
 bot.on('message', function(user, userID, channelID, message, event) {
-	if (message.toLowerCase().substring(0, 5) === "!help") {
+	var lowMessage = message.toLowerCase();
+	if (lowMessage.substring(0, 5) === "!help") {
 		help(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 8) === "!pokemon") {
+	if (lowMessage.substring(0, 8) === "!pokemon") {
 		pokemon(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 8) === "!pokedex") {
+	if (lowMessage.substring(0, 8) === "!pokedex") {
 		pokedex(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 9) === "!aloladex") {
+	if (lowMessage.substring(0, 9) === "!aloladex") {
 		aloladex(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 5) === "!move") {
+	if (lowMessage.substring(0, 5) === "!move") {
 		move(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 5) === "!item") {
+	if (lowMessage.substring(0, 5) === "!item") {
 		item(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 8) === "!ability") {
+	if (lowMessage.substring(0, 8) === "!ability") {
 		ability(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 7) === "!lookup") {
+	if (lowMessage.substring(0, 7) === "!lookup") {
 		lookup(user, userID, channelID, message, event);
 	}
 	if (message.toLowerCase().substring(0,6) === "!shiny"){
 		shiny(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 3) === "!fc"){
+	if (lowMessage.substring(0, 3) === "!fc"){
 		fc(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 5) === "!weak") {
+	if (lowMessage.substring(0, 5) === "!weak") {
 		weak(user, userID, channelID, message, event);
 	}
 	if (message.toLowerCase().substring(0,5) === "!game"){
 		game(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 10) === "!typechart") {
+	if (lowMessage.substring(0, 10) === "!typechart") {
 		typechart(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 10) === "!evolution") {
+	if (lowMessage.substring(0, 10) === "!evolution") {
 		evolution(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 3) === "!qr") {
+	if (lowMessage.substring(0, 3) === "!qr") {
 		qr(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 7) === "!nature") {
+	if (lowMessage.substring(0, 7) === "!nature") {
 		nature(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 7) === "!avatar") {
+	if (lowMessage.substring(0, 7) === "!avatar") {
 		avatar(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 9) === "!goodluck"){
+	if (lowMessage.substring(0, 9) === "!goodluck"){
 		goodluck(user, userID, channelID, message, event);
 	}
-	if (message.toLowerCase().substring(0, 16) === "!congratulations"){
+	if (lowMessage.substring(0, 16) === "!congratulations"){
 		congratulations(user, userID, channelID, message, event);
+	}
+	if (lowMessage.substring(0, 5) === "!roll"){
+		roll(user, userID, channelID, message, event);
 	}
 	copyReplay(user, userID, channelID, message, event);
 	if (gameRunning === "highlow"){
@@ -134,6 +140,10 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	}
 	if (gameRunning === "acro2"){
 		validateAnswerAcro2(user, userID, channelID, message, event);
+	}
+	venomInc(user, userID, channelID, message, event);
+	if (lowMessage.indexOf("!v") === 0){
+		getVenom(user, userID, channelID, message, event);
 	}
 });
 
@@ -1339,6 +1349,68 @@ function goodluck(user, userID, channelID, message, event){
 
 function congratulations(user, userID, channelID, message, event){
 	sendMessage(user, userID, channelID, message, event, "https://www.youtube.com/watch?v=oyFQVZ2h0V8");
+}
+
+function roll(user, userID, channelID, message, event) {
+    var lowMessage = message.toLowerCase();
+    var input = lowMessage.split(" ")[1];
+    var dice = input.split("d")[0];
+    var sides = input.split("d")[1];
+    if (isNaN(dice) || isNaN(sides)) {
+        sendMessage(user, userID, channelID, message, event, "That doesn't look like a dice roll! Use the format *X*d*Y*, where X is the number of dice and Y is the number of sides.");
+        return;
+    } else if (dice < 1 || sides < 1) {
+        sendMessage(user, userID, channelID, message, event, "Arguments must be positive integers! Use the format *X*d*Y*, where X is the number of dice and Y is the number of sides.");
+        return;
+    } else {
+        dice = Math.ceil(dice);
+        sides = Math.ceil(sides);
+        var rolls = [];
+        var thisRoll;
+        for (var i = 0; i < dice; i++) {
+            thisRoll = getIncInt(1, sides);
+            rolls.push(thisRoll);
+        }
+        var out = "Rolls: ";
+        var sum = 0;
+        for (var rol of rolls) {
+            out += rol + ", ";
+            sum += rol;
+        }
+        out = out.substr(0, out.length - 2);
+        out += "\nTotal: **" + sum + "**";
+        sendMessage(user, userID, channelID, message, event, out);
+    }
+}
+
+function venomInc(user, userID, channelID, message, event){
+	if (venomCount === -1){ initVenom(); }
+	var lowMessage = message.toLowerCase();
+    if (lowMessage.indexOf("venom") > -1 || lowMessage.indexOf("vennom") > -1){
+    	if (userID === "204514018117943296"){
+    		venomCount++;
+    		jsonfile.writeFile(filev, venomCount, function (err) {
+  				console.error(err);
+			});
+    	}
+    }
+}
+
+function initVenom(){
+	jsonfile.readFile(filev, function(err, obj) {
+		if (err){
+			console.log(err);
+			venomCount = 0;
+			return;
+		}
+		//console.dir(obj);
+		venomCount = obj;
+	});
+}
+
+function getVenom(user, userID, channelID, message, event){
+	if (venomCount === -1){ initVenom(); }
+	sendMessage(user, userID, channelID, message, event, "\"Venom\" Count: " + venomCount + "!");
 }
 
 function copyReplay(user, userID, channelID, message, event){
