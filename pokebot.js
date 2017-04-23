@@ -2,7 +2,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "diceroll"
+	token: "weak changes"
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -530,6 +530,7 @@ function fc(user, userID, channelID, message, event) {
 
 //returns info about type relations
 function weak(user, userID, channelID, message, event) {
+	var lowMes = message.toLowerCase();
     var types = [{id: "normal", value: 0},
     {id: "fire", value: 0},
     {id: "fighting", value: 0},
@@ -551,18 +552,29 @@ function weak(user, userID, channelID, message, event) {
     var weaks = ""; //strings for output later
     var res = "";
     var imms = "";
-    var out = "";
-    var current;
     var mon = message.substring(6).toLowerCase();
+    var isMon = false;
+    var isList = false;
+    var type = "";
+    var name = "";
     for (var mo of mons) {
         if (mo.id === mon) {
-            current = mo;
+            type = mo.type.toLowerCase();
+            var name = mo.name;
+            isMon = true;
         }
     }
-    if (current === undefined) {
-        sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon!");
+    if (isMon === false){
+    	for (var typ of types){
+    		if (lowMes.indexOf(typ.id) > -1){
+    			type += typ.id;
+    			isList = true;
+    		}
+    	}
+    }
+    if (!isMon && !isList){
+        sendMessage(user, userID, channelID, message, event, "I don't recognise that Pokémon or those types!");
     } else {
-        var type = current.type.toLowerCase();
         if (type.indexOf("fire") !== -1) {
             for (var typ of types) {
                 switch (typ.id) {
@@ -830,7 +842,11 @@ function weak(user, userID, channelID, message, event) {
         imms = imms.slice(0, imms.length - 2);
         res = res.slice(0, res.length - 2);
         weaks = weaks.slice(0, weaks.length - 2);
-        sendMessage(user, userID, channelID, message, event, "Pokémon: " + current.name + "\nWeaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms);
+        if (isMon){
+        	sendMessage(user, userID, channelID, message, event, "Pokémon: " + name + "\nWeaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms);
+        } else { //if isList
+        	sendMessage(user, userID, channelID, message, event, "Weaknesses: " + weaks + "\nResistances: " + res + "\nImmunities: " + imms);
+        }
     }
 }
 

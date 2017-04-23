@@ -83,9 +83,9 @@ Below is an example of all 3 uses of the command. Note that Colress' FC is hard-
 ![!fc output](/readme-images/fc.png)
 
 ### !weak
-Usage: `!weak [name]`
+Usage: `!weak [name|types]`
 
-The `!weak` command searches for a Pokémon by name and returns a list of the types it is weak to, it resists, and that it is immune to. When a type is displayed in **bold**, it indicates that both of a Pokémon's types are weak or resistant to the given type, amplifying the damage modifier.
+The `!weak` command searches for a Pokémon by name and returns a list of the types it is weak to, it resists, and that it is immune to. When a type is displayed in **bold**, it indicates that both of a Pokémon's types are weak or resistant to the given type, amplifying the damage modifier. The command also accepts a list of types as input, for testing hypotheticals.
 
 As an example, `!weak mimikyu` returns the following output:
 
