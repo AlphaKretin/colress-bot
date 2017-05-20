@@ -5,8 +5,19 @@ var bot = new Discord.Client({
     autorun: true
 });
 
+var jsonfile = require('jsonfile');
+var file = "data.json";
+var data = {
+	victims: -1,
+	kinuVictims: -1,
+	rodsBroken: -1
+};
+
 bot.on('ready', function () {
     console.log('Logged in as %s - %s\n', bot.username, bot.id);
+    jsonfile.readFile(file, function(err, obj) {
+		data = obj;
+	});
 });
 
 bot.on('disconnect', function () {
@@ -57,6 +68,19 @@ bot.on('message', function (user, userID, channelID, message, event) {
         //.dd
         if (lowMes.indexOf(".dd") === 0) {
             dd(user, userID, channelID, message, event);
+        }
+        //speedtrap and rods
+        if (lowMes.indexOf(".trapped") === 0) {
+        	trapped(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".victims") === 0) {
+        	victim(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".break") === 0) {
+        	breakRod(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".broken") === 0) {
+        	broken(user, userID, channelID, message, event);
         }
     }
 });
@@ -385,6 +409,52 @@ function dd(user, userID, channelID, message, event) {
             message: ddLines[index - 1]
         });
     }
+}
+
+//speedtrap
+function trapped(user, userID, channelID, message, event) {
+	data.victims++;
+	if (userID === "90507312564805632") {
+		data.kinuVictims++;
+	}
+	bot.sendMessage({
+		to: channelID,
+		message: "Gotta go fast! Total Victims: " + data.victims
+	});
+	jsonfile.writeFile(file, data, function (err) {
+  		console.error(err);
+	});
+}
+
+function victim(user, userID, channelID, message, event) {
+	bot.sendMessage({
+		to: channelID,
+		message: "<@" + userID + ">: Dr. Clapperclaw's Deadly Speed Trap has snared " + data.victims + " victims! (" + data.kinuVictims +" of them are alcharagia...)"
+	});
+}
+
+function breakRod(user, userID, channelID, message, event) {
+	var args = message.toLowerCase().split(" ");
+    var index = parseInt(args[1]);
+    if (isNaN(index) || args.length === 1 || index < 0) {
+    	data.rodsBroken++;
+    } else {
+    	data.rodsBroken += index;
+    }
+    bot.sendMessage({
+        to: channelID,
+        message: "750 blaze rods errday (" + data.rodsBroken + " broken so far!)"
+    });
+    jsonfile.writeFile(file, data, function (err) {
+  		console.error(err);
+	});
+}
+
+function broken(user, userID, channelID, message, event) {
+	bot.sendMessage({
+		to: channelID,
+		message: "You godless heathens have blazed " + data.rodsBroken + " rods so far. DARE has failed you all."
+	});
 }
 
 //misc functions
