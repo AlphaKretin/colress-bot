@@ -12,11 +12,20 @@ var data = {
     kinuVictims: -1,
     rodsBroken: -1
 };
+var jobFile = "jobs.json";
+var jobData = [
+{
+    id: "316052390442958860",
+    jobs: ["Mime", "Mime", "Mime", "Mime"]
+}];
 
 bot.on('ready', function () {
     console.log('Logged in as %s - %s\n', bot.username, bot.id);
     jsonfile.readFile(file, function (err, obj) {
         data = obj;
+    });
+    jsonfile.readFile(jobFile, function (err, obj) {
+        jobData = obj;
     });
 });
 
@@ -117,7 +126,7 @@ bot.on('message', function (user, userID, channelID, message, event) {
             zerky(user, userID, channelID, message, event);
         }
         if (lowMes.indexOf(".jobs") === 0) {
-        	jobs(user, userID, channelID, message, event);
+            jobs(user, userID, channelID, message, event);
         }
     }
 });
@@ -628,6 +637,68 @@ function zerky(user, userID, channelID, message, event) {
         to: channelID,
         message: "http://www.soldoutcomic.com/Etc/Sketchdump/ThreeOrMoreDeathStillWorryZerky.png"
     });
+}
+
+//job DB
+function jobs(user, userID, channelID, message, event) {
+    var args = message.split(" ");
+    //expected args - 0: ".jobs", 1: "lookup" or "register", 2: wind job or @mention (str), 3: water job (str), 4: fire job (str), 5: earth job (str)
+    if (args[1] === undefined) {
+        args[1] = "a";
+    } //prevents crash on no args
+    if (args[1].toLowerCase() === "register") {
+        var hasUser = false;
+        for (var user of jobData) {
+            if (user.id === userID) {
+                hasUser = true;
+                user.jobs = [args[2], args[3], args[4], args[5]];
+            }
+        }
+        if (!current) {
+            jobData.push({
+                id: userID,
+                jobs: [args[2], args[3], args[4], args[5]]
+            });
+        }
+        jsonfile.writeFile(jobFile, jobData, function (err) {
+            console.error(err);
+        });
+        bot.sendMessage({
+            to: channelID,
+            message: "Got it, <@" + userID + ">. Your jobs (" + args[2] + " / " + args[3] + " / " + args[4] + " / " + args[5] + ") are registered."
+        });
+    } else if (args[1].toLowerCase() === "lookup") {
+        var current;
+        var mentioned = message.replace(/\D/g, '');
+        if (bot.fixMessage("<@" + mentioned + ">") === "undefined") {
+            bot.sendMessage({
+                to: channelID,
+                message: "Sorry <@" + userID + ">, I can only lookup with @mentions!"
+            });
+        } else {
+            for (var user of jobData) {
+                if (user.id === mentioned) {
+                    current = user;
+                }
+            }
+            if (current === undefined) {
+                bot.sendMessage({
+                    to: channelID,
+                    message: "I don't have jobs on file for <@" + mentioned + ">, sorry!"
+                });
+            } else {
+                bot.sendMessage({
+                    to: channelID,
+                    message: "I have <@" + mentioned + ">'s jobs as: " + current.jobs[0] + " / " + current.jobs[1] + " / " + current.jobs[2] + " / " + current.jobs[3] + "."
+                });
+            }
+        }
+    } else {
+        bot.sendMessage({
+            to: channelID,
+            message: "Acceptable syntax: `.jobs lookup @mention` or `.jobs register <wind> <water> <fire> <earth>`. Please ensure you provide jobs when registering. Please delimit with spaces, and keep two-word jobs to one word."
+        });
+    }
 }
 
 //misc functions
