@@ -654,7 +654,7 @@ function jobs(user, userID, channelID, message, event) {
                 user.jobs = [args[2], args[3], args[4], args[5]];
             }
         }
-        if (!current) {
+        if (!hasUser) {
             jobData.push({
                 id: userID,
                 jobs: [args[2], args[3], args[4], args[5]]
