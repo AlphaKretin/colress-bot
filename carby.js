@@ -8,16 +8,16 @@ var bot = new Discord.Client({
 var jsonfile = require('jsonfile');
 var file = "data.json";
 var data = {
-	victims: -1,
-	kinuVictims: -1,
-	rodsBroken: -1
+    victims: -1,
+    kinuVictims: -1,
+    rodsBroken: -1
 };
 
 bot.on('ready', function () {
     console.log('Logged in as %s - %s\n', bot.username, bot.id);
-    jsonfile.readFile(file, function(err, obj) {
-		data = obj;
-	});
+    jsonfile.readFile(file, function (err, obj) {
+        data = obj;
+    });
 });
 
 bot.on('disconnect', function () {
@@ -27,7 +27,7 @@ bot.on('disconnect', function () {
 //reads incoming messages for commands and redirects to functions to handle them
 bot.on('message', function (user, userID, channelID, message, event) {
     var lowMes = message.toLowerCase();
-    if ((userID !== bot.id) && (lowMes.charAt(0) === "!" || lowMes.charAt(0) === ".")) {
+    if ((userID !== bot.id) && (lowMes.charAt(0) === "!" || lowMes.charAt(0) === "." || lowMes.charAt(0) === "z")) {
         //.help
         if (lowMes.indexOf(".help") === 0) {
             help(user, userID, channelID, message, event);
@@ -71,16 +71,50 @@ bot.on('message', function (user, userID, channelID, message, event) {
         }
         //speedtrap and rods
         if (lowMes.indexOf(".trapped") === 0) {
-        	trapped(user, userID, channelID, message, event);
+            trapped(user, userID, channelID, message, event);
         }
         if (lowMes.indexOf(".victims") === 0) {
-        	victim(user, userID, channelID, message, event);
+            victim(user, userID, channelID, message, event);
         }
         if (lowMes.indexOf(".break") === 0) {
-        	breakRod(user, userID, channelID, message, event);
+            breakRod(user, userID, channelID, message, event);
         }
         if (lowMes.indexOf(".broken") === 0) {
-        	broken(user, userID, channelID, message, event);
+            broken(user, userID, channelID, message, event);
+        }
+        //goofy shit
+        if (lowMes.indexOf("!gaia") === 0) {
+            gaia(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".yburns") === 0) {
+            yburns(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".quicksave") === 0) {
+            quicksave(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".badfaq") === 0) {
+            badfaq(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".badfiesta") === 0) {
+            badfiesta(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".equipharps") === 0) {
+            equipharps(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".crystelle") === 0) {
+            crystelle(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".sandworm") === 0) {
+            sandworm(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf(".happyworm") === 0) {
+            happyworm(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf("!iainuki") === 0) {
+            iainuki(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf("zerky!") === 0) {
+            zerky(user, userID, channelID, message, event);
         }
     }
 });
@@ -109,11 +143,11 @@ function mcalc(user, userID, channelID, message, event) {
     }
     if (args[3] === "physical") {
         m = Math.floor(((level * strMag) / 128) + 2);
-        nextLevel = Math.floor((128 * ((m + 1) - 2)) / strMag);
+        nextLevel = Math.ceil((128 * ((m + 1) - 2)) / strMag);
         statString = "Strength";
     } else if (args[3] === "magic") {
         m = Math.floor(((level * strMag) / 256) + 4);
-        nextLevel = Math.floor((256 * ((m + 1) - 4)) / strMag);
+        nextLevel = Math.ceil((256 * ((m + 1) - 4)) / strMag);
         statString = "Magic";
     } else if (args[3] === "knife") {
         var agil = parseInt(args[4]);
@@ -121,14 +155,72 @@ function mcalc(user, userID, channelID, message, event) {
             abortMcalc(user, userID, channelID, message, event);
             return;
         } else {
-            var agilBonus = false;
-            m = Math.floor(((level * strMag) / 128) + ((level * agil) % 128) + 2);
-            //TODO if agil bonus deal with it
+            m = level;
+            var bonus = level;
+            m = m * strMag;
+            bonus = bonus * agil;
+            m = Math.floor(m / 128);
+            bonus = Math.floor(bonus / 128);
+            var ns = bonus;
+            var divider = bonus;
+            divider = Math.floor(divider / 2);
+            bonus -= divider;
+            bonus -= divider;
+            var n = m;
+            n++;
+            ns++;
+            n = n * 128;
+            ns = ns * 128;
+            n = Math.floor(n / strMag);
+            ns = Math.floor(ns / agil);
+            m += 2;
+            n++;
+            ns++;
+            if (bonus === 0) {
+                m = m + " (no Agility bonus)";
+                nextLevel = n + " (Bonus Agility M gained at level " + ns + ")";
+            } else { //if bonus = 1
+                m = m + " (+1 from Agility bonus)";
+                nextLevel = n + " (Bonus Agility M **LOST** at level " + ns + ")";
+            }
         }
-    } else if (args[3] === "chicken") {} else if (args[3] === "rune") {} else if (args[3] === "fists") {
+    } else if (args[3] === "chicken") {
+        var agil = parseInt(args[4]);
+        if (isNaN(agil)) {
+            abortMcalc(user, userID, channelID, message, event);
+            return;
+        } else {
+            m = Math.floor((level * strMag) / 128);
+            var bonus = Math.floor((level * agil) / 128);
+            var n = Math.ceil((128 * (m + 1)) / strMag);
+            var ns = Math.ceil((128 * (bonus + 1)) / agil);
+            m += bonus + 2;
+            statString = "Strength and " + agil + " Agility";
+            nextLevel = n + " for Strength and " + ns + " for Agility";
+            args[3] = "Chicken Knife";
+        }
+    } else if (args[3] === "rune") {
+        var mag = parseInt(args[4]);
+        if (isNaN(mag)) {
+            abortMcalc(user, userID, channelID, message, event);
+            return;
+        } else {
+            m = Math.floor((level * strMag) / 128);
+            var bonus = Math.floor((level * mag) / 128);
+            var n = Math.ceil((128 * (m + 1)) / strMag);
+            var ns = Math.ceil((128 * (bonus + 1)) / mag);
+            m += bonus + 2;
+            statString = "Strength and " + mag + " Magic Power";
+            nextLevel = n + " for Strength and " + ns + " for Magic";
+            args[3] = "Rune weapon";
+        }
+    } else if (args[3] === "fists") {
         m = Math.floor(((level * strMag) / 256) + 2);
-        nextLevel = Math.floor((256 * ((m + 1) - 2)) / strMag);
+        nextLevel = Math.ceil((256 * ((m + 1) - 2)) / strMag);
+        var pow = level * 2 + 3;
+        m = m + " (with " + pow + " attack power)";
         statString = "Strength";
+        args[3] = "fist";
     } else {
         abortMcalc(user, userID, channelID, message, event);
         return;
@@ -398,7 +490,7 @@ var ddLines = [
 function dd(user, userID, channelID, message, event) {
     var args = message.toLowerCase().split(" ");
     var index = parseInt(args[1]);
-    if (isNaN(index) || args.length === 1 || index > ddLines.length || index < 1) {
+    if (isNaN(index) || args.length === 1 || index > ddLines.length - 1 || index < 1) {
         bot.sendMessage({
             to: channelID,
             message: ddLines[getIncInt(0, ddLines.length - 1)]
@@ -413,48 +505,126 @@ function dd(user, userID, channelID, message, event) {
 
 //speedtrap
 function trapped(user, userID, channelID, message, event) {
-	data.victims++;
-	if (userID === "90507312564805632") {
-		data.kinuVictims++;
-	}
-	bot.sendMessage({
-		to: channelID,
-		message: "Gotta go fast! Total Victims: " + data.victims
-	});
-	jsonfile.writeFile(file, data, function (err) {
-  		console.error(err);
-	});
+    data.victims++;
+    if (userID === "90507312564805632") {
+        data.kinuVictims++;
+    }
+    bot.sendMessage({
+        to: channelID,
+        message: "Gotta go fast! Total Victims: " + data.victims
+    });
+    jsonfile.writeFile(file, data, function (err) {
+        console.error(err);
+    });
 }
 
 function victim(user, userID, channelID, message, event) {
-	bot.sendMessage({
-		to: channelID,
-		message: "<@" + userID + ">: Dr. Clapperclaw's Deadly Speed Trap has snared " + data.victims + " victims! (" + data.kinuVictims +" of them are alcharagia...)"
-	});
+    bot.sendMessage({
+        to: channelID,
+        message: "<@" + userID + ">: Dr. Clapperclaw's Deadly Speed Trap has snared " + data.victims + " victims! (" + data.kinuVictims + " of them are alcharagia...)"
+    });
 }
 
 function breakRod(user, userID, channelID, message, event) {
-	var args = message.toLowerCase().split(" ");
+    var args = message.toLowerCase().split(" ");
     var index = parseInt(args[1]);
     if (isNaN(index) || args.length === 1 || index < 0) {
-    	data.rodsBroken++;
+        data.rodsBroken++;
     } else {
-    	data.rodsBroken += index;
+        data.rodsBroken += index;
     }
     bot.sendMessage({
         to: channelID,
         message: "750 blaze rods errday (" + data.rodsBroken + " broken so far!)"
     });
     jsonfile.writeFile(file, data, function (err) {
-  		console.error(err);
-	});
+        console.error(err);
+    });
 }
 
 function broken(user, userID, channelID, message, event) {
-	bot.sendMessage({
-		to: channelID,
-		message: "You godless heathens have blazed " + data.rodsBroken + " rods so far. DARE has failed you all."
-	});
+    bot.sendMessage({
+        to: channelID,
+        message: "You godless heathens have blazed " + data.rodsBroken + " rods so far. DARE has failed you all."
+    });
+}
+
+//goofy shit
+function gaia(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "THAT HIPPIE SHIT AIN'T MAGIC http://i.imgur.com/JkwTg5O.png"
+    });
+}
+
+function yburns(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "The Y-BURNS? My favorite team! http://i.imgur.com/aQ18OQF.png"
+    });
+}
+
+function quicksave(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "Hang on while I do some **ENCOUNTER MANIPULATION**"
+    });
+}
+
+function badfaq(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "Can you believe people use this? http://www.gamefaqs.com/snes/588331-final-fantasy-v/faqs/21687"
+    });
+}
+
+function badfiesta(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "The worst fiesta ever happened here: https://www.twitch.tv/dragondarchsda/v/48967944"
+    });
+}
+
+function equipharps(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "http://lparchive.org/Final-Fantasy-V-Advance-%28by-Dr-Pepper%29/1-MaximumTruckStyleLove.gif"
+    });
+}
+
+function crystelle(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "TThose are easy to catch, right? http://i.imgur.com/WD40MES.png"
+    });
+}
+
+function sandworm(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "http://i.imgur.com/UaOsyZS.gif"
+    });
+}
+
+function happyworm(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "https://gifsound.com/?gif=i.imgur.com/UaOsyZS.gif&v=y6Sxv-sUYtM&s=11"
+    });
+}
+
+function iainuki(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "That's a good ability! http://gfycat.com/TenseArtisticCobra"
+    });
+}
+
+function zerky(user, userID, channelID, message, event) {
+    bot.sendMessage({
+        to: channelID,
+        message: "http://www.soldoutcomic.com/Etc/Sketchdump/ThreeOrMoreDeathStillWorryZerky.png"
+    });
 }
 
 //misc functions
