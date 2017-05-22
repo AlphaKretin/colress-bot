@@ -53,7 +53,7 @@ bot.on('message', function (user, userID, channelID, message, event) {
         if (lowMes.indexOf(".no750") === 0) {
             noSevenFifty(user, userID, channelID, message, event);
         }
-        if (lowMes.indexOf(".chaos") === 0) {
+        if (lowMes.indexOf(".chaos") === 0 && lowMes.indexOf("750") === -1) {
             chaos(user, userID, channelID, message, event);
         }
         if (lowMes.indexOf(".chaosno750") === 0) {
@@ -116,6 +116,9 @@ bot.on('message', function (user, userID, channelID, message, event) {
         if (lowMes.indexOf("zerky!") === 0) {
             zerky(user, userID, channelID, message, event);
         }
+        if (lowMes.indexOf(".jobs") === 0) {
+        	jobs(user, userID, channelID, message, event);
+        }
     }
 });
 
@@ -124,7 +127,7 @@ function help(user, userID, channelID, message, event) {
     bot.createDMChannel(userID);
     bot.sendMessage({
         to: userID,
-        message: "I have a lot of commands, too many to list in this Discord PM. Check this Pastebin: https://pastebin.com/g2FtqmMv"
+        message: "I have a lot of commands, too many to list in this Discord PM. Check this Pastebin: https://pastebin.com/8qT6kZYL"
     });
 }
 
