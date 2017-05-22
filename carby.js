@@ -340,33 +340,10 @@ function noSevenFifty(user, userID, channelID, message, event) {
 
 function chaos(user, userID, channelID, message, event) {
     var allJobs = windJobs.concat(waterJobs).concat(fireJobs).concat(earthJobs);
-    //get 4 jobs then sort by crystal
-    var tempJobs = [allJobs[getIncInt(0, allJobs.length - 1)], allJobs[getIncInt(0, allJobs.length - 1)], allJobs[getIncInt(0, allJobs.length - 1)], allJobs[getIncInt(0, allJobs.length - 1)]];
-    var fourJobs = [];
-    for (var job of tempJobs) {
-        if (windJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (waterJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (fireJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (earthJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    var wind = fourJobs[0];
-    var water = fourJobs[1];
-    var fire = fourJobs[2];
-    var earth = fourJobs[3];
+    var wind = allJobs[getIncInt(0, noJobs.length - 1)];
+    var water = allJobs[getIncInt(0, noJobs.length - 1)];
+    var fire = allJobs[getIncInt(0, noJobs.length - 1)];
+    var earth = allJobs[getIncInt(0, noJobs.length - 1)];
     bot.createDMChannel(userID);
     bot.sendMessage({
         to: userID,
@@ -377,33 +354,10 @@ function chaos(user, userID, channelID, message, event) {
 function chaosNoSevenFifty(user, userID, channelID, message, event) {
     var allJobs = windJobs.concat(waterJobs).concat(fireJobs).concat(earthJobs);
     var noJobs = intersect(allJobs, noMageJobs);
-    //get 4 jobs then sort by crystal
-    var tempJobs = [noJobs[getIncInt(0, noJobs.length - 1)], noJobs[getIncInt(0, noJobs.length - 1)], noJobs[getIncInt(0, noJobs.length - 1)], noJobs[getIncInt(0, noJobs.length - 1)]];
-    var fourJobs = [];
-    for (var job of tempJobs) {
-        if (windJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (waterJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (fireJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (earthJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    var wind = fourJobs[0];
-    var water = fourJobs[1];
-    var fire = fourJobs[2];
-    var earth = fourJobs[3];
+    var wind = noJobs[getIncInt(0, noJobs.length - 1)];
+    var water = noJobs[getIncInt(0, noJobs.length - 1)];
+    var fire = noJobs[getIncInt(0, noJobs.length - 1)];
+    var earth = noJobs[getIncInt(0, noJobs.length - 1)];
     bot.createDMChannel(userID);
     bot.sendMessage({
         to: userID,
@@ -414,33 +368,10 @@ function chaosNoSevenFifty(user, userID, channelID, message, event) {
 function chaosSevenFifty(user, userID, channelID, message, event) {
     var allJobs = windJobs.concat(waterJobs).concat(fireJobs).concat(earthJobs);
     var magJobs = intersect(allJobs, mageJobs);
-    //get 4 jobs then sort by crystal
-    var tempJobs = [magJobs[getIncInt(0, magJobs.length - 1)], magJobs[getIncInt(0, magJobs.length - 1)], magJobs[getIncInt(0, magJobs.length - 1)], magJobs[getIncInt(0, magJobs.length - 1)]];
-    var fourJobs = [];
-    for (var job of tempJobs) {
-        if (windJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (waterJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (fireJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    for (var job of tempJobs) {
-        if (earthJobs.includes(job)) {
-            fourJobs.push(job);
-        }
-    }
-    var wind = fourJobs[0];
-    var water = fourJobs[1];
-    var fire = fourJobs[2];
-    var earth = fourJobs[3];
+    var wind = magJobs[getIncInt(0, magJobs.length - 1)];
+    var water = magJobs[getIncInt(0, magJobs.length - 1)];
+    var fire = magJobs[getIncInt(0, magJobs.length - 1)];
+    var earth = magJobs[getIncInt(0, magJobs.length - 1)];
     bot.createDMChannel(userID);
     bot.sendMessage({
         to: userID,
@@ -451,9 +382,18 @@ function chaosSevenFifty(user, userID, channelID, message, event) {
 function purechaos(user, userID, channelID, message, event) {
     var allJobs = windJobs.concat(waterJobs).concat(fireJobs).concat(earthJobs).concat(miscJobs);
     var wind = allJobs[getIncInt(0, allJobs.length - 1)];
-    var water = allJobs[getIncInt(0, allJobs.length - 1)];
-    var fire = allJobs[getIncInt(0, allJobs.length - 1)];
-    var earth = allJobs[getIncInt(0, allJobs.length - 1)];
+    var water;
+    do {
+    	water = allJobs[getIncInt(0, allJobs.length - 1)];
+    } while (water === wind);
+    var fire;
+    do {
+    	fire = allJobs[getIncInt(0, allJobs.length - 1)];
+    } while (fire === wind || fire === water);
+    var earth;
+    do {
+    	earth = allJobs[getIncInt(0, allJobs.length - 1)];
+    } while (earth === wind || earth === water || earth === fire);
     bot.createDMChannel(userID);
     bot.sendMessage({
         to: userID,
