@@ -125,6 +125,13 @@ bot.on('message', function (user, userID, channelID, message, event) {
         if (lowMes.indexOf("zerky!") === 0) {
             zerky(user, userID, channelID, message, event);
         }
+        if (lowMes.indexOf(".oracle") === 0) {
+        	oracle(user, userID, channelID, message, event);
+        }
+        if (lowMes.indexOf("!level5death") === 0) {
+        	levelFiveDeath(user, userID, channelID, message, event);
+        }
+        //job DB
         if (lowMes.indexOf(".jobs") === 0) {
             jobs(user, userID, channelID, message, event);
         }
@@ -340,10 +347,10 @@ function noSevenFifty(user, userID, channelID, message, event) {
 
 function chaos(user, userID, channelID, message, event) {
     var allJobs = windJobs.concat(waterJobs).concat(fireJobs).concat(earthJobs);
-    var wind = allJobs[getIncInt(0, noJobs.length - 1)];
-    var water = allJobs[getIncInt(0, noJobs.length - 1)];
-    var fire = allJobs[getIncInt(0, noJobs.length - 1)];
-    var earth = allJobs[getIncInt(0, noJobs.length - 1)];
+    var wind = allJobs[getIncInt(0, allJobs.length - 1)];
+    var water = allJobs[getIncInt(0, allJobs.length - 1)];
+    var fire = allJobs[getIncInt(0, allJobs.length - 1)];
+    var earth = allJobs[getIncInt(0, allJobs.length - 1)];
     bot.createDMChannel(userID);
     bot.sendMessage({
         to: userID,
@@ -442,7 +449,7 @@ var ddLines = [
 function dd(user, userID, channelID, message, event) {
     var args = message.toLowerCase().split(" ");
     var index = parseInt(args[1]);
-    if (isNaN(index) || args.length === 1 || index > ddLines.length - 1 || index < 1) {
+    if (isNaN(index) || args.length === 1 || index > ddLines.length || index < 1) {
         bot.sendMessage({
             to: channelID,
             message: ddLines[getIncInt(0, ddLines.length - 1)]
@@ -577,6 +584,20 @@ function zerky(user, userID, channelID, message, event) {
         to: channelID,
         message: "http://www.soldoutcomic.com/Etc/Sketchdump/ThreeOrMoreDeathStillWorryZerky.png"
     });
+}
+
+function oracle(user, userID, channelID, message, event) {
+	bot.sendMessage({
+		to: channelID,
+		message: "https://www.youtube.com/watch?v=makazgIRzfg"
+	});
+}
+
+function levelFiveDeath(user, userID, channelID, message, event) {
+	bot.sendMessage({
+		to: channelID,
+		message: "Possibly the best ability! http://gfycat.com/TerrificKeyEmperorshrimp"
+	});
 }
 
 //job DB
