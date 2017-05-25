@@ -202,6 +202,7 @@ function mcalc(user, userID, channelID, message, event) {
                 m = m + " (+1 from Agility bonus)";
                 nextLevel = n + " (Bonus Agility M **LOST** at level " + ns + ")";
             }
+            statString = "Strength and " + agil + " Agility";
         }
     } else if (args[3] === "chicken") {
         var agil = parseInt(args[4]);
