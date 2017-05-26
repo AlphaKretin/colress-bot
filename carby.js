@@ -131,6 +131,9 @@ bot.on('message', function (user, userID, channelID, message, event) {
         if (lowMes.indexOf("!level5death") === 0) {
         	levelFiveDeath(user, userID, channelID, message, event);
         }
+        if (lowMes.indexOf(".quickleak") === 0) {
+        	quickleak(user, userID, channelID, message, event);
+        }
         //job DB
         if (lowMes.indexOf(".jobs") === 0) {
             jobs(user, userID, channelID, message, event);
@@ -598,6 +601,13 @@ function levelFiveDeath(user, userID, channelID, message, event) {
 	bot.sendMessage({
 		to: channelID,
 		message: "Possibly the best ability! http://gfycat.com/TerrificKeyEmperorshrimp"
+	});
+}
+
+function quickleak(user, userID, channelID, message, event){
+	bot.sendMessage({
+		to: channelID,
+		message: "https://www.youtube.com/watch?v=1x7zRK-Fsv8&list=PLMthTW4vRq8bfi6MeqVHU-yWkN4BRE1DJ"
 	});
 }
 
