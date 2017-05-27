@@ -146,7 +146,7 @@ function help(user, userID, channelID, message, event) {
     bot.createDMChannel(userID);
     bot.sendMessage({
         to: userID,
-        message: "I have a lot of commands, too many to list in this Discord PM. Check this Pastebin: https://pastebin.com/8qT6kZYL"
+        message: "I have a lot of commands, too many to list in this Discord PM. Check this readme: https://tinyurl.com/carbydocs"
     });
 }
 
@@ -276,7 +276,7 @@ function almagest(user, userID, channelID, message, event) {
         var buffTarget = Math.floor((32 * 1725) / (vit + 32));
         bot.sendMessage({
             to: channelID,
-            message: "You need " + target + " base HP to survive a max 1665 damage Almagest with 10 Vitality (or " + buffTarget + " to have 1725 HP for a buffer). Refer here for the level you'll need! http://bit.ly/1WKSUyu"
+            message: "You need " + target + " base HP to survive a max 1665 damage Almagest with " + vit + " Vitality (or " + buffTarget + " to have 1725 HP for a buffer). Refer here for the level you'll need! http://bit.ly/1WKSUyu"
         });
     }
 }
