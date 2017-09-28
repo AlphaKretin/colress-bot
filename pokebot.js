@@ -1,8 +1,9 @@
 //discord API boilerplate, logins in
+var fs = require('fs');
 var Discord = require('discord.io');
 var bot = new Discord.Client({
 	autorun: true,
-	token: "weak changes"
+	token: ""
 });
 var jsonfile = require('jsonfile');
 var file = "data.json";
@@ -10,6 +11,7 @@ var filev = "datav.json";
 var incoming = [];
 var yetToLoad = true;
 var venomCount = -1;
+var logging = true;
 
 var fcs = [{id: "247697943098818570", code: "5432-WOWP-LSMA", ign: "Colress"}];
 //confirms login
@@ -42,22 +44,58 @@ function sendMessage(user, userID, channelID, message, event, output){
 			bot.sendMessage({
 				to: "256301677768998913",
 				message: output //if user's already in bot spam, no need to direct attention
-			}, function(err, res){ if (err) { console.log(err); } return res});
+			}, function(err, res){ if (err) { console.log(err); } return res;});
 		} else {
 			bot.sendMessage({
 				to: "256301677768998913", //i'm only allowed in bot spam
 				message: "<@" + userID + "> \n" + output //and should mention to make sure users posting elsewhere see it
-			}, function(err, res){ if (err) { console.log(err); } return res});
+			}, function(err, res){ if (err) { console.log(err); } return res;});
 		}
 	} else {
 		bot.sendMessage({
 			to: channelID,
 			message: output
-		}, function(err, res){ if (err) { console.log(err); } return res});
+		}, function(err, res){ if (err) { console.log(err); } return res;});
 	}
 }
 
 bot.on('disconnect', function() { bot.connect(); });
+
+//logging
+bot.on('any', function(event) {
+	if (logging && typeof event.d != "undefined" && event.d != null) {
+		if (typeof event.d.guild_id != "undefined" || typeof event.d.channel_id != "undefined") {
+			var serverID;
+			if (typeof event.d.guild_id != "undefined") {
+				serverID = event.d.guild_id;
+			} else {
+				serverID = bot.channels[event.d.channel_id] && bot.channels[event.d.channel_id].guild_id;
+			}
+			if (serverID === "280403281308680192" && event.t !== "MESSAGE_CREATE" && event.t !== "PRESENCE_UPDATE" && event.t !== "TYPING_START") {
+				var out = "";
+				for (var key of Object.keys(event)){
+					if (typeof event[key] == "object") {
+						out = out + "**" + convKey(key) + "**: {";
+						for (var k of Object.keys(event[key])){
+							out = out + "**" + k + "**: " + event[key][k] + "\n";
+						}
+						out = out + "}";
+					} else {
+						out = out + "**" + convKey(key) + "**: " + event[key] + "\n";
+					}
+				}
+				bot.sendMessage({
+					to: "301541079550001153",
+					message: out
+				});
+			}
+		}
+	}
+});
+
+function convKey(key) {
+	if (key === "d") { return "Details"; } else if (key === "t") { return "Title"; } else { return key }
+}
 
 //reads incoming messages to look for commands
 bot.on('message', function(user, userID, channelID, message, event) {
@@ -144,6 +182,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	venomInc(user, userID, channelID, message, event);
 	if (lowMessage.indexOf("!v") === 0){
 		getVenom(user, userID, channelID, message, event);
+	}
+	if (lowMessage.indexOf("!logtog") === 0){
+		logtog(user, userID, channelID, message, event);
 	}
 });
 
@@ -879,7 +920,7 @@ function gameHiLo(user, userID, channelID, message, event) {
         return;
     } else {
         //pick a random pokemon
-        var index = getIncInt(0, mons.length - 1)
+        var index = getIncInt(0, mons.length - 1);
         var mon = mons[index];
         var name = mon.name; //string
         var dex = mon.dex; //int
@@ -928,15 +969,15 @@ function validateAnswerHiLo(user, userID, channelID, message, event) {
             } else {
                 gameGuesses++;
                 if (guess.dex < gameDex) {
-                    out = "That Pokémon is " + guess.name + ", which is too early in the Pokédex!\n"
+                    out = "That Pokémon is " + guess.name + ", which is too early in the Pokédex!\n";
                 } else { //if (guess.dex > gameDex)
-                    out = "That Pokémon is " + guess.name + ", which is too late in the Pokédex!\n"
+                    out = "That Pokémon is " + guess.name + ", which is too late in the Pokédex!\n";
                 }
                 if (gameGuesses === 10) {
                     out += "Sorry, but you're out of guesses! The National Pokédex number of " + gameAnswer + " is **" + gameDex + "**!";
                     gameRunning = "none";
                 } else {
-                    out += "You have " + (10 - gameGuesses) + " guess(es) left!"
+                    out += "You have " + (10 - gameGuesses) + " guess(es) left!";
                 }
                 sendMessage(user, userID, channelID, message, event, out);
             }
@@ -950,7 +991,7 @@ function gameHiLo2(user, userID, channelID, message, event) {
         return;
     } else {
         //pick a random pokemon
-        var index = getIncInt(0, mons.length - 1)
+        var index = getIncInt(0, mons.length - 1);
         var mon = mons[index];
         var name = mon.name; //string
         var dex = mon.dex; //int
@@ -1007,18 +1048,18 @@ function validateAnswerHiLo2(user, userID, channelID, message, event) {
             } else {
                 gameGuesses++;
                 if (guess.dex < gameDex) {
-                    out = "That Pokémon is number " + guess.dex + ", which is too early in the Pokédex!\n"
+                    out = "That Pokémon is number " + guess.dex + ", which is too early in the Pokédex!\n";
                 } else { //if (guess.dex > gameDex)
-                    out = "That Pokémon is number " + guess.dex + ", which is too late in the Pokédex!\n"
+                    out = "That Pokémon is number " + guess.dex + ", which is too late in the Pokédex!\n";
                 }
                 if (gameGuesses === 5) {
                     out += "Have a hint: " + gameHint + "\n";
-                    out += "You have " + (10 - gameGuesses) + " guess(es) left!"
+                    out += "You have " + (10 - gameGuesses) + " guess(es) left!";
                 } else if (gameGuesses === 10) {
                     out += "Sorry, but you're out of guesses! The answer I had in mind was " + gameAnswer + ", but if it has alternate formes, they were valid too!";
                     gameRunning = "none";
                 } else {
-                    out += "You have " + (10 - gameGuesses) + " guess(es) left!"
+                    out += "You have " + (10 - gameGuesses) + " guess(es) left!";
                 }
                 sendMessage(user, userID, channelID, message, event, out);
             }
@@ -1032,7 +1073,7 @@ function gameWhosThat(user, userID, channelID, message, event) {
         return;
     } else {
         //pick a random pokemon
-        var index = getIncInt(0, mons.length - 1)
+        var index = getIncInt(0, mons.length - 1);
         var mon = mons[index];
         var name = mon.name; //string
         var sprite = mon.image; //string, serebii link to image
@@ -1081,7 +1122,7 @@ function gameHangman(user, userID, channelID, message, event){
         return;
     } else {
         //pick a random pokemon
-        var index = getIncInt(0, mons.length - 1)
+        var index = getIncInt(0, mons.length - 1);
         var mon = mons[index];
         var name = mon.name; //string
         name = name.replace("é", "e").replace("♂", "M").replace("♀", "F");
@@ -1137,7 +1178,7 @@ function validateAnswerHangman(user, userID, channelID, message, event){
     				gameRunning = "none";
     			}
     		}
-    	} else if (message.length = 1){
+    	} else if (message.length === 1){
     		if (gameAnswer.toLowerCase().indexOf(message.toLowerCase()) > -1) {
     			for (var i = 0; i < gameAnswer.length; i++){
     				if (gameAnswer.charAt(i).toLowerCase() === message.toLowerCase()){
@@ -1440,6 +1481,27 @@ function copyReplay(user, userID, channelID, message, event){
 	}
 }
 
+function logtog(user, userID, channelID, message, event){
+	var serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+	if (serverID === "280403281308680192") {
+		if (userID === "169299769695535105" || userID === "195682910269865984") {
+			logging = !logging;
+			var stat = "";
+			if (logging) { stat = "enabled"; } else { stat= "disabled"; }
+			bot.sendMessage({
+				to: channelID,
+				message: "Logging " + stat + "!"
+			});
+		} else {
+			bot.sendMessage({
+				to: channelID,
+				message: "Sorry, " + user + ", only Alpha and Gid can toggle logging."
+			});
+		}
+	}
+	
+}
+
 function c(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -1452,7 +1514,7 @@ function getIncInt(min, max) {
 
 String.prototype.replaceAt=function(index, character) {
     return this.substr(0, index) + character + this.substr(index+character.length);
-}
+};
 
 var mons = [{id: "bulbasaur", name: "Bulbasaur", dex: 1, alola: -1, type: "Grass/Poison", ability: "Overgrow/None/Chlorophyll", wiki: "http://www.serebii.net/pokedex-sm/001.shtml", image: "http://www.serebii.net/sunmoon/pokemon/001.png"},
  {id: "ivysaur", name: "Ivysaur", dex: 2, alola: -1, type: "Grass/Poison", ability: "Overgrow/None/Chlorophyll", wiki: "http://www.serebii.net/pokedex-sm/002.shtml", image: "http://www.serebii.net/sunmoon/pokemon/002.png"},
