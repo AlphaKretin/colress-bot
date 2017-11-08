@@ -58,6 +58,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
         randomCard(user, userID, channelID, message, event);
         return;
     }
+	if (message.indexOf("<@" + bot.id + ">") > -1) {
+		help(user, userID, channelID, message, event);
+	}
     var re = /{([\S\s]*?)}/g;
     var results = [];
     var regx;
@@ -78,6 +81,13 @@ bot.on('message', function(user, userID, channelID, message, event) {
         }
     }
 });
+
+function help(user, userID, channelID, message, event) {
+	bot.sendMessage({
+		to: channelID,
+		message: "I am a Yu-Gi-Oh! card bot made by AlphaKretin#7990.\nPrice data is from the http://yugiohprices.com API.\nYou can find my help file here: https://github.com/AlphaKretin/colress-bot/blob/master/README-bastion.md"
+	});
+}
 
 async function randomCard(user, userID, channelID, message, event) {
     var code = ids[Math.floor(Math.random() * ids.length)];
