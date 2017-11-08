@@ -10,6 +10,8 @@ bot.on('ready', function() {
     console.log('Logged in as %s - %s\n', bot.username, bot.id);
 });
 
+bot.on('disconnect', function() { bot.connect(); });
+
 //sql setup
 var fs = require('fs');
 var SQL = require('sql.js');
@@ -32,6 +34,7 @@ for (var card of names[0].values) {
 var Fuse = require('fuse.js');
 var options = {
     shouldSort: true,
+	includeScore: true,
     tokenize: true,
     threshold: 0.6,
     location: 0,
@@ -43,6 +46,8 @@ var options = {
     ]
 };
 var fuse = new Fuse(nameList, options)
+
+var request = require('request');
 
 //real shit
 bot.on('message', function(user, userID, channelID, message, event) {
@@ -74,38 +79,40 @@ bot.on('message', function(user, userID, channelID, message, event) {
     }
 });
 
-function randomCard(user, userID, channelID, message, event) {
+async function randomCard(user, userID, channelID, message, event) {
     var code = ids[Math.floor(Math.random() * ids.length)];
     if (ids.indexOf(code) === -1) {
         console.log("Invalid card ID, please try again.");
         return "Invalid card ID, please try again.";
     }
+	var out = await getCardInfo(code, user, userID, channelID, message, event);
     bot.sendMessage({
         to: channelID,
-        message: getCardInfo(code, user, userID, channelID, message, event)
+        message: out
     });
 }
 
-function searchCard(input, user, userID, channelID, message, event) {
+async function searchCard(input, user, userID, channelID, message, event) {
     var inInt = parseInt(input);
     if (ids.indexOf(inInt) > -1) {
+		var out = await getCardInfo(inInt, user, userID, channelID, message, event);
         bot.sendMessage({
             to: channelID,
-            message: getCardInfo(inInt, user, userID, channelID, message, event)
+            message: out
         });
     } else {
         var index = nameCheck(input);
         if (index > -1 && index in ids) {
+			var out = await getCardInfo(ids[index], user, userID, channelID, message, event);
             bot.sendMessage({
                 to: channelID,
-                message: getCardInfo(ids[index], user, userID, channelID, message, event)
+                message: out
             });
         } else {
             console.log("Invalid card ID or name, please try again.");
             return;
         }
     }
-
 }
 
 function getCardInfo(code, user, userID, channelID, message, event) {
@@ -114,60 +121,80 @@ function getCardInfo(code, user, userID, channelID, message, event) {
         console.log("Invalid card ID, please try again.");
         return "Invalid card ID, please try again.";
     }
-    var out = "__**" + names[0].values[index][1] + "**__\n";
-    out += "**ID**: " + code + "\n\n";
-    out += "**Region**: " + getOT(index) + "\n";
-    var types = getTypes(index);
-    if (types.indexOf("Monster") > -1) {
-        var typesStr = types.toString().replace("Monster", getRace(index)).replace(/,/g, "/");
-        out += "**Type**: " + typesStr + " **Attribute**: " + getAtt(index) + "\n";
-        var lvName = "Level";
-        var lv = getLevelScales(index);
-        var def = true;
-        if (types.indexOf("Xyz") > -1) {
-            lvName = "Rank";
-        } else if (types.indexOf("Link") > -1) {
-            lvName = "Link Rating";
-            def = false;
-        }
-        out += "**" + lvName + "**: " + lv[0] + " ";
-        out += "**ATK**: " + convertStat(contents[0].values[index][5]) + " ";
-        if (def) {
-            out += "**DEF**: " + convertStat(contents[0].values[index][6]);
-        } else {
-            out += "**Link Markers**: " + getMarkers(index);
-        }
-
-        if (types.indexOf("Pendulum") > -1) {
-            out += " **Pendulum Scale**: " + lv[1] + "/" + lv[2] + "\n";
-        } else {
-            out += "\n";
-        }
-        var cardText = getCardText(index);
-        var textName = "Monster Effect";
-        if (types.indexOf("Normal") > -1) {
-            textName = "Flavour Text";
-        }
-        if (cardText.length === 2) {
-            out += "**Pendulum Effect**: " + cardText[0] + "\n";
-            out += "**" + textName + "**: " + cardText[1];
-        } else {
-            out += "**" + textName + "**: " + cardText[0];
-        }
-    } else if (types.indexOf("Spell") > -1 || types.indexOf("Trap") > -1) {
-        var lv = getLevelScales(index)[0];
-        if (lv > 0) { //is trap monster
-            var typesStr = getRace(index) + "/" + types.toString().replace(/,/g, "/");
-            out += "**Type**: " + typesStr + " **Attribute**: " + getAtt(index) + "\n";
-            out += "**Level**: " + lv + " **ATK**: " + convertStat(contents[0].values[index][5]) + " **DEF**: " + convertStat(contents[0].values[index][6]) + "\n";
-        } else {
-            out += "**Type**: " + types.toString().replace(/,/g, "/") + "\n";
-        }
-        out += "**Effect**: " + names[0].values[index][2].replace(/\n/g, "\n");
-    } else {
-        out += "**Card Text**: " + names[0].values[index][2].replace(/\n/g, "\n");
-    }
-    return out;
+    return new Promise(function(resolve, reject) {
+        var out = "__**" + names[0].values[index][1] + "**__\n";
+        out += "**ID**: " + code + "\n\n";
+        request('http://yugiohprices.com/api/get_card_prices/' + names[0].values[index][1], function(error, response, body) {
+            var data = JSON.parse(body);
+			if (data.status === "success") {
+                var low = 9999999999;
+                var hi = 0;
+                for (var price of data.data) {
+                    if (price.price_data.status === "success") {
+                        if (price.price_data.data.prices.high > hi) {
+                            hi = price.price_data.data.prices.high;
+                        }
+                        if (price.price_data.data.prices.low < low) {
+                            low = price.price_data.data.prices.low;
+                        }
+                    }
+                }
+                out += "**Region**: " + getOT(index) + " **Price**: $" + low.toFixed(2) + "-$" + hi.toFixed(2) + " USD\n";
+            } else {
+                out += "**Region**: " + getOT(index) + "\n";
+            }
+            var types = getTypes(index);
+            if (types.indexOf("Monster") > -1) {
+                var typesStr = types.toString().replace("Monster", getRace(index)).replace(/,/g, "/");
+                out += "**Type**: " + typesStr + " **Attribute**: " + getAtt(index) + "\n";
+                var lvName = "Level";
+                var lv = getLevelScales(index);
+                var def = true;
+                if (types.indexOf("Xyz") > -1) {
+                    lvName = "Rank";
+                } else if (types.indexOf("Link") > -1) {
+                    lvName = "Link Rating";
+                    def = false;
+                }
+                out += "**" + lvName + "**: " + lv[0] + " ";
+                out += "**ATK**: " + convertStat(contents[0].values[index][5]) + " ";
+                if (def) {
+                    out += "**DEF**: " + convertStat(contents[0].values[index][6]);
+                } else {
+                    out += "**Link Markers**: " + getMarkers(index);
+                }
+                if (types.indexOf("Pendulum") > -1) {
+                    out += " **Pendulum Scale**: " + lv[1] + "/" + lv[2] + "\n";
+                } else {
+                    out += "\n";
+                }
+                var cardText = getCardText(index);
+                var textName = "Monster Effect";
+                if (types.indexOf("Normal") > -1) {
+                    textName = "Flavour Text";
+                }
+                if (cardText.length === 2) {
+                    out += "**Pendulum Effect**: " + cardText[0] + "\n";
+                    out += "**" + textName + "**: " + cardText[1];
+                } else {
+                    out += "**" + textName + "**: " + cardText[0];
+                }
+            } else if (types.indexOf("Spell") > -1 || types.indexOf("Trap") > -1) {
+                var lv = getLevelScales(index)[0];
+                if (lv > 0) { //is trap monster
+                    var typesStr = getRace(index) + "/" + types.toString().replace(/,/g, "/");
+                    out += "**Type**: " + typesStr + " **Attribute**: " + getAtt(index) + "\n";
+                    out += "**Level**: " + lv + " **ATK**: " + convertStat(contents[0].values[index][5]) + " **DEF**: " + convertStat(contents[0].values[index][6]) + "\n";
+                } else {
+                    out += "**Type**: " + types.toString().replace(/,/g, "/") + "\n";
+                }
+                out += "**Effect**: " + names[0].values[index][2].replace(/\n/g, "\n");
+            } else {
+                out += "**Card Text**: " + names[0].values[index][2].replace(/\n/g, "\n");
+            }
+            resolve(out);
+        });
+    });
 }
 
 //utility functions
@@ -441,7 +468,7 @@ function nameCheck(line) {
     } else {
         var index = -1;
         for (var i = 0; i < names[0].values.length; i++) {
-            if (names[0].values[i][1].toLowerCase() === result[0].name.toLowerCase()) {
+            if (names[0].values[i][1].toLowerCase() === result[0].item.name.toLowerCase()) {
                 index = i;
             }
         }
