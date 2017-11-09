@@ -1,7 +1,7 @@
 //discord setup
-var Discord = require('discord.io');
+let Discord = require('discord.io');
 
-var bot = new Discord.Client({
+let bot = new Discord.Client({
     token: "",
     autorun: true
 });
@@ -15,26 +15,26 @@ bot.on('disconnect', function() {
 });
 
 //sql setup
-var fs = require('fs');
-var SQL = require('sql.js');
-var filebuffer = fs.readFileSync('cards.cdb');
-var db = new SQL.Database(filebuffer);
-var contents = db.exec("SELECT * FROM datas");
-var names = db.exec("SELECT * FROM texts");
-var ids = [];
-var nameList = [];
-for (var card of contents[0].values) {
+let fs = require('fs');
+let SQL = require('sql.js');
+let filebuffer = fs.readFileSync('cards.cdb');
+let db = new SQL.Database(filebuffer);
+let contents = db.exec("SELECT * FROM datas");
+let names = db.exec("SELECT * FROM texts");
+let ids = [];
+let nameList = [];
+for (let card of contents[0].values) {
     ids.push(card[0]);
 }
-for (var card of names[0].values) {
+for (let card of names[0].values) {
     nameList.push({
         name: card[1]
     });
 }
 
 //fuse setup
-var Fuse = require('fuse.js');
-var options = {
+let Fuse = require('fuse.js');
+let options = {
     shouldSort: true,
     includeScore: true,
     tokenize: true,
@@ -47,11 +47,11 @@ var options = {
         "name"
     ]
 };
-var fuse = new Fuse(nameList, options);
+let fuse = new Fuse(nameList, options);
 
-var request = require('request');
-var https = require('https');
-var url = require('url');
+let request = require('request');
+let https = require('https');
+let url = require('url');
 
 //real shit
 bot.on('message', function(user, userID, channelID, message, event) {
@@ -65,18 +65,18 @@ bot.on('message', function(user, userID, channelID, message, event) {
     if (message.indexOf("<@" + bot.id + ">") > -1) {
         help(user, userID, channelID, message, event);
     }
-    var re = /{([\S\s]*?)}/g;
-    var results = [];
-    var regx;
+    let re = /{([\S\s]*?)}/g;
+    let results = [];
+    let regx;
     do {
         regx = re.exec(message);
         if (regx !== null) {
             results.push(regx[1]);
         }
     } while (regx !== null);
-    var re2 = /<([\S\s]*?)>/g;
-    var results2 = [];
-    var regx2;
+    let re2 = /<([\S\s]*?)>/g;
+    let results2 = [];
+    let regx2;
     do {
         regx2 = re2.exec(message);
         if (regx2 !== null) {
@@ -90,12 +90,12 @@ bot.on('message', function(user, userID, channelID, message, event) {
         });
     } else {
         if (results.length > 0) {
-            for (var result of results) {
+            for (let result of results) {
                 searchCard(result, false, user, userID, channelID, message, event);
             }
         }
         if (results2.length > 0) {
-            for (var result of results2) {
+            for (let result of results2) {
                 searchCard(result, true, user, userID, channelID, message, event);
             }
         }
@@ -111,9 +111,9 @@ function help(user, userID, channelID, message, event) {
 
 async function randomCard(user, userID, channelID, message, event) {
     try {
-        var args = message.toLowerCase().split(" ");
-        var code;
-        var i = 0;
+        let args = message.toLowerCase().split(" ");
+        let code;
+        let i = 0;
         do {
             i++;
             code = ids[Math.floor(Math.random() * ids.length)];
@@ -129,7 +129,7 @@ async function randomCard(user, userID, channelID, message, event) {
             });
             return
         }
-        var out = await getCardInfo(code, user, userID, channelID, message, event);
+        let out = await getCardInfo(code, user, userID, channelID, message, event);
         if (args.indexOf("image") > -1) {
             postImage(code, out, user, userID, channelID, message, event);
         } else {
@@ -144,10 +144,10 @@ async function randomCard(user, userID, channelID, message, event) {
 }
 
 async function searchCard(input, hasImage, user, userID, channelID, message, event) {
-    var inInt = parseInt(input);
+    let inInt = parseInt(input);
     if (ids.indexOf(inInt) > -1) {
         try {
-            var out = await getCardInfo(inInt, user, userID, channelID, message, event);
+            let out = await getCardInfo(inInt, user, userID, channelID, message, event);
             if (hasImage) {
                 postImage(inInt, out, user, userID, channelID, message, event);
             } else {
@@ -163,9 +163,9 @@ async function searchCard(input, hasImage, user, userID, channelID, message, eve
         }
     } else {
         try {
-            var index = nameCheck(input);
+            let index = nameCheck(input);
             if (index > -1 && index in ids) {
-                var out = await getCardInfo(ids[index], user, userID, channelID, message, event);
+                let out = await getCardInfo(ids[index], user, userID, channelID, message, event);
                 if (hasImage) {
                     postImage(ids[index], out, user, userID, channelID, message, event);
                 } else {
@@ -186,20 +186,20 @@ async function searchCard(input, hasImage, user, userID, channelID, message, eve
 }
 
 function getCardInfo(code, user, userID, channelID, message, event) {
-    var index = ids.indexOf(code);
+    let index = ids.indexOf(code);
     if (index === -1) {
         console.log("Invalid card ID, please try again.");
         return "Invalid card ID, please try again.";
     }
     return new Promise(function(resolve, reject) {
-        var out = "__**" + names[0].values[index][1] + "**__\n";
+        let out = "__**" + names[0].values[index][1] + "**__\n";
         out += "**ID**: " + code + "\n\n";
         request('https://yugiohprices.com/api/get_card_prices/' + names[0].values[index][1], function(error, response, body) {
-            var data = JSON.parse(body);
+            let data = JSON.parse(body);
             if (data.status === "success") {
-                var low = 9999999999;
-                var hi = 0;
-                for (var price of data.data) {
+                let low = 9999999999;
+                let hi = 0;
+                for (let price of data.data) {
                     if (price.price_data.status === "success") {
                         if (price.price_data.data.prices.high > hi) {
                             hi = price.price_data.data.prices.high;
@@ -213,13 +213,13 @@ function getCardInfo(code, user, userID, channelID, message, event) {
             } else {
                 out += "**Region**: " + getOT(index) + "\n";
             }
-            var types = getTypes(index);
+            let types = getTypes(index);
             if (types.indexOf("Monster") > -1) {
-                var typesStr = types.toString().replace("Monster", getRace(index)).replace(/,/g, "/");
+                let typesStr = types.toString().replace("Monster", getRace(index)).replace(/,/g, "/");
                 out += "**Type**: " + typesStr + " **Attribute**: " + getAtt(index) + "\n";
-                var lvName = "Level";
-                var lv = getLevelScales(index);
-                var def = true;
+                let lvName = "Level";
+                let lv = getLevelScales(index);
+                let def = true;
                 if (types.indexOf("Xyz") > -1) {
                     lvName = "Rank";
                 } else if (types.indexOf("Link") > -1) {
@@ -238,8 +238,8 @@ function getCardInfo(code, user, userID, channelID, message, event) {
                 } else {
                     out += "\n";
                 }
-                var cardText = getCardText(index);
-                var textName = "Monster Effect";
+                let cardText = getCardText(index);
+                let textName = "Monster Effect";
                 if (types.indexOf("Normal") > -1) {
                     textName = "Flavour Text";
                 }
@@ -250,9 +250,9 @@ function getCardInfo(code, user, userID, channelID, message, event) {
                     out += "**" + textName + "**: " + cardText[0];
                 }
             } else if (types.indexOf("Spell") > -1 || types.indexOf("Trap") > -1) {
-                var lv = getLevelScales(index)[0];
+                let lv = getLevelScales(index)[0];
                 if (lv > 0) { //is trap monster
-                    var typesStr = getRace(index) + "/" + types.toString().replace(/,/g, "/");
+                    let typesStr = getRace(index) + "/" + types.toString().replace(/,/g, "/");
                     out += "**Type**: " + typesStr + " **Attribute**: " + getAtt(index) + "\n";
                     out += "**Level**: " + lv + " **ATK**: " + convertStat(contents[0].values[index][5]) + " **DEF**: " + convertStat(contents[0].values[index][6]) + "\n";
                 } else {
@@ -269,11 +269,11 @@ function getCardInfo(code, user, userID, channelID, message, event) {
 
 function postImage(code, out, user, userID, channelID, message, event) {
     https.get(url.parse("https://raw.githubusercontent.com/shadowfox87/YGOTCGOCGPics323x323/master/" + code + ".png"), function(response) {
-        var data = [];
+        let data = [];
         response.on('data', function(chunk) {
             data.push(chunk);
         }).on('end', function() {
-            var buffer = Buffer.concat(data);
+            let buffer = Buffer.concat(data);
             bot.uploadFile({
                 to: channelID,
                 file: buffer,
@@ -289,12 +289,12 @@ function postImage(code, out, user, userID, channelID, message, event) {
 }
 
 function randFilterCheck(code, args) {
-    var otFilters = [];
-    var typeFilters = [];
-    var raceFilters = [];
-    var attFilters = [];
-    var lvFilters = [];
-    for (var arg of args) {
+    let otFilters = [];
+    let typeFilters = [];
+    let raceFilters = [];
+    let attFilters = [];
+    let lvFilters = [];
+    for (let arg of args) {
         if (["ocg", "tcg", "tcg/ocg", "anime", "illegal", "video", "game", "custom"].indexOf(arg) > -1) {
             if (arg === "video" || arg === "game") {
                 otFilters.push("video game");
@@ -318,14 +318,14 @@ function randFilterCheck(code, args) {
     if (otFilters.length + typeFilters.length + raceFilters.length + attFilters.length + lvFilters.length === 0) {
         return true;
     } else {
-        var index = ids.indexOf(code);
-        var boo = true;
+        let index = ids.indexOf(code);
+        let boo = true;
         if (otFilters.length > 0 && otFilters.indexOf(getOT(index).toLowerCase()) === -1) {
             boo = false;
         }
         if (typeFilters.length > 0) {
-            var subBoo = false;
-            for (var type of getTypes(index)) {
+            let subBoo = false;
+            for (let type of getTypes(index)) {
                 if (typeFilters.indexOf(type.toLowerCase()) > -1) {
                     subBoo = true;
                 }
@@ -355,20 +355,20 @@ function convertStat(stat) {
 }
 
 function getLevelScales(index) {
-    var level = contents[0].values[index][7];
-    var levelStr = level.toString("16");
+    let level = contents[0].values[index][7];
+    let levelStr = level.toString("16");
     if (levelStr.length < 5) {
         return [level, 0, 0];
     } else {
-        var lscale = parseInt(levelStr.slice(0, 1));
-        var rscale = parseInt(levelStr.slice(2, 3));
-        var plevel = parseInt(levelStr.slice(4));
+        let lscale = parseInt(levelStr.slice(0, 1));
+        let rscale = parseInt(levelStr.slice(2, 3));
+        let plevel = parseInt(levelStr.slice(4));
         return [plevel, lscale, rscale];
     }
 }
 
 function getOT(index) {
-    var ot = contents[0].values[index][1];
+    let ot = contents[0].values[index][1];
     switch (ot) {
         case 1:
             return "OCG";
@@ -390,7 +390,7 @@ function getOT(index) {
 }
 
 function getRace(index) {
-    var race = contents[0].values[index][8];
+    let race = contents[0].values[index][8];
     switch (race) {
         case 0x1:
             return "Warrior";
@@ -452,7 +452,7 @@ function getRace(index) {
 }
 
 function getAtt(index) {
-    var att = contents[0].values[index][9];
+    let att = contents[0].values[index][9];
     switch (att) {
         case 0x1:
             return "EARTH";
@@ -476,8 +476,8 @@ function getAtt(index) {
 }
 
 function getMarkers(index) {
-    var marks = contents[0].values[index][6];
-    var out = "";
+    let marks = contents[0].values[index][6];
+    let out = "";
     if (marks & 0x001) {
         out += "↙️";
     }
@@ -506,8 +506,8 @@ function getMarkers(index) {
 }
 
 function getTypes(index) {
-    var types = [];
-    var type = contents[0].values[index][4];
+    let types = [];
+    let type = contents[0].values[index][4];
     if (type & 0x1) {
         types.push("Monster");
     }
@@ -595,27 +595,192 @@ function getTypes(index) {
 }
 
 function getCardText(index) {
-    var cardText = names[0].values[index][2];
-    var re = /\][\s\S]*?\n([\S\s]*?)\n-/g;
-    var regx = re.exec(cardText);
+    let cardText = names[0].values[index][2];
+    let re = /\][\s\S]*?\n([\S\s]*?)\n-/g;
+    let regx = re.exec(cardText);
     if (regx === null) {
         return [cardText.replace(/\n/g, "\n")];
     } else {
-        var outArr = [];
+        let outArr = [];
         outArr.push(regx[1].replace(/\n/g, "\n"));
-        var re2 = /(?:r Effect|xt) ?\]\R*([\S\s]*)/g;
+        let re2 = /(?:r Effect|xt) ?\]\R*([\S\s]*)/g;
         outArr.push(re2.exec(cardText)[1].replace(/\n/g, "\n"));
         return outArr;
     }
 }
 
+let shortcuts = [
+  [ "A0", "Ab Z.", "AbZ.", "Ab Z", "AbZ", "Elemental HERO Absolute Zero" ],
+  [ "AGGD", "Ancient Gear Gadjiltron Dragon" ],
+  [ "BEWD", "B-EWD", "Blue-Eyes White Dragon" ],
+  [ "BEUD", "B-EUD", "Blue-Eyes Ultimate Dragon" ],
+  [ "BRD", "Black Rose Dragon" ],
+  [ "Brio", "BDoftIB", "B,DIB", "B,DoftB", "Brionac, Dragon of the Ice Barrier" ],
+  [ "BLS", "BLS-EotB", "BLS EotB", "BLS-EB", "BLS EB", "BLS-EoB", "BLS EoB", "Black Luster Soldier - Envoy of the Beginning" ],
+  [ "CcD", "Cardcar D" ],
+  [ "CDI", "Cyber Dragon Infinity" ],
+  [ "CED-EotE", "CED EotE", "CED-EE", "CED EE", "CED-EoE", "CED EoE", "Chaos Emperor Dragon - Envoy of the End" ],
+  [ "CED", "Cyber End Dragon" ],
+  [ "CyDra", "Cyber Dragon" ],
+  [ "DAD", "Dark Armed Dragon" ],
+  [ "DM", "Dark Magician" ],
+  [ "DMG", "Dark Magician Girl" ],
+  [ "DMK", "Dragon Master Knight" ],
+  [ "DMoC", "Dark Magician of Chaos" ],
+  [ "FGD", "FHD", "Five-Headed Dragon" ],
+  [ "GEPD", "Galaxy-Eyes Photon Dragon" ],
+  [ "JD", "Judgment Dragon" ],
+  [ "LaDD", "Light and Darkness Dragon" ],
+  [ "LPD", "Lightpulsar Dragon" ],
+  [ "M7", "Constellar Ptolemy M7" ],
+  [ "Mali", "Destiny Hero - Malicious" ],
+  [ "NeoGEPD", "Neo Galaxy-Eyes Photon Dragon" ],
+  [ "PSZ", "Plaguespreader Zombie" ],
+  [ "PoC", "Phantom of Chaos" ],
+  [ "RDA", "Red Dragon Archfiend" ],
+  [ "REBD", "R-EB.D", "R-EBD", "REB.D", "Red-Eyes B. Dragon" ],
+  [ "REDMD", "R-EDMD", "Red-Eyes Darkness Metal Dragon" ],
+  [ "REFMD", "R-EFMD", "Red-Eyes Flare Metal Dragon" ],
+  [ "TER", "T-ER", "Thousand-Eyes Restrict" ],
+  [ "TGU", "TGftU", "TGfU", "Tour Guide from the Underworld" ],
+  [ "TKRO", "TKR-O", "Thunder King Rai-Oh" ],
+  [ "Trag", "Tragoedia" ],
+  [ "Trish", "TDotIB", "T,DotIB", "T,DIB", "TDIB", "Trishula, Dragon of the Ice Barrier" ],
+  [ "AoD", "Allure of Darkness" ],
+  [ "AHL", "A Hero Lives" ],
+  [ "ARA", "Advanced Ritual Art" ],
+  [ "BoM", "Book of Moon" ],
+  [ "BoT", "Book of Taiyou" ],
+  [ "BoE", "Book of Eclipse" ],
+  [ "BoL", "Book of Life" ],
+  [ "D-Draw", "DDraw", "D Draw", "DestDraw", "Destiny Draw" ],
+  [ "DDR", "D.D.R.", "D.D.R", "Different Dimension Reincarnation" ],
+  [ "DWD", "Dark World Dealings" ],
+  [ "E-Con", "ECon", "E Con", "Enemy Controller" ],
+  [ "E-Tele", "ETele", "E Tele", "Emergency Teleport" ],
+  [ "FC", "Final Countdown" ],
+  [ "FuFu", "Future Fusion" ],
+  [ "IRS", "Inferno Reckless Summon" ],
+  [ "MST", "Mystical Space Typhoon" ],
+  [ "PoD", "Pot of Duality" ],
+  [ "PoA", "Pot of Avarice" ],
+  [ "RotA", "Reinforcement of the Army" ],
+  [ "R-U-M", "RUM", "R-UM", "RU-M", "Rank-Up-Magic" ],
+  [ "TWRA", "WRA", "The Warrior Returning Alive" ],
+  [ "BTH", "Bottomless Trap Hole" ],
+  [ "CED", "Compulsory Evacuation Device" ],
+  [ "CCV", "Crush Card Virus" ],
+  [ "CotH", "Call of the Haunted" ],
+  [ "D Prison", "D-Prison", "DPrison", "Dimensional Prison" ],
+  [ "DDV", "Deck Devastation Virus" ],
+  [ "EEV", "Eradicator Epidemic Virus" ],
+  [ "LIM", "L-IM", "Light-Imprisoning Mirror" ],
+  [ "PWWB", "Phoenix Wing Wind Blast" ],
+  [ "SIM", "S-IM", "Shadow-Imprisoning Mirror" ],
+  [ "SJ", "Solemn Judgment" ],
+  [ "SkD", "SD", "Skill Drain" ],
+  [ "SW", "Solemn Warning" ],
+  [ "THRiO", "THRO", "The Huge Revolution is Over" ],
+  [ "T Roar", "T-Roar", "TRoar", "Theartening Roar" ],
+  [ "TT", "ToTr", "Torrential Tribute" ],
+  [ "AoJ", "Ally of Justice" ],
+  [ "BB", "B'B", "Battlin' Boxer" ],
+  [ "BW", "Blackwing" ],
+  [ "CB", "Crystal Beast" ],
+  [ "DW", "Dark World" ],
+  [ "GB", "GLAD", "Gladiator Beast" ],
+  [ "GK", "GK's", "GKs", "Gravekeeper's" ],
+  [ "GemK", "Gem-K", "GemKn", "Gem-Knight" ],
+  [ "HC", "Heroic Challenger" ],
+  [ "HF", "Hazy Flame" ],
+  [ "LS", "Lightsworn" ],
+  [ "MPB", "Mecha Phantom Beast" ],
+  [ "SS", "SixSam", "6S", "6Sam", "Six Samurai" ],
+  [ "TG", "T.G", "TG.", "T.G." ],
+  [ "WU", "W-U", "Wind-Up" ],
+  [ "OE", "O-E", "Odd-Eyes" ],
+  [ "PK", "TPK", "The Phantom Knights" ],
+  [ "RB", "Ritual Beast" ],
+  [ "RBT", "Ritual Beast Tamer" ],
+  [ "SB", "SpiRB", "SRB", "Spiritual Beast" ],
+  [ "SBT", "SpiRBT", "SRBT", "Spiritual Beast Tamer" ],
+  [ "RR", "Raidraptor" ],
+  [ "SDR", "Super Defense Robot" ],
+  [ "SHS", "SuSa", "Superheavy Samurai" ],
+  [ "/AM", "/Assault Mode" ],
+  [ "ACB", "Advanced Crystal Beast" ],
+  [ "AG", "Ancient Gear" ],
+  [ "ABW", "Assault Blackwing" ],
+  [ "BWT", "Blackwing Tamer" ],
+  [ "BA", "Burning Abyss" ],
+  [ "CG", "Celtic Guard" ],
+  [ "ChemB", "ChB", "Chemical Beast" ],
+  [ "AChemB", "AChB", "Advanced Chemical Beast" ],
+  [ "CA", "Cyber Angel" ],
+  [ "DC", "Dark Contract" ],
+  [ "D-HERO", "DHERO", "Destiny HERO" ],
+  [ "E-HERO", "EHERO", "Elemental HERO" ],
+  [ "M-HERO", "MHERO", "Masked HERO" ],
+  [ "V-HERO", "VHERO", "Vision HERO" ],
+  [ "Ev-HERO", "EvHERO", "Evil HERO" ],
+  [ "EI", "EbI", "Earthbound Immortal" ],
+  [ "ES", "EbS", "Earthbound Servant" ],
+  [ "EoD", "ED", "Emissary of Darkness" ],
+  [ "EW", "EmWa", "Empowered Warrior" ],
+  [ "FP", "F-O", "Familiar-Posessed" ],
+  [ "BotFF", "BhotFF", "BoFF", "BhoFF", "BFF", "Brotherhood of the Fire First" ],
+  [ "FF", "Fire Formation" ],
+  [ "FB", "Forbidden Beast" ],
+  [ "otF", "of the Forest" ],
+  [ "GtFK", "GFK", "Gaia the Fierce Knight" ],
+  [ "GM", "Guts Master" ],
+  [ "HB", "Heraldic Beast" ],
+  [ "SR", "Speedroid" ],
+  [ "HtBFD", "HBFD", "Horus the Black Flame Dragon" ],
+  [ "BE", "B-E", "Blue-Eyes" ],
+  [ "RE", "R-E", "Red-Eyes" ],
+  [ "LL", "Lunalight" ],
+  [ "MW", "Magnet Warrior" ],
+  [ "SQ", "Super Quant" ],
+  [ "SQum", "Super Quantum" ],
+  [ "SQal", "Super Quantal" ],
+  [ "UA", "U.A", "UA.", "U.A." ],
+  [ "WW", "Wind Witch" ],
+  [ "YZ", "Yang Zing" ],
+  [ "TH", "Trap Hole" ]
+];
+
 function nameCheck(line) {
-    var result = fuse.search(line);
+	for (let i = 0; i < names[0].values.length; i++) { //check all entries for exact name
+		if (names[0].values[i][1].toLowerCase() === line.toLowerCase()) {
+			return i;
+		}
+    }
+	let lineArr = line.split(" ");
+	for (let i = 0; i < lineArr.length; i ++) {
+		for (let cut of shortcuts) {
+			for (let j = 0; j < cut.length - 1; j ++) {
+				if (lineArr[i].toLowerCase() === cut[j].toLowerCase()) {
+					console.log(lineArr[i]);
+					console.log(cut[j]);
+					console.log(cut[cut.length - 1]);
+					lineArr[i] = cut[cut.length - 1];
+				}
+			}
+		}
+	}
+	let newLine = lineArr.toString().replace(/,/g, " ");
+	for (let i = 0; i < names[0].values.length; i++) { //check all entries for exact name
+		if (names[0].values[i][1].toLowerCase() === newLine.toLowerCase()) {
+			return i;
+		}
+    }
+    let result = fuse.search(newLine);
     if (result.length < 1) {
         return -1;
     } else {
-        var index = -1;
-        for (var i = 0; i < names[0].values.length; i++) {
+        let index = -1;
+        for (let i = 0; i < names[0].values.length; i++) {
             if (names[0].values[i][1].toLowerCase() === result[0].item.name.toLowerCase()) {
                 index = i;
             }
