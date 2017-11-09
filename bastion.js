@@ -10,7 +10,9 @@ bot.on('ready', function() {
     console.log('Logged in as %s - %s\n', bot.username, bot.id);
 });
 
-bot.on('disconnect', function() { bot.connect(); });
+bot.on('disconnect', function() {
+    bot.connect();
+});
 
 //sql setup
 var fs = require('fs');
@@ -34,7 +36,7 @@ for (var card of names[0].values) {
 var Fuse = require('fuse.js');
 var options = {
     shouldSort: true,
-	includeScore: true,
+    includeScore: true,
     tokenize: true,
     threshold: 0.6,
     location: 0,
@@ -45,9 +47,11 @@ var options = {
         "name"
     ]
 };
-var fuse = new Fuse(nameList, options)
+var fuse = new Fuse(nameList, options);
 
 var request = require('request');
+var https = require('https');
+var url = require('url');
 
 //real shit
 bot.on('message', function(user, userID, channelID, message, event) {
@@ -58,9 +62,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
         randomCard(user, userID, channelID, message, event);
         return;
     }
-	if (message.indexOf("<@" + bot.id + ">") > -1) {
-		help(user, userID, channelID, message, event);
-	}
+    if (message.indexOf("<@" + bot.id + ">") > -1) {
+        help(user, userID, channelID, message, event);
+    }
     var re = /{([\S\s]*?)}/g;
     var results = [];
     var regx;
@@ -70,57 +74,113 @@ bot.on('message', function(user, userID, channelID, message, event) {
             results.push(regx[1]);
         }
     } while (regx !== null);
-    if (results.length > 3) {
+    var re2 = /<([\S\s]*?)>/g;
+    var results2 = [];
+    var regx2;
+    do {
+        regx2 = re2.exec(message);
+        if (regx2 !== null) {
+            results2.push(regx2[1]);
+        }
+    } while (regx2 !== null);
+    if (results.length + results2.length > 3) {
         bot.sendMessage({
             to: channelID,
             message: "Too many searches!"
         });
-    } else if (results.length > 0) {
-        for (var result of results) {
-            searchCard(result, user, userID, channelID, message, event);
+    } else {
+        if (results.length > 0) {
+            for (var result of results) {
+                searchCard(result, false, user, userID, channelID, message, event);
+            }
+        }
+        if (results2.length > 0) {
+            for (var result of results2) {
+                searchCard(result, true, user, userID, channelID, message, event);
+            }
         }
     }
 });
 
 function help(user, userID, channelID, message, event) {
-	bot.sendMessage({
-		to: channelID,
-		message: "I am a Yu-Gi-Oh! card bot made by AlphaKretin#7990.\nPrice data is from the http://yugiohprices.com API.\nYou can find my help file here: https://github.com/AlphaKretin/colress-bot/blob/master/README-bastion.md"
-	});
-}
-
-async function randomCard(user, userID, channelID, message, event) {
-    var code = ids[Math.floor(Math.random() * ids.length)];
-    if (ids.indexOf(code) === -1) {
-        console.log("Invalid card ID, please try again.");
-        return "Invalid card ID, please try again.";
-    }
-	var out = await getCardInfo(code, user, userID, channelID, message, event);
     bot.sendMessage({
         to: channelID,
-        message: out
+        message: "I am a Yu-Gi-Oh! card bot made by AlphaKretin#7990.\nPrice data is from the https://yugiohprices.com API.\nYou can find my help file here: httpss://github.com/AlphaKretin/colress-bot/blob/master/README-bastion.md"
     });
 }
 
-async function searchCard(input, user, userID, channelID, message, event) {
-    var inInt = parseInt(input);
-    if (ids.indexOf(inInt) > -1) {
-		var out = await getCardInfo(inInt, user, userID, channelID, message, event);
-        bot.sendMessage({
-            to: channelID,
-            message: out
-        });
-    } else {
-        var index = nameCheck(input);
-        if (index > -1 && index in ids) {
-			var out = await getCardInfo(ids[index], user, userID, channelID, message, event);
+async function randomCard(user, userID, channelID, message, event) {
+    try {
+        var args = message.toLowerCase().split(" ");
+        var code;
+        var i = 0;
+        do {
+            i++;
+            code = ids[Math.floor(Math.random() * ids.length)];
+            if (ids.indexOf(code) === -1) {
+                console.log("Invalid card ID, please try again.");
+                return "Invalid card ID, please try again.";
+            }
+        } while (!randFilterCheck(code, args) && i < 1000);
+        if (i >= 1000) {
+            bot.sendMessage({
+                to: channelID,
+                message: "No card matching your critera was found after 1000 attempts, so one probably doesn't exist."
+            });
+            return
+        }
+        var out = await getCardInfo(code, user, userID, channelID, message, event);
+        if (args.indexOf("image") > -1) {
+            postImage(code, out, user, userID, channelID, message, event);
+        } else {
             bot.sendMessage({
                 to: channelID,
                 message: out
             });
-        } else {
-            console.log("Invalid card ID or name, please try again.");
-            return;
+        }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+async function searchCard(input, hasImage, user, userID, channelID, message, event) {
+    var inInt = parseInt(input);
+    if (ids.indexOf(inInt) > -1) {
+        try {
+            var out = await getCardInfo(inInt, user, userID, channelID, message, event);
+            if (hasImage) {
+                postImage(inInt, out, user, userID, channelID, message, event);
+            } else {
+                bot.sendMessage({
+                    to: channelID,
+                    message: out
+                });
+            }
+
+        } catch (e) {
+            console.log("Error with search by ID:");
+            console.log(e);
+        }
+    } else {
+        try {
+            var index = nameCheck(input);
+            if (index > -1 && index in ids) {
+                var out = await getCardInfo(ids[index], user, userID, channelID, message, event);
+                if (hasImage) {
+                    postImage(ids[index], out, user, userID, channelID, message, event);
+                } else {
+                    bot.sendMessage({
+                        to: channelID,
+                        message: out
+                    });
+                }
+            } else {
+                console.log("Invalid card ID or name, please try again.");
+                return;
+            }
+        } catch (e) {
+            console.log("Error with search by name:");
+            console.log(e);
         }
     }
 }
@@ -134,9 +194,9 @@ function getCardInfo(code, user, userID, channelID, message, event) {
     return new Promise(function(resolve, reject) {
         var out = "__**" + names[0].values[index][1] + "**__\n";
         out += "**ID**: " + code + "\n\n";
-        request('http://yugiohprices.com/api/get_card_prices/' + names[0].values[index][1], function(error, response, body) {
+        request('https://yugiohprices.com/api/get_card_prices/' + names[0].values[index][1], function(error, response, body) {
             var data = JSON.parse(body);
-			if (data.status === "success") {
+            if (data.status === "success") {
                 var low = 9999999999;
                 var hi = 0;
                 for (var price of data.data) {
@@ -207,13 +267,91 @@ function getCardInfo(code, user, userID, channelID, message, event) {
     });
 }
 
+function postImage(code, out, user, userID, channelID, message, event) {
+    https.get(url.parse("https://raw.githubusercontent.com/shadowfox87/YGOTCGOCGPics323x323/master/" + code + ".png"), function(response) {
+        var data = [];
+        response.on('data', function(chunk) {
+            data.push(chunk);
+        }).on('end', function() {
+            var buffer = Buffer.concat(data);
+            bot.uploadFile({
+                to: channelID,
+                file: buffer,
+                filename: code + ".png"
+            }, function(err, res) {
+                bot.sendMessage({
+                    to: channelID,
+                    message: out
+                });
+            });
+        });
+    });
+}
+
+function randFilterCheck(code, args) {
+    var otFilters = [];
+    var typeFilters = [];
+    var raceFilters = [];
+    var attFilters = [];
+    var lvFilters = [];
+    for (var arg of args) {
+        if (["ocg", "tcg", "tcg/ocg", "anime", "illegal", "video", "game", "custom"].indexOf(arg) > -1) {
+            if (arg === "video" || arg === "game") {
+                otFilters.push("video game");
+            } else {
+                otFilters.push(arg);
+            }
+        }
+        if (["monster", "spell", "trap", "fusion", "ritual", "spirit", "union", "gemini", "tuner", "synchro", "token", "quick-play", "continuous", "equip", "field", "counter", "flip", "toon", "xyz", "pendulum", "special summon", "link", "armor", "plus", "minus", "normal", "effect"].indexOf(arg) > -1) {
+            typeFilters.push(arg);
+        }
+        if (["warrior", "spellcaster", "fairy", "fiend", "zombie", "machine", "aqua", "pyro", "rock", "winged beast", "plant", "insect", "thunder", "dragon", "beast", "beast-warrior", "dinosaur", "fish", "sea serpent", "reptile", "psychic", "divine-beast", "creator god", "wyrm", "cyberse", "yokai", "charisma"].indexOf(arg) > -1) {
+            raceFilters.push(arg);
+        }
+        if (["earth", "wind", "water", "fire", "light", "dark", "divine", "laugh"].indexOf(arg) > -1) {
+            attFilters.push(arg);
+        }
+        if (["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"].indexOf(arg) > -1) {
+            lvFilters.push(arg);
+        }
+    }
+    if (otFilters.length + typeFilters.length + raceFilters.length + attFilters.length + lvFilters.length === 0) {
+        return true;
+    } else {
+        var index = ids.indexOf(code);
+        var boo = true;
+        if (otFilters.length > 0 && otFilters.indexOf(getOT(index).toLowerCase()) === -1) {
+            boo = false;
+        }
+        if (typeFilters.length > 0) {
+            var subBoo = false;
+            for (var type of getTypes(index)) {
+                if (typeFilters.indexOf(type.toLowerCase()) > -1) {
+                    subBoo = true;
+                }
+            }
+            boo = subBoo;
+        }
+        if (raceFilters.length > 0 && raceFilters.indexOf(getRace(index).toLowerCase()) === -1) {
+            boo = false;
+        }
+        if (attFilters.length > 0 && attFilters.indexOf(getAtt(index).toLowerCase()) === -1) {
+            boo = false;
+        }
+        if (lvFilters.length > 0 && lvFilters.indexOf(getLevelScales(index)[0].toString()) === -1) {
+            boo = false;
+        }
+        return boo;
+    }
+}
+
 //utility functions
 function convertStat(stat) {
-	if (stat === -2) {
-		return "?";
-	} else {
-		return stat;
-	}
+    if (stat === -2) {
+        return "?";
+    } else {
+        return stat;
+    }
 }
 
 function getLevelScales(index) {
@@ -304,10 +442,10 @@ function getRace(index) {
             return "Wyrm";
         case 0x1000000:
             return "Cyberse";
-		case 0x80000000:
-			return "Yokai";
-		case 0x100000000:
-			return "Charisma";
+        case 0x80000000:
+            return "Yokai";
+        case 0x100000000:
+            return "Charisma";
         default:
             return "Null Race";
     }
@@ -330,8 +468,8 @@ function getAtt(index) {
             return "DARK";
         case 0x40:
             return "DIVINE";
-		case 0x80:
-			return "LAUGH";
+        case 0x80:
+            return "LAUGH";
         default:
             return "Null Attribute";
     }
@@ -438,13 +576,13 @@ function getTypes(index) {
     if (type & 0x4000000) {
         types.push("Link");
     }
-	if (type & 0x10000000) {
+    if (type & 0x10000000) {
         types.push("Armor");
     }
-	if (type & 0x20000000) {
+    if (type & 0x20000000) {
         types.push("Plus");
     }
-	if (type & 0x40000000) {
+    if (type & 0x40000000) {
         types.push("Minus");
     }
     if (type & 0x10) {
