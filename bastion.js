@@ -53,6 +53,10 @@ let request = require('request');
 let https = require('https');
 let url = require('url');
 
+let longMsg = "";
+let longUser = "";
+let longStr = "...\n__Type \".long\" to be PMed the rest!__";
+
 //real shit
 bot.on('message', function(user, userID, channelID, message, event) {
     if (userID === bot.id) {
@@ -64,6 +68,17 @@ bot.on('message', function(user, userID, channelID, message, event) {
     }
     if (message.indexOf("<@" + bot.id + ">") > -1) {
         help(user, userID, channelID, message, event);
+    }
+    if (longMsg.length > 0 && longUser.length > 0 && message.toLowerCase().indexOf(".long") === 0) {
+        if (userID === longUser) {
+            bot.sendMessage({
+				to: longUser,
+				message: longMsg
+			});
+            longMsg = "";
+            longUser = "";
+            return;
+        }
     }
     let re = /{([\S\s]*?)}/g;
     let results = [];
@@ -133,10 +148,20 @@ async function randomCard(user, userID, channelID, message, event) {
         if (args.indexOf("image") > -1) {
             postImage(code, out, user, userID, channelID, message, event);
         } else {
-            bot.sendMessage({
-                to: channelID,
-                message: out
-            });
+            if (out.length > 2000) {
+                let outArr = [out.slice(0, 2000 - longStr.length) + longStr, out.slice(2000 - longStr.length)];
+                longMsg = outArr[1];
+                longUser = userID;
+                bot.sendMessage({
+                    to: channelID,
+                    message: outArr[0]
+                });
+            } else {
+                bot.sendMessage({
+                    to: channelID,
+                    message: out
+                });
+            }
         }
     } catch (e) {
         console.log(e);
@@ -151,10 +176,20 @@ async function searchCard(input, hasImage, user, userID, channelID, message, eve
             if (hasImage) {
                 postImage(inInt, out, user, userID, channelID, message, event);
             } else {
-                bot.sendMessage({
-                    to: channelID,
-                    message: out
-                });
+                if (out.length > 2000) {
+                    let outArr = [out.slice(0, 2000 - longStr.length) + longStr, out.slice(2000 - longStr.length)];
+                    longMsg = outArr[1];
+                    longUser = userID;
+                    bot.sendMessage({
+                        to: channelID,
+                        message: outArr[0]
+                    });
+                } else {
+                    bot.sendMessage({
+                        to: channelID,
+                        message: out
+                    });
+                }
             }
 
         } catch (e) {
@@ -169,10 +204,20 @@ async function searchCard(input, hasImage, user, userID, channelID, message, eve
                 if (hasImage) {
                     postImage(ids[index], out, user, userID, channelID, message, event);
                 } else {
-                    bot.sendMessage({
-                        to: channelID,
-                        message: out
-                    });
+                    if (out.length > 2000) {
+                        let outArr = [out.slice(0, 2000 - longStr.length) + longStr, out.slice(2000 - longStr.length)];
+                        longMsg = outArr[1];
+                        longUser = userID;
+                        bot.sendMessage({
+                            to: channelID,
+                            message: outArr[0]
+                        });
+                    } else {
+                        bot.sendMessage({
+                            to: channelID,
+                            message: out
+                        });
+                    };
                 }
             } else {
                 console.log("Invalid card ID or name, please try again.");
@@ -209,9 +254,9 @@ function getCardInfo(code, user, userID, channelID, message, event) {
                         }
                     }
                 }
-                out += "**Region**: " + getOT(index) + " **Price**: $" + low.toFixed(2) + "-$" + hi.toFixed(2) + " USD\n";
+                out += "**Status**: " + getOT(index) + " **Price**: $" + low.toFixed(2) + "-$" + hi.toFixed(2) + " USD\n";
             } else {
-                out += "**Region**: " + getOT(index) + "\n";
+                out += "**Status**: " + getOT(index) + "\n";
             }
             let types = getTypes(index);
             if (types.indexOf("Monster") > -1) {
@@ -279,10 +324,20 @@ function postImage(code, out, user, userID, channelID, message, event) {
                 file: buffer,
                 filename: code + ".png"
             }, function(err, res) {
-                bot.sendMessage({
-                    to: channelID,
-                    message: out
-                });
+                if (out.length > 2000) {
+                    let outArr = [out.slice(0, 2000 - longStr.length) + longStr, out.slice(2000 - longStr.length)];
+                    longMsg = outArr[1];
+                    longUser = userID;
+                    bot.sendMessage({
+                        to: channelID,
+                        message: outArr[0]
+                    });
+                } else {
+                    bot.sendMessage({
+                        to: channelID,
+                        message: out
+                    });
+                }
             });
         });
     });
@@ -610,170 +665,170 @@ function getCardText(index) {
 }
 
 let shortcuts = [
-  [ "A0", "Ab Z.", "AbZ.", "Ab Z", "AbZ", "Elemental HERO Absolute Zero" ],
-  [ "AGGD", "Ancient Gear Gadjiltron Dragon" ],
-  [ "BEWD", "B-EWD", "Blue-Eyes White Dragon" ],
-  [ "BEUD", "B-EUD", "Blue-Eyes Ultimate Dragon" ],
-  [ "BRD", "Black Rose Dragon" ],
-  [ "Brio", "BDoftIB", "B,DIB", "B,DoftB", "Brionac, Dragon of the Ice Barrier" ],
-  [ "BLS", "BLS-EotB", "BLS EotB", "BLS-EB", "BLS EB", "BLS-EoB", "BLS EoB", "Black Luster Soldier - Envoy of the Beginning" ],
-  [ "CcD", "Cardcar D" ],
-  [ "CDI", "Cyber Dragon Infinity" ],
-  [ "CED-EotE", "CED EotE", "CED-EE", "CED EE", "CED-EoE", "CED EoE", "Chaos Emperor Dragon - Envoy of the End" ],
-  [ "CED", "Cyber End Dragon" ],
-  [ "CyDra", "Cyber Dragon" ],
-  [ "DAD", "Dark Armed Dragon" ],
-  [ "DM", "Dark Magician" ],
-  [ "DMG", "Dark Magician Girl" ],
-  [ "DMK", "Dragon Master Knight" ],
-  [ "DMoC", "Dark Magician of Chaos" ],
-  [ "FGD", "FHD", "Five-Headed Dragon" ],
-  [ "GEPD", "Galaxy-Eyes Photon Dragon" ],
-  [ "JD", "Judgment Dragon" ],
-  [ "LaDD", "Light and Darkness Dragon" ],
-  [ "LPD", "Lightpulsar Dragon" ],
-  [ "M7", "Constellar Ptolemy M7" ],
-  [ "Mali", "Destiny Hero - Malicious" ],
-  [ "NeoGEPD", "Neo Galaxy-Eyes Photon Dragon" ],
-  [ "PSZ", "Plaguespreader Zombie" ],
-  [ "PoC", "Phantom of Chaos" ],
-  [ "RDA", "Red Dragon Archfiend" ],
-  [ "REBD", "R-EB.D", "R-EBD", "REB.D", "Red-Eyes B. Dragon" ],
-  [ "REDMD", "R-EDMD", "Red-Eyes Darkness Metal Dragon" ],
-  [ "REFMD", "R-EFMD", "Red-Eyes Flare Metal Dragon" ],
-  [ "TER", "T-ER", "Thousand-Eyes Restrict" ],
-  [ "TGU", "TGftU", "TGfU", "Tour Guide from the Underworld" ],
-  [ "TKRO", "TKR-O", "Thunder King Rai-Oh" ],
-  [ "Trag", "Tragoedia" ],
-  [ "Trish", "TDotIB", "T,DotIB", "T,DIB", "TDIB", "Trishula, Dragon of the Ice Barrier" ],
-  [ "AoD", "Allure of Darkness" ],
-  [ "AHL", "A Hero Lives" ],
-  [ "ARA", "Advanced Ritual Art" ],
-  [ "BoM", "Book of Moon" ],
-  [ "BoT", "Book of Taiyou" ],
-  [ "BoE", "Book of Eclipse" ],
-  [ "BoL", "Book of Life" ],
-  [ "D-Draw", "DDraw", "D Draw", "DestDraw", "Destiny Draw" ],
-  [ "DDR", "D.D.R.", "D.D.R", "Different Dimension Reincarnation" ],
-  [ "DWD", "Dark World Dealings" ],
-  [ "E-Con", "ECon", "E Con", "Enemy Controller" ],
-  [ "E-Tele", "ETele", "E Tele", "Emergency Teleport" ],
-  [ "FC", "Final Countdown" ],
-  [ "FuFu", "Future Fusion" ],
-  [ "IRS", "Inferno Reckless Summon" ],
-  [ "MST", "Mystical Space Typhoon" ],
-  [ "PoD", "Pot of Duality" ],
-  [ "PoA", "Pot of Avarice" ],
-  [ "RotA", "Reinforcement of the Army" ],
-  [ "R-U-M", "RUM", "R-UM", "RU-M", "Rank-Up-Magic" ],
-  [ "TWRA", "WRA", "The Warrior Returning Alive" ],
-  [ "BTH", "Bottomless Trap Hole" ],
-  [ "CED", "Compulsory Evacuation Device" ],
-  [ "CCV", "Crush Card Virus" ],
-  [ "CotH", "Call of the Haunted" ],
-  [ "D Prison", "D-Prison", "DPrison", "Dimensional Prison" ],
-  [ "DDV", "Deck Devastation Virus" ],
-  [ "EEV", "Eradicator Epidemic Virus" ],
-  [ "LIM", "L-IM", "Light-Imprisoning Mirror" ],
-  [ "PWWB", "Phoenix Wing Wind Blast" ],
-  [ "SIM", "S-IM", "Shadow-Imprisoning Mirror" ],
-  [ "SJ", "Solemn Judgment" ],
-  [ "SkD", "SD", "Skill Drain" ],
-  [ "SW", "Solemn Warning" ],
-  [ "THRiO", "THRO", "The Huge Revolution is Over" ],
-  [ "T Roar", "T-Roar", "TRoar", "Theartening Roar" ],
-  [ "TT", "ToTr", "Torrential Tribute" ],
-  [ "AoJ", "Ally of Justice" ],
-  [ "BB", "B'B", "Battlin' Boxer" ],
-  [ "BW", "Blackwing" ],
-  [ "CB", "Crystal Beast" ],
-  [ "DW", "Dark World" ],
-  [ "GB", "GLAD", "Gladiator Beast" ],
-  [ "GK", "GK's", "GKs", "Gravekeeper's" ],
-  [ "GemK", "Gem-K", "GemKn", "Gem-Knight" ],
-  [ "HC", "Heroic Challenger" ],
-  [ "HF", "Hazy Flame" ],
-  [ "LS", "Lightsworn" ],
-  [ "MPB", "Mecha Phantom Beast" ],
-  [ "SS", "SixSam", "6S", "6Sam", "Six Samurai" ],
-  [ "TG", "T.G", "TG.", "T.G." ],
-  [ "WU", "W-U", "Wind-Up" ],
-  [ "OE", "O-E", "Odd-Eyes" ],
-  [ "PK", "TPK", "The Phantom Knights" ],
-  [ "RB", "Ritual Beast" ],
-  [ "RBT", "Ritual Beast Tamer" ],
-  [ "SB", "SpiRB", "SRB", "Spiritual Beast" ],
-  [ "SBT", "SpiRBT", "SRBT", "Spiritual Beast Tamer" ],
-  [ "RR", "Raidraptor" ],
-  [ "SDR", "Super Defense Robot" ],
-  [ "SHS", "SuSa", "Superheavy Samurai" ],
-  [ "/AM", "/Assault Mode" ],
-  [ "ACB", "Advanced Crystal Beast" ],
-  [ "AG", "Ancient Gear" ],
-  [ "ABW", "Assault Blackwing" ],
-  [ "BWT", "Blackwing Tamer" ],
-  [ "BA", "Burning Abyss" ],
-  [ "CG", "Celtic Guard" ],
-  [ "ChemB", "ChB", "Chemical Beast" ],
-  [ "AChemB", "AChB", "Advanced Chemical Beast" ],
-  [ "CA", "Cyber Angel" ],
-  [ "DC", "Dark Contract" ],
-  [ "D-HERO", "DHERO", "Destiny HERO" ],
-  [ "E-HERO", "EHERO", "Elemental HERO" ],
-  [ "M-HERO", "MHERO", "Masked HERO" ],
-  [ "V-HERO", "VHERO", "Vision HERO" ],
-  [ "Ev-HERO", "EvHERO", "Evil HERO" ],
-  [ "EI", "EbI", "Earthbound Immortal" ],
-  [ "ES", "EbS", "Earthbound Servant" ],
-  [ "EoD", "ED", "Emissary of Darkness" ],
-  [ "EW", "EmWa", "Empowered Warrior" ],
-  [ "FP", "F-O", "Familiar-Posessed" ],
-  [ "BotFF", "BhotFF", "BoFF", "BhoFF", "BFF", "Brotherhood of the Fire First" ],
-  [ "FF", "Fire Formation" ],
-  [ "FB", "Forbidden Beast" ],
-  [ "otF", "of the Forest" ],
-  [ "GtFK", "GFK", "Gaia the Fierce Knight" ],
-  [ "GM", "Guts Master" ],
-  [ "HB", "Heraldic Beast" ],
-  [ "SR", "Speedroid" ],
-  [ "HtBFD", "HBFD", "Horus the Black Flame Dragon" ],
-  [ "BE", "B-E", "Blue-Eyes" ],
-  [ "RE", "R-E", "Red-Eyes" ],
-  [ "LL", "Lunalight" ],
-  [ "MW", "Magnet Warrior" ],
-  [ "SQ", "Super Quant" ],
-  [ "SQum", "Super Quantum" ],
-  [ "SQal", "Super Quantal" ],
-  [ "UA", "U.A", "UA.", "U.A." ],
-  [ "WW", "Wind Witch" ],
-  [ "YZ", "Yang Zing" ],
-  [ "TH", "Trap Hole" ]
+    ["A0", "Ab Z.", "AbZ.", "Ab Z", "AbZ", "Elemental HERO Absolute Zero"],
+    ["AGGD", "Ancient Gear Gadjiltron Dragon"],
+    ["BEWD", "B-EWD", "Blue-Eyes White Dragon"],
+    ["BEUD", "B-EUD", "Blue-Eyes Ultimate Dragon"],
+    ["BRD", "Black Rose Dragon"],
+    ["Brio", "BDoftIB", "B,DIB", "B,DoftB", "Brionac, Dragon of the Ice Barrier"],
+    ["BLS", "BLS-EotB", "BLS EotB", "BLS-EB", "BLS EB", "BLS-EoB", "BLS EoB", "Black Luster Soldier - Envoy of the Beginning"],
+    ["CcD", "Cardcar D"],
+    ["CDI", "Cyber Dragon Infinity"],
+    ["CED-EotE", "CED EotE", "CED-EE", "CED EE", "CED-EoE", "CED EoE", "Chaos Emperor Dragon - Envoy of the End"],
+    ["CED", "Cyber End Dragon"],
+    ["CyDra", "Cyber Dragon"],
+    ["DAD", "Dark Armed Dragon"],
+    ["DM", "Dark Magician"],
+    ["DMG", "Dark Magician Girl"],
+    ["DMK", "Dragon Master Knight"],
+    ["DMoC", "Dark Magician of Chaos"],
+    ["FGD", "FHD", "Five-Headed Dragon"],
+    ["GEPD", "Galaxy-Eyes Photon Dragon"],
+    ["JD", "Judgment Dragon"],
+    ["LaDD", "Light and Darkness Dragon"],
+    ["LPD", "Lightpulsar Dragon"],
+    ["M7", "Constellar Ptolemy M7"],
+    ["Mali", "Destiny Hero - Malicious"],
+    ["NeoGEPD", "Neo Galaxy-Eyes Photon Dragon"],
+    ["PSZ", "Plaguespreader Zombie"],
+    ["PoC", "Phantom of Chaos"],
+    ["RDA", "Red Dragon Archfiend"],
+    ["REBD", "R-EB.D", "R-EBD", "REB.D", "Red-Eyes B. Dragon"],
+    ["REDMD", "R-EDMD", "Red-Eyes Darkness Metal Dragon"],
+    ["REFMD", "R-EFMD", "Red-Eyes Flare Metal Dragon"],
+    ["TER", "T-ER", "Thousand-Eyes Restrict"],
+    ["TGU", "TGftU", "TGfU", "Tour Guide from the Underworld"],
+    ["TKRO", "TKR-O", "Thunder King Rai-Oh"],
+    ["Trag", "Tragoedia"],
+    ["Trish", "TDotIB", "T,DotIB", "T,DIB", "TDIB", "Trishula, Dragon of the Ice Barrier"],
+    ["AoD", "Allure of Darkness"],
+    ["AHL", "A Hero Lives"],
+    ["ARA", "Advanced Ritual Art"],
+    ["BoM", "Book of Moon"],
+    ["BoT", "Book of Taiyou"],
+    ["BoE", "Book of Eclipse"],
+    ["BoL", "Book of Life"],
+    ["D-Draw", "DDraw", "D Draw", "DestDraw", "Destiny Draw"],
+    ["DDR", "D.D.R.", "D.D.R", "Different Dimension Reincarnation"],
+    ["DWD", "Dark World Dealings"],
+    ["E-Con", "ECon", "E Con", "Enemy Controller"],
+    ["E-Tele", "ETele", "E Tele", "Emergency Teleport"],
+    ["FC", "Final Countdown"],
+    ["FuFu", "Future Fusion"],
+    ["IRS", "Inferno Reckless Summon"],
+    ["MST", "Mystical Space Typhoon"],
+    ["PoD", "Pot of Duality"],
+    ["PoA", "Pot of Avarice"],
+    ["RotA", "Reinforcement of the Army"],
+    ["R-U-M", "RUM", "R-UM", "RU-M", "Rank-Up-Magic"],
+    ["TWRA", "WRA", "The Warrior Returning Alive"],
+    ["BTH", "Bottomless Trap Hole"],
+    ["CED", "Compulsory Evacuation Device"],
+    ["CCV", "Crush Card Virus"],
+    ["CotH", "Call of the Haunted"],
+    ["D Prison", "D-Prison", "DPrison", "Dimensional Prison"],
+    ["DDV", "Deck Devastation Virus"],
+    ["EEV", "Eradicator Epidemic Virus"],
+    ["LIM", "L-IM", "Light-Imprisoning Mirror"],
+    ["PWWB", "Phoenix Wing Wind Blast"],
+    ["SIM", "S-IM", "Shadow-Imprisoning Mirror"],
+    ["SJ", "Solemn Judgment"],
+    ["SkD", "SD", "Skill Drain"],
+    ["SW", "Solemn Warning"],
+    ["THRiO", "THRO", "The Huge Revolution is Over"],
+    ["T Roar", "T-Roar", "TRoar", "Theartening Roar"],
+    ["TT", "ToTr", "Torrential Tribute"],
+    ["AoJ", "Ally of Justice"],
+    ["BB", "B'B", "Battlin' Boxer"],
+    ["BW", "Blackwing"],
+    ["CB", "Crystal Beast"],
+    ["DW", "Dark World"],
+    ["GB", "GLAD", "Gladiator Beast"],
+    ["GK", "GK's", "GKs", "Gravekeeper's"],
+    ["GemK", "Gem-K", "GemKn", "Gem-Knight"],
+    ["HC", "Heroic Challenger"],
+    ["HF", "Hazy Flame"],
+    ["LS", "Lightsworn"],
+    ["MPB", "Mecha Phantom Beast"],
+    ["SS", "SixSam", "6S", "6Sam", "Six Samurai"],
+    ["TG", "T.G", "TG.", "T.G."],
+    ["WU", "W-U", "Wind-Up"],
+    ["OE", "O-E", "Odd-Eyes"],
+    ["PK", "TPK", "The Phantom Knights"],
+    ["RB", "Ritual Beast"],
+    ["RBT", "Ritual Beast Tamer"],
+    ["SB", "SpiRB", "SRB", "Spiritual Beast"],
+    ["SBT", "SpiRBT", "SRBT", "Spiritual Beast Tamer"],
+    ["RR", "Raidraptor"],
+    ["SDR", "Super Defense Robot"],
+    ["SHS", "SuSa", "Superheavy Samurai"],
+    ["/AM", "/Assault Mode"],
+    ["ACB", "Advanced Crystal Beast"],
+    ["AG", "Ancient Gear"],
+    ["ABW", "Assault Blackwing"],
+    ["BWT", "Blackwing Tamer"],
+    ["BA", "Burning Abyss"],
+    ["CG", "Celtic Guard"],
+    ["ChemB", "ChB", "Chemical Beast"],
+    ["AChemB", "AChB", "Advanced Chemical Beast"],
+    ["CA", "Cyber Angel"],
+    ["DC", "Dark Contract"],
+    ["D-HERO", "DHERO", "Destiny HERO"],
+    ["E-HERO", "EHERO", "Elemental HERO"],
+    ["M-HERO", "MHERO", "Masked HERO"],
+    ["V-HERO", "VHERO", "Vision HERO"],
+    ["Ev-HERO", "EvHERO", "Evil HERO"],
+    ["EI", "EbI", "Earthbound Immortal"],
+    ["ES", "EbS", "Earthbound Servant"],
+    ["EoD", "ED", "Emissary of Darkness"],
+    ["EW", "EmWa", "Empowered Warrior"],
+    ["FP", "F-O", "Familiar-Posessed"],
+    ["BotFF", "BhotFF", "BoFF", "BhoFF", "BFF", "Brotherhood of the Fire First"],
+    ["FF", "Fire Formation"],
+    ["FB", "Forbidden Beast"],
+    ["otF", "of the Forest"],
+    ["GtFK", "GFK", "Gaia the Fierce Knight"],
+    ["GM", "Guts Master"],
+    ["HB", "Heraldic Beast"],
+    ["SR", "Speedroid"],
+    ["HtBFD", "HBFD", "Horus the Black Flame Dragon"],
+    ["BE", "B-E", "Blue-Eyes"],
+    ["RE", "R-E", "Red-Eyes"],
+    ["LL", "Lunalight"],
+    ["MW", "Magnet Warrior"],
+    ["SQ", "Super Quant"],
+    ["SQum", "Super Quantum"],
+    ["SQal", "Super Quantal"],
+    ["UA", "U.A", "UA.", "U.A."],
+    ["WW", "Wind Witch"],
+    ["YZ", "Yang Zing"],
+    ["TH", "Trap Hole"]
 ];
 
 function nameCheck(line) {
-	for (let i = 0; i < names[0].values.length; i++) { //check all entries for exact name
-		if (names[0].values[i][1].toLowerCase() === line.toLowerCase()) {
-			return i;
-		}
+    for (let i = 0; i < names[0].values.length; i++) { //check all entries for exact name
+        if (names[0].values[i][1].toLowerCase() === line.toLowerCase()) {
+            return i;
+        }
     }
-	let lineArr = line.split(" ");
-	for (let i = 0; i < lineArr.length; i ++) {
-		for (let cut of shortcuts) {
-			for (let j = 0; j < cut.length - 1; j ++) {
-				if (lineArr[i].toLowerCase() === cut[j].toLowerCase()) {
-					console.log(lineArr[i]);
-					console.log(cut[j]);
-					console.log(cut[cut.length - 1]);
-					lineArr[i] = cut[cut.length - 1];
-				}
-			}
-		}
-	}
-	let newLine = lineArr.toString().replace(/,/g, " ");
-	for (let i = 0; i < names[0].values.length; i++) { //check all entries for exact name
-		if (names[0].values[i][1].toLowerCase() === newLine.toLowerCase()) {
-			return i;
-		}
+    let lineArr = line.split(" ");
+    for (let i = 0; i < lineArr.length; i++) {
+        for (let cut of shortcuts) {
+            for (let j = 0; j < cut.length - 1; j++) {
+                if (lineArr[i].toLowerCase() === cut[j].toLowerCase()) {
+                    console.log(lineArr[i]);
+                    console.log(cut[j]);
+                    console.log(cut[cut.length - 1]);
+                    lineArr[i] = cut[cut.length - 1];
+                }
+            }
+        }
+    }
+    let newLine = lineArr.toString().replace(/,/g, " ");
+    for (let i = 0; i < names[0].values.length; i++) { //check all entries for exact name
+        if (names[0].values[i][1].toLowerCase() === newLine.toLowerCase()) {
+            return i;
+        }
     }
     let result = fuse.search(newLine);
     if (result.length < 1) {
