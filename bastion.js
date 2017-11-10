@@ -16,7 +16,12 @@ let config = JSON.parse(fs.readFileSync('config.json', 'utf8')); //open config f
 			"..."
 		]
 	],
-	"randFilterAttempts": 1000 //the number of tries to find a random card meeting criteria before bastion gives up. Infinite loop without this!
+	"randFilterAttempts": 1000, //the number of tries to find a random card meeting criteria before bastion gives up. Infinite loop without this!
+	"maxSearches": 3, //the number of searches a user is allowed per post
+	"imageUrl": "", //this will be the start of the URL from which official card images are downloaded. Bastion will appened the card ID, and then .png.
+	"imageUrl": "", //this will be the start of the URL from which anime card images are downloaded. Bastion will appened the card ID, and then .png.
+	"imageUrlCustom": "", //this will be the start of the URL from which custom card images are downloaded. Bastion will appened the card ID, and then .png.
+	"imageSize": 100 //the height and width for card images to be resized to, in px.
 }
 */
 
@@ -73,9 +78,11 @@ let fuse = new Fuse(nameList, options);
 let request = require('request');
 let https = require('https');
 let url = require('url');
+let resizeImg = require('resize-img');
 
 let longMsg = "";
 let longUser = "";
+
 
 //real shit
 bot.on('message', function(user, userID, channelID, message, event) {
@@ -118,7 +125,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
             results2.push(regx2[1]);
         }
     } while (regx2 !== null);
-    if (results.length + results2.length > 3) {
+    if (results.length + results2.length > config.maxSearches) {
         bot.sendMessage({
             to: channelID,
             message: "Too many searches!"
@@ -140,7 +147,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 function help(user, userID, channelID, message, event) {
     bot.sendMessage({
         to: channelID,
-        message: "I am a Yu-Gi-Oh! card bot made by AlphaKretin#7990.\nPrice data is from the https://yugiohprices.com API.\nYou can find my help file here: httpss://github.com/AlphaKretin/colress-bot/blob/master/README-bastion.md"
+        message: "I am a Yu-Gi-Oh! card bot made by AlphaKretin#7990.\nPrice data is from the https://yugiohprices.com API.\nYou can find my help file here: https://github.com/AlphaKretin/colress-bot/blob/master/README-bastion.md"
     });
 }
 
@@ -336,32 +343,41 @@ function getCardInfo(code, user, userID, channelID, message, event) {
 }
 
 function postImage(code, out, user, userID, channelID, message, event) {
-    https.get(url.parse("https://raw.githubusercontent.com/shadowfox87/YGOTCGOCGPics323x323/master/" + code + ".png"), function(response) {
+	let imageUrl = config.imageUrl;
+	if (["Anime", "Illegal", "Video Game"].indexOf(getOT(ids.indexOf(code))) > -1) {
+		imageUrl = config.imageUrlAnime;
+	}
+	if (getOT(ids.indexOf(code)) === "Custom") {
+		imageUrl = config.imageUrlCustom;
+	}
+    https.get(url.parse(imageUrl + code + ".png"), function(response) {
         let data = [];
         response.on('data', function(chunk) {
             data.push(chunk);
         }).on('end', function() {
             let buffer = Buffer.concat(data);
-            bot.uploadFile({
-                to: channelID,
-                file: buffer,
-                filename: code + ".png"
-            }, function(err, res) {
-                if (out.length > 2000) {
-                    let outArr = [out.slice(0, 2000 - config.longStr.length) + config.longStr, out.slice(2000 - config.longStr.length)];
-                    longMsg = outArr[1];
-                    longUser = userID;
-                    bot.sendMessage({
-                        to: channelID,
-                        message: outArr[0]
-                    });
-                } else {
-                    bot.sendMessage({
-                        to: channelID,
-                        message: out
-                    });
-                }
-            });
+			resizeImg(buffer, {width: config.imageSize, height: config.imageSize}).then(buf => {
+				bot.uploadFile({
+					to: channelID,
+					file: buf,
+					filename: code + ".png"
+				}, function(err, res) {
+					if (out.length > 2000) {
+						let outArr = [out.slice(0, 2000 - config.longStr.length) + config.longStr, out.slice(2000 - config.longStr.length)];
+						longMsg = outArr[1];
+						longUser = userID;
+						bot.sendMessage({
+							to: channelID,
+							message: outArr[0]
+						});
+					} else {
+						bot.sendMessage({
+							to: channelID,
+							message: out
+						});
+					}
+				});
+			});
         });
     });
 }
