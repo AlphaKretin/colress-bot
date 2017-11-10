@@ -659,12 +659,12 @@ function getCardText(index) {
     let re = /\][\s\S]*?\n([\S\s]*?)\n-/g;
     let regx = re.exec(cardText);
     if (regx === null) {
-        return [cardText.replace(/\n/g, "\n")];
+        return [cardText];
     } else {
         let outArr = [];
-        outArr.push(regx[1].replace(/\n/g, "\n"));
+        outArr.push(regx[1]);
         let re2 = /(?:r Effect|xt) ?\]\R*([\S\s]*)/g;
-        outArr.push(re2.exec(cardText)[1].replace(/\n/g, "\n"));
+        outArr.push(re2.exec(cardText)[1]);
         return outArr;
     }
 }
