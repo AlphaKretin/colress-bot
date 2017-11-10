@@ -1,6 +1,24 @@
 let fs = require('fs');
 
-let config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+let config = JSON.parse(fs.readFileSync('config.json', 'utf8')); //open config file from local directory. Expected contents are as follows
+/*
+	{
+	"token": "", //Discord bot token for log-in
+	"longStr": "", //The string to be appended to the end of a too-long message, telling the user to type ".long"
+	"shortcuts": [ //an array of arrays that contain shortcuts for typing card names eg MST -> Mystical Space Typhoon
+		[
+			"mst",
+			"Mystical Space Typhoon"
+		],
+		[
+			"...",
+			"...", //the arrays can have multiple shortcuts, only the last will be considered the full name
+			"..."
+		]
+	],
+	"randFilterAttempts": 1000 //the number of tries to find a random card meeting criteria before bastion gives up. Infinite loop without this!
+}
+*/
 
 //discord setup
 let Discord = require('discord.io');
@@ -26,10 +44,10 @@ let contents = db.exec("SELECT * FROM datas");
 let names = db.exec("SELECT * FROM texts");
 let ids = [];
 let nameList = [];
-for (let card of contents[0].values) {
+for (let card of contents[0].values) { //populate ID list for easy checking of card validity
     ids.push(card[0]);
 }
-for (let card of names[0].values) {
+for (let card of names[0].values) { //populatre array of objects containing names for the sake of fuse
     nameList.push({
         name: card[1]
     });
