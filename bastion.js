@@ -21,7 +21,8 @@ let config = JSON.parse(fs.readFileSync('config.json', 'utf8')); //open config f
 	"imageUrl": "", //this will be the start of the URL from which official card images are downloaded. Bastion will appened the card ID, and then .png.
 	"imageUrl": "", //this will be the start of the URL from which anime card images are downloaded. Bastion will appened the card ID, and then .png.
 	"imageUrlCustom": "", //this will be the start of the URL from which custom card images are downloaded. Bastion will appened the card ID, and then .png.
-	"imageSize": 100 //the height and width for card images to be resized to, in px.
+	"imageSize": 100, //the height and width for card images to be resized to, in px.
+	"dbs" [ "", "" ] //a list of databases to read cards from, in the local directory
 }
 */
 
@@ -43,10 +44,24 @@ bot.on('disconnect', function() {
 
 //sql setup
 let SQL = require('sql.js');
-let filebuffer = fs.readFileSync('cards.cdb');
+let filebuffer = fs.readFileSync(config.dbs[0]);
 let db = new SQL.Database(filebuffer);
 let contents = db.exec("SELECT * FROM datas");
 let names = db.exec("SELECT * FROM texts");
+if (config.dbs.length > 1) {
+	for (let i = 1; i < config.dbs.length; i++) {
+		let newbuffer = fs.readFileSync(config.dbs[i]);
+		let newDB = new SQL.Database(newbuffer);
+		let newContents = newDB.exec("SELECT * FROM datas");
+		let newNames = newDB.exec("SELECT * FROM texts");
+		for (let card of newContents[0].values) {
+			contents[0].values.push(card);
+		}
+		for (let card of newNames[0].values) {
+			names[0].values.push(card);
+		}
+	}
+}
 let ids = [];
 let nameList = [];
 for (let card of contents[0].values) { //populate ID list for easy checking of card validity
