@@ -74,9 +74,9 @@ bot.on('message', function(user, userID, channelID, message, event) {
     if (longMsg.length > 0 && longUser.length > 0 && message.toLowerCase().indexOf(".long") === 0) {
         if (userID === longUser) {
             bot.sendMessage({
-				to: longUser,
-				message: longMsg
-			});
+                to: longUser,
+                message: longMsg
+            });
             longMsg = "";
             longUser = "";
             return;
@@ -246,7 +246,7 @@ function getCardInfo(code, user, userID, channelID, message, event) {
             if (data.status === "success") {
                 let low = 9999999999;
                 let hi = 0;
-				let avgs = [];
+                let avgs = [];
                 for (let price of data.data) {
                     if (price.price_data.status === "success") {
                         if (price.price_data.data.prices.high > hi) {
@@ -255,10 +255,10 @@ function getCardInfo(code, user, userID, channelID, message, event) {
                         if (price.price_data.data.prices.low < low) {
                             low = price.price_data.data.prices.low;
                         }
-						avgs.push(price.price_data.data.prices.average);
+                        avgs.push(price.price_data.data.prices.average);
                     }
                 }
-				var avg = (avgs.reduce((a, b) => a + b, 0))/avgs.length;
+                var avg = (avgs.reduce((a, b) => a + b, 0)) / avgs.length;
                 out += "**Status**: " + getOT(index) + " **Price**: $" + low.toFixed(2) + "-$" + avg.toFixed(2) + "-$" + hi.toFixed(2) + " USD\n";
             } else {
                 out += "**Status**: " + getOT(index) + "\n";
@@ -680,9 +680,6 @@ function nameCheck(line) {
         for (let cut of config.shortcuts) {
             for (let j = 0; j < cut.length - 1; j++) {
                 if (lineArr[i].toLowerCase() === cut[j].toLowerCase()) {
-                    console.log(lineArr[i]);
-                    console.log(cut[j]);
-                    console.log(cut[cut.length - 1]);
                     lineArr[i] = cut[cut.length - 1];
                 }
             }
