@@ -75,7 +75,7 @@ As an example, `!weak mimikyu` returns the following output:
 ![!weak output](/readme-images/weak.png) 
 
 ### !weaktypes  
-Usage: `!weak [types]`  
+Usage: `!weaktypes [types]`  
   
 The `!weaktypes` command is similar to the above `!weak` command, but accepts a list of types instead of a Pokémon's name.   
   
