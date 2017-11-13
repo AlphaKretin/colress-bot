@@ -1,0 +1,21 @@
+{
+  "name": "colress",
+  "version": "1.0.0",
+  "description": "A Discord bot for information about the Pokemon series",
+  "main": "colress.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pokemon",
+    "discord"
+  ],
+  "author": "AlphaKretin",
+  "license": "ISC",
+  "dependencies": {
+    "discord.io": "github:izy521/discord.io",
+    "fuse.js": "^3.2.0",
+    "request": "^2.83.0",
+    "sql.js": "^0.4.0"
+  }
+}
