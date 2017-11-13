@@ -352,7 +352,7 @@ async function pokedex(user, userID, channelID, message, event) {
         }
         let index = monDexes.indexOf(query);
         if (index > -1) {
-            await postImage(index, user, userID, channelID, message, event);
+            await postImage(index, false, user, userID, channelID, message, event);
             sendMessage(getMonInfo(index, user, userID, channelID, message, event), user, userID, channelID, message, event);
         } else {
             sendMessage("Sorry, I can't find a Pokémon with that number!", user, userID, channelID, message, event);
@@ -372,7 +372,7 @@ async function aloladex(user, userID, channelID, message, event) {
         }
         let index = monAlola.indexOf(query);
         if (index > -1) {
-            await postImage(index, user, userID, channelID, message, event);
+            await postImage(index, false, user, userID, channelID, message, event);
             sendMessage(getMonInfo(index, user, userID, channelID, message, event), user, userID, channelID, message, event);
         } else {
             sendMessage("Sorry, I can't find a Pokémon with that number!", user, userID, channelID, message, event);
