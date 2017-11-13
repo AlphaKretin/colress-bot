@@ -113,3 +113,32 @@ Usage: `!game hangman`
   
 In this game, Colress provides a series of blank spaces corresponding to a Pokémon's name, and players have to guess what letters are in the name through trial and error, with no more than 10 mistakes.  
 
+## Installation
+If you so choose, you can run a copy of Colress yourself! This section will assume some basic familiarity with NodeJS and the command line.  
+
+All of Colress' dependencies are properly documented in the package.json, so you can just download that, put it in a folder, and run `npm install`. To run the bot, the script expects two certain files - a configuration file, and a SQLite database with all of the information about the games that Colress serves.
+
+### Configuration
+By default, the configuration file is called `config.json`, and is expected to be found in a subfolder of the local directory called `config`, i.e. `config/config.json`. The script expects `config.json` to contain a JSON object with the following properties:
+```json
+{
+	"token": "",
+	"prefix": "!",
+	"data": "data/colressData.db",
+	"redirects": {
+		"serverID": "channelID",
+		"serverID": "channelID"
+	},
+	"imageUrl": "https://www.source.com/images/",
+	"shinyUrl": "https://www.source.com/shiny/"
+}
+```
+`token` is the Discord User token that the discord.io module will use to log in to Discord. You can obtain a bot token through the [Discord Developers website](https://discordapp.com/developers/applications/me/).  
+
+`prefix` is the text that Colress will look for at the start of messages to indicate that it's a bot command. For example, if `prefix` is "c$", `!pokemon` becomes `c$pokemon`.
+
+`data` is the path in the local directory to the SQLite database. See the below section for more information about this database.
+
+If Colress would send a message to any server with an ID that is a key in `redirects`, it will be sent to the channel with the corresponding ID instead of the same channel the request came from.
+
+`imageUrl` is the web adress from which Colress will obtain images of Pokémon to post. It will append the pokemon's National Dex number, a suffix customisable from the database if applicable, and the extension ".png". For example, Mega Charizard X would be `https://www.source.com/images/006-mx.png`. `shinyURL` is used instead when a Shiny Pokémon image is requested.
