@@ -180,7 +180,8 @@ CREATE TABLE [mons](
     [ability1] VARCHAR(16) NOT NULL,   
     [ability2] VARCHAR(16),   
     [abilityHidden] VARCHAR(16) NOT NULL,   
-    [imageSuffix] VARCHAR(4));```  
+    [imageSuffix] VARCHAR(4));
+```  
   
 #### mons  
 `id` is just an arbitrary integer to use as the primary key. `name` is the Pokémon's name, `dex` is their National Pokédex number, and `alola` is their Alolan Pokédex number, if applicable. `type1` and `type2` are the Pokémon's types, `ability1` and `ability2` are their normail abilities, and `abilityHidden` is their hidden ability. `imageSuffix` is a string that will be appended after the image URL for the Pokémon. For example, Mega Charizard X might have "mx", so that Colress will look for the image "006-mx".  
