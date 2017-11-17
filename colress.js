@@ -286,7 +286,9 @@ function getMonInfo(index, user, userID, channelID, message, event) {
     if (mon[7]) {
         out += "/" + mon[7];
     }
-    out += " **Hidden**: " + mon[8];
+	if (mon[8] !== mon[6]) {
+		out += " **Hidden**: " + mon[8];
+	}
     out += "\n**Serebii Link**: http://www.serebii.net/pokedex-sm/" + mon[2].toString().padStart(3, "0") + ".shtml"
     return out;
 }
