@@ -1,7 +1,7 @@
 # Colress  
 Colress is a [Discord](https://discordapp.com/) bot written in the NodeJS module [discord.io](https://github.com/izy521/discord.io), with a focus on functions related to the Pokémon series of video games. The name comes from [a scientist character](http://bulbapedia.bulbagarden.net/wiki/Colress) in said games. All commands are case-insenstive.  
   
-You can install a copy of Colress yourself, more information on how below, but if you'd rather just use my copy, [here's](https://discordapp.com/oauth2/authorize?client_id=247697943098818570&scope=bot&permissions=52288) the invite link.  
+You can install a copy of Colress yourself, more information on how below, but if you'd rather just use my copy, [here's](https://discordapp.com/oauth2/authorize?client_id=247697943098818570&scope=bot&permissions=52288) the invite link. For support and feedback, my Discord server is [here](https://discordapp.com/invite/GrMGspZ), and you can support me on Patreon [here]( https://www.patreon.com/alphakretinbots). 
   
 ## Commands  
 Colress' primary purpose is a database of information about the Pokémon games. Basic knowledge about relevant terms will be assumed in this section and the next. Note that Colress' prefix is customisable - more information on that in the configuration section - this section assumes the default prefix of "!".  
