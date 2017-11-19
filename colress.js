@@ -214,7 +214,7 @@ async function sendSingleMessage(msg, user, userID, channelID, message, event) {
         let out = "";
         switch (msg) {
             case "help":
-                out = "I am a Pokémon bot made by AlphaKretin#7990.\nYou can find my help file and source here: <https://github.com/AlphaKretin/colress-bot/>\nYou can support my development on Patreon here: < https://www.patreon.com/alphakretinbots>";
+                out = "I am a Pokémon bot made by AlphaKretin#7990.\nYou can find my help file and source here: <https://github.com/AlphaKretin/colress-bot/>\nYou can support my development on Patreon here: <https://www.patreon.com/alphakretinbots>";
                 break;
             case "types":
                 out = "http://i.imgur.com/fylyCdC.png";
