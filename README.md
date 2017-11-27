@@ -194,3 +194,8 @@ CREATE TABLE [mons](
   
 #### abilities  
 `id` is just an arbitrary integer to use as the primary key. `name` is the ability's name, and `desc` is a description of what it does. `wiki` is an alternate name used for generating the link to the Serebii page. This is not needed often if ever, as Colress will try converting the name to lower case and removing spaces.
+
+### To-do list
+- Make pokemon images sillhouettes in whosthat
+- Split typechart into sections
+- Upload single images
