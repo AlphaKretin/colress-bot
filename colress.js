@@ -115,7 +115,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
         return;
     }
     let lowMessage = message.toLowerCase();
-    if (message.indexOf("<@" + bot.id + ">") > -1) {
+    if (message.indexOf("<@" + bot.id + ">") > -1 || lowMessage.indexOf(pre + "help") === 0) {
         sendSingleMessage("help", user, userID, channelID, message, event);
     }
     if (lowMessage.indexOf(pre + "pokemon ") === 0) {
