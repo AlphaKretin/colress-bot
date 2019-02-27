@@ -1,31 +1,36 @@
-"use strict";
 let fs = require("fs");
+
 let config = JSON.parse(fs.readFileSync("config/config.json", "utf8")); //open config file from local directory. Expected contents are as follows
 /*
 {
-    "token": "", //Discord bot token for login
-    "prefix": "!", //the prefix for a user to type to indicate that what they're typing is a command
-    "data": "data/colressData.db", //the location of a SQLite database relative to the local directory. Details on the format of this database can be found in the readme.
-    "redirects": {
-        "serverID": "channelID" //a message Colress would send in serverID is redirected to channelID instead of where the command was posted
-    },
-    "imageUrl": "https://...", //online source from which Colress will retrieve images of pokemon. Colress will append the pokemon's pokedex number, with a customisable suffix for alternate formes, then .png
-    "shinyUrl": "https://..." //online source from which Colress will retrieve images of pokemon's shiny colourations. Colress will append the pokemon's pokedex number, with a customisable suffix for alternate formes, then .png
+	"token": "", //Discord bot token for login
+	"prefix": "!", //the prefix for a user to type to indicate that what they're typing is a command
+	"data": "data/colressData.db", //the location of a SQLite database relative to the local directory. Details on the format of this database can be found in the readme.
+	"redirects": {
+		"serverID": "channelID" //a message Colress would send in serverID is redirected to channelID instead of where the command was posted
+	},
+	"imageUrl": "https://...", //online source from which Colress will retrieve images of pokemon. Colress will append the pokemon's pokedex number, with a customisable suffix for alternate formes, then .png
+	"shinyUrl": "https://..." //online source from which Colress will retrieve images of pokemon's shiny colourations. Colress will append the pokemon's pokedex number, with a customisable suffix for alternate formes, then .png
 }
 */
 let pre = config.prefix;
+
 //discord setup
 let Discord = require("discord.io");
+
 let bot = new Discord.Client({
     token: config.token,
     autorun: true
 });
-bot.on("ready", function () {
+
+bot.on("ready", function() {
     console.log("Logged in as %s - %s\n", bot.username, bot.id);
 });
-bot.on("disconnect", function () {
+
+bot.on("disconnect", function() {
     bot.connect();
 });
+
 //sql setup
 let SQL = require("sql.js");
 let filebuffer = fs.readFileSync(config.data);
@@ -34,24 +39,23 @@ let mons = db.exec("SELECT * FROM mons");
 let moves = db.exec("SELECT * FROM moves");
 let items = db.exec("SELECT * FROM items");
 let abilities = db.exec("SELECT * FROM abilities");
-let monNames = [];
-let monDexes = [];
-let monAlola = [];
+let monNames: string[] = [];
+let monDexes: number[] = [];
+let monAlola: number[] = [];
 let monNamesFuse = [];
 for (let mon of mons[0].values) {
     monNames.push(mon[1].toLowerCase());
     monDexes.push(mon[2]);
     if (mon[3]) {
         monAlola.push(mon[3]);
-    }
-    else {
+    } else {
         monAlola.push(-1);
     }
     monNamesFuse.push({
         name: mon[1]
     });
 }
-let movNames = [];
+let movNames: string[] = [];
 let movNamesFuse = [];
 for (let move of moves[0].values) {
     movNames.push(move[1].toLowerCase());
@@ -59,7 +63,7 @@ for (let move of moves[0].values) {
         name: move[1]
     });
 }
-let itNames = [];
+let itNames: string[] = [];
 let itNamesFuse = [];
 for (let item of items[0].values) {
     itNames.push(item[1].toLowerCase());
@@ -67,7 +71,7 @@ for (let item of items[0].values) {
         name: item[1]
     });
 }
-let abNames = [];
+let abNames: string[] = [];
 let abNamesFuse = [];
 for (let ability of abilities[0].values) {
     abNames.push(ability[1].toLowerCase());
@@ -75,6 +79,7 @@ for (let ability of abilities[0].values) {
         name: ability[1]
     });
 }
+
 //fuse setup
 let Fuse = require("fuse.js");
 let options = {
@@ -92,15 +97,18 @@ let monFuse = new Fuse(monNamesFuse, options);
 let movFuse = new Fuse(movNamesFuse, options);
 let itFuse = new Fuse(itNamesFuse, options);
 let abFuse = new Fuse(abNamesFuse, options);
+
 let request = require("request");
 let https = require("https");
 let url = require("url");
-let gameData = {
+
+let gameData: any = {
     active: false
 };
-let gameTO1;
-let gameTO2;
-bot.on("message", function (user, userID, channelID, message, event) {
+let gameTO1: NodeJS.Timer;
+let gameTO2: NodeJS.Timer;
+
+bot.on("message", function(user: string, userID: string, channelID: string, message: string, event: any) {
     if (userID === bot.id) {
         return;
     }
@@ -169,38 +177,50 @@ bot.on("message", function (user, userID, channelID, message, event) {
         }
     }
 });
-function sendMessage(out, channelID) {
-    return new Promise(function (resolve, reject) {
+
+function sendMessage(out: string, channelID: string) {
+    return new Promise(function(resolve, reject) {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
         if (serverID in config.redirects) {
-            bot.sendMessage({
-                to: config.redirects[serverID],
-                message: out
-            }, function (err, res) {
-                if (err) {
-                    reject(err);
+            bot.sendMessage(
+                {
+                    to: config.redirects[serverID],
+                    message: out
+                },
+                function(err: Error, res: any) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(res);
+                    }
                 }
-                else {
-                    resolve(res);
+            );
+        } else {
+            bot.sendMessage(
+                {
+                    to: channelID,
+                    message: out
+                },
+                function(err: Error, res: any) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(res);
+                    }
                 }
-            });
-        }
-        else {
-            bot.sendMessage({
-                to: channelID,
-                message: out
-            }, function (err, res) {
-                if (err) {
-                    reject(err);
-                }
-                else {
-                    resolve(res);
-                }
-            });
+            );
         }
     });
 }
-async function sendSingleMessage(msg, user, userID, channelID, message, event) {
+
+async function sendSingleMessage(
+    msg: string,
+    user: string,
+    userID: string,
+    channelID: string,
+    message: string,
+    event: any
+) {
     try {
         let out = "";
         switch (msg) {
@@ -226,32 +246,29 @@ async function sendSingleMessage(msg, user, userID, channelID, message, event) {
         if (out.length > 0) {
             sendMessage(out, channelID);
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function pokemon(user, userID, channelID, message, event) {
+
+async function pokemon(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let query = message.slice((pre + "pokemon ").length);
         let index = monNames.indexOf(query.toLowerCase());
         let out = "";
         if (index > -1) {
             out = getMonInfo(index);
-        }
-        else {
+        } else {
             let result = monFuse.search(query);
             if (result.length < 1) {
                 out = "Sorry, I can't find a Pokémon with that name!";
                 sendMessage(out, channelID);
                 return;
-            }
-            else {
+            } else {
                 index = monNames.indexOf(result[0].item.name.toLowerCase());
                 if (index > -1) {
                     out = getMonInfo(index);
-                }
-                else {
+                } else {
                     out = "Sorry, I can't find a Pokémon with that name!";
                     console.log("Fuse error");
                     sendMessage(out, channelID);
@@ -261,12 +278,12 @@ async function pokemon(user, userID, channelID, message, event) {
         }
         await postImage(index, false, channelID);
         sendMessage(out, channelID);
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-function getMonInfo(index) {
+
+function getMonInfo(index: number) {
     let mon = mons[0].values[index];
     let out = "__**" + mon[1] + "**__\n";
     out += "**Pokédex**: " + mon[2];
@@ -287,65 +304,68 @@ function getMonInfo(index) {
     out += "\n**Serebii Link**: http://www.serebii.net/pokedex-sm/" + mon[2].toString().padStart(3, "0") + ".shtml";
     return out;
 }
-function postImage(index, shiny, channelID) {
-    return new Promise(function (resolve, reject) {
+
+function postImage(index: number, shiny: boolean, channelID: string) {
+    return new Promise(function(resolve, reject) {
         let imageUrl = "";
         if (shiny) {
             imageUrl = config.shinyUrl;
-        }
-        else {
+        } else {
             imageUrl = config.imageUrl;
         }
         let mon = mons[0].values[index];
         let suffix = mon[2].toString().padStart(3, "0");
         if (mon[9]) {
             suffix += "-" + mon[9] + ".png";
-        }
-        else {
+        } else {
             suffix += ".png";
         }
-        https.get(url.parse(imageUrl + suffix), function (response) {
-            let data = [];
+        https.get(url.parse(imageUrl + suffix), function(response: any) {
+            let data: Buffer[] = [];
             response
-                .on("data", function (chunk) {
-                data.push(chunk);
-            })
-                .on("end", function () {
-                let buffer = Buffer.concat(data);
-                let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-                if (serverID in config.redirects) {
-                    bot.uploadFile({
-                        to: config.redirects[serverID],
-                        file: buffer,
-                        filename: suffix
-                    }, function (err, res) {
-                        if (err) {
-                            reject(err);
-                        }
-                        else {
-                            resolve(res);
-                        }
-                    });
-                }
-                else {
-                    bot.uploadFile({
-                        to: channelID,
-                        file: buffer,
-                        filename: suffix
-                    }, function (err, res) {
-                        if (err) {
-                            reject(err);
-                        }
-                        else {
-                            resolve(res);
-                        }
-                    });
-                }
-            });
+                .on("data", function(chunk: Buffer) {
+                    data.push(chunk);
+                })
+                .on("end", function() {
+                    let buffer = Buffer.concat(data);
+                    let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
+                    if (serverID in config.redirects) {
+                        bot.uploadFile(
+                            {
+                                to: config.redirects[serverID],
+                                file: buffer,
+                                filename: suffix
+                            },
+                            function(err: Error, res: any) {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    resolve(res);
+                                }
+                            }
+                        );
+                    } else {
+                        bot.uploadFile(
+                            {
+                                to: channelID,
+                                file: buffer,
+                                filename: suffix
+                            },
+                            function(err: Error, res: any) {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    resolve(res);
+                                }
+                            }
+                        );
+                    }
+                });
         });
     });
 }
-async function pokedex(user, userID, channelID, message, event) {
+
+async function pokedex(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let query = parseInt(message.slice((pre + "pokedex ").length));
         if (query === NaN || query < 1) {
@@ -356,17 +376,16 @@ async function pokedex(user, userID, channelID, message, event) {
         if (index > -1) {
             await postImage(index, false, channelID);
             sendMessage(getMonInfo(index), channelID);
-        }
-        else {
+        } else {
             sendMessage("Sorry, I can't find a Pokémon with that number!", channelID);
             return;
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function aloladex(user, userID, channelID, message, event) {
+
+async function aloladex(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let query = parseInt(message.slice((pre + "aloladex ").length));
         if (query === NaN || query < 1) {
@@ -377,47 +396,43 @@ async function aloladex(user, userID, channelID, message, event) {
         if (index > -1) {
             await postImage(index, false, channelID);
             sendMessage(getMonInfo(index), channelID);
-        }
-        else {
+        } else {
             sendMessage("Sorry, I can't find a Pokémon with that number!", channelID);
             return;
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function move(user, userID, channelID, message, event) {
+
+async function move(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let query = message.slice((pre + "move ").length);
         let index = movNames.indexOf(query.toLowerCase());
         let out = "";
         if (index > -1) {
             out = getMoveInfo(index);
-        }
-        else {
+        } else {
             let result = movFuse.search(query);
             if (result.length < 1) {
                 out = "Sorry, I can't find a move with that name!";
-            }
-            else {
+            } else {
                 index = movNames.indexOf(result[0].item.name.toLowerCase());
                 if (index > -1) {
                     out = getMoveInfo(index);
-                }
-                else {
+                } else {
                     out = "Sorry, I can't find a move with that name!";
                     console.log("Fuse error");
                 }
             }
         }
         sendMessage(out, channelID);
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-function getMoveInfo(index) {
+
+function getMoveInfo(index: number) {
     let move = moves[0].values[index];
     let out = "__**" + move[1] + "**__\n";
     out += "**Type**: " + move[2];
@@ -440,104 +455,98 @@ function getMoveInfo(index) {
     }
     if (move[10]) {
         out += "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" + move[10] + ".shtml";
-    }
-    else {
+    } else {
         out +=
             "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" +
-                move[1].toLowerCase().replace(/ /g, "") +
-                ".shtml";
+            move[1].toLowerCase().replace(/ /g, "") +
+            ".shtml";
     }
     return out;
 }
-async function item(user, userID, channelID, message, event) {
+
+async function item(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let query = message.slice((pre + "move ").length);
         let index = itNames.indexOf(query.toLowerCase());
         let out = "";
         if (index > -1) {
             out = getItemInfo(index);
-        }
-        else {
+        } else {
             let result = itFuse.search(query);
             if (result.length < 1) {
                 out = "Sorry, I can't find an item with that name!";
-            }
-            else {
+            } else {
                 index = itNames.indexOf(result[0].item.name.toLowerCase());
                 if (index > -1) {
                     out = getItemInfo(index);
-                }
-                else {
+                } else {
                     out = "Sorry, I can't find an item with that name!";
                     console.log("Fuse error");
                 }
             }
         }
         sendMessage(out, channelID);
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-function getItemInfo(index) {
+
+function getItemInfo(index: number) {
     let item = items[0].values[index];
     let out = "__**" + item[1] + "**__\n";
     out += "**Description**: " + item[2];
     if (item[3]) {
         out += "\n**Serebii Link**: http://www.serebii.net/itemdex/" + item[3] + ".shtml";
-    }
-    else {
+    } else {
         out +=
             "\n**Serebii Link**: http://www.serebii.net/itemdex/" + item[1].toLowerCase().replace(/ /g, "") + ".shtml";
     }
     return out;
 }
-async function ability(user, userID, channelID, message, event) {
+
+async function ability(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let query = message.slice((pre + "ability ").length);
         let index = abNames.indexOf(query.toLowerCase());
         let out = "";
         if (index > -1) {
             out = getAbilityInfo(index);
-        }
-        else {
+        } else {
             let result = abFuse.search(query);
             if (result.length < 1) {
                 out = "Sorry, I can't find an ability with that name!";
-            }
-            else {
+            } else {
                 index = abNames.indexOf(result[0].item.name.toLowerCase());
                 if (index > -1) {
                     out = getAbilityInfo(index);
-                }
-                else {
+                } else {
                     out = "Sorry, I can't find an ability with that name!";
                     console.log("Fuse error");
                 }
             }
         }
         sendMessage(out, channelID);
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-function getAbilityInfo(index) {
+
+function getAbilityInfo(index: number) {
     let ability = abilities[0].values[index];
     let out = "__**" + ability[1] + "**__\n";
     out += "**Description**: " + ability[2];
     if (ability[3]) {
         out += "\n**Serebii Link**: http://www.serebii.net/abilitydex/" + ability[3] + ".shtml";
-    }
-    else {
+    } else {
         out +=
             "\n**Serebii Link**: http://www.serebii.net/abilitydex/" +
-                ability[1].toLowerCase().replace(/ /g, "") +
-                ".shtml";
+            ability[1].toLowerCase().replace(/ /g, "") +
+            ".shtml";
     }
     return out;
 }
-async function shiny(user, userID, channelID, message, event) {
+
+async function shiny(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let query = message.slice((pre + "shiny ").length);
         let index = monNames.indexOf(query.toLowerCase());
@@ -547,8 +556,7 @@ async function shiny(user, userID, channelID, message, event) {
                 const out = "Sorry, I can't find a Pokémon with that name!";
                 sendMessage(out, channelID);
                 return;
-            }
-            else {
+            } else {
                 index = monNames.indexOf(result[0].item.name.toLowerCase());
                 if (index < 0) {
                     const out = "Sorry, I can't find a Pokémon with that name!";
@@ -559,12 +567,12 @@ async function shiny(user, userID, channelID, message, event) {
             }
         }
         postImage(index, true, channelID);
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function weak(user, userID, channelID, message, event) {
+
+async function weak(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let query = message.slice((pre + "weak ").length);
         let index = monNames.indexOf(query.toLowerCase());
@@ -573,21 +581,18 @@ async function weak(user, userID, channelID, message, event) {
         if (index > -1) {
             types = getMonTypes(index);
             out = "**Name**: " + mons[0].values[index][1] + "\n" + getWeakInfo(types);
-        }
-        else {
+        } else {
             let result = monFuse.search(query);
             if (result.length < 1) {
                 out = "Sorry, I can't find a Pokémon with that name!";
                 sendMessage(out, channelID);
                 return;
-            }
-            else {
+            } else {
                 index = monNames.indexOf(result[0].item.name.toLowerCase());
                 if (index > -1) {
                     types = getMonTypes(index);
                     out = "**Name**: " + mons[0].values[index][1] + "\n" + getWeakInfo(types);
-                }
-                else {
+                } else {
                     out = "Sorry, I can't find a Pokémon with that name!";
                     console.log("Fuse error");
                     sendMessage(out, channelID);
@@ -596,54 +601,55 @@ async function weak(user, userID, channelID, message, event) {
             }
         }
         sendMessage(out, channelID);
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function weakTypes(user, userID, channelID, message, event) {
+
+async function weakTypes(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let args = message.toLowerCase().split(" ");
         let types = [];
         for (let arg of args) {
             arg = c(arg);
-            if ([
-                "Normal",
-                "Fire",
-                "Fighting",
-                "Water",
-                "Flying",
-                "Grass",
-                "Poison",
-                "Electric",
-                "Ground",
-                "Psychic",
-                "Rock",
-                "Ice",
-                "Bug",
-                "Dragon",
-                "Ghost",
-                "Dark",
-                "Steel",
-                "Fairy"
-            ].indexOf(arg) > -1) {
+            if (
+                [
+                    "Normal",
+                    "Fire",
+                    "Fighting",
+                    "Water",
+                    "Flying",
+                    "Grass",
+                    "Poison",
+                    "Electric",
+                    "Ground",
+                    "Psychic",
+                    "Rock",
+                    "Ice",
+                    "Bug",
+                    "Dragon",
+                    "Ghost",
+                    "Dark",
+                    "Steel",
+                    "Fairy"
+                ].indexOf(arg) > -1
+            ) {
                 types.push(arg);
             }
         }
         let out = "";
         if (types.length > 0) {
             out = getWeakInfo(types);
-        }
-        else {
+        } else {
             out = "Sorry, none of those words look like types to me!";
         }
         sendMessage(out, channelID);
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-function getMonTypes(index) {
+
+function getMonTypes(index: number) {
     let mon = mons[0].values[index];
     let types = [mon[4]];
     if (mon[5]) {
@@ -651,11 +657,12 @@ function getMonTypes(index) {
     }
     return types;
 }
-function getWeakInfo(types) {
+
+function getWeakInfo(types: string[]) {
     if (types.length < 1) {
         return "Invalid types!";
     }
-    let typeInfo = {
+    let typeInfo: { [type: string]: any } = {
         Normal: {
             value: 0,
             weak: ["Fighting"],
@@ -782,23 +789,19 @@ function getWeakInfo(types) {
             }
         }
     }
-    let weaks = [];
-    let resists = [];
-    let immunes = [];
-    Object.keys(typeInfo).forEach(function (key, index) {
+    let weaks: string[] = [];
+    let resists: string[] = [];
+    let immunes: string[] = [];
+    Object.keys(typeInfo).forEach(function(key, index) {
         if (typeInfo[key].value > 1) {
             weaks.push("__" + key + "__");
-        }
-        else if (typeInfo[key].value === 1) {
+        } else if (typeInfo[key].value === 1) {
             weaks.push(key);
-        }
-        else if (typeInfo[key].value === -1) {
+        } else if (typeInfo[key].value === -1) {
             resists.push(key);
-        }
-        else if (typeInfo[key].value === -2) {
+        } else if (typeInfo[key].value === -2) {
             resists.push("__" + key + "__");
-        }
-        else if (typeInfo[key].value < -2) {
+        } else if (typeInfo[key].value < -2) {
             immunes.push(key);
         }
     });
@@ -814,7 +817,8 @@ function getWeakInfo(types) {
     }
     return out;
 }
-async function game(user, userID, channelID, message, event) {
+
+async function game(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let input = message.toLowerCase().split(" ")[1];
         switch (input) {
@@ -831,20 +835,22 @@ async function game(user, userID, channelID, message, event) {
                 gameWhosThat(user, userID, channelID, message, event);
                 break;
             default:
-                sendMessage('That\'s not a game I know! Try "highlow", "highlow2", "whosthat", or "hangman"!', channelID);
+                sendMessage(
+                    'That\'s not a game I know! Try "highlow", "highlow2", "whosthat", or "hangman"!',
+                    channelID
+                );
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function gameHiLo(user, userID, channelID, message, event) {
+
+async function gameHiLo(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
         if (gameData.active) {
             return;
-        }
-        else {
+        } else {
             //pick a random pokemon
             let index = getIncInt(0, monNames.length - 1);
             let name = mons[0].values[index][1];
@@ -859,20 +865,25 @@ async function gameHiLo(user, userID, channelID, message, event) {
                 dex: dex,
                 guesses: 0
             };
-            sendMessage("You have 10 tries to guess the National Pokédex number of the following Pokémon: **" + name + "**!", channelID);
+            sendMessage(
+                "You have 10 tries to guess the National Pokédex number of the following Pokémon: **" + name + "**!",
+                channelID
+            );
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function answerHiLo(user, userID, channelID, message, event) {
+
+async function answerHiLo(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-        if (gameData.active === false ||
+        if (
+            gameData.active === false ||
             serverID !== gameData.server ||
             channelID !== gameData.channel ||
-            gameData.game !== "highlow") {
+            gameData.game !== "highlow"
+        ) {
             return;
         }
         if (parseInt(message) === gameData.dex) {
@@ -882,20 +893,22 @@ async function answerHiLo(user, userID, channelID, message, event) {
                 messageID: event.d.id,
                 reaction: "👍"
             });
-            sendMessage("<@" +
-                userID +
-                "> got it in " +
-                gameData.guesses +
-                " guess(es)! The National Pokédex number of " +
-                gameData.name +
-                " is **" +
-                gameData.dex +
-                "**!", channelID);
+            sendMessage(
+                "<@" +
+                    userID +
+                    "> got it in " +
+                    gameData.guesses +
+                    " guess(es)! The National Pokédex number of " +
+                    gameData.name +
+                    " is **" +
+                    gameData.dex +
+                    "**!",
+                channelID
+            );
             gameData = {
                 active: false
             };
-        }
-        else {
+        } else {
             let out = "";
             let index = monDexes.indexOf(parseInt(message));
             if (index === -1) {
@@ -904,39 +917,36 @@ async function answerHiLo(user, userID, channelID, message, event) {
             gameData.guesses++;
             if (monDexes[index] < gameData.dex) {
                 out = "That Pokémon is " + mons[0].values[index][1] + ", which is too early in the Pokédex!\n";
-            }
-            else {
+            } else {
                 //if (monDexes[index] > gameData.dex)
                 out = "That Pokémon is " + mons[0].values[index][1] + ", which is too late in the Pokédex!\n";
             }
             if (gameData.guesses === 10) {
                 out +=
                     "Sorry, but you're out of guesses! The National Pokédex number of " +
-                        gameData.name +
-                        " is **" +
-                        gameData.dex +
-                        "**!";
+                    gameData.name +
+                    " is **" +
+                    gameData.dex +
+                    "**!";
                 gameData = {
                     active: false
                 };
-            }
-            else {
+            } else {
                 out += "You have " + (10 - gameData.guesses) + " guess(es) left!";
             }
             sendMessage(out, channelID);
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function gameHiLo2(user, userID, channelID, message, event) {
+
+async function gameHiLo2(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
         if (gameData.active) {
             return;
-        }
-        else {
+        } else {
             //pick a random pokemon
             let index = getIncInt(0, monNames.length - 1);
             let name = mons[0].values[index][1]
@@ -962,20 +972,25 @@ async function gameHiLo2(user, userID, channelID, message, event) {
                 hint: hint,
                 guesses: 0
             };
-            sendMessage("You have 10 tries to name the Pokémon with the following National Pokédex number: **" + dex + "**!", channelID);
+            sendMessage(
+                "You have 10 tries to name the Pokémon with the following National Pokédex number: **" + dex + "**!",
+                channelID
+            );
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function answerHiLo2(user, userID, channelID, message, event) {
+
+async function answerHiLo2(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-        if (gameData.active === false ||
+        if (
+            gameData.active === false ||
             serverID !== gameData.server ||
             channelID !== gameData.channel ||
-            gameData.game !== "highlow2") {
+            gameData.game !== "highlow2"
+        ) {
             return;
         }
         let index = monNames.indexOf(message.toLowerCase());
@@ -990,18 +1005,20 @@ async function answerHiLo2(user, userID, channelID, message, event) {
                 messageID: event.d.id,
                 reaction: "👍"
             });
-            sendMessage("<@" +
-                userID +
-                "> got it in " +
-                gameData.guesses +
-                " guess(es)! The answer I had in mind was **" +
-                gameData.name +
-                "**, but if it has alternate formes, they were valid too!", channelID);
+            sendMessage(
+                "<@" +
+                    userID +
+                    "> got it in " +
+                    gameData.guesses +
+                    " guess(es)! The answer I had in mind was **" +
+                    gameData.name +
+                    "**, but if it has alternate formes, they were valid too!",
+                channelID
+            );
             gameData = {
                 active: false
             };
-        }
-        else {
+        } else {
             let out = "";
             if (index === -1) {
                 return;
@@ -1009,8 +1026,7 @@ async function answerHiLo2(user, userID, channelID, message, event) {
             gameData.guesses++;
             if (guessDex < gameData.dex) {
                 out = "That Pokémon is number " + guessDex + ", which is too early in the Pokédex!\n";
-            }
-            else {
+            } else {
                 //if (guessDex > gameData.dex)
                 out = "That Pokémon is number " + guessDex + ", which is too late in the Pokédex!\n";
             }
@@ -1020,29 +1036,27 @@ async function answerHiLo2(user, userID, channelID, message, event) {
             if (gameData.guesses === 10) {
                 out +=
                     "Sorry, but you're out of guesses! The answer I had in mind was **" +
-                        gameData.name +
-                        "**, but if it has alternate formes, they were valid too!";
+                    gameData.name +
+                    "**, but if it has alternate formes, they were valid too!";
                 gameData = {
                     active: false
                 };
-            }
-            else {
+            } else {
                 out += "You have " + (10 - gameData.guesses) + " guess(es) left!";
             }
             sendMessage(out, channelID);
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function gameWhosThat(user, userID, channelID, message, event) {
+
+async function gameWhosThat(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
         if (gameData.active) {
             return;
-        }
-        else {
+        } else {
             //pick a random pokemon
             let index = getIncInt(0, monNames.length - 1);
             let name = mons[0].values[index][1]
@@ -1069,28 +1083,30 @@ async function gameWhosThat(user, userID, channelID, message, event) {
             };
             await postImage(index, false, channelID);
             sendMessage("You have 10 seconds to name this Pokémon!", channelID);
-            gameTO1 = setTimeout(function () {
+            gameTO1 = setTimeout(function() {
                 sendMessage("Have a hint: `" + gameData.hint + "`", channelID);
             }, 5000);
-            gameTO2 = setTimeout(function () {
+            gameTO2 = setTimeout(function() {
                 sendMessage("Time's up! The Pokémon was **" + gameData.name + "**! Try again next time!", channelID);
                 gameData = {
                     active: false
                 };
             }, 10000);
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function answerWhosThat(user, userID, channelID, message, event) {
+
+async function answerWhosThat(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-        if (gameData.active === false ||
+        if (
+            gameData.active === false ||
             serverID !== gameData.server ||
             channelID !== gameData.channel ||
-            gameData.game !== "whosthat") {
+            gameData.game !== "whosthat"
+        ) {
             return;
         }
         if (message.toLowerCase() === gameData.name.toLowerCase()) {
@@ -1106,18 +1122,17 @@ async function answerWhosThat(user, userID, channelID, message, event) {
                 active: false
             };
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function gameHangman(user, userID, channelID, message, event) {
+
+async function gameHangman(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
         if (gameData.active) {
             return;
-        }
-        else {
+        } else {
             //pick a random pokemon
             let index = getIncInt(0, monNames.length - 1);
             let name = mons[0].values[index][1]
@@ -1138,22 +1153,27 @@ async function gameHangman(user, userID, channelID, message, event) {
                 guesses: 0,
                 wrongs: []
             };
-            sendMessage("Guess the letters in this Pokémon's name! You can make 10 mistakes before the game is over.\n`" +
-                hint +
-                "`", channelID);
+            sendMessage(
+                "Guess the letters in this Pokémon's name! You can make 10 mistakes before the game is over.\n`" +
+                    hint +
+                    "`",
+                channelID
+            );
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-async function answerHangman(user, userID, channelID, message, event) {
+
+async function answerHangman(user: string, userID: string, channelID: string, message: string, event: any) {
     try {
         let serverID = bot.channels[channelID] && bot.channels[channelID].guild_id;
-        if (gameData.active === false ||
+        if (
+            gameData.active === false ||
             serverID !== gameData.server ||
             channelID !== gameData.channel ||
-            gameData.game !== "hangman") {
+            gameData.game !== "hangman"
+        ) {
             return;
         }
         let index = monNames.indexOf(message.toLowerCase());
@@ -1164,46 +1184,52 @@ async function answerHangman(user, userID, channelID, message, event) {
                     messageID: event.d.id,
                     reaction: "👍"
                 });
-                sendMessage("You got it, ending with " +
-                    user +
-                    "'s guess! The answer was **" +
-                    gameData.name +
-                    "**!\nWrong guesses: `" +
-                    gameData.wrongs.toString() +
-                    " `", channelID);
+                sendMessage(
+                    "You got it, ending with " +
+                        user +
+                        "'s guess! The answer was **" +
+                        gameData.name +
+                        "**!\nWrong guesses: `" +
+                        gameData.wrongs.toString() +
+                        " `",
+                    channelID
+                );
                 gameData = {
                     active: false
                 };
-            }
-            else {
+            } else {
                 gameData.guesses++;
                 if (gameData.guesses < 10) {
                     gameData.wrongs.push(message.toLowerCase());
-                    sendMessage("Sorry, " +
-                        user +
-                        ", that's wrong! That was strike #" +
-                        gameData.guesses +
-                        "! Your current progress is:\n`" +
-                        gameData.hint +
-                        "`\nWrong guesses: `" +
-                        gameData.wrongs.toString() +
-                        " `", channelID);
-                }
-                else {
-                    sendMessage("Sorry, " +
-                        user +
-                        ", that's wrong, and it was your last strike! The game is over. The answer was **" +
-                        gameData.name +
-                        "**.`\nWrong guesses: `" +
-                        gameData.wrongs.toString() +
-                        " `", channelID);
+                    sendMessage(
+                        "Sorry, " +
+                            user +
+                            ", that's wrong! That was strike #" +
+                            gameData.guesses +
+                            "! Your current progress is:\n`" +
+                            gameData.hint +
+                            "`\nWrong guesses: `" +
+                            gameData.wrongs.toString() +
+                            " `",
+                        channelID
+                    );
+                } else {
+                    sendMessage(
+                        "Sorry, " +
+                            user +
+                            ", that's wrong, and it was your last strike! The game is over. The answer was **" +
+                            gameData.name +
+                            "**.`\nWrong guesses: `" +
+                            gameData.wrongs.toString() +
+                            " `",
+                        channelID
+                    );
                     gameData = {
                         active: false
                     };
                 }
             }
-        }
-        else if (message.length === 1) {
+        } else if (message.length === 1) {
             if (gameData.name.toLowerCase().indexOf(message.toLowerCase()) > -1) {
                 for (let i = 0; i < gameData.name.length; i++) {
                     if (gameData.name.charAt(i).toLowerCase() === message.toLowerCase()) {
@@ -1216,69 +1242,79 @@ async function answerHangman(user, userID, channelID, message, event) {
                         messageID: event.d.id,
                         reaction: "👍"
                     });
-                    sendMessage("You got it, ending with " +
-                        user +
-                        "'s guess! The answer was **" +
-                        gameData.name +
-                        "**!\nWrong guesses: `" +
-                        gameData.wrongs.toString() +
-                        " `", channelID);
+                    sendMessage(
+                        "You got it, ending with " +
+                            user +
+                            "'s guess! The answer was **" +
+                            gameData.name +
+                            "**!\nWrong guesses: `" +
+                            gameData.wrongs.toString() +
+                            " `",
+                        channelID
+                    );
                     gameData = {
                         active: false
                     };
+                } else {
+                    sendMessage(
+                        "That's correct, " +
+                            user +
+                            "! Your current progress is:\n`" +
+                            gameData.hint +
+                            "`\nWrong guesses: `" +
+                            gameData.wrongs.toString() +
+                            " `",
+                        channelID
+                    );
                 }
-                else {
-                    sendMessage("That's correct, " +
-                        user +
-                        "! Your current progress is:\n`" +
-                        gameData.hint +
-                        "`\nWrong guesses: `" +
-                        gameData.wrongs.toString() +
-                        " `", channelID);
-                }
-            }
-            else {
+            } else {
                 gameData.guesses++;
                 if (gameData.guesses < 10) {
                     gameData.wrongs.push(message.toLowerCase());
-                    sendMessage("Sorry, " +
-                        user +
-                        ", that's wrong! That was strike #" +
-                        gameData.guesses +
-                        "! Your current progress is:\n`" +
-                        gameData.hint +
-                        "`\nWrong guesses: `" +
-                        gameData.wrongs.toString() +
-                        " `", channelID);
-                }
-                else {
-                    sendMessage("Sorry, " +
-                        user +
-                        ", that's wrong, and it was your last strike! The game is over. The answer was **" +
-                        gameData.name +
-                        "**.\nWrong guesses: `" +
-                        gameData.wrongs.toString() +
-                        " `", channelID);
+                    sendMessage(
+                        "Sorry, " +
+                            user +
+                            ", that's wrong! That was strike #" +
+                            gameData.guesses +
+                            "! Your current progress is:\n`" +
+                            gameData.hint +
+                            "`\nWrong guesses: `" +
+                            gameData.wrongs.toString() +
+                            " `",
+                        channelID
+                    );
+                } else {
+                    sendMessage(
+                        "Sorry, " +
+                            user +
+                            ", that's wrong, and it was your last strike! The game is over. The answer was **" +
+                            gameData.name +
+                            "**.\nWrong guesses: `" +
+                            gameData.wrongs.toString() +
+                            " `",
+                        channelID
+                    );
                     gameData = {
                         active: false
                     };
                 }
             }
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
-function getIncInt(min, max) {
+
+function getIncInt(min: number, max: number) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
 }
-function c(string) {
+
+function c(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-function replaceAt(string, index, character) {
+
+function replaceAt(string: string, index: number, character: string) {
     return string.substr(0, index) + character + string.substr(index + character.length);
 }
-//# sourceMappingURL=colress.js.map
