@@ -1,0 +1,13 @@
+{
+    "prefix": "!",
+    "pokemonData": "data/pokemon.json",
+    "abilityData": "data/ability.json",
+    "moveData": "data/move.json",
+    "itemData": "data/item.json",
+    "redirects": {
+        "160817374587650048": "256301677768998913",
+        "247615960951947274": "378409070182268931"
+    },
+    "imageUrl": "http://www.serebii.net/sunmoon/pokemon/",
+    "shinyUrl": "https://www.serebii.net/Shiny/SM/"
+}

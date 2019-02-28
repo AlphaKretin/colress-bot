@@ -60,3 +60,4 @@ typings/
 .DS_Store
 data/generateMoves.js
 data/generateMons.js
+config/auth.json

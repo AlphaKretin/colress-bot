@@ -5,7 +5,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Chlorophyll"
     },
     {
@@ -14,7 +13,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Chlorophyll"
     },
     {
@@ -23,7 +21,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Chlorophyll"
     },
     {
@@ -31,7 +28,6 @@
         "dex": 4,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Solar Power"
     },
     {
@@ -39,7 +35,6 @@
         "dex": 5,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Solar Power"
     },
     {
@@ -48,7 +43,6 @@
         "type1": "Fire",
         "type2": "Flying",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Solar Power"
     },
     {
@@ -56,7 +50,6 @@
         "dex": 7,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Rain Dish"
     },
     {
@@ -64,7 +57,6 @@
         "dex": 8,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Rain Dish"
     },
     {
@@ -72,7 +64,6 @@
         "dex": 9,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Rain Dish"
     },
     {
@@ -81,7 +72,6 @@
         "alola": 15,
         "type1": "Bug",
         "ability1": "Shield Dust",
-        "ability2": "None",
         "abilityHidden": "Run Away"
     },
     { "name": "Metapod", "dex": 11, "alola": 18, "type1": "Bug", "ability1": "Shed Skin" },
@@ -92,7 +82,6 @@
         "type1": "Bug",
         "type2": "Flying",
         "ability1": "Compound Eyes",
-        "ability2": "None",
         "abilityHidden": "Tinted Lens"
     },
     {
@@ -101,7 +90,6 @@
         "type1": "Bug",
         "type2": "Poison",
         "ability1": "Shield Dust",
-        "ability2": "None",
         "abilityHidden": "Run Away"
     },
     { "name": "Kakuna", "dex": 14, "type1": "Bug", "type2": "Poison", "ability1": "Shed Skin" },
@@ -111,7 +99,6 @@
         "type1": "Bug",
         "type2": "Poison",
         "ability1": "Swarm",
-        "ability2": "None",
         "abilityHidden": "Sniper"
     },
     {
@@ -189,7 +176,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Keen Eye",
-        "ability2": "None",
         "abilityHidden": "Sniper"
     },
     {
@@ -199,7 +185,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Keen Eye",
-        "ability2": "None",
         "abilityHidden": "Sniper"
     },
     {
@@ -224,7 +209,6 @@
         "alola": 21,
         "type1": "Electric",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Lightning Rod"
     },
     {
@@ -233,7 +217,6 @@
         "alola": 22,
         "type1": "Electric",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Lightning Rod"
     },
     {
@@ -252,7 +235,6 @@
         "alola": 251,
         "type1": "Ground",
         "ability1": "Sand Veil",
-        "ability2": "None",
         "abilityHidden": "Sand Rush"
     },
     {
@@ -261,7 +243,6 @@
         "alola": 252,
         "type1": "Ground",
         "ability1": "Sand Veil",
-        "ability2": "None",
         "abilityHidden": "Sand Rush"
     },
     {
@@ -271,7 +252,6 @@
         "type1": "Ice",
         "type2": "Steel",
         "ability1": "Snow Cloak",
-        "ability2": "None",
         "abilityHidden": "Slush Rush",
         "aliases": ["sandshrew-a"],
         "imageSuffix": "a"
@@ -283,7 +263,6 @@
         "type1": "Ice",
         "type2": "Steel",
         "ability1": "Snow Cloak",
-        "ability2": "None",
         "abilityHidden": "Slush Rush",
         "aliases": ["sandslash-a"],
         "imageSuffix": "a"
@@ -362,7 +341,6 @@
         "alola": 253,
         "type1": "Fire",
         "ability1": "Flash Fire",
-        "ability2": "None",
         "abilityHidden": "Drought"
     },
     {
@@ -371,7 +349,6 @@
         "alola": 254,
         "type1": "Fire",
         "ability1": "Flash Fire",
-        "ability2": "None",
         "abilityHidden": "Drought"
     },
     {
@@ -380,7 +357,6 @@
         "alola": 253,
         "type1": "Ice",
         "ability1": "Snow Cloak",
-        "ability2": "None",
         "abilityHidden": "Snow Warning",
         "aliases": ["vulpix-a"],
         "imageSuffix": "a"
@@ -392,7 +368,6 @@
         "type1": "Ice",
         "type2": "Fairy",
         "ability1": "Snow Cloak",
-        "ability2": "None",
         "abilityHidden": "Snow Warning",
         "aliases": ["ninetales-a"],
         "imageSuffix": "a"
@@ -424,7 +399,6 @@
         "type1": "Poison",
         "type2": "Flying",
         "ability1": "Inner Focus",
-        "ability2": "None",
         "abilityHidden": "Infiltrator"
     },
     {
@@ -434,7 +408,6 @@
         "type1": "Poison",
         "type2": "Flying",
         "ability1": "Inner Focus",
-        "ability2": "None",
         "abilityHidden": "Infiltrator"
     },
     {
@@ -443,7 +416,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Run Away"
     },
     {
@@ -452,7 +424,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Stench"
     },
     {
@@ -461,7 +432,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Effect Spore"
     },
     {
@@ -726,7 +696,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Gluttony"
     },
     {
@@ -735,7 +704,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Gluttony"
     },
     {
@@ -744,7 +712,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Gluttony"
     },
     {
@@ -1063,7 +1030,6 @@
         "type1": "Grass",
         "type2": "Psychic",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Harvest"
     },
     {
@@ -1073,7 +1039,6 @@
         "type1": "Grass",
         "type2": "Psychic",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Harvest"
     },
     {
@@ -1083,7 +1048,6 @@
         "type1": "Grass",
         "type2": "Dragon",
         "ability1": "Frisk",
-        "ability2": "None",
         "abilityHidden": "Harvest",
         "aliases": ["exeggutor-a"],
         "imageSuffix": "a"
@@ -1275,7 +1239,6 @@
         "alola": 227,
         "type1": "Electric",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Vital Spirit"
     },
     {
@@ -1284,7 +1247,6 @@
         "alola": 167,
         "type1": "Fire",
         "ability1": "Flame Body",
-        "ability2": "None",
         "abilityHidden": "Vital Spirit"
     },
     {
@@ -1311,7 +1273,6 @@
         "alola": 91,
         "type1": "Water",
         "ability1": "Swift Swim",
-        "ability2": "None",
         "abilityHidden": "Rattled"
     },
     {
@@ -1321,7 +1282,6 @@
         "type1": "Water",
         "type2": "Flying",
         "ability1": "Intimidate",
-        "ability2": "None",
         "abilityHidden": "Moxie"
     },
     {
@@ -1340,7 +1300,6 @@
         "alola": 209,
         "type1": "Normal",
         "ability1": "Limber",
-        "ability2": "None",
         "abilityHidden": "Imposter"
     },
     {
@@ -1358,7 +1317,6 @@
         "alola": 124,
         "type1": "Water",
         "ability1": "Water Absorb",
-        "ability2": "None",
         "abilityHidden": "Hydration"
     },
     {
@@ -1367,7 +1325,6 @@
         "alola": 125,
         "type1": "Electric",
         "ability1": "Volt Absorb",
-        "ability2": "None",
         "abilityHidden": "Quick Feet"
     },
     {
@@ -1376,7 +1333,6 @@
         "alola": 126,
         "type1": "Fire",
         "ability1": "Flash Fire",
-        "ability2": "None",
         "abilityHidden": "Guts"
     },
     {
@@ -1449,7 +1405,6 @@
         "type1": "Ice",
         "type2": "Flying",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Snow Cloak"
     },
     {
@@ -1458,7 +1413,6 @@
         "type1": "Electric",
         "type2": "Flying",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Static"
     },
     {
@@ -1467,7 +1421,6 @@
         "type1": "Fire",
         "type2": "Flying",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Flame Body"
     },
     {
@@ -1476,7 +1429,6 @@
         "alola": 281,
         "type1": "Dragon",
         "ability1": "Shed Skin",
-        "ability2": "None",
         "abilityHidden": "Marvel Scale"
     },
     {
@@ -1485,7 +1437,6 @@
         "alola": 282,
         "type1": "Dragon",
         "ability1": "Shed Skin",
-        "ability2": "None",
         "abilityHidden": "Marvel Scale"
     },
     {
@@ -1495,7 +1446,6 @@
         "type1": "Dragon",
         "type2": "Flying",
         "ability1": "Inner Focus",
-        "ability2": "None",
         "abilityHidden": "Multiscale"
     },
     {
@@ -1503,7 +1453,6 @@
         "dex": 150,
         "type1": "Psychic",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Unnerve"
     },
     { "name": "Mew", "dex": 151, "type1": "Psychic", "ability1": "Synchronize" },
@@ -1512,7 +1461,6 @@
         "dex": 152,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Leaf Guard"
     },
     {
@@ -1520,7 +1468,6 @@
         "dex": 153,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Leaf Guard"
     },
     {
@@ -1528,7 +1475,6 @@
         "dex": 154,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Leaf Guard"
     },
     {
@@ -1536,7 +1482,6 @@
         "dex": 155,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Flash Fire"
     },
     {
@@ -1544,7 +1489,6 @@
         "dex": 156,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Flash Fire"
     },
     {
@@ -1552,7 +1496,6 @@
         "dex": 157,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Flash Fire"
     },
     {
@@ -1560,7 +1503,6 @@
         "dex": 158,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Sheer Force"
     },
     {
@@ -1568,7 +1510,6 @@
         "dex": 159,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Sheer Force"
     },
     {
@@ -1576,7 +1517,6 @@
         "dex": 160,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Sheer Force"
     },
     {
@@ -1660,7 +1600,6 @@
         "type1": "Poison",
         "type2": "Flying",
         "ability1": "Inner Focus",
-        "ability2": "None",
         "abilityHidden": "Infiltrator"
     },
     {
@@ -1689,7 +1628,6 @@
         "alola": 20,
         "type1": "Electric",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Lightning Rod"
     },
     {
@@ -1751,7 +1689,6 @@
         "dex": 179,
         "type1": "Electric",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Plus"
     },
     {
@@ -1759,7 +1696,6 @@
         "dex": 180,
         "type1": "Electric",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Plus"
     },
     {
@@ -1767,7 +1703,6 @@
         "dex": 181,
         "type1": "Electric",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Plus"
     },
     {
@@ -1775,7 +1710,6 @@
         "dex": 182,
         "type1": "Grass",
         "ability1": "Chlorophyll",
-        "ability2": "None",
         "abilityHidden": "Healer"
     },
     {
@@ -1898,7 +1832,6 @@
         "alola": 127,
         "type1": "Psychic",
         "ability1": "Synchronize",
-        "ability2": "None",
         "abilityHidden": "Magic Bounce"
     },
     {
@@ -1907,7 +1840,6 @@
         "alola": 128,
         "type1": "Dark",
         "ability1": "Synchronize",
-        "ability2": "None",
         "abilityHidden": "Inner Focus"
     },
     {
@@ -1937,7 +1869,6 @@
         "dex": 202,
         "type1": "Psychic",
         "ability1": "Shadow Tag",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -1954,7 +1885,6 @@
         "dex": 204,
         "type1": "Bug",
         "ability1": "Sturdy",
-        "ability2": "None",
         "abilityHidden": "Overcoat"
     },
     {
@@ -1963,7 +1893,6 @@
         "type1": "Bug",
         "type2": "Steel",
         "ability1": "Sturdy",
-        "ability2": "None",
         "abilityHidden": "Overcoat"
     },
     {
@@ -2195,7 +2124,6 @@
         "dex": 231,
         "type1": "Ground",
         "ability1": "Pickup",
-        "ability2": "None",
         "abilityHidden": "Sand Veil"
     },
     {
@@ -2203,7 +2131,6 @@
         "dex": 232,
         "type1": "Ground",
         "ability1": "Sturdy",
-        "ability2": "None",
         "abilityHidden": "Sand Veil"
     },
     {
@@ -2263,7 +2190,6 @@
         "alola": 226,
         "type1": "Electric",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Vital Spirit"
     },
     {
@@ -2272,7 +2198,6 @@
         "alola": 166,
         "type1": "Fire",
         "ability1": "Flame Body",
-        "ability2": "None",
         "abilityHidden": "Vital Spirit"
     },
     {
@@ -2298,7 +2223,6 @@
         "dex": 243,
         "type1": "Electric",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Inner Focus"
     },
     {
@@ -2306,7 +2230,6 @@
         "dex": 244,
         "type1": "Fire",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Inner Focus"
     },
     {
@@ -2314,7 +2237,6 @@
         "dex": 245,
         "type1": "Water",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Inner Focus"
     },
     {
@@ -2323,7 +2245,6 @@
         "type1": "Rock",
         "type2": "Ground",
         "ability1": "Guts",
-        "ability2": "None",
         "abilityHidden": "Sand Veil"
     },
     { "name": "Pupitar", "dex": 247, "type1": "Rock", "type2": "Ground", "ability1": "Shed Skin" },
@@ -2333,7 +2254,6 @@
         "type1": "Rock",
         "type2": "Dark",
         "ability1": "Sand Stream",
-        "ability2": "None",
         "abilityHidden": "Unnerve"
     },
     {
@@ -2342,7 +2262,6 @@
         "type1": "Psychic",
         "type2": "Flying",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Multiscale"
     },
     {
@@ -2351,7 +2270,6 @@
         "type1": "Fire",
         "type2": "Flying",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Regenerator"
     },
     { "name": "Celebi", "dex": 251, "type1": "Psychic", "type2": "Grass", "ability1": "Natural Cure" },
@@ -2360,7 +2278,6 @@
         "dex": 252,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Unburden"
     },
     {
@@ -2368,7 +2285,6 @@
         "dex": 253,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Unburden"
     },
     {
@@ -2376,7 +2292,6 @@
         "dex": 254,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Unburden"
     },
     {
@@ -2384,7 +2299,6 @@
         "dex": 255,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Speed Boost"
     },
     {
@@ -2393,7 +2307,6 @@
         "type1": "Fire",
         "type2": "Fighting",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Speed Boost"
     },
     {
@@ -2402,7 +2315,6 @@
         "type1": "Fire",
         "type2": "Fighting",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Speed Boost"
     },
     {
@@ -2410,7 +2322,6 @@
         "dex": 258,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Damp"
     },
     {
@@ -2419,7 +2330,6 @@
         "type1": "Water",
         "type2": "Ground",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Damp"
     },
     {
@@ -2428,7 +2338,6 @@
         "type1": "Water",
         "type2": "Ground",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Damp"
     },
     {
@@ -2468,7 +2377,6 @@
         "dex": 265,
         "type1": "Bug",
         "ability1": "Shield Dust",
-        "ability2": "None",
         "abilityHidden": "Run Away"
     },
     { "name": "Silcoon", "dex": 266, "type1": "Bug", "ability1": "Shed Skin" },
@@ -2478,7 +2386,6 @@
         "type1": "Bug",
         "type2": "Flying",
         "ability1": "Swarm",
-        "ability2": "None",
         "abilityHidden": "Rivalry"
     },
     { "name": "Cascoon", "dex": 268, "type1": "Bug", "ability1": "Shed Skin" },
@@ -2488,7 +2395,6 @@
         "type1": "Bug",
         "type2": "Poison",
         "ability1": "Shield Dust",
-        "ability2": "None",
         "abilityHidden": "Compound Eyes"
     },
     {
@@ -2550,7 +2456,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Guts",
-        "ability2": "None",
         "abilityHidden": "Scrappy"
     },
     {
@@ -2559,7 +2464,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Guts",
-        "ability2": "None",
         "abilityHidden": "Scrappy"
     },
     {
@@ -2616,7 +2520,6 @@
         "type1": "Bug",
         "type2": "Water",
         "ability1": "Swift Swim",
-        "ability2": "None",
         "abilityHidden": "Rain Dish"
     },
     {
@@ -2626,7 +2529,6 @@
         "type1": "Bug",
         "type2": "Flying",
         "ability1": "Intimidate",
-        "ability2": "None",
         "abilityHidden": "Unnerve"
     },
     {
@@ -2655,7 +2557,6 @@
         "type1": "Bug",
         "type2": "Ground",
         "ability1": "Compound Eyes",
-        "ability2": "None",
         "abilityHidden": "Run Away"
     },
     {
@@ -2664,7 +2565,6 @@
         "type1": "Bug",
         "type2": "Flying",
         "ability1": "Speed Boost",
-        "ability2": "None",
         "abilityHidden": "Infiltrator"
     },
     { "name": "Shedinja", "dex": 292, "type1": "Bug", "type2": "Ghost", "ability1": "Wonder Guard" },
@@ -2673,7 +2573,6 @@
         "dex": 293,
         "type1": "Normal",
         "ability1": "Soundproof",
-        "ability2": "None",
         "abilityHidden": "Rattled"
     },
     {
@@ -2681,7 +2580,6 @@
         "dex": 294,
         "type1": "Normal",
         "ability1": "Soundproof",
-        "ability2": "None",
         "abilityHidden": "Scrappy"
     },
     {
@@ -2689,7 +2587,6 @@
         "dex": 295,
         "type1": "Normal",
         "ability1": "Soundproof",
-        "ability2": "None",
         "abilityHidden": "Scrappy"
     },
     {
@@ -2796,7 +2693,6 @@
         "type1": "Fighting",
         "type2": "Psychic",
         "ability1": "Pure Power",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -2805,7 +2701,6 @@
         "type1": "Fighting",
         "type2": "Psychic",
         "ability1": "Pure Power",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -2829,7 +2724,6 @@
         "dex": 311,
         "type1": "Electric",
         "ability1": "Plus",
-        "ability2": "None",
         "abilityHidden": "Lightning Rod"
     },
     {
@@ -2837,7 +2731,6 @@
         "dex": 312,
         "type1": "Electric",
         "ability1": "Minus",
-        "ability2": "None",
         "abilityHidden": "Volt Absorb"
     },
     {
@@ -2888,7 +2781,6 @@
         "type1": "Water",
         "type2": "Dark",
         "ability1": "Rough Skin",
-        "ability2": "None",
         "abilityHidden": "Speed Boost"
     },
     {
@@ -2898,7 +2790,6 @@
         "type1": "Water",
         "type2": "Dark",
         "ability1": "Rough Skin",
-        "ability2": "None",
         "abilityHidden": "Speed Boost"
     },
     {
@@ -2987,7 +2878,6 @@
         "dex": 331,
         "type1": "Grass",
         "ability1": "Sand Veil",
-        "ability2": "None",
         "abilityHidden": "Water Absorb"
     },
     {
@@ -2996,7 +2886,6 @@
         "type1": "Grass",
         "type2": "Dark",
         "ability1": "Sand Veil",
-        "ability2": "None",
         "abilityHidden": "Water Absorb"
     },
     {
@@ -3005,7 +2894,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Natural Cure",
-        "ability2": "None",
         "abilityHidden": "Cloud Nine"
     },
     {
@@ -3014,7 +2902,6 @@
         "type1": "Dragon",
         "type2": "Flying",
         "ability1": "Natural Cure",
-        "ability2": "None",
         "abilityHidden": "Cloud Nine"
     },
     {
@@ -3022,7 +2909,6 @@
         "dex": 335,
         "type1": "Normal",
         "ability1": "Immunity",
-        "ability2": "None",
         "abilityHidden": "Toxic Boost"
     },
     {
@@ -3030,7 +2916,6 @@
         "dex": 336,
         "type1": "Poison",
         "ability1": "Shed Skin",
-        "ability2": "None",
         "abilityHidden": "Infiltrator"
     },
     { "name": "Lunatone", "dex": 337, "type1": "Rock", "type2": "Psychic", "ability1": "Levitate" },
@@ -3080,7 +2965,6 @@
         "type1": "Rock",
         "type2": "Grass",
         "ability1": "Suction Cups",
-        "ability2": "None",
         "abilityHidden": "Storm Drain"
     },
     {
@@ -3089,7 +2973,6 @@
         "type1": "Rock",
         "type2": "Grass",
         "ability1": "Suction Cups",
-        "ability2": "None",
         "abilityHidden": "Storm Drain"
     },
     {
@@ -3098,7 +2981,6 @@
         "type1": "Rock",
         "type2": "Bug",
         "ability1": "Battle Armor",
-        "ability2": "None",
         "abilityHidden": "Swift Swim"
     },
     {
@@ -3107,7 +2989,6 @@
         "type1": "Rock",
         "type2": "Bug",
         "ability1": "Battle Armor",
-        "ability2": "None",
         "abilityHidden": "Swift Swim"
     },
     {
@@ -3157,7 +3038,6 @@
         "dex": 352,
         "type1": "Normal",
         "ability1": "Color Change",
-        "ability2": "None",
         "abilityHidden": "Protean"
     },
     {
@@ -3181,7 +3061,6 @@
         "dex": 355,
         "type1": "Ghost",
         "ability1": "Levitate",
-        "ability2": "None",
         "abilityHidden": "Frisk"
     },
     {
@@ -3189,7 +3068,6 @@
         "dex": 356,
         "type1": "Ghost",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Frisk"
     },
     {
@@ -3216,7 +3094,6 @@
         "dex": 360,
         "type1": "Psychic",
         "ability1": "Shadow Tag",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -3269,7 +3146,6 @@
         "dex": 366,
         "type1": "Water",
         "ability1": "Shell Armor",
-        "ability2": "None",
         "abilityHidden": "Rattled"
     },
     {
@@ -3277,7 +3153,6 @@
         "dex": 367,
         "type1": "Water",
         "ability1": "Swift Swim",
-        "ability2": "None",
         "abilityHidden": "Water Veil"
     },
     {
@@ -3285,7 +3160,6 @@
         "dex": 368,
         "type1": "Water",
         "ability1": "Swift Swim",
-        "ability2": "None",
         "abilityHidden": "Hydration"
     },
     {
@@ -3304,7 +3178,6 @@
         "alola": 111,
         "type1": "Water",
         "ability1": "Swift Swim",
-        "ability2": "None",
         "abilityHidden": "Hydration"
     },
     {
@@ -3313,7 +3186,6 @@
         "alola": 117,
         "type1": "Dragon",
         "ability1": "Rock Head",
-        "ability2": "None",
         "abilityHidden": "Sheer Force"
     },
     {
@@ -3322,7 +3194,6 @@
         "alola": 118,
         "type1": "Dragon",
         "ability1": "Rock Head",
-        "ability2": "None",
         "abilityHidden": "Overcoat"
     },
     {
@@ -3332,7 +3203,6 @@
         "type1": "Dragon",
         "type2": "Flying",
         "ability1": "Intimidate",
-        "ability2": "None",
         "abilityHidden": "Moxie"
     },
     {
@@ -3342,7 +3212,6 @@
         "type1": "Steel",
         "type2": "Psychic",
         "ability1": "Clear Body",
-        "ability2": "None",
         "abilityHidden": "Light Metal"
     },
     {
@@ -3352,7 +3221,6 @@
         "type1": "Steel",
         "type2": "Psychic",
         "ability1": "Clear Body",
-        "ability2": "None",
         "abilityHidden": "Light Metal"
     },
     {
@@ -3362,7 +3230,6 @@
         "type1": "Steel",
         "type2": "Psychic",
         "ability1": "Clear Body",
-        "ability2": "None",
         "abilityHidden": "Light Metal"
     },
     {
@@ -3370,7 +3237,6 @@
         "dex": 377,
         "type1": "Rock",
         "ability1": "Clear Body",
-        "ability2": "None",
         "abilityHidden": "Sturdy"
     },
     {
@@ -3378,7 +3244,6 @@
         "dex": 378,
         "type1": "Ice",
         "ability1": "Clear Body",
-        "ability2": "None",
         "abilityHidden": "Ice Body"
     },
     {
@@ -3386,7 +3251,6 @@
         "dex": 379,
         "type1": "Steel",
         "ability1": "Clear Body",
-        "ability2": "None",
         "abilityHidden": "Light Metal"
     },
     { "name": "Latias", "dex": 380, "type1": "Dragon", "type2": "Psychic", "ability1": "Levitate" },
@@ -3410,7 +3274,6 @@
         "dex": 387,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Shell Armor"
     },
     {
@@ -3418,7 +3281,6 @@
         "dex": 388,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Shell Armor"
     },
     {
@@ -3427,7 +3289,6 @@
         "type1": "Grass",
         "type2": "Ground",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Shell Armor"
     },
     {
@@ -3435,7 +3296,6 @@
         "dex": 390,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Iron Fist"
     },
     {
@@ -3444,7 +3304,6 @@
         "type1": "Fire",
         "type2": "Fighting",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Iron Fist"
     },
     {
@@ -3453,7 +3312,6 @@
         "type1": "Fire",
         "type2": "Fighting",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Iron Fist"
     },
     {
@@ -3461,7 +3319,6 @@
         "dex": 393,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Defiant"
     },
     {
@@ -3469,7 +3326,6 @@
         "dex": 394,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Defiant"
     },
     {
@@ -3478,7 +3334,6 @@
         "type1": "Water",
         "type2": "Steel",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Defiant"
     },
     {
@@ -3487,7 +3342,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Keen Eye",
-        "ability2": "None",
         "abilityHidden": "Reckless"
     },
     {
@@ -3496,7 +3350,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Intimidate",
-        "ability2": "None",
         "abilityHidden": "Reckless"
     },
     {
@@ -3505,7 +3358,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Intimidate",
-        "ability2": "None",
         "abilityHidden": "Reckless"
     },
     {
@@ -3530,7 +3382,6 @@
         "dex": 401,
         "type1": "Bug",
         "ability1": "Shed Skin",
-        "ability2": "None",
         "abilityHidden": "Run Away"
     },
     {
@@ -3538,7 +3389,6 @@
         "dex": 402,
         "type1": "Bug",
         "ability1": "Swarm",
-        "ability2": "None",
         "abilityHidden": "Technician"
     },
     {
@@ -3589,7 +3439,6 @@
         "alola": 188,
         "type1": "Rock",
         "ability1": "Mold Breaker",
-        "ability2": "None",
         "abilityHidden": "Sheer Force"
     },
     {
@@ -3598,7 +3447,6 @@
         "alola": 189,
         "type1": "Rock",
         "ability1": "Mold Breaker",
-        "ability2": "None",
         "abilityHidden": "Sheer Force"
     },
     {
@@ -3608,7 +3456,6 @@
         "type1": "Rock",
         "type2": "Steel",
         "ability1": "Sturdy",
-        "ability2": "None",
         "abilityHidden": "Soundproof"
     },
     {
@@ -3618,7 +3465,6 @@
         "type1": "Rock",
         "type2": "Steel",
         "ability1": "Sturdy",
-        "ability2": "None",
         "abilityHidden": "Soundproof"
     },
     {
@@ -3626,7 +3472,6 @@
         "dex": 412,
         "type1": "Bug",
         "ability1": "Shed Skin",
-        "ability2": "None",
         "abilityHidden": "Overcoat"
     },
     {
@@ -3635,7 +3480,6 @@
         "type1": "Bug",
         "type2": "Grass",
         "ability1": "Anticipation",
-        "ability2": "None",
         "abilityHidden": "Overcoat"
     },
     {
@@ -3644,7 +3488,6 @@
         "type1": "Bug",
         "type2": "Ground",
         "ability1": "Anticipation",
-        "ability2": "None",
         "abilityHidden": "Overcoat",
         "imageSuffix": "c",
         "aliases": ["wormadam ground"]
@@ -3655,7 +3498,6 @@
         "type1": "Bug",
         "type2": "Steel",
         "ability1": "Anticipation",
-        "ability2": "None",
         "abilityHidden": "Overcoat",
         "imageSuffix": "s",
         "aliases": ["wormadam steel"]
@@ -3666,7 +3508,6 @@
         "type1": "Bug",
         "type2": "Flying",
         "ability1": "Swarm",
-        "ability2": "None",
         "abilityHidden": "Tinted Lens"
     },
     {
@@ -3675,7 +3516,6 @@
         "type1": "Bug",
         "type2": "Flying",
         "ability1": "Honey Gather",
-        "ability2": "None",
         "abilityHidden": "Hustle"
     },
     {
@@ -3684,7 +3524,6 @@
         "type1": "Bug",
         "type2": "Flying",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Unnerve"
     },
     {
@@ -3700,7 +3539,6 @@
         "dex": 418,
         "type1": "Water",
         "ability1": "Swift Swim",
-        "ability2": "None",
         "abilityHidden": "Water Veil"
     },
     {
@@ -3708,7 +3546,6 @@
         "dex": 419,
         "type1": "Water",
         "ability1": "Swift Swim",
-        "ability2": "None",
         "abilityHidden": "Water Veil"
     },
     { "name": "Cherubi", "dex": 420, "type1": "Grass", "ability1": "Chlorophyll" },
@@ -3882,7 +3719,6 @@
         "type1": "Ghost",
         "type2": "Dark",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Infiltrator"
     },
     {
@@ -3892,7 +3728,6 @@
         "type1": "Dragon",
         "type2": "Ground",
         "ability1": "Sand Veil",
-        "ability2": "None",
         "abilityHidden": "Rough Skin"
     },
     {
@@ -3902,7 +3737,6 @@
         "type1": "Dragon",
         "type2": "Ground",
         "ability1": "Sand Veil",
-        "ability2": "None",
         "abilityHidden": "Rough Skin"
     },
     {
@@ -3912,7 +3746,6 @@
         "type1": "Dragon",
         "type2": "Ground",
         "ability1": "Sand Veil",
-        "ability2": "None",
         "abilityHidden": "Rough Skin"
     },
     {
@@ -3948,7 +3781,6 @@
         "dex": 449,
         "type1": "Ground",
         "ability1": "Sand Stream",
-        "ability2": "None",
         "abilityHidden": "Sand Force"
     },
     {
@@ -3956,7 +3788,6 @@
         "dex": 450,
         "type1": "Ground",
         "ability1": "Sand Stream",
-        "ability2": "None",
         "abilityHidden": "Sand Force"
     },
     {
@@ -4029,7 +3860,6 @@
         "type1": "Grass",
         "type2": "Ice",
         "ability1": "Snow Warning",
-        "ability2": "None",
         "abilityHidden": "Soundproof"
     },
     {
@@ -4038,7 +3868,6 @@
         "type1": "Grass",
         "type2": "Ice",
         "ability1": "Snow Warning",
-        "ability2": "None",
         "abilityHidden": "Soundproof"
     },
     {
@@ -4048,7 +3877,6 @@
         "type1": "Dark",
         "type2": "Ice",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Pickpocket"
     },
     {
@@ -4092,7 +3920,6 @@
         "alola": 228,
         "type1": "Electric",
         "ability1": "Motor Drive",
-        "ability2": "None",
         "abilityHidden": "Vital Spirit"
     },
     {
@@ -4101,7 +3928,6 @@
         "alola": 168,
         "type1": "Fire",
         "ability1": "Flame Body",
-        "ability2": "None",
         "abilityHidden": "Vital Spirit"
     },
     {
@@ -4128,7 +3954,6 @@
         "alola": 129,
         "type1": "Grass",
         "ability1": "Leaf Guard",
-        "ability2": "None",
         "abilityHidden": "Chlorophyll"
     },
     {
@@ -4137,7 +3962,6 @@
         "alola": 130,
         "type1": "Ice",
         "ability1": "Snow Cloak",
-        "ability2": "None",
         "abilityHidden": "Ice Body"
     },
     {
@@ -4172,7 +3996,6 @@
         "type1": "Psychic",
         "type2": "Fighting",
         "ability1": "Steadfast",
-        "ability2": "None",
         "abilityHidden": "Justified"
     },
     {
@@ -4190,7 +4013,6 @@
         "dex": 477,
         "type1": "Ghost",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Frisk"
     },
     {
@@ -4200,7 +4022,6 @@
         "type1": "Ice",
         "type2": "Ghost",
         "ability1": "Snow Cloak",
-        "ability2": "None",
         "abilityHidden": "Cursed Body"
     },
     { "name": "Rotom", "dex": 479, "type1": "Electric", "type2": "Ghost", "ability1": "Levitate" },
@@ -4258,7 +4079,6 @@
         "type1": "Steel",
         "type2": "Dragon",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -4267,7 +4087,6 @@
         "type1": "Water",
         "type2": "Dragon",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -4276,7 +4095,6 @@
         "type1": "Fire",
         "type2": "Steel",
         "ability1": "Flash Fire",
-        "ability2": "None",
         "abilityHidden": "Flame Body"
     },
     { "name": "Regigigas", "dex": 486, "type1": "Normal", "ability1": "Slow Start" },
@@ -4286,7 +4104,6 @@
         "type1": "Ghost",
         "type2": "Dragon",
         "ability1": "Pressure",
-        "ability2": "None",
         "abilityHidden": "Telepathy",
         "aliases": ["giratina origin", "giratina-o"]
     },
@@ -4311,7 +4128,6 @@
         "dex": 495,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Contrary"
     },
     {
@@ -4319,7 +4135,6 @@
         "dex": 496,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Contrary"
     },
     {
@@ -4327,7 +4142,6 @@
         "dex": 497,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Contrary"
     },
     {
@@ -4335,7 +4149,6 @@
         "dex": 498,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Thick Fat"
     },
     {
@@ -4344,7 +4157,6 @@
         "type1": "Fire",
         "type2": "Fighting",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Thick Fat"
     },
     {
@@ -4353,7 +4165,6 @@
         "type1": "Fire",
         "type2": "Fighting",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Reckless"
     },
     {
@@ -4361,7 +4172,6 @@
         "dex": 501,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Shell Armor"
     },
     {
@@ -4369,7 +4179,6 @@
         "dex": 502,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Shell Armor"
     },
     {
@@ -4377,7 +4186,6 @@
         "dex": 503,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Shell Armor"
     },
     {
@@ -4444,7 +4252,6 @@
         "dex": 511,
         "type1": "Grass",
         "ability1": "Gluttony",
-        "ability2": "None",
         "abilityHidden": "Overgrow"
     },
     {
@@ -4452,7 +4259,6 @@
         "dex": 512,
         "type1": "Grass",
         "ability1": "Gluttony",
-        "ability2": "None",
         "abilityHidden": "Overgrow"
     },
     {
@@ -4460,7 +4266,6 @@
         "dex": 513,
         "type1": "Fire",
         "ability1": "Gluttony",
-        "ability2": "None",
         "abilityHidden": "Blaze"
     },
     {
@@ -4468,7 +4273,6 @@
         "dex": 514,
         "type1": "Fire",
         "ability1": "Gluttony",
-        "ability2": "None",
         "abilityHidden": "Blaze"
     },
     {
@@ -4476,7 +4280,6 @@
         "dex": 515,
         "type1": "Water",
         "ability1": "Gluttony",
-        "ability2": "None",
         "abilityHidden": "Torrent"
     },
     {
@@ -4484,7 +4287,6 @@
         "dex": 516,
         "type1": "Water",
         "ability1": "Gluttony",
-        "ability2": "None",
         "abilityHidden": "Torrent"
     },
     {
@@ -4825,7 +4627,6 @@
         "dex": 554,
         "type1": "Fire",
         "ability1": "Hustle",
-        "ability2": "None",
         "abilityHidden": "Inner Focus"
     },
     {
@@ -4833,7 +4634,6 @@
         "dex": 555,
         "type1": "Fire",
         "ability1": "Sheer Force",
-        "ability2": "None",
         "abilityHidden": "Zen Mode"
     },
     {
@@ -5076,7 +4876,6 @@
         "type1": "Electric",
         "type2": "Flying",
         "ability1": "Static",
-        "ability2": "None",
         "abilityHidden": "Motor Drive"
     },
     {
@@ -5102,7 +4901,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Effect Spore",
-        "ability2": "None",
         "abilityHidden": "Regenerator"
     },
     {
@@ -5111,7 +4909,6 @@
         "type1": "Grass",
         "type2": "Poison",
         "ability1": "Effect Spore",
-        "ability2": "None",
         "abilityHidden": "Regenerator"
     },
     {
@@ -5166,7 +4963,6 @@
         "type1": "Grass",
         "type2": "Steel",
         "ability1": "Iron Barbs",
-        "ability2": "None",
         "abilityHidden": "Anticipation"
     },
     {
@@ -5439,7 +5235,6 @@
         "type1": "Bug",
         "type2": "Fire",
         "ability1": "Flame Body",
-        "ability2": "None",
         "abilityHidden": "Swarm"
     },
     {
@@ -5448,7 +5243,6 @@
         "type1": "Bug",
         "type2": "Fire",
         "ability1": "Flame Body",
-        "ability2": "None",
         "abilityHidden": "Swarm"
     },
     { "name": "Cobalion", "dex": 638, "type1": "Steel", "type2": "Fighting", "ability1": "Justified" },
@@ -5459,7 +5253,6 @@
         "dex": 641,
         "type1": "Flying",
         "ability1": "Prankster",
-        "ability2": "None",
         "abilityHidden": "Defiant"
     },
     {
@@ -5476,7 +5269,6 @@
         "type1": "Electric",
         "type2": "Flying",
         "ability1": "Prankster",
-        "ability2": "None",
         "abilityHidden": "Defiant"
     },
     {
@@ -5496,7 +5288,6 @@
         "type1": "Ground",
         "type2": "Flying",
         "ability1": "Sand Force",
-        "ability2": "None",
         "abilityHidden": "Sheer Force"
     },
     {
@@ -5544,7 +5335,6 @@
         "dex": 650,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Bulletproof"
     },
     {
@@ -5552,7 +5342,6 @@
         "dex": 651,
         "type1": "Grass",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Bulletproof"
     },
     {
@@ -5561,7 +5350,6 @@
         "type1": "Grass",
         "type2": "Fighting",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Bulletproof"
     },
     {
@@ -5569,7 +5357,6 @@
         "dex": 653,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Magician"
     },
     {
@@ -5577,7 +5364,6 @@
         "dex": 654,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Magician"
     },
     {
@@ -5586,7 +5372,6 @@
         "type1": "Fire",
         "type2": "Psychic",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Magician"
     },
     {
@@ -5594,7 +5379,6 @@
         "dex": 656,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Protean"
     },
     {
@@ -5602,7 +5386,6 @@
         "dex": 657,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Protean"
     },
     {
@@ -5611,7 +5394,6 @@
         "type1": "Water",
         "type2": "Dark",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Protean"
     },
     {
@@ -5638,7 +5420,6 @@
         "type1": "Normal",
         "type2": "Flying",
         "ability1": "Big Pecks",
-        "ability2": "None",
         "abilityHidden": "Gale Wings"
     },
     {
@@ -5648,7 +5429,6 @@
         "type1": "Fire",
         "type2": "Flying",
         "ability1": "Flame Body",
-        "ability2": "None",
         "abilityHidden": "Gale Wings"
     },
     {
@@ -5658,7 +5438,6 @@
         "type1": "Fire",
         "type2": "Flying",
         "ability1": "Flame Body",
-        "ability2": "None",
         "abilityHidden": " Gale Wings"
     },
     {
@@ -5674,7 +5453,6 @@
         "dex": 665,
         "type1": "Bug",
         "ability1": "Shed Skin",
-        "ability2": "None",
         "abilityHidden": "Friend Guard"
     },
     {
@@ -5709,7 +5487,6 @@
         "dex": 669,
         "type1": "Fairy",
         "ability1": "Flower Veil",
-        "ability2": "None",
         "abilityHidden": "Symbiosis"
     },
     {
@@ -5717,7 +5494,6 @@
         "dex": 670,
         "type1": "Fairy",
         "ability1": "Flower Veil",
-        "ability2": "None",
         "abilityHidden": "Symbiosis"
     },
     {
@@ -5725,7 +5501,6 @@
         "dex": 671,
         "type1": "Fairy",
         "ability1": "Flower Veil",
-        "ability2": "None",
         "abilityHidden": "Symbiosis"
     },
     {
@@ -5733,7 +5508,6 @@
         "dex": 672,
         "type1": "Grass",
         "ability1": "Sap Sipper",
-        "ability2": "None",
         "abilityHidden": "Grass Pelt"
     },
     {
@@ -5741,7 +5515,6 @@
         "dex": 673,
         "type1": "Grass",
         "ability1": "Sap Sipper",
-        "ability2": "None",
         "abilityHidden": "Grass Pelt"
     },
     {
@@ -5788,7 +5561,6 @@
         "dex": 682,
         "type1": "Fairy",
         "ability1": "Healer",
-        "ability2": "None",
         "abilityHidden": "Aroma Veil"
     },
     {
@@ -5796,7 +5568,6 @@
         "dex": 683,
         "type1": "Fairy",
         "ability1": "Healer",
-        "ability2": "None",
         "abilityHidden": "Aroma Veil"
     },
     {
@@ -5804,7 +5575,6 @@
         "dex": 684,
         "type1": "Fairy",
         "ability1": "Sweet Veil",
-        "ability2": "None",
         "abilityHidden": "Unburden"
     },
     {
@@ -5812,7 +5582,6 @@
         "dex": 685,
         "type1": "Fairy",
         "ability1": "Sweet Veil",
-        "ability2": "None",
         "abilityHidden": "Unburden"
     },
     {
@@ -5895,7 +5664,6 @@
         "type1": "Rock",
         "type2": "Dragon",
         "ability1": "Strong Jaw",
-        "ability2": "None",
         "abilityHidden": "Sturdy"
     },
     {
@@ -5904,7 +5672,6 @@
         "type1": "Rock",
         "type2": "Dragon",
         "ability1": "Strong Jaw",
-        "ability2": "None",
         "abilityHidden": "Rock Head"
     },
     {
@@ -5913,7 +5680,6 @@
         "type1": "Rock",
         "type2": "Ice",
         "ability1": "Refrigerate",
-        "ability2": "None",
         "abilityHidden": "Snow Warning"
     },
     {
@@ -5922,7 +5688,6 @@
         "type1": "Rock",
         "type2": "Ice",
         "ability1": "Refrigerate",
-        "ability2": "None",
         "abilityHidden": "Snow Warning"
     },
     {
@@ -5931,7 +5696,6 @@
         "alola": 131,
         "type1": "Fairy",
         "ability1": "Cute Charm",
-        "ability2": "None",
         "abilityHidden": "Pixilate"
     },
     {
@@ -5959,7 +5723,6 @@
         "type1": "Rock",
         "type2": "Fairy",
         "ability1": "Clear Body",
-        "ability2": "None",
         "abilityHidden": "Sturdy"
     },
     {
@@ -5996,7 +5759,6 @@
         "type1": "Steel",
         "type2": "Fairy",
         "ability1": "Prankster",
-        "ability2": "None",
         "abilityHidden": "Magician"
     },
     {
@@ -6524,7 +6286,6 @@
         "type1": "Grass",
         "type2": "Flying",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Long Reach"
     },
     {
@@ -6534,7 +6295,6 @@
         "type1": "Grass",
         "type2": "Flying",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Long Reach"
     },
     {
@@ -6544,7 +6304,6 @@
         "type1": "Grass",
         "type2": "Ghost",
         "ability1": "Overgrow",
-        "ability2": "None",
         "abilityHidden": "Long Reach"
     },
     {
@@ -6553,7 +6312,6 @@
         "alola": 4,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Intimidate"
     },
     {
@@ -6562,7 +6320,6 @@
         "alola": 5,
         "type1": "Fire",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Intimidate"
     },
     {
@@ -6572,7 +6329,6 @@
         "type1": "Fire",
         "type2": "Dark",
         "ability1": "Blaze",
-        "ability2": "None",
         "abilityHidden": "Intimidate"
     },
     {
@@ -6581,7 +6337,6 @@
         "alola": 7,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Liquid Voice"
     },
     {
@@ -6590,7 +6345,6 @@
         "alola": 8,
         "type1": "Water",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Liquid Voice"
     },
     {
@@ -6600,7 +6354,6 @@
         "type1": "Water",
         "type2": "Fairy",
         "ability1": "Torrent",
-        "ability2": "None",
         "abilityHidden": "Liquid Voice"
     },
     {
@@ -6806,7 +6559,6 @@
         "type1": "Water",
         "type2": "Bug",
         "ability1": "Water Bubble",
-        "ability2": "None",
         "abilityHidden": "Water Absorb"
     },
     {
@@ -6816,7 +6568,6 @@
         "type1": "Water",
         "type2": "Bug",
         "ability1": "Water Bubble",
-        "ability2": "None",
         "abilityHidden": "Water Absorb"
     },
     {
@@ -6825,7 +6576,6 @@
         "alola": 143,
         "type1": "Grass",
         "ability1": "Leaf Guard",
-        "ability2": "None",
         "abilityHidden": "Contrary"
     },
     {
@@ -6834,7 +6584,6 @@
         "alola": 144,
         "type1": "Grass",
         "ability1": "Leaf Guard",
-        "ability2": "None",
         "abilityHidden": "Contrary"
     },
     {
@@ -6864,7 +6613,6 @@
         "type1": "Poison",
         "type2": "Fire",
         "ability1": "Corrosion",
-        "ability2": "None",
         "abilityHidden": "Oblivious"
     },
     {
@@ -6874,7 +6622,6 @@
         "type1": "Poison",
         "type2": "Fire",
         "ability1": "Corrosion",
-        "ability2": "None",
         "abilityHidden": "Oblivious"
     },
     {
@@ -6949,7 +6696,6 @@
         "alola": 177,
         "type1": "Fighting",
         "ability1": "Receiver",
-        "ability2": "None",
         "abilityHidden": "Defiant"
     },
     { "name": "Wimpod", "dex": 767, "alola": 182, "type1": "Bug", "type2": "Water", "ability1": "Wimp Out" },
@@ -6961,7 +6707,6 @@
         "type1": "Ghost",
         "type2": "Ground",
         "ability1": "Water Compaction",
-        "ability2": "None",
         "abilityHidden": "Sand Veil"
     },
     {
@@ -6971,7 +6716,6 @@
         "type1": "Ghost",
         "type2": "Ground",
         "ability1": "Water Compaction",
-        "ability2": "None",
         "abilityHidden": "Sand Veil"
     },
     {
@@ -6980,7 +6724,6 @@
         "alola": 200,
         "type1": "Water",
         "ability1": "Innards Out",
-        "ability2": "None",
         "abilityHidden": "Unaware"
     },
     { "name": "Type: Null", "dex": 772, "alola": 203, "type1": "Normal", "ability1": "Battle Armor" },
@@ -7056,7 +6799,6 @@
         "type1": "Electric",
         "type2": "Fairy",
         "ability1": "Electric Surge",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -7066,7 +6808,6 @@
         "type1": "Psychic",
         "type2": "Fairy",
         "ability1": "Psychic Surge",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -7076,7 +6817,6 @@
         "type1": "Grass",
         "type2": "Fairy",
         "ability1": "Grassy Surge",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     {
@@ -7086,7 +6826,6 @@
         "type1": "Water",
         "type2": "Fairy",
         "ability1": "Misty Surge",
-        "ability2": "None",
         "abilityHidden": "Telepathy"
     },
     { "name": "Cosmog", "dex": 789, "alola": 289, "type1": "Psychic", "ability1": "Unaware" },

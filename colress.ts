@@ -5,9 +5,9 @@ import request from "request-promise-native";
 
 // open config file from local directory. Expected contents are as follows
 const config = JSON.parse(fs.readFileSync("config/config.json", "utf8"));
+const auth = JSON.parse(fs.readFileSync("config/auth.json", "utf8"));
 /*
 {
-	"token": "", //Discord bot token for login
     "prefix": "!", //the prefix for a user to type to indicate that what they're typing is a command
     //the location of a JSON file relative to the local directory.
     //Details on the format of this file can be found in the readme.
@@ -28,7 +28,7 @@ const config = JSON.parse(fs.readFileSync("config/config.json", "utf8"));
 const pre = config.prefix;
 
 // discord setup
-const bot = new Eris.Client(config.token);
+const bot = new Eris.Client(auth.token);
 
 bot.on("ready", () => {
     console.log("Logged in as %s - %s\n", bot.user.username, bot.user.id);
@@ -125,7 +125,7 @@ let gameData: any = {
 let gameTO1: NodeJS.Timer;
 let gameTO2: NodeJS.Timer;
 
-bot.on("msg.content.toLowerCase()Create", (msg: Eris.Message) => {
+bot.on("messageCreate", (msg: Eris.Message) => {
     if (msg.author.id === bot.user.id) {
         return;
     }
@@ -194,6 +194,8 @@ bot.on("msg.content.toLowerCase()Create", (msg: Eris.Message) => {
         }
     }
 });
+
+bot.connect();
 
 async function sendMessage(out: Eris.MessageContent, msg: Eris.Message, file?: Eris.MessageFile) {
     const chan = msg.channel;
@@ -285,7 +287,7 @@ function getMonInfo(mon: IPokemon) {
     if (mon.abilityHidden !== mon.ability1) {
         out += " **Hidden**: " + mon.abilityHidden;
     }
-    out += "\n**Serebii Link**: http://www.serebii.net/pokedex-sm/" + mon.dex.toString().padStart(3, "0") + ".shtml";
+    out += "\n**Serebii Link**: <http://www.serebii.net/pokedex-sm/" + mon.dex.toString().padStart(3, "0") + ".shtml>";
     return out;
 }
 
@@ -378,12 +380,12 @@ function getMoveInfo(mv: IMove) {
         out += "\n**TM**: " + mv.tm.join(", ");
     }
     if (mv.wiki) {
-        out += "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" + mv.wiki + ".shtml";
+        out += "\n**Serebii Link**: <http://www.serebii.net/attackdex-sm/" + mv.wiki + ".shtml>";
     } else {
         out +=
-            "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" +
+            "\n**Serebii Link**: <http://www.serebii.net/attackdex-sm/" +
             mv.name.toLowerCase().replace(/ /g, "") +
-            ".shtml";
+            ".shtml>";
     }
     return out;
 }
@@ -411,10 +413,12 @@ function getItemInfo(it: IItemAbility) {
     let out = "__**" + it.name + "**__\n";
     out += "**Description**: " + it.desc;
     if (it.wiki) {
-        out += "\n**Serebii Link**: http://www.serebii.net/itemdex/" + it.wiki + ".shtml";
+        out += "\n**Serebii Link**: <http://www.serebii.net/itemdex/" + it.wiki + ".shtml>";
     } else {
         out +=
-            "\n**Serebii Link**: http://www.serebii.net/itemdex/" + it.name.toLowerCase().replace(/ /g, "") + ".shtml";
+            "\n**Serebii Link**: <http://www.serebii.net/itemdex/" +
+            it.name.toLowerCase().replace(/ /g, "") +
+            ".shtml>";
     }
     return out;
 }
@@ -442,12 +446,12 @@ function getAbilityInfo(ab: IItemAbility) {
     let out = "__**" + ab.name + "**__\n";
     out += "**Description**: " + ab.desc;
     if (ab.wiki) {
-        out += "\n**Serebii Link**: http://www.serebii.net/abilitydex/" + ab.wiki + ".shtml";
+        out += "\n**Serebii Link**: <http://www.serebii.net/abilitydex/" + ab.wiki + ".shtml>";
     } else {
         out +=
-            "\n**Serebii Link**: http://www.serebii.net/abilitydex/" +
+            "\n**Serebii Link**: <http://www.serebii.net/abilitydex/" +
             ab.name.toLowerCase().replace(/ /g, "") +
-            ".shtml";
+            ".shtml>";
     }
     return out;
 }
@@ -689,10 +693,10 @@ function getWeakInfo(types: string[]) {
 }
 
 async function game(msg: Eris.Message) {
-    const input = msg.content
-        .toLowerCase()
-        .toLowerCase()
-        .split(" ")[1];
+    let input = msg.content.toLowerCase().split(" ")[1];
+    if (!input) {
+        input = "help";
+    }
     switch (input) {
         case "highlow":
             gameHiLo(msg);
@@ -734,7 +738,7 @@ async function gameHiLo(msg: Eris.Message) {
             server: serverID
         };
         await sendMessage(
-            "You have 10 tries to guess the National Pokédex number of the following Pokémon: **" + name + "**!",
+            "You have 10 tries to guess the National Pokédex number of the following Pokémon: **" + mon.name + "**!",
             msg
         );
     }
@@ -857,7 +861,7 @@ async function answerHiLo2(msg: Eris.Message) {
     ) {
         return;
     }
-    const mon = mons.find(m => m.name === msg.content.toLowerCase());
+    const mon = mons.find(m => m.name.toLowerCase() === msg.content.toLowerCase());
     if (!mon) {
         return;
     }
@@ -965,7 +969,7 @@ async function answerWhosThat(msg: Eris.Message) {
     ) {
         return;
     }
-    if (msg.content.toLowerCase().toLowerCase() === gameData.name.toLowerCase()) {
+    if (msg.content.toLowerCase() === gameData.name.toLowerCase()) {
         clearTimeout(gameTO1);
         clearTimeout(gameTO2);
         await msg.addReaction("👍");
@@ -992,7 +996,7 @@ async function gameHangman(msg: Eris.Message) {
             .replace("♂", "M")
             .replace("♀", "F");
         const dex = mon.dex;
-        const hint = name.replace(/\S/g, "-");
+        const hint = fixedName.replace(/\S/g, "-");
         // start game
         gameData = {
             active: true,
@@ -1034,7 +1038,7 @@ async function answerHangman(msg: Eris.Message) {
             await msg.addReaction("👍");
             await sendMessage(
                 "You got it, ending with " +
-                    msg.author.id +
+                    msg.author.username +
                     "'s guess! The answer was **" +
                     gameData.name +
                     "**!\nWrong guesses: `" +
@@ -1048,10 +1052,10 @@ async function answerHangman(msg: Eris.Message) {
         } else {
             gameData.guesses++;
             if (gameData.guesses < 10) {
-                gameData.wrongs.push(msg.content.toLowerCase().toLowerCase());
+                gameData.wrongs.push(msg.content.toLowerCase());
                 await sendMessage(
                     "Sorry, " +
-                        msg.author.id +
+                        msg.author.username +
                         ", that's wrong! That was strike #" +
                         gameData.guesses +
                         "! Your current progress is:\n`" +
@@ -1064,7 +1068,7 @@ async function answerHangman(msg: Eris.Message) {
             } else {
                 await sendMessage(
                     "Sorry, " +
-                        msg.author.id +
+                        msg.author.username +
                         ", that's wrong, and it was your last strike! The game is over. The answer was **" +
                         gameData.name +
                         "**.`\nWrong guesses: `" +
@@ -1078,17 +1082,17 @@ async function answerHangman(msg: Eris.Message) {
             }
         }
     } else if (msg.content.toLowerCase().length === 1) {
-        if (gameData.name.toLowerCase().indexOf(msg.content.toLowerCase().toLowerCase()) > -1) {
+        if (gameData.name.toLowerCase().indexOf(msg.content.toLowerCase()) > -1) {
             for (let i = 0; i < gameData.name.length; i++) {
-                if (gameData.name.charAt(i).toLowerCase() === msg.content.toLowerCase().toLowerCase()) {
-                    gameData.hint = gameData.hint.replaceAt(i, gameData.name.charAt(i));
+                if (gameData.name.charAt(i).toLowerCase() === msg.content.toLowerCase()) {
+                    gameData.hint = replaceAt(gameData.hint, i, gameData.name.charAt(i));
                 }
             }
             if (gameData.name === gameData.hint) {
                 await msg.addReaction("👍");
                 await sendMessage(
                     "You got it, ending with " +
-                        msg.author.id +
+                        msg.author.username +
                         "'s guess! The answer was **" +
                         gameData.name +
                         "**!\nWrong guesses: `" +
@@ -1102,7 +1106,7 @@ async function answerHangman(msg: Eris.Message) {
             } else {
                 await sendMessage(
                     "That's correct, " +
-                        msg.author.id +
+                        msg.author.username +
                         "! Your current progress is:\n`" +
                         gameData.hint +
                         "`\nWrong guesses: `" +
@@ -1114,10 +1118,10 @@ async function answerHangman(msg: Eris.Message) {
         } else {
             gameData.guesses++;
             if (gameData.guesses < 10) {
-                gameData.wrongs.push(msg.content.toLowerCase().toLowerCase());
+                gameData.wrongs.push(msg.content.toLowerCase());
                 await sendMessage(
                     "Sorry, " +
-                        msg.author.id +
+                        msg.author.username +
                         ", that's wrong! That was strike #" +
                         gameData.guesses +
                         "! Your current progress is:\n`" +
@@ -1130,7 +1134,7 @@ async function answerHangman(msg: Eris.Message) {
             } else {
                 await sendMessage(
                     "Sorry, " +
-                        msg.author.id +
+                        msg.author.username +
                         ", that's wrong, and it was your last strike! The game is over. The answer was **" +
                         gameData.name +
                         "**.\nWrong guesses: `" +
