@@ -29,5 +29,15 @@
         "@types/mz": "0.0.32",
         "@types/node": "^10.5.7",
         "@types/request-promise-native": "^1.0.15"
+    },
+    "prettier": {
+        "printWidth": 120,
+        "tabWidth": 4,
+        "useTabs": false,
+        "semi": true,
+        "singleQuote": false,
+        "trailingComma": "none",
+        "bracketSpacing": true,
+        "arrowParens": "avoid"
     }
 }

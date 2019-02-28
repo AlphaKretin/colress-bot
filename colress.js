@@ -3,29 +3,35 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __importDefault(require("mz/fs"));
 const eris_1 = __importDefault(require("eris"));
-const request_promise_native_1 = __importDefault(require("request-promise-native"));
 const fuse_js_1 = __importDefault(require("fuse.js"));
-let config = JSON.parse(fs_1.default.readFileSync("config/config.json", "utf8")); //open config file from local directory. Expected contents are as follows
+const fs_1 = __importDefault(require("mz/fs"));
+const request_promise_native_1 = __importDefault(require("request-promise-native"));
+// open config file from local directory. Expected contents are as follows
+const config = JSON.parse(fs_1.default.readFileSync("config/config.json", "utf8"));
 /*
 {
     "token": "", //Discord bot token for login
     "prefix": "!", //the prefix for a user to type to indicate that what they're typing is a command
-    "pokemonData": "data/pokemon.json", //the location of a JSON file relative to the local directory. Details on the format of this file can be found in the readme.
+    //the location of a JSON file relative to the local directory.
+    //Details on the format of this file can be found in the readme.
+    "pokemonData": "data/pokemon.json",
     "abilityData": "data/ability.json",
     "moveData": "data/move.json",
     "itemData": "data/item.json",
     "redirects": {
-        "serverID": "msg" //a msg.content.toLowerCase() Colress would send in serverID is redirected to msg instead of where the command was posted
+        //a message Colress would send in serverID is redirected to msg instead of where the command was posted
+        "serverID": "msg"
     },
-    "imageUrl": "https://...", //online source from which Colress will retrieve images of pokemon. Colress will append the pokemon's pokedex number, with a customisable suffix for alternate formes, then .png
-    "shinyUrl": "https://..." //online source from which Colress will retrieve images of pokemon's shiny colourations. Colress will append the pokemon's pokedex number, with a customisable suffix for alternate formes, then .png
+    //online source from which Colress will retrieve images of pokemon.
+    //Colress will append the pokemon's pokedex number, with a customisable suffix for alternate formes, then .png
+    "imageUrl": "https://...",
+    "shinyUrl": "https://..."
 }
 */
-let pre = config.prefix;
-//discord setup
-let bot = new eris_1.default.Client(config.token);
+const pre = config.prefix;
+// discord setup
+const bot = new eris_1.default.Client(config.token);
 bot.on("ready", () => {
     console.log("Logged in as %s - %s\n", bot.user.username, bot.user.id);
 });
@@ -34,52 +40,52 @@ bot.on("disconnect", () => {
     bot.connect();
 });
 const mons = JSON.parse(fs_1.default.readFileSync(config.pokemonData, "utf8"));
-let moves = JSON.parse(fs_1.default.readFileSync(config.moveData, "utf8"));
-let items = JSON.parse(fs_1.default.readFileSync(config.itemData, "utf8"));
-let abilities = JSON.parse(fs_1.default.readFileSync(config.abilityData, "utf8"));
-let monNamesFuse = [];
-for (let mon of mons) {
+const moves = JSON.parse(fs_1.default.readFileSync(config.moveData, "utf8"));
+const items = JSON.parse(fs_1.default.readFileSync(config.itemData, "utf8"));
+const abilities = JSON.parse(fs_1.default.readFileSync(config.abilityData, "utf8"));
+const monNamesFuse = [];
+for (const mon of mons) {
     monNamesFuse.push({
-        name: mon.name,
-        dex: mon.dex
+        dex: mon.dex,
+        name: mon.name
     });
 }
-let movNamesFuse = [];
-for (let move of moves) {
+const movNamesFuse = [];
+for (const tempMove of moves) {
     movNamesFuse.push({
-        name: move.name
+        name: tempMove.name
     });
 }
-let itNamesFuse = [];
-for (let item of items) {
+const itNamesFuse = [];
+for (const tempItem of items) {
     itNamesFuse.push({
-        name: item.name
+        name: tempItem.name
     });
 }
-let abNamesFuse = [];
-for (let ability of abilities) {
+const abNamesFuse = [];
+for (const tempAbility of abilities) {
     abNamesFuse.push({
-        name: ability.name
+        name: tempAbility.name
     });
 }
-//stupid hack for stupid fuse
+// stupid hack for stupid fuse
 const name = "name";
-//fuse setup
-let options = {
-    shouldSort: true,
-    includeScore: true,
-    tokenize: true,
-    threshold: 0.6,
-    location: 0,
+// fuse setup
+const options = {
     distance: 100,
+    includeScore: true,
+    keys: [name],
+    location: 0,
     maxPatternLength: 32,
     minMatchCharLength: 1,
-    keys: [name]
+    shouldSort: true,
+    threshold: 0.6,
+    tokenize: true
 };
-let monFuse = new fuse_js_1.default(monNamesFuse, options);
-let movFuse = new fuse_js_1.default(movNamesFuse, options);
-let itFuse = new fuse_js_1.default(itNamesFuse, options);
-let abFuse = new fuse_js_1.default(abNamesFuse, options);
+const monFuse = new fuse_js_1.default(monNamesFuse, options);
+const movFuse = new fuse_js_1.default(movNamesFuse, options);
+const itFuse = new fuse_js_1.default(itNamesFuse, options);
+const abFuse = new fuse_js_1.default(abNamesFuse, options);
 let gameData = {
     active: false
 };
@@ -89,7 +95,7 @@ bot.on("msg.content.toLowerCase()Create", (msg) => {
     if (msg.author.id === bot.user.id) {
         return;
     }
-    let lowMessage = msg.content.toLowerCase();
+    const lowMessage = msg.content.toLowerCase();
     if (msg.mentions.includes(bot.user) || lowMessage.indexOf(pre + "help") === 0) {
         sendSingleMessage("help", msg);
     }
@@ -170,7 +176,9 @@ async function sendSingleMessage(msgType, msg) {
     switch (msgType) {
         case "help":
             out =
-                "I am a Pokémon bot made by AlphaKretin#7990.\nYou can find my help file and source here: <https://github.com/AlphaKretin/colress-bot/>\nYou can support my development on Patreon here: <https://www.patreon.com/alphakretinbots>";
+                "I am a Pokémon bot made by AlphaKretin#7990." +
+                    "\nYou can find my help file and source here: <https://github.com/AlphaKretin/colress-bot/>" +
+                    "\nYou can support my development on Patreon here: <https://www.patreon.com/alphakretinbots>";
             break;
         case "types":
             out = "http://i.imgur.com/fylyCdC.png";
@@ -191,17 +199,17 @@ async function sendSingleMessage(msgType, msg) {
         await sendMessage(out, msg);
     }
 }
-function getMon(name) {
-    let mon = mons.find(m => m.name.toLowerCase() === name);
+function getMon(query) {
+    const mon = mons.find(m => m.name.toLowerCase() === query);
     if (mon) {
         return mon;
     }
-    let result = monFuse.search(name);
+    const result = monFuse.search(query);
     return mons.find(m => m.name === result[0].name);
 }
 async function pokemon(msg) {
-    let query = msg.content.toLowerCase().slice((pre + "pokemon ").length);
-    let mon = getMon(query);
+    const query = msg.content.toLowerCase().slice((pre + "pokemon ").length);
+    const mon = getMon(query);
     if (!mon) {
         await sendMessage("Sorry, I can't find a Pokémon with that name!", msg);
         return;
@@ -229,9 +237,9 @@ function getMonInfo(mon) {
     out += "\n**Serebii Link**: http://www.serebii.net/pokedex-sm/" + mon.dex.toString().padStart(3, "0") + ".shtml";
     return out;
 }
-async function postImage(mon, shiny, msg) {
+async function postImage(mon, isShiny, msg) {
     let imageUrl = "";
-    if (shiny) {
+    if (isShiny) {
         imageUrl = config.shinyUrl;
     }
     else {
@@ -248,12 +256,12 @@ async function postImage(mon, shiny, msg) {
     await sendMessage("", msg, { file: image, name: suffix });
 }
 async function pokedex(msg) {
-    let query = parseInt(msg.content.toLowerCase().slice((pre + "pokedex ").length));
-    if (query === NaN || query < 1) {
+    const query = parseInt(msg.content.toLowerCase().slice((pre + "pokedex ").length), 10);
+    if (isNaN(query) || query < 1) {
         await sendMessage("Sorry, that doesn't look like a Pokédex number!", msg);
         return;
     }
-    let mon = mons.find(m => m.dex === query);
+    const mon = mons.find(m => m.dex === query);
     if (mon) {
         await postImage(mon, false, msg);
         await sendMessage(getMonInfo(mon), msg);
@@ -263,12 +271,12 @@ async function pokedex(msg) {
     }
 }
 async function aloladex(msg) {
-    let query = parseInt(msg.content.toLowerCase().slice((pre + "aloladex ").length));
-    if (query === NaN || query < 1) {
+    const query = parseInt(msg.content.toLowerCase().slice((pre + "aloladex ").length), 10);
+    if (isNaN(query) || query < 1) {
         await sendMessage("Sorry, that doesn't look like a Pokédex number!", msg);
         return;
     }
-    let mon = mons.find(m => m.alola === query);
+    const mon = mons.find(m => m.alola === query);
     if (mon) {
         await postImage(mon, false, msg);
         await sendMessage(getMonInfo(mon), msg);
@@ -277,118 +285,116 @@ async function aloladex(msg) {
         await sendMessage("Sorry, I can't find a Pokémon with that number!", msg);
     }
 }
-function getMove(name) {
-    let move = moves.find(m => m.name.toLowerCase() === name);
-    if (move) {
-        return move;
+function getMove(query) {
+    const mv = moves.find(m => m.name.toLowerCase() === query);
+    if (mv) {
+        return mv;
     }
-    let result = movFuse.search(name);
+    const result = movFuse.search(query);
     return moves.find(m => m.name === result[0].name);
 }
 async function move(msg) {
-    let query = msg.content.toLowerCase().slice((pre + "move ").length);
-    let move = getMove(query);
-    if (!move) {
+    const query = msg.content.toLowerCase().slice((pre + "move ").length);
+    const mv = getMove(query);
+    if (!mv) {
         await sendMessage("Sorry, I can't find a move with that name!", msg);
         return;
     }
-    await sendMessage(getMoveInfo(move), msg);
+    await sendMessage(getMoveInfo(mv), msg);
 }
-function getMoveInfo(move) {
-    let out = "__**" + move.name + "**__\n";
-    out += "**Type**: " + move.type;
-    out += " **Category**: " + move.cat + "\n";
-    if (move.power) {
-        out += "**Power**: " + move.power + " ";
+function getMoveInfo(mv) {
+    let out = "__**" + mv.name + "**__\n";
+    out += "**Type**: " + mv.type;
+    out += " **Category**: " + mv.cat + "\n";
+    if (mv.power) {
+        out += "**Power**: " + mv.power + " ";
     }
-    if (move.pp) {
-        out += "**PP**: " + move.pp + " ";
+    if (mv.pp) {
+        out += "**PP**: " + mv.pp + " ";
     }
-    if (move.acc) {
-        out += "**Accuracy**: " + move.acc;
+    if (mv.acc) {
+        out += "**Accuracy**: " + mv.acc;
     }
-    out += "\n**Effect**: " + move.effect;
-    if (move.zeffect) {
-        out += "\n**Z-Move Effect**: " + move.zeffect;
+    out += "\n**Effect**: " + mv.effect;
+    if (mv.zeffect) {
+        out += "\n**Z-Move Effect**: " + mv.zeffect;
     }
-    if (move.tm) {
-        out += "\n**TM**: " + move.tm.join(", ");
+    if (mv.tm) {
+        out += "\n**TM**: " + mv.tm.join(", ");
     }
-    if (move.wiki) {
-        out += "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" + move.wiki + ".shtml";
+    if (mv.wiki) {
+        out += "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" + mv.wiki + ".shtml";
     }
     else {
         out +=
             "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" +
-                move.name.toLowerCase().replace(/ /g, "") +
+                mv.name.toLowerCase().replace(/ /g, "") +
                 ".shtml";
     }
     return out;
 }
-function getItem(name) {
-    let item = items.find(i => i.name.toLowerCase() === name);
-    if (item) {
-        return item;
+function getItem(query) {
+    const it = items.find(i => i.name.toLowerCase() === query);
+    if (it) {
+        return it;
     }
-    let result = itFuse.search(name);
+    const result = itFuse.search(query);
     return items.find(i => i.name === result[0].name);
 }
 async function item(msg) {
-    let query = msg.content.toLowerCase().slice((pre + "move ").length);
-    let item = getItem(query);
-    if (!item) {
+    const query = msg.content.toLowerCase().slice((pre + "move ").length);
+    const it = getItem(query);
+    if (!it) {
         await sendMessage("Sorry, I can't find an item with that name!", msg);
         return;
     }
-    await sendMessage(getItemInfo(item), msg);
+    await sendMessage(getItemInfo(it), msg);
 }
-function getItemInfo(item) {
-    let out = "__**" + item.name + "**__\n";
-    out += "**Description**: " + item.desc;
-    if (item.wiki) {
-        out += "\n**Serebii Link**: http://www.serebii.net/itemdex/" + item.wiki + ".shtml";
+function getItemInfo(it) {
+    let out = "__**" + it.name + "**__\n";
+    out += "**Description**: " + it.desc;
+    if (it.wiki) {
+        out += "\n**Serebii Link**: http://www.serebii.net/itemdex/" + it.wiki + ".shtml";
     }
     else {
         out +=
-            "\n**Serebii Link**: http://www.serebii.net/itemdex/" +
-                item.name.toLowerCase().replace(/ /g, "") +
-                ".shtml";
+            "\n**Serebii Link**: http://www.serebii.net/itemdex/" + it.name.toLowerCase().replace(/ /g, "") + ".shtml";
     }
     return out;
 }
-function getAbility(name) {
-    let ability = abilities.find(a => a.name.toLowerCase() === name);
-    if (ability) {
-        return ability;
+function getAbility(query) {
+    const ab = abilities.find(a => a.name.toLowerCase() === query);
+    if (ab) {
+        return ab;
     }
-    let result = abFuse.search(name);
+    const result = abFuse.search(query);
     return abilities.find(a => a.name === result[0].name);
 }
 async function ability(msg) {
-    let query = msg.content.toLowerCase().slice((pre + "ability ").length);
-    let ability = getAbility(query);
-    if (!ability) {
+    const query = msg.content.toLowerCase().slice((pre + "ability ").length);
+    const ab = getAbility(query);
+    if (!ab) {
         await sendMessage("Sorry, I can't find an ability with that name!", msg);
         return;
     }
-    await sendMessage(getAbilityInfo(ability), msg);
+    await sendMessage(getAbilityInfo(ab), msg);
 }
-function getAbilityInfo(ability) {
-    let out = "__**" + ability.name + "**__\n";
-    out += "**Description**: " + ability.desc;
-    if (ability.wiki) {
-        out += "\n**Serebii Link**: http://www.serebii.net/abilitydex/" + ability.wiki + ".shtml";
+function getAbilityInfo(ab) {
+    let out = "__**" + ab.name + "**__\n";
+    out += "**Description**: " + ab.desc;
+    if (ab.wiki) {
+        out += "\n**Serebii Link**: http://www.serebii.net/abilitydex/" + ab.wiki + ".shtml";
     }
     else {
         out +=
             "\n**Serebii Link**: http://www.serebii.net/abilitydex/" +
-                ability.name.toLowerCase().replace(/ /g, "") +
+                ab.name.toLowerCase().replace(/ /g, "") +
                 ".shtml";
     }
     return out;
 }
 async function shiny(msg) {
-    let query = msg.content.toLowerCase().slice((pre + "shiny ").length);
+    const query = msg.content.toLowerCase().slice((pre + "shiny ").length);
     const mon = getMon(query);
     if (!mon) {
         await sendMessage("Sorry, I can't find a Pokémon with that name!", msg);
@@ -397,21 +403,21 @@ async function shiny(msg) {
     await postImage(mon, true, msg);
 }
 async function weak(msg) {
-    let query = msg.content.toLowerCase().slice((pre + "weak ").length);
+    const query = msg.content.toLowerCase().slice((pre + "weak ").length);
     const mon = getMon(query);
     if (!mon) {
-        "Sorry, I can't find a Pokémon with that number!";
+        await sendMessage("Sorry, I can't find a Pokémon with that number!", msg);
         return;
     }
     const types = getMonTypes(mon);
     await sendMessage("**Name**: " + mon.name + "\n" + getWeakInfo(types), msg);
 }
 async function weakTypes(msg) {
-    let args = msg.content
+    const args = msg.content
         .toLowerCase()
         .toLowerCase()
         .split(" ");
-    let types = [];
+    const types = [];
     for (let arg of args) {
         arg = c(arg);
         if ([
@@ -447,7 +453,7 @@ async function weakTypes(msg) {
     await sendMessage(out, msg);
 }
 function getMonTypes(mon) {
-    let types = [mon.type1];
+    const types = [mon.type1];
     if (mon.type2) {
         types.push(mon.type2);
     }
@@ -457,117 +463,117 @@ function getWeakInfo(types) {
     if (types.length < 1) {
         return "Invalid types!";
     }
-    let typeInfo = {
-        Normal: {
-            value: 0,
-            weak: ["Fighting"],
-            resist: [],
-            immune: ["Ghost"]
-        },
-        Fire: {
-            value: 0,
-            weak: ["Ground", "Rock", "Water"],
-            resist: ["Bug", "Fairy", "Fire", "Grass", "Ice", "Steel"],
-            immune: []
-        },
-        Fighting: {
-            value: 0,
-            weak: ["Fairy", "Flying", "Psychic"],
-            resist: ["Bug", "Dark", "Rock"],
-            immune: []
-        },
-        Water: {
-            value: 0,
-            weak: ["Electric", "Grass"],
-            resist: ["Fire", "Ice", "Steel", "Water"],
-            immune: []
-        },
-        Flying: {
-            value: 0,
-            weak: ["Electric", "Ice", "Rock"],
-            resist: ["Bug", "Fighting", "Grass"],
-            immune: ["Ground"]
-        },
-        Grass: {
-            value: 0,
-            weak: ["Bug", "Fire", "Flying", "Ice", "Poison"],
-            resist: ["Electric", "Grass", "Ground", "Water"],
-            immune: []
-        },
-        Poison: {
-            value: 0,
-            weak: ["Ground", "Psychic"],
-            resist: ["Bug", "Fairy", "Fighting", "Grass", "Poison"],
-            immune: []
-        },
-        Electric: {
-            value: 0,
-            weak: ["Ground"],
-            resist: ["Electric", "Flying", "Steel"],
-            immune: []
-        },
-        Ground: {
-            value: 0,
-            weak: ["Grass", "Ice", "Water"],
-            resist: ["Poison", "Rock"],
-            immune: ["Electric"]
-        },
-        Psychic: {
-            value: 0,
-            weak: ["Bug", "Dark", "Ghost"],
-            resist: ["Fighting", "Psychic"],
-            immune: []
-        },
-        Rock: {
-            value: 0,
-            weak: ["Fighting", "Grass", "Ground", "Steel", "Water"],
-            resist: ["Fire", "Flying", "Normal", "Poison"],
-            immune: []
-        },
-        Ice: {
-            value: 0,
-            weak: ["Fighting", "Fire", "Rock", "Steel"],
-            resist: ["Ice"],
-            immune: []
-        },
+    const typeInfo = {
         Bug: {
-            value: 0,
-            weak: ["Fire", "Flying", "Rock"],
+            immune: [],
             resist: ["Fighting", "Grass", "Ground"],
-            immune: []
-        },
-        Dragon: {
             value: 0,
-            weak: ["Dragon", "Ice", "Fairy"],
-            resist: ["Electric", "Fire", "Grass", "Water"],
-            immune: []
-        },
-        Ghost: {
-            value: 0,
-            weak: ["Ghost", "Dark"],
-            resist: ["Bug", "Poison"],
-            immune: ["Normal", "Fighting"]
+            weak: ["Fire", "Flying", "Rock"]
         },
         Dark: {
-            value: 0,
-            weak: ["Bug", "Fighting", "Fairy"],
+            immune: ["Psychic "],
             resist: ["Dark", "Ghost"],
-            immune: ["Psychic "]
-        },
-        Steel: {
             value: 0,
-            weak: ["Fighting", "Fire", "Ground"],
-            resist: ["Bug", "Dragon", "Fairy", "Flying", "Grass", "Ice", "Normal", "Psychic", "Rock", "Steel"],
-            immune: ["Poison"]
+            weak: ["Bug", "Fighting", "Fairy"]
+        },
+        Electric: {
+            immune: [],
+            resist: ["Electric", "Flying", "Steel"],
+            value: 0,
+            weak: ["Ground"]
         },
         Fairy: {
-            value: 0,
-            weak: ["Poison", "Steel"],
+            immune: ["Dragon"],
             resist: ["Bug", "Dark", "Fighting"],
-            immune: ["Dragon"]
+            value: 0,
+            weak: ["Poison", "Steel"]
+        },
+        Fighting: {
+            immune: [],
+            resist: ["Bug", "Dark", "Rock"],
+            value: 0,
+            weak: ["Fairy", "Flying", "Psychic"]
+        },
+        Fire: {
+            immune: [],
+            resist: ["Bug", "Fairy", "Fire", "Grass", "Ice", "Steel"],
+            value: 0,
+            weak: ["Ground", "Rock", "Water"]
+        },
+        Flying: {
+            immune: ["Ground"],
+            resist: ["Bug", "Fighting", "Grass"],
+            value: 0,
+            weak: ["Electric", "Ice", "Rock"]
+        },
+        Grass: {
+            immune: [],
+            resist: ["Electric", "Grass", "Ground", "Water"],
+            value: 0,
+            weak: ["Bug", "Fire", "Flying", "Ice", "Poison"]
+        },
+        Ice: {
+            immune: [],
+            resist: ["Ice"],
+            value: 0,
+            weak: ["Fighting", "Fire", "Rock", "Steel"]
+        },
+        Normal: {
+            immune: ["Ghost"],
+            resist: [],
+            value: 0,
+            weak: ["Fighting"]
+        },
+        Poison: {
+            immune: [],
+            resist: ["Bug", "Fairy", "Fighting", "Grass", "Poison"],
+            value: 0,
+            weak: ["Ground", "Psychic"]
+        },
+        Water: {
+            immune: [],
+            resist: ["Fire", "Ice", "Steel", "Water"],
+            value: 0,
+            weak: ["Electric", "Grass"]
+        },
+        Ground: {
+            immune: ["Electric"],
+            resist: ["Poison", "Rock"],
+            value: 0,
+            weak: ["Grass", "Ice", "Water"]
+        },
+        Psychic: {
+            immune: [],
+            resist: ["Fighting", "Psychic"],
+            value: 0,
+            weak: ["Bug", "Dark", "Ghost"]
+        },
+        Rock: {
+            immune: [],
+            resist: ["Fire", "Flying", "Normal", "Poison"],
+            value: 0,
+            weak: ["Fighting", "Grass", "Ground", "Steel", "Water"]
+        },
+        Dragon: {
+            immune: [],
+            resist: ["Electric", "Fire", "Grass", "Water"],
+            value: 0,
+            weak: ["Dragon", "Ice", "Fairy"]
+        },
+        Ghost: {
+            immune: ["Normal", "Fighting"],
+            resist: ["Bug", "Poison"],
+            value: 0,
+            weak: ["Ghost", "Dark"]
+        },
+        Steel: {
+            immune: ["Poison"],
+            resist: ["Bug", "Dragon", "Fairy", "Flying", "Grass", "Ice", "Normal", "Psychic", "Rock", "Steel"],
+            value: 0,
+            weak: ["Fighting", "Fire", "Ground"]
         }
     };
-    for (let type of types) {
+    for (const type of types) {
         if (c(type.toLowerCase()) in typeInfo) {
             for (const key in typeInfo) {
                 if (typeInfo.hasOwnProperty(key)) {
@@ -584,26 +590,28 @@ function getWeakInfo(types) {
             }
         }
     }
-    let weaks = [];
-    let resists = [];
-    let immunes = [];
-    Object.keys(typeInfo).forEach(function (key, index) {
-        if (typeInfo[key].value > 1) {
-            weaks.push("__" + key + "__");
+    const weaks = [];
+    const resists = [];
+    const immunes = [];
+    for (const key in typeInfo) {
+        if (typeInfo.hasOwnProperty(key)) {
+            if (typeInfo[key].value > 1) {
+                weaks.push("__" + key + "__");
+            }
+            else if (typeInfo[key].value === 1) {
+                weaks.push(key);
+            }
+            else if (typeInfo[key].value === -1) {
+                resists.push(key);
+            }
+            else if (typeInfo[key].value === -2) {
+                resists.push("__" + key + "__");
+            }
+            else if (typeInfo[key].value < -2) {
+                immunes.push(key);
+            }
         }
-        else if (typeInfo[key].value === 1) {
-            weaks.push(key);
-        }
-        else if (typeInfo[key].value === -1) {
-            resists.push(key);
-        }
-        else if (typeInfo[key].value === -2) {
-            resists.push("__" + key + "__");
-        }
-        else if (typeInfo[key].value < -2) {
-            immunes.push(key);
-        }
-    });
+    }
     let out = "**Types**: " + types.join(", ") + "\n";
     if (weaks.length > 0) {
         out += "**Weaknesses**: " + weaks.join(", ") + "\n";
@@ -617,7 +625,7 @@ function getWeakInfo(types) {
     return out;
 }
 async function game(msg) {
-    let input = msg.content
+    const input = msg.content
         .toLowerCase()
         .toLowerCase()
         .split(" ")[1];
@@ -648,18 +656,18 @@ async function gameHiLo(msg) {
         return;
     }
     else {
-        //pick a random pokemon
-        let index = getIncInt(0, mons.length - 1);
+        // pick a random pokemon
+        const index = getIncInt(0, mons.length - 1);
         const mon = mons[index];
-        //start game
+        // start game
         gameData = {
             active: true,
-            game: "highlow",
-            server: serverID,
-            channel: msg,
-            name: mon.name,
             dex: mon.dex,
-            guesses: 0
+            game: "highlow",
+            guesses: 0,
+            msg,
+            name: mon.name,
+            server: serverID
         };
         await sendMessage("You have 10 tries to guess the National Pokédex number of the following Pokémon: **" + name + "**!", msg);
     }
@@ -672,11 +680,11 @@ async function answerHiLo(msg) {
     const serverID = chan.guild.id;
     if (gameData.active === false ||
         serverID !== gameData.server ||
-        msg !== gameData.channel ||
+        msg.channel.id !== gameData.msg.channel.id ||
         gameData.game !== "highlow") {
         return;
     }
-    if (parseInt(msg.content.toLowerCase()) === gameData.dex) {
+    if (parseInt(msg.content.toLowerCase(), 10) === gameData.dex) {
         gameData.guesses++;
         await msg.addReaction("👍");
         await sendMessage("<@" +
@@ -694,7 +702,7 @@ async function answerHiLo(msg) {
     }
     else {
         let out = "";
-        let mon = mons.find(m => m.dex === parseInt(msg.content.toLowerCase()));
+        const mon = mons.find(m => m.dex === parseInt(msg.content.toLowerCase(), 10));
         if (!mon) {
             return;
         }
@@ -703,7 +711,7 @@ async function answerHiLo(msg) {
             out = "That Pokémon is " + mon.name + ", which is too early in the Pokédex!\n";
         }
         else {
-            //if (monDexes[index] > gameData.dex)
+            // if (monDexes[index] > gameData.dex)
             out = "That Pokémon is " + mon.name + ", which is too late in the Pokédex!\n";
         }
         if (gameData.guesses === 10) {
@@ -733,13 +741,13 @@ async function gameHiLo2(msg) {
         return;
     }
     else {
-        //pick a random pokemon
-        let mon = mons[getIncInt(0, mons.length - 1)];
-        let name = mon.name
+        // pick a random pokemon
+        const mon = mons[getIncInt(0, mons.length - 1)];
+        const fixedName = mon.name
             .replace("é", "e")
             .replace("♂", "M")
             .replace("♀", "F");
-        let dex = mon.dex;
+        const dex = mon.dex;
         let hint = "";
         for (let letter of name) {
             if (getIncInt(0, 2) !== 0 && letter !== " ") {
@@ -747,16 +755,16 @@ async function gameHiLo2(msg) {
             }
             hint += letter;
         }
-        //start game
+        // start game
         gameData = {
             active: true,
+            dex,
             game: "highlow2",
-            server: serverID,
-            channel: msg,
-            name: name,
-            dex: dex,
-            hint: hint,
-            guesses: 0
+            guesses: 0,
+            hint,
+            msg,
+            name: fixedName,
+            server: serverID
         };
         await sendMessage("You have 10 tries to name the Pokémon with the following National Pokédex number: **" + dex + "**!", msg);
     }
@@ -769,11 +777,11 @@ async function answerHiLo2(msg) {
     const serverID = chan.guild.id;
     if (gameData.active === false ||
         serverID !== gameData.server ||
-        msg !== gameData.channel ||
+        msg.channel.id !== gameData.msg.channel.id ||
         gameData.game !== "highlow2") {
         return;
     }
-    let mon = mons.find(m => m.name === msg.content.toLowerCase());
+    const mon = mons.find(m => m.name === msg.content.toLowerCase());
     if (!mon) {
         return;
     }
@@ -798,7 +806,7 @@ async function answerHiLo2(msg) {
             out = "That Pokémon is number " + mon.dex + ", which is too early in the Pokédex!\n";
         }
         else {
-            //if (guessDex > gameData.dex)
+            // if (guessDex > gameData.dex)
             out = "That Pokémon is number " + mon.dex + ", which is too late in the Pokédex!\n";
         }
         if (gameData.guesses === 5) {
@@ -829,13 +837,13 @@ async function gameWhosThat(msg) {
         return;
     }
     else {
-        //pick a random pokemon
-        let mon = mons[getIncInt(0, mons.length - 1)];
-        let name = mon.name
+        // pick a random pokemon
+        const mon = mons[getIncInt(0, mons.length - 1)];
+        const fixedName = mon.name
             .replace("é", "e")
             .replace("♂", "M")
             .replace("♀", "F");
-        let dex = mon.dex;
+        const dex = mon.dex;
         let hint = "";
         for (let letter of name) {
             if (getIncInt(0, 3) !== 0 && letter !== " ") {
@@ -843,15 +851,15 @@ async function gameWhosThat(msg) {
             }
             hint += letter;
         }
-        //start game
+        // start game
         gameData = {
             active: true,
             game: "whosthat",
-            server: serverID,
-            channel: msg,
-            name: name,
-            hint: hint,
-            guesses: 0
+            guesses: 0,
+            hint,
+            msg,
+            name: fixedName,
+            server: serverID
         };
         await postImage(mon, false, msg);
         await sendMessage("You have 10 seconds to name this Pokémon!", msg);
@@ -874,7 +882,7 @@ async function answerWhosThat(msg) {
     const serverID = chan.guild.id;
     if (gameData.active === false ||
         serverID !== gameData.server ||
-        msg !== gameData.channel ||
+        msg.channel.id !== gameData.msg.channel.id ||
         gameData.game !== "whosthat") {
         return;
     }
@@ -898,24 +906,24 @@ async function gameHangman(msg) {
         return;
     }
     else {
-        //pick a random pokemon
-        let mon = mons[getIncInt(0, mons.length - 1)];
-        let name = mon.name
+        // pick a random pokemon
+        const mon = mons[getIncInt(0, mons.length - 1)];
+        const fixedName = mon.name
             .replace("é", "e")
             .replace("♂", "M")
             .replace("♀", "F");
-        let dex = mon.dex;
-        let hint = name.replace(/\S/g, "-");
-        //start game
+        const dex = mon.dex;
+        const hint = name.replace(/\S/g, "-");
+        // start game
         gameData = {
             active: true,
+            dex,
             game: "hangman",
-            server: serverID,
-            channel: msg,
-            name: name,
-            dex: dex,
-            hint: hint,
             guesses: 0,
+            hint,
+            msg,
+            name: fixedName,
+            server: serverID,
             wrongs: []
         };
         await sendMessage("Guess the letters in this Pokémon's name! You can make 10 mistakes before the game is over.\n`" +
@@ -931,11 +939,11 @@ async function answerHangman(msg) {
     const serverID = chan.guild.id;
     if (gameData.active === false ||
         serverID !== gameData.server ||
-        msg !== gameData.channel ||
+        msg.channel.id !== gameData.msg.channel.id ||
         gameData.game !== "hangman") {
         return;
     }
-    let mon = mons.find(m => m.name === msg.content.toLowerCase());
+    const mon = mons.find(m => m.name === msg.content.toLowerCase());
     if (mon) {
         if (msg.content.toLowerCase() === gameData.name.toLowerCase()) {
             await msg.addReaction("👍");
@@ -1040,12 +1048,12 @@ async function answerHangman(msg) {
 function getIncInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive
 }
-function c(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+function c(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
-function replaceAt(string, index, character) {
-    return string.substr(0, index) + character + string.substr(index + character.length);
+function replaceAt(str, index, character) {
+    return str.substr(0, index) + character + str.substr(index + character.length);
 }
 //# sourceMappingURL=colress.js.map
