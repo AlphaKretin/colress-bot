@@ -42,6 +42,7 @@ bot.on("disconnect", () => {
 // sql setup
 interface IPokemon {
     name: string;
+    aliases?: string[];
     dex: number;
     alola?: number;
     type1: string;
@@ -56,10 +57,10 @@ interface IMove {
     name: string;
     type: string;
     cat: string;
-    power: number;
-    pp: number;
-    acc: number;
-    effect: string;
+    power?: number;
+    pp?: number;
+    acc?: number;
+    effect?: string;
     zeffect?: string;
     tm?: string[];
     wiki?: string;
@@ -236,7 +237,19 @@ async function sendSingleMessage(msgType: string, msg: Eris.Message) {
 }
 
 function getMon(query: string): IPokemon | undefined {
-    const mon = mons.find(m => m.name.toLowerCase() === query);
+    const mon = mons.find(m => {
+        if (m.name.toLowerCase() === query) {
+            return true;
+        }
+        if (m.aliases) {
+            for (const alias of m.aliases) {
+                if (alias === query) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    });
     if (mon) {
         return mon;
     }
@@ -355,7 +368,9 @@ function getMoveInfo(mv: IMove) {
     if (mv.acc) {
         out += "**Accuracy**: " + mv.acc;
     }
-    out += "\n**Effect**: " + mv.effect;
+    if (mv.effect) {
+        out += "\n**Effect**: " + mv.effect;
+    }
     if (mv.zeffect) {
         out += "\n**Z-Move Effect**: " + mv.zeffect;
     }

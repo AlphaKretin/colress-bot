@@ -1,0 +1,7113 @@
+[
+    {
+        "name": "Bulbasaur",
+        "dex": 1,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Chlorophyll"
+    },
+    {
+        "name": "Ivysaur",
+        "dex": 2,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Chlorophyll"
+    },
+    {
+        "name": "Venusaur",
+        "dex": 3,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Chlorophyll"
+    },
+    {
+        "name": "Charmander",
+        "dex": 4,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Solar Power"
+    },
+    {
+        "name": "Charmeleon",
+        "dex": 5,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Solar Power"
+    },
+    {
+        "name": "Charizard",
+        "dex": 6,
+        "type1": "Fire",
+        "type2": "Flying",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Solar Power"
+    },
+    {
+        "name": "Squirtle",
+        "dex": 7,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Wartortle",
+        "dex": 8,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Blastoise",
+        "dex": 9,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Caterpie",
+        "dex": 10,
+        "alola": 15,
+        "type1": "Bug",
+        "ability1": "Shield Dust",
+        "ability2": "None",
+        "abilityHidden": "Run Away"
+    },
+    { "name": "Metapod", "dex": 11, "alola": 18, "type1": "Bug", "ability1": "Shed Skin" },
+    {
+        "name": "Butterfree",
+        "dex": 12,
+        "alola": 19,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Compound Eyes",
+        "ability2": "None",
+        "abilityHidden": "Tinted Lens"
+    },
+    {
+        "name": "Weedle",
+        "dex": 13,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Shield Dust",
+        "ability2": "None",
+        "abilityHidden": "Run Away"
+    },
+    { "name": "Kakuna", "dex": 14, "type1": "Bug", "type2": "Poison", "ability1": "Shed Skin" },
+    {
+        "name": "Beedrill",
+        "dex": 15,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Swarm",
+        "ability2": "None",
+        "abilityHidden": "Sniper"
+    },
+    {
+        "name": "Pidgey",
+        "dex": 16,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Tangled Feet",
+        "abilityHidden": "Big Pecks"
+    },
+    {
+        "name": "Pidgeotto",
+        "dex": 17,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Tangled Feet",
+        "abilityHidden": "Big Pecks"
+    },
+    {
+        "name": "Pidgeot",
+        "dex": 18,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Tangled Feet",
+        "abilityHidden": "Big Pecks"
+    },
+    {
+        "name": "Rattata",
+        "dex": 19,
+        "alola": 13,
+        "type1": "Normal",
+        "ability1": "Run Away",
+        "ability2": "Guts",
+        "abilityHidden": "Hustle"
+    },
+    {
+        "name": "Raticate",
+        "dex": 20,
+        "alola": 14,
+        "type1": "Normal",
+        "ability1": "Run Away",
+        "ability2": "Guts",
+        "abilityHidden": "Hustle"
+    },
+    {
+        "name": "Alolan Rattata",
+        "dex": 19,
+        "alola": 13,
+        "type1": "Dark",
+        "type2": "Normal",
+        "ability1": "Gluttony",
+        "ability2": "Hustle",
+        "abilityHidden": "Thick Fat",
+        "aliases": ["rattata-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Alolan Raticate",
+        "dex": 20,
+        "alola": 14,
+        "type1": "Dark Normal",
+        "ability1": "Gluttony",
+        "ability2": "Hustle",
+        "abilityHidden": "Thick Fat",
+        "aliases": ["raticate-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Spearow",
+        "dex": 21,
+        "alola": 59,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "None",
+        "abilityHidden": "Sniper"
+    },
+    {
+        "name": "Fearow",
+        "dex": 22,
+        "alola": 60,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "None",
+        "abilityHidden": "Sniper"
+    },
+    {
+        "name": "Ekans",
+        "dex": 23,
+        "type1": "Poison",
+        "ability1": "Intimidate",
+        "ability2": "Shed Skin",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Arbok",
+        "dex": 24,
+        "type1": "Poison",
+        "ability1": "Intimidate",
+        "ability2": "Shed Skin",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Pikachu",
+        "dex": 25,
+        "alola": 21,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Lightning Rod"
+    },
+    {
+        "name": "Raichu",
+        "dex": 26,
+        "alola": 22,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Lightning Rod"
+    },
+    {
+        "name": "Alolan Raichu",
+        "dex": 26,
+        "alola": 22,
+        "type1": "Electric",
+        "type2": "Psychic",
+        "ability1": "Surge Surfer",
+        "aliases": ["raichu-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Sandshrew",
+        "dex": 27,
+        "alola": 251,
+        "type1": "Ground",
+        "ability1": "Sand Veil",
+        "ability2": "None",
+        "abilityHidden": "Sand Rush"
+    },
+    {
+        "name": "Sandslash",
+        "dex": 28,
+        "alola": 252,
+        "type1": "Ground",
+        "ability1": "Sand Veil",
+        "ability2": "None",
+        "abilityHidden": "Sand Rush"
+    },
+    {
+        "name": "Alolan Sandshrew",
+        "dex": 27,
+        "alola": 251,
+        "type1": "Ice",
+        "type2": "Steel",
+        "ability1": "Snow Cloak",
+        "ability2": "None",
+        "abilityHidden": "Slush Rush",
+        "aliases": ["sandshrew-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Alolan Sandslash",
+        "dex": 28,
+        "alola": 252,
+        "type1": "Ice",
+        "type2": "Steel",
+        "ability1": "Snow Cloak",
+        "ability2": "None",
+        "abilityHidden": "Slush Rush",
+        "aliases": ["sandslash-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Nidoran♀",
+        "dex": 29,
+        "type1": "Poison",
+        "ability1": "Poison Point",
+        "ability2": "Rivalry",
+        "abilityHidden": "Hustle"
+    },
+    {
+        "name": "Nidorina",
+        "dex": 30,
+        "type1": "Poison",
+        "ability1": "Poison Point",
+        "ability2": "Rivalry",
+        "abilityHidden": "Hustle"
+    },
+    {
+        "name": "Nidoqueen",
+        "dex": 31,
+        "type1": "Poison",
+        "type2": "Ground",
+        "ability1": "Poison Point",
+        "ability2": "Rivalry",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Nidoran♂",
+        "dex": 32,
+        "type1": "Poison",
+        "ability1": "Poison Point",
+        "ability2": "Rivalry",
+        "abilityHidden": "Hustle"
+    },
+    {
+        "name": "Nidorino",
+        "dex": 33,
+        "type1": "Poison",
+        "ability1": "Poison Point",
+        "ability2": "Rivalry",
+        "abilityHidden": "Hustle"
+    },
+    {
+        "name": "Nidoking",
+        "dex": 34,
+        "type1": "Poison",
+        "type2": "Ground",
+        "ability1": "Poison Point",
+        "ability2": "Rivalry",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Clefairy",
+        "dex": 35,
+        "alola": 211,
+        "type1": "Fairy",
+        "ability1": "Cute Charm",
+        "ability2": "Magic Guard",
+        "abilityHidden": "Friend Guard"
+    },
+    {
+        "name": "Clefable",
+        "dex": 36,
+        "alola": 212,
+        "type1": "Fairy",
+        "ability1": "Cute Charm",
+        "ability2": "Magic Guard",
+        "abilityHidden": "Unaware"
+    },
+    {
+        "name": "Vulpix",
+        "dex": 37,
+        "alola": 253,
+        "type1": "Fire",
+        "ability1": "Flash Fire",
+        "ability2": "None",
+        "abilityHidden": "Drought"
+    },
+    {
+        "name": "Ninetales",
+        "dex": 38,
+        "alola": 254,
+        "type1": "Fire",
+        "ability1": "Flash Fire",
+        "ability2": "None",
+        "abilityHidden": "Drought"
+    },
+    {
+        "name": "Alolan Vulpix",
+        "dex": 37,
+        "alola": 253,
+        "type1": "Ice",
+        "ability1": "Snow Cloak",
+        "ability2": "None",
+        "abilityHidden": "Snow Warning",
+        "aliases": ["vulpix-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Alolan Ninetales",
+        "dex": 38,
+        "alola": 254,
+        "type1": "Ice",
+        "type2": "Fairy",
+        "ability1": "Snow Cloak",
+        "ability2": "None",
+        "abilityHidden": "Snow Warning",
+        "aliases": ["ninetales-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Jigglypuff",
+        "dex": 39,
+        "alola": 135,
+        "type1": "Normal",
+        "type2": "Fairy",
+        "ability1": "Cute Charm",
+        "ability2": "Competitive",
+        "abilityHidden": "Friend Guard"
+    },
+    {
+        "name": "Wigglytuff",
+        "dex": 40,
+        "alola": 136,
+        "type1": "Normal",
+        "type2": "Fairy",
+        "ability1": "Cute Charm",
+        "ability2": "Competitive",
+        "abilityHidden": "Frisk"
+    },
+    {
+        "name": "Zubat",
+        "dex": 41,
+        "alola": 68,
+        "type1": "Poison",
+        "type2": "Flying",
+        "ability1": "Inner Focus",
+        "ability2": "None",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Golbat",
+        "dex": 42,
+        "alola": 69,
+        "type1": "Poison",
+        "type2": "Flying",
+        "ability1": "Inner Focus",
+        "ability2": "None",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Oddish",
+        "dex": 43,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Run Away"
+    },
+    {
+        "name": "Gloom",
+        "dex": 44,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Stench"
+    },
+    {
+        "name": "Vileplume",
+        "dex": 45,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Effect Spore"
+    },
+    {
+        "name": "Paras",
+        "dex": 46,
+        "alola": 148,
+        "type1": "Bug",
+        "type2": "Grass",
+        "ability1": "Effect Spore",
+        "ability2": "Dry Skin",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Parasect",
+        "dex": 47,
+        "alola": 148,
+        "type1": "Bug",
+        "type2": "Grass",
+        "ability1": "Effect Spore",
+        "ability2": "Dry Skin",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Venonat",
+        "dex": 48,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Compound Eyes",
+        "ability2": "Tinted Lens",
+        "abilityHidden": "Run Away"
+    },
+    {
+        "name": "Venomoth",
+        "dex": 49,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Shield Dust",
+        "ability2": "Tinted Lens",
+        "abilityHidden": "Wonder Skin"
+    },
+    {
+        "name": "Diglett",
+        "dex": 50,
+        "alola": 57,
+        "type1": "Ground",
+        "ability1": "Sand Veil",
+        "ability2": "Arena Trap",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Dugtrio",
+        "dex": 51,
+        "alola": 58,
+        "type1": "Ground",
+        "ability1": "Sand Veil",
+        "ability2": "Arena Trap",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Alolan Diglett",
+        "dex": 50,
+        "alola": 57,
+        "type1": "Ground",
+        "type2": "Steel",
+        "ability1": "Sand Veil",
+        "ability2": "Tangling Hair",
+        "abilityHidden": "Sand Force",
+        "aliases": ["diglett-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Alolan Dugtrio",
+        "dex": 51,
+        "alola": 58,
+        "type1": "Ground",
+        "type2": "Steel",
+        "ability1": "Sand Veil",
+        "ability2": "Tangling Hair",
+        "abilityHidden": "Sand Force",
+        "aliases": ["dugtrio-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Meowth",
+        "dex": 52,
+        "alola": 37,
+        "type1": "Normal",
+        "ability1": "Pickup",
+        "ability2": "Technician",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Persian",
+        "dex": 53,
+        "alola": 38,
+        "type1": "Normal",
+        "ability1": "Limber",
+        "ability2": "Technician",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Alolan Meowth",
+        "dex": 52,
+        "alola": 37,
+        "type1": "Dark",
+        "ability1": "Pickup",
+        "ability2": "Technician",
+        "abilityHidden": "Rattled",
+        "aliases": ["meowth-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Alolan Persian",
+        "dex": 53,
+        "alola": 38,
+        "type1": "Dark",
+        "ability1": "Limber",
+        "ability2": "Technician",
+        "abilityHidden": "Rattled",
+        "aliases": ["persian-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Psyduck",
+        "dex": 54,
+        "alola": 89,
+        "type1": "Water",
+        "ability1": "Damp",
+        "ability2": "Cloud Nine",
+        "abilityHidden": "Swift Swim"
+    },
+    {
+        "name": "Golduck",
+        "dex": 55,
+        "alola": 90,
+        "type1": "Water",
+        "ability1": "Damp",
+        "ability2": "Cloud Nine",
+        "abilityHidden": "Swift Swim"
+    },
+    {
+        "name": "Mankey",
+        "dex": 56,
+        "alola": 79,
+        "type1": "Fighting",
+        "ability1": "Vital Spirit",
+        "ability2": "Anger Point",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Primeape",
+        "dex": 57,
+        "alola": 80,
+        "type1": "Fighting",
+        "ability1": "Vital Spirit",
+        "ability2": "Anger Point",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Growlithe",
+        "dex": 58,
+        "alola": 42,
+        "type1": "Fire",
+        "ability1": "Intimidate",
+        "ability2": "Flash Fire",
+        "abilityHidden": "Justified"
+    },
+    {
+        "name": "Arcanine",
+        "dex": 59,
+        "alola": 43,
+        "type1": "Fire",
+        "ability1": "Intimidate",
+        "ability2": "Flash Fire",
+        "abilityHidden": "Justified"
+    },
+    {
+        "name": "Poliwag",
+        "dex": 60,
+        "alola": 149,
+        "type1": "Water",
+        "ability1": "Water Absorb",
+        "ability2": "Damp",
+        "abilityHidden": "Swift Swim"
+    },
+    {
+        "name": "Poliwhirl",
+        "dex": 61,
+        "alola": 150,
+        "type1": "Water",
+        "ability1": "Water Absorb",
+        "ability2": "Damp",
+        "abilityHidden": "Swift Swim"
+    },
+    {
+        "name": "Poliwrath",
+        "dex": 62,
+        "alola": 151,
+        "type1": "Water",
+        "type2": "Fighting",
+        "ability1": "Water Absorb",
+        "ability2": "Damp",
+        "abilityHidden": "Swift Swim"
+    },
+    {
+        "name": "Abra",
+        "dex": 63,
+        "alola": 59,
+        "type1": "Psychic",
+        "ability1": "Synchronize",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Magic Guard"
+    },
+    {
+        "name": "Kadabra",
+        "dex": 64,
+        "alola": 35,
+        "type1": "Psychic",
+        "ability1": "Synchronize",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Magic Guard"
+    },
+    {
+        "name": "Alakazam",
+        "dex": 65,
+        "alola": 36,
+        "type1": "Psychic",
+        "ability1": "Synchronize",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Magic Guard"
+    },
+    {
+        "name": "Machop",
+        "dex": 66,
+        "alola": 95,
+        "type1": "Fighting",
+        "ability1": "Guts",
+        "ability2": "No Guard",
+        "abilityHidden": "Steadfast"
+    },
+    {
+        "name": "Machoke",
+        "dex": 67,
+        "alola": 96,
+        "type1": "Fighting",
+        "ability1": "Guts",
+        "ability2": "No Guard",
+        "abilityHidden": "Steadfast"
+    },
+    {
+        "name": "Machamp",
+        "dex": 68,
+        "alola": 97,
+        "type1": "Fighting",
+        "ability1": "Guts",
+        "ability2": "No Guard",
+        "abilityHidden": "Steadfast"
+    },
+    {
+        "name": "Bellsprout",
+        "dex": 69,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Weepinbell",
+        "dex": 70,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Victreebel",
+        "dex": 71,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Tentacool",
+        "dex": 72,
+        "alola": 106,
+        "type1": "Water",
+        "type2": "Poison",
+        "ability1": "Clear Body",
+        "ability2": "Liquid Ooze",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Tentacruel",
+        "dex": 73,
+        "alola": 107,
+        "type1": "Water",
+        "type2": "Poison",
+        "ability1": "Clear Body",
+        "ability2": "Liquid Ooze",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Geodude",
+        "dex": 74,
+        "alola": 229,
+        "type1": "Rock",
+        "type2": "Ground",
+        "ability1": "Rock Head",
+        "ability2": "Sturdy",
+        "abilityHidden": "Sand Veil"
+    },
+    {
+        "name": "Graveler",
+        "dex": 75,
+        "alola": 230,
+        "type1": "Rock",
+        "type2": "Ground",
+        "ability1": "Rock Head",
+        "ability2": "Sturdy",
+        "abilityHidden": "Sand Veil"
+    },
+    {
+        "name": "Golem",
+        "dex": 76,
+        "alola": 231,
+        "type1": "Rock",
+        "type2": "Ground",
+        "ability1": "Rock Head",
+        "ability2": "Sturdy",
+        "abilityHidden": "Sand Veil"
+    },
+    {
+        "name": "Alolan Geodude",
+        "dex": 74,
+        "alola": 229,
+        "type1": "Rock",
+        "type2": "Electric",
+        "ability1": "Magnet Pull",
+        "ability2": "Sturdy",
+        "abilityHidden": "Galvanize",
+        "aliases": ["geodude-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Alolan Graveler",
+        "dex": 75,
+        "alola": 230,
+        "type1": "Rock",
+        "type2": "Electric",
+        "ability1": "Magnet Pull",
+        "ability2": "Sturdy",
+        "abilityHidden": "Galvanize",
+        "aliases": ["graveler-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Alolan Golem",
+        "dex": 76,
+        "alola": 231,
+        "type1": "Rock",
+        "type2": "Electric",
+        "ability1": "Magnet Pull",
+        "ability2": "Sturdy",
+        "abilityHidden": "Galvanize",
+        "aliases": ["golem-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Ponyta",
+        "dex": 77,
+        "type1": "Fire",
+        "ability1": "Run Away",
+        "ability2": "Flash Fire",
+        "abilityHidden": "Flame Body"
+    },
+    {
+        "name": "Rapidash",
+        "dex": 78,
+        "type1": "Fire",
+        "ability1": "Run Away",
+        "ability2": "Flash Fire",
+        "abilityHidden": "Flame Body"
+    },
+    {
+        "name": "Slowpoke",
+        "dex": 79,
+        "alola": 31,
+        "type1": "Water",
+        "type2": "Psychic",
+        "ability1": "Oblivious",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Slowbro",
+        "dex": 80,
+        "alola": 38,
+        "type1": "Water",
+        "type2": "Psychic",
+        "ability1": "Oblivious",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Magnemite",
+        "dex": 81,
+        "alola": 39,
+        "type1": "Electric",
+        "type2": "Steel",
+        "ability1": "Magnet Pull",
+        "ability2": "Sturdy",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Magneton",
+        "dex": 82,
+        "alola": 48,
+        "type1": "Electric",
+        "type2": "Steel",
+        "ability1": "Magnet Pull",
+        "ability2": "Sturdy",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Farfetch'd",
+        "dex": 83,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Doduo",
+        "dex": 84,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Run Away",
+        "ability2": "Early Bird",
+        "abilityHidden": "Tangled Feet"
+    },
+    {
+        "name": "Dodrio",
+        "dex": 85,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Run Away",
+        "ability2": "Early Bird",
+        "abilityHidden": "Tangled Feet"
+    },
+    {
+        "name": "Seel",
+        "dex": 86,
+        "type1": "Water",
+        "ability1": "Thick Fat",
+        "ability2": "Hydration",
+        "abilityHidden": "Ice Body"
+    },
+    {
+        "name": "Dewgong",
+        "dex": 87,
+        "type1": "Water",
+        "type2": "Ice",
+        "ability1": "Thick Fat",
+        "ability2": "Hydration",
+        "abilityHidden": "Ice Body"
+    },
+    {
+        "name": "Grimer",
+        "dex": 88,
+        "alola": 40,
+        "type1": "Poison",
+        "ability1": "Stench",
+        "ability2": "Sticky Hold",
+        "abilityHidden": "Poison Touch"
+    },
+    {
+        "name": "Muk",
+        "dex": 89,
+        "alola": 41,
+        "type1": "Poison",
+        "ability1": "Stench",
+        "ability2": "Sticky Hold",
+        "abilityHidden": "Poison Touch"
+    },
+    {
+        "name": "Alolan Grimer",
+        "dex": 88,
+        "alola": 40,
+        "type1": "Poison",
+        "type2": "Dark",
+        "ability1": "Poison Touch",
+        "ability2": "Gluttony",
+        "abilityHidden": "Power of Alchemy",
+        "aliases": ["grimer-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Alolan Muk",
+        "dex": 89,
+        "alola": 41,
+        "type1": "Poison",
+        "type2": "Dark",
+        "ability1": "Poison Touch",
+        "ability2": "Gluttony",
+        "abilityHidden": "Power of Alchemy",
+        "aliases": ["muk-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Shellder",
+        "dex": 90,
+        "alola": 115,
+        "type1": "Water",
+        "ability1": "Shell Armor",
+        "ability2": "Skill Link",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Cloyster",
+        "dex": 91,
+        "alola": 116,
+        "type1": "Water",
+        "type2": "Ice",
+        "ability1": "Shell Armor",
+        "ability2": "Skill Link",
+        "abilityHidden": "Overcoat"
+    },
+    { "name": "Gastly", "dex": 92, "alola": 49, "type1": "Ghost", "type2": "Poison", "ability1": "Levitate" },
+    { "name": "Haunter", "dex": 93, "alola": 50, "type1": "Ghost", "type2": "Poison", "ability1": "Levitate" },
+    { "name": "Gengar", "dex": 94, "alola": 51, "type1": "Ghost", "type2": "Poison", "ability1": "Cursed Body" },
+    {
+        "name": "Onix",
+        "dex": 95,
+        "type1": "Rock",
+        "type2": "Ground",
+        "ability1": "Rock Head",
+        "ability2": "Sturdy",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Drowzee",
+        "dex": 96,
+        "alola": 44,
+        "type1": "Psychic",
+        "ability1": "Insomnia",
+        "ability2": "Forewarn",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Hypno",
+        "dex": 97,
+        "alola": 45,
+        "type1": "Psychic",
+        "ability1": "Insomnia",
+        "ability2": "Forewarn",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Krabby",
+        "dex": 98,
+        "type1": "Water",
+        "ability1": "Hyper Cutter",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Kingler",
+        "dex": 99,
+        "type1": "Water",
+        "ability1": "Hyper Cutter",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Voltorb",
+        "dex": 100,
+        "type1": "Electric",
+        "ability1": "Soundproof",
+        "ability2": "Static",
+        "abilityHidden": "Aftermath"
+    },
+    {
+        "name": "Electrode",
+        "dex": 101,
+        "type1": "Electric",
+        "ability1": "Soundproof",
+        "ability2": "Static",
+        "abilityHidden": "Aftermath"
+    },
+    {
+        "name": "Exeggcute",
+        "dex": 102,
+        "alola": 269,
+        "type1": "Grass",
+        "type2": "Psychic",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Harvest"
+    },
+    {
+        "name": "Exeggutor",
+        "dex": 103,
+        "alola": 270,
+        "type1": "Grass",
+        "type2": "Psychic",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Harvest"
+    },
+    {
+        "name": "Alolan Exeggutor",
+        "dex": 103,
+        "alola": 270,
+        "type1": "Grass",
+        "type2": "Dragon",
+        "ability1": "Frisk",
+        "ability2": "None",
+        "abilityHidden": "Harvest",
+        "aliases": ["exeggutor-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Cubone",
+        "dex": 104,
+        "alola": 163,
+        "type1": "Ground",
+        "ability1": "Rock Head",
+        "ability2": "Lightning Rod",
+        "abilityHidden": "Battle Armor"
+    },
+    {
+        "name": "Marowak",
+        "dex": 105,
+        "alola": 164,
+        "type1": "Ground",
+        "ability1": "Rock Head",
+        "ability2": "Lightning Rod",
+        "abilityHidden": "Battle Armor"
+    },
+    {
+        "name": "Alolan Marowak",
+        "dex": 105,
+        "alola": 164,
+        "type1": "Fire",
+        "type2": "Ghost",
+        "ability1": "Rock Head",
+        "ability2": "Lightning Rod",
+        "abilityHidden": "Battle Armor",
+        "aliases": ["marowak-a"],
+        "imageSuffix": "a"
+    },
+    {
+        "name": "Hitmonlee",
+        "dex": 106,
+        "type1": "Fighting",
+        "ability1": "Limber",
+        "ability2": "Reckless",
+        "abilityHidden": "Unburden"
+    },
+    {
+        "name": "Hitmonchan",
+        "dex": 107,
+        "type1": "Fighting",
+        "ability1": "Keen Eye",
+        "ability2": "Iron Fist",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Lickitung",
+        "dex": 108,
+        "type1": "Normal",
+        "ability1": "Own Tempo",
+        "ability2": "Oblivious",
+        "abilityHidden": "Cloud Nine"
+    },
+    { "name": "Koffing", "dex": 109, "type1": "Poison", "ability1": "Levitate" },
+    { "name": "Weezing", "dex": 110, "type1": "Poison", "ability1": "Levitate" },
+    {
+        "name": "Rhyhorn",
+        "dex": 111,
+        "type1": "Ground",
+        "type2": "Rock",
+        "ability1": "Lightning Rod",
+        "ability2": "Rock Head",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Rhydon",
+        "dex": 112,
+        "type1": "Ground",
+        "type2": "Rock",
+        "ability1": "Lightning Rod",
+        "ability2": "Rock Head",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Chansey",
+        "dex": 113,
+        "alola": 27,
+        "type1": "Normal",
+        "ability1": "Natural Cure",
+        "ability2": "Serene Grace",
+        "abilityHidden": "Healer"
+    },
+    {
+        "name": "Tangela",
+        "dex": 114,
+        "type1": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Leaf Guard",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Kangaskhan",
+        "dex": 115,
+        "alola": 165,
+        "type1": "Normal",
+        "ability1": "Early Bird",
+        "ability2": "Scrappy",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Horsea",
+        "dex": 116,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Sniper",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Seadra",
+        "dex": 117,
+        "type1": "Water",
+        "ability1": "Poison Point",
+        "ability2": "Sniper",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Goldeen",
+        "dex": 118,
+        "alola": 153,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Water Veil",
+        "abilityHidden": "Lightning Rod"
+    },
+    {
+        "name": "Seaking",
+        "dex": 119,
+        "alola": 154,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Water Veil",
+        "abilityHidden": "Lightning Rod"
+    },
+    {
+        "name": "Staryu",
+        "dex": 120,
+        "alola": 184,
+        "type1": "Water",
+        "ability1": "Illuminate",
+        "ability2": "Natural Cure",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Starmie",
+        "dex": 121,
+        "alola": 185,
+        "type1": "Water",
+        "type2": "Psychic",
+        "ability1": "Illuminate",
+        "ability2": "Natural Cure",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Mr. Mime",
+        "dex": 122,
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "ability1": "Soundproof",
+        "ability2": "Filter",
+        "abilityHidden": "Technician"
+    },
+    {
+        "name": "Scyther",
+        "dex": 123,
+        "alola": 275,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Swarm",
+        "ability2": "Technician",
+        "abilityHidden": "Steadfast"
+    },
+    {
+        "name": "Jynx",
+        "dex": 124,
+        "type1": "Ice",
+        "type2": "Psychic",
+        "ability1": "Oblivious",
+        "ability2": "Forewarn",
+        "abilityHidden": "Dry Skin"
+    },
+    {
+        "name": "Electabuzz",
+        "dex": 125,
+        "alola": 227,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Vital Spirit"
+    },
+    {
+        "name": "Magmar",
+        "dex": 126,
+        "alola": 167,
+        "type1": "Fire",
+        "ability1": "Flame Body",
+        "ability2": "None",
+        "abilityHidden": "Vital Spirit"
+    },
+    {
+        "name": "Pinsir",
+        "dex": 127,
+        "alola": 175,
+        "type1": "Bug",
+        "ability1": "Hyper Cutter",
+        "ability2": "Mold Breaker",
+        "abilityHidden": "Moxie"
+    },
+    {
+        "name": "Tauros",
+        "dex": 128,
+        "alola": 137,
+        "type1": "Normal",
+        "ability1": "Intimidate",
+        "ability2": "Anger Point",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Magikarp",
+        "dex": 129,
+        "alola": 91,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "None",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Gyarados",
+        "dex": 130,
+        "alola": 92,
+        "type1": "Water",
+        "type2": "Flying",
+        "ability1": "Intimidate",
+        "ability2": "None",
+        "abilityHidden": "Moxie"
+    },
+    {
+        "name": "Lapras",
+        "dex": 131,
+        "alola": 268,
+        "type1": "Water",
+        "type2": "Ice",
+        "ability1": "Water Absorb",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Ditto",
+        "dex": 132,
+        "alola": 209,
+        "type1": "Normal",
+        "ability1": "Limber",
+        "ability2": "None",
+        "abilityHidden": "Imposter"
+    },
+    {
+        "name": "Eevee",
+        "dex": 133,
+        "alola": 123,
+        "type1": "Normal",
+        "ability1": "Run Away",
+        "ability2": "Adaptability",
+        "abilityHidden": "Anticipation"
+    },
+    {
+        "name": "Vaporeon",
+        "dex": 134,
+        "alola": 124,
+        "type1": "Water",
+        "ability1": "Water Absorb",
+        "ability2": "None",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Jolteon",
+        "dex": 135,
+        "alola": 125,
+        "type1": "Electric",
+        "ability1": "Volt Absorb",
+        "ability2": "None",
+        "abilityHidden": "Quick Feet"
+    },
+    {
+        "name": "Flareon",
+        "dex": 136,
+        "alola": 126,
+        "type1": "Fire",
+        "ability1": "Flash Fire",
+        "ability2": "None",
+        "abilityHidden": "Guts"
+    },
+    {
+        "name": "Porygon",
+        "dex": 137,
+        "alola": 219,
+        "type1": "Normal",
+        "ability1": "Trace",
+        "ability2": "Download",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Omanyte",
+        "dex": 138,
+        "type1": "Rock",
+        "type2": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Omastar",
+        "dex": 139,
+        "type1": "Rock",
+        "type2": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Kabuto",
+        "dex": 140,
+        "type1": "Rock",
+        "type2": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Battle Armor",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Kabutops",
+        "dex": 141,
+        "type1": "Rock",
+        "type2": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Battle Armor",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Aerodactyl",
+        "dex": 142,
+        "alola": 284,
+        "type1": "Rock",
+        "type2": "Flying",
+        "ability1": "Rock Head",
+        "ability2": "Pressure",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Snorlax",
+        "dex": 143,
+        "alola": 30,
+        "type1": "Normal",
+        "ability1": "Immunity",
+        "ability2": "Thick Fat",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Articuno",
+        "dex": 144,
+        "type1": "Ice",
+        "type2": "Flying",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Snow Cloak"
+    },
+    {
+        "name": "Zapdos",
+        "dex": 145,
+        "type1": "Electric",
+        "type2": "Flying",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Static"
+    },
+    {
+        "name": "Moltres",
+        "dex": 146,
+        "type1": "Fire",
+        "type2": "Flying",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Flame Body"
+    },
+    {
+        "name": "Dratini",
+        "dex": 147,
+        "alola": 281,
+        "type1": "Dragon",
+        "ability1": "Shed Skin",
+        "ability2": "None",
+        "abilityHidden": "Marvel Scale"
+    },
+    {
+        "name": "Dragonair",
+        "dex": 148,
+        "alola": 282,
+        "type1": "Dragon",
+        "ability1": "Shed Skin",
+        "ability2": "None",
+        "abilityHidden": "Marvel Scale"
+    },
+    {
+        "name": "Dragonite",
+        "dex": 149,
+        "alola": 283,
+        "type1": "Dragon",
+        "type2": "Flying",
+        "ability1": "Inner Focus",
+        "ability2": "None",
+        "abilityHidden": "Multiscale"
+    },
+    {
+        "name": "Mewtwo",
+        "dex": 150,
+        "type1": "Psychic",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Unnerve"
+    },
+    { "name": "Mew", "dex": 151, "type1": "Psychic", "ability1": "Synchronize" },
+    {
+        "name": "Chikorita",
+        "dex": 152,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Leaf Guard"
+    },
+    {
+        "name": "Bayleef",
+        "dex": 153,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Leaf Guard"
+    },
+    {
+        "name": "Meganium",
+        "dex": 154,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Leaf Guard"
+    },
+    {
+        "name": "Cyndaquil",
+        "dex": 155,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Flash Fire"
+    },
+    {
+        "name": "Quilava",
+        "dex": 156,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Flash Fire"
+    },
+    {
+        "name": "Typhlosion",
+        "dex": 157,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Flash Fire"
+    },
+    {
+        "name": "Totodile",
+        "dex": 158,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Croconaw",
+        "dex": 159,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Feraligatr",
+        "dex": 160,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Sentret",
+        "dex": 161,
+        "type1": "Normal",
+        "ability1": "Run Away",
+        "ability2": "Keen Eye",
+        "abilityHidden": "Frisk"
+    },
+    {
+        "name": "Furret",
+        "dex": 162,
+        "type1": "Normal",
+        "ability1": "Run Away",
+        "ability2": "Keen Eye",
+        "abilityHidden": "Frisk"
+    },
+    {
+        "name": "Hoothoot",
+        "dex": 163,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Insomnia",
+        "ability2": "Keen Eye",
+        "abilityHidden": "Tinted Lens"
+    },
+    {
+        "name": "Noctowl",
+        "dex": 164,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Insomnia",
+        "ability2": "Keen Eye",
+        "abilityHidden": "Tinted Lens"
+    },
+    {
+        "name": "Ledyba",
+        "dex": 165,
+        "alola": 16,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Swarm",
+        "ability2": "Early Bird",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Ledian",
+        "dex": 166,
+        "alola": 17,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Swarm",
+        "ability2": "Early Bird",
+        "abilityHidden": "Iron Fist"
+    },
+    {
+        "name": "Spinarak",
+        "dex": 167,
+        "alola": 18,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Swarm",
+        "ability2": "Insomnia",
+        "abilityHidden": "Sniper"
+    },
+    {
+        "name": "Ariados",
+        "dex": 168,
+        "alola": 19,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Swarm",
+        "ability2": "Insomnia",
+        "abilityHidden": "Sniper"
+    },
+    {
+        "name": "Crobat",
+        "dex": 169,
+        "alola": 56,
+        "type1": "Poison",
+        "type2": "Flying",
+        "ability1": "Inner Focus",
+        "ability2": "None",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Chinchou",
+        "dex": 170,
+        "alola": 201,
+        "type1": "Water",
+        "type2": "Electric",
+        "ability1": "Volt Absorb",
+        "ability2": "Illuminate",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Lanturn",
+        "dex": 171,
+        "alola": 202,
+        "type1": "Water",
+        "type2": "Electric",
+        "ability1": "Volt Absorb",
+        "ability2": "Illuminate",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Pichu",
+        "dex": 172,
+        "alola": 20,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Lightning Rod"
+    },
+    {
+        "name": "Cleffa",
+        "dex": 173,
+        "alola": 210,
+        "type1": "Fairy",
+        "ability1": "Cute Charm",
+        "ability2": "Magic Guard",
+        "abilityHidden": "Friend Guard"
+    },
+    {
+        "name": "Igglybuff",
+        "dex": 174,
+        "alola": 134,
+        "type1": "Normal",
+        "type2": "Fairy",
+        "ability1": "Cute Charm",
+        "ability2": "Competitive",
+        "abilityHidden": "Friend Guard"
+    },
+    {
+        "name": "Togepi",
+        "dex": 175,
+        "type1": "Fairy",
+        "ability1": "Hustle",
+        "ability2": "Serene Grace",
+        "abilityHidden": "Super Luck"
+    },
+    {
+        "name": "Togetic",
+        "dex": 176,
+        "type1": "Fairy",
+        "type2": "Flying",
+        "ability1": "Hustle",
+        "ability2": "Serene Grace",
+        "abilityHidden": "Super Luck"
+    },
+    {
+        "name": "Natu",
+        "dex": 177,
+        "type1": "Psychic",
+        "type2": "Flying",
+        "ability1": "Synchronize",
+        "ability2": "Early Bird",
+        "abilityHidden": "Magic Bounce"
+    },
+    {
+        "name": "Xatu",
+        "dex": 178,
+        "type1": "Psychic",
+        "type2": "Flying",
+        "ability1": "Synchronize",
+        "ability2": "Early Bird",
+        "abilityHidden": "Magic Bounce"
+    },
+    {
+        "name": "Mareep",
+        "dex": 179,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Plus"
+    },
+    {
+        "name": "Flaaffy",
+        "dex": 180,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Plus"
+    },
+    {
+        "name": "Ampharos",
+        "dex": 181,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Plus"
+    },
+    {
+        "name": "Bellossom",
+        "dex": 182,
+        "type1": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "None",
+        "abilityHidden": "Healer"
+    },
+    {
+        "name": "Marill",
+        "dex": 183,
+        "type1": "Water",
+        "type2": "Fairy",
+        "ability1": "Thick Fat",
+        "ability2": "Huge Power",
+        "abilityHidden": "Sap Sipper"
+    },
+    {
+        "name": "Azumarill",
+        "dex": 184,
+        "type1": "Water",
+        "type2": "Fairy",
+        "ability1": "Thick Fat",
+        "ability2": "Huge Power",
+        "abilityHidden": "Sap Sipper"
+    },
+    {
+        "name": "Sudowoodo",
+        "dex": 185,
+        "alola": 25,
+        "type1": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Rock Head",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Politoed",
+        "dex": 186,
+        "alola": 152,
+        "type1": "Water",
+        "ability1": "Water Absorb",
+        "ability2": "Damp",
+        "abilityHidden": "Drizzle"
+    },
+    {
+        "name": "Hoppip",
+        "dex": 187,
+        "type1": "Grass",
+        "type2": "Flying",
+        "ability1": "Chlorophyll",
+        "ability2": "Leaf Guard",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Skiploom",
+        "dex": 188,
+        "type1": "Grass",
+        "type2": "Flying",
+        "ability1": "Chlorophyll",
+        "ability2": "Leaf Guard",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Jumpluff",
+        "dex": 189,
+        "type1": "Grass",
+        "type2": "Flying",
+        "ability1": "Chlorophyll",
+        "ability2": "Leaf Guard",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Aipom",
+        "dex": 190,
+        "type1": "Normal",
+        "ability1": "Run Away",
+        "ability2": "Pickup",
+        "abilityHidden": "Skill Link"
+    },
+    {
+        "name": "Sunkern",
+        "dex": 191,
+        "type1": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Solar Power",
+        "abilityHidden": "Early Bird"
+    },
+    {
+        "name": "Sunflora",
+        "dex": 192,
+        "type1": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Solar Power",
+        "abilityHidden": "Early Bird"
+    },
+    {
+        "name": "Yanma",
+        "dex": 193,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Speed Boost",
+        "ability2": "Compound Eyes",
+        "abilityHidden": "Frisk"
+    },
+    {
+        "name": "Wooper",
+        "dex": 194,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Damp",
+        "ability2": "Water Absorb",
+        "abilityHidden": "Unaware"
+    },
+    {
+        "name": "Quagsire",
+        "dex": 195,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Damp",
+        "ability2": "Water Absorb",
+        "abilityHidden": "Unaware"
+    },
+    {
+        "name": "Espeon",
+        "dex": 196,
+        "alola": 127,
+        "type1": "Psychic",
+        "ability1": "Synchronize",
+        "ability2": "None",
+        "abilityHidden": "Magic Bounce"
+    },
+    {
+        "name": "Umbreon",
+        "dex": 197,
+        "alola": 128,
+        "type1": "Dark",
+        "ability1": "Synchronize",
+        "ability2": "None",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Murkrow",
+        "dex": 198,
+        "alola": 277,
+        "type1": "Dark",
+        "type2": "Flying",
+        "ability1": "Insomnia",
+        "ability2": "Super Luck",
+        "abilityHidden": "Prankster"
+    },
+    {
+        "name": "Slowking",
+        "dex": 199,
+        "alola": 39,
+        "type1": "Water",
+        "type2": "Psychic",
+        "ability1": "Oblivious",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Regenerator"
+    },
+    { "name": "Misdreavus", "dex": 200, "alola": 54, "type1": "Ghost", "ability1": "Levitate" },
+    { "name": "Unown", "dex": 201, "type1": "Psychic", "ability1": "Levitate" },
+    {
+        "name": "Wobbuffet",
+        "dex": 202,
+        "type1": "Psychic",
+        "ability1": "Shadow Tag",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Girafarig",
+        "dex": 203,
+        "type1": "Normal",
+        "type2": "Psychic",
+        "ability1": "Inner Focus",
+        "ability2": "Early Bird",
+        "abilityHidden": "Sap Sipper"
+    },
+    {
+        "name": "Pineco",
+        "dex": 204,
+        "type1": "Bug",
+        "ability1": "Sturdy",
+        "ability2": "None",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Forretress",
+        "dex": 205,
+        "type1": "Bug",
+        "type2": "Steel",
+        "ability1": "Sturdy",
+        "ability2": "None",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Dunsparce",
+        "dex": 206,
+        "type1": "Normal",
+        "ability1": "Serene Grace",
+        "ability2": "Run Away",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Gligar",
+        "dex": 207,
+        "type1": "Ground",
+        "type2": "Flying",
+        "ability1": "Hyper Cutter",
+        "ability2": "Sand Veil",
+        "abilityHidden": "Immunity"
+    },
+    {
+        "name": "Steelix",
+        "dex": 208,
+        "type1": "Steel",
+        "type2": "Ground",
+        "ability1": "Rock Head",
+        "ability2": "Sturdy",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Snubbull",
+        "dex": 209,
+        "alola": 258,
+        "type1": "Fairy",
+        "ability1": "Intimidate",
+        "ability2": "Run Away",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Granbull",
+        "dex": 210,
+        "alola": 259,
+        "type1": "Fairy",
+        "ability1": "Intimidate",
+        "ability2": "Quick Feet",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Qwilfish",
+        "dex": 211,
+        "type1": "Water",
+        "type2": "Poison",
+        "ability1": "Poison Point",
+        "ability2": "Swift Swim",
+        "abilityHidden": "Intimidate"
+    },
+    {
+        "name": "Scizor",
+        "dex": 212,
+        "alola": 276,
+        "type1": "Bug",
+        "type2": "Steel",
+        "ability1": "Swarm",
+        "ability2": "Technician",
+        "abilityHidden": "Light Metal"
+    },
+    {
+        "name": "Shuckle",
+        "dex": 213,
+        "type1": "Bug",
+        "type2": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Gluttony",
+        "abilityHidden": "Contrary"
+    },
+    {
+        "name": "Heracross",
+        "dex": 214,
+        "type1": "Bug",
+        "type2": "Fighting",
+        "ability1": "Swarm",
+        "ability2": "Guts",
+        "abilityHidden": "Moxie"
+    },
+    {
+        "name": "Sneasel",
+        "dex": 215,
+        "alola": 249,
+        "type1": "Dark",
+        "type2": "Ice",
+        "ability1": "Inner Focus",
+        "ability2": "Keen Eye",
+        "abilityHidden": "Pickpocket"
+    },
+    {
+        "name": "Teddiursa",
+        "dex": 216,
+        "type1": "Normal",
+        "ability1": "Pickup",
+        "ability2": "Quick Feet",
+        "abilityHidden": "Honey Gather"
+    },
+    {
+        "name": "Ursaring",
+        "dex": 217,
+        "type1": "Normal",
+        "ability1": "Guts",
+        "ability2": "Quick Feet",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Slugma",
+        "dex": 218,
+        "type1": "Fire",
+        "ability1": "Magma Armor",
+        "ability2": "Flame Body",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Magcargo",
+        "dex": 219,
+        "type1": "Fire",
+        "type2": "Rock",
+        "ability1": "Magma Armor",
+        "ability2": "Flame Body",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Swinub",
+        "dex": 220,
+        "type1": "Ice",
+        "type2": "Ground",
+        "ability1": "Oblivious",
+        "ability2": "Snow Cloak",
+        "abilityHidden": "Thick Fat"
+    },
+    {
+        "name": "Piloswine",
+        "dex": 221,
+        "type1": "Ice",
+        "type2": "Ground",
+        "ability1": "Oblivious",
+        "ability2": "Snow Cloak",
+        "abilityHidden": "Thick Fat"
+    },
+    {
+        "name": "Corsola",
+        "dex": 222,
+        "alola": 112,
+        "type1": "Water",
+        "type2": "Rock",
+        "ability1": "Hustle",
+        "ability2": "Natural Cure",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Remoraid",
+        "dex": 223,
+        "type1": "Water",
+        "ability1": "Hustle",
+        "ability2": "Sniper",
+        "abilityHidden": "Moody"
+    },
+    {
+        "name": "Octillery",
+        "dex": 224,
+        "type1": "Water",
+        "ability1": "Suction Cups",
+        "ability2": "Sniper",
+        "abilityHidden": "Moody"
+    },
+    {
+        "name": "Delibird",
+        "dex": 225,
+        "alola": 81,
+        "type1": "Ice",
+        "type2": "Flying",
+        "ability1": "Vital Spirit",
+        "ability2": "Hustle",
+        "abilityHidden": "Insomnia"
+    },
+    {
+        "name": "Mantine",
+        "dex": 226,
+        "type1": "Water",
+        "type2": "Flying",
+        "ability1": "Swift Swim",
+        "ability2": "Water Absorb",
+        "abilityHidden": "Water Veil"
+    },
+    {
+        "name": "Skarmory",
+        "dex": 227,
+        "alola": 208,
+        "type1": "Steel",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Sturdy",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Houndour",
+        "dex": 228,
+        "type1": "Dark",
+        "type2": "Fire",
+        "ability1": "Early Bird",
+        "ability2": "Flash Fire",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Houndoom",
+        "dex": 229,
+        "type1": "Dark",
+        "type2": "Fire",
+        "ability1": "Early Bird",
+        "ability2": "Flash Fire",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Kingdra",
+        "dex": 230,
+        "type1": "Water",
+        "type2": "Dragon",
+        "ability1": "Swift Swim",
+        "ability2": "Sniper",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Phanpy",
+        "dex": 231,
+        "type1": "Ground",
+        "ability1": "Pickup",
+        "ability2": "None",
+        "abilityHidden": "Sand Veil"
+    },
+    {
+        "name": "Donphan",
+        "dex": 232,
+        "type1": "Ground",
+        "ability1": "Sturdy",
+        "ability2": "None",
+        "abilityHidden": "Sand Veil"
+    },
+    {
+        "name": "Porygon2",
+        "dex": 233,
+        "alola": 218,
+        "type1": "Normal",
+        "ability1": "Trace",
+        "ability2": "Download",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Stantler",
+        "dex": 234,
+        "type1": "Normal",
+        "ability1": "Intimidate",
+        "ability2": "Frisk",
+        "abilityHidden": "Sap Sipper"
+    },
+    {
+        "name": "Smeargle",
+        "dex": 235,
+        "alola": 58,
+        "type1": "Normal",
+        "ability1": "Own Tempo",
+        "ability2": "Technician",
+        "abilityHidden": "Moody"
+    },
+    {
+        "name": "Tyrogue",
+        "dex": 236,
+        "type1": "Fighting",
+        "ability1": "Guts",
+        "ability2": "Steadfast",
+        "abilityHidden": "Vital Spirit"
+    },
+    {
+        "name": "Hitmontop",
+        "dex": 237,
+        "type1": "Fighting",
+        "ability1": "Intimidate",
+        "ability2": "Technician",
+        "abilityHidden": "Steadfast"
+    },
+    {
+        "name": "Smoochum",
+        "dex": 238,
+        "type1": "Ice",
+        "type2": "Psychic",
+        "ability1": "Oblivious",
+        "ability2": "Forewarn",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Elekid",
+        "dex": 239,
+        "alola": 226,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Vital Spirit"
+    },
+    {
+        "name": "Magby",
+        "dex": 240,
+        "alola": 166,
+        "type1": "Fire",
+        "ability1": "Flame Body",
+        "ability2": "None",
+        "abilityHidden": "Vital Spirit"
+    },
+    {
+        "name": "Miltank",
+        "dex": 241,
+        "alola": 138,
+        "type1": "Normal",
+        "ability1": "Thick Fat",
+        "ability2": "Scrappy",
+        "abilityHidden": "Sap Sipper"
+    },
+    {
+        "name": "Blissey",
+        "dex": 242,
+        "alola": 28,
+        "type1": "Normal",
+        "ability1": "Natural Cure",
+        "ability2": "Serene Grace",
+        "abilityHidden": "Healer"
+    },
+    {
+        "name": "Raikou",
+        "dex": 243,
+        "type1": "Electric",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Entei",
+        "dex": 244,
+        "type1": "Fire",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Suicune",
+        "dex": 245,
+        "type1": "Water",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Larvitar",
+        "dex": 246,
+        "type1": "Rock",
+        "type2": "Ground",
+        "ability1": "Guts",
+        "ability2": "None",
+        "abilityHidden": "Sand Veil"
+    },
+    { "name": "Pupitar", "dex": 247, "type1": "Rock", "type2": "Ground", "ability1": "Shed Skin" },
+    {
+        "name": "Tyranitar",
+        "dex": 248,
+        "type1": "Rock",
+        "type2": "Dark",
+        "ability1": "Sand Stream",
+        "ability2": "None",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Lugia",
+        "dex": 249,
+        "type1": "Psychic",
+        "type2": "Flying",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Multiscale"
+    },
+    {
+        "name": "Ho-oh",
+        "dex": 250,
+        "type1": "Fire",
+        "type2": "Flying",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Regenerator"
+    },
+    { "name": "Celebi", "dex": 251, "type1": "Psychic", "type2": "Grass", "ability1": "Natural Cure" },
+    {
+        "name": "Treecko",
+        "dex": 252,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Unburden"
+    },
+    {
+        "name": "Grovyle",
+        "dex": 253,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Unburden"
+    },
+    {
+        "name": "Sceptile",
+        "dex": 254,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Unburden"
+    },
+    {
+        "name": "Torchic",
+        "dex": 255,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Speed Boost"
+    },
+    {
+        "name": "Combusken",
+        "dex": 256,
+        "type1": "Fire",
+        "type2": "Fighting",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Speed Boost"
+    },
+    {
+        "name": "Blaziken",
+        "dex": 257,
+        "type1": "Fire",
+        "type2": "Fighting",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Speed Boost"
+    },
+    {
+        "name": "Mudkip",
+        "dex": 258,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Marshtomp",
+        "dex": 259,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Swampert",
+        "dex": 260,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Poochyena",
+        "dex": 261,
+        "type1": "Dark",
+        "ability1": "Run Away",
+        "ability2": "Quick Feet",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Mightyena",
+        "dex": 262,
+        "type1": "Dark",
+        "ability1": "Intimidate",
+        "ability2": "Quick Feet",
+        "abilityHidden": "Moxie"
+    },
+    {
+        "name": "Zigzagoon",
+        "dex": 263,
+        "type1": "Normal",
+        "ability1": "Pickup",
+        "ability2": "Gluttony",
+        "abilityHidden": "Quick Feet"
+    },
+    {
+        "name": "Linoone",
+        "dex": 264,
+        "type1": "Normal",
+        "ability1": "Pickup",
+        "ability2": "Gluttony",
+        "abilityHidden": "Quick Feet"
+    },
+    {
+        "name": "Wurmple",
+        "dex": 265,
+        "type1": "Bug",
+        "ability1": "Shield Dust",
+        "ability2": "None",
+        "abilityHidden": "Run Away"
+    },
+    { "name": "Silcoon", "dex": 266, "type1": "Bug", "ability1": "Shed Skin" },
+    {
+        "name": "Beautifly",
+        "dex": 267,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Swarm",
+        "ability2": "None",
+        "abilityHidden": "Rivalry"
+    },
+    { "name": "Cascoon", "dex": 268, "type1": "Bug", "ability1": "Shed Skin" },
+    {
+        "name": "Dustox",
+        "dex": 269,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Shield Dust",
+        "ability2": "None",
+        "abilityHidden": "Compound Eyes"
+    },
+    {
+        "name": "Lotad",
+        "dex": 270,
+        "type1": "Water",
+        "type2": "Grass",
+        "ability1": "Swift Swim",
+        "ability2": "Rain Dish",
+        "abilityHidden": "Own Tempo"
+    },
+    {
+        "name": "Lombre",
+        "dex": 271,
+        "type1": "Water",
+        "type2": "Grass",
+        "ability1": "Swift Swim",
+        "ability2": "Rain Dish",
+        "abilityHidden": "Own Tempo"
+    },
+    {
+        "name": "Ludicolo",
+        "dex": 272,
+        "type1": "Water",
+        "type2": "Grass",
+        "ability1": "Swift Swim",
+        "ability2": "Rain Dish",
+        "abilityHidden": "Own Tempo"
+    },
+    {
+        "name": "Seedot",
+        "dex": 273,
+        "type1": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Early Bird",
+        "abilityHidden": "Pickpocket"
+    },
+    {
+        "name": "Nuzleaf",
+        "dex": 274,
+        "type1": "Grass",
+        "type2": "Dark",
+        "ability1": "Chlorophyll",
+        "ability2": "Early Bird",
+        "abilityHidden": "Pickpocket"
+    },
+    {
+        "name": "Shiftry",
+        "dex": 275,
+        "type1": "Grass",
+        "type2": "Dark",
+        "ability1": "Chlorophyll",
+        "ability2": "Early Bird",
+        "abilityHidden": "Pickpocket"
+    },
+    {
+        "name": "Taillow",
+        "dex": 276,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Guts",
+        "ability2": "None",
+        "abilityHidden": "Scrappy"
+    },
+    {
+        "name": "Swellow",
+        "dex": 277,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Guts",
+        "ability2": "None",
+        "abilityHidden": "Scrappy"
+    },
+    {
+        "name": "Wingull",
+        "dex": 278,
+        "alola": 32,
+        "type1": "Water",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Hydration",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Pelipper",
+        "dex": 279,
+        "alola": 33,
+        "type1": "Water",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Drizzle",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Ralts",
+        "dex": 280,
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "ability1": "Synchronize",
+        "ability2": "Trace",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Kirlia",
+        "dex": 281,
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "ability1": "Synchronize",
+        "ability2": "Trace",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Gardevoir",
+        "dex": 282,
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "ability1": "Synchronize",
+        "ability2": "Trace",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Surskit",
+        "dex": 283,
+        "alola": 139,
+        "type1": "Bug",
+        "type2": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "None",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Masquerain",
+        "dex": 284,
+        "alola": 140,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Intimidate",
+        "ability2": "None",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Shroomish",
+        "dex": 285,
+        "type1": "Grass",
+        "ability1": "Effect Spore",
+        "ability2": "Poison Heal",
+        "abilityHidden": "Quick Feet"
+    },
+    {
+        "name": "Breloom",
+        "dex": 286,
+        "type1": "Grass",
+        "type2": "Fighting",
+        "ability1": "Effect Spore",
+        "ability2": "Poison Heal",
+        "abilityHidden": "Technician"
+    },
+    { "name": "Slakoth", "dex": 287, "type1": "Normal", "ability1": "Truant" },
+    { "name": "Vigoroth", "dex": 288, "type1": "Normal", "ability1": "Vital Spirit" },
+    { "name": "Slaking", "dex": 289, "type1": "Normal", "ability1": "Truant" },
+    {
+        "name": "Nincada",
+        "dex": 290,
+        "type1": "Bug",
+        "type2": "Ground",
+        "ability1": "Compound Eyes",
+        "ability2": "None",
+        "abilityHidden": "Run Away"
+    },
+    {
+        "name": "Ninjask",
+        "dex": 291,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Speed Boost",
+        "ability2": "None",
+        "abilityHidden": "Infiltrator"
+    },
+    { "name": "Shedinja", "dex": 292, "type1": "Bug", "type2": "Ghost", "ability1": "Wonder Guard" },
+    {
+        "name": "Whismur",
+        "dex": 293,
+        "type1": "Normal",
+        "ability1": "Soundproof",
+        "ability2": "None",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Loudred",
+        "dex": 294,
+        "type1": "Normal",
+        "ability1": "Soundproof",
+        "ability2": "None",
+        "abilityHidden": "Scrappy"
+    },
+    {
+        "name": "Exploud",
+        "dex": 295,
+        "type1": "Normal",
+        "ability1": "Soundproof",
+        "ability2": "None",
+        "abilityHidden": "Scrappy"
+    },
+    {
+        "name": "Makuhita",
+        "dex": 296,
+        "alola": 46,
+        "type1": "Fighting",
+        "ability1": "Thick Fat",
+        "ability2": "Guts",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Hariyama",
+        "dex": 297,
+        "alola": 47,
+        "type1": "Fighting",
+        "ability1": "Thick Fat",
+        "ability2": "Guts",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Azurill",
+        "dex": 298,
+        "type1": "Normal",
+        "type2": "Fairy",
+        "ability1": "Thick Fat",
+        "ability2": "Huge Power",
+        "abilityHidden": "Sap Sipper"
+    },
+    {
+        "name": "Nosepass",
+        "dex": 299,
+        "alola": 198,
+        "type1": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Magnet Pull",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Skitty",
+        "dex": 300,
+        "type1": "Normal",
+        "ability1": "Cute Charm",
+        "ability2": "Normalize",
+        "abilityHidden": "Wonder Skin"
+    },
+    {
+        "name": "Delcatty",
+        "dex": 301,
+        "type1": "Normal",
+        "ability1": "Cute Charm",
+        "ability2": "Normalize",
+        "abilityHidden": "Wonder Skin"
+    },
+    {
+        "name": "Sableye",
+        "dex": 302,
+        "alola": 102,
+        "type1": "Dark",
+        "type2": "Ghost",
+        "ability1": "Keen Eye",
+        "ability2": "Stall",
+        "abilityHidden": "Prankster"
+    },
+    {
+        "name": "Mawile",
+        "dex": 303,
+        "type1": "Steel",
+        "type2": "Fairy",
+        "ability1": "Hyper Cutter",
+        "ability2": "Intimidate",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Aron",
+        "dex": 304,
+        "type1": "Steel",
+        "type2": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Rock Head",
+        "abilityHidden": "Heavy Metal"
+    },
+    {
+        "name": "Lairon",
+        "dex": 305,
+        "type1": "Steel",
+        "type2": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Rock Head",
+        "abilityHidden": "Heavy Metal"
+    },
+    {
+        "name": "Aggron",
+        "dex": 306,
+        "type1": "Steel",
+        "type2": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Rock Head",
+        "abilityHidden": "Heavy Metal"
+    },
+    {
+        "name": "Meditite",
+        "dex": 307,
+        "type1": "Fighting",
+        "type2": "Psychic",
+        "ability1": "Pure Power",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Medicham",
+        "dex": 308,
+        "type1": "Fighting",
+        "type2": "Psychic",
+        "ability1": "Pure Power",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Electrike",
+        "dex": 309,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "Lightning Rod",
+        "abilityHidden": "Minus"
+    },
+    {
+        "name": "Manectric",
+        "dex": 310,
+        "type1": "Electric",
+        "ability1": "Static",
+        "ability2": "Lightning Rod",
+        "abilityHidden": "Minus"
+    },
+    {
+        "name": "Plusle",
+        "dex": 311,
+        "type1": "Electric",
+        "ability1": "Plus",
+        "ability2": "None",
+        "abilityHidden": "Lightning Rod"
+    },
+    {
+        "name": "Minun",
+        "dex": 312,
+        "type1": "Electric",
+        "ability1": "Minus",
+        "ability2": "None",
+        "abilityHidden": "Volt Absorb"
+    },
+    {
+        "name": "Volbeat",
+        "dex": 313,
+        "type1": "Bug",
+        "ability1": "Illuminate",
+        "ability2": "Swarm",
+        "abilityHidden": "Prankster"
+    },
+    {
+        "name": "Illumise",
+        "dex": 314,
+        "type1": "Bug",
+        "ability1": "Oblivious",
+        "ability2": "Tinted Lens",
+        "abilityHidden": "Prankster"
+    },
+    {
+        "name": "Roselia",
+        "dex": 315,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Natural Cure",
+        "ability2": "Poison Point",
+        "abilityHidden": "Leaf Guard"
+    },
+    {
+        "name": "Gulpin",
+        "dex": 316,
+        "type1": "Poison",
+        "ability1": "Liquid Ooze",
+        "ability2": "Sticky Hold",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Swalot",
+        "dex": 317,
+        "type1": "Poison",
+        "ability1": "Liquid Ooze",
+        "ability2": "Sticky Hold",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Carvanha",
+        "dex": 318,
+        "alola": 264,
+        "type1": "Water",
+        "type2": "Dark",
+        "ability1": "Rough Skin",
+        "ability2": "None",
+        "abilityHidden": "Speed Boost"
+    },
+    {
+        "name": "Sharpedo",
+        "dex": 319,
+        "alola": 265,
+        "type1": "Water",
+        "type2": "Dark",
+        "ability1": "Rough Skin",
+        "ability2": "None",
+        "abilityHidden": "Speed Boost"
+    },
+    {
+        "name": "Wailmer",
+        "dex": 320,
+        "alola": 266,
+        "type1": "Water",
+        "ability1": "Water Veil",
+        "ability2": "Oblivious",
+        "abilityHidden": "Pressure"
+    },
+    {
+        "name": "Wailord",
+        "dex": 321,
+        "alola": 267,
+        "type1": "Water",
+        "ability1": "Water Veil",
+        "ability2": "Oblivious",
+        "abilityHidden": "Pressure"
+    },
+    {
+        "name": "Numel",
+        "dex": 322,
+        "type1": "Fire",
+        "type2": "Ground",
+        "ability1": "Oblivious",
+        "ability2": "Simple",
+        "abilityHidden": "Own Tempo"
+    },
+    {
+        "name": "Camerupt",
+        "dex": 323,
+        "type1": "Fire",
+        "type2": "Ground",
+        "ability1": "Magma Armor",
+        "ability2": "Solid Rock",
+        "abilityHidden": "Anger Point"
+    },
+    {
+        "name": "Torkoal",
+        "dex": 324,
+        "alola": 223,
+        "type1": "Fire",
+        "ability1": "White Smoke",
+        "ability2": "Drought",
+        "abilityHidden": "Shell Armor"
+    },
+    {
+        "name": "Spoink",
+        "dex": 325,
+        "type1": "Psychic",
+        "ability1": "Thick Fat",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Grumpig",
+        "dex": 326,
+        "type1": "Psychic",
+        "ability1": "Thick Fat",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Spinda",
+        "dex": 327,
+        "alola": 105,
+        "type1": "Normal",
+        "ability1": "Own Tempo",
+        "ability2": "Tangled Feet",
+        "abilityHidden": "Contrary"
+    },
+    {
+        "name": "Trapinch",
+        "dex": 328,
+        "alola": 235,
+        "type1": "Ground",
+        "ability1": "Hyper Cutter",
+        "ability2": "Arena Trap",
+        "abilityHidden": "Sheer Force"
+    },
+    { "name": "Vibrava", "dex": 329, "alola": 236, "type1": "Ground", "type2": "Dragon", "ability1": "Levitate" },
+    { "name": "Flygon", "dex": 330, "alola": 237, "type1": "Ground", "type2": "Dragon", "ability1": "Levitate" },
+    {
+        "name": "Cacnea",
+        "dex": 331,
+        "type1": "Grass",
+        "ability1": "Sand Veil",
+        "ability2": "None",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Cacturne",
+        "dex": 332,
+        "type1": "Grass",
+        "type2": "Dark",
+        "ability1": "Sand Veil",
+        "ability2": "None",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Swablu",
+        "dex": 333,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Natural Cure",
+        "ability2": "None",
+        "abilityHidden": "Cloud Nine"
+    },
+    {
+        "name": "Altaria",
+        "dex": 334,
+        "type1": "Dragon",
+        "type2": "Flying",
+        "ability1": "Natural Cure",
+        "ability2": "None",
+        "abilityHidden": "Cloud Nine"
+    },
+    {
+        "name": "Zangoose",
+        "dex": 335,
+        "type1": "Normal",
+        "ability1": "Immunity",
+        "ability2": "None",
+        "abilityHidden": "Toxic Boost"
+    },
+    {
+        "name": "Seviper",
+        "dex": 336,
+        "type1": "Poison",
+        "ability1": "Shed Skin",
+        "ability2": "None",
+        "abilityHidden": "Infiltrator"
+    },
+    { "name": "Lunatone", "dex": 337, "type1": "Rock", "type2": "Psychic", "ability1": "Levitate" },
+    { "name": "Solrock", "dex": 338, "type1": "Rock", "type2": "Psychic", "ability1": "Levitate" },
+    {
+        "name": "Barboach",
+        "dex": 339,
+        "alola": 93,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Oblivious",
+        "ability2": "Anticipation",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Whiscash",
+        "dex": 340,
+        "alola": 94,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Oblivious",
+        "ability2": "Anticipation",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Corphish",
+        "dex": 341,
+        "type1": "Water",
+        "ability1": "Hyper Cutter",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Adaptability"
+    },
+    {
+        "name": "Crawdaunt",
+        "dex": 342,
+        "type1": "Water",
+        "type2": "Dark",
+        "ability1": "Hyper Cutter",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Adaptability"
+    },
+    { "name": "Baltoy", "dex": 343, "type1": "Ground", "type2": "Psychic", "ability1": "Levitate" },
+    { "name": "Claydol", "dex": 344, "type1": "Ground", "type2": "Psychic", "ability1": "Levitate" },
+    {
+        "name": "Lileep",
+        "dex": 345,
+        "type1": "Rock",
+        "type2": "Grass",
+        "ability1": "Suction Cups",
+        "ability2": "None",
+        "abilityHidden": "Storm Drain"
+    },
+    {
+        "name": "Cradily",
+        "dex": 346,
+        "type1": "Rock",
+        "type2": "Grass",
+        "ability1": "Suction Cups",
+        "ability2": "None",
+        "abilityHidden": "Storm Drain"
+    },
+    {
+        "name": "Anorith",
+        "dex": 347,
+        "type1": "Rock",
+        "type2": "Bug",
+        "ability1": "Battle Armor",
+        "ability2": "None",
+        "abilityHidden": "Swift Swim"
+    },
+    {
+        "name": "Armaldo",
+        "dex": 348,
+        "type1": "Rock",
+        "type2": "Bug",
+        "ability1": "Battle Armor",
+        "ability2": "None",
+        "abilityHidden": "Swift Swim"
+    },
+    {
+        "name": "Feebas",
+        "dex": 349,
+        "alola": 155,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Oblivious",
+        "abilityHidden": "Adaptability"
+    },
+    {
+        "name": "Milotic",
+        "dex": 350,
+        "alola": 156,
+        "type1": "Water",
+        "ability1": "Marvel Scale",
+        "ability2": "Competitive",
+        "abilityHidden": "Cute Charm"
+    },
+    {
+        "name": "Castform",
+        "dex": 351,
+        "alola": 181,
+        "type1": "Normal",
+        "ability1": "Forecast",
+        "aliases": ["castform rainy", "castform water"]
+    },
+    {
+        "name": "Castform Sunny",
+        "dex": 351,
+        "type1": "Fire",
+        "ability1": "Forecast",
+        "imageSuffix": "s",
+        "aliases": ["castform fire"]
+    },
+    {
+        "name": "Castform Snowy",
+        "dex": 351,
+        "type1": "Ice",
+        "ability1": "Forecast",
+        "imageSuffix": "i",
+        "aliases": ["castform ice"]
+    },
+    {
+        "name": "Kecleon",
+        "dex": 352,
+        "type1": "Normal",
+        "ability1": "Color Change",
+        "ability2": "None",
+        "abilityHidden": "Protean"
+    },
+    {
+        "name": "Shuppet",
+        "dex": 353,
+        "type1": "Ghost",
+        "ability1": "Insomnia",
+        "ability2": "Frisk",
+        "abilityHidden": "Cursed Body"
+    },
+    {
+        "name": "Banette",
+        "dex": 354,
+        "type1": "Ghost",
+        "ability1": "Insomnia",
+        "ability2": "Frisk",
+        "abilityHidden": "Cursed Body"
+    },
+    {
+        "name": "Duskull",
+        "dex": 355,
+        "type1": "Ghost",
+        "ability1": "Levitate",
+        "ability2": "None",
+        "abilityHidden": "Frisk"
+    },
+    {
+        "name": "Dusclops",
+        "dex": 356,
+        "type1": "Ghost",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Frisk"
+    },
+    {
+        "name": "Tropius",
+        "dex": 357,
+        "type1": "Grass",
+        "type2": "Flying",
+        "ability1": "Chlorophyll",
+        "ability2": "Solar Power",
+        "abilityHidden": "Harvest"
+    },
+    { "name": "Chimecho", "dex": 358, "type1": "Psychic", "ability1": "Levitate" },
+    {
+        "name": "Absol",
+        "dex": 359,
+        "alola": 245,
+        "type1": "Dark",
+        "ability1": "Pressure",
+        "ability2": "Super Luck",
+        "abilityHidden": "Justified"
+    },
+    {
+        "name": "Wynaut",
+        "dex": 360,
+        "type1": "Psychic",
+        "ability1": "Shadow Tag",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Snorunt",
+        "dex": 361,
+        "alola": 246,
+        "type1": "Ice",
+        "ability1": "Inner Focus",
+        "ability2": "Ice Body",
+        "abilityHidden": "Moody"
+    },
+    {
+        "name": "Glalie",
+        "dex": 362,
+        "alola": 247,
+        "type1": "Ice",
+        "ability1": "Inner Focus",
+        "ability2": "Ice Body",
+        "abilityHidden": "Moody"
+    },
+    {
+        "name": "Spheal",
+        "dex": 363,
+        "type1": "Ice",
+        "type2": "Water",
+        "ability1": "Thick Fat",
+        "ability2": "Ice Body",
+        "abilityHidden": "Oblivious"
+    },
+    {
+        "name": "Sealeo",
+        "dex": 364,
+        "type1": "Ice",
+        "type2": "Water",
+        "ability1": "Thick Fat",
+        "ability2": "Ice Body",
+        "abilityHidden": "Oblivious"
+    },
+    {
+        "name": "Walrein",
+        "dex": 365,
+        "type1": "Ice",
+        "type2": "Water",
+        "ability1": "Thick Fat",
+        "ability2": "Ice Body",
+        "abilityHidden": "Oblivious"
+    },
+    {
+        "name": "Clamperl",
+        "dex": 366,
+        "type1": "Water",
+        "ability1": "Shell Armor",
+        "ability2": "None",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Huntail",
+        "dex": 367,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "None",
+        "abilityHidden": "Water Veil"
+    },
+    {
+        "name": "Gorebyss",
+        "dex": 368,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "None",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Relicanth",
+        "dex": 369,
+        "alola": 262,
+        "type1": "Water",
+        "type2": "Rock",
+        "ability1": "Swift Swim",
+        "ability2": "Rock Head",
+        "abilityHidden": "Sturdy"
+    },
+    {
+        "name": "Luvdisc",
+        "dex": 370,
+        "alola": 111,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "None",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Bagon",
+        "dex": 371,
+        "alola": 117,
+        "type1": "Dragon",
+        "ability1": "Rock Head",
+        "ability2": "None",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Shelgon",
+        "dex": 372,
+        "alola": 118,
+        "type1": "Dragon",
+        "ability1": "Rock Head",
+        "ability2": "None",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Salamence",
+        "dex": 373,
+        "alola": 119,
+        "type1": "Dragon",
+        "type2": "Flying",
+        "ability1": "Intimidate",
+        "ability2": "None",
+        "abilityHidden": "Moxie"
+    },
+    {
+        "name": "Beldum",
+        "dex": 374,
+        "alola": 214,
+        "type1": "Steel",
+        "type2": "Psychic",
+        "ability1": "Clear Body",
+        "ability2": "None",
+        "abilityHidden": "Light Metal"
+    },
+    {
+        "name": "Metang",
+        "dex": 375,
+        "alola": 215,
+        "type1": "Steel",
+        "type2": "Psychic",
+        "ability1": "Clear Body",
+        "ability2": "None",
+        "abilityHidden": "Light Metal"
+    },
+    {
+        "name": "Metagross",
+        "dex": 376,
+        "alola": 216,
+        "type1": "Steel",
+        "type2": "Psychic",
+        "ability1": "Clear Body",
+        "ability2": "None",
+        "abilityHidden": "Light Metal"
+    },
+    {
+        "name": "Regirock",
+        "dex": 377,
+        "type1": "Rock",
+        "ability1": "Clear Body",
+        "ability2": "None",
+        "abilityHidden": "Sturdy"
+    },
+    {
+        "name": "Regice",
+        "dex": 378,
+        "type1": "Ice",
+        "ability1": "Clear Body",
+        "ability2": "None",
+        "abilityHidden": "Ice Body"
+    },
+    {
+        "name": "Registeel",
+        "dex": 379,
+        "type1": "Steel",
+        "ability1": "Clear Body",
+        "ability2": "None",
+        "abilityHidden": "Light Metal"
+    },
+    { "name": "Latias", "dex": 380, "type1": "Dragon", "type2": "Psychic", "ability1": "Levitate" },
+    { "name": "Latios", "dex": 381, "type1": "Dragon", "type2": "Psychic", "ability1": "Levitate" },
+    { "name": "Kyogre", "dex": 382, "type1": "Water", "ability1": "Drizzle" },
+    { "name": "Primal Kyogre", "dex": 382, "type1": "Water", "ability1": "Primordial Sea", "imageSuffix": "m" },
+    { "name": "Groudon", "dex": 383, "type1": "Ground", "ability1": "Drought" },
+    {
+        "name": "Primal Groudon",
+        "dex": 383,
+        "type1": "Ground",
+        "type2": "Fire",
+        "ability1": "Desolate Land",
+        "imageSuffix": "m"
+    },
+    { "name": "Rayquaza", "dex": 384, "type1": "Dragon", "type2": "Flying", "ability1": "Air Lock" },
+    { "name": "Jirachi", "dex": 385, "type1": "Steel", "type2": "Psychic", "ability1": "Serene Grace" },
+    { "name": "Deoxys", "dex": 386, "type1": "Psychic", "ability1": "Pressure" },
+    {
+        "name": "Turtwig",
+        "dex": 387,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Shell Armor"
+    },
+    {
+        "name": "Grotle",
+        "dex": 388,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Shell Armor"
+    },
+    {
+        "name": "Torterra",
+        "dex": 389,
+        "type1": "Grass",
+        "type2": "Ground",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Shell Armor"
+    },
+    {
+        "name": "Chimchar",
+        "dex": 390,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Iron Fist"
+    },
+    {
+        "name": "Monferno",
+        "dex": 391,
+        "type1": "Fire",
+        "type2": "Fighting",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Iron Fist"
+    },
+    {
+        "name": "Infernape",
+        "dex": 392,
+        "type1": "Fire",
+        "type2": "Fighting",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Iron Fist"
+    },
+    {
+        "name": "Piplup",
+        "dex": 393,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Prinplup",
+        "dex": 394,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Empoleon",
+        "dex": 395,
+        "type1": "Water",
+        "type2": "Steel",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Starly",
+        "dex": 396,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "None",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Staravia",
+        "dex": 397,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Intimidate",
+        "ability2": "None",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Staraptor",
+        "dex": 398,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Intimidate",
+        "ability2": "None",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Bidoof",
+        "dex": 399,
+        "type1": "Normal",
+        "ability1": "Simple",
+        "ability2": "Unaware",
+        "abilityHidden": "Moody"
+    },
+    {
+        "name": "Bibarel",
+        "dex": 400,
+        "type1": "Normal",
+        "type2": "Water",
+        "ability1": "Simple",
+        "ability2": "Unaware",
+        "abilityHidden": "Moody"
+    },
+    {
+        "name": "Kricketot",
+        "dex": 401,
+        "type1": "Bug",
+        "ability1": "Shed Skin",
+        "ability2": "None",
+        "abilityHidden": "Run Away"
+    },
+    {
+        "name": "Kricketune",
+        "dex": 402,
+        "type1": "Bug",
+        "ability1": "Swarm",
+        "ability2": "None",
+        "abilityHidden": "Technician"
+    },
+    {
+        "name": "Shinx",
+        "dex": 403,
+        "type1": "Electric",
+        "ability1": "Rivalry",
+        "ability2": "Intimidate",
+        "abilityHidden": "Guts"
+    },
+    {
+        "name": "Luxio",
+        "dex": 404,
+        "type1": "Electric",
+        "ability1": "Rivalry",
+        "ability2": "Intimidate",
+        "abilityHidden": "Guts"
+    },
+    {
+        "name": "Luxray",
+        "dex": 405,
+        "type1": "Electric",
+        "ability1": "Rivalry",
+        "ability2": "Intimidate",
+        "abilityHidden": "Guts"
+    },
+    {
+        "name": "Budew",
+        "dex": 406,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Natural Cure",
+        "ability2": "Poison Point",
+        "abilityHidden": "Leaf Guard"
+    },
+    {
+        "name": "Roserade",
+        "dex": 407,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Natural Cure",
+        "ability2": "Poison Point",
+        "abilityHidden": "Technician"
+    },
+    {
+        "name": "Cranidos",
+        "dex": 408,
+        "alola": 188,
+        "type1": "Rock",
+        "ability1": "Mold Breaker",
+        "ability2": "None",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Rampardos",
+        "dex": 409,
+        "alola": 189,
+        "type1": "Rock",
+        "ability1": "Mold Breaker",
+        "ability2": "None",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Shieldon",
+        "dex": 410,
+        "alola": 190,
+        "type1": "Rock",
+        "type2": "Steel",
+        "ability1": "Sturdy",
+        "ability2": "None",
+        "abilityHidden": "Soundproof"
+    },
+    {
+        "name": "Bastiodon",
+        "dex": 411,
+        "alola": 191,
+        "type1": "Rock",
+        "type2": "Steel",
+        "ability1": "Sturdy",
+        "ability2": "None",
+        "abilityHidden": "Soundproof"
+    },
+    {
+        "name": "Burmy",
+        "dex": 412,
+        "type1": "Bug",
+        "ability1": "Shed Skin",
+        "ability2": "None",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Wormadam",
+        "dex": 413,
+        "type1": "Bug",
+        "type2": "Grass",
+        "ability1": "Anticipation",
+        "ability2": "None",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Wormadam Sandy",
+        "dex": 413,
+        "type1": "Bug",
+        "type2": "Ground",
+        "ability1": "Anticipation",
+        "ability2": "None",
+        "abilityHidden": "Overcoat",
+        "imageSuffix": "c",
+        "aliases": ["wormadam ground"]
+    },
+    {
+        "name": "Wormadam Trash",
+        "dex": 413,
+        "type1": "Bug",
+        "type2": "Steel",
+        "ability1": "Anticipation",
+        "ability2": "None",
+        "abilityHidden": "Overcoat",
+        "imageSuffix": "s",
+        "aliases": ["wormadam steel"]
+    },
+    {
+        "name": "Mothim",
+        "dex": 414,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Swarm",
+        "ability2": "None",
+        "abilityHidden": "Tinted Lens"
+    },
+    {
+        "name": "Combee",
+        "dex": 415,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Honey Gather",
+        "ability2": "None",
+        "abilityHidden": "Hustle"
+    },
+    {
+        "name": "Vespiquen",
+        "dex": 416,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Pachirisu",
+        "dex": 417,
+        "type1": "Electric",
+        "ability1": "Run Away",
+        "ability2": "Pickup",
+        "abilityHidden": "Volt Absorb"
+    },
+    {
+        "name": "Buizel",
+        "dex": 418,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "None",
+        "abilityHidden": "Water Veil"
+    },
+    {
+        "name": "Floatzel",
+        "dex": 419,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "None",
+        "abilityHidden": "Water Veil"
+    },
+    { "name": "Cherubi", "dex": 420, "type1": "Grass", "ability1": "Chlorophyll" },
+    { "name": "Cherrim", "dex": 421, "type1": "Grass", "ability1": "Flower Gift" },
+    {
+        "name": "Shellos",
+        "dex": 422,
+        "alola": 260,
+        "type1": "Water",
+        "ability1": "Sticky Hold",
+        "ability2": "Storm Drain",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Gastrodon",
+        "dex": 423,
+        "alola": 261,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Sticky Hold",
+        "ability2": "Storm Drain",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Ambipom",
+        "dex": 424,
+        "type1": "Normal",
+        "ability1": "Technician",
+        "ability2": "Pickup",
+        "abilityHidden": "Skill Link"
+    },
+    {
+        "name": "Drifloon",
+        "dex": 425,
+        "alola": 52,
+        "type1": "Ghost",
+        "type2": "Flying",
+        "ability1": "Aftermath",
+        "ability2": "Unburden",
+        "abilityHidden": "Flare Boost"
+    },
+    {
+        "name": "Drifblim",
+        "dex": 426,
+        "alola": 53,
+        "type1": "Ghost",
+        "type2": "Flying",
+        "ability1": "Aftermath",
+        "ability2": "Unburden",
+        "abilityHidden": "Flare Boost"
+    },
+    {
+        "name": "Buneary",
+        "dex": 427,
+        "type1": "Normal",
+        "ability1": "Run Away",
+        "ability2": "Klutz",
+        "abilityHidden": "Limber"
+    },
+    {
+        "name": "Lopunny",
+        "dex": 428,
+        "type1": "Normal",
+        "ability1": "Cute Charm",
+        "ability2": "Klutz",
+        "abilityHidden": "Limber"
+    },
+    { "name": "Mismagius", "dex": 429, "alola": 55, "type1": "Ghost", "ability1": "Levitate" },
+    {
+        "name": "Honchkrow",
+        "dex": 430,
+        "alola": 278,
+        "type1": "Dark",
+        "type2": "Flying",
+        "ability1": "Insomnia",
+        "ability2": "Super Luck",
+        "abilityHidden": "Moxie"
+    },
+    {
+        "name": "Glameow",
+        "dex": 431,
+        "type1": "Normal",
+        "ability1": "Limber",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Keen Eye"
+    },
+    {
+        "name": "Purugly",
+        "dex": 432,
+        "type1": "Normal",
+        "ability1": "Thick Fat",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Defiant"
+    },
+    { "name": "Chingling", "dex": 433, "type1": "Psychic", "ability1": "Levitate" },
+    {
+        "name": "Stunky",
+        "dex": 434,
+        "type1": "Poison",
+        "type2": "Dark",
+        "ability1": "Stench",
+        "ability2": "Aftermath",
+        "abilityHidden": "Keen Eye"
+    },
+    {
+        "name": "Skuntank",
+        "dex": 435,
+        "type1": "Poison",
+        "type2": "Dark",
+        "ability1": "Stench",
+        "ability2": "Aftermath",
+        "abilityHidden": "Keen Eye"
+    },
+    {
+        "name": "Bronzor",
+        "dex": 436,
+        "type1": "Steel",
+        "type2": "Psychic",
+        "ability1": "Levitate",
+        "ability2": "Heatproof",
+        "abilityHidden": "Heavy Metal"
+    },
+    {
+        "name": "Bronzong",
+        "dex": 437,
+        "type1": "Steel",
+        "type2": "Psychic",
+        "ability1": "Levitate",
+        "ability2": "Heatproof",
+        "abilityHidden": "Heavy Metal"
+    },
+    {
+        "name": "Bonsly",
+        "dex": 438,
+        "alola": 24,
+        "type1": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Rock Head",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Mime Jr.",
+        "dex": 439,
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "ability1": "Soundproof",
+        "ability2": "Filter",
+        "abilityHidden": "Technician"
+    },
+    {
+        "name": "Happiny",
+        "dex": 440,
+        "alola": 26,
+        "type1": "Normal",
+        "ability1": "Natural Cure",
+        "ability2": "Serene Grace",
+        "abilityHidden": "Friend Guard"
+    },
+    {
+        "name": "Chatot",
+        "dex": 441,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Tangled Feet",
+        "abilityHidden": "Big Pecks"
+    },
+    {
+        "name": "Spiritomb",
+        "dex": 442,
+        "type1": "Ghost",
+        "type2": "Dark",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Gible",
+        "dex": 443,
+        "alola": 238,
+        "type1": "Dragon",
+        "type2": "Ground",
+        "ability1": "Sand Veil",
+        "ability2": "None",
+        "abilityHidden": "Rough Skin"
+    },
+    {
+        "name": "Gabite",
+        "dex": 444,
+        "alola": 239,
+        "type1": "Dragon",
+        "type2": "Ground",
+        "ability1": "Sand Veil",
+        "ability2": "None",
+        "abilityHidden": "Rough Skin"
+    },
+    {
+        "name": "Garchomp",
+        "dex": 445,
+        "alola": 240,
+        "type1": "Dragon",
+        "type2": "Ground",
+        "ability1": "Sand Veil",
+        "ability2": "None",
+        "abilityHidden": "Rough Skin"
+    },
+    {
+        "name": "Munchlax",
+        "dex": 446,
+        "alola": 29,
+        "type1": "Normal",
+        "ability1": "Pickup",
+        "ability2": "Thick Fat",
+        "abilityHidden": "Gluttony"
+    },
+    {
+        "name": "Riolu",
+        "dex": 447,
+        "alola": 279,
+        "type1": "Fighting",
+        "ability1": "Steadfast",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Prankster"
+    },
+    {
+        "name": "Lucario",
+        "dex": 448,
+        "alola": 280,
+        "type1": "Fighting",
+        "type2": "Steel",
+        "ability1": "Steadfast",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Justified"
+    },
+    {
+        "name": "Hippopotas",
+        "dex": 449,
+        "type1": "Ground",
+        "ability1": "Sand Stream",
+        "ability2": "None",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Hippowdon",
+        "dex": 450,
+        "type1": "Ground",
+        "ability1": "Sand Stream",
+        "ability2": "None",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Skorupi",
+        "dex": 451,
+        "type1": "Poison",
+        "type2": "Bug",
+        "ability1": "Battle Armor",
+        "ability2": "Sniper",
+        "abilityHidden": "Keen Eye"
+    },
+    {
+        "name": "Drapion",
+        "dex": 452,
+        "type1": "Poison",
+        "type2": "Dark",
+        "ability1": "Battle Armor",
+        "ability2": "Sniper",
+        "abilityHidden": "Keen Eye"
+    },
+    {
+        "name": "Croagunk",
+        "dex": 453,
+        "type1": "Poison",
+        "type2": "Fighting",
+        "ability1": "Anticipation",
+        "ability2": "Dry Skin",
+        "abilityHidden": "Poison Touch"
+    },
+    {
+        "name": "Toxicroak",
+        "dex": 454,
+        "type1": "Poison",
+        "type2": "Fighting",
+        "ability1": "Anticipation",
+        "ability2": "Dry Skin",
+        "abilityHidden": "Poison Touch"
+    },
+    { "name": "Carnivine", "dex": 455, "type1": "Grass", "ability1": "Levitate" },
+    {
+        "name": "Finneon",
+        "dex": 456,
+        "alola": 108,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Storm Drain",
+        "abilityHidden": "Water Veil"
+    },
+    {
+        "name": "Lumineon",
+        "dex": 457,
+        "alola": 109,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Storm Drain",
+        "abilityHidden": "Water Veil"
+    },
+    {
+        "name": "Mantyke",
+        "dex": 458,
+        "type1": "Water",
+        "type2": "Flying",
+        "ability1": "Swift Swim",
+        "ability2": "Water Absorb",
+        "abilityHidden": "Water Veil"
+    },
+    {
+        "name": "Snover",
+        "dex": 459,
+        "type1": "Grass",
+        "type2": "Ice",
+        "ability1": "Snow Warning",
+        "ability2": "None",
+        "abilityHidden": "Soundproof"
+    },
+    {
+        "name": "Abomasnow",
+        "dex": 460,
+        "type1": "Grass",
+        "type2": "Ice",
+        "ability1": "Snow Warning",
+        "ability2": "None",
+        "abilityHidden": "Soundproof"
+    },
+    {
+        "name": "Weavile",
+        "dex": 461,
+        "alola": 250,
+        "type1": "Dark",
+        "type2": "Ice",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Pickpocket"
+    },
+    {
+        "name": "Magnezone",
+        "dex": 462,
+        "alola": 49,
+        "type1": "Electric",
+        "type2": "Steel",
+        "ability1": "Magnet Pull",
+        "ability2": "Sturdy",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Lickilicky",
+        "dex": 463,
+        "type1": "Normal",
+        "ability1": "Own Tempo",
+        "ability2": "Oblivious",
+        "abilityHidden": "Cloud Nine"
+    },
+    {
+        "name": "Rhyperior",
+        "dex": 464,
+        "type1": "Ground",
+        "type2": "Rock",
+        "ability1": "Lightning Rod",
+        "ability2": "Solid Rock",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Tangrowth",
+        "dex": 465,
+        "type1": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Leaf Guard",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Electivire",
+        "dex": 466,
+        "alola": 228,
+        "type1": "Electric",
+        "ability1": "Motor Drive",
+        "ability2": "None",
+        "abilityHidden": "Vital Spirit"
+    },
+    {
+        "name": "Magmortar",
+        "dex": 467,
+        "alola": 168,
+        "type1": "Fire",
+        "ability1": "Flame Body",
+        "ability2": "None",
+        "abilityHidden": "Vital Spirit"
+    },
+    {
+        "name": "Togekiss",
+        "dex": 468,
+        "type1": "Fairy",
+        "type2": "Flying",
+        "ability1": "Hustle",
+        "ability2": "Serene Grace",
+        "abilityHidden": "Super Luck"
+    },
+    {
+        "name": "Yanmega",
+        "dex": 469,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Speed Boost",
+        "ability2": "Tinted Lens",
+        "abilityHidden": "Frisk"
+    },
+    {
+        "name": "Leafeon",
+        "dex": 470,
+        "alola": 129,
+        "type1": "Grass",
+        "ability1": "Leaf Guard",
+        "ability2": "None",
+        "abilityHidden": "Chlorophyll"
+    },
+    {
+        "name": "Glaceon",
+        "dex": 471,
+        "alola": 130,
+        "type1": "Ice",
+        "ability1": "Snow Cloak",
+        "ability2": "None",
+        "abilityHidden": "Ice Body"
+    },
+    {
+        "name": "Gliscor",
+        "dex": 472,
+        "type1": "Ground",
+        "type2": "Flying",
+        "ability1": "Hyper Cutter",
+        "ability2": "Sand Veil",
+        "abilityHidden": "Poison Heal"
+    },
+    {
+        "name": "Mamoswine",
+        "dex": 473,
+        "type1": "Ice",
+        "type2": "Ground",
+        "ability1": "Oblivious",
+        "ability2": "Snow Cloak",
+        "abilityHidden": "Thick Fat"
+    },
+    {
+        "name": "Porygon-Z",
+        "dex": 474,
+        "type1": "Normal",
+        "ability1": "Adaptability",
+        "ability2": "Download",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Gallade",
+        "dex": 475,
+        "type1": "Psychic",
+        "type2": "Fighting",
+        "ability1": "Steadfast",
+        "ability2": "None",
+        "abilityHidden": "Justified"
+    },
+    {
+        "name": "Probopass",
+        "dex": 476,
+        "alola": 199,
+        "type1": "Rock",
+        "type2": "Steel",
+        "ability1": "Sturdy",
+        "ability2": "Magnet Pull",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Dusknoir",
+        "dex": 477,
+        "type1": "Ghost",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Frisk"
+    },
+    {
+        "name": "Froslass",
+        "dex": 478,
+        "alola": 248,
+        "type1": "Ice",
+        "type2": "Ghost",
+        "ability1": "Snow Cloak",
+        "ability2": "None",
+        "abilityHidden": "Cursed Body"
+    },
+    { "name": "Rotom", "dex": 479, "type1": "Electric", "type2": "Ghost", "ability1": "Levitate" },
+    {
+        "name": "Rotom Heat",
+        "dex": 479,
+        "type1": "Electric",
+        "type2": "Fire",
+        "ability1": "Levitate",
+        "imageSuffix": "h",
+        "aliases": ["rotom fire"]
+    },
+    {
+        "name": "Rotom Wash",
+        "dex": 479,
+        "type1": "Electric",
+        "type2": "Water",
+        "ability1": "Levitate",
+        "imageSuffix": "w",
+        "aliases": ["rotom water"]
+    },
+    {
+        "name": "Rotom Mow",
+        "dex": 479,
+        "type1": "Electric",
+        "type2": "Grass",
+        "ability1": "Levitate",
+        "imageSuffix": "m",
+        "aliases": ["rotom grass"]
+    },
+    {
+        "name": "Rotom Fan",
+        "dex": 479,
+        "type1": "Electric",
+        "type2": "Flying",
+        "ability1": "Levitate",
+        "imageSuffix": "s",
+        "aliases": ["rotom flying"]
+    },
+    {
+        "name": "Rotom Frost",
+        "dex": 479,
+        "type1": "Electric",
+        "type2": "Frost",
+        "ability1": "Levitate",
+        "imageSuffix": "f",
+        "aliases": ["rotom ice"]
+    },
+    { "name": "Uxie", "dex": 480, "type1": "Psychic", "ability1": "Levitate" },
+    { "name": "Mesprit", "dex": 481, "type1": "Psychic", "ability1": "Levitate" },
+    { "name": "Azelf", "dex": 482, "type1": "Psychic", "ability1": "Levitate" },
+    {
+        "name": "Dialga",
+        "dex": 483,
+        "type1": "Steel",
+        "type2": "Dragon",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Palkia",
+        "dex": 484,
+        "type1": "Water",
+        "type2": "Dragon",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Heatran",
+        "dex": 485,
+        "type1": "Fire",
+        "type2": "Steel",
+        "ability1": "Flash Fire",
+        "ability2": "None",
+        "abilityHidden": "Flame Body"
+    },
+    { "name": "Regigigas", "dex": 486, "type1": "Normal", "ability1": "Slow Start" },
+    {
+        "name": "Giratina",
+        "dex": 487,
+        "type1": "Ghost",
+        "type2": "Dragon",
+        "ability1": "Pressure",
+        "ability2": "None",
+        "abilityHidden": "Telepathy",
+        "aliases": ["giratina origin", "giratina-o"]
+    },
+    { "name": "Cresselia", "dex": 488, "type1": "Psychic", "ability1": "Levitate" },
+    { "name": "Phione", "dex": 489, "type1": "Water", "ability1": "Hydration" },
+    { "name": "Manaphy", "dex": 490, "type1": "Water", "ability1": "Hydration" },
+    { "name": "Darkrai", "dex": 491, "type1": "Dark", "ability1": "Bad Dreams" },
+    { "name": "Shaymin", "dex": 492, "type1": "Grass", "ability1": "Natural Cure" },
+    {
+        "name": "Shaymin Sky",
+        "dex": 492,
+        "type1": "Grass",
+        "type2": "Flying",
+        "ability1": "Serene Grace",
+        "imageSuffix": "s",
+        "aliases": ["shaymin-s"]
+    },
+    { "name": "Arceus", "dex": 493, "type1": "Normal", "ability1": "Multitype" },
+    { "name": "Victini", "dex": 494, "type1": "Psychic", "type2": "Fire", "ability1": "Victory Star" },
+    {
+        "name": "Snivy",
+        "dex": 495,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Contrary"
+    },
+    {
+        "name": "Servine",
+        "dex": 496,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Contrary"
+    },
+    {
+        "name": "Serperior",
+        "dex": 497,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Contrary"
+    },
+    {
+        "name": "Tepig",
+        "dex": 498,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Thick Fat"
+    },
+    {
+        "name": "Pignite",
+        "dex": 499,
+        "type1": "Fire",
+        "type2": "Fighting",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Thick Fat"
+    },
+    {
+        "name": "Emboar",
+        "dex": 500,
+        "type1": "Fire",
+        "type2": "Fighting",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Oshawott",
+        "dex": 501,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Shell Armor"
+    },
+    {
+        "name": "Dewott",
+        "dex": 502,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Shell Armor"
+    },
+    {
+        "name": "Samurott",
+        "dex": 503,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Shell Armor"
+    },
+    {
+        "name": "Patrat",
+        "dex": 504,
+        "type1": "Normal",
+        "ability1": "Run Away",
+        "ability2": "Keen Eye",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Watchog",
+        "dex": 505,
+        "type1": "Normal",
+        "ability1": "Illuminate",
+        "ability2": "Keen Eye",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Lillipup",
+        "dex": 506,
+        "alola": 120,
+        "type1": "Normal",
+        "ability1": "Vital Spirit",
+        "ability2": "Pickup",
+        "abilityHidden": "Run Away"
+    },
+    {
+        "name": "Herdier",
+        "dex": 507,
+        "alola": 121,
+        "type1": "Normal",
+        "ability1": "Intimidate",
+        "ability2": "Sand Rush",
+        "abilityHidden": "Scrappy"
+    },
+    {
+        "name": "Stoutland",
+        "dex": 508,
+        "alola": 122,
+        "type1": "Normal",
+        "ability1": "Intimidate",
+        "ability2": "Sand Rush",
+        "abilityHidden": "Scrappy"
+    },
+    {
+        "name": "Purrloin",
+        "dex": 509,
+        "type1": "Dark",
+        "ability1": "Limber",
+        "ability2": "Unburden",
+        "abilityHidden": "Prankster"
+    },
+    {
+        "name": "Liepard",
+        "dex": 510,
+        "type1": "Dark",
+        "ability1": "Limber",
+        "ability2": "Unburden",
+        "abilityHidden": "Prankster"
+    },
+    {
+        "name": "Pansage",
+        "dex": 511,
+        "type1": "Grass",
+        "ability1": "Gluttony",
+        "ability2": "None",
+        "abilityHidden": "Overgrow"
+    },
+    {
+        "name": "Simisage",
+        "dex": 512,
+        "type1": "Grass",
+        "ability1": "Gluttony",
+        "ability2": "None",
+        "abilityHidden": "Overgrow"
+    },
+    {
+        "name": "Pansear",
+        "dex": 513,
+        "type1": "Fire",
+        "ability1": "Gluttony",
+        "ability2": "None",
+        "abilityHidden": "Blaze"
+    },
+    {
+        "name": "Simisear",
+        "dex": 514,
+        "type1": "Fire",
+        "ability1": "Gluttony",
+        "ability2": "None",
+        "abilityHidden": "Blaze"
+    },
+    {
+        "name": "Panpour",
+        "dex": 515,
+        "type1": "Water",
+        "ability1": "Gluttony",
+        "ability2": "None",
+        "abilityHidden": "Torrent"
+    },
+    {
+        "name": "Simipour",
+        "dex": 516,
+        "type1": "Water",
+        "ability1": "Gluttony",
+        "ability2": "None",
+        "abilityHidden": "Torrent"
+    },
+    {
+        "name": "Munna",
+        "dex": 517,
+        "type1": "Psychic",
+        "ability1": "Forewarn",
+        "ability2": "Synchronize",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Musharna",
+        "dex": 518,
+        "type1": "Psychic",
+        "ability1": "Forewarn",
+        "ability2": "Synchronize",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Pidove",
+        "dex": 519,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Big Pecks",
+        "ability2": "Super Luck",
+        "abilityHidden": "Rivalry"
+    },
+    {
+        "name": "Tranquill",
+        "dex": 520,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Big Pecks",
+        "ability2": "Super Luck",
+        "abilityHidden": "Rivalry"
+    },
+    {
+        "name": "Unfezant",
+        "dex": 521,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Big Pecks",
+        "ability2": "Super Luck",
+        "abilityHidden": "Rivalry"
+    },
+    {
+        "name": "Blitzle",
+        "dex": 522,
+        "type1": "Electric",
+        "ability1": "Lightning Rod",
+        "ability2": "Motor Drive",
+        "abilityHidden": "Sap Sipper"
+    },
+    {
+        "name": "Zebstrika",
+        "dex": 523,
+        "type1": "Electric",
+        "ability1": "Lightning Rod",
+        "ability2": "Motor Drive",
+        "abilityHidden": "Sap Sipper"
+    },
+    {
+        "name": "Roggenrola",
+        "dex": 524,
+        "alola": 98,
+        "type1": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Weak Armor",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Boldore",
+        "dex": 525,
+        "alola": 99,
+        "type1": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Weak Armor",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Gigalith",
+        "dex": 526,
+        "alola": 100,
+        "type1": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Sand Stream",
+        "abilityHidden": "Sand Force"
+    },
+    {
+        "name": "Woobat",
+        "dex": 527,
+        "type1": "Psychic",
+        "type2": "Flying",
+        "ability1": "Unaware",
+        "ability2": "Klutz",
+        "abilityHidden": "Simple"
+    },
+    {
+        "name": "Swoobat",
+        "dex": 528,
+        "type1": "Psychic",
+        "type2": "Flying",
+        "ability1": "Unaware",
+        "ability2": "Klutz",
+        "abilityHidden": "Simple"
+    },
+    {
+        "name": "Drilbur",
+        "dex": 529,
+        "type1": "Ground",
+        "ability1": "Sand Rush",
+        "ability2": "Sand Force",
+        "abilityHidden": "Mold Breaker"
+    },
+    {
+        "name": "Excadrill",
+        "dex": 530,
+        "type1": "Ground",
+        "type2": "Steel",
+        "ability1": "Sand Rush",
+        "ability2": "Sand Force",
+        "abilityHidden": "Mold Breaker"
+    },
+    {
+        "name": "Audino",
+        "dex": 531,
+        "type1": "Normal",
+        "ability1": "Healer",
+        "ability2": "Regenerator",
+        "abilityHidden": "Klutz"
+    },
+    {
+        "name": "Timburr",
+        "dex": 532,
+        "type1": "Fighting",
+        "ability1": "Guts",
+        "ability2": "Sheer Force",
+        "abilityHidden": "Iron Fist"
+    },
+    {
+        "name": "Gurdurr",
+        "dex": 533,
+        "type1": "Fighting",
+        "ability1": "Guts",
+        "ability2": "Sheer Force",
+        "abilityHidden": "Iron Fist"
+    },
+    {
+        "name": "Conkeldurr",
+        "dex": 534,
+        "type1": "Fighting",
+        "ability1": "Guts",
+        "ability2": "Sheer Force",
+        "abilityHidden": "Iron Fist"
+    },
+    {
+        "name": "Tympole",
+        "dex": 535,
+        "type1": "Water",
+        "ability1": "Swift Swim",
+        "ability2": "Hydration",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Palpitoad",
+        "dex": 536,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Swift Swim",
+        "ability2": "Hydration",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Seismitoad",
+        "dex": 537,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Swift Swim",
+        "ability2": "Poison Touch",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Throh",
+        "dex": 538,
+        "type1": "Fighting",
+        "ability1": "Guts",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Mold Breaker"
+    },
+    {
+        "name": "Sawk",
+        "dex": 539,
+        "type1": "Fighting",
+        "ability1": "Sturdy",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Mold Breaker"
+    },
+    {
+        "name": "Sewaddle",
+        "dex": 540,
+        "type1": "Bug",
+        "type2": "Grass",
+        "ability1": "Swarm",
+        "ability2": "Chlorophyll",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Swadloon",
+        "dex": 541,
+        "type1": "Bug",
+        "type2": "Grass",
+        "ability1": "Leaf Guard",
+        "ability2": "Chlorophyll",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Leavanny",
+        "dex": 542,
+        "type1": "Bug",
+        "type2": "Grass",
+        "ability1": "Swarm",
+        "ability2": "Chlorophyll",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Venipede",
+        "dex": 543,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Poison Point",
+        "ability2": "Swarm",
+        "abilityHidden": "Speed Boost"
+    },
+    {
+        "name": "Whirlipede",
+        "dex": 544,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Poison Point",
+        "ability2": "Swarm",
+        "abilityHidden": "Speed Boost"
+    },
+    {
+        "name": "Scolipede",
+        "dex": 545,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Poison Point",
+        "ability2": "Swarm",
+        "abilityHidden": "Speed Boost"
+    },
+    {
+        "name": "Cottonee",
+        "dex": 546,
+        "alola": 87,
+        "type1": "Grass",
+        "ability1": "Prankster",
+        "ability2": "Infiltrator",
+        "abilityHidden": "Chlorophyll"
+    },
+    {
+        "name": "Whimsicott",
+        "dex": 547,
+        "alola": 88,
+        "type1": "Grass",
+        "type2": "Fairy",
+        "ability1": "Prankster",
+        "ability2": "Infiltrator",
+        "abilityHidden": "Chlorophyll"
+    },
+    {
+        "name": "Petilil",
+        "dex": 548,
+        "alola": 85,
+        "type1": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Leaf Guard"
+    },
+    {
+        "name": "Lilligant",
+        "dex": 549,
+        "alola": 86,
+        "type1": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Own Tempo",
+        "abilityHidden": "Leaf Guard"
+    },
+    {
+        "name": "Basculin",
+        "dex": 550,
+        "type1": "Water",
+        "ability1": "Reckless",
+        "ability2": "Adaptability",
+        "abilityHidden": "Mold Breaker"
+    },
+    {
+        "name": "Basculin Blue",
+        "dex": 550,
+        "type1": "Water",
+        "ability1": "Rock Head",
+        "ability2": "Adaptability",
+        "abilityHidden": "Mold Breaker",
+        "imageSuffix": "b"
+    },
+    {
+        "name": "Sandile",
+        "dex": 551,
+        "alola": 232,
+        "type1": "Ground",
+        "type2": "Dark",
+        "ability1": "Intimidate",
+        "ability2": "Moxie",
+        "abilityHidden": "Anger Point"
+    },
+    {
+        "name": "Krokorok",
+        "dex": 552,
+        "alola": 233,
+        "type1": "Ground",
+        "type2": "Dark",
+        "ability1": "Intimidate",
+        "ability2": "Moxie",
+        "abilityHidden": "Anger Point"
+    },
+    {
+        "name": "Krookodile",
+        "dex": 553,
+        "alola": 234,
+        "type1": "Ground",
+        "type2": "Dark",
+        "ability1": "Intimidate",
+        "ability2": "Moxie",
+        "abilityHidden": "Anger Point"
+    },
+    {
+        "name": "Darumaka",
+        "dex": 554,
+        "type1": "Fire",
+        "ability1": "Hustle",
+        "ability2": "None",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Darmanitan",
+        "dex": 555,
+        "type1": "Fire",
+        "ability1": "Sheer Force",
+        "ability2": "None",
+        "abilityHidden": "Zen Mode"
+    },
+    {
+        "name": "Darmanitan Zen",
+        "dex": 555,
+        "type1": "Fire",
+        "type2": "Psychic",
+        "ability1": "Zen Mode",
+        "imageSuffix": "d",
+        "aliases": ["darmanitan-z"]
+    },
+    {
+        "name": "Maractus",
+        "dex": 556,
+        "type1": "Grass",
+        "ability1": "Water Absorb",
+        "ability2": "Chlorophyll",
+        "abilityHidden": "Storm Drain"
+    },
+    {
+        "name": "Dwebble",
+        "dex": 557,
+        "type1": "Bug",
+        "type2": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Crustle",
+        "dex": 558,
+        "type1": "Bug",
+        "type2": "Rock",
+        "ability1": "Sturdy",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Scraggy",
+        "dex": 559,
+        "type1": "Dark",
+        "type2": "Fighting",
+        "ability1": "Shed Skin",
+        "ability2": "Moxie",
+        "abilityHidden": "Intimidate"
+    },
+    {
+        "name": "Scrafty",
+        "dex": 560,
+        "type1": "Dark",
+        "type2": "Fighting",
+        "ability1": "Shed Skin",
+        "ability2": "Moxie",
+        "abilityHidden": "Intimidate"
+    },
+    {
+        "name": "Sigilyph",
+        "dex": 561,
+        "type1": "Psychic",
+        "type2": "Flying",
+        "ability1": "Wonder Skin",
+        "ability2": "Magic Guard",
+        "abilityHidden": "Tinted Lens"
+    },
+    { "name": "Yamask", "dex": 562, "type1": "Ghost", "ability1": "Mummy" },
+    { "name": "Cofagrigus", "dex": 563, "type1": "Ghost", "ability1": "Mummy" },
+    {
+        "name": "Tirtouga",
+        "dex": 564,
+        "alola": 194,
+        "type1": "Water",
+        "type2": "Rock",
+        "ability1": "Solid Rock",
+        "ability2": "Sturdy",
+        "abilityHidden": "Swift Swim"
+    },
+    {
+        "name": "Carracosta",
+        "dex": 565,
+        "alola": 195,
+        "type1": "Water",
+        "type2": "Rock",
+        "ability1": "Solid Rock",
+        "ability2": "Sturdy",
+        "abilityHidden": "Swift Swim"
+    },
+    { "name": "Archen", "dex": 566, "alola": 192, "type1": "Rock", "type2": "Flying", "ability1": "Defeatist" },
+    { "name": "Archeops", "dex": 567, "alola": 193, "type1": "Rock", "type2": "Flying", "ability1": "Defeatist" },
+    {
+        "name": "Trubbish",
+        "dex": 568,
+        "alola": 206,
+        "type1": "Poison",
+        "ability1": "Stench",
+        "ability2": "Sticky Hold",
+        "abilityHidden": "Aftermath"
+    },
+    {
+        "name": "Garbodor",
+        "dex": 569,
+        "alola": 207,
+        "type1": "Poison",
+        "ability1": "Stench",
+        "ability2": "Weak Armor",
+        "abilityHidden": "Aftermath"
+    },
+    { "name": "Zorua", "dex": 570, "type1": "Dark", "ability1": "Illusion" },
+    { "name": "Zoroark", "dex": 571, "type1": "Dark", "ability1": "Illusion" },
+    {
+        "name": "Minccino",
+        "dex": 572,
+        "type1": "Normal",
+        "ability1": "Cute Charm",
+        "ability2": "Technician",
+        "abilityHidden": "Skill Link"
+    },
+    {
+        "name": "Cinccino",
+        "dex": 573,
+        "type1": "Normal",
+        "ability1": "Cute Charm",
+        "ability2": "Technician",
+        "abilityHidden": "Skill Link"
+    },
+    {
+        "name": "Gothita",
+        "dex": 574,
+        "type1": "Psychic",
+        "ability1": "Frisk",
+        "ability2": "Competitive",
+        "abilityHidden": "Shadow Tag"
+    },
+    {
+        "name": "Gothorita",
+        "dex": 575,
+        "type1": "Psychic",
+        "ability1": "Frisk",
+        "ability2": "Competitive",
+        "abilityHidden": "Shadow Tag"
+    },
+    {
+        "name": "Gothitelle",
+        "dex": 576,
+        "type1": "Psychic",
+        "ability1": "Frisk",
+        "ability2": "Competitive",
+        "abilityHidden": "Shadow Tag"
+    },
+    {
+        "name": "Solosis",
+        "dex": 577,
+        "type1": "Psychic",
+        "ability1": "Overcoat",
+        "ability2": "Magic Guard",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Duosion",
+        "dex": 578,
+        "type1": "Psychic",
+        "ability1": "Overcoat",
+        "ability2": "Magic Guard",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Reuniclus",
+        "dex": 579,
+        "type1": "Psychic",
+        "ability1": "Overcoat",
+        "ability2": "Magic Guard",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Ducklett",
+        "dex": 580,
+        "type1": "Water",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Big Pecks",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Swanna",
+        "dex": 581,
+        "type1": "Water",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Big Pecks",
+        "abilityHidden": "Hydration"
+    },
+    {
+        "name": "Vanillite",
+        "dex": 582,
+        "alola": 255,
+        "type1": "Ice",
+        "ability1": "Ice Body",
+        "ability2": "Snow Cloak",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Vanillish",
+        "dex": 583,
+        "alola": 256,
+        "type1": "Ice",
+        "ability1": "Ice Body",
+        "ability2": "Snow Cloak",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Vanilluxe",
+        "dex": 584,
+        "alola": 257,
+        "type1": "Ice",
+        "ability1": "Ice Body",
+        "ability2": "Snow Cloak",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Deerling",
+        "dex": 585,
+        "type1": "Normal",
+        "type2": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Sap Sipper",
+        "abilityHidden": "Serene Grace"
+    },
+    {
+        "name": "Sawsbuck",
+        "dex": 586,
+        "type1": "Normal",
+        "type2": "Grass",
+        "ability1": "Chlorophyll",
+        "ability2": "Sap Sipper",
+        "abilityHidden": "Serene Grace"
+    },
+    {
+        "name": "Emolga",
+        "dex": 587,
+        "alola": 274,
+        "type1": "Electric",
+        "type2": "Flying",
+        "ability1": "Static",
+        "ability2": "None",
+        "abilityHidden": "Motor Drive"
+    },
+    {
+        "name": "Karrablast",
+        "dex": 588,
+        "type1": "Bug",
+        "ability1": "Swarm",
+        "ability2": "Shed Skin",
+        "abilityHidden": "No Guard"
+    },
+    {
+        "name": "Escavalier",
+        "dex": 589,
+        "type1": "Bug",
+        "type2": "Steel",
+        "ability1": "Swarm",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Foongus",
+        "dex": 590,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Effect Spore",
+        "ability2": "None",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Amoonguss",
+        "dex": 591,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Effect Spore",
+        "ability2": "None",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Frillish",
+        "dex": 592,
+        "type1": "Water",
+        "type2": "Ghost",
+        "ability1": "Water Absorb",
+        "ability2": "Cursed Body",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Jellicent",
+        "dex": 593,
+        "type1": "Water",
+        "type2": "Ghost",
+        "ability1": "Water Absorb",
+        "ability2": "Cursed Body",
+        "abilityHidden": "Damp"
+    },
+    {
+        "name": "Alomomola",
+        "dex": 594,
+        "alola": 157,
+        "type1": "Water",
+        "ability1": "Healer",
+        "ability2": "Hydration",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Joltik",
+        "dex": 595,
+        "type1": "Bug",
+        "type2": "Electric",
+        "ability1": "Compound Eyes",
+        "ability2": "Unnerve",
+        "abilityHidden": "Swarm"
+    },
+    {
+        "name": "Galvantula",
+        "dex": 596,
+        "type1": "Bug",
+        "type2": "Electric",
+        "ability1": "Compound Eyes",
+        "ability2": "Unnerve",
+        "abilityHidden": "Swarm"
+    },
+    { "name": "Ferroseed", "dex": 597, "type1": "Grass", "type2": "Steel", "ability1": "Iron Barbs" },
+    {
+        "name": "Ferrothorn",
+        "dex": 598,
+        "type1": "Grass",
+        "type2": "Steel",
+        "ability1": "Iron Barbs",
+        "ability2": "None",
+        "abilityHidden": "Anticipation"
+    },
+    {
+        "name": "Klink",
+        "dex": 599,
+        "type1": "Steel",
+        "ability1": "Plus",
+        "ability2": "Minus",
+        "abilityHidden": "Clear Body"
+    },
+    {
+        "name": "Klang",
+        "dex": 600,
+        "type1": "Steel",
+        "ability1": "Plus",
+        "ability2": "Minus",
+        "abilityHidden": "Clear Body"
+    },
+    {
+        "name": "Klinklang",
+        "dex": 601,
+        "type1": "Steel",
+        "ability1": "Plus",
+        "ability2": "Minus",
+        "abilityHidden": "Clear Body"
+    },
+    { "name": "Tynamo", "dex": 602, "type1": "Electric", "ability1": "Levitate" },
+    { "name": "Eelektrik", "dex": 603, "type1": "Electric", "ability1": "Levitate" },
+    { "name": "Eelektross", "dex": 604, "type1": "Electric", "ability1": "Levitate" },
+    {
+        "name": "Elgyem",
+        "dex": 605,
+        "type1": "Psychic",
+        "ability1": "Telepathy",
+        "ability2": "Synchronize",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Beheeyem",
+        "dex": 606,
+        "type1": "Psychic",
+        "ability1": "Telepathy",
+        "ability2": "Synchronize",
+        "abilityHidden": "Analytic"
+    },
+    {
+        "name": "Litwick",
+        "dex": 607,
+        "type1": "Ghost",
+        "type2": "Fire",
+        "ability1": "Flash Fire",
+        "ability2": "Flame Body",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Lampent",
+        "dex": 608,
+        "type1": "Ghost",
+        "type2": "Fire",
+        "ability1": "Flash Fire",
+        "ability2": "Flame Body",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Chandelure",
+        "dex": 609,
+        "type1": "Ghost",
+        "type2": "Fire",
+        "ability1": "Flash Fire",
+        "ability2": "Flame Body",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Axew",
+        "dex": 610,
+        "type1": "Dragon",
+        "ability1": "Rivalry",
+        "ability2": "Mold Breaker",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Fraxure",
+        "dex": 611,
+        "type1": "Dragon",
+        "ability1": "Rivalry",
+        "ability2": "Mold Breaker",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Haxorus",
+        "dex": 612,
+        "type1": "Dragon",
+        "ability1": "Rivalry",
+        "ability2": "Mold Breaker",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Cubchoo",
+        "dex": 613,
+        "type1": "Ice",
+        "ability1": "Snow Cloak",
+        "ability2": "Slush Rush",
+        "abilityHidden": "Rattled"
+    },
+    {
+        "name": "Beartic",
+        "dex": 614,
+        "type1": "Ice",
+        "ability1": "Snow Cloak",
+        "ability2": "Slush Rush",
+        "abilityHidden": "Swift Swim"
+    },
+    { "name": "Cryogonal", "dex": 615, "type1": "Ice", "ability1": "Levitate" },
+    {
+        "name": "Shelmet",
+        "dex": 616,
+        "type1": "Bug",
+        "ability1": "Hydration",
+        "ability2": "Shell Armor",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Accelgor",
+        "dex": 617,
+        "type1": "Bug",
+        "ability1": "Hydration",
+        "ability2": "Sticky Hold",
+        "abilityHidden": "Unburden"
+    },
+    {
+        "name": "Stunfisk",
+        "dex": 618,
+        "type1": "Ground",
+        "type2": "Electric",
+        "ability1": "Static",
+        "ability2": "Limber",
+        "abilityHidden": "Sand Veil"
+    },
+    {
+        "name": "Mienfoo",
+        "dex": 619,
+        "type1": "Fighting",
+        "ability1": "Inner Focus",
+        "ability2": "Regenerator",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Mienshao",
+        "dex": 620,
+        "type1": "Fighting",
+        "ability1": "Inner Focus",
+        "ability2": "Regenerator",
+        "abilityHidden": "Reckless"
+    },
+    {
+        "name": "Druddigon",
+        "dex": 621,
+        "type1": "Dragon",
+        "ability1": "Rough Skin",
+        "ability2": "Sheer Force",
+        "abilityHidden": "Mold Breaker"
+    },
+    {
+        "name": "Golett",
+        "dex": 622,
+        "type1": "Ground",
+        "type2": "Ghost",
+        "ability1": "Iron Fist",
+        "ability2": "Klutz",
+        "abilityHidden": "No Guard"
+    },
+    {
+        "name": "Golurk",
+        "dex": 623,
+        "type1": "Ground",
+        "type2": "Ghost",
+        "ability1": "Iron Fist",
+        "ability2": "Klutz",
+        "abilityHidden": "No Guard"
+    },
+    {
+        "name": "Pawniard",
+        "dex": 624,
+        "type1": "Dark",
+        "type2": "Steel",
+        "ability1": "Defiant",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Pressure"
+    },
+    {
+        "name": "Bisharp",
+        "dex": 625,
+        "type1": "Dark",
+        "type2": "Steel",
+        "ability1": "Defiant",
+        "ability2": "Inner Focus",
+        "abilityHidden": "Pressure"
+    },
+    {
+        "name": "Bouffalant",
+        "dex": 626,
+        "type1": "Normal",
+        "ability1": "Reckless",
+        "ability2": "Sap Sipper",
+        "abilityHidden": "Soundproof"
+    },
+    {
+        "name": "Rufflet",
+        "dex": 627,
+        "alola": 61,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Sheer Force",
+        "abilityHidden": "Hustle"
+    },
+    {
+        "name": "Braviary",
+        "dex": 628,
+        "alola": 62,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Sheer Force",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Vullaby",
+        "dex": 629,
+        "alola": 63,
+        "type1": "Dark",
+        "type2": "Flying",
+        "ability1": "Big Pecks",
+        "ability2": "Overcoat",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Mandibuzz",
+        "dex": 630,
+        "alola": 78,
+        "type1": "Dark",
+        "type2": "Flying",
+        "ability1": "Big Pecks",
+        "ability2": "Overcoat",
+        "abilityHidden": "Weak Armor"
+    },
+    {
+        "name": "Heatmor",
+        "dex": 631,
+        "type1": "Fire",
+        "ability1": "Gluttony",
+        "ability2": "Flash Fire",
+        "abilityHidden": "White Smoke"
+    },
+    {
+        "name": "Durant",
+        "dex": 632,
+        "type1": "Bug",
+        "type2": "Steel",
+        "ability1": "Swarm",
+        "ability2": "Hustle",
+        "abilityHidden": "Truant"
+    },
+    { "name": "Deino", "dex": 633, "type1": "Dark", "type2": "Dragon", "ability1": "Hustle" },
+    { "name": "Zweilous", "dex": 634, "type1": "Dark", "type2": "Dragon", "ability1": "Hustle" },
+    { "name": "Hydreigon", "dex": 635, "type1": "Dark", "type2": "Dragon", "ability1": "Levitate" },
+    {
+        "name": "Larvesta",
+        "dex": 636,
+        "type1": "Bug",
+        "type2": "Fire",
+        "ability1": "Flame Body",
+        "ability2": "None",
+        "abilityHidden": "Swarm"
+    },
+    {
+        "name": "Volcarona",
+        "dex": 637,
+        "type1": "Bug",
+        "type2": "Fire",
+        "ability1": "Flame Body",
+        "ability2": "None",
+        "abilityHidden": "Swarm"
+    },
+    { "name": "Cobalion", "dex": 638, "type1": "Steel", "type2": "Fighting", "ability1": "Justified" },
+    { "name": "Terrakion", "dex": 639, "type1": "Rock", "type2": "Fighting", "ability1": "Justified" },
+    { "name": "Virizion", "dex": 640, "type1": "Grass", "type2": "Fighting", "ability1": "Justified" },
+    {
+        "name": "Tornadus",
+        "dex": 641,
+        "type1": "Flying",
+        "ability1": "Prankster",
+        "ability2": "None",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Tornadus Therian",
+        "dex": 641,
+        "type1": "Flying",
+        "ability1": "Regenerator",
+        "imageSuffix": "s",
+        "aliases": ["tornadus-t"]
+    },
+    {
+        "name": "Thundurus",
+        "dex": 642,
+        "type1": "Electric",
+        "type2": "Flying",
+        "ability1": "Prankster",
+        "ability2": "None",
+        "abilityHidden": "Defiant"
+    },
+    {
+        "name": "Thundurus Therian",
+        "dex": 642,
+        "type1": "Electric",
+        "type2": "Flying",
+        "ability1": "Volt Absorb",
+        "imageSuffix": "s",
+        "aliases": ["thundurus-t"]
+    },
+    { "name": "Reshiram", "dex": 643, "type1": "Dragon", "type2": "Fire", "ability1": "Turboblaze" },
+    { "name": "Zekrom", "dex": 644, "type1": "Dragon", "type2": "Electric", "ability1": "Teravolt" },
+    {
+        "name": "Landorus",
+        "dex": 645,
+        "type1": "Ground",
+        "type2": "Flying",
+        "ability1": "Sand Force",
+        "ability2": "None",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Landorus Therian",
+        "dex": 645,
+        "type1": "Ground",
+        "type2": "Flying",
+        "ability1": "Intimidate",
+        "imageSuffix": "s",
+        "aliases": ["landorus-t"]
+    },
+    { "name": "Kyurem", "dex": 646, "type1": "Dragon", "type2": "Ice", "ability1": "Pressure" },
+    {
+        "name": "White Kyurem",
+        "dex": 646,
+        "type1": "Dragon",
+        "type2": "Ice",
+        "ability1": "Turboblaze",
+        "imageSuffix": "w",
+        "aliases": ["kyurem white", "kyurem-w"]
+    },
+    {
+        "name": "Black Kyurem",
+        "dex": 646,
+        "type1": "Dragon",
+        "type2": "Ice",
+        "ability1": "Teravolt",
+        "imageSuffix": "b",
+        "aliases": ["kyurem black", "kyurem-b"]
+    },
+    { "name": "Keldeo", "dex": 647, "type1": "Water", "type2": "Fighting", "ability1": "Justified" },
+    { "name": "Meloetta", "dex": 648, "type1": "Normal", "type2": "Psychic", "ability1": "Serene Grace" },
+    {
+        "name": "Meloetta Pirouette",
+        "dex": 648,
+        "type1": "Normal",
+        "type2": "Fighting",
+        "ability1": "Serene Grace",
+        "imageSuffix": "s",
+        "aliases": ["meloetta-p"]
+    },
+    { "name": "Genesect", "dex": 649, "type1": "Bug", "type2": "Steel", "ability1": "Download" },
+    {
+        "name": "Chespin",
+        "dex": 650,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Bulletproof"
+    },
+    {
+        "name": "Quilladin",
+        "dex": 651,
+        "type1": "Grass",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Bulletproof"
+    },
+    {
+        "name": "Chesnaught",
+        "dex": 652,
+        "type1": "Grass",
+        "type2": "Fighting",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Bulletproof"
+    },
+    {
+        "name": "Fennekin",
+        "dex": 653,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Magician"
+    },
+    {
+        "name": "Braixen",
+        "dex": 654,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Magician"
+    },
+    {
+        "name": "Delphox",
+        "dex": 655,
+        "type1": "Fire",
+        "type2": "Psychic",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Magician"
+    },
+    {
+        "name": "Froakie",
+        "dex": 656,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Protean"
+    },
+    {
+        "name": "Frogadier",
+        "dex": 657,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Protean"
+    },
+    {
+        "name": "Greninja",
+        "dex": 658,
+        "type1": "Water",
+        "type2": "Dark",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Protean"
+    },
+    {
+        "name": "Bunnelby",
+        "dex": 659,
+        "type1": "Normal",
+        "ability1": "Pickup",
+        "ability2": "Cheek Pouch",
+        "abilityHidden": "Huge Power"
+    },
+    {
+        "name": "Diggersby",
+        "dex": 660,
+        "type1": "Normal",
+        "type2": "Ground",
+        "ability1": "Pickup",
+        "ability2": "Cheek Pouch",
+        "abilityHidden": "Huge Power"
+    },
+    {
+        "name": "Fletchling",
+        "dex": 661,
+        "alola": 158,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Big Pecks",
+        "ability2": "None",
+        "abilityHidden": "Gale Wings"
+    },
+    {
+        "name": "Fletchinder",
+        "dex": 662,
+        "alola": 159,
+        "type1": "Fire",
+        "type2": "Flying",
+        "ability1": "Flame Body",
+        "ability2": "None",
+        "abilityHidden": "Gale Wings"
+    },
+    {
+        "name": "Talonflame",
+        "dex": 663,
+        "alola": 160,
+        "type1": "Fire",
+        "type2": "Flying",
+        "ability1": "Flame Body",
+        "ability2": "None",
+        "abilityHidden": " Gale Wings"
+    },
+    {
+        "name": "Scatterbug",
+        "dex": 664,
+        "type1": "Bug",
+        "ability1": "Shield Dust",
+        "ability2": "Compound Eyes",
+        "abilityHidden": "Friend Guard"
+    },
+    {
+        "name": "Spewpa",
+        "dex": 665,
+        "type1": "Bug",
+        "ability1": "Shed Skin",
+        "ability2": "None",
+        "abilityHidden": "Friend Guard"
+    },
+    {
+        "name": "Vivillon",
+        "dex": 666,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Shield Dust",
+        "ability2": "Compound Eyes",
+        "abilityHidden": "Friend Guard"
+    },
+    {
+        "name": "Litleo",
+        "dex": 667,
+        "type1": "Fire",
+        "type2": "Normal",
+        "ability1": "Rivalry",
+        "ability2": "Unnerve",
+        "abilityHidden": "Moxie"
+    },
+    {
+        "name": "Pyroar",
+        "dex": 668,
+        "type1": "Fire",
+        "type2": "Normal",
+        "ability1": "Rivalry",
+        "ability2": "Unnerve",
+        "abilityHidden": "Moxie"
+    },
+    {
+        "name": "Flabébé",
+        "dex": 669,
+        "type1": "Fairy",
+        "ability1": "Flower Veil",
+        "ability2": "None",
+        "abilityHidden": "Symbiosis"
+    },
+    {
+        "name": "Floette",
+        "dex": 670,
+        "type1": "Fairy",
+        "ability1": "Flower Veil",
+        "ability2": "None",
+        "abilityHidden": "Symbiosis"
+    },
+    {
+        "name": "Florges",
+        "dex": 671,
+        "type1": "Fairy",
+        "ability1": "Flower Veil",
+        "ability2": "None",
+        "abilityHidden": "Symbiosis"
+    },
+    {
+        "name": "Skiddo",
+        "dex": 672,
+        "type1": "Grass",
+        "ability1": "Sap Sipper",
+        "ability2": "None",
+        "abilityHidden": "Grass Pelt"
+    },
+    {
+        "name": "Gogoat",
+        "dex": 673,
+        "type1": "Grass",
+        "ability1": "Sap Sipper",
+        "ability2": "None",
+        "abilityHidden": "Grass Pelt"
+    },
+    {
+        "name": "Pancham",
+        "dex": 674,
+        "alola": 220,
+        "type1": "Fighting",
+        "ability1": "Iron Fist",
+        "ability2": "Mold Breaker",
+        "abilityHidden": "Scrappy"
+    },
+    {
+        "name": "Pangoro",
+        "dex": 675,
+        "alola": 221,
+        "type1": "Fighting",
+        "type2": "Dark",
+        "ability1": "Iron Fist",
+        "ability2": "Mold Breaker",
+        "abilityHidden": "Scrappy"
+    },
+    { "name": "Furfrou", "dex": 676, "type1": "Normal", "ability1": "Fur Coat" },
+    {
+        "name": "Espurr",
+        "dex": 677,
+        "type1": "Psychic",
+        "ability1": "Keen Eye",
+        "ability2": "Infiltrator",
+        "abilityHidden": "Own Tempo"
+    },
+    {
+        "name": "Meowstic",
+        "dex": 678,
+        "type1": "Psychic",
+        "ability1": "Keen Eye",
+        "ability2": "Infiltrator",
+        "abilityHidden": "Prankster"
+    },
+    { "name": "Honedge", "dex": 679, "type1": "Steel", "type2": "Ghost", "ability1": "No Guard" },
+    { "name": "Doublade", "dex": 680, "type1": "Steel", "type2": "Ghost", "ability1": "No Guard" },
+    { "name": "Aegislash", "dex": 681, "type1": "Steel", "type2": "Ghost", "ability1": "Stance Change" },
+    {
+        "name": "Spritzee",
+        "dex": 682,
+        "type1": "Fairy",
+        "ability1": "Healer",
+        "ability2": "None",
+        "abilityHidden": "Aroma Veil"
+    },
+    {
+        "name": "Aromatisse",
+        "dex": 683,
+        "type1": "Fairy",
+        "ability1": "Healer",
+        "ability2": "None",
+        "abilityHidden": "Aroma Veil"
+    },
+    {
+        "name": "Swirlix",
+        "dex": 684,
+        "type1": "Fairy",
+        "ability1": "Sweet Veil",
+        "ability2": "None",
+        "abilityHidden": "Unburden"
+    },
+    {
+        "name": "Slurpuff",
+        "dex": 685,
+        "type1": "Fairy",
+        "ability1": "Sweet Veil",
+        "ability2": "None",
+        "abilityHidden": "Unburden"
+    },
+    {
+        "name": "Inkay",
+        "dex": 686,
+        "type1": "Dark",
+        "type2": "Psychic",
+        "ability1": "Contrary",
+        "ability2": "Suction Cups",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Malamar",
+        "dex": 687,
+        "type1": "Dark",
+        "type2": "Psychic",
+        "ability1": "Contrary",
+        "ability2": "Suction Cups",
+        "abilityHidden": "Infiltrator"
+    },
+    {
+        "name": "Binacle",
+        "dex": 688,
+        "type1": "Rock",
+        "type2": "Water",
+        "ability1": "Sniper",
+        "ability2": "Tough Claws",
+        "abilityHidden": "Pickpocket"
+    },
+    {
+        "name": "Barbaracle",
+        "dex": 689,
+        "type1": "Rock",
+        "type2": "Water",
+        "ability1": "Sniper",
+        "ability2": "Tough Claws",
+        "abilityHidden": "Pickpocket"
+    },
+    {
+        "name": "Skrelp",
+        "dex": 690,
+        "type1": "Poison",
+        "type2": "Water",
+        "ability1": "Poison Point",
+        "ability2": "Poison Touch",
+        "abilityHidden": "Adaptability"
+    },
+    {
+        "name": "Dragalge",
+        "dex": 691,
+        "type1": "Poison",
+        "type2": "Dragon",
+        "ability1": "Poison Point",
+        "ability2": "Poison Touch",
+        "abilityHidden": "Adaptability"
+    },
+    { "name": "Clauncher", "dex": 692, "type1": "Water", "ability1": "Mega Launcher" },
+    { "name": "Clawitzer", "dex": 693, "type1": "Water", "ability1": "Mega Launcher" },
+    {
+        "name": "Helioptile",
+        "dex": 694,
+        "type1": "Electric",
+        "type2": "Normal",
+        "ability1": "Dry Skin",
+        "ability2": "Sand Veil",
+        "abilityHidden": "Solar Power"
+    },
+    {
+        "name": "Heliolisk",
+        "dex": 695,
+        "type1": "Electric",
+        "type2": "Normal",
+        "ability1": "Dry Skin",
+        "ability2": "Sand Veil",
+        "abilityHidden": "Solar Power"
+    },
+    {
+        "name": "Tyrunt",
+        "dex": 696,
+        "type1": "Rock",
+        "type2": "Dragon",
+        "ability1": "Strong Jaw",
+        "ability2": "None",
+        "abilityHidden": "Sturdy"
+    },
+    {
+        "name": "Tyrantrum",
+        "dex": 697,
+        "type1": "Rock",
+        "type2": "Dragon",
+        "ability1": "Strong Jaw",
+        "ability2": "None",
+        "abilityHidden": "Rock Head"
+    },
+    {
+        "name": "Amaura",
+        "dex": 698,
+        "type1": "Rock",
+        "type2": "Ice",
+        "ability1": "Refrigerate",
+        "ability2": "None",
+        "abilityHidden": "Snow Warning"
+    },
+    {
+        "name": "Aurorus",
+        "dex": 699,
+        "type1": "Rock",
+        "type2": "Ice",
+        "ability1": "Refrigerate",
+        "ability2": "None",
+        "abilityHidden": "Snow Warning"
+    },
+    {
+        "name": "Sylveon",
+        "dex": 700,
+        "alola": 131,
+        "type1": "Fairy",
+        "ability1": "Cute Charm",
+        "ability2": "None",
+        "abilityHidden": "Pixilate"
+    },
+    {
+        "name": "Hawlucha",
+        "dex": 701,
+        "type1": "Fighting",
+        "type2": "Flying",
+        "ability1": "Limber",
+        "ability2": "Unburden",
+        "abilityHidden": "Mold Breaker"
+    },
+    {
+        "name": "Dedenne",
+        "dex": 702,
+        "type1": "Electric",
+        "type2": "Fairy",
+        "ability1": "Cheek Pouch",
+        "ability2": "Pickup",
+        "abilityHidden": "Plus"
+    },
+    {
+        "name": "Carbink",
+        "dex": 703,
+        "alola": 101,
+        "type1": "Rock",
+        "type2": "Fairy",
+        "ability1": "Clear Body",
+        "ability2": "None",
+        "abilityHidden": "Sturdy"
+    },
+    {
+        "name": "Goomy",
+        "dex": 704,
+        "alola": 178,
+        "type1": "Dragon",
+        "ability1": "Sap Sipper",
+        "ability2": "Hydration",
+        "abilityHidden": "Gooey"
+    },
+    {
+        "name": "Sliggoo",
+        "dex": 705,
+        "alola": 179,
+        "type1": "Dragon",
+        "ability1": "Sap Sipper",
+        "ability2": "Hydration",
+        "abilityHidden": "Gooey"
+    },
+    {
+        "name": "Goodra",
+        "dex": 706,
+        "alola": 180,
+        "type1": "Dragon",
+        "ability1": "Sap Sipper",
+        "ability2": "Hydration",
+        "abilityHidden": "Gooey"
+    },
+    {
+        "name": "Klefki",
+        "dex": 707,
+        "alola": 241,
+        "type1": "Steel",
+        "type2": "Fairy",
+        "ability1": "Prankster",
+        "ability2": "None",
+        "abilityHidden": "Magician"
+    },
+    {
+        "name": "Phantump",
+        "dex": 708,
+        "alola": 196,
+        "type1": "Ghost",
+        "type2": "Grass",
+        "ability1": "Natural Cure",
+        "ability2": "Frisk",
+        "abilityHidden": "Harvest"
+    },
+    {
+        "name": "Trevenant",
+        "dex": 709,
+        "alola": 197,
+        "type1": "Ghost",
+        "type2": "Grass",
+        "ability1": "Natural Cure",
+        "ability2": "Frisk",
+        "abilityHidden": "Harvest"
+    },
+    {
+        "name": "Pumpkaboo",
+        "dex": 710,
+        "type1": "Ghost",
+        "type2": "Grass",
+        "ability1": "Pickup",
+        "ability2": "Frisk",
+        "abilityHidden": "Insomnia"
+    },
+    {
+        "name": "Gourgeist",
+        "dex": 711,
+        "type1": "Ghost",
+        "type2": "Grass",
+        "ability1": "Pickup",
+        "ability2": "Frisk",
+        "abilityHidden": "Insomnia"
+    },
+    {
+        "name": "Bergmite",
+        "dex": 712,
+        "type1": "Ice",
+        "ability1": "Own Tempo",
+        "ability2": "Ice Body",
+        "abilityHidden": "Sturdy"
+    },
+    {
+        "name": "Avalugg",
+        "dex": 713,
+        "type1": "Ice",
+        "ability1": "Own Tempo",
+        "ability2": "Ice Body",
+        "abilityHidden": "Sturdy"
+    },
+    {
+        "name": "Noibat",
+        "dex": 714,
+        "type1": "Flying",
+        "type2": "Dragon",
+        "ability1": "Frisk",
+        "ability2": "Infiltrator",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Noivern",
+        "dex": 715,
+        "type1": "Flying",
+        "type2": "Dragon",
+        "ability1": "Frisk",
+        "ability2": "Infiltrator",
+        "abilityHidden": "Telepathy"
+    },
+    { "name": "Xerneas", "dex": 716, "type1": "Fairy", "ability1": "Fairy Aura" },
+    { "name": "Yveltal", "dex": 717, "type1": "Dark", "type2": "Flying", "ability1": "Dark Aura" },
+    {
+        "name": "Zygarde",
+        "dex": 718,
+        "alola": 205,
+        "type1": "Dragon",
+        "type2": "Ground",
+        "ability1": "Aura Break",
+        "ability2": "Power Construct"
+    },
+    { "name": "Diancie", "dex": 719, "type1": "Rock", "type2": "Fairy", "ability1": "Clear Body" },
+    { "name": "Hoopa", "dex": 720, "type1": "Psychic", "type2": "Ghost", "ability1": "Magician" },
+    {
+        "name": "Hoopa Unbound",
+        "dex": 720,
+        "type1": "Psychic",
+        "type2": "Dark",
+        "ability1": "Magician",
+        "imageSuffix": "u",
+        "aliases": ["hoopa-u"]
+    },
+    { "name": "Volcanion", "dex": 721, "type1": "Fire", "type2": "Water", "ability1": "Water Absorb" },
+    {
+        "name": "Mega Venusaur",
+        "dex": 3,
+        "type1": "Grass",
+        "type2": "Poison",
+        "ability1": "Thick Fat",
+        "aliases": ["venusaur-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Charizard X",
+        "dex": 6,
+        "type1": "Fire",
+        "type2": "Dragon",
+        "ability1": "Tough Claws",
+        "aliases": ["charizard x-m", "charizard-mx"],
+        "imageSuffix": "mx"
+    },
+    {
+        "name": "Mega Charizard Y",
+        "dex": 6,
+        "type1": "Fire",
+        "type2": "Flying",
+        "ability1": "Drought",
+        "aliases": ["charizard y-m", "charizard-my"],
+        "imageSuffix": "my"
+    },
+    {
+        "name": "Mega Blastoise",
+        "dex": 9,
+        "type1": "Water",
+        "ability1": "Mega Launcher",
+        "aliases": ["blastoise-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Alakazam",
+        "dex": 65,
+        "type1": "Psychic",
+        "ability1": "Trace",
+        "aliases": ["alakazam-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Gengar",
+        "dex": 94,
+        "type1": "Ghost",
+        "type2": "Poison",
+        "ability1": "Shadow Tag",
+        "aliases": ["gengar-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Kangaskhan",
+        "dex": 115,
+        "type1": "Normal",
+        "ability1": "Parental Bond",
+        "aliases": ["kangaskhan-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Pinsir",
+        "dex": 127,
+        "type1": "Bug",
+        "type2": "Flying",
+        "ability1": "Aerilate",
+        "aliases": ["pinsir-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Gyarados",
+        "dex": 130,
+        "type1": "Water",
+        "type2": "Dark",
+        "ability1": "Mold Breaker",
+        "aliases": ["gyarados-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Aerodactyl",
+        "dex": 142,
+        "type1": "Rock",
+        "type2": "Flying",
+        "ability1": "Tough Claws",
+        "aliases": ["aerodactyl-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Mewtwo X",
+        "dex": 150,
+        "type1": "Psychic",
+        "type2": "Fighting",
+        "ability1": "Steadfast",
+        "aliases": ["mewtwo x-m", "mewtwo-mx"],
+        "imageSuffix": "mx"
+    },
+    {
+        "name": "Mega Mewtwo Y",
+        "dex": 150,
+        "type1": "Psychic",
+        "ability1": "Insomnia",
+        "aliases": ["mewtwo y-m", "mewtwo-my"],
+        "imageSuffix": "my"
+    },
+    {
+        "name": "Mega Ampharos",
+        "dex": 181,
+        "type1": "Electric",
+        "type2": "Dragon",
+        "ability1": "Mold Breaker",
+        "aliases": ["ampharos-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Scizor",
+        "dex": 212,
+        "type1": "Bug",
+        "type2": "Steel",
+        "ability1": "Technician",
+        "aliases": ["scizor-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Heracross",
+        "dex": 214,
+        "type1": "Bug",
+        "type2": "Fighting",
+        "ability1": "Skill Link",
+        "aliases": ["heracross-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Houndoom",
+        "dex": 229,
+        "type1": "Dark",
+        "type2": "Fire",
+        "ability1": "Solar Power",
+        "aliases": ["houndoom-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Tyranitar",
+        "dex": 248,
+        "type1": "Rock",
+        "type2": "Dark",
+        "ability1": "Sand Stream",
+        "aliases": ["tyranitar-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Blaziken",
+        "dex": 257,
+        "type1": "Fire",
+        "type2": "Fighting",
+        "ability1": "Speed Boost",
+        "aliases": ["blaziken-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Gardevoir",
+        "dex": 282,
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "ability1": "Pixilate",
+        "aliases": ["gardevoir-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Mawile",
+        "dex": 303,
+        "type1": "Steel",
+        "type2": "Fairy",
+        "ability1": "Huge Power",
+        "aliases": ["mawile-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Aggron",
+        "dex": 306,
+        "type1": "Steel",
+        "ability1": "Filter",
+        "aliases": ["aggron-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Medicham",
+        "dex": 308,
+        "type1": "Fighting",
+        "type2": "Psychic",
+        "ability1": "Pure Power",
+        "aliases": ["medicham-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Manectric",
+        "dex": 310,
+        "type1": "Electric",
+        "ability1": "Intimidate",
+        "aliases": ["manectric-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Banette",
+        "dex": 354,
+        "type1": "Ghost",
+        "ability1": "Prankster",
+        "aliases": ["banette-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Absol",
+        "dex": 359,
+        "type1": "Dark",
+        "ability1": "Magic Bounce",
+        "aliases": ["absol-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Garchomp",
+        "dex": 445,
+        "type1": "Dragon",
+        "type2": "Ground",
+        "ability1": "Sand Force",
+        "aliases": ["garchomp-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Lucario",
+        "dex": 448,
+        "type1": "Fighting",
+        "type2": "Steel",
+        "ability1": "Adaptability",
+        "aliases": ["lucario-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Abomasnow",
+        "dex": 460,
+        "type1": "Grass",
+        "type2": "Ice",
+        "ability1": "Snow Warning",
+        "aliases": ["abomasnow-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Beedrill",
+        "dex": 15,
+        "type1": "Bug",
+        "type2": "Poison",
+        "ability1": "Adaptability",
+        "aliases": ["beedrill-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Pidgeot",
+        "dex": 18,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "No Guard",
+        "aliases": ["pidgeot-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Slowbro",
+        "dex": 80,
+        "type1": "Water",
+        "type2": "Psychic",
+        "ability1": "Shell Armor",
+        "aliases": ["slowbro-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Steelix",
+        "dex": 208,
+        "type1": "Steel",
+        "type2": "Ground",
+        "ability1": "Sand Force",
+        "aliases": ["steelix-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Sceptile",
+        "dex": 254,
+        "type1": "Grass",
+        "type2": "Dragon",
+        "ability1": "Lightning Rod",
+        "aliases": ["sceptile-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Swampert",
+        "dex": 260,
+        "type1": "Water",
+        "type2": "Ground",
+        "ability1": "Swift Swim",
+        "aliases": ["swampert-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Sableye",
+        "dex": 302,
+        "type1": "Dark",
+        "type2": "Ghost",
+        "ability1": "Magic Bounce",
+        "aliases": ["sableye-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Sharpedo",
+        "dex": 319,
+        "type1": "Water",
+        "type2": "Dark",
+        "ability1": "Strong Jaw",
+        "aliases": ["sharpedo-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Camerupt",
+        "dex": 323,
+        "type1": "Fire",
+        "type2": "Ground",
+        "ability1": "Sheer Force",
+        "aliases": ["camerupt-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Altaria",
+        "dex": 334,
+        "type1": "Dragon",
+        "type2": "Fairy",
+        "ability1": "Pixilate",
+        "aliases": ["altaria-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Glalie",
+        "dex": 362,
+        "type1": "Ice",
+        "ability1": "Refrigerate",
+        "aliases": ["glalie-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Salamence",
+        "dex": 373,
+        "type1": "Dragon",
+        "type2": "Flying",
+        "ability1": "Aerilate",
+        "aliases": ["salamence-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Metagross",
+        "dex": 376,
+        "type1": "Steel",
+        "type2": "Psychic",
+        "ability1": "Tough Claws",
+        "aliases": ["metagross-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Latias",
+        "dex": 380,
+        "type1": "Dragon",
+        "type2": "Psychic",
+        "ability1": "Levitate",
+        "aliases": ["latias-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Latios",
+        "dex": 381,
+        "type1": "Dragon",
+        "type2": "Psychic",
+        "ability1": "Levitate",
+        "aliases": ["latios-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Rayquaza",
+        "dex": 384,
+        "type1": "Dragon",
+        "type2": "Flying",
+        "ability1": "Delta Stream",
+        "aliases": ["rayquaza-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Lopunny",
+        "dex": 428,
+        "type1": "Normal",
+        "type2": "Fighting",
+        "ability1": "Scrappy",
+        "aliases": ["lopunny-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Gallade",
+        "dex": 475,
+        "type1": "Psychic",
+        "type2": "Fighting",
+        "ability1": "Inner Focus",
+        "aliases": ["gallade-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Audino",
+        "dex": 531,
+        "type1": "Normal",
+        "type2": "Fairy",
+        "ability1": "Healer",
+        "aliases": ["audino-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Mega Diancie",
+        "dex": 719,
+        "type1": "Rock",
+        "type2": "Fairy",
+        "ability1": "Magic Bounce",
+        "aliases": ["diancie-m"],
+        "imageSuffix": "m"
+    },
+    {
+        "name": "Rowlet",
+        "dex": 722,
+        "alola": 1,
+        "type1": "Grass",
+        "type2": "Flying",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Long Reach"
+    },
+    {
+        "name": "Dartrix",
+        "dex": 723,
+        "alola": 2,
+        "type1": "Grass",
+        "type2": "Flying",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Long Reach"
+    },
+    {
+        "name": "Decidueye",
+        "dex": 724,
+        "alola": 3,
+        "type1": "Grass",
+        "type2": "Ghost",
+        "ability1": "Overgrow",
+        "ability2": "None",
+        "abilityHidden": "Long Reach"
+    },
+    {
+        "name": "Litten",
+        "dex": 725,
+        "alola": 4,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Intimidate"
+    },
+    {
+        "name": "Torracat",
+        "dex": 726,
+        "alola": 5,
+        "type1": "Fire",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Intimidate"
+    },
+    {
+        "name": "Incineroar",
+        "dex": 727,
+        "alola": 6,
+        "type1": "Fire",
+        "type2": "Dark",
+        "ability1": "Blaze",
+        "ability2": "None",
+        "abilityHidden": "Intimidate"
+    },
+    {
+        "name": "Popplio",
+        "dex": 728,
+        "alola": 7,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Liquid Voice"
+    },
+    {
+        "name": "Brionne",
+        "dex": 729,
+        "alola": 8,
+        "type1": "Water",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Liquid Voice"
+    },
+    {
+        "name": "Primarina",
+        "dex": 730,
+        "alola": 9,
+        "type1": "Water",
+        "type2": "Fairy",
+        "ability1": "Torrent",
+        "ability2": "None",
+        "abilityHidden": "Liquid Voice"
+    },
+    {
+        "name": "Pikipek",
+        "dex": 731,
+        "alola": 8,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Skill Link",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Trumbeak",
+        "dex": 732,
+        "alola": 9,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Skill Link",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Toucannon",
+        "dex": 733,
+        "alola": 10,
+        "type1": "Normal",
+        "type2": "Flying",
+        "ability1": "Keen Eye",
+        "ability2": "Skill Link",
+        "abilityHidden": "Sheer Force"
+    },
+    {
+        "name": "Yungoos",
+        "dex": 734,
+        "alola": 11,
+        "type1": "Normal",
+        "ability1": "Stakeout",
+        "ability2": "Strong Jaw",
+        "abilityHidden": "Adaptability"
+    },
+    {
+        "name": "Gumshoos",
+        "dex": 735,
+        "alola": 12,
+        "type1": "Normal",
+        "ability1": "Stakeout",
+        "ability2": "Strong Jaw",
+        "abilityHidden": "Adaptability"
+    },
+    { "name": "Grubbin", "dex": 736, "alola": 23, "type1": "Bug", "ability1": "Swarm" },
+    { "name": "Charjabug", "dex": 737, "alola": 28, "type1": "Bug", "type2": "Electric", "ability1": "Battery" },
+    { "name": "Vikavolt", "dex": 738, "alola": 29, "type1": "Bug", "type2": "Electric", "ability1": "Levitate" },
+    {
+        "name": "Crabrawler",
+        "dex": 739,
+        "alola": 59,
+        "type1": "Fighting",
+        "ability1": "Hyper Cutter",
+        "ability2": "Iron Fist",
+        "abilityHidden": "Anger Point"
+    },
+    {
+        "name": "Crabominable",
+        "dex": 740,
+        "alola": 48,
+        "type1": "Fighting",
+        "type2": "Ice",
+        "ability1": "Hyper Cutter",
+        "ability2": "Iron Fist",
+        "abilityHidden": "Anger Point"
+    },
+    {
+        "name": "Oricorio Baile Style",
+        "dex": 741,
+        "alola": 82,
+        "type1": "Fire",
+        "type2": "Flying",
+        "ability1": "Dancer"
+    },
+    {
+        "name": "Oricorio Pom-Pom Style",
+        "dex": 741,
+        "alola": 82,
+        "type1": "Electric",
+        "type2": "Flying",
+        "ability1": "Dancer",
+        "imageSuffix": "p",
+        "aliases": ["oricorio electric"]
+    },
+    {
+        "name": "Oricorio Pa'u Style",
+        "dex": 741,
+        "alola": 82,
+        "type1": "Psychic",
+        "type2": "Flying",
+        "ability1": "Dancer",
+        "imageSuffix": "pau",
+        "aliases": ["oricorio psychic"]
+    },
+    {
+        "name": "Oricorio Sensu Style",
+        "dex": 741,
+        "alola": 82,
+        "type1": "Ghost",
+        "type2": "Flying",
+        "ability1": "Dancer",
+        "imageSuffix": "s",
+        "aliases": ["oricorio ghost"]
+    },
+    {
+        "name": "Cutiefly",
+        "dex": 742,
+        "alola": 83,
+        "type1": "Bug",
+        "type2": "Fairy",
+        "ability1": "Honey Gather",
+        "ability2": "Shield Dust",
+        "abilityHidden": "Sweet Veil"
+    },
+    {
+        "name": "Ribombee",
+        "dex": 743,
+        "alola": 84,
+        "type1": "Bug",
+        "type2": "Fairy",
+        "ability1": "Honey Gather",
+        "ability2": "Shield Dust",
+        "abilityHidden": "Sweet Veil"
+    },
+    {
+        "name": "Rockruff",
+        "dex": 744,
+        "alola": 103,
+        "type1": "Rock",
+        "ability1": "Keen Eye",
+        "ability2": "Vital Spirit",
+        "abilityHidden": "Steadfast"
+    },
+    {
+        "name": "Lycanroc",
+        "dex": 745,
+        "alola": 104,
+        "type1": "Rock",
+        "ability1": "Keen Eye",
+        "ability2": "Sand Rush",
+        "abilityHidden": "Steadfast"
+    },
+    {
+        "name": "Lycanroc Midnight",
+        "dex": 745,
+        "alola": 104,
+        "type1": "Rock",
+        "ability1": "Keen Eye",
+        "ability2": "Vital Spirit",
+        "abilityHidden": "No Guard",
+        "imageSuffix": "m",
+        "aliases": ["lycanroc night", "lycanroc dark"]
+    },
+    { "name": "Wishiwashi", "dex": 746, "alola": 110, "type1": "Water", "ability1": "Schooling" },
+    {
+        "name": "Mareanie",
+        "dex": 747,
+        "alola": 113,
+        "type1": "Poison",
+        "type2": "Water",
+        "ability1": "Merciless",
+        "ability2": "Limber",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Toxapex",
+        "dex": 748,
+        "alola": 114,
+        "type1": "Poison",
+        "type2": "Water",
+        "ability1": "Merciless",
+        "ability2": "Limber",
+        "abilityHidden": "Regenerator"
+    },
+    {
+        "name": "Mudbray",
+        "dex": 749,
+        "alola": 132,
+        "type1": "Ground",
+        "ability1": "Own Tempo",
+        "ability2": "Stamina",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Mudsdale",
+        "dex": 750,
+        "alola": 133,
+        "type1": "Ground",
+        "ability1": "Own Tempo",
+        "ability2": "Stamina",
+        "abilityHidden": "Inner Focus"
+    },
+    {
+        "name": "Dewpider",
+        "dex": 751,
+        "alola": 141,
+        "type1": "Water",
+        "type2": "Bug",
+        "ability1": "Water Bubble",
+        "ability2": "None",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Araquanid",
+        "dex": 752,
+        "alola": 142,
+        "type1": "Water",
+        "type2": "Bug",
+        "ability1": "Water Bubble",
+        "ability2": "None",
+        "abilityHidden": "Water Absorb"
+    },
+    {
+        "name": "Fomantis",
+        "dex": 753,
+        "alola": 143,
+        "type1": "Grass",
+        "ability1": "Leaf Guard",
+        "ability2": "None",
+        "abilityHidden": "Contrary"
+    },
+    {
+        "name": "Lurantis",
+        "dex": 754,
+        "alola": 144,
+        "type1": "Grass",
+        "ability1": "Leaf Guard",
+        "ability2": "None",
+        "abilityHidden": "Contrary"
+    },
+    {
+        "name": "Morelull",
+        "dex": 755,
+        "alola": 145,
+        "type1": "Grass",
+        "type2": "Fairy",
+        "ability1": "Illuminate",
+        "ability2": "Effect Spore",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Shiinotic",
+        "dex": 756,
+        "alola": 146,
+        "type1": "Grass",
+        "type2": "Fairy",
+        "ability1": "Illuminate",
+        "ability2": "Effect Spore",
+        "abilityHidden": "Rain Dish"
+    },
+    {
+        "name": "Salandit",
+        "dex": 757,
+        "alola": 161,
+        "type1": "Poison",
+        "type2": "Fire",
+        "ability1": "Corrosion",
+        "ability2": "None",
+        "abilityHidden": "Oblivious"
+    },
+    {
+        "name": "Salazzle",
+        "dex": 758,
+        "alola": 162,
+        "type1": "Poison",
+        "type2": "Fire",
+        "ability1": "Corrosion",
+        "ability2": "None",
+        "abilityHidden": "Oblivious"
+    },
+    {
+        "name": "Stufful",
+        "dex": 759,
+        "alola": 169,
+        "type1": "Normal",
+        "type2": "Fighting",
+        "ability1": "Fluffy",
+        "ability2": "Klutz",
+        "abilityHidden": "Cute Charm"
+    },
+    {
+        "name": "Bewear",
+        "dex": 760,
+        "alola": 170,
+        "type1": "Normal",
+        "type2": "Fighting",
+        "ability1": "Fluffy",
+        "ability2": "Klutz",
+        "abilityHidden": "Unnerve"
+    },
+    {
+        "name": "Bounsweet",
+        "dex": 761,
+        "alola": 171,
+        "type1": "Grass",
+        "ability1": "Leaf Guard",
+        "ability2": "Oblivious",
+        "abilityHidden": "Sweet Veil"
+    },
+    {
+        "name": "Steenee",
+        "dex": 762,
+        "alola": 172,
+        "type1": "Grass",
+        "ability1": "Leaf Guard",
+        "ability2": "Oblivious",
+        "abilityHidden": "Sweet Veil"
+    },
+    {
+        "name": "Tsareena",
+        "dex": 763,
+        "alola": 173,
+        "type1": "Grass",
+        "ability1": "Leaf Guard",
+        "ability2": "Queenly Majesty",
+        "abilityHidden": "Sweet Veil"
+    },
+    {
+        "name": "Comfey",
+        "dex": 764,
+        "alola": 174,
+        "type1": "Fairy",
+        "ability1": "Flower Veil",
+        "ability2": "Triage",
+        "abilityHidden": "Natural Cure"
+    },
+    {
+        "name": "Oranguru",
+        "dex": 765,
+        "alola": 176,
+        "type1": "Normal",
+        "type2": "Psychic",
+        "ability1": "Inner Focus",
+        "ability2": "Telepathy",
+        "abilityHidden": "Symbiosis"
+    },
+    {
+        "name": "Passimian",
+        "dex": 766,
+        "alola": 177,
+        "type1": "Fighting",
+        "ability1": "Receiver",
+        "ability2": "None",
+        "abilityHidden": "Defiant"
+    },
+    { "name": "Wimpod", "dex": 767, "alola": 182, "type1": "Bug", "type2": "Water", "ability1": "Wimp Out" },
+    { "name": "Golisopod", "dex": 768, "alola": 183, "type1": "Bug", "type2": "Water", "ability1": "Emergency Exit" },
+    {
+        "name": "Sandygast",
+        "dex": 769,
+        "alola": 186,
+        "type1": "Ghost",
+        "type2": "Ground",
+        "ability1": "Water Compaction",
+        "ability2": "None",
+        "abilityHidden": "Sand Veil"
+    },
+    {
+        "name": "Palossand",
+        "dex": 770,
+        "alola": 187,
+        "type1": "Ghost",
+        "type2": "Ground",
+        "ability1": "Water Compaction",
+        "ability2": "None",
+        "abilityHidden": "Sand Veil"
+    },
+    {
+        "name": "Pyukumuku",
+        "dex": 771,
+        "alola": 200,
+        "type1": "Water",
+        "ability1": "Innards Out",
+        "ability2": "None",
+        "abilityHidden": "Unaware"
+    },
+    { "name": "Type: Null", "dex": 772, "alola": 203, "type1": "Normal", "ability1": "Battle Armor" },
+    { "name": "Silvally", "dex": 773, "alola": 204, "type1": "Normal", "ability1": "RKS System" },
+    { "name": "Minior", "dex": 774, "alola": 213, "type1": "Rock", "type2": "Flying", "ability1": "Shields Down" },
+    { "name": "Komala", "dex": 775, "alola": 222, "type1": "Normal", "ability1": "Comatose" },
+    { "name": "Turtonator", "dex": 776, "alola": 224, "type1": "Fire", "type2": "Dragon", "ability1": "Shell Armor" },
+    {
+        "name": "Togedemaru",
+        "dex": 777,
+        "alola": 225,
+        "type1": "Electric",
+        "type2": "Steel",
+        "ability1": "Iron Barbs",
+        "ability2": "Lightning Rod",
+        "abilityHidden": "Sturdy"
+    },
+    { "name": "Mimikyu", "dex": 778, "alola": 242, "type1": "Ghost", "type2": "Fairy", "ability1": "Disguise" },
+    {
+        "name": "Bruxish",
+        "dex": 779,
+        "alola": 243,
+        "type1": "Water",
+        "type2": "Psychic",
+        "ability1": "Dazzling",
+        "ability2": "Strong Jaw",
+        "abilityHidden": "Wonder Skin"
+    },
+    {
+        "name": "Drampa",
+        "dex": 780,
+        "alola": 244,
+        "type1": "Normal",
+        "type2": "Dragon",
+        "ability1": "Berserk",
+        "ability2": "Sap Sipper",
+        "abilityHidden": "Cloud Nine"
+    },
+    { "name": "Dhelmise", "dex": 781, "alola": 263, "type1": "Ghost", "type2": "Grass", "ability1": "Steelworker" },
+    {
+        "name": "Jangmo-o",
+        "dex": 782,
+        "alola": 271,
+        "type1": "Dragon",
+        "ability1": "Bulletproof",
+        "ability2": "Soundproof",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Hakamo-o",
+        "dex": 783,
+        "alola": 272,
+        "type1": "Dragon",
+        "type2": "Fighting",
+        "ability1": "Bulletproof",
+        "ability2": "Soundproof",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Kommo-o",
+        "dex": 784,
+        "alola": 273,
+        "type1": "Dragon",
+        "type2": "Fighting",
+        "ability1": "Bulletproof",
+        "ability2": "Soundproof",
+        "abilityHidden": "Overcoat"
+    },
+    {
+        "name": "Tapu Koko",
+        "dex": 785,
+        "alola": 285,
+        "type1": "Electric",
+        "type2": "Fairy",
+        "ability1": "Electric Surge",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Tapu Lele",
+        "dex": 786,
+        "alola": 286,
+        "type1": "Psychic",
+        "type2": "Fairy",
+        "ability1": "Psychic Surge",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Tapu Bulu",
+        "dex": 787,
+        "alola": 287,
+        "type1": "Grass",
+        "type2": "Fairy",
+        "ability1": "Grassy Surge",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    {
+        "name": "Tapu Fini",
+        "dex": 788,
+        "alola": 288,
+        "type1": "Water",
+        "type2": "Fairy",
+        "ability1": "Misty Surge",
+        "ability2": "None",
+        "abilityHidden": "Telepathy"
+    },
+    { "name": "Cosmog", "dex": 789, "alola": 289, "type1": "Psychic", "ability1": "Unaware" },
+    { "name": "Cosmoem", "dex": 790, "alola": 290, "type1": "Psychic", "ability1": "Sturdy" },
+    {
+        "name": "Solgaleo",
+        "dex": 791,
+        "alola": 291,
+        "type1": "Psychic",
+        "type2": "Steel",
+        "ability1": "Full Metal Body"
+    },
+    { "name": "Lunala", "dex": 792, "alola": 292, "type1": "Psychic", "type2": "Ghost", "ability1": "Shadow Shield" },
+    { "name": "Nihilego", "dex": 793, "alola": 293, "type1": "Rock", "type2": "Poison", "ability1": "Beast Boost" },
+    { "name": "Buzzwole", "dex": 794, "alola": 294, "type1": "Bug", "type2": "Fighting", "ability1": "Beast Boost" },
+    { "name": "Pheromosa", "dex": 795, "alola": 295, "type1": "Bug", "type2": "Fighting", "ability1": "Beast Boost" },
+    { "name": "Xurkitree", "dex": 796, "alola": 296, "type1": "Electric", "ability1": "Beast Boost" },
+    { "name": "Celesteela", "dex": 797, "alola": 297, "type1": "Steel", "type2": "Flying", "ability1": "Beast Boost" },
+    { "name": "Kartana", "dex": 798, "alola": 298, "type1": "Grass", "type2": "Steel", "ability1": "Beast Boost" },
+    { "name": "Guzzlord", "dex": 799, "alola": 299, "type1": "Dark", "type2": "Dragon", "ability1": "Beast Boost" },
+    { "name": "Necrozma", "dex": 800, "alola": 300, "type1": "Psychic", "ability1": "Prism Armor" },
+    { "name": "Magearna", "dex": 801, "alola": 301, "type1": "Steel", "type2": "Fairy", "ability1": "Soul-Heart" },
+    { "name": "Marshadow", "dex": 802, "alola": 302, "type1": "Fighting", "type2": "Ghost", "ability1": "Technician" }
+]

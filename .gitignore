@@ -58,3 +58,5 @@ typings/
 .env
 
 .DS_Store
+data/generateMoves.js
+data/generateMons.js
