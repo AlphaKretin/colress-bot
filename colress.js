@@ -3,16 +3,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __importDefault(require("fs"));
+const fs_1 = __importDefault(require("mz/fs"));
 const eris_1 = __importDefault(require("eris"));
-const sql_js_1 = __importDefault(require("sql.js"));
 const request_promise_native_1 = __importDefault(require("request-promise-native"));
+const fuse_js_1 = __importDefault(require("fuse.js"));
 let config = JSON.parse(fs_1.default.readFileSync("config/config.json", "utf8")); //open config file from local directory. Expected contents are as follows
 /*
 {
     "token": "", //Discord bot token for login
     "prefix": "!", //the prefix for a user to type to indicate that what they're typing is a command
-    "data": "data/colressData.db", //the location of a SQLite database relative to the local directory. Details on the format of this database can be found in the readme.
+    "pokemonData": "data/pokemon.json", //the location of a JSON file relative to the local directory. Details on the format of this file can be found in the readme.
+    "abilityData": "data/ability.json",
+    "moveData": "data/move.json",
+    "itemData": "data/item.json",
     "redirects": {
         "serverID": "msg" //a msg.content.toLowerCase() Colress would send in serverID is redirected to msg instead of where the command was posted
     },
@@ -30,56 +33,38 @@ bot.on("disconnect", () => {
     console.log("Disconnected. Reconnecting...");
     bot.connect();
 });
-//sql setup
-let filebuffer = fs_1.default.readFileSync(config.data);
-let db = new sql_js_1.default.Database(filebuffer);
-let mons = db.exec("SELECT * FROM mons");
-let moves = db.exec("SELECT * FROM moves");
-let items = db.exec("SELECT * FROM items");
-let abilities = db.exec("SELECT * FROM abilities");
-let monNames = [];
-let monDexes = [];
-let monAlola = [];
+const mons = JSON.parse(fs_1.default.readFileSync(config.pokemonData, "utf8"));
+let moves = JSON.parse(fs_1.default.readFileSync(config.moveData, "utf8"));
+let items = JSON.parse(fs_1.default.readFileSync(config.itemData, "utf8"));
+let abilities = JSON.parse(fs_1.default.readFileSync(config.abilityData, "utf8"));
 let monNamesFuse = [];
-for (let mon of mons[0].values) {
-    monNames.push(mon[1].toLowerCase());
-    monDexes.push(mon[2]);
-    if (mon[3]) {
-        monAlola.push(mon[3]);
-    }
-    else {
-        monAlola.push(-1);
-    }
+for (let mon of mons) {
     monNamesFuse.push({
-        name: mon[1]
+        name: mon.name,
+        dex: mon.dex
     });
 }
-let movNames = [];
 let movNamesFuse = [];
-for (let move of moves[0].values) {
-    movNames.push(move[1].toLowerCase());
+for (let move of moves) {
     movNamesFuse.push({
-        name: move[1]
+        name: move.name
     });
 }
-let itNames = [];
 let itNamesFuse = [];
-for (let item of items[0].values) {
-    itNames.push(item[1].toLowerCase());
+for (let item of items) {
     itNamesFuse.push({
-        name: item[1]
+        name: item.name
     });
 }
-let abNames = [];
 let abNamesFuse = [];
-for (let ability of abilities[0].values) {
-    abNames.push(ability[1].toLowerCase());
+for (let ability of abilities) {
     abNamesFuse.push({
-        name: ability[1]
+        name: ability.name
     });
 }
+//stupid hack for stupid fuse
+const name = "name";
 //fuse setup
-let Fuse = require("fuse.js");
 let options = {
     shouldSort: true,
     includeScore: true,
@@ -89,12 +74,12 @@ let options = {
     distance: 100,
     maxPatternLength: 32,
     minMatchCharLength: 1,
-    keys: ["name"]
+    keys: [name]
 };
-let monFuse = new Fuse(monNamesFuse, options);
-let movFuse = new Fuse(movNamesFuse, options);
-let itFuse = new Fuse(itNamesFuse, options);
-let abFuse = new Fuse(abNamesFuse, options);
+let monFuse = new fuse_js_1.default(monNamesFuse, options);
+let movFuse = new fuse_js_1.default(movNamesFuse, options);
+let itFuse = new fuse_js_1.default(itNamesFuse, options);
+let abFuse = new fuse_js_1.default(abNamesFuse, options);
 let gameData = {
     active: false
 };
@@ -206,58 +191,45 @@ async function sendSingleMessage(msgType, msg) {
         await sendMessage(out, msg);
     }
 }
+function getMon(name) {
+    let mon = mons.find(m => m.name.toLowerCase() === name);
+    if (mon) {
+        return mon;
+    }
+    let result = monFuse.search(name);
+    return mons.find(m => m.name === result[0].name);
+}
 async function pokemon(msg) {
     let query = msg.content.toLowerCase().slice((pre + "pokemon ").length);
-    let index = monNames.indexOf(query.toLowerCase());
-    let out = "";
-    if (index > -1) {
-        out = getMonInfo(index);
+    let mon = getMon(query);
+    if (!mon) {
+        await sendMessage("Sorry, I can't find a Pokémon with that name!", msg);
+        return;
     }
-    else {
-        let result = monFuse.search(query);
-        if (result.length < 1) {
-            out = "Sorry, I can't find a Pokémon with that name!";
-            await sendMessage(out, msg);
-            return;
-        }
-        else {
-            index = monNames.indexOf(result[0].item.name.toLowerCase());
-            if (index > -1) {
-                out = getMonInfo(index);
-            }
-            else {
-                out = "Sorry, I can't find a Pokémon with that name!";
-                console.log("Fuse error");
-                await sendMessage(out, msg);
-                return;
-            }
-        }
-    }
-    await postImage(index, false, msg);
-    await sendMessage(out, msg);
+    await postImage(mon, false, msg);
+    await sendMessage(getMonInfo(mon), msg);
 }
-function getMonInfo(index) {
-    let mon = mons[0].values[index];
-    let out = "__**" + mon[1] + "**__\n";
-    out += "**Pokédex**: " + mon[2];
-    if (mon[3]) {
-        out += " (" + mon[3] + ")";
+function getMonInfo(mon) {
+    let out = "__**" + mon.name + "**__\n";
+    out += "**Pokédex**: " + mon.dex;
+    if (mon.alola) {
+        out += " (" + mon.alola + ")";
     }
-    out += "\n**Type**: " + mon[4];
-    if (mon[5]) {
-        out += "/" + mon[5];
+    out += "\n**Type**: " + mon.type1;
+    if (mon.type2) {
+        out += "/" + mon.type2;
     }
-    out += "\n**Ability**: " + mon[6];
-    if (mon[7]) {
-        out += "/" + mon[7];
+    out += "\n**Ability**: " + mon.ability1;
+    if (mon.ability2) {
+        out += "/" + mon.ability2;
     }
-    if (mon[8] !== mon[6]) {
-        out += " **Hidden**: " + mon[8];
+    if (mon.abilityHidden !== mon.ability1) {
+        out += " **Hidden**: " + mon.abilityHidden;
     }
-    out += "\n**Serebii Link**: http://www.serebii.net/pokedex-sm/" + mon[2].toString().padStart(3, "0") + ".shtml";
+    out += "\n**Serebii Link**: http://www.serebii.net/pokedex-sm/" + mon.dex.toString().padStart(3, "0") + ".shtml";
     return out;
 }
-async function postImage(index, shiny, msg) {
+async function postImage(mon, shiny, msg) {
     let imageUrl = "";
     if (shiny) {
         imageUrl = config.shinyUrl;
@@ -265,10 +237,9 @@ async function postImage(index, shiny, msg) {
     else {
         imageUrl = config.imageUrl;
     }
-    let mon = mons[0].values[index];
-    let suffix = mon[2].toString().padStart(3, "0");
-    if (mon[9]) {
-        suffix += "-" + mon[9] + ".png";
+    let suffix = mon.dex.toString().padStart(3, "0");
+    if (mon.imageSuffix) {
+        suffix += "-" + mon.imageSuffix + ".png";
     }
     else {
         suffix += ".png";
@@ -282,14 +253,13 @@ async function pokedex(msg) {
         await sendMessage("Sorry, that doesn't look like a Pokédex number!", msg);
         return;
     }
-    let index = monDexes.indexOf(query);
-    if (index > -1) {
-        await postImage(index, false, msg);
-        await sendMessage(getMonInfo(index), msg);
+    let mon = mons.find(m => m.dex === query);
+    if (mon) {
+        await postImage(mon, false, msg);
+        await sendMessage(getMonInfo(mon), msg);
     }
     else {
         await sendMessage("Sorry, I can't find a Pokémon with that number!", msg);
-        return;
     }
 }
 async function aloladex(msg) {
@@ -298,206 +268,143 @@ async function aloladex(msg) {
         await sendMessage("Sorry, that doesn't look like a Pokédex number!", msg);
         return;
     }
-    let index = monAlola.indexOf(query);
-    if (index > -1) {
-        await postImage(index, false, msg);
-        await sendMessage(getMonInfo(index), msg);
+    let mon = mons.find(m => m.alola === query);
+    if (mon) {
+        await postImage(mon, false, msg);
+        await sendMessage(getMonInfo(mon), msg);
     }
     else {
         await sendMessage("Sorry, I can't find a Pokémon with that number!", msg);
-        return;
     }
+}
+function getMove(name) {
+    let move = moves.find(m => m.name.toLowerCase() === name);
+    if (move) {
+        return move;
+    }
+    let result = movFuse.search(name);
+    return moves.find(m => m.name === result[0].name);
 }
 async function move(msg) {
     let query = msg.content.toLowerCase().slice((pre + "move ").length);
-    let index = movNames.indexOf(query.toLowerCase());
-    let out = "";
-    if (index > -1) {
-        out = getMoveInfo(index);
+    let move = getMove(query);
+    if (!move) {
+        await sendMessage("Sorry, I can't find a move with that name!", msg);
+        return;
     }
-    else {
-        let result = movFuse.search(query);
-        if (result.length < 1) {
-            out = "Sorry, I can't find a move with that name!";
-        }
-        else {
-            index = movNames.indexOf(result[0].item.name.toLowerCase());
-            if (index > -1) {
-                out = getMoveInfo(index);
-            }
-            else {
-                out = "Sorry, I can't find a move with that name!";
-                console.log("Fuse error");
-            }
-        }
-    }
-    await sendMessage(out, msg);
+    await sendMessage(getMoveInfo(move), msg);
 }
-function getMoveInfo(index) {
-    let move = moves[0].values[index];
-    let out = "__**" + move[1] + "**__\n";
-    out += "**Type**: " + move[2];
-    out += " **Category**: " + move[3] + "\n";
-    if (move[4]) {
-        out += "**Power**: " + move[4] + " ";
+function getMoveInfo(move) {
+    let out = "__**" + move.name + "**__\n";
+    out += "**Type**: " + move.type;
+    out += " **Category**: " + move.cat + "\n";
+    if (move.power) {
+        out += "**Power**: " + move.power + " ";
     }
-    if (move[5]) {
-        out += "**PP**: " + move[5] + " ";
+    if (move.pp) {
+        out += "**PP**: " + move.pp + " ";
     }
-    if (move[6]) {
-        out += "**Accuracy**: " + move[6];
+    if (move.acc) {
+        out += "**Accuracy**: " + move.acc;
     }
-    out += "\n**Effect**: " + move[7];
-    if (move[8]) {
-        out += "\n**Z-Move Effect**: " + move[8];
+    out += "\n**Effect**: " + move.effect;
+    if (move.zeffect) {
+        out += "\n**Z-Move Effect**: " + move.zeffect;
     }
-    if (move[9]) {
-        out += "\n**TM**: " + move[9];
+    if (move.tm) {
+        out += "\n**TM**: " + move.tm.join(", ");
     }
-    if (move[10]) {
-        out += "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" + move[10] + ".shtml";
+    if (move.wiki) {
+        out += "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" + move.wiki + ".shtml";
     }
     else {
         out +=
             "\n**Serebii Link**: http://www.serebii.net/attackdex-sm/" +
-                move[1].toLowerCase().replace(/ /g, "") +
+                move.name.toLowerCase().replace(/ /g, "") +
                 ".shtml";
     }
     return out;
 }
+function getItem(name) {
+    let item = items.find(i => i.name.toLowerCase() === name);
+    if (item) {
+        return item;
+    }
+    let result = itFuse.search(name);
+    return items.find(i => i.name === result[0].name);
+}
 async function item(msg) {
     let query = msg.content.toLowerCase().slice((pre + "move ").length);
-    let index = itNames.indexOf(query.toLowerCase());
-    let out = "";
-    if (index > -1) {
-        out = getItemInfo(index);
+    let item = getItem(query);
+    if (!item) {
+        await sendMessage("Sorry, I can't find an item with that name!", msg);
+        return;
     }
-    else {
-        let result = itFuse.search(query);
-        if (result.length < 1) {
-            out = "Sorry, I can't find an item with that name!";
-        }
-        else {
-            index = itNames.indexOf(result[0].item.name.toLowerCase());
-            if (index > -1) {
-                out = getItemInfo(index);
-            }
-            else {
-                out = "Sorry, I can't find an item with that name!";
-                console.log("Fuse error");
-            }
-        }
-    }
-    await sendMessage(out, msg);
+    await sendMessage(getItemInfo(item), msg);
 }
-function getItemInfo(index) {
-    let item = items[0].values[index];
-    let out = "__**" + item[1] + "**__\n";
-    out += "**Description**: " + item[2];
-    if (item[3]) {
-        out += "\n**Serebii Link**: http://www.serebii.net/itemdex/" + item[3] + ".shtml";
+function getItemInfo(item) {
+    let out = "__**" + item.name + "**__\n";
+    out += "**Description**: " + item.desc;
+    if (item.wiki) {
+        out += "\n**Serebii Link**: http://www.serebii.net/itemdex/" + item.wiki + ".shtml";
     }
     else {
         out +=
             "\n**Serebii Link**: http://www.serebii.net/itemdex/" +
-                item[1].toLowerCase().replace(/ /g, "") +
+                item.name.toLowerCase().replace(/ /g, "") +
                 ".shtml";
     }
     return out;
 }
+function getAbility(name) {
+    let ability = abilities.find(a => a.name.toLowerCase() === name);
+    if (ability) {
+        return ability;
+    }
+    let result = abFuse.search(name);
+    return abilities.find(a => a.name === result[0].name);
+}
 async function ability(msg) {
     let query = msg.content.toLowerCase().slice((pre + "ability ").length);
-    let index = abNames.indexOf(query.toLowerCase());
-    let out = "";
-    if (index > -1) {
-        out = getAbilityInfo(index);
+    let ability = getAbility(query);
+    if (!ability) {
+        await sendMessage("Sorry, I can't find an ability with that name!", msg);
+        return;
     }
-    else {
-        let result = abFuse.search(query);
-        if (result.length < 1) {
-            out = "Sorry, I can't find an ability with that name!";
-        }
-        else {
-            index = abNames.indexOf(result[0].item.name.toLowerCase());
-            if (index > -1) {
-                out = getAbilityInfo(index);
-            }
-            else {
-                out = "Sorry, I can't find an ability with that name!";
-                console.log("Fuse error");
-            }
-        }
-    }
-    await sendMessage(out, msg);
+    await sendMessage(getAbilityInfo(ability), msg);
 }
-function getAbilityInfo(index) {
-    let ability = abilities[0].values[index];
-    let out = "__**" + ability[1] + "**__\n";
-    out += "**Description**: " + ability[2];
-    if (ability[3]) {
-        out += "\n**Serebii Link**: http://www.serebii.net/abilitydex/" + ability[3] + ".shtml";
+function getAbilityInfo(ability) {
+    let out = "__**" + ability.name + "**__\n";
+    out += "**Description**: " + ability.desc;
+    if (ability.wiki) {
+        out += "\n**Serebii Link**: http://www.serebii.net/abilitydex/" + ability.wiki + ".shtml";
     }
     else {
         out +=
             "\n**Serebii Link**: http://www.serebii.net/abilitydex/" +
-                ability[1].toLowerCase().replace(/ /g, "") +
+                ability.name.toLowerCase().replace(/ /g, "") +
                 ".shtml";
     }
     return out;
 }
 async function shiny(msg) {
     let query = msg.content.toLowerCase().slice((pre + "shiny ").length);
-    let index = monNames.indexOf(query.toLowerCase());
-    if (index < 0) {
-        let result = monFuse.search(query);
-        if (result.length < 1) {
-            const out = "Sorry, I can't find a Pokémon with that name!";
-            await sendMessage(out, msg);
-            return;
-        }
-        else {
-            index = monNames.indexOf(result[0].item.name.toLowerCase());
-            if (index < 0) {
-                const out = "Sorry, I can't find a Pokémon with that name!";
-                console.log("Fuse error");
-                await sendMessage(out, msg);
-                return;
-            }
-        }
+    const mon = getMon(query);
+    if (!mon) {
+        await sendMessage("Sorry, I can't find a Pokémon with that name!", msg);
+        return;
     }
-    await postImage(index, true, msg);
+    await postImage(mon, true, msg);
 }
 async function weak(msg) {
     let query = msg.content.toLowerCase().slice((pre + "weak ").length);
-    let index = monNames.indexOf(query.toLowerCase());
-    let out = "";
-    let types = [];
-    if (index > -1) {
-        types = getMonTypes(index);
-        out = "**Name**: " + mons[0].values[index][1] + "\n" + getWeakInfo(types);
+    const mon = getMon(query);
+    if (!mon) {
+        "Sorry, I can't find a Pokémon with that number!";
+        return;
     }
-    else {
-        let result = monFuse.search(query);
-        if (result.length < 1) {
-            out = "Sorry, I can't find a Pokémon with that name!";
-            await sendMessage(out, msg);
-            return;
-        }
-        else {
-            index = monNames.indexOf(result[0].item.name.toLowerCase());
-            if (index > -1) {
-                types = getMonTypes(index);
-                out = "**Name**: " + mons[0].values[index][1] + "\n" + getWeakInfo(types);
-            }
-            else {
-                out = "Sorry, I can't find a Pokémon with that name!";
-                console.log("Fuse error");
-                await sendMessage(out, msg);
-                return;
-            }
-        }
-    }
-    await sendMessage(out, msg);
+    const types = getMonTypes(mon);
+    await sendMessage("**Name**: " + mon.name + "\n" + getWeakInfo(types), msg);
 }
 async function weakTypes(msg) {
     let args = msg.content
@@ -539,11 +446,10 @@ async function weakTypes(msg) {
     }
     await sendMessage(out, msg);
 }
-function getMonTypes(index) {
-    let mon = mons[0].values[index];
-    let types = [mon[4]];
-    if (mon[5]) {
-        types.push(mon[5]);
+function getMonTypes(mon) {
+    let types = [mon.type1];
+    if (mon.type2) {
+        types.push(mon.type2);
     }
     return types;
 }
@@ -698,15 +604,15 @@ function getWeakInfo(types) {
             immunes.push(key);
         }
     });
-    let out = "**Types**: " + types.toString().replace(/,/g, ", ") + "\n";
+    let out = "**Types**: " + types.join(", ") + "\n";
     if (weaks.length > 0) {
-        out += "**Weaknesses**: " + weaks.toString().replace(/,/g, ", ") + "\n";
+        out += "**Weaknesses**: " + weaks.join(", ") + "\n";
     }
     if (resists.length > 0) {
-        out += "**Resistances**: " + resists.toString().replace(/,/g, ", ") + "\n";
+        out += "**Resistances**: " + resists.join(", ") + "\n";
     }
     if (immunes.length > 0) {
-        out += "**Immunities**: " + immunes.toString().replace(/,/g, ", ");
+        out += "**Immunities**: " + immunes.join(", ");
     }
     return out;
 }
@@ -743,17 +649,16 @@ async function gameHiLo(msg) {
     }
     else {
         //pick a random pokemon
-        let index = getIncInt(0, monNames.length - 1);
-        let name = mons[0].values[index][1];
-        let dex = mons[0].values[index][2];
+        let index = getIncInt(0, mons.length - 1);
+        const mon = mons[index];
         //start game
         gameData = {
             active: true,
             game: "highlow",
             server: serverID,
             channel: msg,
-            name: name,
-            dex: dex,
+            name: mon.name,
+            dex: mon.dex,
             guesses: 0
         };
         await sendMessage("You have 10 tries to guess the National Pokédex number of the following Pokémon: **" + name + "**!", msg);
@@ -789,17 +694,17 @@ async function answerHiLo(msg) {
     }
     else {
         let out = "";
-        let index = monDexes.indexOf(parseInt(msg.content.toLowerCase()));
-        if (index === -1) {
+        let mon = mons.find(m => m.dex === parseInt(msg.content.toLowerCase()));
+        if (!mon) {
             return;
         }
         gameData.guesses++;
-        if (monDexes[index] < gameData.dex) {
-            out = "That Pokémon is " + mons[0].values[index][1] + ", which is too early in the Pokédex!\n";
+        if (mon.dex < gameData.dex) {
+            out = "That Pokémon is " + mon.name + ", which is too early in the Pokédex!\n";
         }
         else {
             //if (monDexes[index] > gameData.dex)
-            out = "That Pokémon is " + mons[0].values[index][1] + ", which is too late in the Pokédex!\n";
+            out = "That Pokémon is " + mon.name + ", which is too late in the Pokédex!\n";
         }
         if (gameData.guesses === 10) {
             out +=
@@ -829,12 +734,12 @@ async function gameHiLo2(msg) {
     }
     else {
         //pick a random pokemon
-        let index = getIncInt(0, monNames.length - 1);
-        let name = mons[0].values[index][1]
+        let mon = mons[getIncInt(0, mons.length - 1)];
+        let name = mon.name
             .replace("é", "e")
             .replace("♂", "M")
             .replace("♀", "F");
-        let dex = mons[0].values[index][2];
+        let dex = mon.dex;
         let hint = "";
         for (let letter of name) {
             if (getIncInt(0, 2) !== 0 && letter !== " ") {
@@ -868,12 +773,11 @@ async function answerHiLo2(msg) {
         gameData.game !== "highlow2") {
         return;
     }
-    let index = monNames.indexOf(msg.content.toLowerCase().toLowerCase());
-    if (index === -1) {
+    let mon = mons.find(m => m.name === msg.content.toLowerCase());
+    if (!mon) {
         return;
     }
-    let guessDex = monDexes[index];
-    if (guessDex === gameData.dex) {
+    if (mon.dex === gameData.dex) {
         gameData.guesses++;
         await msg.addReaction("👍");
         await sendMessage("<@" +
@@ -889,16 +793,13 @@ async function answerHiLo2(msg) {
     }
     else {
         let out = "";
-        if (index === -1) {
-            return;
-        }
         gameData.guesses++;
-        if (guessDex < gameData.dex) {
-            out = "That Pokémon is number " + guessDex + ", which is too early in the Pokédex!\n";
+        if (mon.dex < gameData.dex) {
+            out = "That Pokémon is number " + mon.dex + ", which is too early in the Pokédex!\n";
         }
         else {
             //if (guessDex > gameData.dex)
-            out = "That Pokémon is number " + guessDex + ", which is too late in the Pokédex!\n";
+            out = "That Pokémon is number " + mon.dex + ", which is too late in the Pokédex!\n";
         }
         if (gameData.guesses === 5) {
             out += "Have a hint: `" + gameData.hint + "`\n";
@@ -929,12 +830,12 @@ async function gameWhosThat(msg) {
     }
     else {
         //pick a random pokemon
-        let index = getIncInt(0, monNames.length - 1);
-        let name = mons[0].values[index][1]
+        let mon = mons[getIncInt(0, mons.length - 1)];
+        let name = mon.name
             .replace("é", "e")
             .replace("♂", "M")
             .replace("♀", "F");
-        let dex = mons[0].values[index][2];
+        let dex = mon.dex;
         let hint = "";
         for (let letter of name) {
             if (getIncInt(0, 3) !== 0 && letter !== " ") {
@@ -952,7 +853,7 @@ async function gameWhosThat(msg) {
             hint: hint,
             guesses: 0
         };
-        await postImage(index, false, msg);
+        await postImage(mon, false, msg);
         await sendMessage("You have 10 seconds to name this Pokémon!", msg);
         gameTO1 = setTimeout(async () => {
             await sendMessage("Have a hint: `" + gameData.hint + "`", msg);
@@ -998,12 +899,12 @@ async function gameHangman(msg) {
     }
     else {
         //pick a random pokemon
-        let index = getIncInt(0, monNames.length - 1);
-        let name = mons[0].values[index][1]
+        let mon = mons[getIncInt(0, mons.length - 1)];
+        let name = mon.name
             .replace("é", "e")
             .replace("♂", "M")
             .replace("♀", "F");
-        let dex = mons[0].values[index][2];
+        let dex = mon.dex;
         let hint = name.replace(/\S/g, "-");
         //start game
         gameData = {
@@ -1034,16 +935,16 @@ async function answerHangman(msg) {
         gameData.game !== "hangman") {
         return;
     }
-    let index = monNames.indexOf(msg.content.toLowerCase().toLowerCase());
-    if (index > -1) {
-        if (msg.content.toLowerCase().toLowerCase() === gameData.name.toLowerCase()) {
+    let mon = mons.find(m => m.name === msg.content.toLowerCase());
+    if (mon) {
+        if (msg.content.toLowerCase() === gameData.name.toLowerCase()) {
             await msg.addReaction("👍");
             await sendMessage("You got it, ending with " +
                 msg.author.id +
                 "'s guess! The answer was **" +
                 gameData.name +
                 "**!\nWrong guesses: `" +
-                gameData.wrongs.toString() +
+                gameData.wrongs.join(", ") +
                 " `", msg);
             gameData = {
                 active: false
@@ -1060,7 +961,7 @@ async function answerHangman(msg) {
                     "! Your current progress is:\n`" +
                     gameData.hint +
                     "`\nWrong guesses: `" +
-                    gameData.wrongs.toString() +
+                    gameData.wrongs.join(", ") +
                     " `", msg);
             }
             else {
@@ -1069,7 +970,7 @@ async function answerHangman(msg) {
                     ", that's wrong, and it was your last strike! The game is over. The answer was **" +
                     gameData.name +
                     "**.`\nWrong guesses: `" +
-                    gameData.wrongs.toString() +
+                    gameData.wrongs.join(", ") +
                     " `", msg);
                 gameData = {
                     active: false
@@ -1091,7 +992,7 @@ async function answerHangman(msg) {
                     "'s guess! The answer was **" +
                     gameData.name +
                     "**!\nWrong guesses: `" +
-                    gameData.wrongs.toString() +
+                    gameData.wrongs.join(", ") +
                     " `", msg);
                 gameData = {
                     active: false
@@ -1103,7 +1004,7 @@ async function answerHangman(msg) {
                     "! Your current progress is:\n`" +
                     gameData.hint +
                     "`\nWrong guesses: `" +
-                    gameData.wrongs.toString() +
+                    gameData.wrongs.join(", ") +
                     " `", msg);
             }
         }
@@ -1118,7 +1019,7 @@ async function answerHangman(msg) {
                     "! Your current progress is:\n`" +
                     gameData.hint +
                     "`\nWrong guesses: `" +
-                    gameData.wrongs.toString() +
+                    gameData.wrongs.join(", ") +
                     " `", msg);
             }
             else {
@@ -1127,7 +1028,7 @@ async function answerHangman(msg) {
                     ", that's wrong, and it was your last strike! The game is over. The answer was **" +
                     gameData.name +
                     "**.\nWrong guesses: `" +
-                    gameData.wrongs.toString() +
+                    gameData.wrongs.join(", ") +
                     " `", msg);
                 gameData = {
                     active: false
